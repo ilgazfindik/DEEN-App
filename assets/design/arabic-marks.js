@@ -74,7 +74,7 @@
  function markDone(id){const ids=completed();if(!ids.includes(id))ids.push(id);try{localStorage.setItem(STORE,JSON.stringify({schema:1,completed:ids,updatedAt:Date.now()}))}catch(_){}}
  // The unit opens once the sukūn, shadda and madd lessons are done; then one lesson after another.
  function prerequisiteMet(){try{const s=window.DEEN_QURAN_PATHS?.status?.();return !!s&&s.readingTotalLessons>0&&s.readingCompletedLessons>=s.readingTotalLessons}catch(_){return false}}
- function unlocked(i){return prerequisiteMet()&&(i===0||completed().includes(LESSONS[i-1].id))}
+ function unlocked(i){return !!window.DEEN_ADMIN_UNLOCK?.()||prerequisiteMet()&&(i===0||completed().includes(LESSONS[i-1].id))}
  const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!=null)n.textContent=text;return n};
  function itemsOf(lesson,code){return lesson.items.map(x=>({id:x.id,glyph:x.glyph,name:x.names[code]||x.names.en,hint:x.hint[code]||x.hint.en,verse:x.verse,ref:x.ref,example:'',parts:null}))}
  function open(i){

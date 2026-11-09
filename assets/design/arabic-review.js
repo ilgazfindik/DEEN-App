@@ -50,7 +50,7 @@
   const code=lang(),t=T[code],finished=done();
   for(const unit of units(landing,strings)){
    if(unit.host.querySelector(':scope>.dsq-review-item'))continue;
-   const ready=unit.lessons.every(isDone),complete=finished.includes(unit.key);
+   const ready=!!window.DEEN_ADMIN_UNLOCK?.()||unit.lessons.every(isDone),complete=finished.includes(unit.key);
    const b=el('button','dsq-review-item'+(complete?' is-completed':'')+(ready?'':' is-locked'));b.type='button';b.disabled=!ready;b.dataset.review=unit.key;
    const top=el('span','deen-path-course-item-top');
    top.append(el('span','deen-path-course-number',t.node),el('span','deen-path-course-status',complete?'✓ '+t.done:ready?t.ready:t.locked));

@@ -80,7 +80,7 @@
  function completed(){try{const d=JSON.parse(localStorage.getItem(STORE)||'null');return Array.isArray(d?.completed)?d.completed.filter(id=>LESSONS.some(l=>l.id===id)):[]}catch(_){return []}}
  function markDone(id){const ids=completed();if(!ids.includes(id))ids.push(id);try{localStorage.setItem(STORE,JSON.stringify({schema:1,completed:ids,updatedAt:Date.now()}))}catch(_){}}
  function prerequisiteMet(){try{const s=window.DEEN_QURAN_PATHS?.status?.();return !!s&&s.totalLessons>0&&s.completedLessons>=s.totalLessons}catch(_){return false}}
- function unlocked(i){return prerequisiteMet()&&(i===0||completed().includes(LESSONS[i-1].id))}
+ function unlocked(i){return !!window.DEEN_ADMIN_UNLOCK?.()||prerequisiteMet()&&(i===0||completed().includes(LESSONS[i-1].id))}
  const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!=null)n.textContent=text;return n};
  function itemsOf(lesson,code){
   const C=window.DEEN_ARABIC_LETTERS;

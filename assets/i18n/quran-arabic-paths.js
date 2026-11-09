@@ -473,6 +473,7 @@
  const lessonIsDone=(g=group())=>g.kind==='recognition'?completed().includes(g.id):READING_LESSONS.includes(g)?readingCompleted().includes(g.id):WORD_LESSONS.includes(g)?wordCompleted().includes(g.id):LISTENING_LESSONS.includes(g)?listeningCompleted().includes(g.id):MEANING_LESSONS.includes(g)?meaningCompleted().includes(g.id):PHRASE_LESSONS.includes(g)?phraseCompleted().includes(g.id):PATTERN_LESSONS.includes(g)?patternCompleted().includes(g.id):vowelCompleted().includes(g.id);
  const isUnlocked=i=>{
   if(!Number.isInteger(i)||i<0||i>=ALL_LESSONS.length)return false;
+  if(window.DEEN_ADMIN_UNLOCK?.())return true;   // admin test mode (developer mode only)
   if(i===0)return true;
   if(i<LESSONS.length)return completed().includes(LESSONS[i-1].id);
   if(i===LESSONS.length)return completed().length===LESSONS.length;
