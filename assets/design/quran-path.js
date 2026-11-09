@@ -547,6 +547,42 @@
   const host=document.getElementById('leagueScreenBody');if(host)mo.observe(host,{childList:true,subtree:true,characterData:true});
   wrap.append(grid);return wrap;
  }
+
+ // Where every text and recording comes from; shown in the language of the app.
+ const SRCS={
+  tr:{link:'Kaynaklar ve teşekkürler',title:'Kaynaklar',intro:'Bu bölümdeki Kur’an metni ve mealler telifsiz kaynaklardan, olduğu gibi alınır. Hiçbiri bizim tarafımızdan değiştirilmez.',
+   rows:[['Arapça metin','Tanzil Projesi · Osmanî yazım · tanzil.net · CC BY 3.0, değiştirilmeden ve kaynağı belirtilerek'],['Türkçe meal','Elmalılı Hamdi Yazır, “Hak Dini Kur’an Dili” (1938) · kamu malı. Bazı yerlerde birkaç ayet birlikte çevrilmiştir; kartta belirtilir.'],['İngilizce meal','Marmaduke Pickthall (1930) · kamu malı'],['Yeni 12 sure — okuyuş','okuyan','Wikimedia Commons kayıtları; sure kartındaki “Sureyi dinle” düğmesi internetten çalar.'],['Diğer sureler — okuyuş','Ayet ayet kayıtlar bu uygulama için hazırlanmıştır.'],['Kontrol','Arapça metnin her ayeti bağımsız bir baskıyla (Kemenag) harf harf karşılaştırılır; her değişiklikte otomatik olarak yeniden denetlenir.']],
+   note:'Hata görürsen lütfen bildir. Bu uygulama bir hocanın yerine geçmez; mealler yalnızca anlamı kavramak içindir.',close:'Kapat'},
+  en:{link:'Sources and credits',title:'Sources',intro:'The Quran text and translations in this section come from free-to-use sources and are used as published. None of them is edited by us.',
+   rows:[['Arabic text','Tanzil Project · Uthmani script · tanzil.net · CC BY 3.0, unmodified and credited'],['Turkish translation','Elmalılı Hamdi Yazır, “Hak Dini Kur’an Dili” (1938) · public domain. Some passages are translated as a whole; the card says so.'],['English translation','Marmaduke Pickthall (1930) · public domain'],['New 12 surahs — recitation','reciter','Wikimedia Commons recordings; the “Listen to the surah” button streams them online.'],['Other surahs — recitation','The ayah-by-ayah recordings were prepared for this app.'],['Checking','Every ayah of the Arabic text is compared letter by letter with an independent print (Kemenag), and re-checked automatically on every change.']],
+   note:'Please tell us if you see a mistake. This app does not replace a teacher; translations are only an aid to understanding.',close:'Close'},
+  de:{link:'Quellen und Dank',title:'Quellen',intro:'Der Koran-Text und die Übersetzungen in diesem Bereich stammen aus frei nutzbaren Quellen und werden unverändert verwendet.',
+   rows:[['Arabischer Text','Tanzil-Projekt · osmanische Schreibweise · tanzil.net · CC BY 3.0, unverändert und mit Quellenangabe'],['Türkische Übersetzung','Elmalılı Hamdi Yazır (1938) · gemeinfrei. Manche Stellen sind zusammen übersetzt; die Karte weist darauf hin.'],['Englische Übersetzung','Marmaduke Pickthall (1930) · gemeinfrei'],['Neue 12 Suren — Rezitation','reciter','Aufnahmen von Wikimedia Commons; die Schaltfläche „Sure anhören“ streamt sie online.'],['Weitere Suren — Rezitation','Die Vers-für-Vers-Aufnahmen wurden für diese App erstellt.'],['Prüfung','Jeder Vers des arabischen Textes wird Buchstabe für Buchstabe mit einem unabhängigen Druck (Kemenag) verglichen und bei jeder Änderung automatisch erneut geprüft.']],
+   note:'Bitte melde uns Fehler. Diese App ersetzt keinen Lehrer; Übersetzungen dienen nur dem Verständnis.',close:'Schließen'},
+  fr:{link:'Sources et remerciements',title:'Sources',intro:'Le texte coranique et les traductions de cette section viennent de sources libres de droits et sont repris tels quels.',
+   rows:[['Texte arabe','Projet Tanzil · graphie ottomane · tanzil.net · CC BY 3.0, non modifié et crédité'],['Traduction turque','Elmalılı Hamdi Yazır (1938) · domaine public. Certains passages sont traduits ensemble ; la carte l’indique.'],['Traduction anglaise','Marmaduke Pickthall (1930) · domaine public'],['Les 12 nouvelles sourates — récitation','reciter','Enregistrements de Wikimedia Commons ; le bouton « Écouter la sourate » les diffuse en ligne.'],['Autres sourates — récitation','Les enregistrements verset par verset ont été préparés pour cette application.'],['Vérification','Chaque verset du texte arabe est comparé lettre par lettre à une édition indépendante (Kemenag) et revérifié automatiquement à chaque modification.']],
+   note:'Signalez-nous toute erreur. Cette application ne remplace pas un enseignant ; les traductions aident seulement à comprendre.',close:'Fermer'},
+  ar:{link:'المصادر والشكر',title:'المصادر',intro:'نصّ القرآن الكريم والترجمات في هذا القسم مأخوذة من مصادر مجانية الاستخدام، وتُعرَض كما نُشرت دون أي تعديل منّا.',
+   rows:[['النص العربي','مشروع تنزيل · الرسم العثماني · tanzil.net · رخصة CC BY 3.0 دون تعديل مع ذكر المصدر'],['الترجمة التركية','إلماليلي حمدي يازر (١٩٣٨) · ملك عام. بعض المواضع تُترجَم عدّة آيات معًا، وتُنبّه البطاقة إلى ذلك.'],['الترجمة الإنجليزية','مارماديوك بيكثال (١٩٣٠) · ملك عام'],['السور الاثنتا عشرة الجديدة — التلاوة','reciter','تسجيلات من ويكيميديا كومنز؛ زر «استمع إلى السورة» يبثّها عبر الإنترنت.'],['بقية السور — التلاوة','أُعدّت التسجيلات آيةً آيةً خصيصًا لهذا التطبيق.'],['التحقق','تُقارَن كل آية من النص العربي حرفًا بحرف بطبعة مستقلة (وزارة الشؤون الدينية الإندونيسية) ويُعاد فحصها آليًا عند كل تعديل.']],
+   note:'أخبرنا إن وجدت خطأً. هذا التطبيق لا يغني عن المعلّم؛ والترجمات للفهم فقط.',close:'إغلاق'}
+ };
+ function sourcesSheet(){
+  const code=lang(),S=SRCS[code]||SRCS.en;
+  const cred=[...new Set((PACK()?.surahs||[]).filter(z=>z.audio?.credit).map(z=>z.audio.credit.reciter+' · '+z.audio.credit.license))].join(' / ');
+  const wrap=el('div','dsn');wrap.setAttribute('role','dialog');wrap.setAttribute('aria-modal','true');wrap.setAttribute('aria-label',S.title);wrap.dir=code==='ar'?'rtl':'ltr';
+  const close=()=>{wrap.remove();document.removeEventListener('keydown',onKey)};
+  const onKey=e=>{if(e.key==='Escape')close()};document.addEventListener('keydown',onKey);
+  const inner=el('div','dsn-inner');wrap.append(inner);
+  const top=el('div','dsn-top'),cb=el('button','dsn-close','×');cb.type='button';cb.setAttribute('aria-label',S.close);cb.addEventListener('click',close);top.append(el('span','dsn-kicker','ilnura'),cb);inner.append(top);
+  const card=el('div','dsn-card');card.append(el('h3','',S.title),el('p','dsn-src-intro',S.intro));
+  for(const r of S.rows){
+   const row=el('div','dsn-src');row.append(el('b','',r[0]));
+   if(r[1]==='reciter'||r[1]==='okuyan')row.append(el('span','',cred+' · '+r[2]));else row.append(el('span','',r[1]));
+   card.append(row);
+  }
+  card.append(el('p','dsn-src-note',S.note));inner.append(card);
+  document.body.append(wrap);cb.focus();
+ }
  // The progress screen: one place for what used to be four (progress centre, mastery, level and personal plan).
  const PRESETS=[[1,5,3],[3,10,5],[5,20,7]];
  function ringEl(pct,label){
@@ -692,6 +728,7 @@
   });
   setTimeout(chPaint,0);
   const head=el('div','dsr-tools');head.append(el('h3','',t.tools),el('p','',t.toolsSub));root.append(head,toolsPanel(dueCount));
+  const sb=el('button','dsr-sources',(SRCS[code]||SRCS.en).link);sb.type='button';sb.addEventListener('click',sourcesSheet);root.append(sb);
   return root;
  }
  const open_=(sid,l)=>open(sid,l);
@@ -701,5 +738,5 @@
   shell.classList.add('dsr-on');shell.prepend(build());
  }
  function remount(){const shell=document.querySelector('#leagueScreenBody .deen-quran-shell');if(!shell)return;shell.querySelector(':scope>.dsr-path')?.remove();mount(shell)}
- window.DEEN_QURAN_PATH=Object.freeze({version:'ds-quran-path-1',mount,remount,plan,items:itemsOf,steps,arena:()=>arenaScreen(),review:()=>reviewStart(),progress:()=>progressSheet(),open:(sid,lessonId)=>{const s=surahs().find(x=>x.id===sid);const l=s&&plan(sid,s.ayahs,lang()).find(x=>x.id===lessonId);return l?open(sid,l):false},store:STORE});
+ window.DEEN_QURAN_PATH=Object.freeze({version:'ds-quran-path-1',mount,remount,plan,items:itemsOf,steps,arena:()=>arenaScreen(),review:()=>reviewStart(),progress:()=>progressSheet(),sources:()=>sourcesSheet(),open:(sid,lessonId)=>{const s=surahs().find(x=>x.id===sid);const l=s&&plan(sid,s.ayahs,lang()).find(x=>x.id===lessonId);return l?open(sid,l):false},store:STORE});
 })();

@@ -703,3 +703,10 @@ html body #leagueScreenBody .dsr-listen:active{transform:scale(.94)}
 html body #leagueScreenBody .dsr-listen:focus-visible{outline:3px solid #fff;outline-offset:3px}
 html body #leagueScreenBody .dsr-unit-credit{margin-top:2px;font-size:11px!important;font-weight:800!important;letter-spacing:.02em!important;opacity:.78}
 html body #leagueScreenBody .dsr-listen.is-error{background:#fff;color:#c62828;border-color:#c62828;box-shadow:0 0 0 5px rgba(198,40,40,.28)}
+
+/* Sources and credits */
+html body #leagueScreenBody .dsr-sources{display:block;margin:18px auto 8px;padding:10px 16px;border:0;border-radius:999px;background:rgba(255,255,255,.06);color:#9bb7b0;font:800 13px/1.2 inherit;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.dsn-src-intro,.dsn-src-note{margin:8px 0 0;font-size:13px;font-weight:700;line-height:1.5;color:#9bb7b0}
+.dsn-src{display:grid;gap:3px;padding:12px 0;border-top:1px solid rgba(255,255,255,.08)}
+.dsn-src b{font-size:14px;font-weight:900;color:#eaf6f2}
+.dsn-src span{font-size:13px;font-weight:600;line-height:1.5;color:#b8d0ca}
