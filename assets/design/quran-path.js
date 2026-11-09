@@ -36,31 +36,31 @@
    badge:{first:['İlk adım','İlk dersini tamamla'],surah1:['İlk sure','Bir sureyi baştan sona bitir'],surah5:['Beş sure','Beş sureyi bitir'],crown:['Kusursuz','Sure sınavında %95 ve üstü al'],ayah100:['100 ayet','100 ayet öğren']},
    lvlBadge:n=>[n+' seviye','Bu seviyedeki bütün sureleri bitir'],
    reward:{title:'Sure sınavı tamamlandı',acc:'Doğruluk',stars:'Yıldız',crown:'Kusursuz! Taç kazandın.',newBadge:'Yeni rozet',cont:'Devam',again:'%80 ve üstü üçüncü yıldızı getirir. Tekrar deneyebilirsin.'},
-   srcTr:'Ali Özek ve ark. (QuranEnc, sürüm 1.0.0)',srcEn:'Pickthall (1930)',more:'Daha fazla araç',less:'Daha az göster',prog:{title:'İlerleme',sub:'Hedefler, yıldızlar ve rozetler',level:n=>'Seviye '+n,overall:'Genel ilerleme',learned:'Öğrenilen ayet',goals:'Bugünkü hedefler',goalAyahs:'Ayet',goalMinutes:'Dakika',streak:n=>n+' gün seri',pace:'Çalışma temposu',presets:['Sakin','Dengeli','Yoğun'],presetSub:(a,m,d)=>a+' ayet · '+m+' dk · haftada '+d+' gün',solid:'Sağlam ezber',due:'Tekrar bekliyor',stars:'Yıldız',surahs:'Sureler',close:'Kapat'},rev:{title:'Tekrar',empty:'Bugün için tekrar kalmadı',emptySub:'Yeni ayetler öğrendikçe tekrar zamanları burada belirir.',arena:'Soru Arenası',close:'Kapat'},audio:{listen:'Sureyi dinle',pause:'Duraklat',reciter:'Kıraat',fail:'Ses yüklenemedi. İnternet bağlantısı gerekir.'}},
+   srcTr:'Elmalılı Hamdi Yazır meali (1938)',srcEn:'Pickthall (1930)',grp:(a,b)=>'Ayet '+a+'–'+b+' birlikte çevrilmiştir',more:'Daha fazla araç',less:'Daha az göster',prog:{title:'İlerleme',sub:'Hedefler, yıldızlar ve rozetler',level:n=>'Seviye '+n,overall:'Genel ilerleme',learned:'Öğrenilen ayet',goals:'Bugünkü hedefler',goalAyahs:'Ayet',goalMinutes:'Dakika',streak:n=>n+' gün seri',pace:'Çalışma temposu',presets:['Sakin','Dengeli','Yoğun'],presetSub:(a,m,d)=>a+' ayet · '+m+' dk · haftada '+d+' gün',solid:'Sağlam ezber',due:'Tekrar bekliyor',stars:'Yıldız',surahs:'Sureler',close:'Kapat'},rev:{title:'Tekrar',empty:'Bugün için tekrar kalmadı',emptySub:'Yeni ayetler öğrendikçe tekrar zamanları burada belirir.',arena:'Soru Arenası',close:'Kapat'},audio:{listen:'Sureyi dinle',pause:'Duraklat',reciter:'Kıraat',fail:'Ses yüklenemedi. İnternet bağlantısı gerekir.'}},
   en:{lvl:['Easy','Medium','Advanced'],levelTag:n=>'LEVEL '+n,levelCount:(a,b)=>a+' / '+b+' surahs',exam:'Surah exam',examSub:'A final test on every ayah. 80% or more earns the third star.',
    stars:['Finish the get-to-know lessons','Finish the memorising lessons','Pass the exam with 80%'],crownTip:'Flawless exam',badgesTitle:'Badges',
    badge:{first:['First step','Complete your first lesson'],surah1:['First surah','Finish a surah from start to end'],surah5:['Five surahs','Finish five surahs'],crown:['Flawless','Score 95% or more in a surah exam'],ayah100:['100 ayahs','Learn 100 ayahs']},
    lvlBadge:n=>[n+' level','Finish every surah of this level'],
    reward:{title:'Surah exam complete',acc:'Accuracy',stars:'Stars',crown:'Flawless! You earned a crown.',newBadge:'New badge',cont:'Continue',again:'80% or more brings the third star. You can try again.'},
-   srcTr:'Ali Özek et al. (QuranEnc, version 1.0.0)',srcEn:'Pickthall (1930)',more:'More tools',less:'Show less',prog:{title:'Progress',sub:'Goals, stars and badges',level:n=>'Level '+n,overall:'Overall progress',learned:'Ayahs learned',goals:'Today’s goals',goalAyahs:'Ayahs',goalMinutes:'Minutes',streak:n=>n+'-day streak',pace:'Study pace',presets:['Relaxed','Balanced','Intense'],presetSub:(a,m,d)=>a+' ayahs · '+m+' min · '+d+' days a week',solid:'Solid memory',due:'Due for review',stars:'Stars',surahs:'Surahs',close:'Close'},rev:{title:'Review',empty:'Nothing to review today',emptySub:'As you learn new ayahs, their review times show up here.',arena:'Question Arena',close:'Close'},audio:{listen:'Listen to the surah',pause:'Pause',reciter:'Recitation',fail:'The recitation could not load. An internet connection is needed.'}},
+   srcTr:'Elmalılı Hamdi Yazır (1938)',srcEn:'Pickthall (1930)',grp:(a,b)=>'Ayahs '+a+'–'+b+' are translated together',more:'More tools',less:'Show less',prog:{title:'Progress',sub:'Goals, stars and badges',level:n=>'Level '+n,overall:'Overall progress',learned:'Ayahs learned',goals:'Today’s goals',goalAyahs:'Ayahs',goalMinutes:'Minutes',streak:n=>n+'-day streak',pace:'Study pace',presets:['Relaxed','Balanced','Intense'],presetSub:(a,m,d)=>a+' ayahs · '+m+' min · '+d+' days a week',solid:'Solid memory',due:'Due for review',stars:'Stars',surahs:'Surahs',close:'Close'},rev:{title:'Review',empty:'Nothing to review today',emptySub:'As you learn new ayahs, their review times show up here.',arena:'Question Arena',close:'Close'},audio:{listen:'Listen to the surah',pause:'Pause',reciter:'Recitation',fail:'The recitation could not load. An internet connection is needed.'}},
   de:{lvl:['Leicht','Mittel','Fortgeschritten'],levelTag:n=>'STUFE '+n,levelCount:(a,b)=>a+' / '+b+' Suren',exam:'Suren-Prüfung',examSub:'Eine Abschlussprüfung zu allen Versen. Ab 80 % gibt es den dritten Stern.',
    stars:['Kennenlern-Lektionen abschließen','Auswendig-Lektionen abschließen','Prüfung mit 80 % bestehen'],crownTip:'Makellose Prüfung',badgesTitle:'Abzeichen',
    badge:{first:['Erster Schritt','Schließe deine erste Lektion ab'],surah1:['Erste Sure','Schließe eine Sure von Anfang bis Ende ab'],surah5:['Fünf Suren','Schließe fünf Suren ab'],crown:['Makellos','Erreiche in einer Suren-Prüfung 95 % oder mehr'],ayah100:['100 Verse','Lerne 100 Verse']},
    lvlBadge:n=>['Stufe '+n,'Schließe alle Suren dieser Stufe ab'],
    reward:{title:'Suren-Prüfung abgeschlossen',acc:'Genauigkeit',stars:'Sterne',crown:'Makellos! Du hast eine Krone verdient.',newBadge:'Neues Abzeichen',cont:'Weiter',again:'Ab 80 % gibt es den dritten Stern. Du kannst es noch einmal versuchen.'},
-   srcTr:'Ali Özek u. a. (QuranEnc, Version 1.0.0)',srcEn:'Pickthall (1930)',more:'Weitere Werkzeuge',less:'Weniger anzeigen',prog:{title:'Fortschritt',sub:'Ziele, Sterne und Abzeichen',level:n=>'Stufe '+n,overall:'Gesamtfortschritt',learned:'Gelernte Verse',goals:'Ziele für heute',goalAyahs:'Verse',goalMinutes:'Minuten',streak:n=>n+' Tage in Folge',pace:'Lerntempo',presets:['Ruhig','Ausgewogen','Intensiv'],presetSub:(a,m,d)=>a+' Verse · '+m+' Min. · '+d+' Tage pro Woche',solid:'Sicher auswendig',due:'Zur Wiederholung fällig',stars:'Sterne',surahs:'Suren',close:'Schließen'},rev:{title:'Wiederholung',empty:'Heute ist nichts zu wiederholen',emptySub:'Sobald du neue Verse lernst, erscheinen ihre Wiederholungen hier.',arena:'Fragenarena',close:'Schließen'},audio:{listen:'Sure anhören',pause:'Pause',reciter:'Rezitation',fail:'Die Rezitation konnte nicht geladen werden. Internet erforderlich.'}},
+   srcTr:'Elmalılı Hamdi Yazır (1938)',srcEn:'Pickthall (1930)',grp:(a,b)=>'Verse '+a+'–'+b+' sind gemeinsam übersetzt',more:'Weitere Werkzeuge',less:'Weniger anzeigen',prog:{title:'Fortschritt',sub:'Ziele, Sterne und Abzeichen',level:n=>'Stufe '+n,overall:'Gesamtfortschritt',learned:'Gelernte Verse',goals:'Ziele für heute',goalAyahs:'Verse',goalMinutes:'Minuten',streak:n=>n+' Tage in Folge',pace:'Lerntempo',presets:['Ruhig','Ausgewogen','Intensiv'],presetSub:(a,m,d)=>a+' Verse · '+m+' Min. · '+d+' Tage pro Woche',solid:'Sicher auswendig',due:'Zur Wiederholung fällig',stars:'Sterne',surahs:'Suren',close:'Schließen'},rev:{title:'Wiederholung',empty:'Heute ist nichts zu wiederholen',emptySub:'Sobald du neue Verse lernst, erscheinen ihre Wiederholungen hier.',arena:'Fragenarena',close:'Schließen'},audio:{listen:'Sure anhören',pause:'Pause',reciter:'Rezitation',fail:'Die Rezitation konnte nicht geladen werden. Internet erforderlich.'}},
   fr:{lvl:['Facile','Moyen','Avancé'],levelTag:n=>'NIVEAU '+n,levelCount:(a,b)=>a+' / '+b+' sourates',exam:'Examen de la sourate',examSub:'Un test final sur tous les versets. 80 % ou plus donne la troisième étoile.',
    stars:['Termine les leçons de découverte','Termine les leçons de mémorisation','Réussis l’examen avec 80 %'],crownTip:'Examen sans faute',badgesTitle:'Badges',
    badge:{first:['Premier pas','Termine ta première leçon'],surah1:['Première sourate','Termine une sourate du début à la fin'],surah5:['Cinq sourates','Termine cinq sourates'],crown:['Sans faute','Obtiens 95 % ou plus à un examen de sourate'],ayah100:['100 versets','Apprends 100 versets']},
    lvlBadge:n=>['Niveau '+n,'Termine toutes les sourates de ce niveau'],
    reward:{title:'Examen de la sourate terminé',acc:'Précision',stars:'Étoiles',crown:'Sans faute ! Tu as gagné une couronne.',newBadge:'Nouveau badge',cont:'Continuer',again:'80 % ou plus donne la troisième étoile. Tu peux réessayer.'},
-   srcTr:'Ali Özek et al. (QuranEnc, version 1.0.0)',srcEn:'Pickthall (1930)',more:'Plus d’outils',less:'Voir moins',prog:{title:'Progression',sub:'Objectifs, étoiles et badges',level:n=>'Niveau '+n,overall:'Progression globale',learned:'Versets appris',goals:'Objectifs du jour',goalAyahs:'Versets',goalMinutes:'Minutes',streak:n=>n+' jours d’affilée',pace:'Rythme d’étude',presets:['Tranquille','Équilibré','Intense'],presetSub:(a,m,d)=>a+' versets · '+m+' min · '+d+' jours par semaine',solid:'Mémorisé solidement',due:'À réviser',stars:'Étoiles',surahs:'Sourates',close:'Fermer'},rev:{title:'Révision',empty:'Rien à réviser aujourd’hui',emptySub:'Au fil des nouveaux versets, leurs révisions apparaîtront ici.',arena:'Arène des questions',close:'Fermer'},audio:{listen:'Écouter la sourate',pause:'Pause',reciter:'Récitation',fail:'La récitation n’a pas pu se charger. Une connexion internet est nécessaire.'}},
+   srcTr:'Elmalılı Hamdi Yazır (1938)',srcEn:'Pickthall (1930)',grp:(a,b)=>'Versets '+a+'–'+b+' traduits ensemble',more:'Plus d’outils',less:'Voir moins',prog:{title:'Progression',sub:'Objectifs, étoiles et badges',level:n=>'Niveau '+n,overall:'Progression globale',learned:'Versets appris',goals:'Objectifs du jour',goalAyahs:'Versets',goalMinutes:'Minutes',streak:n=>n+' jours d’affilée',pace:'Rythme d’étude',presets:['Tranquille','Équilibré','Intense'],presetSub:(a,m,d)=>a+' versets · '+m+' min · '+d+' jours par semaine',solid:'Mémorisé solidement',due:'À réviser',stars:'Étoiles',surahs:'Sourates',close:'Fermer'},rev:{title:'Révision',empty:'Rien à réviser aujourd’hui',emptySub:'Au fil des nouveaux versets, leurs révisions apparaîtront ici.',arena:'Arène des questions',close:'Fermer'},audio:{listen:'Écouter la sourate',pause:'Pause',reciter:'Récitation',fail:'La récitation n’a pas pu se charger. Une connexion internet est nécessaire.'}},
   ar:{lvl:['سهل','متوسط','متقدّم'],levelTag:n=>'المستوى '+n,levelCount:(a,b)=>a+' / '+b+' سور',exam:'اختبار السورة',examSub:'اختبار نهائي في جميع آيات السورة. تحصل على النجمة الثالثة بنسبة 80٪ أو أكثر.',
    stars:['أكمل دروس التعرّف','أكمل دروس الحفظ','اجتز الاختبار بنسبة 80٪'],crownTip:'اختبار بلا أخطاء',badgesTitle:'الأوسمة',
    badge:{first:['الخطوة الأولى','أكمل درسك الأول'],surah1:['السورة الأولى','أكمل سورة من أولها إلى آخرها'],surah5:['خمس سور','أكمل خمس سور'],crown:['بلا أخطاء','احصل على 95٪ أو أكثر في اختبار سورة'],ayah100:['100 آية','تعلّم 100 آية']},
    lvlBadge:n=>['مستوى '+n,'أكمل جميع سور هذا المستوى'],
    reward:{title:'اكتمل اختبار السورة',acc:'الدقة',stars:'النجوم',crown:'بلا أخطاء! نلت تاجًا.',newBadge:'وسام جديد',cont:'متابعة',again:'تحصل على النجمة الثالثة بنسبة 80٪ أو أكثر. يمكنك المحاولة مرة أخرى.'},
-   srcTr:'Ali Özek وآخرون (QuranEnc، الإصدار 1.0.0)',srcEn:'Pickthall (1930)',more:'المزيد من الأدوات',less:'عرض أقل',prog:{title:'التقدّم',sub:'الأهداف والنجوم والأوسمة',level:n=>'المستوى '+n,overall:'التقدّم العام',learned:'الآيات المتعلَّمة',goals:'أهداف اليوم',goalAyahs:'آيات',goalMinutes:'دقائق',streak:n=>n+' أيام متتالية',pace:'وتيرة الدراسة',presets:['هادئة','متوازنة','مكثّفة'],presetSub:(a,m,d)=>a+' آيات · '+m+' د · '+d+' أيام أسبوعيًا',solid:'حفظ راسخ',due:'بانتظار المراجعة',stars:'النجوم',surahs:'السور',close:'إغلاق'},rev:{title:'المراجعة',empty:'لا شيء للمراجعة اليوم',emptySub:'كلما تعلّمت آيات جديدة ظهرت مراجعتها هنا.',arena:'ساحة الأسئلة',close:'إغلاق'},audio:{listen:'استمع إلى السورة',pause:'إيقاف مؤقت',reciter:'التلاوة',fail:'تعذّر تحميل التلاوة. يلزم اتصال بالإنترنت.'}}
+   srcTr:'ترجمة إلماليلي حمدي يازر (١٩٣٨) إلى التركية',srcEn:'Pickthall (1930)',grp:(a,b)=>'الآيات '+a+'–'+b+' تُترجَم معًا',more:'المزيد من الأدوات',less:'عرض أقل',prog:{title:'التقدّم',sub:'الأهداف والنجوم والأوسمة',level:n=>'المستوى '+n,overall:'التقدّم العام',learned:'الآيات المتعلَّمة',goals:'أهداف اليوم',goalAyahs:'آيات',goalMinutes:'دقائق',streak:n=>n+' أيام متتالية',pace:'وتيرة الدراسة',presets:['هادئة','متوازنة','مكثّفة'],presetSub:(a,m,d)=>a+' آيات · '+m+' د · '+d+' أيام أسبوعيًا',solid:'حفظ راسخ',due:'بانتظار المراجعة',stars:'النجوم',surahs:'السور',close:'إغلاق'},rev:{title:'المراجعة',empty:'لا شيء للمراجعة اليوم',emptySub:'كلما تعلّمت آيات جديدة ظهرت مراجعتها هنا.',arena:'ساحة الأسئلة',close:'إغلاق'},audio:{listen:'استمع إلى السورة',pause:'إيقاف مؤقت',reciter:'التلاوة',fail:'تعذّر تحميل التلاوة. يلزم اتصال بالإنترنت.'}}
  };
  const x=()=>X[lang()]||X.en;
  // Question arena strings.
@@ -106,6 +106,11 @@
   if(packSurah(sid))return readStore().ayah?.[sid+':'+n]||{};
   try{return Q().state().progress.surahs[sid].ayahs[n]||{}}catch(_){return {}}
  };
+ // The text is kept exactly as published, bismillah included; on screen it is not part of the first ayah (it is not, in the
+ // mushaf, outside Fatiha), so it is left out of what is shown, read and asked.
+ const skel=t=>t.normalize('NFKD').replace(/[\u0610-\u061A\u064B-\u065F\u0670\u06D6-\u06ED\u0640]/g,'').replace(/[\u0671\u0622\u0623\u0625]/g,'\u0627');
+ const BSM=skel('بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ');
+ function noBismillah(t){const w=t.trim().split(/\s+/);return w.length>4&&skel(w.slice(0,4).join(' '))===BSM?w.slice(4).join(' '):t}
  // The recorded ayahs of one surah as card items; the meaning only where a verified one exists.
  function itemsOf(sid,code){
   const ps=packSurah(sid);
@@ -113,7 +118,8 @@
    const xt=x();
    return ps.ayahs.map(a=>{
     const meal=code==='tr'?a.tr:code==='en'?a.en:'';
-    return {id:sid+':'+a.n,num:a.n,glyph:a.ar,name:meal,hint:meal?(code==='tr'?xt.srcTr:xt.srcEn):'',audio:a.audio||ps.audio?.chapter||'',audioLabel:a.audio?'':xt.audio.listen,audioPause:xt.audio.pause,audioCredit:a.audio||!ps.audio?'':xt.audio.reciter+': '+ps.audio.credit.reciter+' · '+ps.audio.credit.license,parts:a.ar.split(/\s+/).filter(w=>ARABIC.test(w))};
+    const ar=a.n===1?noBismillah(a.ar):a.ar,grp=code==='tr'&&a.trGroup?' · '+xt.grp(a.trGroup[0],a.trGroup[1]):'';
+    return {id:sid+':'+a.n,num:a.n,glyph:ar,name:meal,hint:meal?(code==='tr'?xt.srcTr+grp:xt.srcEn):'',audio:a.audio||ps.audio?.chapter||'',audioLabel:a.audio?'':xt.audio.listen,audioPause:xt.audio.pause,audioCredit:a.audio||!ps.audio?'':xt.audio.reciter+': '+ps.audio.credit.reciter+' · '+ps.audio.credit.license,parts:ar.split(/\s+/).filter(w=>ARABIC.test(w))};
    });
   }
   const rows=C()?.getSurah?.(sid)||[],tr=window.DEEN_QURAN_LEARNING_TRANSLATION,t=T[code];
@@ -148,8 +154,9 @@
   const fill=n=>{const w=wordsOf(n);if(w.length<2)return null;const hide=Math.random()*w.length|0,ans=w[hide];
    const pool=[...new Set(all.filter(m=>m!==n).flatMap(wordsOf))].filter(x=>x!==ans);
    return {k:'q',type:'fill',id:id(n),hide,ans,opts:shuffle([ans,...shuffle(pool).slice(0,2)])}};
-  const meanQ=(n,pool)=>({k:'q',type:'name',id:id(n),ask:'mean',opts:shuffle([id(n),...shuffle(pool.filter(m=>m!==n)).slice(0,2).map(id)])});
-  const ayahQ=(n,pool)=>({k:'q',type:'pick',id:id(n),ask:'ayah',opts:shuffle([id(n),...shuffle(pool.filter(m=>m!==n)).slice(0,2).map(id)])});
+  const other=(n,pool)=>pool.filter(m=>m!==n&&(!hasMeal||byId[id(m)]?.name!==byId[id(n)]?.name));
+  const meanQ=(n,pool)=>({k:'q',type:'name',id:id(n),ask:'mean',opts:shuffle([id(n),...shuffle(other(n,pool)).slice(0,2).map(id)])});
+  const ayahQ=(n,pool)=>({k:'q',type:'pick',id:id(n),ask:'ayah',opts:shuffle([id(n),...shuffle(other(n,pool)).slice(0,2).map(id)])});
   if(l.kind==='know'){
    const seen=all.filter(n=>n<l.ayahs[0]);
    l.ayahs.forEach((n,i)=>{
@@ -179,7 +186,7 @@
    }
    if(all.length>=2)out.push({k:'q',type:'seq',ids:all.slice(0,Math.min(5,all.length)).map(id)});
   }
-  return out;
+  return out.filter(q=>!(q.k==='q'&&(q.type==='name'||q.type==='pick')&&q.opts.length<2));
  }
  // Results go into the surah engine: learned, memorisation level, recall counts and next review.
  // Today's goal counters: ayahs learned for the first time and minutes spent, from every path lesson.
@@ -326,8 +333,8 @@
   const words=[...new Set(pool.flatMap(i=>i.parts))];
   const withMeal=pool.filter(i=>i.name),short=i=>i.parts.length>=2&&i.parts.length<=7;
   const fill=(it,k)=>{const hide=Math.random()*it.parts.length|0,ans=it.parts[hide];return {k:'q',type:'fill',id:it.id,hide,ans,opts:shuffle([ans,...shuffle(words.filter(w=>w!==ans)).slice(0,k-1)])}};
-  const meaning=it=>({k:'q',type:'name',id:it.id,ask:'mean',opts:shuffle([it.id,...shuffle(withMeal.filter(i=>i.id!==it.id)).slice(0,2).map(i=>i.id)])});
-  const byMeaning=it=>({k:'q',type:'pick',id:it.id,ask:'mean',opts:shuffle([it.id,...shuffle(withMeal.filter(i=>i.id!==it.id&&i.glyph.length<=70)).slice(0,2).map(i=>i.id)])});
+  const meaning=it=>({k:'q',type:'name',id:it.id,ask:'mean',opts:shuffle([it.id,...shuffle(withMeal.filter(i=>i.id!==it.id&&i.name!==it.name)).slice(0,2).map(i=>i.id)])});
+  const byMeaning=it=>({k:'q',type:'pick',id:it.id,ask:'mean',opts:shuffle([it.id,...shuffle(withMeal.filter(i=>i.id!==it.id&&i.name!==it.name&&i.glyph.length<=70)).slice(0,2).map(i=>i.id)])});
   const build=it=>({k:'q',type:'build',id:it.id,parts:it.parts});
   // A run of consecutive ayahs of one surah, for "put them in order".
   const run=n=>{
@@ -694,5 +701,5 @@
   shell.classList.add('dsr-on');shell.prepend(build());
  }
  function remount(){const shell=document.querySelector('#leagueScreenBody .deen-quran-shell');if(!shell)return;shell.querySelector(':scope>.dsr-path')?.remove();mount(shell)}
- window.DEEN_QURAN_PATH=Object.freeze({version:'ds-quran-path-1',mount,remount,plan,arena:()=>arenaScreen(),review:()=>reviewStart(),progress:()=>progressSheet(),open:(sid,lessonId)=>{const s=surahs().find(x=>x.id===sid);const l=s&&plan(sid,s.ayahs,lang()).find(x=>x.id===lessonId);return l?open(sid,l):false},store:STORE});
+ window.DEEN_QURAN_PATH=Object.freeze({version:'ds-quran-path-1',mount,remount,plan,items:itemsOf,steps,arena:()=>arenaScreen(),review:()=>reviewStart(),progress:()=>progressSheet(),open:(sid,lessonId)=>{const s=surahs().find(x=>x.id===sid);const l=s&&plan(sid,s.ayahs,lang()).find(x=>x.id===lessonId);return l?open(sid,l):false},store:STORE});
 })();
