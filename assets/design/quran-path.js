@@ -60,7 +60,7 @@
    badge:{first:['الخطوة الأولى','أكمل درسك الأول'],surah1:['السورة الأولى','أكمل سورة من أولها إلى آخرها'],surah5:['خمس سور','أكمل خمس سور'],crown:['بلا أخطاء','احصل على 95٪ أو أكثر في اختبار سورة'],ayah100:['100 آية','تعلّم 100 آية']},
    lvlBadge:n=>['مستوى '+n,'أكمل جميع سور هذا المستوى'],
    reward:{title:'اكتمل اختبار السورة',acc:'الدقة',stars:'النجوم',crown:'بلا أخطاء! نلت تاجًا.',newBadge:'وسام جديد',cont:'متابعة',again:'تحصل على النجمة الثالثة بنسبة 80٪ أو أكثر. يمكنك المحاولة مرة أخرى.'},
-   srcTr:'ترجمة إلماليلي حمدي يازر (١٩٣٨) إلى التركية',srcEn:'Pickthall (1930)',grp:(a,b)=>'الآيات '+a+'–'+b+' تُترجَم معًا',more:'المزيد من الأدوات',less:'عرض أقل',prog:{title:'التقدّم',sub:'الأهداف والنجوم والأوسمة',level:n=>'المستوى '+n,overall:'التقدّم العام',learned:'الآيات المتعلَّمة',goals:'أهداف اليوم',goalAyahs:'آيات',goalMinutes:'دقائق',streak:n=>n+' أيام متتالية',pace:'وتيرة الدراسة',presets:['هادئة','متوازنة','مكثّفة'],presetSub:(a,m,d)=>a+' آيات · '+m+' د · '+d+' أيام أسبوعيًا',solid:'حفظ راسخ',due:'بانتظار المراجعة',stars:'النجوم',surahs:'السور',close:'إغلاق'},rev:{title:'المراجعة',empty:'لا شيء للمراجعة اليوم',emptySub:'كلما تعلّمت آيات جديدة ظهرت مراجعتها هنا.',arena:'ساحة الأسئلة',close:'إغلاق'},audio:{listen:'استمع إلى السورة',pause:'إيقاف مؤقت',reciter:'التلاوة',fail:'تعذّر تحميل التلاوة. يلزم اتصال بالإنترنت.'}}
+   srcTr:'ترجمة إلماليلي حمدي يازر (١٩٣٨) إلى التركية',srcEn:'Pickthall (1930)',grp:(a,b)=>'الآيات '+a+'–'+b+' تُفسَّر معًا',srcAr:'التفسير الميسر',more:'المزيد من الأدوات',less:'عرض أقل',prog:{title:'التقدّم',sub:'الأهداف والنجوم والأوسمة',level:n=>'المستوى '+n,overall:'التقدّم العام',learned:'الآيات المتعلَّمة',goals:'أهداف اليوم',goalAyahs:'آيات',goalMinutes:'دقائق',streak:n=>n+' أيام متتالية',pace:'وتيرة الدراسة',presets:['هادئة','متوازنة','مكثّفة'],presetSub:(a,m,d)=>a+' آيات · '+m+' د · '+d+' أيام أسبوعيًا',solid:'حفظ راسخ',due:'بانتظار المراجعة',stars:'النجوم',surahs:'السور',close:'إغلاق'},rev:{title:'المراجعة',empty:'لا شيء للمراجعة اليوم',emptySub:'كلما تعلّمت آيات جديدة ظهرت مراجعتها هنا.',arena:'ساحة الأسئلة',close:'إغلاق'},audio:{listen:'استمع إلى السورة',pause:'إيقاف مؤقت',reciter:'التلاوة',fail:'تعذّر تحميل التلاوة. يلزم اتصال بالإنترنت.'}}
  };
  const x=()=>X[lang()]||X.en;
  // Question arena strings.
@@ -117,9 +117,9 @@
   if(ps){
    const xt=x();
    return ps.ayahs.map(a=>{
-    const meal=code==='tr'?a.tr:code==='en'?a.en:'';
-    const ar=a.n===1?noBismillah(a.ar):a.ar,grp=code==='tr'&&a.trGroup?' · '+xt.grp(a.trGroup[0],a.trGroup[1]):'';
-    return {id:sid+':'+a.n,num:a.n,glyph:ar,name:meal,hint:meal?(code==='tr'?xt.srcTr+grp:xt.srcEn):'',audio:a.audio||ps.audio?.chapter||'',audioLabel:a.audio?'':xt.audio.listen,audioPause:xt.audio.pause,audioCredit:a.audio||!ps.audio?'':xt.audio.reciter+': '+ps.audio.credit.reciter+' · '+ps.audio.credit.license,parts:ar.split(/\s+/).filter(w=>ARABIC.test(w))};
+    const meal=code==='tr'?a.tr:code==='en'?a.en:code==='ar'?a.ms:'';
+    const ar=a.n===1?noBismillah(a.ar):a.ar,gr=code==='tr'?a.trGroup:code==='ar'?a.msGroup:null,grp=gr?' · '+xt.grp(gr[0],gr[1]):'';
+    return {id:sid+':'+a.n,num:a.n,glyph:ar,name:meal,hint:meal?(code==='tr'?xt.srcTr+grp:code==='ar'?xt.srcAr+grp:xt.srcEn):'',audio:a.audio||ps.audio?.chapter||'',audioLabel:a.audio?'':xt.audio.listen,audioPause:xt.audio.pause,audioCredit:a.audio||!ps.audio?'':xt.audio.reciter+': '+ps.audio.credit.reciter+' · '+ps.audio.credit.license,parts:ar.split(/\s+/).filter(w=>ARABIC.test(w))};
    });
   }
   const rows=C()?.getSurah?.(sid)||[],tr=window.DEEN_QURAN_LEARNING_TRANSLATION,t=T[code];
@@ -130,9 +130,11 @@
    return {id:sid+':'+n,num:n,glyph:text,name:meal,hint:meal?t.source:'',audio,parts:text.split(/\s+/).filter(w=>ARABIC.test(w))};
   }).filter(x=>x.glyph);
  }
+ // Tr and en have a meaning for every surah; Arabic players get the Muyassar tafsir, which only the pack's surahs carry.
+ const mealOf=(sid,code)=>code==='tr'||code==='en'||(code==='ar'&&!!packSurah(sid));
  // Lessons of a surah, in order. Ayahs are introduced four at a time and memorised three at a time.
  function plan(sid,count,code){
-  const t=T[code],nums=Array.from({length:count},(_,i)=>i+1),hasMeal=code==='tr'||code==='en',out=[];
+  const t=T[code],nums=Array.from({length:count},(_,i)=>i+1),hasMeal=mealOf(sid,code),out=[];
   for(const g of chunk(nums,4))out.push({id:sid+':know:'+g[0],kind:'know',ayahs:g,title:t.know(g[0],g[g.length-1]),sub:t.subKnow,icon:'read'});
   if(hasMeal)out.push({id:sid+':meaning',kind:'meaning',ayahs:nums,title:t.meaning,sub:t.subMeaning,icon:'mean'});
   for(const g of chunk(nums,3))out.push({id:sid+':mem:'+g[0],kind:'mem',ayahs:g,title:t.mem(g[0],g[g.length-1]),sub:t.subMem,icon:'mem'});
@@ -186,7 +188,8 @@
    }
    if(all.length>=2)out.push({k:'q',type:'seq',ids:all.slice(0,Math.min(5,all.length)).map(id)});
   }
-  return out.filter(q=>!(q.k==='q'&&(q.type==='name'||q.type==='pick')&&q.opts.length<2));
+  const fits=q=>code!=='ar'||q.type!=='name'||q.opts.every(o=>(byId[o]?.name||'').length<=160);
+  return out.filter(q=>!(q.k==='q'&&(q.type==='name'||q.type==='pick')&&q.opts.length<2)&&(q.k!=='q'||fits(q)));
  }
  // Results go into the surah engine: learned, memorisation level, recall counts and next review.
  // Today's goal counters: ayahs learned for the first time and minutes spent, from every path lesson.
@@ -329,9 +332,11 @@
   return all;
  }
  // Question makers over a pool of ayah items; used by the arena and by the review.
- function qKit(pool){
+ function qKit(pool,code){
   const words=[...new Set(pool.flatMap(i=>i.parts))];
-  const withMeal=pool.filter(i=>i.name),short=i=>i.parts.length>=2&&i.parts.length<=7;
+  // A long tafsir does not fit on an answer button: it is shown on the card, not asked.
+  const cap=code==='ar'?160:1e9,ok=i=>!!i.name&&i.name.length<=cap;
+  const withMeal=pool.filter(ok),short=i=>i.parts.length>=2&&i.parts.length<=7;
   const fill=(it,k)=>{const hide=Math.random()*it.parts.length|0,ans=it.parts[hide];return {k:'q',type:'fill',id:it.id,hide,ans,opts:shuffle([ans,...shuffle(words.filter(w=>w!==ans)).slice(0,k-1)])}};
   const meaning=it=>({k:'q',type:'name',id:it.id,ask:'mean',opts:shuffle([it.id,...shuffle(withMeal.filter(i=>i.id!==it.id&&i.name!==it.name)).slice(0,2).map(i=>i.id)])});
   const byMeaning=it=>({k:'q',type:'pick',id:it.id,ask:'mean',opts:shuffle([it.id,...shuffle(withMeal.filter(i=>i.id!==it.id&&i.name!==it.name&&i.glyph.length<=70)).slice(0,2).map(i=>i.id)])});
@@ -343,26 +348,27 @@
    if(!starts.length)return null;const [sid,a]=starts[Math.random()*starts.length|0];
    return {k:'q',type:'seq',ids:Array.from({length:n},(_,k)=>sid+':'+(a+k))};
   };
-  return {words,withMeal,short,fill,meaning,byMeaning,build,run};
+  return {words,withMeal,short,ok,fill,meaning,byMeaning,build,run};
  }
  function arenaSteps(level,pool,code){
-  const hasMeal=code==='tr'||code==='en',used=new Set(),out=[];
+  const hasMeal=code==='tr'||code==='en'||(code==='ar'&&pool.some(i=>i.name)),used=new Set(),out=[];
+  const sm=i=>short(i)&&ok(i);
   const take=(n,f)=>{const c=shuffle(pool.filter(i=>!used.has(i.id)&&(!f||f(i)))).slice(0,n);c.forEach(i=>used.add(i.id));return c};
-  const {words,withMeal,short,fill,meaning,byMeaning,build,run}=qKit(pool);
+  const {words,withMeal,short,ok,fill,meaning,byMeaning,build,run}=qKit(pool,code);
   const add=(n,make)=>{for(let i=0;i<n;i++){const q=make();if(q)out.push(q)}};
   const rec={
    easy:()=>{
-    if(hasMeal){add(1,()=>null);take(5,short).forEach(i=>out.push(meaning(i)));take(3,short).forEach(i=>out.push(byMeaning(i)));take(2,short).forEach(i=>out.push(fill(i,3)))}
+    if(hasMeal){add(1,()=>null);take(5,sm).forEach(i=>out.push(meaning(i)));take(3,sm).forEach(i=>out.push(byMeaning(i)));take(2,short).forEach(i=>out.push(fill(i,3)))}
     else{take(6,short).forEach(i=>out.push(fill(i,3)));add(2,()=>run(3))}
    },
    medium:()=>{
     take(3,short).forEach(i=>out.push(fill(i,3)));
-    if(hasMeal){take(2,short).forEach(i=>out.push(meaning(i)));take(2,short).forEach(i=>out.push(build(i)));take(1,short).forEach(i=>out.push(byMeaning(i)))}
+    if(hasMeal){take(2,sm).forEach(i=>out.push(meaning(i)));take(2,sm).forEach(i=>out.push(build(i)));take(1,sm).forEach(i=>out.push(byMeaning(i)))}
     else take(3,short).forEach(i=>out.push(fill(i,3)));
     add(2,()=>run(3));
    },
    hard:()=>{
-    if(hasMeal){take(4,short).forEach(i=>out.push(build(i)));take(1,short).forEach(i=>out.push(byMeaning(i)))}
+    if(hasMeal){take(4,sm).forEach(i=>out.push(build(i)));take(1,sm).forEach(i=>out.push(byMeaning(i)))}
     else take(5,short).forEach(i=>out.push(fill(i,4)));
     take(3,short).forEach(i=>out.push(fill(i,4)));add(2,()=>run(4));
    }
@@ -405,18 +411,18 @@
   bumpDaily(0,seconds);
  }
  function reviewStart(){
-  const code=lang(),hasMeal=code==='tr'||code==='en',pool=arenaPool('all',code),byId=Object.fromEntries(pool.map(i=>[i.id,i]));
-  const kit=qKit(pool),asked=[],steps=[];
+  const code=lang(),hasMeal=code==='tr'||code==='en'||code==='ar',pool=arenaPool('all',code),byId=Object.fromEntries(pool.map(i=>[i.id,i]));
+  const kit=qKit(pool,code),asked=[],steps=[];
   const kinds=hasMeal?['meaning','fill','byMeaning','build']:['fill'];
   for(const d of shuffle(dueList())){
    if(asked.length>=10)break;
    const it=byId[d.sid+':'+d.n];if(!it)continue;
    const k=kinds[asked.length%kinds.length];
-   if(k==='meaning'&&it.name)steps.push(kit.meaning(it));
-   else if(k==='byMeaning'&&it.name)steps.push(kit.byMeaning(it));
-   else if(k==='build'&&it.name&&kit.short(it))steps.push(kit.build(it));
+   if(k==='meaning'&&kit.ok(it))steps.push(kit.meaning(it));
+   else if(k==='byMeaning'&&kit.ok(it))steps.push(kit.byMeaning(it));
+   else if(k==='build'&&kit.ok(it)&&kit.short(it))steps.push(kit.build(it));
    else if(it.parts.length>=2)steps.push(kit.fill(it,3));
-   else if(it.name)steps.push(kit.meaning(it));
+   else if(kit.ok(it))steps.push(kit.meaning(it));
    else continue;
    asked.push(it);
   }
@@ -551,19 +557,19 @@
  // Where every text and recording comes from; shown in the language of the app.
  const SRCS={
   tr:{link:'Kaynaklar ve teşekkürler',title:'Kaynaklar',intro:'Bu bölümdeki Kur’an metni ve mealler telifsiz kaynaklardan, olduğu gibi alınır. Hiçbiri bizim tarafımızdan değiştirilmez.',
-   rows:[['Arapça metin','Tanzil Projesi · Osmanî yazım · tanzil.net · CC BY 3.0, değiştirilmeden ve kaynağı belirtilerek'],['Türkçe meal','Elmalılı Hamdi Yazır, “Hak Dini Kur’an Dili” (1938) · kamu malı. Bazı yerlerde birkaç ayet birlikte çevrilmiştir; kartta belirtilir.'],['İngilizce meal','Marmaduke Pickthall (1930) · kamu malı'],['Yeni 12 sure — okuyuş','okuyan','Wikimedia Commons kayıtları; sure kartındaki “Sureyi dinle” düğmesi internetten çalar.'],['Diğer sureler — okuyuş','Ayet ayet kayıtlar bu uygulama için hazırlanmıştır.'],['Kontrol','Arapça metnin her ayeti bağımsız bir baskıyla (Kemenag) harf harf karşılaştırılır; her değişiklikte otomatik olarak yeniden denetlenir.']],
+   rows:[['Arapça metin','Tanzil Projesi · Osmanî yazım · tanzil.net · CC BY 3.0, değiştirilmeden ve kaynağı belirtilerek'],['Arapça tefsir (Arapça arayüz)','Et-Tefsîru’l-Müyesser · Arapça · sure tanıtımı ayıklanmış, tefsir metni değiştirilmemiştir. Birkaç ayet birlikte açıklanabilir.'],['Türkçe meal','Elmalılı Hamdi Yazır, “Hak Dini Kur’an Dili” (1938) · kamu malı. Bazı yerlerde birkaç ayet birlikte çevrilmiştir; kartta belirtilir.'],['İngilizce meal','Marmaduke Pickthall (1930) · kamu malı'],['Yeni 12 sure — okuyuş','okuyan','Wikimedia Commons kayıtları; sure kartındaki “Sureyi dinle” düğmesi internetten çalar.'],['Diğer sureler — okuyuş','Ayet ayet kayıtlar bu uygulama için hazırlanmıştır.'],['Kontrol','Arapça metnin her ayeti bağımsız bir baskıyla (Kemenag) harf harf karşılaştırılır; her değişiklikte otomatik olarak yeniden denetlenir.']],
    note:'Hata görürsen lütfen bildir. Bu uygulama bir hocanın yerine geçmez; mealler yalnızca anlamı kavramak içindir.',close:'Kapat'},
   en:{link:'Sources and credits',title:'Sources',intro:'The Quran text and translations in this section come from free-to-use sources and are used as published. None of them is edited by us.',
-   rows:[['Arabic text','Tanzil Project · Uthmani script · tanzil.net · CC BY 3.0, unmodified and credited'],['Turkish translation','Elmalılı Hamdi Yazır, “Hak Dini Kur’an Dili” (1938) · public domain. Some passages are translated as a whole; the card says so.'],['English translation','Marmaduke Pickthall (1930) · public domain'],['New 12 surahs — recitation','reciter','Wikimedia Commons recordings; the “Listen to the surah” button streams them online.'],['Other surahs — recitation','The ayah-by-ayah recordings were prepared for this app.'],['Checking','Every ayah of the Arabic text is compared letter by letter with an independent print (Kemenag), and re-checked automatically on every change.']],
+   rows:[['Arabic text','Tanzil Project · Uthmani script · tanzil.net · CC BY 3.0, unmodified and credited'],['Arabic tafsir (Arabic interface)','Al-Tafsir al-Muyassar · Arabic · the surah introduction is left out, the tafsir text itself is unchanged. Several ayahs may be explained together.'],['Turkish translation','Elmalılı Hamdi Yazır, “Hak Dini Kur’an Dili” (1938) · public domain. Some passages are translated as a whole; the card says so.'],['English translation','Marmaduke Pickthall (1930) · public domain'],['New 12 surahs — recitation','reciter','Wikimedia Commons recordings; the “Listen to the surah” button streams them online.'],['Other surahs — recitation','The ayah-by-ayah recordings were prepared for this app.'],['Checking','Every ayah of the Arabic text is compared letter by letter with an independent print (Kemenag), and re-checked automatically on every change.']],
    note:'Please tell us if you see a mistake. This app does not replace a teacher; translations are only an aid to understanding.',close:'Close'},
   de:{link:'Quellen und Dank',title:'Quellen',intro:'Der Koran-Text und die Übersetzungen in diesem Bereich stammen aus frei nutzbaren Quellen und werden unverändert verwendet.',
-   rows:[['Arabischer Text','Tanzil-Projekt · osmanische Schreibweise · tanzil.net · CC BY 3.0, unverändert und mit Quellenangabe'],['Türkische Übersetzung','Elmalılı Hamdi Yazır (1938) · gemeinfrei. Manche Stellen sind zusammen übersetzt; die Karte weist darauf hin.'],['Englische Übersetzung','Marmaduke Pickthall (1930) · gemeinfrei'],['Neue 12 Suren — Rezitation','reciter','Aufnahmen von Wikimedia Commons; die Schaltfläche „Sure anhören“ streamt sie online.'],['Weitere Suren — Rezitation','Die Vers-für-Vers-Aufnahmen wurden für diese App erstellt.'],['Prüfung','Jeder Vers des arabischen Textes wird Buchstabe für Buchstabe mit einem unabhängigen Druck (Kemenag) verglichen und bei jeder Änderung automatisch erneut geprüft.']],
+   rows:[['Arabischer Text','Tanzil-Projekt · osmanische Schreibweise · tanzil.net · CC BY 3.0, unverändert und mit Quellenangabe'],['Arabischer Tafsir (arabische Oberfläche)','Al-Tafsir al-Muyassar · Arabisch · die Sureneinleitung entfällt, der Tafsir-Text selbst ist unverändert. Mehrere Verse können zusammen erklärt sein.'],['Türkische Übersetzung','Elmalılı Hamdi Yazır (1938) · gemeinfrei. Manche Stellen sind zusammen übersetzt; die Karte weist darauf hin.'],['Englische Übersetzung','Marmaduke Pickthall (1930) · gemeinfrei'],['Neue 12 Suren — Rezitation','reciter','Aufnahmen von Wikimedia Commons; die Schaltfläche „Sure anhören“ streamt sie online.'],['Weitere Suren — Rezitation','Die Vers-für-Vers-Aufnahmen wurden für diese App erstellt.'],['Prüfung','Jeder Vers des arabischen Textes wird Buchstabe für Buchstabe mit einem unabhängigen Druck (Kemenag) verglichen und bei jeder Änderung automatisch erneut geprüft.']],
    note:'Bitte melde uns Fehler. Diese App ersetzt keinen Lehrer; Übersetzungen dienen nur dem Verständnis.',close:'Schließen'},
   fr:{link:'Sources et remerciements',title:'Sources',intro:'Le texte coranique et les traductions de cette section viennent de sources libres de droits et sont repris tels quels.',
-   rows:[['Texte arabe','Projet Tanzil · graphie ottomane · tanzil.net · CC BY 3.0, non modifié et crédité'],['Traduction turque','Elmalılı Hamdi Yazır (1938) · domaine public. Certains passages sont traduits ensemble ; la carte l’indique.'],['Traduction anglaise','Marmaduke Pickthall (1930) · domaine public'],['Les 12 nouvelles sourates — récitation','reciter','Enregistrements de Wikimedia Commons ; le bouton « Écouter la sourate » les diffuse en ligne.'],['Autres sourates — récitation','Les enregistrements verset par verset ont été préparés pour cette application.'],['Vérification','Chaque verset du texte arabe est comparé lettre par lettre à une édition indépendante (Kemenag) et revérifié automatiquement à chaque modification.']],
+   rows:[['Texte arabe','Projet Tanzil · graphie ottomane · tanzil.net · CC BY 3.0, non modifié et crédité'],['Tafsir arabe (interface arabe)','Al-Tafsir al-Muyassar · arabe · l’introduction de la sourate est omise, le texte du tafsir n’est pas modifié. Plusieurs versets peuvent être expliqués ensemble.'],['Traduction turque','Elmalılı Hamdi Yazır (1938) · domaine public. Certains passages sont traduits ensemble ; la carte l’indique.'],['Traduction anglaise','Marmaduke Pickthall (1930) · domaine public'],['Les 12 nouvelles sourates — récitation','reciter','Enregistrements de Wikimedia Commons ; le bouton « Écouter la sourate » les diffuse en ligne.'],['Autres sourates — récitation','Les enregistrements verset par verset ont été préparés pour cette application.'],['Vérification','Chaque verset du texte arabe est comparé lettre par lettre à une édition indépendante (Kemenag) et revérifié automatiquement à chaque modification.']],
    note:'Signalez-nous toute erreur. Cette application ne remplace pas un enseignant ; les traductions aident seulement à comprendre.',close:'Fermer'},
   ar:{link:'المصادر والشكر',title:'المصادر',intro:'نصّ القرآن الكريم والترجمات في هذا القسم مأخوذة من مصادر مجانية الاستخدام، وتُعرَض كما نُشرت دون أي تعديل منّا.',
-   rows:[['النص العربي','مشروع تنزيل · الرسم العثماني · tanzil.net · رخصة CC BY 3.0 دون تعديل مع ذكر المصدر'],['الترجمة التركية','إلماليلي حمدي يازر (١٩٣٨) · ملك عام. بعض المواضع تُترجَم عدّة آيات معًا، وتُنبّه البطاقة إلى ذلك.'],['الترجمة الإنجليزية','مارماديوك بيكثال (١٩٣٠) · ملك عام'],['السور الاثنتا عشرة الجديدة — التلاوة','reciter','تسجيلات من ويكيميديا كومنز؛ زر «استمع إلى السورة» يبثّها عبر الإنترنت.'],['بقية السور — التلاوة','أُعدّت التسجيلات آيةً آيةً خصيصًا لهذا التطبيق.'],['التحقق','تُقارَن كل آية من النص العربي حرفًا بحرف بطبعة مستقلة (وزارة الشؤون الدينية الإندونيسية) ويُعاد فحصها آليًا عند كل تعديل.']],
+   rows:[['النص العربي','مشروع تنزيل · الرسم العثماني · tanzil.net · رخصة CC BY 3.0 دون تعديل مع ذكر المصدر'],['التفسير (للواجهة العربية)','التفسير الميسر · نخبة من العلماء بإشراف د. عبد الله التركي · مجمع الملك فهد لطباعة المصحف الشريف · يُحذف تعريف السورة ويبقى نص التفسير دون تعديل، وقد تُفسَّر عدّة آيات معًا.'],['الترجمة التركية','إلماليلي حمدي يازر (١٩٣٨) · ملك عام. بعض المواضع تُترجَم عدّة آيات معًا، وتُنبّه البطاقة إلى ذلك.'],['الترجمة الإنجليزية','مارماديوك بيكثال (١٩٣٠) · ملك عام'],['السور الاثنتا عشرة الجديدة — التلاوة','reciter','تسجيلات من ويكيميديا كومنز؛ زر «استمع إلى السورة» يبثّها عبر الإنترنت.'],['بقية السور — التلاوة','أُعدّت التسجيلات آيةً آيةً خصيصًا لهذا التطبيق.'],['التحقق','تُقارَن كل آية من النص العربي حرفًا بحرف بطبعة مستقلة (وزارة الشؤون الدينية الإندونيسية) ويُعاد فحصها آليًا عند كل تعديل.']],
    note:'أخبرنا إن وجدت خطأً. هذا التطبيق لا يغني عن المعلّم؛ والترجمات للفهم فقط.',close:'إغلاق'}
  };
  function sourcesSheet(){
