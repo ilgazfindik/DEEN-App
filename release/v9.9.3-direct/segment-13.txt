@@ -193,7 +193,9 @@
   window.DEEN_PEDAGOGY_VERSION='6.3.3';
   window.DEEN_MINI_LESSON_FLOW_VERSION='6.3.3';
 
-  const UNIT_FIRST_PASS_TARGET=60;
+  // Every mini lesson is filled with questions the player has not seen in this unit; repeats are only a fallback when the
+  // unlocked part of the bank has run out (a unit's bank is 84-100 questions for about 80 places).
+  const UNIT_FIRST_PASS_TARGET=100;
   const GENERIC_UNIQUE_CAPS=[14,20,16,6,4];
   const U03_UNIQUE_CAPS=[14,14,14,13,5];
   const PROFILES={
@@ -257,8 +259,8 @@
     return PROFILES.learn;
   }
   function profile(d,no){const a=profileList(d);return a[Math.max(0,Math.min(a.length-1,(Number(no)||1)-1))]||a[0]}
-  function uniqueCap(d){return (d.unit==='U03'?U03_UNIQUE_CAPS:GENERIC_UNIQUE_CAPS)[d.index]??4}
-  function lessonNewQuota(d,no){const cap=uniqueCap(d),base=Math.floor(cap/d.lessons),rem=cap%d.lessons;return base+(Number(no)<=rem?1:0)}
+  function uniqueCap(d){return 999}
+  function lessonNewQuota(d,no){return Math.max(1,Number(profile(d,no).target)||5)}
   function macroMeta(d){
     state.macroStageMeta=state.macroStageMeta&&typeof state.macroStageMeta==='object'?state.macroStageMeta:{};
     const m=state.macroStageMeta[d.id]&&typeof state.macroStageMeta[d.id]==='object'?state.macroStageMeta[d.id]:{};
@@ -304,7 +306,7 @@
   }
   function exposure(u){
     const um=unitMeta(u),total=allUnitQuestions(u).length,used=um.firstPassSeenIds.length;
-    return {unit:u,target:um.firstPassTarget,used,reserved:Math.max(0,total-used),total,withinTarget:used>=50&&used<=65};
+    return {unit:u,target:um.firstPassTarget,used,reserved:Math.max(0,total-used),total,withinTarget:used<=um.firstPassTarget};
   }
   function weakness(q){
     let w=0;const r=state.reviewSchedule?.[q.id];
@@ -348,6 +350,11 @@
     if(qs.length!==ids.length||qs.some(q=>!safe(q)))return null;
     return qs;
   }
+  // What a question is about: its own words plus its answer (true/false answers carry no information).
+  const FACT_STOP=new Set('bir ve ile için de da mi mı mu mü ise bu şu o ne hangi hangisi daha en çok gibi olan olarak kişi kimse tarafından doğru yanlış boşluğu tamamla kayıp kelime aşağıdaki aşağıdakilerden değildir midir mıdır mudur müdür'.split(' '));
+  const factWords=t=>String(t||'').toLocaleLowerCase('tr').replace(/[^\p{L}\p{N}\s]+/gu,' ').split(/\s+/).filter(w=>w.length>3&&!FACT_STOP.has(w)).map(w=>w.slice(0,5));
+  function factPrint(q){const a=typeof q.correct_answer==='string'?q.correct_answer.toLocaleLowerCase('tr').trim():'';return new Set([...factWords(q.question_tr),...(a&&!['doğru','yanlış','true','false'].includes(a)&&a.length<80?factWords(a):[])])}
+  function factSame(a,b){if(!a.size||!b.size)return false;let n=0;for(const w of a)if(b.has(w))n++;return n/(a.size+b.size-n)>=.45}
   function compose(d,no,{persist=false,forceReplay=false,ignoreAssignment=false}={}){
     ensureState();const p=profile(d,no),m=macroMeta(d),um=unitMeta(d.unit),existing=!ignoreAssignment?assignmentQuestions(d,no):null;
     const progression=!forceReplay && m.completedLessons<no;
@@ -368,15 +375,31 @@
     // New first-pass material may come from any technical pool already unlocked in this unit.
     // This lets mini lessons honor their pedagogical identity without leaking future-stage content.
     const unseenBase=unlocked.filter(q=>!firstSeen.has(q.id));
-    chosen.push(...pickDiverse(unseenBase,newSlots,p,used,concepts,false));
+    // A question that asks the same fact as one already met (same words, same answer) counts as seen too: such questions
+    // are only used when nothing else is left.
+    const metFps=progression?[...firstSeen].map(id=>QMAP?.get?.(id)||QUESTIONS.find(x=>x.id===id)).filter(Boolean).map(factPrint):[];
+    const asked=q=>{if(!metFps.length)return false;const f=factPrint(q);return metFps.some(g=>factSame(f,g))};
+    const fresh=unseenBase.filter(q=>!asked(q)),echoes=unseenBase.filter(asked);
+    chosen.push(...pickDiverse(fresh,newSlots,p,used,concepts,false));
+    // The unlocked part of the bank can be a few questions short of the lesson (a stage has 12-16 questions for 15-20 places).
+    // Rather than repeat a question the player has already met, take unseen ones from the next stage, text questions only.
+    if(progression&&chosen.length<Math.min(newSlots,target)&&d.kind!=='audio'&&d.kind!=='challenge'){
+      const ahead=safeUnitQuestions(d.unit).filter(q=>!firstSeen.has(q.id)&&!used.has(q.id)&&!asked(q)&&stageNo(q.stage_id)===maxStage+1&&!q.asset_requirement&&!/listen|audio/.test(String(q.activity_type||'')));
+      chosen.push(...pickDiverse(ahead,Math.min(newSlots,target)-chosen.length,p,used,concepts,false));
+    }
+    if(chosen.length<Math.min(newSlots,target))chosen.push(...pickDiverse(echoes,Math.min(newSlots,target)-chosen.length,p,used,concepts,false));
+    // Still short and nothing unseen is left to use: a shorter lesson is better than showing questions again
+    // (review and challenge stages are meant to revisit, so they keep their repeats).
+    let need=target-chosen.length;
+    if(progression&&need>0&&chosen.length>=3&&d.kind!=='review'&&d.kind!=='challenge')need=0;
 
     let repeatPool=safeUnitQuestions(d.unit).filter(q=>firstSeen.has(q.id));
     if(!p.challenge && progression)repeatPool=repeatPool.filter(q=>stageNo(q.stage_id)<=maxStage);
     if(p.challenge)repeatPool.sort((a,b)=>weakness(b)-weakness(a));
-    chosen.push(...pickDiverse(repeatPool,target-chosen.length,p,used,concepts,true));
+    chosen.push(...pickDiverse(repeatPool,need,p,used,concepts,true));
 
     // If a user replays before enough history exists, use reserved stage material rather than shorten the lesson.
-    if(chosen.length<target){
+    if(need>0&&chosen.length<target){
       const fallback=unlocked.filter(q=>!used.has(q.id));
       chosen.push(...pickDiverse(fallback,target-chosen.length,p,used,concepts,false));
     }
@@ -438,8 +461,10 @@
     }
     if(!state.premium&&state.energy<d.energy){if(window.DEEN_V624)DEEN_V624.pendingStage=id;showEnergy();return}
     if(!state.premium)state.energy-=d.energy;
-    compose(d,no,{persist:true});
-    const committedQs=qs;
+    // Show exactly the questions that are recorded as seen. A second, separate selection can differ from the first (the ranking
+    // has a random part); the player then met the recorded ones never and the shown ones again in later lessons.
+    const persistedQs=compose(d,no,{persist:true});
+    const committedQs=Array.isArray(persistedQs)&&persistedQs.length?(window.DEEN_APP_LOCALE?.get?.()==='ar'?(window.DEEN_ARABIC_PILOT?.translateBatch?.(persistedQs)||qs):persistedQs):qs;
     m.lastLessonNo=no;
     session={stage:{id:d.id,unit:d.unit,title:d.title,kind:d.kind,xp:d.xp,energy:d.energy,meta:d.role},questions:committedQs,index:0,correct:0,combo:0,bestCombo:0,macroStage:true,macroId:d.id,macroRole:d.role,macroDef:d,lessonNo:no,lessonTotal:d.lessons,pedagogyProfile:clone(p),pedagogyVersion:'6.3.3',unitExposureAtStart:exposure(d.unit),startedAt:Date.now(),previousStreak:state.streak,beforeMastery:(()=>{try{const a=defs(d.unit);return Math.round(a.reduce((sum,x)=>{const mm=macroMeta(x),v=Object.values(mm.lessonScores).map(Number).filter(Number.isFinite);return sum+(v.length?v.reduce((a,b)=>a+b,0)/v.length:0)},0)/a.length)}catch(e){return 0}})(),wasCompleted:st.done,v5responses:[]};
     $('lesson').classList.add('active');$('quizView').style.display='flex';resetResultView(false);setLessonStatus(false);saveState();updateUI();renderQuestion();
