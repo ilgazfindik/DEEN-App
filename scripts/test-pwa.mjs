@@ -11,4 +11,7 @@ assert(need['192x192']&&need['512x512']&&need.maskable,'192, 512 and a maskable 
 assert.deepEqual(png('assets/icons/apple-touch-icon.png'),[180,180],'apple touch icon is 180x180');
 const tags=['rel="manifest" href="./manifest.webmanifest"','rel="apple-touch-icon"','name="theme-color"','name="apple-mobile-web-app-capable"'];
 for(const f of ['index.html','release/v9.9.3-direct/segment-00.txt']){const s=readFileSync(f,'utf8');for(const t of tags)assert(s.includes(t),f+' has '+t)}
+// The offline worker refuses a release name shorter than 8 characters (sw.js: /^[a-zA-Z0-9_-]{8,80}$/), which silently disables offline use.
+const build=readFileSync('index.html','utf8').match(/const BUILD='([^']*)'/)[1];
+assert(/^[a-zA-Z0-9_-]{8,80}$/.test(build),'BUILD "'+build+'" must be 8-80 letters, digits, - or _ (the service worker rejects anything else)');
 console.log('PWA ok:',m.icons.length,'icons, display',m.display);
