@@ -1,0 +1,32 @@
+name: Learn Extra Questions Check
+
+on:
+  pull_request:
+    paths:
+      - 'assets/learn/**'
+      - 'scripts/learn-extra/**'
+      - 'scripts/test-learn-extra.mjs'
+      - '.github/workflows/learn-extra-check.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'assets/learn/**'
+      - 'scripts/learn-extra/**'
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Extra question pack is well formed
+        run: node scripts/test-learn-extra.mjs
+      - name: Generated file is up to date
+        run: |
+          python3 scripts/learn-extra/build.py
+          git diff --exit-code assets/learn/extra-questions.js
