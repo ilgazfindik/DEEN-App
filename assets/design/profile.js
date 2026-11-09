@@ -171,6 +171,27 @@
    (mini?'<div class="dsp-mini">'+mini+'</div>':'')+'</button>';
  }
 
+ // Add to the home screen: Android/desktop Chrome offers an install prompt, iPhone Safari needs the Share menu.
+ const INSTALL={
+  tr:{row:'Ana ekrana ekle',title:'Ana ekrana ekle',ios:'Safari’de Paylaş düğmesine dokun, sonra “Ana Ekrana Ekle”yi seç. Ilnura bir uygulama gibi açılır.',done:'Ana ekrana eklendi'},
+  en:{row:'Add to home screen',title:'Add to home screen',ios:'In Safari tap the Share button, then choose “Add to Home Screen”. Ilnura then opens like an app.',done:'Added to the home screen'},
+  de:{row:'Zum Startbildschirm hinzufügen',title:'Zum Startbildschirm hinzufügen',ios:'Tippe in Safari auf „Teilen“ und wähle „Zum Home-Bildschirm“. Ilnura öffnet sich dann wie eine App.',done:'Zum Startbildschirm hinzugefügt'},
+  fr:{row:'Ajouter à l’écran d’accueil',title:'Ajouter à l’écran d’accueil',ios:'Dans Safari, touche le bouton Partager puis choisis « Sur l’écran d’accueil ». Ilnura s’ouvre alors comme une application.',done:'Ajoutée à l’écran d’accueil'},
+  ar:{row:'أضِف إلى الشاشة الرئيسية',title:'أضِف إلى الشاشة الرئيسية',ios:'في Safari اضغط زر المشاركة ثم اختر «إضافة إلى الشاشة الرئيسية». عندها يُفتح Ilnura كالتطبيق.',done:'أُضيف إلى الشاشة الرئيسية'}
+ };
+ let installEvent=null;
+ const standalone=()=>{try{return matchMedia('(display-mode: standalone)').matches||navigator.standalone===true}catch(_){return false}};
+ const iosSafari=()=>{try{const ua=navigator.userAgent||'';return /iPad|iPhone|iPod/.test(ua)&&!window.MSStream}catch(_){return false}};
+ const canInstall=()=>!standalone()&&(!!installEvent||iosSafari());
+ try{
+  window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();installEvent=e;setTimeout(()=>{try{render()}catch(_){}},300)});
+  window.addEventListener('appinstalled',()=>{installEvent=null;setTimeout(()=>{try{render()}catch(_){}},300)});
+ }catch(_){}
+ async function installApp(){
+  const t=INSTALL[lang()]||INSTALL.en;
+  if(installEvent){const ev=installEvent;installEvent=null;try{await ev.prompt();await ev.userChoice}catch(_){}try{render()}catch(_){}return}
+  try{sheet(t.title,'<p>'+esc(t.ios)+'</p>')}catch(_){}
+ }
  function prefs(d,T){
   const st=appState(),rows=[];
   const row=(key,icon,tone,label,value)=>'<button type="button" class="dsp-pref" data-dsp="'+key+'"><span class="dsp-badge '+tone+'">'+svg(icon)+'</span><span class="dsp-grow">'+label+'</span>'+(value?'<span class="dsp-pref-value">'+value+'</span>':'')+svg('chevron','dsp-flip dsp-chev')+'</button>';
@@ -181,6 +202,7 @@
   rows.push(row('goal','target','mint',esc(T.goal),rhythm?data(rhythm.value):esc(T.goalValue(Number(st.dailyGoal)||0))));
   if(d.store)rows.push(row('store','gem','gold',esc(T.store),esc(d.store.value)));
   rows.push(row('settings','gear','muted',esc(T.settings),''));
+  if(canInstall())rows.push(row('install','star','gold',esc((INSTALL[lang()]||INSTALL.en).row),''));
   rows.push(row('legal','info','muted',esc(window.DEEN_LEGAL?.label?.()||T.settings),''));
   const facts=d.summary.slice(1);
   const approach=facts.length?'<details class="dsp-approach"><summary>'+svg('compass')+'<span class="dsp-grow">'+esc(T.approach)+'</span>'+svg('chevron','dsp-chev dsp-rot')+'</summary><dl>'+
@@ -294,6 +316,7 @@
   const call=fn=>{try{window[fn]?.()}catch(err){console.warn('DEEN_DS_PROFILE_ACTION',fn,err)}};
   if(k==='settings')call('settingsPanel');
   else if(k==='legal')window.DEEN_LEGAL?.open?.();
+  else if(k==='install')installApp();
   else if(k==='edit')call('editProfile');
   else if(k==='avatar'){const a=document.querySelector('#profileScreenBody>.v5-profilehead .v5-avatar');a?a.click():call('editProfile')}
   else if(k==='calendar')call('streakPanel');

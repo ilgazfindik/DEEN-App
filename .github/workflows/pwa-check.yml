@@ -1,0 +1,30 @@
+name: PWA Check
+
+on:
+  pull_request:
+    paths:
+      - 'manifest.webmanifest'
+      - 'assets/icons/**'
+      - 'index.html'
+      - 'release/**'
+      - 'scripts/test-pwa.mjs'
+      - '.github/workflows/pwa-check.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'manifest.webmanifest'
+      - 'assets/icons/**'
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Manifest, icons and head tags
+        run: node scripts/test-pwa.mjs

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+<defs>
+<radialGradient id="bg" cx="50%" cy="38%" r="75%"><stop offset="0" stop-color="#17504c"/><stop offset="1" stop-color="#03131b"/></radialGradient>
+<linearGradient id="gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffeaa8"/><stop offset="1" stop-color="#c8922e"/></linearGradient>
+<radialGradient id="door" cx="50%" cy="85%" r="80%"><stop offset="0" stop-color="#e8b955" stop-opacity=".85"/><stop offset=".6" stop-color="#14525a"/><stop offset="1" stop-color="#0a3340"/></radialGradient>
+</defs>
+<rect width="64" height="64" rx="14.08" fill="url(#bg)"/>
+<g transform="translate(15.157894736842106 13.810526315789472) scale(0.16842105263157894)"><path d="M24 260V112C24 70 64 40 100 4C136 40 176 70 176 112V260Z" fill="url(#door)"/>
+<path d="M24 260V112C24 70 64 40 100 4C136 40 176 70 176 112V260" fill="none" stroke="url(#gold)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M100 4V260" stroke="#d9aa4b" stroke-width="1.6" opacity=".55"/>
+<path d="M108 -36.86A16 16 0 1 0 108 -9.14A14.5 14.5 0 1 1 108 -36.86Z" fill="#ffe29a" transform="translate(0,-4) scale(1.15) translate(-13,-1)"/></g>
+</svg>
