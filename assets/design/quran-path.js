@@ -95,7 +95,7 @@
  // Easy to hard: by level, then by length (Fatiha stays first), ties keep the engine's own order.
  const surahs=()=>{
   const list=[
-   ...(Q()?.surahs||[]).filter(s=>s&&s.id&&s.ayahs).map(s=>({...s,level:levelOf(s)})),
+   ...(Q()?.surahs||[]).filter(s=>s&&s.id&&s.ayahs).map(s=>({...s,name:(lang()==='ar'&&PACK()?.arNames?.[s.id])||s.name,level:levelOf(s)})),
    ...(PACK()?.surahs||[]).map(s=>({id:s.id,name:(lang()==='ar'&&s.nameAr)||s.name,ayahs:s.ayahs.length,ext:true,level:levelOf(s)}))
   ];
   const at=new Map(list.map((s,i)=>[s.id,i]));
@@ -122,16 +122,17 @@
     return {id:sid+':'+a.n,num:a.n,glyph:ar,name:meal,hint:meal?(code==='tr'?xt.srcTr+grp:code==='ar'?xt.srcAr+grp:xt.srcEn):'',audio:a.audio||ps.audio?.chapter||'',audioLabel:a.audio?'':xt.audio.listen,audioPause:xt.audio.pause,audioCredit:a.audio||!ps.audio?'':xt.audio.reciter+': '+ps.audio.credit.reciter+' · '+ps.audio.credit.license,parts:ar.split(/\s+/).filter(w=>ARABIC.test(w))};
    });
   }
-  const rows=C()?.getSurah?.(sid)||[],tr=window.DEEN_QURAN_LEARNING_TRANSLATION,t=T[code];
+  const rows=C()?.getSurah?.(sid)||[],tr=window.DEEN_QURAN_LEARNING_TRANSLATION,t=T[code],old=code==='ar'?PACK()?.muyassarOlder?.[sid]:null;
   return rows.map(r=>{
    const n=r.ayah_number,text=String(r.arabic?.text||'');
-   let meal='';try{meal=(code==='tr'||code==='en')?(tr?.get?.(r)?.text||''):''}catch(_){}
+   let meal='';try{meal=(code==='tr'||code==='en')?(tr?.get?.(r)?.text||''):old?.[n-1]?.ms||''}catch(_){}
+   const gr=old?.[n-1]?.msGroup,hint=meal?(code==='ar'?x().srcAr+(gr?' · '+x().grp(gr[0],gr[1]):''):t.source):'';
    const audio=r.recitation?.verification_status==='production_ready'&&r.recitation?.rights_status==='cleared'?r.recitation.audio_url:'';
-   return {id:sid+':'+n,num:n,glyph:text,name:meal,hint:meal?t.source:'',audio,parts:text.split(/\s+/).filter(w=>ARABIC.test(w))};
+   return {id:sid+':'+n,num:n,glyph:text,name:meal,hint,audio,parts:text.split(/\s+/).filter(w=>ARABIC.test(w))};
   }).filter(x=>x.glyph);
  }
- // Tr and en have a meaning for every surah; Arabic players get the Muyassar tafsir, which only the pack's surahs carry.
- const mealOf=(sid,code)=>code==='tr'||code==='en'||(code==='ar'&&!!packSurah(sid));
+ // Tr and en have a meaning for every surah; Arabic players get the Muyassar tafsir for every surah (the pack carries it).
+ const mealOf=(sid,code)=>code==='tr'||code==='en'||(code==='ar'&&(!!packSurah(sid)||!!PACK()?.muyassarOlder?.[sid]));
  // Lessons of a surah, in order. Ayahs are introduced four at a time and memorised three at a time.
  function plan(sid,count,code){
   const t=T[code],nums=Array.from({length:count},(_,i)=>i+1),hasMeal=mealOf(sid,code),out=[];
@@ -332,6 +333,16 @@
   return all;
  }
  // Question makers over a pool of ayah items; used by the arena and by the review.
+ // "Which surah is this ayah from?": the answers are surah names, carried as extra items under ids 'surah:<id>'.
+ let owners=null;
+ const ownersOf=()=>{if(owners)return owners;owners=new Map();for(const sh of surahs())for(const it of itemsOf(sh.id,'tr')){const k=it.parts.join(' ');(owners.get(k)||owners.set(k,new Set()).get(k)).add(sh.id)}return owners};
+ const surahItems=()=>surahs().map(sh=>({id:'surah:'+sh.id,num:0,glyph:'',name:sh.name,hint:'',parts:[]}));
+ function surahQ(it){
+  const sid=it.id.split(':')[0],own=ownersOf().get(it.parts.join(' '));
+  if(it.parts.length<2||it.parts.length>9||(own&&own.size>1))return null;
+  const others=shuffle(surahs().filter(z=>z.id!==sid)).slice(0,2).map(z=>'surah:'+z.id);
+  return {k:'q',type:'name',id:it.id,ask:'surah',ans:'surah:'+sid,opts:shuffle(['surah:'+sid,...others])};
+ }
  function qKit(pool,code){
   const words=[...new Set(pool.flatMap(i=>i.parts))];
   // A long tafsir does not fit on an answer button: it is shown on the card, not asked.
@@ -374,9 +385,11 @@
    }
   };
   rec[level]();
+  // A few of the ten are "which surah is this ayah from", whatever the language.
+  const sq=take(level==='hard'?3:2,short).map(surahQ).filter(Boolean);
   // Top up with fill-in-the-blank if a kind ran short, then keep ten.
   for(const i of take(10,short)){if(out.length>=10)break;out.push(fill(i,level==='hard'?4:3))}
-  return shuffle(out).slice(0,10);
+  return shuffle([...sq,...shuffle(out).slice(0,10-sq.length)]);
  }
  // ---- Review: every ayah that is due, from the old surahs (their engine's queue) and the new ones (this path's store). ----
  function dueList(){
@@ -428,7 +441,7 @@
   }
   if(!steps.length||!window.DEEN_ARABIC_CARDS)return reviewEmpty();
   const t=x().rev;
-  const ok=window.DEEN_ARABIC_CARDS.open({lessonIndex:null,items:pool,lessonIds:[],steps,lang:code,ask:'mean',title:t.title,subtitle:'',
+  const ok=window.DEEN_ARABIC_CARDS.open({lessonIndex:null,items:pool,knownItems:surahItems(),lessonIds:[],steps,lang:code,ask:'mean',title:t.title,subtitle:'',
    onAnswer:()=>{},onDone:result=>reviewDone(asked,result,result?.seconds),onClose:()=>{remount()},onExit:()=>{remount()}});
   const host=document.getElementById('dsArabicCards');
   if(ok&&host){host.classList.add('dsa-run');host.dataset.level='easy';setTimeout(()=>host.querySelector('.dac-intro-go')?.click(),60)}
@@ -466,7 +479,7 @@
   const code=lang(),pool=arenaPool(scope,code),steps=arenaSteps(level,pool,code);
   if(steps.length<4||!window.DEEN_ARABIC_CARDS)return false;
   let combo=0;
-  const ok=window.DEEN_ARABIC_CARDS.open({lessonIndex:null,items:pool,lessonIds:[],steps,lang:code,ask:'mean',title:ax().title,subtitle:ax().lv[LV_KEYS.indexOf(level)][0],
+  const ok=window.DEEN_ARABIC_CARDS.open({lessonIndex:null,items:pool,knownItems:surahItems(),lessonIds:[],steps,lang:code,ask:'mean',title:ax().title,subtitle:ax().lv[LV_KEYS.indexOf(level)][0],
    onAnswer:(id,right)=>{if(right){combo++;if(combo===3||combo===5){const h=document.getElementById('dsArabicCards');if(h)comboRise(combo,h)}}else combo=0},
    onDone:result=>recordArena(level,result),
    onClose:()=>arenaScreen(),onExit:()=>arenaScreen()});

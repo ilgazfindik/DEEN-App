@@ -6,6 +6,8 @@ on:
       - 'assets/quran/**'
       - 'scripts/*quran*'
       - 'scripts/build-surah-pack.mjs'
+      - 'index.html'
+      - 'release/**'
       - '.github/workflows/quran-text-check.yml'
   push:
     branches: [main]
@@ -13,6 +15,8 @@ on:
       - 'assets/quran/**'
       - 'scripts/*quran*'
       - 'scripts/build-surah-pack.mjs'
+      - 'index.html'
+      - 'release/**'
 
 permissions:
   contents: read
@@ -20,10 +24,17 @@ permissions:
 jobs:
   verify:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - name: Quran text matches the checked checksums
+      - name: Pack surahs match the checked checksums
         run: node scripts/verify-quran-text.mjs
+      - name: Install Chromium
+        run: |
+          npm install --no-save --package-lock=false playwright@1.62.1
+          npx playwright install --with-deps chromium
+      - name: Older surahs, as the app shows them, match the checked checksums
+        run: node scripts/verify-quran-text-app.mjs
