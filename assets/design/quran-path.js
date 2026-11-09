@@ -113,7 +113,7 @@
    const xt=x();
    return ps.ayahs.map(a=>{
     const meal=code==='tr'?a.tr:code==='en'?a.en:'';
-    return {id:sid+':'+a.n,num:a.n,glyph:a.ar,name:meal,hint:meal?(code==='tr'?xt.srcTr:xt.srcEn):'',audio:a.audio||'',parts:a.ar.split(/\s+/).filter(w=>ARABIC.test(w))};
+    return {id:sid+':'+a.n,num:a.n,glyph:a.ar,name:meal,hint:meal?(code==='tr'?xt.srcTr:xt.srcEn):'',audio:a.audio||ps.audio?.chapter||'',audioLabel:a.audio?'':xt.audio.listen,audioPause:xt.audio.pause,audioCredit:a.audio||!ps.audio?'':xt.audio.reciter+': '+ps.audio.credit.reciter+' · '+ps.audio.credit.license,parts:a.ar.split(/\s+/).filter(w=>ARABIC.test(w))};
    });
   }
   const rows=C()?.getSurah?.(sid)||[],tr=window.DEEN_QURAN_LEARNING_TRANSLATION,t=T[code];
