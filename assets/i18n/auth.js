@@ -3,7 +3,8 @@
 (()=>{
  'use strict';
  if(window.DEEN_AUTH_GATE)return;
- const CONFIG={url:'',publishableKey:''}; // Dedicated DEEN Supabase project required.
+ const CONFIG={url:'https://yrpndjfhheeigchpombe.supabase.co',publishableKey:'sb_publishable_hFUlO2Q78nqWTd7WqaOL-g_JYIDNoqu'}; // Public values only (project URL + publishable key). Never put a service_role key here.
+ const SDK_FILE='./assets/vendor/supabase-js-2.81.1.js',SDK_SRI='sha384-qmLe2vls59SnfpN2OJ/tjAASSNP+R7nmj+MyytoaCmVRjJbVGsUaFkxJW4jGpaqh';
  const strings={
   tr:['Hesabınla öğrenmeye devam et','Kayıt ol veya hesabına giriş yap.','Google ile devam et','Apple ile devam et','E-posta ile devam et','Kayıt ol','Giriş yap','Şifremi unuttum','E-posta adresi','Şifre (en az 8 karakter)','E-posta ile kayıt ol','Giriş yap','Şifre yenileme bağlantısı gönder','Misafir olarak devam et','Misafir ilerlemesi bu cihazda saklanır. Bulut eşitleme henüz etkin değil.','Hesap sistemi henüz etkinleştirilmedi. Misafir olarak devam edebilirsin.','Doğrulama bağlantısı için e-postanı kontrol et.','Varsa şifre yenileme bağlantısı e-postana gönderildi.','Geçerli bir e-posta ve en az 8 karakterli şifre gir.','İşlem tamamlanamadı. Tekrar dene.','Bağlanılıyor…','Geri','13 yaşından küçüksen hesabı ebeveynin veya yasal vasin açmalıdır.'],
   ar:['تابع التعلّم بحسابك','أنشئ حسابًا أو سجّل الدخول.','المتابعة باستخدام Google','المتابعة باستخدام Apple','المتابعة بالبريد الإلكتروني','إنشاء حساب','تسجيل الدخول','نسيت كلمة المرور','البريد الإلكتروني','كلمة المرور (8 أحرف على الأقل)','التسجيل بالبريد الإلكتروني','تسجيل الدخول','إرسال رابط إعادة التعيين','المتابعة كضيف','يُحفظ تقدّم الضيف على هذا الجهاز فقط. المزامنة السحابية لم تُفعّل بعد.','خدمة الحسابات غير مفعّلة بعد. يمكنك المتابعة كضيف.','تحقق من بريدك الإلكتروني وأكّد التسجيل.','تحقق من بريدك الإلكتروني للحصول على رابط إعادة التعيين.','أدخل بريدًا صحيحًا وكلمة مرور من 8 أحرف على الأقل.','تعذّر إكمال العملية. حاول مجددًا.','جارٍ الاتصال…','رجوع','إذا كان عمرك أقل من 13 عامًا، يجب على أحد والديك أو وصيك إنشاء الحساب.'],
@@ -41,11 +42,20 @@
    };
    if(window.supabase?.createClient)return init();
    const script=document.createElement('script');
-   script.src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.81.1/dist/umd/supabase.js';
-   script.crossOrigin='anonymous';script.onload=init;script.onerror=()=>reject(Error('AUTH_SDK_LOAD_FAILED'));
+   // Served from this site (hash-pinned), so no third-party CDN ever sees the learner.
+   script.src=SDK_FILE;script.integrity=SDK_SRI;script.crossOrigin='anonymous';script.onload=init;script.onerror=()=>reject(Error('AUTH_SDK_LOAD_FAILED'));
    document.head.appendChild(script);
   }).catch(e=>{loading=null;throw e});
   return loading;
+ }
+ let provCache=null;
+ // Which sign-in methods the project really has enabled (so the screen never offers a dead button).
+ function providers(){
+  if(provCache)return provCache;
+  provCache=fetch(CONFIG.url.replace(/\/$/,'')+'/auth/v1/settings',{headers:{apikey:CONFIG.publishableKey}}).then(r=>r.ok?r.json():Promise.reject(Error('settings '+r.status))).then(j=>{
+   const e=j?.external||{};return {google:!!e.google,apple:!!e.apple,email:e.email!==false};
+  }).catch(()=>{provCache=null;return {google:false,apple:false,email:true,unknown:true}});
+  return provCache;
  }
  function close(){root?.remove();root=null;busy=false;const phone=document.querySelector('.phone');if(phone)phone.inert=!!document.getElementById('v998Onboarding');}
  function show(){
@@ -58,7 +68,7 @@
    if(!state.onboarded&&onboarding?.render){document.getElementById('v998Onboarding')?.remove();onboarding.render(1);}
    return null;
   }
-  close();let mode='choice',completed=false;
+  close();let mode='choice',completed=false,prov=null;
   const pane=document.createElement('section');root=pane;
   pane.id='deenAccountGate';pane.setAttribute('role','dialog');pane.setAttribute('aria-modal','true');pane.lang=lang();pane.dir=lang()==='ar'?'rtl':'ltr';pane.setAttribute('aria-label',T(0));
   const phone=document.querySelector('.phone');if(phone)phone.inert=true;
@@ -71,7 +81,7 @@
   const lock=value=>{busy=value;pane.querySelectorAll('button,input').forEach(el=>{if(!el.classList.contains('da-guest'))el.disabled=value})};
   function render(){
    pane.innerHTML='<div class="da-panel"><div class="da-brand">DEEN</div><h1>'+escape(T(0))+'</h1><p>'+escape(T(1))+'</p>'+
-    (mode==='choice'?'<div class="da-actions">'+socialButton('google',T(2))+socialButton('apple',T(3))+'<button type="button" class="da-provider da-email"><span class="da-provider-icon">'+authIcons.email+'</span><span class="da-provider-label">'+escape(T(4))+'</span><span class="da-provider-spacer" aria-hidden="true"></span></button></div>':
+    (mode==='choice'?'<div class="da-actions">'+(prov?.google?socialButton('google',T(2)):'')+(prov?.apple?socialButton('apple',T(3)):'')+(prov&&prov.email===false?'':'<button type="button" class="da-provider da-email"><span class="da-provider-icon">'+authIcons.email+'</span><span class="da-provider-label">'+escape(T(4))+'</span><span class="da-provider-spacer" aria-hidden="true"></span></button>')+'</div>':
      '<button class="da-back" type="button">'+escape(T(21))+'</button><div class="da-tabs"><button type="button" data-mode="signup" aria-pressed="'+(mode==='signup')+'">'+escape(T(5))+'</button><button type="button" data-mode="signin" aria-pressed="'+(mode==='signin')+'">'+escape(T(6))+'</button></div><form novalidate><label>'+escape(T(8))+'<input type="email" name="email" inputmode="email" autocomplete="email" maxlength="254" required></label>'+
      (mode==='reset'?'':'<label>'+escape(T(9))+'<input type="password" name="password" minlength="8" autocomplete="'+(mode==='signup'?'new-password':'current-password')+'" required></label>')+
      '<button type="submit" class="da-submit">'+escape(T(mode==='signup'?10:mode==='reset'?12:11))+'</button></form><button type="button" class="da-reset">'+escape(T(7))+'</button>')+
@@ -100,15 +110,16 @@
      const result=mode==='signup'?await api.auth.signUp({email,password,options:{emailRedirectTo:returnTo}}):mode==='reset'?await api.auth.resetPasswordForEmail(email,{redirectTo:returnTo}):await api.auth.signInWithPassword({email,password});
      if(result.error)throw result.error;
      if(mode==='reset'){say(T(17));return}
-     if(result.data?.session){onward();return}
+     if(result.data?.session){window.DEEN_ACCOUNT?.onSignedIn?.();onward();return}
      say(T(16));
     }catch(_){say(T(19))}finally{if(pane.isConnected)lock(false)}
    });
    if(!configured())say(T(15));
   }
   document.body.appendChild(pane);render();pane.tabIndex=-1;pane.focus();
+  if(configured())providers().then(p=>{prov=p;if(pane.isConnected&&mode==='choice')render()});
   if(configured())sdk().then(api=>api.auth.getSession()).then(({data})=>{if(data?.session&&pane.isConnected)onward()}).catch(()=>{});
   return pane;
  }
- window.DEEN_AUTH_GATE=Object.freeze({show,close,configured,version:'auth-gate-v1'});
+ window.DEEN_AUTH_GATE=Object.freeze({show,close,configured,sdk,providers,version:'auth-gate-v2'});
 })();

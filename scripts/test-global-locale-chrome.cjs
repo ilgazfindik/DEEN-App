@@ -8,7 +8,9 @@ const server=http.createServer((req,res)=>{const p=decodeURIComponent(req.url.sp
  const browser=await chromium.launch({channel:'chrome',headless:true,args:['--no-sandbox','--disable-dev-shm-usage']});
  const report={browser:'Google Chrome',version:browser.version(),languages:{},fullSupport:false};
  for(const lang of ['tr','ar','en','de','fr']){
-  const context=await browser.newContext({viewport:{width:390,height:844}}),page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
+  const context=await browser.newContext({viewport:{width:390,height:844}}),page=await context.newPage(),errors=[];
+  // Deterministic: the sign-in screen asks the project which providers are enabled; answer with all of them.
+  await context.route('https://yrpndjfhheeigchpombe.supabase.co/**',route=>route.fulfill({status:200,contentType:'application/json',headers:{'access-control-allow-origin':'*','access-control-allow-headers':'*'},body:JSON.stringify({external:{google:true,apple:true,email:true}})}));page.on('pageerror',e=>errors.push(e.message));
   await page.goto(url+'?previewAccount=1');await page.waitForSelector('#deenLanguageGate');assert.equal(await page.locator('.phone').count(),0);assert.equal(await page.locator('.v9912-authbtn').count(),0);
   assert.equal(await page.locator('[data-locale]').count(),5);assert.equal(await page.locator('[data-locale="es"]').count(),0);assert(!await page.locator('.deen-language-continue').isEnabled());
   await page.locator('[data-locale="'+lang+'"]').click();assert.equal(await page.locator('#deenLanguageGate').getAttribute('lang'),lang);
@@ -18,6 +20,7 @@ const server=http.createServer((req,res)=>{const p=decodeURIComponent(req.url.sp
   const adminShortcut=page.locator('#deenMobileAdminButton');
   assert.equal(await adminShortcut.getAttribute('aria-label'),{"tr":"Admin panelini aç","ar":"فتح لوحة الإدارة","en":"Open admin panel","de":"Admin-Panel öffnen","fr":"Ouvrir le panneau d’administration"}[lang],'Mobile admin shortcut label must match selected language');
   assert.equal(await adminShortcut.isVisible(),false,'P shortcut must stay hidden during account selection');
+  await page.waitForSelector('#deenAccountGate [data-social="apple"]');
   assert.equal(await page.locator('#deenAccountGate [data-social]').count(),2);
   assert.equal(await page.locator('#deenAccountGate .da-email').count(),1);
   // All provider buttons carry a real inline SVG, with label visually centered.
@@ -167,8 +170,9 @@ const server=http.createServer((req,res)=>{const p=decodeURIComponent(req.url.sp
    const after=await page.evaluate(()=>({locale:DEEN_APP_LOCALE.get(),xp:state.xp,completed:state.completed,profile:state.profile,minutes:state.minutes}));assert.deepEqual(after,before);
    if(lang==='tr'){
     await page.goto(url+'?previewAccount=1');await page.waitForSelector('#deenAccountGate');
+    await page.waitForSelector('#deenAccountGate [data-social="apple"]');
     assert.equal(await page.locator('#deenAccountGate [data-social]').count(),2);
-    assert.equal(await page.evaluate(()=>window.DEEN_AUTH_GATE.configured()),false);
+    assert.equal(await page.evaluate(()=>window.DEEN_AUTH_GATE.configured()),true);
     assert.equal(await page.locator('#v998Onboarding').count(),0);
     await page.screenshot({path:path.join(out,'chrome-returning-user-account-preview.png')});
     await page.locator('#deenAccountGate .da-guest').click();
