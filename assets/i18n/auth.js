@@ -12,6 +12,12 @@
   fr:['Apprends avec ton compte','Crée un compte ou connecte-toi à DEEN.','Continuer avec Google','Continuer avec Apple','Continuer avec une adresse e-mail','Créer un compte','Se connecter','Mot de passe oublié ?','Adresse e-mail','Mot de passe (8 caractères minimum)','Créer un compte par e-mail','Se connecter','Envoyer un lien de réinitialisation','Continuer en tant qu’invité','La progression en mode invité reste sur cet appareil. La synchronisation cloud n’est pas encore active.','La connexion aux comptes n’est pas encore configurée. Tu peux continuer en tant qu’invité.','Consulte ta boîte mail et confirme ton adresse pour terminer ton inscription.','Consulte tes e-mails pour un lien de réinitialisation, s’il a été envoyé.','Saisis une adresse valide et un mot de passe de 8 caractères minimum.','Impossible de terminer la demande. Réessaie.','Connexion en cours…','Retour','Si tu as moins de 13 ans, un parent ou responsable légal doit créer le compte.']
  };
  const lang=()=>window.DEEN_APP_LOCALE?.get?.()||'tr';
+ // Consent line with links to the public pages (they open in a new tab, so they also work over this full-screen gate).
+ function legalNote(){
+  const L=window.DEEN_LEGAL;if(!L)return '';
+  const l=lang(),u=L.ui[l]||L.ui.tr,q='?lang='+encodeURIComponent(l);
+  return '<p class="da-note">'+escape(u.consent)+'<br><a href="./legal/terms.html'+q+'" target="_blank" rel="noopener">'+escape(u.terms)+'</a> · <a href="./legal/privacy.html'+q+'" target="_blank" rel="noopener">'+escape(u.privacy)+'</a></p>';
+ }
  const T=i=>(strings[lang()]||strings.en)[i];
  const escape=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const configured=()=>/^https:\/\/[a-z0-9.-]+\.supabase\.co\/?$/.test(CONFIG.url)&&/^(sb_publishable_|eyJ)/.test(CONFIG.publishableKey);
@@ -69,7 +75,7 @@
      '<button class="da-back" type="button">'+escape(T(21))+'</button><div class="da-tabs"><button type="button" data-mode="signup" aria-pressed="'+(mode==='signup')+'">'+escape(T(5))+'</button><button type="button" data-mode="signin" aria-pressed="'+(mode==='signin')+'">'+escape(T(6))+'</button></div><form novalidate><label>'+escape(T(8))+'<input type="email" name="email" inputmode="email" autocomplete="email" maxlength="254" required></label>'+
      (mode==='reset'?'':'<label>'+escape(T(9))+'<input type="password" name="password" minlength="8" autocomplete="'+(mode==='signup'?'new-password':'current-password')+'" required></label>')+
      '<button type="submit" class="da-submit">'+escape(T(mode==='signup'?10:mode==='reset'?12:11))+'</button></form><button type="button" class="da-reset">'+escape(T(7))+'</button>')+
-     '<div class="da-status" role="status" aria-live="polite"></div><button class="da-guest" type="button">'+escape(T(13))+'</button><p class="da-note">'+escape(T(14))+'</p><p class="da-note">'+escape(T(22))+'</p></div>';
+     '<div class="da-status" role="status" aria-live="polite"></div><button class="da-guest" type="button">'+escape(T(13))+'</button><p class="da-note">'+escape(T(14))+'</p><p class="da-note">'+escape(T(22))+'</p>'+legalNote()+'</div>';
    pane.querySelector('.da-guest').onclick=onward;
    pane.querySelector('.da-email')?.addEventListener('click',()=>{mode='signup';render()});
    pane.querySelector('.da-back')?.addEventListener('click',()=>{mode='choice';render()});

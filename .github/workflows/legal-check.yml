@@ -1,0 +1,29 @@
+name: Legal Pages Check
+
+on:
+  pull_request:
+    paths:
+      - 'assets/design/legal.js'
+      - 'legal/**'
+      - 'index.html'
+      - 'scripts/test-legal.mjs'
+      - '.github/workflows/legal-check.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'assets/design/legal.js'
+      - 'legal/**'
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Privacy policy and terms exist in every language with the same structure
+        run: node scripts/test-legal.mjs
