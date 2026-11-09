@@ -1,0 +1,31 @@
+name: Account Check
+
+on:
+  pull_request:
+    paths:
+      - 'assets/design/account.js'
+      - 'assets/i18n/auth.js'
+      - 'assets/vendor/**'
+      - 'index.html'
+      - 'scripts/test-account.cjs'
+      - '.github/workflows/account-check.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Vendored SDK matches its pinned hash
+        run: |
+          node -e "const c=require('crypto'),f=require('fs');const h='sha384-'+c.createHash('sha384').update(f.readFileSync('assets/vendor/supabase-js-2.81.1.js')).digest('base64');if(!f.readFileSync('assets/i18n/auth.js','utf8').includes(h)){console.error('SDK hash mismatch',h);process.exit(1)}"
+      - name: Sign-in screen and cloud sync (mocked server)
+        run: |
+          npm i --no-save playwright@1.49.1
+          npx playwright install --with-deps chromium
+          node scripts/test-account.cjs

@@ -203,6 +203,7 @@
   if(d.store)rows.push(row('store','gem','gold',esc(T.store),esc(d.store.value)));
   rows.push(row('settings','gear','muted',esc(T.settings),''));
   if(canInstall())rows.push(row('install','star','gold',esc((INSTALL[lang()]||INSTALL.en).row),''));
+  if(window.DEEN_AUTH_GATE?.configured?.()&&window.DEEN_ACCOUNT)rows.push(row('account','gem','sky',esc(window.DEEN_ACCOUNT.label()),window.DEEN_ACCOUNT.signedIn()?data(window.DEEN_ACCOUNT.email()):''));
   rows.push(row('legal','info','muted',esc(window.DEEN_LEGAL?.label?.()||T.settings),''));
   const facts=d.summary.slice(1);
   const approach=facts.length?'<details class="dsp-approach"><summary>'+svg('compass')+'<span class="dsp-grow">'+esc(T.approach)+'</span>'+svg('chevron','dsp-chev dsp-rot')+'</summary><dl>'+
@@ -315,6 +316,7 @@
   const k=el.dataset.dsp;event.preventDefault();
   const call=fn=>{try{window[fn]?.()}catch(err){console.warn('DEEN_DS_PROFILE_ACTION',fn,err)}};
   if(k==='settings')call('settingsPanel');
+  else if(k==='account')window.DEEN_ACCOUNT?.open?.();
   else if(k==='legal')window.DEEN_LEGAL?.open?.();
   else if(k==='install')installApp();
   else if(k==='edit')call('editProfile');
