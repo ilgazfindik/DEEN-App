@@ -7,14 +7,17 @@
 //            curl https://raw.githubusercontent.com/fawazahmed0/quran-api/1/editions/tur-elmalilihamdiya/<chapter>.json
 //            The translation covers some passages as a whole: where neighbouring ayahs carry the same text, the pack records
 //            the group ("trGroup") so the app can say so.
+//   Arabic   (meaning for Arabic players) Al-Tafsir al-Muyassar, from spa5k/tafsir_api (tafsir/ar-tafsir-muyassar/<chapter>.json).
+//            The first ayah of each chapter carries the surah's introduction followed by "[التفسير]"; only the text after that marker is
+//            kept, nothing inside it is edited. Ayahs explained together carry the same text; the pack records the group ("msGroup").
 //   English  Pickthall, The Meaning of the Glorious Koran, 1930 (public domain)
 // The files' checksums are written into the pack so a later rebuild can be compared with this one.
 import {readFileSync,writeFileSync,existsSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {fileURLToPath} from 'node:url';
 
-const dataDir=process.argv[2],yazirDir=process.argv[3];
-if(!dataDir||!yazirDir){console.error('usage: node scripts/build-surah-pack.mjs <quran-json>/data <yazir dir>');process.exit(1)}
+const dataDir=process.argv[2],yazirDir=process.argv[3],muyassarDir=process.argv[4];
+if(!dataDir||!yazirDir||!muyassarDir){console.error('usage: node scripts/build-surah-pack.mjs <quran-json>/data <yazir dir> <muyassar dir>');process.exit(1)}
 const root=fileURLToPath(new URL('../',import.meta.url));
 const read=p=>readFileSync(dataDir+'/'+p);
 const json=p=>JSON.parse(read(p).toString('utf8'));
@@ -39,6 +42,8 @@ const SURAHS=[
 const arabic=json('tanzil/uthmani.json'),english=json('extra/english_pickthall.json');
 const yazirFile=n=>yazirDir+'/tur-elmalilihamdiya/'+n+'.json';
 const yazir=n=>JSON.parse(readFileSync(yazirFile(n),'utf8')).chapter;
+const muyassarFile=n=>muyassarDir+'/'+n+'.json';
+const muyassar=n=>JSON.parse(readFileSync(muyassarFile(n),'utf8')).map(v=>({verse:v.ayah,text:v.text.includes('[التفسير]')?v.text.split('[التفسير]').pop().trim():v.text.trim()}));
 const chapters=json('tanzil/chapters.json');
 const chapterInfo=Object.fromEntries((Array.isArray(chapters)?chapters:chapters.chapters).map(c=>[c.id,c]));
 
@@ -58,15 +63,16 @@ const audioOf=(id,count)=>{
  return {chapter:commons(c.file),ayahs:files.every(f=>existsSync(root+f))?files:null,credit:{reciter:c.author,license:c.license,licenseUrl:c.licenseUrl,source:c.source}};
 };
 const out=SURAHS.map(s=>{
- const ar=arabic[s.number],tr=yazir(s.number),en=english[s.number];
+ const ar=arabic[s.number],tr=yazir(s.number),en=english[s.number],ms=muyassar(s.number);
  const count=chapterInfo[s.number].total_verses;
- if(ar.length!==count||tr.length!==count||en.length!==count)throw new Error(s.id+': ayah counts differ between sources');
+ if(ar.length!==count||tr.length!==count||en.length!==count||ms.length!==count)throw new Error(s.id+': ayah counts differ between sources');
  const audio=audioOf(s.id,count);
  return {...s,nameAr:chapterInfo[s.number].name,...(audio?{audio:{chapter:audio.chapter,credit:audio.credit}}:{}),ayahs:ar.map((a,i)=>{
-  if(a.verse!==i+1||Number(tr[i].verse)!==i+1||en[i].verse!==i+1)throw new Error(s.id+': verse numbering differs at '+(i+1));
+  if(a.verse!==i+1||Number(tr[i].verse)!==i+1||en[i].verse!==i+1||ms[i].verse!==i+1||!ms[i].text)throw new Error(s.id+': verse numbering differs at '+(i+1));
   if(i===0)checkBismillah(a.text);
   const text=tr[i].text.trim(),same=tr.map((v,k)=>v.text.trim()===text?k+1:0).filter(Boolean);
-  return {n:i+1,ar:a.text.trim(),tr:text,...(same.length>1?{trGroup:[same[0],same[same.length-1]]}:{}),en:en[i].text.trim(),...(audio?.ayahs?{audio:audio.ayahs[i]}:{})};
+  const mt=ms[i].text,msSame=ms.map((v,k)=>v.text===mt?k+1:0).filter(Boolean);
+  return {n:i+1,ar:a.text.trim(),tr:text,ms:mt,...(msSame.length>1?{msGroup:[msSame[0],msSame[msSame.length-1]]}:{}),...(same.length>1?{trGroup:[same[0],same[same.length-1]]}:{}),en:en[i].text.trim(),...(audio?.ayahs?{audio:audio.ayahs[i]}:{})};
  })};
 });
 
@@ -75,6 +81,7 @@ const meta={
  verification:'source-verbatim',          // taken unchanged from licensed sources; not yet reviewed by a scholar
  sources:{
   ar:{provider:'Tanzil Project',edition:'Uthmani (Hafs)',license:'CC BY 3.0, verbatim copies only',url:'https://tanzil.net/docs/text_license',sha256:sha('tanzil/uthmani.json')},
+  ms:{provider:'Al-Tafsir al-Muyassar',edition:'التفسير الميسر',url:'https://github.com/spa5k/tafsir_api',dataset:'ar-tafsir-muyassar',sha256:Object.fromEntries(SURAHS.map(s=>[s.number,createHash('sha256').update(readFileSync(muyassarFile(s.number))).digest('hex')]))},
   tr:{provider:'Elmalılı Hamdi Yazır',edition:'Hak Dini Kur’an Dili (1938)',license:'Public domain',url:'https://github.com/fawazahmed0/quran-api',dataset:'tur-elmalilihamdiya',sha256:Object.fromEntries(SURAHS.map(s=>[s.number,createHash('sha256').update(readFileSync(yazirFile(s.number))).digest('hex')]))},
   en:{provider:'Marmaduke Pickthall',edition:'The Meaning of the Glorious Koran (1930)',license:'Public domain',sha256:sha('extra/english_pickthall.json')}
  },
