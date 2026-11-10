@@ -97,10 +97,46 @@
    if(out!==text)node.data=node.data.replace(text,out);
   }
  }
+ // Completed-day states of the next-step card (done, optional review, chests). The engine writes these in Turkish and the
+ // word-level locale layers mangle them, so the card is localised from the engine's own decision (state.nextActionMeta.lastDecision).
+ const DONE_COPY={
+  en:{done:{title:'All done for today.',detail:'Your learning and review goals are complete. Continuing is entirely optional.',reason:'Daily goal complete',badge:'DONE',label:'RETURN TO THE LEARNING PATH'},
+   optional_review:{title:'Today’s plan is done.',detail:n=>'If you like, you can do another short '+n+'-question review.',reason:'Daily goal complete · an extra session is optional',badge:'DONE',label:'OPTIONAL REVIEW'},
+   daily_chest:{title:'Your daily chest is ready.',detail:'Today’s Journey and 3 task seals are complete. Collect your reward.',reason:'The only required step left in today’s reward loop',badge:'READY',label:'OPEN THE SMALL CHEST'},
+   weekly_chest:{title:'Your weekly rhythm chest is ready.',detail:'Today’s Journey was completed on 5 different days. You can open the medium chest.',reason:'Weekly rhythm complete',badge:'READY',label:'OPEN THE MEDIUM CHEST'}},
+  de:{done:{title:'Für heute geschafft.',detail:'Dein Lern- und Wiederholungsziel ist erreicht. Weiterzumachen ist völlig freiwillig.',reason:'Tagesziel erreicht',badge:'FERTIG',label:'ZURÜCK ZUM LERNPFAD'},
+   optional_review:{title:'Der heutige Plan ist erledigt.',detail:n=>'Wenn du magst, kannst du noch eine kurze Wiederholung mit '+n+' Fragen machen.',reason:'Tagesziel erreicht · eine zusätzliche Einheit ist freiwillig',badge:'FERTIG',label:'FREIWILLIGE WIEDERHOLUNG'},
+   daily_chest:{title:'Deine Tagestruhe ist bereit.',detail:'Die heutige Tagesreise und 3 Aufgabensiegel sind abgeschlossen. Hol dir deine Belohnung.',reason:'Der einzige noch nötige Schritt im heutigen Belohnungskreislauf',badge:'BEREIT',label:'KLEINE TRUHE ÖFFNEN'},
+   weekly_chest:{title:'Deine Wochenrhythmus-Truhe ist bereit.',detail:'An 5 verschiedenen Tagen wurde die Tagesreise abgeschlossen. Du kannst die mittlere Truhe öffnen.',reason:'Wochenrhythmus abgeschlossen',badge:'BEREIT',label:'MITTLERE TRUHE ÖFFNEN'}},
+  fr:{done:{title:'C’est tout pour aujourd’hui.',detail:'Ton objectif d’apprentissage et de révision est atteint. Continuer est entièrement facultatif.',reason:'Objectif du jour atteint',badge:'FAIT',label:'RETOUR AU PARCOURS'},
+   optional_review:{title:'Le plan du jour est terminé.',detail:n=>'Si tu veux, tu peux faire encore une courte révision de '+n+' questions.',reason:'Objectif du jour atteint · une séance supplémentaire est facultative',badge:'FAIT',label:'RÉVISION FACULTATIVE'},
+   daily_chest:{title:'Ton coffre du jour est prêt.',detail:'Le parcours du jour et 3 sceaux de défi sont terminés. Récupère ta récompense.',reason:'La seule étape obligatoire restante du cycle de récompenses du jour',badge:'PRÊT',label:'OUVRIR LE PETIT COFFRE'},
+   weekly_chest:{title:'Ton coffre du rythme hebdomadaire est prêt.',detail:'Le parcours du jour a été terminé sur 5 jours différents. Tu peux ouvrir le coffre moyen.',reason:'Rythme hebdomadaire atteint',badge:'PRÊT',label:'OUVRIR LE COFFRE MOYEN'}},
+  ar:{done:{title:'انتهيت لهذا اليوم.',detail:'اكتمل هدفك للتعلّم والمراجعة. المتابعة اختيارية تمامًا.',reason:'اكتمل الهدف اليومي',badge:'تم',label:'العودة إلى مسار التعلّم'},
+   optional_review:{title:'اكتملت خطة اليوم.',detail:n=>'إن شئت يمكنك إجراء مراجعة قصيرة أخرى من '+n+' أسئلة.',reason:'اكتمل الهدف اليومي · الجلسة الإضافية اختيارية',badge:'تم',label:'مراجعة اختيارية'},
+   daily_chest:{title:'صندوقك اليومي جاهز.',detail:'اكتملت رحلة اليوم و3 أختام مهام. اجمع مكافأتك.',reason:'الخطوة الإلزامية الوحيدة المتبقية في دورة مكافآت اليوم',badge:'جاهز',label:'افتح الصندوق الصغير'},
+   weekly_chest:{title:'صندوق إيقاعك الأسبوعي جاهز.',detail:'اكتملت رحلة اليوم في 5 أيام مختلفة. يمكنك فتح الصندوق المتوسط.',reason:'اكتمل الإيقاع الأسبوعي',badge:'جاهز',label:'افتح الصندوق المتوسط'}}
+ };
+ function setText(el,text){if(el&&el.textContent!==text)el.textContent=text}
+ function localizeDecision(card){
+  let code='';try{code=window.DEEN_APP_LOCALE?.get?.()||''}catch(_){}
+  const C=DONE_COPY[String(code).slice(0,2)];if(!C)return;
+  let d=null;try{d=state.nextActionMeta?.lastDecision}catch(_){}
+  const K=d&&C[d.kind];if(!K)return;
+  setText(card.querySelector(':scope>h1'),K.title);
+  const n=Math.min(5,Number((String(d.detail||'').match(/\d+/)||[5])[0])||5);
+  setText(card.querySelector(':scope>p'),typeof K.detail==='function'?K.detail(n):K.detail);
+  setText(card.querySelector('.v680-why>span'),K.reason);
+  setText(card.querySelector('.v680-badge'),K.badge);
+  const cta=card.querySelector('.v680-main');
+  const node=cta&&[...cta.childNodes].find(x=>x.nodeType===3&&x.data.trim());
+  if(node&&node.data.trim()!==K.label)node.data=K.label;
+ }
  function decorateNextStep(){
   const card=document.querySelector('#v5Return .v680-nba');if(!card)return;
   setClass(card,'ds-nba',true);
   localizeNextStep(card);
+  localizeDecision(card);
   if(!card.querySelector(':scope>.ds-nba-art')){
    const art=document.createElement('img');art.className='ds-nba-art';art.src=ART;art.alt='';art.decoding='async';art.setAttribute('aria-hidden','true');
    card.prepend(art);
