@@ -1,0 +1,26 @@
+name: Tomorrow Teaser Check
+
+on:
+  pull_request:
+    paths:
+      - 'assets/design/tomorrow.js'
+      - 'index.html'
+      - 'scripts/test-tomorrow.cjs'
+      - '.github/workflows/tomorrow-check.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Tomorrow teaser
+        run: |
+          npm i --no-save playwright@1.49.1
+          npx playwright install --with-deps chromium
+          node scripts/test-tomorrow.cjs
