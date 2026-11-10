@@ -142,7 +142,7 @@
  }
  document.addEventListener('click',async ev=>{
   const b=ev.target.closest?.('[data-acc]');if(!b)return;const a=b.dataset.acc,t=T();
-  if(a==='signin'){document.querySelector('.sheet-close,[data-sheet-close]')?.click();window.DEEN_AUTH_GATE?.show?.();ensureClient().catch(()=>{})}
+  if(a==='signin'){try{closeSheet()}catch(_){}window.DEEN_AUTH_GATE?.show?.();ensureClient().catch(()=>{})}
   else if(a==='sync'){status='syncing';render();try{await ensureClient();if(!user){const {data}=await client.auth.getSession();user=data?.session?.user||null}lastHash='';await reconcile()}catch(_){status='err';render()}}
   else if(a==='export')download();
   else if(a==='out'){try{await client.auth.signOut()}catch(_){}user=null;stopTimer();status='';render()}
