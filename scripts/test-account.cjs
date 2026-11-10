@@ -22,12 +22,12 @@ const provs=await pg.$$eval('#deenAccountGate .da-provider',a=>a.map(x=>x.classN
 
 const future=Math.floor(Date.now()/1000)+3600;
 await pg.addInitScript(f=>{if(sessionStorage.getItem('seeded'))return;sessionStorage.setItem('seeded','1');localStorage.setItem('deen_v4_1_state',JSON.stringify({onboarded:true,xp:50,name:'T',completed:[],mistakes:[],settings:{}}));localStorage.setItem('deen-auth-v1',JSON.stringify({access_token:'a.b.c',refresh_token:'r',token_type:'bearer',expires_in:3600,expires_at:f,user:{id:'u1',email:'a@b.c',aud:'authenticated',app_metadata:{},user_metadata:{},created_at:'2026-01-01'}}))},future);
-calls.length=0;await pg.goto(base,{waitUntil:'load'});await pg.waitForTimeout(9000);
+calls.length=0;await pg.goto(base,{waitUntil:'load'});for(let i=0;i<120&&!row;i++)await pg.waitForTimeout(500);
 const sync1=row&&JSON.parse(row.data.deen_v4_1_state).xp;
 // conflict: cloud row from another device with different progress; local has meta mismatch
 const cur=await pg.evaluate(()=>JSON.parse(localStorage.getItem('deen_v4_1_state')));cur.xp=999;row={data:{deen_v4_1_state:JSON.stringify(cur)},revision:7,updated_at:new Date().toISOString()};
 await pg.evaluate(()=>{localStorage.setItem('deen_cloud_meta',JSON.stringify({uid:'u1',revision:3,at:1}))});
-await pg.evaluate(()=>window.DEEN_ACCOUNT.onSignedIn());await pg.waitForTimeout(3000);
+await pg.evaluate(()=>window.DEEN_ACCOUNT.onSignedIn());await pg.waitForSelector('[data-acc="useCloud"]',{timeout:30000}).catch(()=>{});
 const shown=await pg.evaluate(()=>!!document.querySelector('[data-acc="useCloud"]'));
 await pg.click('[data-acc="useCloud"]');await pg.waitForNavigation({timeout:15000}).catch(()=>null);
 await pg.waitForTimeout(1500);

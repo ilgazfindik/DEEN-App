@@ -5,7 +5,7 @@ const srv=http.createServer((q,r)=>{let p=decodeURIComponent(q.url.split('?')[0]
 const pad=n=>String(n).padStart(2,'0'),key=d=>d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate()),ago=n=>{const d=new Date();d.setDate(d.getDate()-n);return key(d)};
 async function run(base,browser,seed,label){
  const ctx=await browser.newContext({serviceWorkers:'block'}),pg=await ctx.newPage(),errs=[];pg.on('pageerror',e=>errs.push(e.message));
- await pg.addInitScript(s=>{if(sessionStorage.getItem('seeded'))return;sessionStorage.setItem('seeded','1');localStorage.setItem('deen_app_language_v1','en');localStorage.setItem('deen_v4_1_state',JSON.stringify(s.state));if(s.guard)localStorage.setItem('deen_streak_guard',JSON.stringify(s.guard))},seed);
+ await pg.addInitScript(s=>{if(sessionStorage.getItem('seeded'))return;sessionStorage.setItem('seeded','1');localStorage.setItem('deen_app_language_v1','en');localStorage.setItem('deen_v4_1_state',JSON.stringify(s.state));if(s.guard)localStorage.setItem('deen_streak_guard',JSON.stringify(s.guard));if(s.trial)localStorage.setItem('deen_premium_trial_v1',JSON.stringify({used:true,startedAt:Date.now()}))},seed);
  await pg.goto(base,{waitUntil:'load'});
  return {ctx,pg,errs};
 }
@@ -29,6 +29,14 @@ async function run(base,browser,seed,label){
  a=await run(base,browser,{state:st(6,ago(3),{currency:5}),guard:{v:6,last:ago(3)}},'poor');
  await a.pg.waitForSelector('[data-dsg="repair"]',{timeout:60000});
  assert(await a.pg.isDisabled('[data-dsg="repair"]'),'repair disabled without enough sparkles');
+ await a.ctx.close();
+ // 3b) Premium: free repair once a week (no sparkles charged), then it costs again
+ a=await run(base,browser,{state:st(6,ago(3),{currency:5}),guard:{v:6,last:ago(3)},trial:true},'premium');
+ await a.pg.waitForSelector('[data-dsg="repair"]',{timeout:60000});
+ assert(!(await a.pg.isDisabled('[data-dsg="repair"]')),'premium repair enabled with 5 sparkles');
+ await a.pg.click('[data-dsg="repair"]');await a.pg.waitForTimeout(500);
+ const prem=await a.pg.evaluate(()=>[state.streak,state.currency,localStorage.getItem('deen_streak_free_repair')]);
+ assert.deepStrictEqual(prem.slice(0,2),[6,5],'premium repair is free');assert(prem[2],'free repair date remembered');
  await a.ctx.close();
  // 4) long gap (10 days): no offer
  a=await run(base,browser,{state:st(6,ago(10)),guard:{v:6,last:ago(10)}},'old');

@@ -42,7 +42,9 @@
   const gap=dn(key())-dn(g.last);
   return gap>=2&&gap<=MAX_GAP?{value:g.v,gap:gap-1,last:g.last}:null;
  }
- const freeAvailable=()=>{const st=app();if(!st?.premium)return false;const t=ls.get(FREE);return !t||dn(key())-dn(t)>=7};
+ // Same definition of "Premium" as the Premium hub: purchased, active trial, or entitlement.
+ const isPremium=()=>{try{return !!(app()?.premium||window.DEEN_PREMIUM_OFFER?.isTrialActive?.()||window.DEEN_PREMIUM_ENTITLEMENT?.active)}catch(_){return false}};
+ const freeAvailable=()=>{if(!isPremium())return false;const t=ls.get(FREE);return !t||dn(key())-dn(t)>=7};
 
  function repair(info){
   const st=app();if(!st)return false;const m=st.streakMeta,free=freeAvailable();

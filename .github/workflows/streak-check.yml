@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - 'assets/design/streak.js'
+      - 'assets/i18n/premium-hub.js'
       - 'index.html'
       - 'scripts/test-streak.cjs'
       - '.github/workflows/streak-check.yml'

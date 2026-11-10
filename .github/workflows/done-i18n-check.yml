@@ -1,0 +1,26 @@
+name: Done-state i18n Check
+
+on:
+  pull_request:
+    paths:
+      - 'assets/design/home.js'
+      - 'index.html'
+      - 'scripts/test-done-i18n.cjs'
+      - '.github/workflows/done-i18n-check.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Completed-day card translations
+        run: |
+          npm i --no-save playwright@1.49.1
+          npx playwright install --with-deps chromium
+          node scripts/test-done-i18n.cjs
