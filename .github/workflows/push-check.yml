@@ -1,0 +1,31 @@
+name: Push Reminders Check
+
+on:
+  pull_request:
+    paths:
+      - 'assets/design/account.js'
+      - 'sw.js'
+      - 'supabase/**'
+      - 'index.html'
+      - 'scripts/test-push.cjs'
+      - 'scripts/test-reminder-logic.mjs'
+      - '.github/workflows/push-check.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Reminder rules (time zones, once a day, no nagging)
+        run: node scripts/test-reminder-logic.mjs
+      - name: Reminder opt-in and opt-out (mocked server and push)
+        run: |
+          npm i --no-save playwright@1.49.1
+          npx playwright install --with-deps chromium
+          node scripts/test-push.cjs
