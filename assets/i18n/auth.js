@@ -121,5 +121,5 @@
   if(configured())sdk().then(api=>api.auth.getSession()).then(({data})=>{if(data?.session&&pane.isConnected)onward()}).catch(()=>{});
   return pane;
  }
- window.DEEN_AUTH_GATE=Object.freeze({show,close,configured,sdk,providers,version:'auth-gate-v2'});
+ window.DEEN_AUTH_GATE=Object.freeze({show,close,configured,sdk,providers,url:CONFIG.url,version:'auth-gate-v2'});
 })();

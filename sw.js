@@ -1,6 +1,7 @@
 /* DEEN offline release shell, version-pinned and SHA-256 verified.
  * A worker activates only after all release segments and loader assets are cached.
  * Stored user progress is never accessed or altered by this service worker.
+ * Push: it only shows the reminder text the server sent and opens the app when it is tapped.
  */
 'use strict';
 const scope=self.registration.scope;
@@ -98,5 +99,19 @@ self.addEventListener('fetch',event=>{
   }catch(err){
    return cached||new Response('Offline file unavailable',{status:503,headers:{'Content-Type':'text/plain'}});
   }
+ })());
+});
+
+self.addEventListener('push',event=>{
+ let data={};try{data=event.data?event.data.json():{}}catch(_){}
+ const title=String(data.title||'Ilnura').slice(0,80),body=String(data.body||'').slice(0,200);
+ event.waitUntil(self.registration.showNotification(title,{body,icon:base('./assets/icons/icon-192.png'),badge:base('./assets/icons/favicon-48.png'),tag:'ilnura-daily'}));
+});
+self.addEventListener('notificationclick',event=>{
+ event.notification.close();
+ event.waitUntil((async()=>{
+  const list=await self.clients.matchAll({type:'window',includeUncontrolled:true});
+  for(const client of list){if(client.url.startsWith(scope)){await client.focus();return}}
+  await self.clients.openWindow(base('./'));
  })());
 });
