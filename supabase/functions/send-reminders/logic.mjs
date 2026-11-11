@@ -43,3 +43,21 @@ export function buildMessage(lang, streak) {
   const m = MSG[lang] || MSG.en;
   return { title: m.title, body: streak >= 2 ? m.streak(streak) : m.plain };
 }
+
+/** Only real browser push services may be called (the endpoint comes from the client, so it is never trusted blindly). */
+const PUSH_HOSTS = [/^fcm\.googleapis\.com$/, /^updates\.push\.services\.mozilla\.com$/, /^([a-z0-9-]+\.)?push\.apple\.com$/, /^([a-z0-9-]+\.)*notify\.windows\.com$/];
+export function isAllowedPushEndpoint(endpoint) {
+  let u;
+  try { u = new URL(String(endpoint)); } catch (_) { return false; }
+  if (u.protocol !== 'https:' || u.port || u.username || u.password) return false;
+  return PUSH_HOSTS.some((re) => re.test(u.hostname));
+}
+
+/** Constant-time string comparison for the shared cron secret. */
+export function safeEqual(a, b) {
+  a = String(a ?? ''); b = String(b ?? '');
+  let diff = a.length ^ b.length;
+  const n = Math.max(a.length, b.length);
+  for (let i = 0; i < n; i++) diff |= (a.charCodeAt(i) || 0) ^ (b.charCodeAt(i) || 0);
+  return diff === 0;
+}

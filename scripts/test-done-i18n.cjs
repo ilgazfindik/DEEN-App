@@ -1,6 +1,6 @@
 /* Completed-day states of the Home next-step card are localised (no Turkish leftovers), in a real browser. */
 const http=require('http'),fs=require('fs'),path=require('path'),assert=require('assert');const {chromium}=require('playwright');
-const root=path.resolve(__dirname,'..');const types={'.js':'text/javascript','.html':'text/html','.css':'text/css','.json':'application/json','.txt':'text/plain','.webmanifest':'application/manifest+json','.png':'image/png','.webp':'image/webp','.woff2':'font/woff2'};
+const root=path.resolve(__dirname,'..');const types={'.js':'text/javascript','.mjs':'text/javascript','.html':'text/html','.css':'text/css','.json':'application/json','.txt':'text/plain','.webmanifest':'application/manifest+json','.png':'image/png','.webp':'image/webp','.woff2':'font/woff2'};
 const srv=http.createServer((q,r)=>{let p=decodeURIComponent(q.url.split('?')[0]);if(p.endsWith('/'))p+='index.html';const f=path.join(root,p);fs.readFile(f,(e,b)=>{if(e){r.writeHead(404);r.end();return}r.writeHead(200,{'content-type':types[path.extname(f)]||'application/octet-stream'});r.end(b)})});
 const states={done:{j:{complete:true,due:0},e:{}},optional:{j:{complete:true,due:9,reviewAvailable:true},e:{}},daily:{j:{complete:true,due:0},e:{dailyChest:{ready:true,claimed:false}}},weekly:{j:{complete:true,due:0},e:{weeklyChest:{ready:true,claimed:false,days:5}}}};
 const TITLE={en:{done:'All done for today.',optional:'Today’s plan is done.',daily:'Your daily chest is ready.',weekly:'Your weekly rhythm chest is ready.'},

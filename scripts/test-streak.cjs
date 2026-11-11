@@ -1,6 +1,6 @@
 /* Streak protection card + streak repair, in a real browser against a seeded learner. */
 const http=require('http'),fs=require('fs'),path=require('path'),assert=require('assert');const {chromium}=require('playwright');
-const root=path.resolve(__dirname,'..');const types={'.js':'text/javascript','.html':'text/html','.css':'text/css','.json':'application/json','.txt':'text/plain','.webmanifest':'application/manifest+json','.png':'image/png','.webp':'image/webp','.woff2':'font/woff2'};
+const root=path.resolve(__dirname,'..');const types={'.js':'text/javascript','.mjs':'text/javascript','.html':'text/html','.css':'text/css','.json':'application/json','.txt':'text/plain','.webmanifest':'application/manifest+json','.png':'image/png','.webp':'image/webp','.woff2':'font/woff2'};
 const srv=http.createServer((q,r)=>{let p=decodeURIComponent(q.url.split('?')[0]);if(p.endsWith('/'))p+='index.html';const f=path.join(root,p);fs.readFile(f,(e,b)=>{if(e){r.writeHead(404);r.end();return}r.writeHead(200,{'content-type':types[path.extname(f)]||'application/octet-stream'});r.end(b)})});
 const pad=n=>String(n).padStart(2,'0'),key=d=>d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate()),ago=n=>{const d=new Date();d.setDate(d.getDate()-n);return key(d)};
 async function run(base,browser,seed,label){
@@ -15,6 +15,7 @@ async function run(base,browser,seed,label){
  let a=await run(base,browser,{state:st(4,ago(1))},'risk');
  await a.pg.waitForSelector('#dsStreakGuard',{timeout:60000});
  const cardTxt=await a.pg.textContent('#dsStreakGuard');assert(/4-day streak/.test(cardTxt),'card names the streak: '+cardTxt);
+ assert(await a.pg.evaluate(()=>document.getElementById('dsStreakGuard').nextElementSibling?.id==='v5Return'&&document.getElementById('dsStreakGuard').previousElementSibling?.id==='v5Stats'),'card sits between the stats header and the next-step card');
  await a.pg.click('#dsStreakGuard [data-dsg="buy"]');await a.pg.waitForTimeout(400);
  const fz=await a.pg.evaluate(()=>[state.streakMeta.streakFreeze,state.currency]);assert.deepStrictEqual(fz,[1,40],'one freeze bought for 20');
  await a.ctx.close();

@@ -15,16 +15,16 @@
     tf:['Doğru mu, ','yanlış',' mı?'],word:['Eksik ','kelimeyi',' seç'],order:['Doğru ','sıraya',' diz'],listen:['Dinle ve ','doğru',' cevabı seç']}},
   en:{hidden:n=>n===1?'1 MISTAKE HIDDEN':n+' MISTAKES HIDDEN',hint:'ANSWER WITH ONE TAP',rapid:'RECALL · NO PRESSURE',style:{child:'CHILD LEARNING STYLE',teen:'TEEN LEARNING STYLE',adult:'ADULT LEARNING STYLE'},
    title:{choice:['Choose the ','correct',' answer'],odd:['Find the one that ','doesn’t fit',''],error:['Spot the ','mistake',''],scenario:['Choose the ','best',' response'],
-    tf:['True or ','false','?'],word:['Choose the ','missing',' word'],order:['Put them in the ','right',' order'],listen:['Listen and choose the ','right',' answer']}},
+    tf:['True or ','false','?'],word:['Choose the ','missing',' word'],order:['Put them in the ','right',' order'],listen:['Listen and choose the ','right',' answer'],match:['Find the ','matching',' pairs']}},
   ar:{hidden:n=>'يوجد '+n+' خطأ مخفي',hint:'أجب بلمسة واحدة',rapid:'تذكّر · بلا ضغط',style:{child:'أسلوب الأطفال',teen:'أسلوب الشباب',adult:'أسلوب البالغين'},
    title:{choice:['اختر الإجابة ','الصحيحة',''],odd:['ابحث عن ','المختلف',''],error:['اكتشف ','الخطأ',''],scenario:['اختر ','التصرّف الأفضل',''],
-    tf:['صحيح أم ','خطأ','؟'],word:['اختر الكلمة ','الناقصة',''],order:['رتّبها ','بالترتيب الصحيح',''],listen:['استمع واختر ','الإجابة الصحيحة','']}},
+    tf:['صحيح أم ','خطأ','؟'],word:['اختر الكلمة ','الناقصة',''],order:['رتّبها ','بالترتيب الصحيح',''],listen:['استمع واختر ','الإجابة الصحيحة',''],match:['ابحث عن ','الأزواج المتطابقة','']}},
   de:{hidden:n=>n===1?'1 FEHLER VERSTECKT':n+' FEHLER VERSTECKT',hint:'MIT EINEM TIPP ANTWORTEN',rapid:'ERINNERN · OHNE DRUCK',style:{child:'LERNSTIL FÜR KINDER',teen:'LERNSTIL FÜR JUGENDLICHE',adult:'LERNSTIL FÜR ERWACHSENE'},
    title:{choice:['Wähle die ','richtige',' Antwort'],odd:['Finde, was ','nicht passt',''],error:['Finde den ','Fehler',''],scenario:['Wähle die ','beste',' Reaktion'],
-    tf:['Richtig oder ','falsch','?'],word:['Wähle das ','fehlende',' Wort'],order:['Bring sie in die ','richtige',' Reihenfolge'],listen:['Hör zu und wähle die ','richtige',' Antwort']}},
+    tf:['Richtig oder ','falsch','?'],word:['Wähle das ','fehlende',' Wort'],order:['Bring sie in die ','richtige',' Reihenfolge'],listen:['Hör zu und wähle die ','richtige',' Antwort'],match:['Finde die ','passenden',' Paare']}},
   fr:{hidden:n=>n===1?'1 ERREUR CACHÉE':n+' ERREURS CACHÉES',hint:'RÉPONDS EN UN GESTE',rapid:'MÉMOIRE · SANS PRESSION',style:{child:'STYLE ENFANT',teen:'STYLE ADO',adult:'STYLE ADULTE'},
    title:{choice:['Choisis la ','bonne',' réponse'],odd:['Trouve ce qui ','ne va pas',''],error:['Repère l’','erreur',''],scenario:['Choisis la ','meilleure',' réaction'],
-    tf:['Vrai ou ','faux',' ?'],word:['Choisis le mot ','manquant',''],order:['Remets-les dans le ','bon',' ordre'],listen:['Écoute et choisis la ','bonne',' réponse']}}
+    tf:['Vrai ou ','faux',' ?'],word:['Choisis le mot ','manquant',''],order:['Remets-les dans le ','bon',' ordre'],listen:['Écoute et choisis la ','bonne',' réponse'],match:['Trouve les ','paires',' assorties']}}
  };
  // [container, option] pairs of the choice-based question types.
  const TYPES=[
@@ -182,6 +182,13 @@
  }
  function decorate(){
   stripLabel();
+  // The matching screen writes its heading as three separate nodes, which the word-level locale layers
+  // turn into "Matching pairs Find". Write the whole phrase in the learner's language instead.
+  {const T0=L[lang()],mt=T0&&T0.title&&T0.title.match,mh=document.querySelector('#quizView .v9916-task-title');
+   if(mt&&mh&&mh.querySelector('.v1013-mint')&&mh.textContent!==mt.join('')){
+    mh.textContent='';mh.append(document.createTextNode(mt[0]));
+    const em=document.createElement('span');em.className='v1013-mint';em.textContent=mt[1];mh.append(em,document.createTextNode(mt[2]));
+   }}
   const area=document.getElementById('answerArea');if(!area)return;
   const frame=area.closest('.question-frame')||document.querySelector('#quizView .question-frame');
   const code=lang(),T=L[code];
