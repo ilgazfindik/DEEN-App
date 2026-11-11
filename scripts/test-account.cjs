@@ -4,7 +4,7 @@ const srv=http.createServer((q,r)=>{let p=decodeURIComponent(q.url.split('?')[0]
 (async()=>{await new Promise(r=>srv.listen(0,r));const port=srv.address().port,base='http://localhost:'+port+'/';
 const b=await chromium.launch();const ctx=await b.newContext({serviceWorkers:'block'});const pg=await ctx.newPage();
 const calls=[];let row=null;
-await ctx.route('https://yrpndjfhheeigchpombe.supabase.co/**',async rt=>{const u=new URL(rt.request().url()),m=rt.request().method();calls.push(m+' '+u.pathname);
+await ctx.route('https://swlipzpxlyzemqxyhdho.supabase.co/**',async rt=>{const u=new URL(rt.request().url()),m=rt.request().method();calls.push(m+' '+u.pathname);
  const h={'access-control-allow-origin':'*','access-control-allow-headers':'*','access-control-allow-methods':'*','content-type':'application/json'};
  if(m==='OPTIONS')return rt.fulfill({status:204,headers:h});
  if(u.pathname==='/auth/v1/settings')return rt.fulfill({status:200,headers:h,body:JSON.stringify({external:{google:true,apple:false,email:true}})});
@@ -21,7 +21,7 @@ await pg.evaluate(()=>window.DEEN_AUTH_GATE.show());await pg.waitForSelector('#d
 const provs=await pg.$$eval('#deenAccountGate .da-provider',a=>a.map(x=>x.className.replace('da-provider ','')));
 
 const future=Math.floor(Date.now()/1000)+3600;
-await pg.addInitScript(f=>{if(sessionStorage.getItem('seeded'))return;sessionStorage.setItem('seeded','1');localStorage.setItem('deen_v4_1_state',JSON.stringify({onboarded:true,xp:50,name:'T',completed:[],mistakes:[],settings:{}}));localStorage.setItem('deen-auth-v1',JSON.stringify({access_token:'a.b.c',refresh_token:'r',token_type:'bearer',expires_in:3600,expires_at:f,user:{id:'u1',email:'a@b.c',aud:'authenticated',app_metadata:{},user_metadata:{},created_at:'2026-01-01'}}))},future);
+await pg.addInitScript(f=>{if(sessionStorage.getItem('seeded'))return;sessionStorage.setItem('seeded','1');localStorage.setItem('deen_v4_1_state',JSON.stringify({onboarded:true,xp:50,name:'T',completed:[],mistakes:[],settings:{}}));localStorage.setItem('deen-auth-v2',JSON.stringify({access_token:'a.b.c',refresh_token:'r',token_type:'bearer',expires_in:3600,expires_at:f,user:{id:'u1',email:'a@b.c',aud:'authenticated',app_metadata:{},user_metadata:{},created_at:'2026-01-01'}}))},future);
 calls.length=0;await pg.goto(base,{waitUntil:'load'});for(let i=0;i<120&&!row;i++)await pg.waitForTimeout(500);
 const sync1=row&&JSON.parse(row.data.deen_v4_1_state).xp;
 // conflict: cloud row from another device with different progress; local has meta mismatch

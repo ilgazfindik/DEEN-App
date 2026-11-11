@@ -6,7 +6,7 @@ const srv=http.createServer((q,r)=>{let p=decodeURIComponent(q.url.split('?')[0]
  const ctx=await b.newContext({serviceWorkers:'block'}),pg=await ctx.newPage(),errs=[],calls=[];pg.on('pageerror',e=>errs.push(e.message));
  const H={'access-control-allow-origin':'*','access-control-allow-headers':'*','access-control-allow-methods':'*','content-type':'application/json'};
  let rows=[];
- await ctx.route('https://yrpndjfhheeigchpombe.supabase.co/**',async rt=>{const rq=rt.request(),u=new URL(rq.url()),m=rq.method();
+ await ctx.route('https://swlipzpxlyzemqxyhdho.supabase.co/**',async rt=>{const rq=rt.request(),u=new URL(rq.url()),m=rq.method();
   if(m==='OPTIONS')return rt.fulfill({status:204,headers:H});
   if(u.pathname==='/auth/v1/settings')return rt.fulfill({status:200,headers:H,body:JSON.stringify({external:{google:true,email:true}})});
   if(u.pathname==='/functions/v1/send-reminders'){calls.push('KEY');return rt.fulfill({status:200,headers:H,body:JSON.stringify({publicKey:'BKfAk9BWql5As9Jr91TPHi6FGdaL04kxV3BS9_U0IPdaJj_CBx-5r7Ln2yM1MyhQHJjMV0mGSBVeyvccWwbo1vY'})})}
@@ -22,7 +22,7 @@ const srv=http.createServer((q,r)=>{let p=decodeURIComponent(q.url.split('?')[0]
  await pg.addInitScript(f=>{if(sessionStorage.getItem('seeded'))return;sessionStorage.setItem('seeded','1');
   localStorage.setItem('deen_app_language_v1','en');
   localStorage.setItem('deen_v4_1_state',JSON.stringify({onboarded:true,xp:50,name:'T',completed:[],mistakes:[],settings:{},profile:{name:'T',companion:'owl'}}));
-  localStorage.setItem('deen-auth-v1',JSON.stringify({access_token:'a.b.c',refresh_token:'r',token_type:'bearer',expires_in:3600,expires_at:f,user:{id:'u1',email:'a@b.c',aud:'authenticated',app_metadata:{},user_metadata:{},created_at:'2026-01-01'}}));
+  localStorage.setItem('deen-auth-v2',JSON.stringify({access_token:'a.b.c',refresh_token:'r',token_type:'bearer',expires_in:3600,expires_at:f,user:{id:'u1',email:'a@b.c',aud:'authenticated',app_metadata:{},user_metadata:{},created_at:'2026-01-01'}}));
  },future);
  // Fake browser push (headless Chromium has no push service).
  await pg.addInitScript(()=>{let sub=null;

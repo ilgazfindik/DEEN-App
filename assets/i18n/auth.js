@@ -3,7 +3,7 @@
 (()=>{
  'use strict';
  if(window.DEEN_AUTH_GATE)return;
- const CONFIG={url:'https://yrpndjfhheeigchpombe.supabase.co',publishableKey:'sb_publishable_hFUlO2Q78nqWTd7WqaOL-g_JYIDNoqu'}; // Public values only (project URL + publishable key). Never put a service_role key here.
+ const CONFIG={url:'https://swlipzpxlyzemqxyhdho.supabase.co',publishableKey:'sb_publishable_c2wpZMs3K6Rw37OWMdSOiA_RMLneSln'}; // Public values only (project URL + publishable key). Never put a service_role key here.
  const SDK_FILE='./assets/vendor/supabase-js-2.81.1.js',SDK_SRI='sha384-qmLe2vls59SnfpN2OJ/tjAASSNP+R7nmj+MyytoaCmVRjJbVGsUaFkxJW4jGpaqh';
  const strings={
   tr:['Hesabınla öğrenmeye devam et','Kayıt ol veya hesabına giriş yap.','Google ile devam et','Apple ile devam et','E-posta ile devam et','Kayıt ol','Giriş yap','Şifremi unuttum','E-posta adresi','Şifre (en az 8 karakter)','E-posta ile kayıt ol','Giriş yap','Şifre yenileme bağlantısı gönder','Misafir olarak devam et','Misafir ilerlemesi bu cihazda saklanır. Bulut eşitleme henüz etkin değil.','Hesap sistemi henüz etkinleştirilmedi. Misafir olarak devam edebilirsin.','Doğrulama bağlantısı için e-postanı kontrol et.','Varsa şifre yenileme bağlantısı e-postana gönderildi.','Geçerli bir e-posta ve en az 8 karakterli şifre gir.','İşlem tamamlanamadı. Tekrar dene.','Bağlanılıyor…','Geri','13 yaşından küçüksen hesabı ebeveynin veya yasal vasin açmalıdır.'],
@@ -37,7 +37,7 @@
   if(loading)return loading;
   loading=new Promise((resolve,reject)=>{
    const init=()=>{
-    try{client=window.supabase.createClient(CONFIG.url,CONFIG.publishableKey,{auth:{flowType:'pkce',detectSessionInUrl:true,persistSession:true,autoRefreshToken:true,storageKey:'deen-auth-v1'}});resolve(client);}
+    try{client=window.supabase.createClient(CONFIG.url,CONFIG.publishableKey,{auth:{flowType:'pkce',detectSessionInUrl:true,persistSession:true,autoRefreshToken:true,storageKey:'deen-auth-v2'}});resolve(client);}
     catch(e){reject(e)}
    };
    if(window.supabase?.createClient)return init();
