@@ -94,6 +94,14 @@ EN = [
  ('Match the concepts with their meanings:', [('Imam', 'The person who leads the congregation in prayer'), ('Muqtadi', 'A person who prays following the imam'), ('Row (saff)', 'The congregation lining up shoulder to shoulder'), ('Masbuq', 'One who joins late after missing one or more rak‘as with the imam')], 'In congregational prayer the imam stands in front and the followers form rows behind him.', 'Congregational prayer concepts'),
  ('Prostration is performed by placing the forehead and nose, hands, knees and toes on the ground.', 'A hadith states that prostration is performed on seven parts of the body.', 'Seven parts in prostration'),
  ('How many prostrations does the prostration of forgetfulness (sajdat al-sahw) have?', 'Two prostrations', ['One prostration', 'Three prostrations', 'Four prostrations'], 'If a wajib is left out by mistake in prayer, two prostrations are made in the final sitting; this is the prostration of forgetfulness.', 'Prostration of forgetfulness'),
+ ('In the noon and afternoon prayers the Qur’an is recited silently.', 'The recitation is silent in the noon and afternoon prayers performed during the day.', 'Silent recitation'),
+ ('In the obligatory dawn, evening and night prayers the imam recites aloud.', 'In the first two rak‘as of the dawn, evening and night prayers the imam recites the Qur’an aloud.', 'Aloud recitation'),
+ ('How many times at least is it sunnah to say the tasbih in bowing and prostration?', 'Three times', ['Once', 'Ten times', 'Seven times'], 'In bowing “Subhana rabbiyal-‘azim” and in prostration “Subhana rabbiyal-a‘la” is said at least three times.', 'Number of tasbih'),
+ ('What is the additional surah or verses recited after al-Fatiha in prayer called?', 'Dammi surah (additional surah)', ['Qunut', 'Tahiyyat', 'Salawat'], 'The surah or verses recited after al-Fatiha are called the additional surah.', 'The additional surah'),
+ ('In the witr prayer the qunut supplication is recited in the third rak‘a, after the recitation.', 'In the third rak‘a of the witr prayer, after the surah, a takbir is said and the qunut supplication is recited.', 'Qunut in the witr prayer'),
+ ('While standing in prayer the gaze is directed to the place of prostration.', 'For concentration, in standing the eyes look at the place where one will prostrate.', 'Etiquette in prayer'),
+ ('In prostration a man does not spread his elbows on the ground; he keeps his arms away from his sides.', 'In prostration men keep the belly away from the thighs and the arms away from the sides, and do not lay the elbows on the ground.', 'Etiquette of prostration'),
+ ('Men raise their hands to ear level at the opening takbir.', 'When saying the opening takbir, men raise the tips of their fingers to ear level.', 'Hands at the opening takbir'),
 ]
 
 DE = [
@@ -191,6 +199,14 @@ DE = [
  ('Ordne die Begriffe ihren Bedeutungen zu:', [('Imam', 'Die Person, die die Gemeinschaft im Gebet leitet'), ('Muqtadi', 'Eine Person, die dem Imam folgend betet'), ('Reihe (Saff)', 'Die Gemeinschaft stellt sich Schulter an Schulter auf'), ('Masbuq', 'Wer später dazukommt, nachdem er eine oder mehrere Rak‘a mit dem Imam verpasst hat')], 'Beim Gemeinschaftsgebet steht der Imam vorn, die Folgenden bilden hinter ihm Reihen.', 'Begriffe des Gemeinschaftsgebets'),
  ('Die Niederwerfung geschieht, indem Stirn und Nase, Hände, Knie und Zehen auf den Boden gesetzt werden.', 'Ein Hadith besagt, dass die Niederwerfung auf sieben Körperteilen erfolgt.', 'Sieben Teile bei der Niederwerfung'),
  ('Wie viele Niederwerfungen hat die Vergessens-Niederwerfung (Sadschdat as-sahw)?', 'Zwei Niederwerfungen', ['Eine Niederwerfung', 'Drei Niederwerfungen', 'Vier Niederwerfungen'], 'Wird im Gebet versehentlich ein Wadschib ausgelassen, macht man im letzten Sitzen zwei Niederwerfungen; das ist die Vergessens-Niederwerfung.', 'Vergessens-Niederwerfung'),
+ ('Im Mittags- und im Nachmittagsgebet wird der Koran leise rezitiert.', 'In den tagsüber verrichteten Gebeten am Mittag und Nachmittag wird still rezitiert.', 'Leise Rezitation'),
+ ('Im Pflichtgebet am Morgen, Abend und in der Nacht rezitiert der Imam laut.', 'In den ersten zwei Rak‘a des Morgen-, Abend- und Nachtgebets rezitiert der Imam den Koran laut.', 'Laute Rezitation'),
+ ('Wie oft mindestens ist es Sunna, bei Verbeugung und Niederwerfung den Tasbih zu sprechen?', 'Dreimal', ['Einmal', 'Zehnmal', 'Siebenmal'], 'In der Verbeugung „Subhana rabbiyal-‘azim“ und in der Niederwerfung „Subhana rabbiyal-a‘la“ spricht man mindestens dreimal.', 'Anzahl des Tasbih'),
+ ('Wie heißt die zusätzliche Sure oder die Verse, die im Gebet nach al-Fatiha gesprochen werden?', 'Zusätzliche Sure (Damm-i Sura)', ['Qunut', 'Tahiyyat', 'Salawat'], 'Die nach al-Fatiha gesprochene Sure oder Verse heißen zusätzliche Sure.', 'Die zusätzliche Sure'),
+ ('Im Witr-Gebet wird das Qunut-Bittgebet in der dritten Rak‘a nach der Rezitation gesprochen.', 'In der dritten Rak‘a des Witr-Gebets spricht man nach der Sure ein Takbir und das Qunut-Bittgebet.', 'Qunut im Witr-Gebet'),
+ ('Beim Stehen im Gebet richtet sich der Blick auf die Stelle der Niederwerfung.', 'Zur Sammlung blickt man im Stehen auf die Stelle, an der man sich niederwirft.', 'Gebetsetikette'),
+ ('Ein Mann breitet bei der Niederwerfung die Ellbogen nicht auf dem Boden aus; er hält die Arme von den Seiten ab.', 'Männer halten bei der Niederwerfung den Bauch von den Oberschenkeln und die Arme von den Seiten fern und legen die Ellbogen nicht auf den Boden.', 'Etikette der Niederwerfung'),
+ ('Männer heben beim Eröffnungstakbir die Hände auf Ohrhöhe.', 'Beim Eröffnungstakbir heben Männer die Fingerspitzen auf Ohrhöhe.', 'Hände beim Eröffnungstakbir'),
 ]
 
 FR = [
@@ -288,6 +304,14 @@ FR = [
  ('Associe les notions à leur sens :', [('Imam', 'La personne qui dirige la prière du groupe'), ('Mouqtadi', 'La personne qui prie en suivant l’imam'), ('Rang (saff)', 'Les fidèles alignés épaule contre épaule'), ('Masbouq', 'Celui qui rejoint en retard après avoir manqué une ou plusieurs rak‘a avec l’imam')], 'Dans la prière en groupe, l’imam se tient devant et les fidèles forment des rangs derrière lui.', 'Notions de la prière en groupe'),
  ('La prosternation se fait en posant le front et le nez, les mains, les genoux et les orteils sur le sol.', 'Un hadith indique que la prosternation se fait sur sept parties du corps.', 'Sept parties dans la prosternation'),
  ('Combien de prosternations comporte la prosternation d’oubli (soujoud as-sahw) ?', 'Deux prosternations', ['Une prosternation', 'Trois prosternations', 'Quatre prosternations'], 'Si un wajib est omis par erreur dans la prière, on fait deux prosternations à la dernière assise ; c’est la prosternation d’oubli.', 'Prosternation d’oubli'),
+ ('Dans les prières de midi et de l’après-midi, le Coran est récité à voix basse.', 'La récitation se fait à voix basse dans les prières de midi et de l’après-midi accomplies de jour.', 'Récitation à voix basse'),
+ ('Dans les prières obligatoires de l’aube, du coucher du soleil et de la nuit, l’imam récite à voix haute.', 'Aux deux premières rak‘a des prières de l’aube, du coucher du soleil et de la nuit, l’imam récite le Coran à voix haute.', 'Récitation à voix haute'),
+ ('Combien de fois au minimum est-il sunna de dire le tasbih dans l’inclinaison et la prosternation ?', 'Trois fois', ['Une fois', 'Dix fois', 'Sept fois'], 'Dans l’inclinaison on dit « Soubhana rabbiyal-‘azim » et dans la prosternation « Soubhana rabbiyal-a‘la » au moins trois fois.', 'Nombre de tasbih'),
+ ('Comment appelle-t-on la sourate ou les versets supplémentaires récités après al-Fatiha dans la prière ?', 'La sourate additionnelle (damm-i sourate)', ['Le qounout', 'Le tahiyyat', 'La salawat'], 'La sourate ou les versets récités après al-Fatiha s’appellent la sourate additionnelle.', 'La sourate additionnelle'),
+ ('Dans la prière du witr, l’invocation du qounout est récitée à la troisième rak‘a, après la récitation.', 'À la troisième rak‘a du witr, après la sourate, on dit un takbir puis l’invocation du qounout.', 'Le qounout dans le witr'),
+ ('En se tenant debout dans la prière, le regard est dirigé vers l’endroit de la prosternation.', 'Pour le recueillement, debout, les yeux regardent l’endroit où l’on se prosternera.', 'Bienséance de la prière'),
+ ('Dans la prosternation, l’homme n’étale pas les coudes sur le sol ; il écarte les bras des flancs.', 'Dans la prosternation, les hommes éloignent le ventre des cuisses et les bras des flancs et ne posent pas les coudes au sol.', 'Bienséance de la prosternation'),
+ ('Les hommes lèvent les mains à hauteur des oreilles lors du takbir d’ouverture.', 'En disant le takbir d’ouverture, les hommes lèvent le bout des doigts à hauteur des oreilles.', 'Les mains au takbir d’ouverture'),
 ]
 
 AR = [
@@ -385,6 +409,14 @@ AR = [
  ('طابِق بين المفاهيم ومعانيها:', [('الإمام', 'من يصلّي بالجماعة'), ('المقتدي', 'من يصلّي مقتديًا بالإمام'), ('الصف', 'وقوف المصلّين متراصّين كتفًا إلى كتف'), ('المسبوق', 'من فاته مع الإمام ركعة أو أكثر ثم التحق به')], 'في صلاة الجماعة يقف الإمام في الأمام ويصفّ المقتدون خلفه.', 'مفاهيم صلاة الجماعة'),
  ('يكون السجود بوضع الجبهة والأنف واليدين والركبتين وأصابع القدمين على الأرض.', 'ورد في الحديث أن السجود يكون على سبعة أعضاء.', 'سبعة أعضاء في السجود'),
  ('كم سجدة في سجود السهو؟', 'سجدتان', ['سجدة واحدة', 'ثلاث سجدات', 'أربع سجدات'], 'إذا تُرك واجب في الصلاة سهوًا سُجد سجدتان في الجلوس الأخير، وهذا هو سجود السهو.', 'سجود السهو'),
+ ('في صلاتي الظهر والعصر تكون القراءة سرًّا.', 'تكون القراءة سرية في صلاتي الظهر والعصر النهاريتين.', 'القراءة السرية'),
+ ('في فرض الفجر والمغرب والعشاء يجهر الإمام بالقراءة.', 'يجهر الإمام بالقرآن في الركعتين الأوليين من الفجر والمغرب والعشاء.', 'القراءة الجهرية'),
+ ('كم مرة على الأقل يُسنّ قول التسبيح في الركوع والسجود؟', 'ثلاث مرات', ['مرة واحدة', 'عشر مرات', 'سبع مرات'], 'يُقال في الركوع «سبحان ربي العظيم» وفي السجود «سبحان ربي الأعلى» ثلاث مرات على الأقل.', 'عدد التسبيحات'),
+ ('ماذا تُسمّى السورة أو الآيات التي تُقرأ بعد الفاتحة في الصلاة؟', 'ضمّ السورة', ['القنوت', 'التحيات', 'الصلاة الإبراهيمية'], 'تُسمّى السورة أو الآيات المقروءة بعد الفاتحة ضمَّ السورة.', 'ضمّ السورة'),
+ ('في صلاة الوتر يُقرأ دعاء القنوت في الركعة الثالثة بعد القراءة.', 'في الركعة الثالثة من الوتر يُكبَّر بعد السورة ثم يُقرأ دعاء القنوت.', 'القنوت في الوتر'),
+ ('ينظر المصلّي وهو قائم إلى موضع سجوده.', 'طلبًا للخشوع يكون النظر في القيام إلى موضع السجود.', 'آداب الصلاة'),
+ ('لا يفترش الرجل ذراعيه في السجود، بل يُجافي عضديه عن جنبيه.', 'يُبعد الرجال بطونهم عن أفخاذهم وأعضادهم عن جنوبهم في السجود ولا يضعون المرافق على الأرض.', 'آداب السجود'),
+ ('يرفع الرجال أيديهم حذو أذنيهم عند تكبيرة الإحرام.', 'عند تكبيرة الإحرام يرفع الرجال أطراف أصابعهم إلى حذاء الأذنين.', 'اليدان عند تكبيرة الإحرام'),
 ]
 
 I18N = {'en': EN, 'de': DE, 'fr': FR, 'ar': AR}

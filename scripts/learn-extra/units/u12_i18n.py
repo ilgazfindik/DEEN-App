@@ -91,6 +91,17 @@ EN = [
  ('Match the sunnahs of ablution with their meanings:', [('Madmada', 'Taking water into the mouth and rinsing it'), ('Istinshaq', 'Drawing water into the nose and cleaning it'), ('Tathlith', 'Washing the limbs of ablution three times each'), ('Siwak', 'Cleaning the teeth and mouth with a siwak')], 'Rinsing the mouth and nose, washing three times and using the siwak are among the sunnahs of ablution.', 'Sunnahs of ablution'),
  ('Match the kinds of purification with their meanings:', [('Ablution (wudu)', 'Washing the face, arms, head and feet to be cleansed of the minor impurity'), ('Full bath (ghusl)', 'Washing the whole body to be cleansed of the major impurity'), ('Tayammum', 'Wiping the face and arms with clean earth when water cannot be found'), ('Wiping over the khuff', 'Wiping the leather socks with a wet hand instead of washing the feet')], 'One is cleansed of the minor impurity by ablution and of the major impurity by the full bath; if water cannot be used, tayammum is made.', 'Kinds of purification'),
  ('Murat washed his arms only up to the wrists during ablution. What is said about his ablution?', 'It is incomplete; the arms must be washed including the elbows', ['It is valid, because washing up to the wrists is enough', 'It is valid, because the arms are not an obligation of ablution', 'It is enough if only the right arm is washed'], 'Washing the arms including the elbows is an obligation of ablution (Ma’ida 5:6).', 'Arms in ablution'),
+ ('What is the cleansing done after relieving oneself called?', 'Istinja', ['Tayammum', 'Siwak', 'Masah'], 'Cleansing oneself after relieving oneself is called istinja.', 'Istinja'),
+ ('One enters the toilet with the left foot and leaves it with the right.', 'It is good manners to use the right side for clean places and the left for unclean ones.', 'Etiquette of the toilet'),
+ ('When menstruation and postnatal bleeding end, a woman must take the full ritual bath.', 'After menstruation or postnatal bleeding ends, ghusl is taken in order to pray and perform similar acts of worship.', 'Menstruation and ghusl'),
+ ('A person without ablution may not touch the written pages of the Qur’an (the mushaf).', 'According to the Hanafi school, one must be in a state of ablution to touch the mushaf.', 'Touching the mushaf'),
+ ('It is sunnah to begin ablution by washing the hands up to the wrists.', 'After saying bismillah, one begins ablution by washing the hands up to the wrists.', 'Beginning the ablution'),
+ ('Taking a full bath on Friday is sunnah.', 'The Prophet recommended taking a full bath before going to the Friday prayer.', 'Ghusl on Friday'),
+ ('If the colour, smell or taste of water changes because of impurity, that water is no longer purifying.', 'Water whose colour, smell or taste has changed through impurity cannot be used for ablution or the full bath.', 'Purity of water'),
+ ('In ablution it is sunnah to begin with the right side when washing the limbs.', 'When washing the hands and feet, the right side is washed first, then the left.', 'Starting with the right'),
+ ('Urine is impure (najis); if it gets on the body or clothing it must be cleaned.', 'Urine and excrement are impurities; for prayer the body and clothing must be free of them.', 'Urine as impurity'),
+ ('Fainting breaks the ablution.', 'Losing consciousness, fainting and intoxication break the ablution.', 'What breaks ablution'),
+ ('In which surah is the verse stating the obligations of ablution?', 'Surat al-Ma’ida', ['Surat al-Fatiha', 'Surat al-Ikhlas', 'Surat al-Kawthar'], 'The obligations of ablution are stated in verse 6 of Surat al-Ma’ida.', 'The verse of ablution'),
 ]
 
 DE = [
@@ -185,6 +196,17 @@ DE = [
  ('Ordne die Sunna-Handlungen der Waschung ihren Bedeutungen zu:', [('Madmada', 'Wasser in den Mund nehmen und spülen'), ('Istinschaq', 'Wasser in die Nase ziehen und sie reinigen'), ('Taslis', 'Die Glieder der Waschung je dreimal waschen'), ('Siwak', 'Zähne und Mund mit dem Siwak reinigen')], 'Mund und Nase spülen, dreimal waschen und den Siwak benutzen gehören zu den Sunna-Handlungen der Waschung.', 'Sunna der Waschung'),
  ('Ordne die Arten der Reinigung ihren Bedeutungen zu:', [('Kleine Waschung (Wudu)', 'Gesicht, Arme, Kopf und Füße waschen, um von der kleinen Unreinheit rein zu werden'), ('Ganzkörperwaschung (Ghusl)', 'Den ganzen Körper waschen, um von der großen Unreinheit rein zu werden'), ('Tayammum', 'Bei Wassermangel Gesicht und Arme mit reiner Erde bestreichen'), ('Streichen über den Chuff', 'Mit nasser Hand über die Lederstrümpfe streichen, statt die Füße zu waschen')], 'Von der kleinen Unreinheit wird man durch Wudu, von der großen durch Ghusl rein; kann man kein Wasser verwenden, macht man Tayammum.', 'Arten der Reinigung'),
  ('Murat hat bei der Waschung die Arme nur bis zu den Handgelenken gewaschen. Was gilt für seine Waschung?', 'Sie ist unvollständig; die Arme müssen samt Ellbogen gewaschen werden', ['Sie ist gültig, denn bis zu den Handgelenken genügt', 'Sie ist gültig, denn die Arme sind keine Pflicht der Waschung', 'Es genügt, wenn nur der rechte Arm gewaschen wird'], 'Das Waschen der Arme samt Ellbogen ist eine Pflicht der Waschung (Ma’ida 5:6).', 'Arme bei der Waschung'),
+ ('Wie heißt die Reinigung nach dem Verrichten der Notdurft?', 'Istindscha', ['Tayammum', 'Siwak', 'Masah'], 'Die Reinigung nach der Notdurft heißt Istindscha.', 'Istindscha'),
+ ('Man betritt die Toilette mit dem linken Fuß und verlässt sie mit dem rechten.', 'Es gehört zum guten Benehmen, saubere Orte mit rechts und unreine mit links zu betreten.', 'Toilettenetikette'),
+ ('Wenn Menstruation und Wochenfluss enden, muss die Frau die Ganzkörperwaschung vornehmen.', 'Nach dem Ende von Menstruation oder Wochenfluss wird Ghusl vollzogen, um beten und ähnliche Gottesdienste verrichten zu können.', 'Menstruation und Ghusl'),
+ ('Wer keine Waschung hat, darf die geschriebenen Seiten des Korans (den Mushaf) nicht berühren.', 'Nach der hanafitischen Schule muss man für die Berührung des Mushaf im Zustand der Waschung sein.', 'Den Mushaf berühren'),
+ ('Es ist Sunna, die Waschung mit dem Waschen der Hände bis zu den Handgelenken zu beginnen.', 'Nach der Basmala beginnt man die Waschung, indem man die Hände bis zu den Handgelenken wäscht.', 'Beginn der Waschung'),
+ ('Am Freitag eine Ganzkörperwaschung vorzunehmen ist Sunna.', 'Der Prophet empfahl, vor dem Gang zum Freitagsgebet ein Vollbad zu nehmen.', 'Ghusl am Freitag'),
+ ('Verändern sich Farbe, Geruch oder Geschmack des Wassers durch Unreines, ist es nicht mehr reinigend.', 'Wasser, dessen Farbe, Geruch oder Geschmack durch Unreines verändert ist, kann nicht für Waschung und Ghusl verwendet werden.', 'Reinheit des Wassers'),
+ ('Bei der Waschung ist es Sunna, die Glieder mit der rechten Seite zu beginnen.', 'Beim Waschen von Händen und Füßen wäscht man zuerst die rechte, dann die linke Seite.', 'Mit rechts beginnen'),
+ ('Urin ist unrein (Nadschis); gerät er auf Körper oder Kleidung, muss er entfernt werden.', 'Urin und Kot sind Unreinheiten; für das Gebet müssen Körper und Kleidung davon frei sein.', 'Urin als Unreinheit'),
+ ('Ohnmacht hebt die Waschung auf.', 'Bewusstlosigkeit, Ohnmacht und Rausch heben die Waschung auf.', 'Was die Waschung aufhebt'),
+ ('In welcher Sure steht der Vers, der die Pflichten der Waschung nennt?', 'In der Sure al-Ma’ida', ['In der Sure al-Fatiha', 'In der Sure al-Ikhlas', 'In der Sure al-Kawthar'], 'Die Pflichten der Waschung werden in Vers 6 der Sure al-Ma’ida genannt.', 'Der Waschungsvers'),
 ]
 
 FR = [
@@ -279,6 +301,17 @@ FR = [
  ('Associe les sunnas des ablutions à leur sens :', [('Madmada', 'Prendre de l’eau dans la bouche et la rincer'), ('Istinchaq', 'Aspirer de l’eau par le nez et le nettoyer'), ('Tathlith', 'Laver chaque membre des ablutions trois fois'), ('Siwak', 'Nettoyer les dents et la bouche avec le siwak')], 'Rincer la bouche et le nez, laver trois fois et utiliser le siwak font partie des sunnas des ablutions.', 'Sunnas des ablutions'),
  ('Associe les types de purification à leur sens :', [('Ablutions (woudou)', 'Laver le visage, les bras, la tête et les pieds pour se purifier de l’impureté mineure'), ('Grande ablution (ghousl)', 'Laver tout le corps pour se purifier de l’impureté majeure'), ('Tayammoum', 'Passer de la terre propre sur le visage et les bras quand l’eau est introuvable'), ('Essuyage sur le khouff', 'Passer une main mouillée sur les chaussettes de cuir au lieu de laver les pieds')], 'On se purifie de l’impureté mineure par le woudou et de l’impureté majeure par le ghousl ; si l’eau ne peut être utilisée, on fait le tayammoum.', 'Types de purification'),
  ('Mourat n’a lavé ses bras que jusqu’aux poignets pendant les ablutions. Que dit-on de ses ablutions ?', 'Elles sont incomplètes ; les bras doivent être lavés coudes compris', ['Elles sont valables, car laver jusqu’aux poignets suffit', 'Elles sont valables, car les bras ne sont pas une obligation des ablutions', 'Il suffit de laver le bras droit'], 'Laver les bras, coudes compris, est une obligation des ablutions (Maïda 5:6).', 'Les bras dans les ablutions'),
+ ('Comment appelle-t-on la purification faite après avoir satisfait un besoin naturel ?', 'L’istindja', ['Le tayammoum', 'Le siwak', 'Le masah'], 'La purification après avoir satisfait un besoin naturel s’appelle l’istindja.', 'L’istindja'),
+ ('On entre aux toilettes du pied gauche et on en sort du pied droit.', 'Il est de bon usage d’utiliser le côté droit pour les lieux propres et le gauche pour les lieux impurs.', 'Bienséance des toilettes'),
+ ('Quand les règles et les lochies prennent fin, la femme doit faire la grande ablution.', 'Après la fin des règles ou des lochies, on fait le ghousl pour pouvoir prier et accomplir des actes d’adoration semblables.', 'Règles et ghousl'),
+ ('Une personne sans ablutions ne doit pas toucher les pages écrites du Coran (le mushaf).', 'Selon l’école hanafite, il faut être en état d’ablutions pour toucher le mushaf.', 'Toucher le mushaf'),
+ ('Il est sunna de commencer les ablutions en lavant les mains jusqu’aux poignets.', 'Après la basmala, on commence les ablutions en lavant les mains jusqu’aux poignets.', 'Début des ablutions'),
+ ('Faire la grande ablution le vendredi est une sunna.', 'Le Prophète a recommandé de faire la grande ablution avant d’aller à la prière du vendredi.', 'Ghousl du vendredi'),
+ ('Si la couleur, l’odeur ou le goût de l’eau change à cause d’une impureté, elle n’est plus purifiante.', 'L’eau dont la couleur, l’odeur ou le goût a changé par une impureté ne peut pas servir aux ablutions ni au ghousl.', 'Pureté de l’eau'),
+ ('Dans les ablutions, il est sunna de commencer par le côté droit pour laver les membres.', 'En lavant les mains et les pieds, on lave d’abord le côté droit, puis le gauche.', 'Commencer par la droite'),
+ ('L’urine est impure (najis) ; si elle touche le corps ou les vêtements, il faut la nettoyer.', 'L’urine et les excréments sont des impuretés ; pour la prière, le corps et les vêtements doivent en être exempts.', 'L’urine comme impureté'),
+ ('S’évanouir annule les ablutions.', 'La perte de conscience, l’évanouissement et l’ivresse annulent les ablutions.', 'Ce qui annule les ablutions'),
+ ('Dans quelle sourate se trouve le verset qui énonce les obligations des ablutions ?', 'La sourate al-Maïda', ['La sourate al-Fatiha', 'La sourate al-Ikhlas', 'La sourate al-Kawthar'], 'Les obligations des ablutions sont énoncées au verset 6 de la sourate al-Maïda.', 'Le verset des ablutions'),
 ]
 
 AR = [
@@ -373,6 +406,17 @@ AR = [
  ('طابِق بين سنن الوضوء ومعانيها:', [('المضمضة', 'إدخال الماء في الفم وتحريكه'), ('الاستنشاق', 'جذب الماء إلى الأنف وتنظيفه'), ('التثليث', 'غسل أعضاء الوضوء ثلاث مرات'), ('السواك', 'تنظيف الأسنان والفم بالسواك')], 'المضمضة والاستنشاق والتثليث واستعمال السواك من سنن الوضوء.', 'سنن الوضوء'),
  ('طابِق بين أنواع الطهارة ومعانيها:', [('الوضوء', 'غسل الوجه واليدين ومسح الرأس وغسل القدمين للتطهّر من الحدث الأصغر'), ('الغُسل', 'غسل البدن كله للتطهّر من الحدث الأكبر'), ('التيمّم', 'مسح الوجه واليدين بتراب طاهر عند فقد الماء'), ('المسح على الخفّين', 'مسح الخفّين بيد مبلولة بدل غسل القدمين')], 'يُتطهَّر من الحدث الأصغر بالوضوء ومن الأكبر بالغُسل، فإن تعذّر استعمال الماء فالتيمّم.', 'أنواع الطهارة'),
  ('غسل مراد ذراعيه في الوضوء إلى الرسغين فقط. ماذا يقال عن وضوئه؟', 'ناقص؛ يجب غسل الذراعين مع المرفقين', ['صحيح لأن الغسل إلى الرسغين كافٍ', 'صحيح لأن الذراعين ليستا من فروض الوضوء', 'يكفي غسل الذراع اليمنى فقط'], 'غسل الذراعين مع المرفقين فرض في الوضوء (المائدة 5:6).', 'الذراعان في الوضوء'),
+ ('ماذا يُسمّى التنظّف بعد قضاء الحاجة؟', 'الاستنجاء', ['التيمّم', 'السواك', 'المسح'], 'يُسمّى التنظّف بعد قضاء الحاجة الاستنجاء.', 'الاستنجاء'),
+ ('يُدخل الخلاء باليسرى ويُخرج منه باليمنى.', 'من الأدب البدء باليمين في الأماكن الطاهرة وباليسار في غيرها.', 'آداب قضاء الحاجة'),
+ ('إذا انقطع الحيض والنفاس وجب على المرأة الغُسل.', 'بعد انقطاع الحيض أو النفاس يُغتسل للصلاة وما شابهها من العبادات.', 'الحيض والغُسل'),
+ ('لا يجوز لمن ليس على وضوء أن يمسّ صفحات المصحف المكتوبة.', 'عند الحنفية يُشترط الوضوء لمسّ المصحف.', 'مسّ المصحف'),
+ ('من السنّة البدء بالوضوء بغسل اليدين إلى الرسغين.', 'بعد التسمية يُبدأ الوضوء بغسل اليدين إلى الرسغين.', 'بدء الوضوء'),
+ ('الاغتسال يوم الجمعة سنّة.', 'أوصى النبي ﷺ بالاغتسال قبل الذهاب إلى صلاة الجمعة.', 'غُسل الجمعة'),
+ ('إذا تغيّر لون الماء أو ريحه أو طعمه بنجاسة لم يعد مطهِّرًا.', 'لا يُستعمل في الوضوء والغُسل ماء تغيّر لونه أو ريحه أو طعمه بنجاسة.', 'طهورية الماء'),
+ ('من السنّة في الوضوء البدء باليمين عند غسل الأعضاء.', 'عند غسل اليدين والرجلين تُغسل اليمنى أولًا ثم اليسرى.', 'البدء باليمين'),
+ ('البول نجس، فإن أصاب البدن أو الثوب وجب تطهيره.', 'البول والغائط نجاسة، ويُشترط لصحة الصلاة طهارة البدن والثوب منهما.', 'نجاسة البول'),
+ ('الإغماء ينقض الوضوء.', 'فقدان الوعي والإغماء والسُّكر تنقض الوضوء.', 'نواقض الوضوء'),
+ ('في أي سورة الآية التي تبيّن فروض الوضوء؟', 'سورة المائدة', ['سورة الفاتحة', 'سورة الإخلاص', 'سورة الكوثر'], 'فروض الوضوء مذكورة في الآية 6 من سورة المائدة.', 'آية الوضوء'),
 ]
 
 I18N = {'en': EN, 'de': DE, 'fr': FR, 'ar': AR}
