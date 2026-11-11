@@ -129,7 +129,7 @@ EN = [
  ('For which prayers are the adhan and iqama recited?', 'For the obligatory prayers', ['Only for voluntary prayers', 'For all prayers', 'Only for the funeral prayer'], 'The adhan and iqama are recited for the five obligatory prayers and the Friday prayer; not for voluntary or funeral prayers.', 'Adhan and iqama'),
  ('In which city is the Prophet’s Mosque, where the Prophet’s grave also lies?', 'Medina', ['Mecca', 'Jerusalem', 'Damascus'], 'The Prophet’s Mosque is in Medina; the Prophet built it after the Hijra.', 'The Prophet’s Mosque'),
  ('What is the total number of obligatory rak‘as in the five daily prayers?', 'Seventeen', ['Fifteen', 'Twenty', 'Eleven'], 'The obligatory rak‘as are: dawn 2, noon 4, afternoon 4, evening 3, night 4 — a total of 17.', 'Total of obligatory rak‘as'),
- ('How many phrases does the adhan consist of?', 'Fifteen', ['Seven', 'Eleven', 'Twenty'], 'The adhan consists of fifteen phrases, counting repetitions.', 'Phrases of the adhan'),
+ ('In the Hanafi adhan, how many times is the opening “Allahu akbar” said?', 'Four', ['Two', 'Three', 'Six'], 'The Hanafi adhan begins with “Allahu akbar” said four times.', 'Phrases of the adhan'),
  ('The adhan is recited in Arabic.', 'The adhan is recited in Arabic, in the form taught by the Prophet.', 'Language of the adhan'),
  ('The conditions of prayer are fulfilled outside the prayer, while its obligatory parts are performed inside it.', 'Conditions such as ablution, qibla and time are met before the prayer; obligatory parts such as standing, bowing and prostration are within it.', 'Conditions and obligatory parts'),
  ('At which time is the Friday prayer performed?', 'At the noon time', ['At the dawn time', 'At the afternoon time', 'At the night time'], 'The Friday prayer is performed at noon on Friday and takes the place of that day’s noon prayer.', 'Time of the Friday prayer'),
@@ -138,6 +138,8 @@ EN = [
  ('When going to prayer one should walk calmly and with dignity rather than rushing.', 'The Prophet advised walking calmly and with dignity, not running, when the iqama is called.', 'Walking to the mosque'),
  ('The Kaaba was built by the Prophet Ibrahim and his son Ismail.', 'Baqara 2:127 says that Ibrahim and Ismail raised the foundations of the Kaaba.', 'Building of the Kaaba'),
  ('The adhan began to be called in the Medinan period.', 'After the Hijra, in Medina, the adhan was established to call Muslims to prayer.', 'Beginning of the adhan'),
+ ('Repeating what the muezzin says while the adhan is called is a sunnah.', 'The Prophet advised those who hear the adhan to say as the muezzin says and then to invoke blessings on him (Muslim).', 'Answering the adhan'),
+ ('What is said in reply to “Hayya ‘ala’s-salah” and “Hayya ‘ala’l-falah” in the adhan?', 'La hawla wa la quwwata illa billah', ['Allahu akbar', 'Subhanallah', 'Alhamdulillah'], 'Saying “La hawla wa la quwwata illa billah” to these two phrases is a sunnah.', 'Reply to the adhan'),
 ]
 
 DE = [
@@ -270,7 +272,7 @@ DE = [
  ('Für welche Gebete werden Adhan und Iqama gesprochen?', 'Für die Pflichtgebete', ['Nur für freiwillige Gebete', 'Für alle Gebete', 'Nur für das Totengebet'], 'Adhan und Iqama gelten für die fünf Pflichtgebete und das Freitagsgebet; nicht für freiwillige oder Totengebete.', 'Adhan und Iqama'),
  ('In welcher Stadt liegt die Prophetenmoschee, in der sich auch das Grab des Propheten befindet?', 'Medina', ['Mekka', 'Jerusalem', 'Damaskus'], 'Die Prophetenmoschee liegt in Medina; der Prophet hat sie nach der Hidschra erbaut.', 'Die Prophetenmoschee'),
  ('Wie viele Pflicht-Rak‘a haben die fünf täglichen Gebete zusammen?', 'Siebzehn', ['Fünfzehn', 'Zwanzig', 'Elf'], 'Die Pflicht-Rak‘a: Morgen 2, Mittag 4, Nachmittag 4, Abend 3, Nacht 4 — zusammen 17.', 'Summe der Pflicht-Rak‘a'),
- ('Aus wie vielen Sätzen besteht der Adhan?', 'Fünfzehn', ['Sieben', 'Elf', 'Zwanzig'], 'Der Adhan besteht, mit Wiederholungen gezählt, aus fünfzehn Sätzen.', 'Sätze des Adhan'),
+ ('Wie oft wird im hanafitischen Adhan zu Beginn „Allahu akbar“ gesprochen?', 'Vier Mal', ['Zwei Mal', 'Drei Mal', 'Sechs Mal'], 'Der hanafitische Adhan beginnt mit viermal „Allahu akbar“.', 'Sätze des Adhan'),
  ('Der Adhan wird auf Arabisch gerufen.', 'Der Adhan wird in der vom Propheten gelehrten Form auf Arabisch gerufen.', 'Sprache des Adhan'),
  ('Die Bedingungen des Gebets werden außerhalb des Gebets erfüllt, seine Pflichtteile innerhalb.', 'Bedingungen wie Waschung, Qibla und Zeit werden vor dem Gebet erfüllt; Pflichtteile wie Stehen, Verbeugung und Niederwerfung gehören zum Gebet.', 'Bedingungen und Pflichtteile'),
  ('Zu welcher Zeit wird das Freitagsgebet verrichtet?', 'Zur Mittagszeit', ['Zur Morgenzeit', 'Zur Nachmittagszeit', 'Zur Nachtzeit'], 'Das Freitagsgebet wird freitags zur Mittagszeit verrichtet und ersetzt das Mittagsgebet dieses Tages.', 'Zeit des Freitagsgebets'),
@@ -279,6 +281,8 @@ DE = [
  ('Auf dem Weg zum Gebet soll man ruhig und würdevoll gehen, statt zu hasten.', 'Der Prophet riet, bei der Iqama ruhig und würdevoll zu gehen und nicht zu rennen.', 'Der Weg zur Moschee'),
  ('Die Kaaba wurde vom Propheten Ibrahim und seinem Sohn Ismail erbaut.', 'Baqara 2:127 berichtet, dass Ibrahim und Ismail die Grundmauern der Kaaba errichteten.', 'Der Bau der Kaaba'),
  ('Der Adhan wurde in der medinensischen Zeit eingeführt.', 'Nach der Hidschra wurde in Medina der Adhan als Ruf zum Gebet festgelegt.', 'Beginn des Adhan'),
+ ('Beim Adhan zu wiederholen, was der Muezzin sagt, ist Sunna.', 'Der Prophet riet denen, die den Adhan hören, zu sagen, was der Muezzin sagt, und danach Segenswünsche für ihn zu sprechen (Muslim).', 'Dem Adhan antworten'),
+ ('Was antwortet man im Adhan auf „Hayya ala-s-salah“ und „Hayya ala-l-falah“?', 'La haula wa la quwwata illa billah', ['Allahu akbar', 'Subhanallah', 'Alhamdulillah'], 'Zu diesen beiden Sätzen „La haula wa la quwwata illa billah“ zu sagen ist Sunna.', 'Antwort auf den Adhan'),
 ]
 
 FR = [
@@ -411,7 +415,7 @@ FR = [
  ('Pour quelles prières l’adhan et l’iqama sont-ils récités ?', 'Pour les prières obligatoires', ['Seulement pour les prières surérogatoires', 'Pour toutes les prières', 'Seulement pour la prière funéraire'], 'L’adhan et l’iqama sont récités pour les cinq prières obligatoires et la prière du vendredi ; pas pour les prières surérogatoires ni funéraires.', 'Adhan et iqama'),
  ('Dans quelle ville se trouve la Mosquée du Prophète, où se trouve aussi la tombe du Prophète ?', 'Médine', ['La Mecque', 'Jérusalem', 'Damas'], 'La Mosquée du Prophète est à Médine ; le Prophète l’a construite après l’Hégire.', 'La Mosquée du Prophète'),
  ('Quel est le nombre total de rak‘a obligatoires des cinq prières quotidiennes ?', 'Dix-sept', ['Quinze', 'Vingt', 'Onze'], 'Les rak‘a obligatoires : aube 2, midi 4, après-midi 4, coucher du soleil 3, nuit 4, soit 17 au total.', 'Total des rak‘a obligatoires'),
- ('De combien de phrases l’adhan se compose-t-il ?', 'Quinze', ['Sept', 'Onze', 'Vingt'], 'L’adhan se compose de quinze phrases, répétitions comprises.', 'Phrases de l’adhan'),
+ ('Dans l’adhan hanafite, combien de fois dit-on « Allahu akbar » au début ?', 'Quatre fois', ['Deux fois', 'Trois fois', 'Six fois'], 'L’adhan hanafite commence par quatre « Allahu akbar ».', 'Phrases de l’adhan'),
  ('L’adhan est récité en arabe.', 'L’adhan est récité en arabe, sous la forme enseignée par le Prophète.', 'Langue de l’adhan'),
  ('Les conditions de la prière sont remplies en dehors de la prière, alors que ses obligations s’accomplissent à l’intérieur.', 'Des conditions comme les ablutions, la qibla et l’heure sont remplies avant la prière ; des obligations comme se tenir debout, s’incliner et se prosterner sont dans la prière.', 'Conditions et obligations'),
  ('À quel moment la prière du vendredi est-elle accomplie ?', 'À l’heure de midi', ['À l’heure de l’aube', 'À l’heure de l’après-midi', 'À l’heure de la nuit'], 'La prière du vendredi est accomplie à midi le vendredi et remplace la prière de midi de ce jour.', 'Heure de la prière du vendredi'),
@@ -420,6 +424,8 @@ FR = [
  ('En allant à la prière, on doit marcher calmement et avec dignité plutôt que se précipiter.', 'Le Prophète a conseillé de marcher calmement et avec dignité, sans courir, quand l’iqama est appelée.', 'Aller à la mosquée'),
  ('La Kaaba a été construite par le prophète Ibrahim et son fils Ismaïl.', 'Baqara 2:127 indique qu’Ibrahim et Ismaïl ont élevé les fondations de la Kaaba.', 'Construction de la Kaaba'),
  ('L’adhan a commencé à être appelé à l’époque médinoise.', 'Après l’Hégire, à Médine, l’adhan a été instauré pour appeler les musulmans à la prière.', 'Début de l’adhan'),
+ ('Répéter ce que dit le muezzin pendant l’adhan est une sunna.', 'Le Prophète a conseillé à ceux qui entendent l’adhan de dire comme le muezzin, puis d’invoquer sur lui les bénédictions (Muslim).', 'Répondre à l’adhan'),
+ ('Que dit-on en réponse à « Hayya ‘ala s-salah » et « Hayya ‘ala l-falah » dans l’adhan ?', 'La hawla wa la quwwata illa billah', ['Allahu akbar', 'Subhanallah', 'Alhamdulillah'], 'Dire « La hawla wa la quwwata illa billah » à ces deux phrases est une sunna.', 'Réponse à l’adhan'),
 ]
 
 AR = [
@@ -552,7 +558,7 @@ AR = [
  ('لأي الصلوات يُؤذَّن ويُقام؟', 'للصلوات المفروضة', ['للنوافل فقط', 'لجميع الصلوات', 'لصلاة الجنازة فقط'], 'يُؤذَّن ويُقام للصلوات الخمس المفروضة وللجمعة، ولا يُؤذَّن للنوافل ولا للجنازة.', 'الأذان والإقامة'),
  ('في أي مدينة يقع المسجد النبوي الذي فيه قبر النبي ﷺ؟', 'المدينة المنورة', ['مكة المكرمة', 'القدس', 'دمشق'], 'المسجد النبوي في المدينة المنورة، بناه النبي ﷺ بعد الهجرة.', 'المسجد النبوي'),
  ('كم مجموع ركعات الفرائض في الصلوات الخمس؟', 'سبع عشرة', ['خمس عشرة', 'عشرون', 'إحدى عشرة'], 'ركعات الفرائض: الفجر 2 والظهر 4 والعصر 4 والمغرب 3 والعشاء 4، فالمجموع 17.', 'مجموع ركعات الفرائض'),
- ('من كم جملة يتكوّن الأذان؟', 'خمس عشرة', ['سبع', 'إحدى عشرة', 'عشرين'], 'يتكوّن الأذان من خمس عشرة جملة بالتكرار.', 'جمل الأذان'),
+ ('كم مرة يُقال «الله أكبر» في أول الأذان عند الحنفية؟', 'أربع مرات', ['مرتان', 'ثلاث مرات', 'ست مرات'], 'يبدأ الأذان عند الحنفية بقول «الله أكبر» أربع مرات.', 'جمل الأذان'),
  ('يُؤدّى الأذان باللغة العربية.', 'يُؤذَّن بالعربية على الصفة التي علّمها النبي ﷺ.', 'لغة الأذان'),
  ('شروط الصلاة تكون خارجها، وفروضها داخلها.', 'الوضوء والقبلة والوقت شروط تُحصَّل قبل الصلاة، أما القيام والركوع والسجود فهي فروض داخل الصلاة.', 'الشروط والفروض'),
  ('في أي وقت تُصلّى صلاة الجمعة؟', 'في وقت الظهر', ['في وقت الفجر', 'في وقت العصر', 'في وقت العشاء'], 'تُصلّى الجمعة وقت الظهر يوم الجمعة وتقوم مقام ظهر ذلك اليوم.', 'وقت صلاة الجمعة'),
@@ -561,6 +567,8 @@ AR = [
  ('ينبغي للذاهب إلى الصلاة أن يمشي بسكينة ووقار دون إسراع.', 'أوصى النبي ﷺ بالمشي بسكينة ووقار لا بالسعي حين تُقام الصلاة.', 'المشي إلى المسجد'),
  ('بنى الكعبة سيدنا إبراهيم وابنه إسماعيل عليهما السلام.', 'تذكر البقرة 2:127 أن إبراهيم وإسماعيل رفعا قواعد الكعبة.', 'بناء الكعبة'),
  ('بدأ الأذان في العهد المدني.', 'بعد الهجرة شُرع الأذان في المدينة المنورة لدعوة المسلمين إلى الصلاة.', 'بدء الأذان'),
+ ('ترديد ما يقوله المؤذن أثناء الأذان سنّة.', 'أمر النبي ﷺ من سمع الأذان أن يقول مثل ما يقول المؤذن ثم يصلّي عليه (مسلم).', 'إجابة الأذان'),
+ ('ماذا يُقال عند سماع «حيّ على الصلاة» و«حيّ على الفلاح» في الأذان؟', 'لا حول ولا قوة إلا بالله', ['الله أكبر', 'سبحان الله', 'الحمد لله'], 'يُسنّ أن يقول السامع «لا حول ولا قوة إلا بالله» عند هاتين الجملتين.', 'إجابة الأذان'),
 ]
 
 I18N = {'en': EN, 'de': DE, 'fr': FR, 'ar': AR}

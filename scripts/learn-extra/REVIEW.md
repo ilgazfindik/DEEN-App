@@ -222,7 +222,7 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Doğru cevap: Allah’a iman ettim
 - Açıklama: “Âmentü billâh”, “Allah’a iman ettim” demektir.
 
-## U11 — ibadet_bilinci (46 soru)
+## U11 — ibadet_bilinci (48 soru)
 
 **DEEN-U11-S01-X001** · İbadet Nedir? · multiple_choice
 - Soru: “Ben cinleri ve insanları ancak bana kulluk etsinler diye yarattım” âyeti hangi surededir?
@@ -493,7 +493,19 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Doğru cevap: Doğru
 - Açıklama: Kurban, Allah’a yaklaşmak niyetiyle Kurban Bayramı günlerinde kesilen hayvandır.
 
-## U12 — temizlik_abdest (50 soru)
+**DEEN-U11-S06-X006** · Akıllı Tekrar · multiple_choice
+- Soru: Hanefîlere göre kurban, Zilhicce ayının hangi günlerinde kesilir?
+- Seçenekler: Yalnızca on beşinci gününde | Yalnızca dokuzuncu gününde | Ayın ilk üç gününde | Onuncu, on birinci ve on ikinci günlerinde
+- Doğru cevap: Onuncu, on birinci ve on ikinci günlerinde
+- Açıklama: Diyanet’e göre Hanefîlerde kurban Zilhicce’nin 10., 11. ve 12. günleri kesilir; ilk günü kesmek daha faziletlidir.
+
+**DEEN-U11-S07-X004** · Ünite Challenge · true_false
+- Soru: Doğru mu, yanlış mı? Hanefî mezhebinde, şartlarını taşıyan kimse için kurban kesmek vaciptir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Çoğu mezhebe göre kurban sünnettir; Hanefî mezhebinde tercih edilen görüş ise vacip olduğudur.
+
+## U12 — temizlik_abdest (52 soru)
 
 **DEEN-U12-S01-X001** · Temizlik ve Taharet · multiple_choice
 - Soru: “Temizlik imanın yarısıdır” sözü kimin hadisidir?
@@ -788,7 +800,19 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Doğru cevap: Mâide Sûresi
 - Açıklama: Abdestin farzları Mâide Sûresi’nin 6. ayetinde bildirilir.
 
-## U13 — namaza_hazirlik (70 soru)
+**DEEN-U12-S03-X010** · Abdest Adımlarını Tanı · true_false
+- Soru: Doğru mu, yanlış mı? Hanefîlere göre abdestte ağıza ve buruna su vermek sünnettir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hanefî, Şâfiî ve Mâlikîlere göre abdestte ağıza ve buruna su vermek sünnettir; Hanefîlerde gusülde ise farzdır.
+
+**DEEN-U12-S06-X006** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Abdestte kullanılmış su temizdir, ancak abdest için temizleyici değildir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Abdest veya gusülde kullanılan su (müstamel su) maddî bir pislik taşımıyorsa temizdir; fakat onunla yeniden abdest alınmaz.
+
+## U13 — namaza_hazirlik (72 soru)
 
 **DEEN-U13-S01-X001** · Namaza Hazırlık · multiple_choice
 - Soru: Namaza başlamadan önce yerine getirilmesi gereken şartlar kaç tanedir?
@@ -1150,10 +1174,10 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Açıklama: Beş vakitte farz rekâtlar: sabah 2, öğle 4, ikindi 4, akşam 3, yatsı 4; toplam 17’dir.
 
 **DEEN-U13-S06-X007** · Akıllı Tekrar · multiple_choice
-- Soru: Ezan kaç cümleden oluşur?
-- Seçenekler: Yedi | Yirmi | On beş | On bir
-- Doğru cevap: On beş
-- Açıklama: Ezan, tekrarlarıyla birlikte on beş cümleden oluşur.
+- Soru: Hanefî ezanında ilk “Allâhü ekber” cümlesi kaç defa söylenir?
+- Seçenekler: İki | Altı | Dört | Üç
+- Doğru cevap: Dört
+- Açıklama: Hanefî usulündeki ezan, başta dört defa “Allâhü ekber” denmesiyle başlar.
 
 **DEEN-U13-S07-X005** · Ünite Challenge · true_false
 - Soru: Doğru mu, yanlış mı? Ezan Arapça okunur.
@@ -1203,7 +1227,19 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Doğru cevap: Doğru
 - Açıklama: Hicretten sonra Medine’de, Müslümanları namaza çağırmak için ezan usulü belirlenmiştir.
 
-## U14 — namazin_yapisi (48 soru)
+**DEEN-U13-S06-X009** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Ezan okunurken müezzinin söylediklerini tekrar etmek sünnettir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hz. Peygamber, ezanı işitenlerin müezzinin dediği gibi söylemesini, ardından kendisine salavat getirmesini tavsiye etmiştir (Müslim).
+
+**DEEN-U13-S06-X010** · Akıllı Tekrar · multiple_choice
+- Soru: Ezanda “Hayye ale’s-salâh” ve “Hayye ale’l-felâh” cümlelerine karşılık ne denir?
+- Seçenekler: Elhamdülillâh | Sübhânallah | Allâhü ekber | Lâ havle ve lâ kuvvete illâ billâh
+- Doğru cevap: Lâ havle ve lâ kuvvete illâ billâh
+- Açıklama: Bu iki cümlede “Lâ havle ve lâ kuvvete illâ billâh” denmesi sünnettir.
+
+## U14 — namazin_yapisi (49 soru)
 
 **DEEN-U14-S01-X001** · Namazın Yapısı · multiple_choice
 - Soru: Namazın içinde yapılan farzlar (rükünler) kaç tanedir?
@@ -1486,7 +1522,13 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Doğru cevap: Doğru
 - Açıklama: Erkekler namaza başlarken tekbir alırken ellerinin parmak uçlarını kulak hizasına kaldırır.
 
-## U15 — oruc_ramazan (48 soru)
+**DEEN-U14-S04-X010** · Namaz İçinde Akış · true_false
+- Soru: Doğru mu, yanlış mı? Rükûda ve secdede en az üç defa tesbih okumak sünnettir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hanefî görüşüne göre rükûda “Sübhâne rabbiyel-azîm”, secdede “Sübhâne rabbiyel-a‘lâ” sözlerini en az üç defa söylemek sünnettir.
+
+## U15 — oruc_ramazan (49 soru)
 
 **DEEN-U15-S01-X001** · Oruç Nedir? · multiple_choice
 - Soru: Ramazan, hicrî takvimin kaçıncı ayıdır?
@@ -1700,7 +1742,7 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Açıklama: Özür sebebiyle tutulamayan oruç kaza edilir; gücü yetmeyenler fidye verir; unutarak yemek orucu bozmaz.
 
 **DEEN-U15-S05-X006** · Mazeret ve Kaza · true_false
-- Soru: Doğru mu, yanlış mı? Ramazan Bayramı’nın ilk günü oruç tutmak haramdır.
+- Soru: Doğru mu, yanlış mı? Ramazan Bayramı’nın ilk günü oruç tutmak dinen yasaktır.
 - Seçenekler: Doğru | Yanlış
 - Doğru cevap: Doğru
 - Açıklama: Ramazan ve Kurban bayramlarının birinci günlerinde oruç tutmak yasaklanmıştır.
@@ -1770,3 +1812,9 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Seçenekler: Doğru | Yanlış
 - Doğru cevap: Doğru
 - Açıklama: Hz. Peygamber iftarı taze hurmayla, bulamazsa kuru hurmayla, o da yoksa su ile açardı (Ebû Dâvûd, Tirmizî).
+
+**DEEN-U15-S05-X009** · Mazeret ve Kaza · true_false
+- Soru: Doğru mu, yanlış mı? Oruçlu kişi, abdestte ağıza ve buruna su verirken mübalağa yapmaz.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Boğaza su kaçıp orucu bozma tehlikesi bulunduğundan oruçlu kimse abdestte ağza ve buruna aşırı su çekmez.

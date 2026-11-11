@@ -103,6 +103,8 @@ EN = [
  ('A person’s right is not forgiven unless the one wronged absolves it.', 'Allah’s right can be forgiven through repentance; a person’s right is settled only by repaying the owner or by the owner’s forgiveness.', 'Rights of people'),
  ('A sunnah that the Prophet did continually and rarely left is called sunnah mu’akkadah.', 'Sunnah mu’akkadah is a sunnah the Prophet kept constantly and left very rarely, like the sunnah of the dawn prayer.', 'Emphasised sunnah'),
  ('Sacrificing an animal is an act of worship performed during the days of Eid al-Adha.', 'The sacrifice is an animal slaughtered during the days of Eid al-Adha with the intention of drawing near to Allah.', 'The sacrifice'),
+ ('According to the Hanafis, on which days of Dhul-Hijjah is the sacrifice offered?', 'The tenth, eleventh and twelfth days', ['Only the ninth day', 'The first three days of the month', 'Only the fifteenth day'], 'In the Hanafi school, the sacrifice is offered on the 10th, 11th and 12th of Dhul-Hijjah; the first day is the most virtuous.', 'Days of the sacrifice'),
+ ('In the Hanafi school, offering the sacrifice is wajib for one who meets its conditions.', 'Most schools consider the sacrifice a sunnah; in the Hanafi school the preferred view is that it is wajib.', 'Ruling on the sacrifice'),
 ]
 
 DE = [
@@ -209,6 +211,8 @@ DE = [
  ('Das Recht eines Menschen wird nicht vergeben, wenn der Betroffene es nicht erlässt.', 'Allahs Recht kann durch Reue vergeben werden; das Recht eines Menschen wird nur durch Rückgabe oder dessen Verzeihen beglichen.', 'Rechte der Menschen'),
  ('Eine Sunna, die der Prophet ständig verrichtete und selten ausließ, heißt Sunna mu’akkada.', 'Sunna mu’akkada ist eine Sunna, die der Prophet beständig hielt und nur sehr selten ausließ, wie die Sunna des Morgengebets.', 'Betonte Sunna'),
  ('Das Opfern eines Tieres ist ein Gottesdienst, der in den Tagen des Opferfests verrichtet wird.', 'Das Opfer ist ein Tier, das in den Tagen des Opferfests in der Absicht geschlachtet wird, Allah näherzukommen.', 'Das Opfer'),
+ ('An welchen Tagen von Dhul-Hiddscha wird das Opfer nach den Hanafiten dargebracht?', 'Am zehnten, elften und zwölften Tag', ['Nur am neunten Tag', 'An den ersten drei Tagen des Monats', 'Nur am fünfzehnten Tag'], 'Bei den Hanafiten wird das Opfer am 10., 11. und 12. Dhul-Hiddscha dargebracht; der erste Tag ist der verdienstvollste.', 'Tage des Opfers'),
+ ('In der hanafitischen Rechtsschule ist das Opfer für den, der die Bedingungen erfüllt, wadschib.', 'Die meisten Rechtsschulen halten das Opfer für Sunna; bei den Hanafiten gilt bevorzugt die Ansicht, dass es wadschib ist.', 'Hukm des Opfers'),
 ]
 
 FR = [
@@ -315,6 +319,8 @@ FR = [
  ('Le droit d’une personne n’est pas pardonné tant que le lésé ne l’a pas absous.', 'Le droit d’Allah peut être pardonné par le repentir ; le droit d’une personne n’est réglé que par la restitution ou par le pardon du lésé.', 'Droits des personnes'),
  ('Une sunna que le Prophète accomplissait continuellement et omettait rarement s’appelle sunna mouakkada.', 'La sunna mouakkada est une sunna que le Prophète observait constamment et omettait très rarement, comme la sunna de la prière de l’aube.', 'Sunna confirmée'),
  ('Sacrifier un animal est un acte d’adoration accompli pendant les jours de l’Aïd al-Adha.', 'Le sacrifice est un animal immolé pendant les jours de l’Aïd al-Adha dans l’intention de se rapprocher d’Allah.', 'Le sacrifice'),
+ ('Selon les hanafites, à quels jours de Dhou al-hijja le sacrifice est-il offert ?', 'Les dixième, onzième et douzième jours', ['Seulement le neuvième jour', 'Les trois premiers jours du mois', 'Seulement le quinzième jour'], 'Chez les hanafites, le sacrifice se fait les 10, 11 et 12 de Dhou al-hijja ; le premier jour est le plus méritoire.', 'Jours du sacrifice'),
+ ('Dans l’école hanafite, le sacrifice est wajib pour celui qui en remplit les conditions.', 'La plupart des écoles y voient une sunna ; dans l’école hanafite, l’avis privilégié est qu’il est wajib.', 'Statut du sacrifice'),
 ]
 
 AR = [
@@ -421,6 +427,8 @@ AR = [
  ('حقّ العبد لا يُغفر ما لم يُسامح صاحبه.', 'حقّ الله يُغفر بالتوبة، أما حقّ العبد فلا يسقط إلا بردّه إلى صاحبه أو بعفوه.', 'حقوق العباد'),
  ('السنّة التي واظب عليها النبي ﷺ وترك تركها نادرًا تُسمّى سنّة مؤكّدة.', 'السنّة المؤكّدة ما واظب عليه النبي ﷺ ولم يتركه إلا نادرًا، كسنّة الفجر.', 'السنّة المؤكّدة'),
  ('الأضحية عبادة تُؤدّى في أيام عيد الأضحى.', 'الأضحية حيوان يُذبح في أيام عيد الأضحى تقرّبًا إلى الله.', 'الأضحية'),
+ ('في أي أيام من ذي الحجة تُذبح الأضحية عند الحنفية؟', 'في اليوم العاشر والحادي عشر والثاني عشر', ['في التاسع فقط', 'في الأيام الثلاثة الأولى من الشهر', 'في الخامس عشر فقط'], 'عند الحنفية تُذبح الأضحية في العاشر والحادي عشر والثاني عشر من ذي الحجة، والأفضل ذبحها في اليوم الأول.', 'أيام الأضحية'),
+ ('الأضحية واجبة في المذهب الحنفي على من توفرت فيه شروطها.', 'يرى أكثر المذاهب أن الأضحية سنّة، والمعتمد في المذهب الحنفي أنها واجبة.', 'حكم الأضحية'),
 ]
 
 I18N = {'en': EN, 'de': DE, 'fr': FR, 'ar': AR}

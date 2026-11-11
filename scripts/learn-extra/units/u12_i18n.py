@@ -102,6 +102,8 @@ EN = [
  ('Urine is impure (najis); if it gets on the body or clothing it must be cleaned.', 'Urine and excrement are impurities; for prayer the body and clothing must be free of them.', 'Urine as impurity'),
  ('Fainting breaks the ablution.', 'Losing consciousness, fainting and intoxication break the ablution.', 'What breaks ablution'),
  ('In which surah is the verse stating the obligations of ablution?', 'Surat al-Ma’ida', ['Surat al-Fatiha', 'Surat al-Ikhlas', 'Surat al-Kawthar'], 'The obligations of ablution are stated in verse 6 of Surat al-Ma’ida.', 'The verse of ablution'),
+ ('According to the Hanafis, rinsing the mouth and nose is a sunnah of ablution.', 'The Hanafis, Shafi‘is and Malikis hold rinsing the mouth and nose to be a sunnah of ablution; for the Hanafis it is obligatory in the full ritual bath.', 'Rinsing mouth and nose'),
+ ('Water already used for ablution is clean, but it is not purifying for ablution.', 'Water used in ablution or the full bath is clean if it carries no visible impurity, but it cannot be used for ablution again.', 'Used water'),
 ]
 
 DE = [
@@ -207,6 +209,8 @@ DE = [
  ('Urin ist unrein (Nadschis); gerät er auf Körper oder Kleidung, muss er entfernt werden.', 'Urin und Kot sind Unreinheiten; für das Gebet müssen Körper und Kleidung davon frei sein.', 'Urin als Unreinheit'),
  ('Ohnmacht hebt die Waschung auf.', 'Bewusstlosigkeit, Ohnmacht und Rausch heben die Waschung auf.', 'Was die Waschung aufhebt'),
  ('In welcher Sure steht der Vers, der die Pflichten der Waschung nennt?', 'In der Sure al-Ma’ida', ['In der Sure al-Fatiha', 'In der Sure al-Ikhlas', 'In der Sure al-Kawthar'], 'Die Pflichten der Waschung werden in Vers 6 der Sure al-Ma’ida genannt.', 'Der Waschungsvers'),
+ ('Nach den Hanafiten ist das Ausspülen von Mund und Nase eine Sunna der Gebetswaschung.', 'Hanafiten, Schafiiten und Malikiten halten das Ausspülen von Mund und Nase bei der Gebetswaschung für Sunna; bei den Hanafiten ist es bei der Ganzkörperwaschung Pflicht.', 'Mund und Nase spülen'),
+ ('Für die Gebetswaschung bereits benutztes Wasser ist rein, reinigt aber nicht erneut.', 'Bei Waschung oder Ganzkörperwaschung benutztes Wasser ist rein, wenn es keine sichtbare Unreinheit enthält, kann aber nicht noch einmal zur Waschung dienen.', 'Gebrauchtes Wasser'),
 ]
 
 FR = [
@@ -312,6 +316,8 @@ FR = [
  ('L’urine est impure (najis) ; si elle touche le corps ou les vêtements, il faut la nettoyer.', 'L’urine et les excréments sont des impuretés ; pour la prière, le corps et les vêtements doivent en être exempts.', 'L’urine comme impureté'),
  ('S’évanouir annule les ablutions.', 'La perte de conscience, l’évanouissement et l’ivresse annulent les ablutions.', 'Ce qui annule les ablutions'),
  ('Dans quelle sourate se trouve le verset qui énonce les obligations des ablutions ?', 'La sourate al-Maïda', ['La sourate al-Fatiha', 'La sourate al-Ikhlas', 'La sourate al-Kawthar'], 'Les obligations des ablutions sont énoncées au verset 6 de la sourate al-Maïda.', 'Le verset des ablutions'),
+ ('Selon les hanafites, se rincer la bouche et le nez est une sunna des ablutions.', 'Hanafites, chaféites et malikites tiennent le rinçage de la bouche et du nez pour une sunna des ablutions ; chez les hanafites il est obligatoire dans le grand lavage.', 'Rincer bouche et nez'),
+ ('L’eau déjà utilisée pour les ablutions est pure, mais elle n’est plus purifiante.', 'L’eau utilisée pour les ablutions ou le grand lavage est pure si elle ne porte aucune impureté visible, mais on ne peut plus s’en servir pour les ablutions.', 'Eau utilisée'),
 ]
 
 AR = [
@@ -417,6 +423,8 @@ AR = [
  ('البول نجس، فإن أصاب البدن أو الثوب وجب تطهيره.', 'البول والغائط نجاسة، ويُشترط لصحة الصلاة طهارة البدن والثوب منهما.', 'نجاسة البول'),
  ('الإغماء ينقض الوضوء.', 'فقدان الوعي والإغماء والسُّكر تنقض الوضوء.', 'نواقض الوضوء'),
  ('في أي سورة الآية التي تبيّن فروض الوضوء؟', 'سورة المائدة', ['سورة الفاتحة', 'سورة الإخلاص', 'سورة الكوثر'], 'فروض الوضوء مذكورة في الآية 6 من سورة المائدة.', 'آية الوضوء'),
+ ('المضمضة والاستنشاق سنّة في الوضوء عند الحنفية.', 'المضمضة والاستنشاق سنّتان في الوضوء عند الحنفية والشافعية والمالكية، وهما فرضان في الغسل عند الحنفية.', 'المضمضة والاستنشاق'),
+ ('الماء المستعمل في الوضوء طاهر لكنه غير مطهِّر.', 'الماء الذي استُعمل في الوضوء أو الغسل طاهر إن لم يحمل نجاسة ظاهرة، لكن لا يُتوضأ به مرة أخرى.', 'الماء المستعمل'),
 ]
 
 I18N = {'en': EN, 'de': DE, 'fr': FR, 'ar': AR}

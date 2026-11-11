@@ -150,4 +150,6 @@ Q = [
  ('tf', 4, 'goz_secde_yeri', 'Namaz edebi', 'e', 'Namazda ayakta dururken bakışlar secde yerine yöneltilir.', True, 'Huşû için namazda kıyamda gözler secde edilecek yere bakar.'),
  ('tf', 5, 'secde_dirsek', 'Secde adabı', 'h', 'Erkek, secdede dirseklerini yere yaymaz; kollarını yanlarından ayırır.', True, 'Erkekler secdede karınlarını uyluklarından, kollarını yanlarından uzak tutar ve dirseklerini yere koymaz.'),
  ('tf', 3, 'tekbir_el_kaldirma', 'İftitah tekbirinde eller', 'm', 'Erkekler iftitah tekbirinde ellerini kulak hizasına kaldırır.', True, 'Erkekler namaza başlarken tekbir alırken ellerinin parmak uçlarını kulak hizasına kaldırır.'),
+ # --- Web-verified additions (Diyanet / TDV sources)
+ ('tf', 4, 'tesbih_uc', 'Rükû ve secde tesbihi', 'm', 'Rükûda ve secdede en az üç defa tesbih okumak sünnettir.', True, 'Hanefî görüşüne göre rükûda “Sübhâne rabbiyel-azîm”, secdede “Sübhâne rabbiyel-a‘lâ” sözlerini en az üç defa söylemek sünnettir.'),
 ]

@@ -152,4 +152,7 @@ Q = [
  ('tf', 3, 'idrar_necaset', 'İdrar', 'e', 'İdrar necasettir; bedene ve elbiseye bulaşırsa temizlenmesi gerekir.', True, 'İdrar ve dışkı gibi pislikler necasettir; namaz için beden ve elbisenin bunlardan temiz olması şarttır.'),
  ('tf', 5, 'bayilma_abdest', 'Abdesti bozanlar', 'm', 'Bayılmak abdesti bozar.', True, 'Akıl dengesinin kaybolması, bayılma ve sarhoşluk abdesti bozar.'),
  ('mc', 7, 'abdest_ayet_sure', 'Abdest ayeti', 'h', 'Abdestin farzlarını bildiren ayet hangi sûrededir?', 'Mâide Sûresi', ['Fâtiha Sûresi', 'İhlâs Sûresi', 'Kevser Sûresi'], 'Abdestin farzları Mâide Sûresi’nin 6. ayetinde bildirilir.'),
+ # --- Web-verified additions (Diyanet / TDV sources)
+ ('tf', 3, 'mazmaza_hukum', 'Ağıza ve buruna su vermek', 'm', 'Hanefîlere göre abdestte ağıza ve buruna su vermek sünnettir.', True, 'Hanefî, Şâfiî ve Mâlikîlere göre abdestte ağıza ve buruna su vermek sünnettir; Hanefîlerde gusülde ise farzdır.'),
+ ('tf', 6, 'musta_mel_su', 'Kullanılmış su', 'h', 'Abdestte kullanılmış su temizdir, ancak abdest için temizleyici değildir.', True, 'Abdest veya gusülde kullanılan su (müstamel su) maddî bir pislik taşımıyorsa temizdir; fakat onunla yeniden abdest alınmaz.'),
 ]
