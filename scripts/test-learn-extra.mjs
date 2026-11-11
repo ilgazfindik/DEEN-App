@@ -4,7 +4,7 @@ import vm from 'node:vm';
 import assert from 'node:assert/strict';
 const win={};vm.runInNewContext(readFileSync('assets/learn/extra-questions.js','utf8'),{window:win});
 const Q=win.DEEN_EXTRA_QUESTIONS;assert(Array.isArray(Q)&&Q.length>=150,'extra questions present');
-const ids=new Set(),texts=new Set(),UNITS=new Set(['U03','U05','U11','U12','U13','U14','U15']);
+const ids=new Set(),texts=new Set(),UNITS=new Set(['U02','U03','U05','U11','U12','U13','U14','U15']);
 const TYPES=new Set(['multiple_choice','true_false','fill_blank','missing_item','scenario','error_spotting','speed_review','matching','progressive_recall']);
 for(const q of Q){
  assert(!ids.has(q.id),'duplicate id '+q.id);ids.add(q.id);
