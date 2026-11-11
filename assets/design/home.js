@@ -207,5 +207,13 @@
   decorate();
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',watch,{once:true});else watch();
+ // Arabic: "الملف الشخصي" does not fit the bottom bar and was cut ("الملف الشخ…"); the short form fits.
+ function fixNavLabels(){
+  let code='';try{code=window.DEEN_APP_LOCALE?.get?.()||''}catch(_){}
+  if(code!=='ar')return;
+  const span=document.querySelector('.bottomnav .navbtn[data-screen="profileScreen"] span');
+  if(span&&span.textContent.trim()!=='ملفي')span.textContent='ملفي';
+ }
+ setInterval(()=>{try{fixNavLabels()}catch(_){}},1500);
  window.DEEN_DS_HOME=Object.freeze({decorate,version:'ds-home-v1'});
 })();
