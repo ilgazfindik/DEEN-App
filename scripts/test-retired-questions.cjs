@@ -30,4 +30,8 @@ const retired=JSON.parse(fs.readFileSync(path.join(root,'scripts/learn-extra/ret
   return out});
  assert(lessons.length>=30,'macro stages found: '+lessons.length);
  for(const l of lessons){assert(!l.err,l.id+' '+l.err);assert.deepStrictEqual(l.bad,[],l.id+' offers retired questions');assert(l.n>=5,l.id+' has '+l.n+' questions')}
+ // A retired question that is still in a learner's saved lesson plays like any other question (no "media unavailable" panel).
+ const shown=await pg.evaluate(id=>{const q=QUESTIONS.find(x=>x.id===id);session={stage:STAGES.find(s=>s.id===q.stage_id),questions:[q],index:0,correct:0,combo:0,bestCombo:0,startedAt:Date.now(),v5responses:[]};document.getElementById('lesson').classList.add('active');document.getElementById('quizView').style.display='flex';resetResultView(false);renderQuestion();return {text:document.getElementById('answerArea').innerText,opts:q.options_tr||[],blocked:audioBlocked(q)}},retired.find(i=>/U11-S01/.test(i))||retired[0]);
+ assert.strictEqual(shown.blocked,false,'retired questions are not audio-blocked');
+ assert(shown.opts.length>0&&shown.opts.every(o=>shown.text.includes(o)),'retired question still renders its options');
  assert.deepStrictEqual(errs,[]);await b.close();srv.close();console.log('Retired questions ok:',r.size,'retired · pool',r.poolSize,'· lessons checked',lessons.length);})().catch(e=>{console.error(e);process.exit(1)});

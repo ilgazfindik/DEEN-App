@@ -275,7 +275,7 @@ window.DEEN_GAMEPLAY_FEEL_VERSION='5.2.0';
     },
     compose(stageId){
       const target=stageId.endsWith('S07')?10:7;
-      const pool=poolFor(stageId).filter(q=>!audioBlocked(q));
+      const pool=poolFor(stageId).filter(q=>!audioBlocked(q)&&!deenRetired(q));
       if(pool.length<target)return [];
       const profile=this.profileFor(stageId);
       const slots=this.slotProfiles(target,profile);
@@ -363,7 +363,7 @@ window.DEEN_GAMEPLAY_FEEL_VERSION='5.2.0';
       return reordered;
     },
     reviewCompose(pool,target){
-      const clean=[...pool].filter(q=>!audioBlocked(q));
+      const clean=[...pool].filter(q=>!audioBlocked(q)&&!deenRetired(q));
       if(clean.length<=target)return clean;
       const ctx={
         out:[],used:new Set(),recent:new Set(state.lastReviewIds||[]),
@@ -834,7 +834,7 @@ window.DEEN_GAMEPLAY_FEEL_VERSION='5.2.0';
     const arr=unitStages(s.unit),idx=arr.findIndex(x=>x.id===s.id);
     return idx>=0?stageState(s.unit,idx):null;
   }
-  function dueCount(){try{return reviewPool('due').filter(q=>!audioBlocked(q)).length}catch(e){return 0}}
+  function dueCount(){try{return reviewPool('due').filter(q=>!audioBlocked(q)&&!deenRetired(q)).length}catch(e){return 0}}
   function weakCount(){
     try{return Object.keys(state.stageScores||{}).filter(id=>Number(state.stageScores[id])<75).length}catch(e){return 0}
   }
