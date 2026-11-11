@@ -1,0 +1,35 @@
+name: Turkish Leak Check
+
+on:
+  pull_request:
+    paths:
+      - 'assets/**'
+      - 'release/**'
+      - 'index.html'
+      - 'scripts/audit-turkish-leaks.cjs'
+      - 'scripts/review-sheets-report.mjs'
+      - 'scripts/test-review-sheets.mjs'
+      - 'supabase/**'
+      - 'scripts/i18n/**'
+      - '.github/workflows/turkish-leak-check.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Review sheet checks
+        run: node scripts/test-review-sheets.mjs
+      - name: Reminder rules and push endpoint allow-list
+        run: node scripts/test-reminder-logic.mjs
+      - name: No Turkish text on the main screens in en/de/fr/ar
+        run: |
+          npm i --no-save playwright@1.49.1
+          npx playwright install --with-deps chromium
+          node scripts/audit-turkish-leaks.cjs en,de,fr,ar --strict

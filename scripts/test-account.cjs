@@ -1,5 +1,5 @@
 const http=require('http'),fs=require('fs'),path=require('path');const {chromium}=require('playwright');const assert=require('assert');
-const root=path.resolve(__dirname,'..');const types={'.js':'text/javascript','.html':'text/html','.css':'text/css','.json':'application/json','.txt':'text/plain','.webmanifest':'application/manifest+json','.png':'image/png','.webp':'image/webp','.woff2':'font/woff2'};
+const root=path.resolve(__dirname,'..');const types={'.js':'text/javascript','.mjs':'text/javascript','.html':'text/html','.css':'text/css','.json':'application/json','.txt':'text/plain','.webmanifest':'application/manifest+json','.png':'image/png','.webp':'image/webp','.woff2':'font/woff2'};
 const srv=http.createServer((q,r)=>{let p=decodeURIComponent(q.url.split('?')[0]);if(p.endsWith('/'))p+='index.html';const f=path.join(root,p);fs.readFile(f,(e,b)=>{if(e){r.writeHead(404);r.end();return}r.writeHead(200,{'content-type':types[path.extname(f)]||'application/octet-stream'});r.end(b)})});
 (async()=>{await new Promise(r=>srv.listen(0,r));const port=srv.address().port,base='http://localhost:'+port+'/';
 const b=await chromium.launch();const ctx=await b.newContext({serviceWorkers:'block'});const pg=await ctx.newPage();
