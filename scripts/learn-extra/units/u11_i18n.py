@@ -92,6 +92,17 @@ EN = [
  ("According to Al-Baqara 2:286, what does Allah not burden anyone with?", "What is beyond their capacity",
   ["Praying", "Making supplication", "Honesty"],
   "Al-Baqara 2:286: “Allah does not burden any soul beyond its capacity.”", "Burden"),
+ ('Match the concepts with their meanings:', [('Khushu', 'The heart turning to Allah in worship, full of reverence'), ('Patience (sabr)', 'Enduring hardship and the difficulty of worship'), ('Gratitude (shukr)', 'Feeling thankful for Allah’s blessings and using them rightly'), ('Taqwa', 'Obeying Allah’s commands and avoiding what He forbids out of a sense of responsibility to Him')], 'Khushu, patience, gratitude and taqwa are the inner values that give worship its spirit.', 'Inner values'),
+ ('Match the acts of worship with their effect on life:', [('Prayer', 'Keeps a person away from indecent and evil acts'), ('Fasting', 'Helps one reach taqwa'), ('Zakat', 'Strengthens solidarity and sharing in society'), ('Hajj', 'Brings Muslims of the world together and strengthens brotherhood')], 'Ankabut 45 says prayer keeps one from evil and Baqara 183 says fasting leads to taqwa; zakat and hajj strengthen social bonds.', 'Effect of worship on life'),
+ ('Match the concepts with their meanings:', [('Moderation (i‘tidal)', 'Avoiding excess in worship and keeping balance'), ('Ease (yusr)', 'The principle of ease in religion'), ('Tawqif', 'The form of acts of worship being set by Allah and His Messenger'), ('Voluntary worship (nafila)', 'Worship beyond the obligatory, done to earn reward')], 'In Islam worship is done in a balanced way, based on ease, within the framework set by the Qur’an and the Sunnah.', 'Balance in religion'),
+ ('A person may change the form of an act of worship according to his own taste.', 'How acts of worship are performed is set out in the Qur’an and the Sunnah; a person cannot change it by his own opinion.', 'The form of worship'),
+ ('The zakat rate on gold, silver and trade goods is one fortieth (2.5 per cent).', 'Zakat is given at one fortieth on wealth that has reached the nisab and been held for a year.', 'Zakat rate'),
+ ('What does “makruh” mean in Islam?', 'Something one is asked not to do, but less definitively than haram', ['Something definitely commanded', 'Something one is free to do or not', 'Something rewarded if done but not sinful if left'], 'Makruh is a disliked act whose avoidance is requested but which is not as grave as haram.', 'Makruh'),
+ ('In the Hanafi school what is a “wajib”?', 'A ruling close to fard that must be done', ['A ruling that is optional', 'A ruling whose omission earns reward', 'A merely recommended ruling'], 'A wajib is something that must be done although it is not established by evidence as certain as fard.', 'Wajib'),
+ ('According to Islam there is no compulsion in religion.', 'Baqara 2:256: “There is no compulsion in religion.” Belief and worship come from a person’s free will.', 'No compulsion in religion'),
+ ('A person’s right is not forgiven unless the one wronged absolves it.', 'Allah’s right can be forgiven through repentance; a person’s right is settled only by repaying the owner or by the owner’s forgiveness.', 'Rights of people'),
+ ('A sunnah that the Prophet did continually and rarely left is called sunnah mu’akkadah.', 'Sunnah mu’akkadah is a sunnah the Prophet kept constantly and left very rarely, like the sunnah of the dawn prayer.', 'Emphasised sunnah'),
+ ('Sacrificing an animal is an act of worship performed during the days of Eid al-Adha.', 'The sacrifice is an animal slaughtered during the days of Eid al-Adha with the intention of drawing near to Allah.', 'The sacrifice'),
 ]
 
 DE = [
@@ -187,6 +198,17 @@ DE = [
  ("Womit belastet Allah laut Al-Baqara 2:286 niemanden?", "Mit dem, was über seine Kraft geht",
   ["Mit dem Beten", "Mit dem Bittgebet", "Mit Ehrlichkeit"],
   "Al-Baqara 2:286: „Allah fordert von keiner Seele mehr, als sie zu leisten vermag.“", "Belastung"),
+ ('Ordne die Begriffe ihren Bedeutungen zu:', [('Chuschu‘', 'Das Herz wendet sich im Gottesdienst ehrfürchtig Allah zu'), ('Geduld (Sabr)', 'Schwierigkeiten und die Mühe des Gottesdienstes ertragen'), ('Dankbarkeit (Schukr)', 'Für Allahs Gaben dankbar sein und sie richtig nutzen'), ('Taqwa', 'Aus Verantwortungsbewusstsein Allah gegenüber seine Gebote befolgen und Verbotenes meiden')], 'Chuschu‘, Geduld, Dankbarkeit und Taqwa sind die inneren Werte, die dem Gottesdienst seine Seele geben.', 'Innere Werte'),
+ ('Ordne die Gottesdienste ihrer Wirkung auf das Leben zu:', [('Gebet', 'Hält den Menschen von Schändlichem und Bösem ab'), ('Fasten', 'Hilft, Taqwa zu erreichen'), ('Zakat', 'Stärkt Zusammenhalt und Teilen in der Gesellschaft'), ('Hadsch', 'Führt Muslime der Welt zusammen und stärkt die Brüderlichkeit')], 'Ankabut 45 sagt, dass das Gebet vom Bösen abhält, und Baqara 183, dass das Fasten zur Taqwa führt; Zakat und Hadsch stärken die sozialen Bande.', 'Wirkung des Gottesdienstes'),
+ ('Ordne die Begriffe ihren Bedeutungen zu:', [('Mäßigung (I‘tidal)', 'Übertreibung im Gottesdienst vermeiden und das Gleichgewicht halten'), ('Erleichterung (Jusr)', 'Das Prinzip der Erleichterung in der Religion'), ('Tauqif', 'Die Form der Gottesdienste ist von Allah und seinem Gesandten festgelegt'), ('Freiwilliger Gottesdienst (Nafila)', 'Gottesdienst über die Pflicht hinaus, um Lohn zu erlangen')], 'Im Islam wird der Gottesdienst ausgewogen, auf Erleichterung gegründet und im Rahmen von Koran und Sunna verrichtet.', 'Maß in der Religion'),
+ ('Ein Mensch darf die Form eines Gottesdienstes nach eigenem Geschmack ändern.', 'Wie Gottesdienste verrichtet werden, ist in Koran und Sunna festgelegt; der Mensch kann das nicht nach eigener Meinung ändern.', 'Die Form des Gottesdienstes'),
+ ('Der Zakat-Satz für Gold, Silber und Handelsware beträgt ein Vierzigstel (2,5 Prozent).', 'Zakat wird mit einem Vierzigstel auf Vermögen gegeben, das den Nisab erreicht hat und ein Jahr besessen wurde.', 'Zakat-Satz'),
+ ('Was bedeutet „makruh“ im Islam?', 'Etwas, das man unterlassen soll, aber weniger verbindlich als Haram', ['Etwas ausdrücklich Befohlenes', 'Etwas, das man tun oder lassen kann', 'Etwas, das belohnt wird, aber nicht sündhaft ist, wenn man es lässt'], 'Makruh ist eine missbilligte Handlung, deren Unterlassen erwünscht ist, die aber nicht so schwer wiegt wie Haram.', 'Makruh'),
+ ('Was ist ein „Wadschib“ in der hanafitischen Schule?', 'Eine dem Fard nahe stehende Vorschrift, die zu erfüllen ist', ['Eine freiwillige Vorschrift', 'Eine Vorschrift, deren Unterlassen belohnt wird', 'Eine bloß empfohlene Vorschrift'], 'Ein Wadschib muss erfüllt werden, auch wenn es nicht durch so sicheren Beleg wie das Fard feststeht.', 'Wadschib'),
+ ('Nach dem Islam gibt es keinen Zwang in der Religion.', 'Baqara 2:256: „Es gibt keinen Zwang in der Religion.“ Glaube und Gottesdienst geschehen aus freiem Willen.', 'Kein Zwang in der Religion'),
+ ('Das Recht eines Menschen wird nicht vergeben, wenn der Betroffene es nicht erlässt.', 'Allahs Recht kann durch Reue vergeben werden; das Recht eines Menschen wird nur durch Rückgabe oder dessen Verzeihen beglichen.', 'Rechte der Menschen'),
+ ('Eine Sunna, die der Prophet ständig verrichtete und selten ausließ, heißt Sunna mu’akkada.', 'Sunna mu’akkada ist eine Sunna, die der Prophet beständig hielt und nur sehr selten ausließ, wie die Sunna des Morgengebets.', 'Betonte Sunna'),
+ ('Das Opfern eines Tieres ist ein Gottesdienst, der in den Tagen des Opferfests verrichtet wird.', 'Das Opfer ist ein Tier, das in den Tagen des Opferfests in der Absicht geschlachtet wird, Allah näherzukommen.', 'Das Opfer'),
 ]
 
 FR = [
@@ -282,6 +304,17 @@ FR = [
  ("Selon Al-Baqara 2:286, de quoi Allah ne charge-t-Il personne ?", "De ce qui dépasse sa capacité",
   ["De prier", "D’invoquer", "D’être honnête"],
   "Al-Baqara 2:286 : « Allah n’impose à aucune âme une charge supérieure à sa capacité. »", "La charge"),
+ ('Associe les notions à leur sens :', [('Khouchou‘', 'Le cœur qui se tourne vers Allah dans l’adoration, plein de révérence'), ('Patience (sabr)', 'Supporter les difficultés et l’effort de l’adoration'), ('Gratitude (chukr)', 'Être reconnaissant pour les bienfaits d’Allah et bien les utiliser'), ('Taqwa', 'Obéir aux ordres d’Allah et éviter ses interdits par conscience de sa responsabilité envers Lui')], 'Le khouchou‘, la patience, la gratitude et la taqwa sont les valeurs intérieures qui donnent son âme à l’adoration.', 'Valeurs intérieures'),
+ ('Associe les actes d’adoration à leur effet sur la vie :', [('Prière', 'Éloigne la personne des actes indécents et mauvais'), ('Jeûne', 'Aide à atteindre la taqwa'), ('Zakat', 'Renforce l’entraide et le partage dans la société'), ('Hajj', 'Rassemble les musulmans du monde et renforce la fraternité')], 'Ankabout 45 dit que la prière éloigne du mal et Baqara 183 que le jeûne mène à la taqwa ; la zakat et le hajj renforcent les liens sociaux.', 'Effet de l’adoration sur la vie'),
+ ('Associe les notions à leur sens :', [('Modération (i‘tidal)', 'Éviter l’excès dans l’adoration et garder l’équilibre'), ('Facilité (yousr)', 'Le principe de facilité dans la religion'), ('Tawqif', 'La forme des actes d’adoration est fixée par Allah et son Messager'), ('Adoration surérogatoire (nafila)', 'Adoration au-delà de l’obligatoire, pour gagner une récompense')], 'En islam, l’adoration se fait avec équilibre, sur la base de la facilité, dans le cadre fixé par le Coran et la Sunna.', 'Mesure dans la religion'),
+ ('Une personne peut changer la forme d’un acte d’adoration selon son goût.', 'La manière d’accomplir les actes d’adoration est fixée par le Coran et la Sunna ; la personne ne peut pas la changer selon son avis.', 'La forme de l’adoration'),
+ ('Le taux de la zakat sur l’or, l’argent et les biens commerciaux est d’un quarantième (2,5 %).', 'La zakat se donne au taux d’un quarantième sur les biens ayant atteint le nisab et détenus pendant un an.', 'Taux de la zakat'),
+ ('Que signifie « makrouh » en islam ?', 'Ce qu’on demande de ne pas faire, mais moins fermement que le haram', ['Ce qui est ordonné fermement', 'Ce qu’on est libre de faire ou non', 'Ce qui est récompensé si on le fait, sans péché si on l’omet'], 'Le makrouh est un acte réprouvé dont on demande l’abandon, mais qui n’est pas aussi grave que le haram.', 'Le makrouh'),
+ ('Dans l’école hanafite, qu’est-ce qu’un « wajib » ?', 'Une prescription proche du fard qu’il faut accomplir', ['Une prescription facultative', 'Une prescription dont l’omission est récompensée', 'Une prescription simplement recommandée'], 'Un wajib doit être accompli même s’il n’est pas établi par une preuve aussi certaine que le fard.', 'Le wajib'),
+ ('Selon l’islam, il n’y a pas de contrainte en religion.', 'Baqara 2:256 : « Pas de contrainte en religion. » La foi et l’adoration relèvent de la libre volonté.', 'Pas de contrainte en religion'),
+ ('Le droit d’une personne n’est pas pardonné tant que le lésé ne l’a pas absous.', 'Le droit d’Allah peut être pardonné par le repentir ; le droit d’une personne n’est réglé que par la restitution ou par le pardon du lésé.', 'Droits des personnes'),
+ ('Une sunna que le Prophète accomplissait continuellement et omettait rarement s’appelle sunna mouakkada.', 'La sunna mouakkada est une sunna que le Prophète observait constamment et omettait très rarement, comme la sunna de la prière de l’aube.', 'Sunna confirmée'),
+ ('Sacrifier un animal est un acte d’adoration accompli pendant les jours de l’Aïd al-Adha.', 'Le sacrifice est un animal immolé pendant les jours de l’Aïd al-Adha dans l’intention de se rapprocher d’Allah.', 'Le sacrifice'),
 ]
 
 AR = [
@@ -377,6 +410,17 @@ AR = [
  ("وفق البقرة 2:286 بماذا لا يكلف الله أحدًا؟", "بما فوق طاقته",
   ["بالصلاة", "بالدعاء", "بالصدق"],
   "البقرة 2:286: «لا يكلف الله نفسًا إلا وسعها».", "التكليف"),
+ ('طابِق بين المفاهيم ومعانيها:', [('الخشوع', 'توجّه القلب إلى الله في العبادة بتعظيم وإجلال'), ('الصبر', 'تحمّل الشدائد ومشقّة العبادة'), ('الشكر', 'الامتنان لنِعَم الله واستعمالها على الوجه الصحيح'), ('التقوى', 'امتثال أوامر الله واجتناب نواهيه بدافع الشعور بالمسؤولية أمامه')], 'الخشوع والصبر والشكر والتقوى قيمٌ قلبية تمنح العبادة روحها.', 'القيم القلبية'),
+ ('طابِق بين العبادات وأثرها في الحياة:', [('الصلاة', 'تنهى الإنسان عن الفحشاء والمنكر'), ('الصيام', 'يعين على بلوغ التقوى'), ('الزكاة', 'تقوّي التكافل والمشاركة في المجتمع'), ('الحج', 'يجمع مسلمي العالم ويقوّي روح الأخوة')], 'تبيّن سورة العنكبوت 45 أن الصلاة تنهى عن المنكر، وتبيّن البقرة 183 أن الصيام يوصل إلى التقوى؛ والزكاة والحج يقوّيان الروابط الاجتماعية.', 'أثر العبادة في الحياة'),
+ ('طابِق بين المفاهيم ومعانيها:', [('الاعتدال', 'تجنّب الإفراط في العبادة والحفاظ على التوازن'), ('اليُسر', 'مبدأ التيسير في الدين'), ('التوقيف', 'كون صفة العبادات محدَّدة من الله ورسوله'), ('النافلة', 'عبادة زائدة على الفرض تُؤدّى طلبًا للأجر')], 'تُؤدّى العبادة في الإسلام باعتدال ويُسر ضمن إطار حدّده القرآن والسنّة.', 'الاعتدال في الدين'),
+ ('يجوز للإنسان أن يغيّر صفة العبادة بحسب ذوقه.', 'كيفية أداء العبادات مبيَّنة في القرآن والسنّة، ولا يجوز للإنسان تغييرها برأيه.', 'صفة العبادة'),
+ ('نسبة الزكاة في الذهب والفضة وعروض التجارة ربع العُشر (2.5٪).', 'تُخرج الزكاة بنسبة ربع العُشر من المال الذي بلغ النصاب وحال عليه الحول.', 'نسبة الزكاة'),
+ ('ماذا يعني «المكروه» في الإسلام؟', 'ما طُلب تركه طلبًا غير جازم دون الحرام', ['ما أُمر به أمرًا جازمًا', 'ما يستوي فعله وتركه', 'ما يُثاب فاعله ولا يأثم تاركه'], 'المكروه ما يُطلب تركه من غير إلزام، وهو دون الحرام.', 'المكروه'),
+ ('ما «الواجب» عند الحنفية؟', 'حكم قريب من الفرض يجب فعله', ['حكم يُخيَّر فيه', 'حكم يُثاب على تركه', 'حكم مندوب فقط'], 'الواجب ما يجب فعله وإن لم يثبت بدليل قطعي كالفرض.', 'الواجب'),
+ ('لا إكراه في الدين في الإسلام.', 'البقرة 2:256: «لا إكراه في الدين»؛ فالإيمان والعبادة يكونان بإرادة الإنسان.', 'لا إكراه في الدين'),
+ ('حقّ العبد لا يُغفر ما لم يُسامح صاحبه.', 'حقّ الله يُغفر بالتوبة، أما حقّ العبد فلا يسقط إلا بردّه إلى صاحبه أو بعفوه.', 'حقوق العباد'),
+ ('السنّة التي واظب عليها النبي ﷺ وترك تركها نادرًا تُسمّى سنّة مؤكّدة.', 'السنّة المؤكّدة ما واظب عليه النبي ﷺ ولم يتركه إلا نادرًا، كسنّة الفجر.', 'السنّة المؤكّدة'),
+ ('الأضحية عبادة تُؤدّى في أيام عيد الأضحى.', 'الأضحية حيوان يُذبح في أيام عيد الأضحى تقرّبًا إلى الله.', 'الأضحية'),
 ]
 
 I18N = {'en': EN, 'de': DE, 'fr': FR, 'ar': AR}

@@ -173,7 +173,7 @@
       FINAL_ALLOWED_TYPES.has(q.activity_type)&&
       FINAL_UNIT_QUOTAS[unitOf(q)]&&
       q.asset_requirement!=='audio_shahada_verified'&&
-      !audioBlocked(q)
+      !audioBlocked(q)&&!deenRetired(q)
     );
     function add(q){
       if(!q||used.has(q.id))return false;
@@ -478,7 +478,7 @@
 
  function chooseSection3Final(){
   const out=[],used=new Set(),counts=Object.fromEntries(Object.keys(FINAL3_UNIT_QUOTAS).map(u=>[u,0])),types={},concepts={},weak=finalWeakConceptCounts();
-  const eligible=QUESTIONS.filter(q=>FINAL3_UNIT_QUOTAS[q.stage_id.slice(0,3)]&&FINAL_ALLOWED_TYPES.has(q.activity_type)&&!audioBlocked(q));
+  const eligible=QUESTIONS.filter(q=>FINAL3_UNIT_QUOTAS[q.stage_id.slice(0,3)]&&FINAL_ALLOWED_TYPES.has(q.activity_type)&&!audioBlocked(q)&&!deenRetired(q));
   const add=q=>{if(!q||used.has(q.id))return false;const u=q.stage_id.slice(0,3);if(counts[u]>=5)return false;out.push(q);used.add(q.id);counts[u]++;types[q.activity_type]=(types[q.activity_type]||0)+1;concepts[q.concept_id]=(concepts[q.concept_id]||0)+1;return true};
   for(const type of FINAL_REQUIRED_TYPES){
    const c=eligible.filter(q=>q.activity_type===type&&!used.has(q.id)&&counts[q.stage_id.slice(0,3)]<5);
@@ -684,7 +684,7 @@
     const target = totalLessons===1 ? lessonTargetFor(stageId) : (lessonNo>=4 ? 6 : 5);
     const meta = getStageMeta(stageId);
     const seenSet = new Set(meta.seenIds||[]);
-    let pool = ((window.DEEN_APP_LOCALE?.get?.()==='ar' ? QUESTIONS.filter(q=>q.stage_id===stageId) : (typeof poolFor==='function' ? poolFor(stageId) : []))).filter(q => !(window.audioBlocked && audioBlocked(q)));
+    let pool = ((window.DEEN_APP_LOCALE?.get?.()==='ar' ? QUESTIONS.filter(q=>q.stage_id===stageId) : (typeof poolFor==='function' ? poolFor(stageId) : []))).filter(q => !(window.audioBlocked && audioBlocked(q)) && !deenRetired(q));
     if(!pool.length) return [];
     const recipe = pickLessonRecipe(stageId, lessonNo);
     const groups = {};

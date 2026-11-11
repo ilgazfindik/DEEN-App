@@ -135,4 +135,19 @@ Q = [
   'Uzun bir otobüs yolculuğundasın ve öğle namazı vakti girdi. Yolcu olarak ne yaparsın?', 'Öğle farzını iki rekât (kasr) kılarım',
   ['Namazı kaza ederim', 'Öğleyi her durumda dört rekât kılarım', 'Yalnızca sünnetini kılarım'],
   'Yolcu dört rekâtlı farzı iki rekât kılar.'),
+ # --- Added with the duplicate clean-up: new facts and new matching sets
+ ('mt', 3, 'namaz_dua', 'Namazdaki dualar', 'm', 'Aşağıdaki namaz bölümlerini anlamlarıyla eşleştir:', [('Tahiyyat', 'Namazda her oturuşta okunan dua'), ('Salavat', 'Son oturuşta Peygamberimize okunan dua'), ('Kunut duası', 'Vitir namazının üçüncü rekâtında okunan dua'), ('Tadil-i erkân', 'Rükû ve secdede organların yerleşip bir an durması')], 'Namazda tahiyyat ve salavat oturuşlarda, kunut duası vitirde okunur; tadil-i erkân ise hareketleri sükûnetle yapmaktır.'),
+ ('mt', 3, 'sure_ozellik', 'Namazda okunan sureler', 'm', 'Aşağıdaki sureleri özellikleriyle eşleştir:', [('Fâtiha', 'Kur’an’ın ilk suresi; yedi âyettir'), ('İhlâs', 'Allah’ın birliğini bildiren dört âyetli sure'), ('Kevser', 'Üç âyetten oluşan en kısa sure'), ('Fîl', 'Fil olayını anlatan beş âyetli sure')], 'Bu sureler namazda sık okunur; her birinin âyet sayısı ve konusu bellidir.'),
+ ('mt', 6, 'cemaat_kavram', 'Cemaatle namaz kavramları', 'h', 'Aşağıdaki kavramları anlamlarıyla eşleştir:', [('İmam', 'Cemaate namaz kıldıran kişi'), ('Müktedi', 'İmama uyarak namaz kılan kişi'), ('Saf', 'Cemaatin omuz omuza dizilmesi'), ('Mesbûk', 'İmamla bir veya daha fazla rekâtı kaçırıp sonradan katılan kişi')], 'Cemaatle namazda imam öndedir, müktediler arkasında saf tutar.'),
+ ('tf', 5, 'secde_uzuv', 'Secdede yedi uzuv', 'm', 'Secde; alın ve burun, eller, dizler ve ayak parmaklarının yere konmasıyla yapılır.', True, 'Hadiste secdenin yedi uzuv üzerine yapıldığı bildirilir.'),
+ ('mc', 4, 'sehiv_secde', 'Sehiv secdesi', 'm', 'Sehiv secdesi kaç secdedir?', 'İki secde', ['Bir secde', 'Üç secde', 'Dört secde'], 'Namazda yanılma sonucu bir vacip terk edilirse son oturuşta iki secde yapılır; buna sehiv secdesi denir.'),
+ # --- Added with the duplicate clean-up (round 2): new facts
+ ('tf', 1, 'ogle_ikindi_gizli', 'Gizli kıraat', 'm', 'Öğle ve ikindi namazlarında Kur’an sessizce (hafif sesle) okunur.', True, 'Gündüz kılınan öğle ve ikindi namazlarında kıraat gizli yapılır.'),
+ ('tf', 2, 'sesli_kiraat', 'Sesli kıraat', 'm', 'Sabah, akşam ve yatsı namazlarının farzında imam kıraati sesli yapar.', True, 'Sabah, akşam ve yatsının ilk iki rekâtında imam Kur’an’ı sesli okur.'),
+ ('mc', 3, 'tesbih_sayisi', 'Tesbih sayısı', 'm', 'Rükûda ve secdede tesbihin en az kaç kez söylenmesi sünnettir?', 'Üç kez', ['Bir kez', 'On kez', 'Yedi kez'], 'Rükûda “Sübhâne rabbiye’l-azîm”, secdede “Sübhâne rabbiye’l-a‘lâ” en az üç kez söylenir.'),
+ ('mc', 4, 'zammi_sure', 'Zammı sûre', 'm', 'Namazda Fâtiha’dan sonra okunan ek sûre veya âyetlere ne denir?', 'Zammı sûre', ['Kunut', 'Tahiyyat', 'Salavat'], 'Fâtiha’dan sonra okunan sûre veya âyetlere zammı sûre denir.'),
+ ('tf', 6, 'kunut_vitir', 'Kunut duası', 'h', 'Vitir namazında kunut duası üçüncü rekâtta, kıraatten sonra okunur.', True, 'Vitir namazının üçüncü rekâtında sûreden sonra tekbir alınır ve kunut duası okunur.'),
+ ('tf', 4, 'goz_secde_yeri', 'Namaz edebi', 'e', 'Namazda ayakta dururken bakışlar secde yerine yöneltilir.', True, 'Huşû için namazda kıyamda gözler secde edilecek yere bakar.'),
+ ('tf', 5, 'secde_dirsek', 'Secde adabı', 'h', 'Erkek, secdede dirseklerini yere yaymaz; kollarını yanlarından ayırır.', True, 'Erkekler secdede karınlarını uyluklarından, kollarını yanlarından uzak tutar ve dirseklerini yere koymaz.'),
+ ('tf', 3, 'tekbir_el_kaldirma', 'İftitah tekbirinde eller', 'm', 'Erkekler iftitah tekbirinde ellerini kulak hizasına kaldırır.', True, 'Erkekler namaza başlarken tekbir alırken ellerinin parmak uçlarını kulak hizasına kaldırır.'),
 ]

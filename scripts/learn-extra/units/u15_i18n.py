@@ -84,6 +84,20 @@ EN = [
  ("A sick friend cannot fast in Ramadan and his doctor tells him not to. What do you advise?", "To make up the missed days when he recovers",
   ["To fast despite being ill", "Never to fast", "To wait for the next Ramadan"],
   "When the excuse ends, the missed days are made up.", "A sick student"),
+ ('Match the concepts with their meanings:', [('Laylat al-Qadr', 'The night, better than a thousand months, in which the Qur’an began to be revealed'), ('Eid al-Fitr', 'The festival that begins on the first day of Shawwal after Ramadan ends'), ('Hilal', 'The new moon taken as the basis for the start and end of Ramadan'), ('Imsak', 'The time when fasting begins')], 'Ramadan begins and ends with the new moon; Eid al-Fitr is celebrated at the end of the month.', 'Ramadan concepts'),
+ ('Match the situations with their rulings:', [('A sick person who hopes to recover', 'Postpones the fast and makes it up later'), ('An old person unable to fast', 'Gives fidya for each day'), ('One who deliberately breaks the fast in Ramadan', 'Must make it up and give kaffara'), ('One who eats or drinks by forgetting', 'The fast is not broken')], 'A fast missed for an excuse is made up later; those unable give fidya; eating by forgetting does not break the fast.', 'Excuses and rulings in fasting'),
+ ('Fasting on the first day of Eid al-Fitr is forbidden.', 'Fasting on the first days of the Eids of Ramadan and Sacrifice is forbidden.', 'Fasting on Eid'),
+ ('What is the start of Ramadan determined by?', 'The new moon (hilal)', ['The time of sunrise', 'The warming of the weather', 'The first day of the year'], 'Ramadan begins when the new moon is sighted or determined by calculation; the calendar is based on the lunar month.', 'The start of Ramadan'),
+ ('How many days does the month of Ramadan last?', 'Twenty-nine or thirty days', ['Fifteen days', 'Forty days', 'The same number every year'], 'Lunar months last twenty-nine or thirty days; so does Ramadan.', 'Length of Ramadan'),
+ ('Which month comes immediately before Ramadan?', 'Sha‘ban', ['Rajab', 'Shawwal', 'Muharram'], 'In the Hijri calendar Sha‘ban comes before Ramadan and Shawwal after it.', 'The month before Ramadan'),
+ ('A person who wakes at dawn in a state requiring a full bath may still fast.', 'Being in a state requiring ghusl at dawn does not break the fast; the person takes a bath and continues fasting.', 'Fasting in a state of janaba'),
+ ('The six-day fast kept in Shawwal after Ramadan is a voluntary act of worship.', 'The Prophet recommended fasting six days in Shawwal after Ramadan.', 'Fasting six days of Shawwal'),
+ ('Fasting on Ashura, the tenth day of Muharram, is a voluntary fast.', 'The Prophet fasted on the tenth of Muharram and recommended it.', 'Fasting on Ashura'),
+ ('The Prophet recommended voluntary fasting on Mondays and Thursdays.', 'The Prophet used to fast on Mondays and Thursdays and said that deeds are presented to Allah on these days.', 'Voluntary fasting each week'),
+ ('According to the Hanafi school, how many rak‘as is the tarawih prayer?', 'Twenty', ['Ten', 'Eight', 'Thirty'], 'Tarawih is a sunnah prayer performed after the night prayer in Ramadan; in the Hanafi school it is twenty rak‘as.', 'The tarawih prayer'),
+ ('Eid al-Fitr lasts three days.', 'Eid al-Fitr lasts from the first to the third day of Shawwal.', 'Length of the Eid'),
+ ('Which act of worship does Allah say in a hadith qudsi “I Myself will reward it”?', 'Fasting', ['Prayer', 'Hajj', 'Zakat'], 'The hadith qudsi “Fasting is for Me and I Myself will reward it” shows the worth of fasting (Bukhari).', 'Hadith qudsi on fasting'),
+ ('Breaking the fast with dates or water is sunnah.', 'The Prophet used to break his fast with fresh dates, or dry dates if there were none, or else with water.', 'Breaking the fast with dates'),
 ]
 
 DE = [
@@ -171,6 +185,20 @@ DE = [
  ("Ein kranker Freund kann im Ramadan nicht fasten, und sein Arzt rät ihm ab. Was rätst du?", "Die versäumten Tage nachzuholen, wenn er genesen ist",
   ["Trotz Krankheit zu fasten", "Nie zu fasten", "Auf den nächsten Ramadan zu warten"],
   "Wenn der Grund entfällt, werden die versäumten Tage nachgeholt.", "Ein kranker Schüler"),
+ ('Ordne die Begriffe ihren Bedeutungen zu:', [('Lailat al-Qadr', 'Die Nacht, besser als tausend Monate, in der die Offenbarung des Korans begann'), ('Id al-Fitr', 'Das Fest, das nach Ende des Ramadan am ersten Tag des Schawwal beginnt'), ('Hilal', 'Der Neumond als Grundlage für Beginn und Ende des Ramadan'), ('Imsak', 'Die Zeit, in der das Fasten beginnt')], 'Der Ramadan beginnt und endet mit dem Neumond; am Ende des Monats wird das Fest des Fastenbrechens gefeiert.', 'Begriffe des Ramadan'),
+ ('Ordne die Situationen ihren Regeln zu:', [('Ein Kranker, der auf Genesung hofft', 'Verschiebt das Fasten und holt es später nach'), ('Ein alter Mensch, der nicht fasten kann', 'Gibt für jeden Tag Fidya'), ('Wer im Ramadan absichtlich das Fasten bricht', 'Muss nachholen und Kaffara leisten'), ('Wer aus Vergessen isst oder trinkt', 'Das Fasten wird nicht gebrochen')], 'Ein aus Entschuldigung versäumtes Fasten wird nachgeholt; wer nicht kann, gibt Fidya; Essen aus Vergessen bricht das Fasten nicht.', 'Entschuldigungen und Regeln beim Fasten'),
+ ('Am ersten Tag des Fastenbrechensfestes zu fasten ist verboten.', 'Am ersten Tag der Feste nach Ramadan und des Opferfests zu fasten ist verboten.', 'Fasten am Festtag'),
+ ('Wonach richtet sich der Beginn des Ramadan?', 'Dem Neumond (Hilal)', ['Der Zeit des Sonnenaufgangs', 'Der Erwärmung des Wetters', 'Dem ersten Tag des Jahres'], 'Der Ramadan beginnt, wenn der Neumond gesichtet oder berechnet wird; der Kalender beruht auf dem Mondmonat.', 'Beginn des Ramadan'),
+ ('Wie viele Tage dauert der Monat Ramadan?', 'Neunundzwanzig oder dreißig Tage', ['Fünfzehn Tage', 'Vierzig Tage', 'Jedes Jahr gleich viele'], 'Mondmonate dauern neunundzwanzig oder dreißig Tage; so auch der Ramadan.', 'Dauer des Ramadan'),
+ ('Welcher Monat kommt unmittelbar vor dem Ramadan?', 'Scha‘ban', ['Radschab', 'Schawwal', 'Muharram'], 'Im Hidschra-Kalender kommt Scha‘ban vor dem Ramadan und Schawwal danach.', 'Der Monat vor dem Ramadan'),
+ ('Wer im Zustand der großen Unreinheit in den Morgen kommt, darf trotzdem fasten.', 'Im Morgengrauen in einem Zustand zu sein, der Ghusl erfordert, bricht das Fasten nicht; man wäscht sich und fastet weiter.', 'Fasten im Zustand der Dschanaba'),
+ ('Das sechstägige Fasten im Schawwal nach dem Ramadan ist ein freiwilliger Gottesdienst.', 'Der Prophet empfahl, nach dem Ramadan sechs Tage im Schawwal zu fasten.', 'Sechs Tage Fasten im Schawwal'),
+ ('Das Fasten am Aschura-Tag, dem zehnten Tag des Muharram, ist ein freiwilliges Fasten.', 'Der Prophet fastete am zehnten Muharram und empfahl es.', 'Fasten am Aschura-Tag'),
+ ('Der Prophet empfahl freiwilliges Fasten an Montagen und Donnerstagen.', 'Der Prophet fastete montags und donnerstags und sagte, dass an diesen Tagen die Taten Allah vorgelegt werden.', 'Wöchentliches freiwilliges Fasten'),
+ ('Wie viele Rak‘a hat das Tarawih-Gebet nach der hanafitischen Schule?', 'Zwanzig', ['Zehn', 'Acht', 'Dreißig'], 'Tarawih ist ein Sunna-Gebet nach dem Nachtgebet im Ramadan; in der hanafitischen Schule hat es zwanzig Rak‘a.', 'Das Tarawih-Gebet'),
+ ('Das Fest des Fastenbrechens dauert drei Tage.', 'Das Fest des Fastenbrechens dauert vom ersten bis zum dritten Tag des Schawwal.', 'Dauer des Festes'),
+ ('Von welchem Gottesdienst sagt Allah in einem Hadith Qudsi: „Ich selbst werde ihn belohnen“?', 'Vom Fasten', ['Vom Gebet', 'Vom Hadsch', 'Von der Zakat'], 'Der Hadith Qudsi „Das Fasten ist für Mich und Ich selbst werde es belohnen“ zeigt den Wert des Fastens (Buchari).', 'Hadith Qudsi über das Fasten'),
+ ('Das Fastenbrechen mit Datteln oder Wasser ist Sunna.', 'Der Prophet brach sein Fasten mit frischen Datteln, wenn es keine gab mit trockenen Datteln, sonst mit Wasser.', 'Fastenbrechen mit Datteln'),
 ]
 
 FR = [
@@ -258,6 +286,20 @@ FR = [
  ("Un ami malade ne peut pas jeûner en Ramadan et son médecin le lui déconseille. Que lui conseilles-tu ?", "De rattraper les jours manqués quand il sera guéri",
   ["De jeûner malgré la maladie", "De ne jamais jeûner", "D’attendre le prochain Ramadan"],
   "Quand l’excuse prend fin, les jours manqués sont rattrapés.", "Un élève malade"),
+ ('Associe les notions à leur sens :', [('Nuit du Destin (Laylat al-Qadr)', 'La nuit, meilleure que mille mois, où la révélation du Coran a commencé'), ('Aïd al-Fitr', 'La fête qui commence le premier jour de Chawwal après la fin du Ramadan'), ('Hilal', 'La nouvelle lune prise pour base du début et de la fin du Ramadan'), ('Imsak', 'Le moment où le jeûne commence')], 'Le Ramadan commence et se termine avec la nouvelle lune ; l’Aïd al-Fitr est célébré à la fin du mois.', 'Notions du Ramadan'),
+ ('Associe les situations à leur règle :', [('Un malade qui espère guérir', 'Reporte le jeûne et le rattrape plus tard'), ('Une personne âgée qui ne peut pas jeûner', 'Donne la fidya pour chaque jour'), ('Celui qui rompt volontairement le jeûne au Ramadan', 'Doit rattraper et faire la kaffara'), ('Celui qui mange ou boit par oubli', 'Son jeûne n’est pas rompu')], 'Un jeûne manqué pour une excuse est rattrapé ; ceux qui ne peuvent pas donnent la fidya ; manger par oubli ne rompt pas le jeûne.', 'Excuses et règles du jeûne'),
+ ('Jeûner le premier jour de l’Aïd al-Fitr est interdit.', 'Jeûner le premier jour des fêtes de fin de Ramadan et du sacrifice est interdit.', 'Jeûner le jour de l’Aïd'),
+ ('Selon quoi le début du Ramadan est-il déterminé ?', 'La nouvelle lune (hilal)', ['L’heure du lever du soleil', 'Le réchauffement du temps', 'Le premier jour de l’année'], 'Le Ramadan commence quand la nouvelle lune est observée ou déterminée par calcul ; le calendrier repose sur le mois lunaire.', 'Début du Ramadan'),
+ ('Combien de jours dure le mois de Ramadan ?', 'Vingt-neuf ou trente jours', ['Quinze jours', 'Quarante jours', 'Le même nombre chaque année'], 'Les mois lunaires durent vingt-neuf ou trente jours ; le Ramadan aussi.', 'Durée du Ramadan'),
+ ('Quel mois précède immédiatement le Ramadan ?', 'Chaabane', ['Rajab', 'Chawwal', 'Mouharram'], 'Dans le calendrier hégirien, Chaabane précède le Ramadan et Chawwal le suit.', 'Le mois avant le Ramadan'),
+ ('Une personne qui se lève à l’aube en état d’impureté majeure peut quand même jeûner.', 'Se trouver à l’aube dans un état exigeant le ghousl ne rompt pas le jeûne ; on fait le ghousl et on continue à jeûner.', 'Jeûner en état de janaba'),
+ ('Le jeûne de six jours de Chawwal après le Ramadan est un acte d’adoration surérogatoire.', 'Le Prophète a recommandé de jeûner six jours de Chawwal après le Ramadan.', 'Six jours de Chawwal'),
+ ('Jeûner le jour d’Achoura, le dixième jour de Mouharram, est un jeûne surérogatoire.', 'Le Prophète a jeûné le dixième jour de Mouharram et l’a recommandé.', 'Jeûner le jour d’Achoura'),
+ ('Le Prophète a recommandé le jeûne surérogatoire le lundi et le jeudi.', 'Le Prophète jeûnait le lundi et le jeudi et a dit que les actes sont présentés à Allah ces jours-là.', 'Jeûne hebdomadaire surérogatoire'),
+ ('Selon l’école hanafite, combien de rak‘a compte la prière du tarawih ?', 'Vingt', ['Dix', 'Huit', 'Trente'], 'Le tarawih est une prière de sunna accomplie après la prière de la nuit pendant le Ramadan ; dans l’école hanafite, elle compte vingt rak‘a.', 'La prière du tarawih'),
+ ('L’Aïd al-Fitr dure trois jours.', 'L’Aïd al-Fitr dure du premier au troisième jour de Chawwal.', 'Durée de la fête'),
+ ('De quel acte d’adoration Allah dit-il dans un hadith qoudsi : « Je le récompenserai Moi-même » ?', 'Du jeûne', ['De la prière', 'Du hajj', 'De la zakat'], 'Le hadith qoudsi « Le jeûne est pour Moi et Je le récompenserai Moi-même » montre la valeur du jeûne (Boukhari).', 'Hadith qoudsi sur le jeûne'),
+ ('Rompre le jeûne avec des dattes ou de l’eau est sunna.', 'Le Prophète rompait son jeûne avec des dattes fraîches, à défaut des dattes sèches, sinon avec de l’eau.', 'Rompre le jeûne avec des dattes'),
 ]
 
 AR = [
@@ -345,6 +387,20 @@ AR = [
  ("صديق مريض لا يستطيع الصيام في رمضان وطبيبه ينهاه عنه. بماذا تنصحه؟", "بقضاء الأيام الفائتة عند الشفاء",
   ["بالصيام رغم المرض", "ألا يصوم أبدًا", "أن ينتظر رمضان القادم"],
   "إذا زال العذر قُضيت الأيام الفائتة.", "طالب مريض"),
+ ('طابِق بين المفاهيم ومعانيها:', [('ليلة القدر', 'الليلة الخير من ألف شهر التي بدأ فيها نزول القرآن'), ('عيد الفطر', 'العيد الذي يبدأ في أول يوم من شوال بعد انتهاء رمضان'), ('الهلال', 'القمر الجديد الذي يُعتمد في بدء رمضان وانتهائه'), ('الإمساك', 'وقت بدء الصيام')], 'يبدأ رمضان وينتهي بالهلال، ويُحتفل بعيد الفطر في نهاية الشهر.', 'مفاهيم رمضان'),
+ ('طابِق بين الحالات وأحكامها:', [('المريض الذي يُرجى شفاؤه', 'يؤخّر الصيام ويقضيه لاحقًا'), ('الشيخ الكبير العاجز عن الصيام', 'يُخرج فدية عن كل يوم'), ('من أفطر عمدًا في رمضان', 'عليه القضاء والكفارة'), ('من أكل أو شرب ناسيًا', 'لا يفسد صومه')], 'يُقضى الصوم الذي فات لعذر، ويُخرج العاجز الفدية، والأكل ناسيًا لا يفسد الصوم.', 'الأعذار والأحكام في الصيام'),
+ ('يحرم صيام اليوم الأول من عيد الفطر.', 'نُهي عن الصيام في اليوم الأول من عيد الفطر وعيد الأضحى.', 'الصيام يوم العيد'),
+ ('بماذا يُحدَّد بدء شهر رمضان؟', 'بالهلال (القمر الجديد)', ['بوقت شروق الشمس', 'بارتفاع حرارة الجو', 'بأول يوم في السنة'], 'يبدأ رمضان برؤية الهلال أو بتحديده بالحساب، والتقويم قائم على الشهر القمري.', 'بدء رمضان'),
+ ('كم يومًا يدوم شهر رمضان؟', 'تسعة وعشرون أو ثلاثون يومًا', ['خمسة عشر يومًا', 'أربعون يومًا', 'عدد ثابت كل سنة'], 'الشهور القمرية تسعة وعشرون أو ثلاثون يومًا، ومنها رمضان.', 'مدة رمضان'),
+ ('ما الشهر الذي يسبق رمضان مباشرة؟', 'شعبان', ['رجب', 'شوال', 'محرم'], 'في التقويم الهجري يسبق شعبانُ رمضانَ ويليه شوال.', 'الشهر الذي قبل رمضان'),
+ ('من أصبح جنبًا صحّ صومه.', 'الإصباح على جنابة لا يفسد الصوم، فيغتسل ويتم صومه.', 'الصوم مع الجنابة'),
+ ('صيام ستة أيام من شوال بعد رمضان عبادة نافلة.', 'أوصى النبي ﷺ بصيام ستة أيام من شوال بعد رمضان.', 'ست من شوال'),
+ ('صيام يوم عاشوراء، العاشر من محرم، صيام نافلة.', 'صام النبي ﷺ اليوم العاشر من محرم وأوصى بصيامه.', 'صيام عاشوراء'),
+ ('أوصى النبي ﷺ بصيام النافلة يومَي الاثنين والخميس.', 'كان النبي ﷺ يصوم الاثنين والخميس وبيّن أن الأعمال تُعرض على الله فيهما.', 'صيام الاثنين والخميس'),
+ ('كم ركعة صلاة التراويح عند الحنفية؟', 'عشرون', ['عشر', 'ثمان', 'ثلاثون'], 'التراويح صلاة سنّة بعد العشاء في ليالي رمضان، وهي عند الحنفية عشرون ركعة.', 'صلاة التراويح'),
+ ('عيد الفطر ثلاثة أيام.', 'يمتد عيد الفطر من اليوم الأول إلى اليوم الثالث من شوال.', 'مدة العيد'),
+ ('أيّ عبادة قال الله عنها في الحديث القدسي: «وأنا أجزي به»؟', 'الصيام', ['الصلاة', 'الحج', 'الزكاة'], 'الحديث القدسي «الصوم لي وأنا أجزي به» يبيّن قيمة الصيام (البخاري).', 'حديث قدسي في الصيام'),
+ ('الإفطار على التمر أو الماء سنّة.', 'كان النبي ﷺ يفطر على رُطَب، فإن لم يكن فعلى تمر، فإن لم يكن حسا حسوات من ماء.', 'الإفطار على التمر'),
 ]
 
 I18N = {'en': EN, 'de': DE, 'fr': FR, 'ar': AR}

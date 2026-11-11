@@ -261,7 +261,7 @@
   function qById(id){return QMAP?.get?.(id)||QUESTIONS.find(q=>q.id===id)||extraById(id)}
   function allUnitQuestions(u){return QUESTIONS.filter(q=>q.stage_id?.startsWith(u+'-')).concat(extras().filter(q=>q.stage_id?.startsWith(u+'-')))}
   function stageQuestions(d){const ids=new Set(d.legacyIds);return QUESTIONS.filter(q=>ids.has(q.stage_id)).concat(extras().filter(q=>ids.has(q.stage_id)))}
-  function safe(q){return !!q && !(typeof audioBlocked==='function'&&audioBlocked(q))}
+  function safe(q){return !!q && !(typeof audioBlocked==='function'&&audioBlocked(q))&&!deenRetired(q)}
   function safeStageQuestions(d){return stageQuestions(d).filter(safe)}
   function safeUnitQuestions(u){return allUnitQuestions(u).filter(safe)}
   function profileList(d){
@@ -649,7 +649,7 @@
     s.stateVersion=Math.max(STATE_VERSION,Number(s.stateVersion)||0);
     return s;
   }
-  function safe640(q){return !!q && !(typeof audioBlocked==='function'&&audioBlocked(q))}
+  function safe640(q){return !!q && !(typeof audioBlocked==='function'&&audioBlocked(q))&&!deenRetired(q)}
   function hasPedagogyHistory640(u){const m=state.unitPedagogyMeta?.[u],fp=firstPassIds(u);return fp.size>0||Number(m?.firstPassStartedAt)>0||Number(m?.firstPassCompletedAt)>0}
   function attempted640(q){return !!state.reviewSchedule?.[q.id]}
   function completedFirstPass640(q){const u=qUnit(q);return firstPassIds(u).has(q.id)&&completedStages().has(q.stage_id)}

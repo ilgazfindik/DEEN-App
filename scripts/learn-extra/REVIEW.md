@@ -154,7 +154,75 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Doğru cevap: Allah’ın birliğine ve Hz. Muhammed’in elçiliğine kalpten bağlandığımı açıkça ilan etmektir
 - Açıklama: Şehadet, imanın temel esaslarına açık bir tanıklıktır.
 
-## U11 — ibadet_bilinci (35 soru)
+## U05 — imanin_esaslarina_giris (11 soru)
+
+**DEEN-U05-S01-X001** · İman Ne Demektir? · true_false
+- Soru: Doğru mu, yanlış mı? Âmentü, imanın altı esasını sıralayan iman ifadesidir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Âmentü, Allah’a, meleklere, kitaplara, peygamberlere, ahiret gününe ve kadere imanı dile getirir.
+
+**DEEN-U05-S02-X001** · Altı Esası Tanı · multiple_choice
+- Soru: Cibril hadisinde Hz. Peygamber hangi üç kavramı açıklamıştır?
+- Seçenekler: Tevhid, nübüvvet ve ahiret | İman, İslam ve ihsan | Namaz, oruç ve hac | Farz, vacip ve sünnet
+- Doğru cevap: İman, İslam ve ihsan
+- Açıklama: Cibril hadisinde Hz. Peygamber, Cebrail’in sorularına cevap olarak iman, İslam ve ihsanı açıklamıştır.
+
+**DEEN-U05-S03-X001** · Kavramları Ayır · multiple_choice
+- Soru: Hadiste ihsan nasıl tarif edilir?
+- Seçenekler: Allah’ı görüyormuşçasına ibadet etmek | Yalnızca yardım etmek | Yalnızca farzları yapmak | İbadeti kısa tutmak
+- Doğru cevap: Allah’ı görüyormuşçasına ibadet etmek
+- Açıklama: İhsan, “Allah’ı görüyormuşçasına ibadet etmendir; sen O’nu görmesen de O seni görmektedir” şeklinde tarif edilir.
+
+**DEEN-U05-S04-X001** · Şart mı, İman Esası mı? · multiple_choice
+- Soru: İmanın tarifinde dille ikrarın yanında hangisi yer alır?
+- Seçenekler: Yalnızca ezberlemek | Yalnızca duymak | Kalple tasdik | Yalnızca bilmek
+- Doğru cevap: Kalple tasdik
+- Açıklama: İman, kalple tasdik ve dille ikrardan oluşur.
+
+**DEEN-U05-S05-X001** · Günlük Hayatta Kavramlar · true_false
+- Soru: Doğru mu, yanlış mı? Şirk, Allah’a ortak koşmaktır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Şirk, Allah’ın zâtında, sıfatlarında veya ibadet edilmeye layık oluşunda O’na ortak koşmaktır.
+
+**DEEN-U05-S06-X001** · Kısım Öncesi Akıllı Tekrar · multiple_choice
+- Soru: Kalbiyle inanmadığı hâlde dilde Müslüman görünen kişiye ne denir?
+- Seçenekler: Müşrik | Mümin | Muhsin | Münafık
+- Doğru cevap: Münafık
+- Açıklama: Münafık, içinde inkâr taşıyıp dışarıdan inanıyor gibi görünen kimsedir.
+
+**DEEN-U05-S02-X002** · Altı Esası Tanı · multiple_choice
+- Soru: Allah’ın bir ve eşsiz olduğuna inanmaya ne ad verilir?
+- Seçenekler: Teyemmüm | Tevekkül | Tevhid | Teravih
+- Doğru cevap: Tevhid
+- Açıklama: Allah’ın birliğine, ortağı ve benzeri olmadığına inanmaya tevhid denir.
+
+**DEEN-U05-S05-X002** · Günlük Hayatta Kavramlar · multiple_choice
+- Soru: Allah’ı ve iman esaslarını inkâr etmeye ne denir?
+- Seçenekler: Tevekkül | Küfür | Takva | İhsan
+- Doğru cevap: Küfür
+- Açıklama: Küfür, Allah’ı ve iman esaslarını inkâr etmek anlamına gelir.
+
+**DEEN-U05-S03-X002** · Kavramları Ayır · true_false
+- Soru: Doğru mu, yanlış mı? İman, yalnızca bilgi sahibi olmak değil, kalpten benimseyip kabul etmektir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: İman, bilmenin ötesinde kalbin tasdik etmesi ve teslimiyet göstermesidir.
+
+**DEEN-U05-S07-X001** · İman Esasları Challenge · true_false
+- Soru: Doğru mu, yanlış mı? Mümin, Allah’a ve Hz. Peygamber’in getirdiklerine inanan kimsedir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Mümin, iman esaslarına inanıp Hz. Peygamber’in Allah’tan getirdiklerini kabul eden kişidir.
+
+**DEEN-U05-S01-X002** · İman Ne Demektir? · multiple_choice
+- Soru: “Âmentü billâh” ifadesi ne anlama gelir?
+- Seçenekler: Allah’ı andım | Allah’a şükrettim | Allah’tan korktum | Allah’a iman ettim
+- Doğru cevap: Allah’a iman ettim
+- Açıklama: “Âmentü billâh”, “Allah’a iman ettim” demektir.
+
+## U11 — ibadet_bilinci (46 soru)
 
 **DEEN-U11-S01-X001** · İbadet Nedir? · multiple_choice
 - Soru: “Ben cinleri ve insanları ancak bana kulluk etsinler diye yarattım” âyeti hangi surededir?
@@ -362,7 +430,70 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Doğru cevap: Gücünün yetmediği şeyle
 - Açıklama: Bakara 2:286: “Allah kimseye gücünün üstünde yük yüklemez.”
 
-## U12 — temizlik_abdest (35 soru)
+**DEEN-U11-S03-X006** · Kavramları Eşleştir · matching
+- Soru: Aşağıdaki kavramları anlamlarıyla eşleştir: Huşû, Sabır, Şükür ve Takva.
+- Eşleşmeler: Huşû → İbadette kalbin Allah’a yönelip saygıyla dolması; Sabır → Zorluklara ve ibadetin güçlüğüne dayanmak; Şükür → Allah’ın nimetlerine minnet duyup nimeti doğru kullanmak; Takva → Allah’a karşı sorumluluk bilinciyle emirlerine uyup yasaklarından sakınmak
+- Açıklama: Huşû, sabır, şükür ve takva; ibadetin ruhunu oluşturan kalbî değerlerdir.
+
+**DEEN-U11-S03-X007** · Kavramları Eşleştir · matching
+- Soru: Aşağıdaki ibadetleri hayata etkileriyle eşleştir: Namaz, Oruç, Zekât ve Hac.
+- Eşleşmeler: Namaz → Kişiyi çirkin ve kötü işlerden alıkoyar; Oruç → Takvaya ulaşmaya yardımcı olur; Zekât → Toplumda yardımlaşmayı ve paylaşmayı güçlendirir; Hac → Dünya Müslümanlarını bir araya getirip kardeşlik duygusunu güçlendirir
+- Açıklama: Ankebût 45 namazın kötülükten alıkoyduğunu, Bakara 183 orucun takvaya ulaştırdığını bildirir; zekât ve hac de toplumsal bağları güçlendirir.
+
+**DEEN-U11-S06-X004** · Akıllı Tekrar · matching
+- Soru: Aşağıdaki kavramları anlamlarıyla eşleştir: İtidal, Yüsr, Tevkîf ve Nafile.
+- Eşleşmeler: İtidal → İbadette aşırılıktan kaçınıp dengeyi korumak; Yüsr → Dinde kolaylık ilkesi; Tevkîf → İbadetlerin şeklinin Allah ve Resulü tarafından belirlenmiş olması; Nafile → Farz dışında, sevap kazanmak için yapılan ibadet
+- Açıklama: İslam’da ibadet dengeli, kolaylık esaslı ve Kur’an ile sünnetle belirlenmiş bir çerçevede yapılır.
+
+**DEEN-U11-S04-X007** · İbadetin Hayata Etkisi · true_false
+- Soru: Doğru mu, yanlış mı? Bir ibadetin şeklini kişi kendi beğenisine göre değiştirebilir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: İbadetlerin nasıl yapılacağı Kur’an ve sünnetle bildirilmiştir; kişi bunları kendi görüşüyle değiştiremez.
+
+**DEEN-U11-S01-X008** · İbadet Nedir? · true_false
+- Soru: Doğru mu, yanlış mı? Altın, gümüş ve ticaret malının zekât oranı kırkta birdir (yüzde 2,5).
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Nisap miktarına ulaşan ve üzerinden bir yıl geçen mallarda zekât kırkta bir oranında verilir.
+
+**DEEN-U11-S03-X008** · Kavramları Eşleştir · multiple_choice
+- Soru: İslam’da “mekruh” ne demektir?
+- Seçenekler: Yapılıp yapılmaması serbest olan | Yapılmaması istenen ama haram kadar kesin olmayan | Yapılması kesin olarak emredilen | Yapana sevap, yapmayana günah olmayan
+- Doğru cevap: Yapılmaması istenen ama haram kadar kesin olmayan
+- Açıklama: Mekruh, yapılması hoş görülmeyen, terki istenen ama haram derecesinde olmayan davranıştır.
+
+**DEEN-U11-S03-X009** · Kavramları Eşleştir · multiple_choice
+- Soru: Hanefî mezhebinde “vacip” hangi hükümdür?
+- Seçenekler: Terki sevap olan hüküm | Yapılıp yapılmaması serbest hüküm | Yalnızca tavsiye edilen hüküm | Farza yakın, yapılması gerekli olan hüküm
+- Doğru cevap: Farza yakın, yapılması gerekli olan hüküm
+- Açıklama: Vacip, farz derecesinde kesin delille sabit olmasa da yapılması gerekli olan hükümdür.
+
+**DEEN-U11-S04-X008** · İbadetin Hayata Etkisi · true_false
+- Soru: Doğru mu, yanlış mı? İslam’a göre dinde zorlama yoktur.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Bakara 2:256: “Dinde zorlama yoktur.” İnanç ve ibadet kişinin iradesiyle olur.
+
+**DEEN-U11-S05-X006** · Bildiklerini Kullan · true_false
+- Soru: Doğru mu, yanlış mı? Kul hakkı, hak sahibi helal etmedikçe bağışlanmaz.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Allah hakkı tövbeyle bağışlanabilir; kul hakkı ise ancak hak sahibine ödenir veya o helal ederse affedilir.
+
+**DEEN-U11-S07-X003** · Ünite Challenge · true_false
+- Soru: Doğru mu, yanlış mı? Hz. Peygamber’in devamlı yaptığı, nadiren terk ettiği sünnete sünnet-i müekkede denir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Sünnet-i müekkede, Hz. Peygamber’in sürekli yaptığı ve çok nadir terk ettiği sünnettir; sabah namazının sünneti gibi.
+
+**DEEN-U11-S06-X005** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Kurban kesmek, Kurban Bayramı günlerinde yapılan bir ibadettir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Kurban, Allah’a yaklaşmak niyetiyle Kurban Bayramı günlerinde kesilen hayvandır.
+
+## U12 — temizlik_abdest (50 soru)
 
 **DEEN-U12-S01-X001** · Temizlik ve Taharet · multiple_choice
 - Soru: “Temizlik imanın yarısıdır” sözü kimin hadisidir?
@@ -570,7 +701,94 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Doğru cevap: Allah’ın size güçlük çıkarmak istemediği
 - Açıklama: Mâide 5:6: “Allah size güçlük çıkarmak istemez; sizi temizlemek ve nimetini tamamlamak ister.”
 
-## U13 — namaza_hazirlik (37 soru)
+**DEEN-U12-S03-X006** · Abdest Adımlarını Tanı · matching
+- Soru: Aşağıdaki kavramları anlamlarıyla eşleştir: Hades-i asgar, Hades-i ekber, Necaset ve Mest.
+- Eşleşmeler: Hades-i asgar → Abdestle giderilen küçük hades; Hades-i ekber → Gusülle giderilen büyük hades; Necaset → Beden, elbise veya yerdeki görünür pislik; Mest → Ayağı topuklarla birlikte örten, üzerine mesh edilebilen deri çorap
+- Açıklama: Hades abdestsiz veya guslü gerektiren hâldir; necaset ise görünür pisliktir. Mest de abdestte ayakların yıkanması yerine meshedilebilen bir örtüdür.
+
+**DEEN-U12-S03-X007** · Abdest Adımlarını Tanı · matching
+- Soru: Aşağıdaki abdest sünnetlerini anlamlarıyla eşleştir: Mazmaza, İstinşak, Teslis ve Misvak.
+- Eşleşmeler: Mazmaza → Ağza su verip çalkalamak; İstinşak → Burna su çekip temizlemek; Teslis → Abdest organlarını üçer kez yıkamak; Misvak → Dişleri ve ağzı misvakla temizlemek
+- Açıklama: Ağza ve buruna su vermek, üçer kez yıkamak ve misvak kullanmak abdestin sünnetlerindendir.
+
+**DEEN-U12-S06-X004** · Akıllı Tekrar · matching
+- Soru: Aşağıdaki temizlik çeşitlerini anlamlarıyla eşleştir: Abdest, Gusül, Teyemmüm ve Mest üzerine mesh.
+- Eşleşmeler: Abdest → Küçük hadesten temizlenmek için yüz, kollar, baş ve ayaklarla yapılan temizlik; Gusül → Büyük hadesten temizlenmek için bütün bedenin yıkanması; Teyemmüm → Su bulunamadığında temiz toprakla yüz ve kolları meshetmek; Mest üzerine mesh → Ayakları yıkamak yerine mesti ıslak elle meshetmek
+- Açıklama: Küçük hadesten abdestle, büyük hadesten gusülle temizlenilir; su kullanılamıyorsa teyemmüm yapılır.
+
+**DEEN-U12-S05-X006** · Ortak Temel ve Farklar · scenario
+- Soru: Murat abdest alırken kollarını yalnızca bileklerine kadar yıkadı. Abdesti için ne söylenir?
+- Seçenekler: Geçerlidir, çünkü kollar abdestin farzı değildir | Eksiktir; kollar dirseklerle birlikte yıkanmalıdır | Geçerlidir, çünkü bileklere kadar yıkamak yeterlidir | Yalnızca sağ kol yıkanırsa yeterlidir
+- Doğru cevap: Eksiktir; kollar dirseklerle birlikte yıkanmalıdır
+- Açıklama: Abdestte kolların dirsekler dâhil yıkanması farzdır (Mâide 5:6).
+
+**DEEN-U12-S01-X008** · Temizlik ve Taharet · multiple_choice
+- Soru: Tuvalet ihtiyacından sonra yapılan temizliğe ne ad verilir?
+- Seçenekler: İstinca | Misvak | Teyemmüm | Mesh
+- Doğru cevap: İstinca
+- Açıklama: Küçük ve büyük abdest bozduktan sonra yapılan temizliğe istinca denir.
+
+**DEEN-U12-S02-X008** · Abdestin Temeli · true_false
+- Soru: Doğru mu, yanlış mı? Tuvalete girerken sol ayakla girilir, çıkarken sağ ayakla çıkılır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Temiz yerlere sağ, pis yerlere sol tarafla girilmesi adabındandır; tuvaletten çıkarken sağ ayak öne atılır.
+
+**DEEN-U12-S03-X008** · Abdest Adımlarını Tanı · true_false
+- Soru: Doğru mu, yanlış mı? Kadınlarda hayız ve nifas sona erince gusül yapmak gerekir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hayız ve nifas hâlinin bitmesinden sonra namaz ve benzeri ibadetler için gusül abdesti alınır.
+
+**DEEN-U12-S04-X007** · Teyemmüm ve Kolaylık · true_false
+- Soru: Doğru mu, yanlış mı? Abdestsiz kimse Kur’an-ı Kerim’in yazılı sayfalarına (mushafa) dokunamaz.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hanefî mezhebine göre mushafa dokunmak için abdestli olmak gerekir.
+
+**DEEN-U12-S05-X007** · Ortak Temel ve Farklar · true_false
+- Soru: Doğru mu, yanlış mı? Abdeste, ellerin bileklere kadar yıkanmasıyla başlanması sünnettir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Besmeleyle birlikte önce eller bileklere kadar yıkanarak abdeste başlanır.
+
+**DEEN-U12-S06-X005** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Cuma günü gusül yapmak sünnettir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hz. Peygamber cuma namazına gitmeden önce gusül yapmayı tavsiye etmiştir.
+
+**DEEN-U12-S07-X003** · Ünite Challenge · true_false
+- Soru: Doğru mu, yanlış mı? Suyun rengi, kokusu veya tadı necasetle değişirse o su temizleyici olmaktan çıkar.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Necasetle rengi, kokusu veya tadı değişen su abdest ve gusül için kullanılamaz.
+
+**DEEN-U12-S02-X009** · Abdestin Temeli · true_false
+- Soru: Doğru mu, yanlış mı? Abdestte uzuvları yıkarken sağ taraftan başlamak sünnettir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Elleri ve ayakları yıkarken önce sağ, sonra sol taraf yıkanır.
+
+**DEEN-U12-S03-X009** · Abdest Adımlarını Tanı · true_false
+- Soru: Doğru mu, yanlış mı? İdrar necasettir; bedene ve elbiseye bulaşırsa temizlenmesi gerekir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: İdrar ve dışkı gibi pislikler necasettir; namaz için beden ve elbisenin bunlardan temiz olması şarttır.
+
+**DEEN-U12-S05-X008** · Ortak Temel ve Farklar · true_false
+- Soru: Doğru mu, yanlış mı? Bayılmak abdesti bozar.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Akıl dengesinin kaybolması, bayılma ve sarhoşluk abdesti bozar.
+
+**DEEN-U12-S07-X004** · Ünite Challenge · multiple_choice
+- Soru: Abdestin farzlarını bildiren ayet hangi sûrededir?
+- Seçenekler: İhlâs Sûresi | Mâide Sûresi | Fâtiha Sûresi | Kevser Sûresi
+- Doğru cevap: Mâide Sûresi
+- Açıklama: Abdestin farzları Mâide Sûresi’nin 6. ayetinde bildirilir.
+
+## U13 — namaza_hazirlik (70 soru)
 
 **DEEN-U13-S01-X001** · Namaza Hazırlık · multiple_choice
 - Soru: Namaza başlamadan önce yerine getirilmesi gereken şartlar kaç tanedir?
@@ -790,7 +1008,202 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Doğru cevap: Rükûya eğilmek
 - Açıklama: Rükû namazın içinde yapılır; diğerleri namazdan önceki hazırlıklardır.
 
-## U14 — namazin_yapisi (35 soru)
+**DEEN-U13-S03-X006** · Şartları Eşleştir · matching
+- Soru: Aşağıdaki namazları özellikleriyle eşleştir: Vitir namazı, Cuma namazı, Bayram namazı ve Cenaze namazı.
+- Eşleşmeler: Vitir namazı → Yatsıdan sonra kılınan üç rekâtlık vacip namaz; Cuma namazı → Cuma günü öğle vaktinde cemaatle kılınan iki rekâtlık farz; Bayram namazı → Ramazan ve Kurban bayramlarında kılınan iki rekâtlık vacip namaz; Cenaze namazı → Ölen Müslüman için kılınan, rükû ve secdesi olmayan namaz
+- Açıklama: Beş vakit dışında vitir, cuma, bayram ve cenaze gibi namazlar da vardır; her birinin hükmü ve kılınışı farklıdır.
+
+**DEEN-U13-S03-X007** · Şartları Eşleştir · matching
+- Soru: Aşağıdaki ezan ifadelerini anlamlarıyla eşleştir: Allâhü ekber, Eşhedü en lâ ilâhe illallah, Hayye ale’s-salâh ve Hayye ale’l-felâh.
+- Eşleşmeler: Allâhü ekber → Allah en büyüktür; Eşhedü en lâ ilâhe illallah → Allah’tan başka ilâh olmadığına şahitlik ederim; Hayye ale’s-salâh → Namaza gelin; Hayye ale’l-felâh → Kurtuluşa gelin
+- Açıklama: Ezan, namaz vaktinin girdiğini duyurur ve Müslümanları namaza çağırır.
+
+**DEEN-U13-S06-X004** · Akıllı Tekrar · matching
+- Soru: Aşağıdaki kavramları anlamlarıyla eşleştir: Eda, Kaza, Cemaat ve Kerahet vakti.
+- Eşleşmeler: Eda → Namazı vaktinde kılmak; Kaza → Vaktinde kılınamayan namazı sonradan kılmak; Cemaat → Namazı imamla birlikte kılmak; Kerahet vakti → Nafile namaz kılmanın mekruh olduğu zaman dilimi
+- Açıklama: Namazın vaktinde kılınmasına eda, sonradan kılınmasına kaza denir.
+
+**DEEN-U13-S05-X007** · Beş Vakit · true_false
+- Soru: Doğru mu, yanlış mı? Güneş doğarken, tam tepedeyken ve batarken nafile namaz kılmak mekruhtur.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hz. Peygamber bu üç zamanda namaz kılmayı yasaklamıştır; bunlar kerahet vakitleri olarak bilinir.
+
+**DEEN-U13-S04-X007** · Hazırlık Senaryoları · multiple_choice
+- Soru: Vitir namazı kaç rekâttır?
+- Seçenekler: İki | Dört | Beş | Üç
+- Doğru cevap: Üç
+- Açıklama: Hanefî mezhebine göre vitir namazı üç rekâttır ve vaciptir.
+
+**DEEN-U13-S01-X008** · Namaza Hazırlık · true_false
+- Soru: Doğru mu, yanlış mı? İslam’ın ilk müezzini Hz. Bilal’dir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hz. Bilal-i Habeşî, ezanı ilk okuyan müezzin olarak bilinir.
+
+**DEEN-U13-S02-X009** · Vakit ve Kıble · true_false
+- Soru: Doğru mu, yanlış mı? Ezanı işiten kişinin, müezzinin söylediklerini tekrar etmesi güzel bir davranıştır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hz. Peygamber, “Ezanı işittiğiniz zaman müezzinin dediği gibi söyleyin” buyurmuştur (Buhârî).
+
+**DEEN-U13-S02-X010** · Vakit ve Kıble · multiple_choice
+- Soru: Sabah vaktinde kılınan ve sünnetlerin en kuvvetlisi sayılan namaz kaç rekâttır?
+- Seçenekler: Bir | Dört | İki | Üç
+- Doğru cevap: İki
+- Açıklama: Sabah namazının sünneti iki rekâttır ve sünnetlerin en kuvvetlisidir.
+
+**DEEN-U13-S03-X008** · Şartları Eşleştir · multiple_choice
+- Soru: Öğle vaktinde kılınan ilk sünnet namazı kaç rekâttır?
+- Seçenekler: İki | Üç | Altı | Dört
+- Doğru cevap: Dört
+- Açıklama: Öğle namazının farzından önce dört, farzdan sonra iki rekât sünnet kılınır.
+
+**DEEN-U13-S03-X009** · Şartları Eşleştir · multiple_choice
+- Soru: İkindi vaktinde kılınan sünnet namazı kaç rekâttır?
+- Seçenekler: Üç | İki | Sekiz | Dört
+- Doğru cevap: Dört
+- Açıklama: İkindi namazının farzından önce dört rekât (gayrimüekked) sünnet kılınır.
+
+**DEEN-U13-S04-X008** · Hazırlık Senaryoları · multiple_choice
+- Soru: Akşam vaktinin ardından kılınan sünnet namazı kaç rekâttır?
+- Seçenekler: Bir | Dört | İki | Üç
+- Doğru cevap: İki
+- Açıklama: Akşam namazının farzından sonra iki rekât sünnet kılınır.
+
+**DEEN-U13-S04-X009** · Hazırlık Senaryoları · multiple_choice
+- Soru: Yatsı vaktinde kılınan son sünnet namazı kaç rekâttır?
+- Seçenekler: Üç | Altı | İki | Dört
+- Doğru cevap: İki
+- Açıklama: Yatsı namazında farzdan sonra iki rekât son sünnet kılınır; ardından vitir namazı gelir.
+
+**DEEN-U13-S03-X010** · Şartları Eşleştir · true_false
+- Soru: Doğru mu, yanlış mı? Cuma namazı kadınlara farz değildir; ancak kılarlarsa geçerli olur.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Cuma namazı erkeklere farzdır; kadınlar cumaya katılırsa namazları geçerli olur.
+
+**DEEN-U13-S04-X010** · Hazırlık Senaryoları · true_false
+- Soru: Doğru mu, yanlış mı? Cuma namazında hutbe, namazdan önce okunur.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Cuma günü imam önce hutbe okur, ardından iki rekât farz namazı kıldırır.
+
+**DEEN-U13-S05-X008** · Beş Vakit · true_false
+- Soru: Doğru mu, yanlış mı? Bayram namazında hutbe, namazdan sonra okunur.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Bayram namazı kılındıktan sonra imam hutbe okur; bu, cuma namazından farklıdır.
+
+**DEEN-U13-S05-X009** · Beş Vakit · true_false
+- Soru: Doğru mu, yanlış mı? Mezarlıkta namaz kılmak mekruhtur.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Namaz kılınacak yerin temiz ve huzurlu olması istenir; mezarlıkta namaz kılmaktan sakınılır.
+
+**DEEN-U13-S02-X011** · Vakit ve Kıble · true_false
+- Soru: Doğru mu, yanlış mı? Camiye girerken önce sağ ayakla girmek sünnettir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Mescide girerken sağ ayakla girilir; çıkarken sol ayakla çıkılır.
+
+**DEEN-U13-S06-X005** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Camiden çıkarken önce sağ ayakla çıkılır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Camiye sağ ayakla girilir, camiden ise sol ayakla çıkılır.
+
+**DEEN-U13-S05-X010** · Beş Vakit · true_false
+- Soru: Doğru mu, yanlış mı? Kadının namazda yüzü ve elleri avret yerinden sayılmaz.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Kadının namazda yüzü ve elleri dışında kalan bedeni örtülmelidir; yüz ve eller açık olabilir.
+
+**DEEN-U13-S01-X009** · Namaza Hazırlık · true_false
+- Soru: Doğru mu, yanlış mı? Namaz kılmak için seccade bulunması şarttır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Namazın şartı, namaz kılınan yerin temiz olmasıdır; seccade şart değildir.
+
+**DEEN-U13-S06-X006** · Akıllı Tekrar · multiple_choice
+- Soru: Sabah namazının vakti hangi olayla sona erer?
+- Seçenekler: Yatsı vaktinin girmesiyle | Güneşin tepeye gelmesiyle | Güneşin doğmasıyla | Öğle ezanıyla
+- Doğru cevap: Güneşin doğmasıyla
+- Açıklama: Sabah namazının vakti, imsaktan güneş doğuncaya kadar devam eder.
+
+**DEEN-U13-S07-X003** · Ünite Challenge · multiple_choice
+- Soru: Ezan ve kamet hangi namazlar için okunur?
+- Seçenekler: Bütün namazlar için | Farz namazlar için | Yalnızca cenaze namazı için | Yalnızca nafile namazlar için
+- Doğru cevap: Farz namazlar için
+- Açıklama: Ezan ve kamet, beş vakit farz namaz ve cuma namazı için okunur; nafile ve cenaze namazı için okunmaz.
+
+**DEEN-U13-S01-X010** · Namaza Hazırlık · multiple_choice
+- Soru: Hz. Peygamber’in kabrinin de bulunduğu Mescid-i Nebevî hangi şehirdedir?
+- Seçenekler: Kudüs | Medine | Şam | Mekke
+- Doğru cevap: Medine
+- Açıklama: Mescid-i Nebevî Medine’dedir; Hz. Peygamber hicretten sonra bu mescidi inşa etmiştir.
+
+**DEEN-U13-S07-X004** · Ünite Challenge · multiple_choice
+- Soru: Beş vakit namazın toplam farz rekât sayısı kaçtır?
+- Seçenekler: Yirmi | On beş | On yedi | On bir
+- Doğru cevap: On yedi
+- Açıklama: Beş vakitte farz rekâtlar: sabah 2, öğle 4, ikindi 4, akşam 3, yatsı 4; toplam 17’dir.
+
+**DEEN-U13-S06-X007** · Akıllı Tekrar · multiple_choice
+- Soru: Ezan kaç cümleden oluşur?
+- Seçenekler: Yedi | Yirmi | On beş | On bir
+- Doğru cevap: On beş
+- Açıklama: Ezan, tekrarlarıyla birlikte on beş cümleden oluşur.
+
+**DEEN-U13-S07-X005** · Ünite Challenge · true_false
+- Soru: Doğru mu, yanlış mı? Ezan Arapça okunur.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Ezan, Hz. Peygamber’den öğretilen şekliyle Arapça okunur.
+
+**DEEN-U13-S04-X011** · Hazırlık Senaryoları · true_false
+- Soru: Doğru mu, yanlış mı? Namazın şartları namazın dışında, farzları ise namazın içinde yerine getirilir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Abdest, kıble ve vakit gibi şartlar namazdan önce sağlanır; kıyam, rükû ve secde gibi farzlar namazın içindedir.
+
+**DEEN-U13-S03-X011** · Şartları Eşleştir · multiple_choice
+- Soru: Cuma namazı hangi vakitte kılınır?
+- Seçenekler: Sabah vaktinde | Öğle vaktinde | Yatsı vaktinde | İkindi vaktinde
+- Doğru cevap: Öğle vaktinde
+- Açıklama: Cuma namazı, cuma günü öğle vaktinde kılınır ve o günün öğle namazının yerine geçer.
+
+**DEEN-U13-S05-X011** · Beş Vakit · true_false
+- Soru: Doğru mu, yanlış mı? Cuma hutbesi okunurken cemaatin susup dinlemesi gerekir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hutbe okunurken konuşmak ve başka işlerle ilgilenmek yasaktır; cemaat sessizce dinler.
+
+**DEEN-U13-S06-X008** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Ezan, namaz vakti girdikten sonra okunur.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Ezan vaktin girdiğini bildirir; bu yüzden vakit girmeden okunmaz.
+
+**DEEN-U13-S02-X012** · Vakit ve Kıble · true_false
+- Soru: Doğru mu, yanlış mı? Namaza giderken acele etmeyip sakin ve vakarlı yürümek gerekir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hz. Peygamber, ikâmet getirildiğinde koşarak değil, sakin ve vakarlı biçimde yürümeyi tavsiye etmiştir.
+
+**DEEN-U13-S01-X011** · Namaza Hazırlık · true_false
+- Soru: Doğru mu, yanlış mı? Kâbe’yi Hz. İbrahim ve oğlu Hz. İsmail inşa etmiştir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Bakara 2:127’de Hz. İbrahim ile Hz. İsmail’in Kâbe’nin temellerini yükselttiği bildirilir.
+
+**DEEN-U13-S07-X006** · Ünite Challenge · true_false
+- Soru: Doğru mu, yanlış mı? Ezan, Medine döneminde okunmaya başlanmıştır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hicretten sonra Medine’de, Müslümanları namaza çağırmak için ezan usulü belirlenmiştir.
+
+## U14 — namazin_yapisi (48 soru)
 
 **DEEN-U14-S01-X001** · Namazın Yapısı · multiple_choice
 - Soru: Namazın içinde yapılan farzlar (rükünler) kaç tanedir?
@@ -998,7 +1411,82 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Doğru cevap: Öğle farzını iki rekât (kasr) kılarım
 - Açıklama: Yolcu dört rekâtlı farzı iki rekât kılar.
 
-## U15 — oruc_ramazan (34 soru)
+**DEEN-U14-S03-X006** · Rekâtı Kur · matching
+- Soru: Aşağıdaki namaz bölümlerini anlamlarıyla eşleştir: Tahiyyat, Salavat, Kunut duası ve Tadil-i erkân.
+- Eşleşmeler: Tahiyyat → Namazda her oturuşta okunan dua; Salavat → Son oturuşta Peygamberimize okunan dua; Kunut duası → Vitir namazının üçüncü rekâtında okunan dua; Tadil-i erkân → Rükû ve secdede organların yerleşip bir an durması
+- Açıklama: Namazda tahiyyat ve salavat oturuşlarda, kunut duası vitirde okunur; tadil-i erkân ise hareketleri sükûnetle yapmaktır.
+
+**DEEN-U14-S03-X007** · Rekâtı Kur · matching
+- Soru: Aşağıdaki sureleri özellikleriyle eşleştir: Fâtiha, İhlâs, Kevser ve Fîl.
+- Eşleşmeler: Fâtiha → Kur’an’ın ilk suresi; yedi âyettir; İhlâs → Allah’ın birliğini bildiren dört âyetli sure; Kevser → Üç âyetten oluşan en kısa sure; Fîl → Fil olayını anlatan beş âyetli sure
+- Açıklama: Bu sureler namazda sık okunur; her birinin âyet sayısı ve konusu bellidir.
+
+**DEEN-U14-S06-X004** · Akıllı Tekrar · matching
+- Soru: Aşağıdaki kavramları anlamlarıyla eşleştir: İmam, Müktedi, Saf ve Mesbûk.
+- Eşleşmeler: İmam → Cemaate namaz kıldıran kişi; Müktedi → İmama uyarak namaz kılan kişi; Saf → Cemaatin omuz omuza dizilmesi; Mesbûk → İmamla bir veya daha fazla rekâtı kaçırıp sonradan katılan kişi
+- Açıklama: Cemaatle namazda imam öndedir, müktediler arkasında saf tutar.
+
+**DEEN-U14-S05-X006** · Mazerette Kolaylık · true_false
+- Soru: Doğru mu, yanlış mı? Secde; alın ve burun, eller, dizler ve ayak parmaklarının yere konmasıyla yapılır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hadiste secdenin yedi uzuv üzerine yapıldığı bildirilir.
+
+**DEEN-U14-S04-X007** · Namaz İçinde Akış · multiple_choice
+- Soru: Sehiv secdesi kaç secdedir?
+- Seçenekler: Üç secde | Bir secde | Dört secde | İki secde
+- Doğru cevap: İki secde
+- Açıklama: Namazda yanılma sonucu bir vacip terk edilirse son oturuşta iki secde yapılır; buna sehiv secdesi denir.
+
+**DEEN-U14-S01-X008** · Namazın Yapısı · true_false
+- Soru: Doğru mu, yanlış mı? Öğle ve ikindi namazlarında Kur’an sessizce (hafif sesle) okunur.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Gündüz kılınan öğle ve ikindi namazlarında kıraat gizli yapılır.
+
+**DEEN-U14-S02-X008** · Kıyam, Kıraat, Rükû, Secde · true_false
+- Soru: Doğru mu, yanlış mı? Sabah, akşam ve yatsı namazlarının farzında imam kıraati sesli yapar.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Sabah, akşam ve yatsının ilk iki rekâtında imam Kur’an’ı sesli okur.
+
+**DEEN-U14-S03-X008** · Rekâtı Kur · multiple_choice
+- Soru: Rükûda ve secdede tesbihin en az kaç kez söylenmesi sünnettir?
+- Seçenekler: On kez | Üç kez | Bir kez | Yedi kez
+- Doğru cevap: Üç kez
+- Açıklama: Rükûda “Sübhâne rabbiye’l-azîm”, secdede “Sübhâne rabbiye’l-a‘lâ” en az üç kez söylenir.
+
+**DEEN-U14-S04-X008** · Namaz İçinde Akış · multiple_choice
+- Soru: Namazda Fâtiha’dan sonra okunan ek sûre veya âyetlere ne denir?
+- Seçenekler: Salavat | Kunut | Zammı sûre | Tahiyyat
+- Doğru cevap: Zammı sûre
+- Açıklama: Fâtiha’dan sonra okunan sûre veya âyetlere zammı sûre denir.
+
+**DEEN-U14-S06-X005** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Vitir namazında kunut duası üçüncü rekâtta, kıraatten sonra okunur.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Vitir namazının üçüncü rekâtında sûreden sonra tekbir alınır ve kunut duası okunur.
+
+**DEEN-U14-S04-X009** · Namaz İçinde Akış · true_false
+- Soru: Doğru mu, yanlış mı? Namazda ayakta dururken bakışlar secde yerine yöneltilir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Huşû için namazda kıyamda gözler secde edilecek yere bakar.
+
+**DEEN-U14-S05-X007** · Mazerette Kolaylık · true_false
+- Soru: Doğru mu, yanlış mı? Erkek, secdede dirseklerini yere yaymaz; kollarını yanlarından ayırır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Erkekler secdede karınlarını uyluklarından, kollarını yanlarından uzak tutar ve dirseklerini yere koymaz.
+
+**DEEN-U14-S03-X009** · Rekâtı Kur · true_false
+- Soru: Doğru mu, yanlış mı? Erkekler iftitah tekbirinde ellerini kulak hizasına kaldırır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Erkekler namaza başlarken tekbir alırken ellerinin parmak uçlarını kulak hizasına kaldırır.
+
+## U15 — oruc_ramazan (48 soru)
 
 **DEEN-U15-S01-X001** · Oruç Nedir? · multiple_choice
 - Soru: Ramazan, hicrî takvimin kaçıncı ayıdır?
@@ -1200,3 +1688,85 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Seçenekler: İyileşince tutamadığı günleri kaza etmesini | Hasta olmasına rağmen tutmasını | Ramazan’ı beklemesini | Hiç tutmamasını
 - Doğru cevap: İyileşince tutamadığı günleri kaza etmesini
 - Açıklama: Mazeret sona erince tutulamayan günler kaza edilir.
+
+**DEEN-U15-S03-X006** · İmsak ve İftar · matching
+- Soru: Aşağıdaki kavramları anlamlarıyla eşleştir: Kadir Gecesi, Ramazan Bayramı, Hilal ve İmsak.
+- Eşleşmeler: Kadir Gecesi → Kur’an’ın indirilmeye başlandığı, bin aydan hayırlı gece; Ramazan Bayramı → Ramazan ayı bittikten sonra Şevval’in ilk günü başlayan bayram; Hilal → Ramazan’ın başlangıcı ve bitişi için esas alınan yeni ay; İmsak → Oruca başlama vakti
+- Açıklama: Ramazan hilalle başlar ve hilalle biter; ayın sonunda Ramazan Bayramı kutlanır.
+
+**DEEN-U15-S03-X007** · İmsak ve İftar · matching
+- Soru: Aşağıdaki durumları hükümleriyle eşleştir: İyileşme umudu olan hasta, Oruca gücü yetmeyen yaşlı, Ramazan’da orucu bilerek bozan ve Orucu unutarak yiyip içen.
+- Eşleşmeler: İyileşme umudu olan hasta → Orucu erteler, sonra kaza eder; Oruca gücü yetmeyen yaşlı → Her gün için fidye verir; Ramazan’da orucu bilerek bozan → Kaza ve kefaret gerekir; Orucu unutarak yiyip içen → Orucu bozulmaz
+- Açıklama: Özür sebebiyle tutulamayan oruç kaza edilir; gücü yetmeyenler fidye verir; unutarak yemek orucu bozmaz.
+
+**DEEN-U15-S05-X006** · Mazeret ve Kaza · true_false
+- Soru: Doğru mu, yanlış mı? Ramazan Bayramı’nın ilk günü oruç tutmak haramdır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Ramazan ve Kurban bayramlarının birinci günlerinde oruç tutmak yasaklanmıştır.
+
+**DEEN-U15-S04-X007** · Oruçlu Günlük Hayat · multiple_choice
+- Soru: Ramazan ayının başlangıcı hangisine göre belirlenir?
+- Seçenekler: Havaların ısınmasına | Hilal (yeni ay) | Yılın ilk gününe | Güneşin doğuş saatine
+- Doğru cevap: Hilal (yeni ay)
+- Açıklama: Ramazan, hilalin görülmesi veya hesapla belirlenmesiyle başlar; takvimin hilale dayandığı bildirilir.
+
+**DEEN-U15-S02-X007** · Ramazan ve Takva · multiple_choice
+- Soru: Ramazan ayı kaç gün çeker?
+- Seçenekler: On beş gün | Yirmi dokuz veya otuz gün | Her yıl aynı sayıda | Kırk gün
+- Doğru cevap: Yirmi dokuz veya otuz gün
+- Açıklama: Kameri aylar yirmi dokuz veya otuz gün sürer; Ramazan da böyledir.
+
+**DEEN-U15-S03-X008** · İmsak ve İftar · multiple_choice
+- Soru: Ramazan ayından hemen önce gelen ay hangisidir?
+- Seçenekler: Receb | Şevval | Şaban | Muharrem
+- Doğru cevap: Şaban
+- Açıklama: Hicrî takvimde Ramazan’dan önce Şaban, sonra Şevval ayı gelir.
+
+**DEEN-U15-S04-X008** · Oruçlu Günlük Hayat · true_false
+- Soru: Doğru mu, yanlış mı? Cünüp olarak sabaha çıkan kişi oruç tutabilir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Gusül gerektiren hâlde sabaha çıkmak orucu bozmaz; kişi gusledip orucuna devam eder.
+
+**DEEN-U15-S05-X007** · Mazeret ve Kaza · true_false
+- Soru: Doğru mu, yanlış mı? Ramazan’ın ardından Şevval ayında tutulan altı günlük oruç nafile bir ibadettir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hz. Peygamber, Ramazan’dan sonra Şevval’de altı gün oruç tutmayı tavsiye etmiştir.
+
+**DEEN-U15-S06-X004** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Muharrem ayının onuncu günü olan Aşure gününde tutulan oruç nafile bir oruçtur.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hz. Peygamber Muharrem’in onuncu günü oruç tutmuş ve bunu tavsiye etmiştir.
+
+**DEEN-U15-S07-X003** · Ünite Challenge · true_false
+- Soru: Doğru mu, yanlış mı? Hz. Peygamber pazartesi ve perşembe günleri nafile oruç tutmayı tavsiye etmiştir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hz. Peygamber pazartesi ve perşembe günleri oruç tutardı ve bu günlerde amellerin Allah’a arz edildiğini bildirmiştir.
+
+**DEEN-U15-S06-X005** · Akıllı Tekrar · multiple_choice
+- Soru: Hanefî mezhebine göre teravih namazı kaç rekâttır?
+- Seçenekler: Yirmi | Sekiz | Otuz | On
+- Doğru cevap: Yirmi
+- Açıklama: Teravih, Ramazan gecelerinde yatsıdan sonra kılınan ve Hanefî mezhebinde yirmi rekât olan sünnet bir namazdır.
+
+**DEEN-U15-S07-X004** · Ünite Challenge · true_false
+- Soru: Doğru mu, yanlış mı? Ramazan Bayramı üç gündür.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Ramazan Bayramı, Şevval ayının birinci gününden üçüncü gününe kadar sürer.
+
+**DEEN-U15-S01-X008** · Oruç Nedir? · multiple_choice
+- Soru: Hadis-i kudsîde “Mükâfatını bizzat ben vereceğim” buyrulan ibadet hangisidir?
+- Seçenekler: Oruç | Zekât | Namaz | Hac
+- Doğru cevap: Oruç
+- Açıklama: “Oruç benim içindir ve onun mükâfatını ben vereceğim” hadis-i kudsîsi oruç ibadetinin değerini gösterir (Buhârî).
+
+**DEEN-U15-S05-X008** · Mazeret ve Kaza · true_false
+- Soru: Doğru mu, yanlış mı? İftarı hurma veya su ile açmak sünnettir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hz. Peygamber iftarı taze hurmayla, bulamazsa kuru hurmayla, o da yoksa su ile açardı (Ebû Dâvûd, Tirmizî).
