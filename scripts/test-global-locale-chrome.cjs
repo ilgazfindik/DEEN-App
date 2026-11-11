@@ -10,7 +10,7 @@ const server=http.createServer((req,res)=>{const p=decodeURIComponent(req.url.sp
  for(const lang of ['tr','ar','en','de','fr']){
   const context=await browser.newContext({viewport:{width:390,height:844}}),page=await context.newPage(),errors=[];
   // Deterministic: the sign-in screen asks the project which providers are enabled; answer with all of them.
-  await context.route('https://yrpndjfhheeigchpombe.supabase.co/**',route=>route.fulfill({status:200,contentType:'application/json',headers:{'access-control-allow-origin':'*','access-control-allow-headers':'*'},body:JSON.stringify({external:{google:true,apple:true,email:true}})}));page.on('pageerror',e=>errors.push(e.message));
+  await context.route('https://swlipzpxlyzemqxyhdho.supabase.co/**',route=>route.fulfill({status:200,contentType:'application/json',headers:{'access-control-allow-origin':'*','access-control-allow-headers':'*'},body:JSON.stringify({external:{google:true,apple:true,email:true}})}));page.on('pageerror',e=>errors.push(e.message));
   await page.goto(url+'?previewAccount=1');await page.waitForSelector('#deenLanguageGate');assert.equal(await page.locator('.phone').count(),0);assert.equal(await page.locator('.v9912-authbtn').count(),0);
   assert.equal(await page.locator('[data-locale]').count(),5);assert.equal(await page.locator('[data-locale="es"]').count(),0);assert(!await page.locator('.deen-language-continue').isEnabled());
   await page.locator('[data-locale="'+lang+'"]').click();assert.equal(await page.locator('#deenLanguageGate').getAttribute('lang'),lang);

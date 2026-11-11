@@ -4,7 +4,7 @@
 (()=>{
  'use strict';
  if(window.DEEN_ACCOUNT)return;
- const TABLE='progress',META='deen_cloud_meta',BACKUP='deen_cloud_backup',AUTH_KEY='deen-auth-v1',MAX=2900000;
+ const TABLE='progress',META='deen_cloud_meta',BACKUP='deen_cloud_backup',AUTH_KEY='deen-auth-v2',MAX=2900000;
  const SKIP=/^(deen_cloud_meta|deen_cloud_backup|deen_v57_last_good_state|deen_v5_migration_backup|deen_app_language_v1|deen_admin_|deen_dev)/;
  const S={
   tr:{remind:'Günlük hatırlatma',remindSub:'O gün çalışmadıysan seni nazikçe hatırlatırız.',remOn:'Hatırlatmayı aç',remOff:'Hatırlatmayı kapat',remAt:'Saat',remDenied:'Bildirim izni verilmedi. Tarayıcı ayarlarından izin verebilirsin.',remUnsup:'Bu tarayıcı bildirimi desteklemiyor. iPhone’da önce uygulamayı ana ekrana ekle.',remDone:'Hatırlatma açık.',label:'Hesap ve yedek',title:'Hesap',intro:'Hesap açarsan ilerlemen güvenle yedeklenir ve başka bir cihazda da devam edebilirsin. Hesap açmak zorunlu değil.',signin:'Giriş yap veya kayıt ol',as:'Giriş yapıldı:',sync:'Şimdi eşitle',syncing:'Eşitleniyor…',synced:'Yedeklendi',last:'Son eşitleme:',never:'henüz yok',out:'Çıkış yap',exp:'Verilerimi indir',del:'Hesabımı sil',sure:'Hesabın ve buluttaki ilerlemen kalıcı olarak silinecek. Bu cihazdaki ilerleme kalır. Emin misin?',yes:'Evet, kalıcı olarak sil',no:'Vazgeç',deleted:'Hesabın silindi.',err:'Bağlantı kurulamadı. Biraz sonra tekrar dene.',cTitle:'İlerleme bulundu',cBody:'Bu cihazdaki ilerleme ile hesabındaki ilerleme farklı. Hangisiyle devam edelim? Seçmediğin taraf silinmez: bu cihazın kopyası yedek olarak saklanır.',cloud:'Hesaptakini kullan',local:'Bu cihazdakini kullan'},
