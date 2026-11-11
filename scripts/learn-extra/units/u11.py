@@ -152,4 +152,7 @@ Q = [
  ('tf', 5, 'kul_hakki', 'Kul hakkı', 'm', 'Kul hakkı, hak sahibi helal etmedikçe bağışlanmaz.', True, 'Allah hakkı tövbeyle bağışlanabilir; kul hakkı ise ancak hak sahibine ödenir veya o helal ederse affedilir.'),
  ('tf', 7, 'sunnet_muekked', 'Sünnet-i müekkede', 'm', 'Hz. Peygamber’in devamlı yaptığı, nadiren terk ettiği sünnete sünnet-i müekkede denir.', True, 'Sünnet-i müekkede, Hz. Peygamber’in sürekli yaptığı ve çok nadir terk ettiği sünnettir; sabah namazının sünneti gibi.'),
  ('tf', 6, 'kurban', 'Kurban ibadeti', 'm', 'Kurban kesmek, Kurban Bayramı günlerinde yapılan bir ibadettir.', True, 'Kurban, Allah’a yaklaşmak niyetiyle Kurban Bayramı günlerinde kesilen hayvandır.'),
+ # --- Web-verified additions (Diyanet / TDV sources)
+ ('mc', 6, 'kurban_gunleri', 'Kurban kesim günleri', 'm', 'Hanefîlere göre kurban, Zilhicce ayının hangi günlerinde kesilir?', 'Onuncu, on birinci ve on ikinci günlerinde', ['Yalnızca dokuzuncu gününde', 'Ayın ilk üç gününde', 'Yalnızca on beşinci gününde'], 'Diyanet’e göre Hanefîlerde kurban Zilhicce’nin 10., 11. ve 12. günleri kesilir; ilk günü kesmek daha faziletlidir.'),
+ ('tf', 7, 'kurban_vacip', 'Kurbanın hükmü', 'h', 'Hanefî mezhebinde, şartlarını taşıyan kimse için kurban kesmek vaciptir.', True, 'Çoğu mezhebe göre kurban sünnettir; Hanefî mezhebinde tercih edilen görüş ise vacip olduğudur.'),
 ]
