@@ -84,6 +84,10 @@ EN = [
  ("A sick friend cannot fast in Ramadan and his doctor tells him not to. What do you advise?", "To make up the missed days when he recovers",
   ["To fast despite being ill", "Never to fast", "To wait for the next Ramadan"],
   "When the excuse ends, the missed days are made up.", "A sick student"),
+ ('Match the concepts with their meanings:', [('Laylat al-Qadr', 'The night, better than a thousand months, in which the Qur’an began to be revealed'), ('Eid al-Fitr', 'The festival that begins on the first day of Shawwal after Ramadan ends'), ('Hilal', 'The new moon taken as the basis for the start and end of Ramadan'), ('Imsak', 'The time when fasting begins')], 'Ramadan begins and ends with the new moon; Eid al-Fitr is celebrated at the end of the month.', 'Ramadan concepts'),
+ ('Match the situations with their rulings:', [('A sick person who hopes to recover', 'Postpones the fast and makes it up later'), ('An old person unable to fast', 'Gives fidya for each day'), ('One who deliberately breaks the fast in Ramadan', 'Must make it up and give kaffara'), ('One who eats or drinks by forgetting', 'The fast is not broken')], 'A fast missed for an excuse is made up later; those unable give fidya; eating by forgetting does not break the fast.', 'Excuses and rulings in fasting'),
+ ('Fasting on the first day of Eid al-Fitr is forbidden.', 'Fasting on the first days of the Eids of Ramadan and Sacrifice is forbidden.', 'Fasting on Eid'),
+ ('What is the start of Ramadan determined by?', 'The new moon (hilal)', ['The time of sunrise', 'The warming of the weather', 'The first day of the year'], 'Ramadan begins when the new moon is sighted or determined by calculation; the calendar is based on the lunar month.', 'The start of Ramadan'),
 ]
 
 DE = [
@@ -171,6 +175,10 @@ DE = [
  ("Ein kranker Freund kann im Ramadan nicht fasten, und sein Arzt rät ihm ab. Was rätst du?", "Die versäumten Tage nachzuholen, wenn er genesen ist",
   ["Trotz Krankheit zu fasten", "Nie zu fasten", "Auf den nächsten Ramadan zu warten"],
   "Wenn der Grund entfällt, werden die versäumten Tage nachgeholt.", "Ein kranker Schüler"),
+ ('Ordne die Begriffe ihren Bedeutungen zu:', [('Lailat al-Qadr', 'Die Nacht, besser als tausend Monate, in der die Offenbarung des Korans begann'), ('Id al-Fitr', 'Das Fest, das nach Ende des Ramadan am ersten Tag des Schawwal beginnt'), ('Hilal', 'Der Neumond als Grundlage für Beginn und Ende des Ramadan'), ('Imsak', 'Die Zeit, in der das Fasten beginnt')], 'Der Ramadan beginnt und endet mit dem Neumond; am Ende des Monats wird das Fest des Fastenbrechens gefeiert.', 'Begriffe des Ramadan'),
+ ('Ordne die Situationen ihren Regeln zu:', [('Ein Kranker, der auf Genesung hofft', 'Verschiebt das Fasten und holt es später nach'), ('Ein alter Mensch, der nicht fasten kann', 'Gibt für jeden Tag Fidya'), ('Wer im Ramadan absichtlich das Fasten bricht', 'Muss nachholen und Kaffara leisten'), ('Wer aus Vergessen isst oder trinkt', 'Das Fasten wird nicht gebrochen')], 'Ein aus Entschuldigung versäumtes Fasten wird nachgeholt; wer nicht kann, gibt Fidya; Essen aus Vergessen bricht das Fasten nicht.', 'Entschuldigungen und Regeln beim Fasten'),
+ ('Am ersten Tag des Fastenbrechensfestes zu fasten ist verboten.', 'Am ersten Tag der Feste nach Ramadan und des Opferfests zu fasten ist verboten.', 'Fasten am Festtag'),
+ ('Wonach richtet sich der Beginn des Ramadan?', 'Dem Neumond (Hilal)', ['Der Zeit des Sonnenaufgangs', 'Der Erwärmung des Wetters', 'Dem ersten Tag des Jahres'], 'Der Ramadan beginnt, wenn der Neumond gesichtet oder berechnet wird; der Kalender beruht auf dem Mondmonat.', 'Beginn des Ramadan'),
 ]
 
 FR = [
@@ -258,6 +266,10 @@ FR = [
  ("Un ami malade ne peut pas jeûner en Ramadan et son médecin le lui déconseille. Que lui conseilles-tu ?", "De rattraper les jours manqués quand il sera guéri",
   ["De jeûner malgré la maladie", "De ne jamais jeûner", "D’attendre le prochain Ramadan"],
   "Quand l’excuse prend fin, les jours manqués sont rattrapés.", "Un élève malade"),
+ ('Associe les notions à leur sens :', [('Nuit du Destin (Laylat al-Qadr)', 'La nuit, meilleure que mille mois, où la révélation du Coran a commencé'), ('Aïd al-Fitr', 'La fête qui commence le premier jour de Chawwal après la fin du Ramadan'), ('Hilal', 'La nouvelle lune prise pour base du début et de la fin du Ramadan'), ('Imsak', 'Le moment où le jeûne commence')], 'Le Ramadan commence et se termine avec la nouvelle lune ; l’Aïd al-Fitr est célébré à la fin du mois.', 'Notions du Ramadan'),
+ ('Associe les situations à leur règle :', [('Un malade qui espère guérir', 'Reporte le jeûne et le rattrape plus tard'), ('Une personne âgée qui ne peut pas jeûner', 'Donne la fidya pour chaque jour'), ('Celui qui rompt volontairement le jeûne au Ramadan', 'Doit rattraper et faire la kaffara'), ('Celui qui mange ou boit par oubli', 'Son jeûne n’est pas rompu')], 'Un jeûne manqué pour une excuse est rattrapé ; ceux qui ne peuvent pas donnent la fidya ; manger par oubli ne rompt pas le jeûne.', 'Excuses et règles du jeûne'),
+ ('Jeûner le premier jour de l’Aïd al-Fitr est interdit.', 'Jeûner le premier jour des fêtes de fin de Ramadan et du sacrifice est interdit.', 'Jeûner le jour de l’Aïd'),
+ ('Selon quoi le début du Ramadan est-il déterminé ?', 'La nouvelle lune (hilal)', ['L’heure du lever du soleil', 'Le réchauffement du temps', 'Le premier jour de l’année'], 'Le Ramadan commence quand la nouvelle lune est observée ou déterminée par calcul ; le calendrier repose sur le mois lunaire.', 'Début du Ramadan'),
 ]
 
 AR = [
@@ -345,6 +357,10 @@ AR = [
  ("صديق مريض لا يستطيع الصيام في رمضان وطبيبه ينهاه عنه. بماذا تنصحه؟", "بقضاء الأيام الفائتة عند الشفاء",
   ["بالصيام رغم المرض", "ألا يصوم أبدًا", "أن ينتظر رمضان القادم"],
   "إذا زال العذر قُضيت الأيام الفائتة.", "طالب مريض"),
+ ('طابِق بين المفاهيم ومعانيها:', [('ليلة القدر', 'الليلة الخير من ألف شهر التي بدأ فيها نزول القرآن'), ('عيد الفطر', 'العيد الذي يبدأ في أول يوم من شوال بعد انتهاء رمضان'), ('الهلال', 'القمر الجديد الذي يُعتمد في بدء رمضان وانتهائه'), ('الإمساك', 'وقت بدء الصيام')], 'يبدأ رمضان وينتهي بالهلال، ويُحتفل بعيد الفطر في نهاية الشهر.', 'مفاهيم رمضان'),
+ ('طابِق بين الحالات وأحكامها:', [('المريض الذي يُرجى شفاؤه', 'يؤخّر الصيام ويقضيه لاحقًا'), ('الشيخ الكبير العاجز عن الصيام', 'يُخرج فدية عن كل يوم'), ('من أفطر عمدًا في رمضان', 'عليه القضاء والكفارة'), ('من أكل أو شرب ناسيًا', 'لا يفسد صومه')], 'يُقضى الصوم الذي فات لعذر، ويُخرج العاجز الفدية، والأكل ناسيًا لا يفسد الصوم.', 'الأعذار والأحكام في الصيام'),
+ ('يحرم صيام اليوم الأول من عيد الفطر.', 'نُهي عن الصيام في اليوم الأول من عيد الفطر وعيد الأضحى.', 'الصيام يوم العيد'),
+ ('بماذا يُحدَّد بدء شهر رمضان؟', 'بالهلال (القمر الجديد)', ['بوقت شروق الشمس', 'بارتفاع حرارة الجو', 'بأول يوم في السنة'], 'يبدأ رمضان برؤية الهلال أو بتحديده بالحساب، والتقويم قائم على الشهر القمري.', 'بدء رمضان'),
 ]
 
 I18N = {'en': EN, 'de': DE, 'fr': FR, 'ar': AR}

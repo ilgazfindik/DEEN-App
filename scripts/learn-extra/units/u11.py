@@ -139,4 +139,9 @@ Q = [
   'Bakara 2:286’ya göre Allah kimseyi ne ile yükümlü tutmaz?', 'Gücünün yetmediği şeyle',
   ['Namaz kılmakla', 'Dua etmekle', 'Doğruluk ile'],
   'Bakara 2:286: “Allah kimseye gücünün üstünde yük yüklemez.”'),
+ # --- Added with the duplicate clean-up: new facts and new matching sets
+ ('mt', 3, 'kalbi_kavram', 'Kalbî kavramlar', 'm', 'Aşağıdaki kavramları anlamlarıyla eşleştir:', [('Huşû', 'İbadette kalbin Allah’a yönelip saygıyla dolması'), ('Sabır', 'Zorluklara ve ibadetin güçlüğüne dayanmak'), ('Şükür', 'Allah’ın nimetlerine minnet duyup nimeti doğru kullanmak'), ('Takva', 'Allah’a karşı sorumluluk bilinciyle emirlerine uyup yasaklarından sakınmak')], 'Huşû, sabır, şükür ve takva; ibadetin ruhunu oluşturan kalbî değerlerdir.'),
+ ('mt', 3, 'ibadet_etki', 'İbadetin hayata etkisi', 'm', 'Aşağıdaki ibadetleri hayata etkileriyle eşleştir:', [('Namaz', 'Kişiyi çirkin ve kötü işlerden alıkoyar'), ('Oruç', 'Takvaya ulaşmaya yardımcı olur'), ('Zekât', 'Toplumda yardımlaşmayı ve paylaşmayı güçlendirir'), ('Hac', 'Dünya Müslümanlarını bir araya getirip kardeşlik duygusunu güçlendirir')], 'Ankebût 45 namazın kötülükten alıkoyduğunu, Bakara 183 orucun takvaya ulaştırdığını bildirir; zekât ve hac de toplumsal bağları güçlendirir.'),
+ ('mt', 6, 'din_olcu', 'Dinde ölçü', 'h', 'Aşağıdaki kavramları anlamlarıyla eşleştir:', [('İtidal', 'İbadette aşırılıktan kaçınıp dengeyi korumak'), ('Yüsr', 'Dinde kolaylık ilkesi'), ('Tevkîf', 'İbadetlerin şeklinin Allah ve Resulü tarafından belirlenmiş olması'), ('Nafile', 'Farz dışında, sevap kazanmak için yapılan ibadet')], 'İslam’da ibadet dengeli, kolaylık esaslı ve Kur’an ile sünnetle belirlenmiş bir çerçevede yapılır.'),
+ ('tf', 4, 'tevkifilik', 'İbadetin şekli', 'm', 'Bir ibadetin şeklini kişi kendi beğenisine göre değiştirebilir.', False, 'İbadetlerin nasıl yapılacağı Kur’an ve sünnetle bildirilmiştir; kişi bunları kendi görüşüyle değiştiremez.'),
 ]

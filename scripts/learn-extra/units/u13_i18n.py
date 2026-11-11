@@ -105,6 +105,11 @@ EN = [
  ("You are preparing for prayer. Which of the following is NOT one of the preparations you must make?", "Bowing for ruku",
   ["Performing ablution", "Finding the direction of the qibla", "Covering the parts that must be covered"],
   "Ruku is done inside the prayer; the others are preparations before the prayer.", "Order of preparation"),
+ ('Match the prayers with their features:', [('Witr prayer', 'A three-rak‘a wajib prayer offered after the night prayer'), ('Friday prayer', 'A two-rak‘a obligatory prayer offered in congregation at midday on Friday'), ('Eid prayer', 'A two-rak‘a wajib prayer offered on Ramadan and Sacrifice Eids'), ('Funeral prayer', 'A prayer for a deceased Muslim, without bowing and prostration')], 'Besides the five daily prayers there are the witr, Friday, Eid and funeral prayers; each has its own ruling and manner.', 'Kinds of prayer'),
+ ('Match the phrases of the call to prayer with their meanings:', [('Allahu akbar', 'Allah is the Greatest'), ('Ashhadu an la ilaha illallah', 'I bear witness that there is no god but Allah'), ('Hayya ‘ala’s-salah', 'Come to prayer'), ('Hayya ‘ala’l-falah', 'Come to success')], 'The adhan announces that the prayer time has come and calls Muslims to prayer.', 'Meaning of the adhan'),
+ ('Match the concepts with their meanings:', [('Ada’', 'Performing the prayer at its time'), ('Qada’', 'Performing later a prayer that was missed at its time'), ('Congregation', 'Praying together with the imam'), ('Disliked time (karaha)', 'A period when voluntary prayer is disliked')], 'Praying at its time is called ada’; praying it later is called qada’.', 'Prayer concepts'),
+ ('It is disliked to perform voluntary prayer while the sun is rising, at its zenith and while it is setting.', 'The Prophet forbade praying at these three times; they are known as the disliked times.', 'Disliked times'),
+ ('How many rak‘as is the witr prayer?', 'Three', ['Two', 'Four', 'Five'], 'According to the Hanafi school the witr prayer has three rak‘as and is wajib.', 'The witr prayer'),
 ]
 
 DE = [
@@ -213,6 +218,11 @@ DE = [
  ("Du bereitest dich auf das Gebet vor. Was gehört NICHT zu den Vorbereitungen?", "Sich zum Ruku verbeugen",
   ["Die Gebetswaschung vollziehen", "Die Richtung der Qibla finden", "Die zu bedeckenden Körperteile bedecken"],
   "Ruku geschieht im Gebet; die anderen sind Vorbereitungen vor dem Gebet.", "Reihenfolge der Vorbereitung"),
+ ('Ordne die Gebete ihren Merkmalen zu:', [('Witr-Gebet', 'Ein dreirak‘atiges Wadschib-Gebet nach dem Nachtgebet'), ('Freitagsgebet', 'Ein zweirak‘atiges Pflichtgebet, das freitags mittags in Gemeinschaft verrichtet wird'), ('Festgebet', 'Ein zweirak‘atiges Wadschib-Gebet an den Festen nach Ramadan und des Opferfests'), ('Totengebet', 'Ein Gebet für einen verstorbenen Muslim, ohne Verbeugung und Niederwerfung')], 'Neben den fünf täglichen Gebeten gibt es Witr-, Freitags-, Fest- und Totengebet; jedes hat seine eigene Regel und Form.', 'Arten des Gebets'),
+ ('Ordne die Sätze des Gebetsrufs ihren Bedeutungen zu:', [('Allahu akbar', 'Allah ist der Größte'), ('Aschhadu an la ilaha illallah', 'Ich bezeuge, dass es keinen Gott außer Allah gibt'), ('Hayya ‘ala’s-salah', 'Kommt zum Gebet'), ('Hayya ‘ala’l-falah', 'Kommt zum Erfolg')], 'Der Adhan verkündet, dass die Gebetszeit begonnen hat, und ruft die Muslime zum Gebet.', 'Bedeutung des Adhan'),
+ ('Ordne die Begriffe ihren Bedeutungen zu:', [('Ada’', 'Das Gebet zu seiner Zeit verrichten'), ('Qada’', 'Ein zur Zeit versäumtes Gebet später nachholen'), ('Gemeinschaft (Dschama‘a)', 'Das Gebet gemeinsam mit dem Imam verrichten'), ('Makruh-Zeit', 'Eine Zeit, in der freiwilliges Gebet missbilligt ist')], 'Das Gebet zu seiner Zeit nennt man Ada’, das spätere Nachholen Qada’.', 'Gebetsbegriffe'),
+ ('Es ist missbilligt, freiwilliges Gebet zu verrichten, wenn die Sonne aufgeht, im Zenit steht und untergeht.', 'Der Prophet hat das Beten zu diesen drei Zeiten verboten; sie sind als Makruh-Zeiten bekannt.', 'Makruh-Zeiten'),
+ ('Wie viele Rak‘a hat das Witr-Gebet?', 'Drei', ['Zwei', 'Vier', 'Fünf'], 'Nach der hanafitischen Schule hat das Witr-Gebet drei Rak‘a und ist Wadschib.', 'Das Witr-Gebet'),
 ]
 
 FR = [
@@ -321,6 +331,11 @@ FR = [
  ("Tu te prépares à prier. Lequel des éléments suivants n’est PAS une préparation à faire ?", "S’incliner pour le rukû‘",
   ["Faire les ablutions", "Trouver la direction de la qibla", "Couvrir les parties qui doivent l’être"],
   "Le rukû‘ se fait dans la prière ; les autres sont des préparations avant la prière.", "Ordre des préparatifs"),
+ ('Associe les prières à leurs caractéristiques :', [('Prière du witr', 'Prière wajib de trois rak‘a accomplie après la prière de la nuit'), ('Prière du vendredi', 'Prière obligatoire de deux rak‘a accomplie en groupe à midi le vendredi'), ('Prière de l’Aïd', 'Prière wajib de deux rak‘a accomplie aux fêtes de fin de Ramadan et du sacrifice'), ('Prière funéraire', 'Prière pour un musulman défunt, sans inclinaison ni prosternation')], 'En plus des cinq prières quotidiennes, il y a les prières du witr, du vendredi, des fêtes et funéraire ; chacune a son statut et sa manière.', 'Sortes de prières'),
+ ('Associe les phrases de l’appel à la prière à leur sens :', [('Allahou akbar', 'Allah est le Plus Grand'), ('Achhadou an la ilaha illallah', 'Je témoigne qu’il n’y a de dieu qu’Allah'), ('Hayya ‘ala-s-salah', 'Venez à la prière'), ('Hayya ‘ala-l-falah', 'Venez à la réussite')], 'L’adhan annonce que l’heure de la prière est venue et appelle les musulmans à prier.', 'Sens de l’adhan'),
+ ('Associe les notions à leur sens :', [('Ada’', 'Accomplir la prière à son heure'), ('Qada’', 'Accomplir plus tard une prière manquée à son heure'), ('Groupe (jama‘a)', 'Prier avec l’imam'), ('Temps déconseillé (karaha)', 'Période où la prière surérogatoire est déconseillée')], 'Prier à l’heure s’appelle ada’ ; la rattraper plus tard s’appelle qada’.', 'Notions de la prière'),
+ ('Il est déconseillé d’accomplir une prière surérogatoire quand le soleil se lève, est au zénith et se couche.', 'Le Prophète a interdit de prier à ces trois moments ; ils sont connus comme les temps déconseillés.', 'Temps déconseillés'),
+ ('Combien de rak‘a compte la prière du witr ?', 'Trois', ['Deux', 'Quatre', 'Cinq'], 'Selon l’école hanafite, la prière du witr compte trois rak‘a et est wajib.', 'La prière du witr'),
 ]
 
 AR = [
@@ -429,6 +444,11 @@ AR = [
  ("تستعد للصلاة. أي مما يلي ليس من الاستعدادات الواجبة قبلها؟", "الانحناء للركوع",
   ["الوضوء", "معرفة جهة القبلة", "ستر ما يجب ستره"],
   "الركوع يُؤدى داخل الصلاة، أما الباقي فاستعدادات قبل الصلاة.", "ترتيب الاستعداد"),
+ ('طابِق بين الصلوات وخصائصها:', [('صلاة الوتر', 'صلاة واجبة من ثلاث ركعات تُصلّى بعد العشاء'), ('صلاة الجمعة', 'صلاة مفروضة من ركعتين تُؤدّى جماعةً وقت الظهر يوم الجمعة'), ('صلاة العيد', 'صلاة واجبة من ركعتين تُؤدّى في عيد الفطر وعيد الأضحى'), ('صلاة الجنازة', 'صلاة على المسلم المتوفى بلا ركوع ولا سجود')], 'إلى جانب الصلوات الخمس هناك الوتر والجمعة والعيد والجنازة، ولكلٍّ حكمها وكيفيتها.', 'أنواع الصلاة'),
+ ('طابِق بين ألفاظ الأذان ومعانيها:', [('الله أكبر', 'الله أعظم من كل شيء'), ('أشهد أن لا إله إلا الله', 'أُقرّ وأشهد أنه لا معبود بحق إلا الله'), ('حيّ على الصلاة', 'هلمّوا إلى الصلاة'), ('حيّ على الفلاح', 'هلمّوا إلى الفلاح')], 'الأذان إعلام بدخول وقت الصلاة ودعوة للمسلمين إليها.', 'معنى الأذان'),
+ ('طابِق بين المفاهيم ومعانيها:', [('الأداء', 'أداء الصلاة في وقتها'), ('القضاء', 'أداء الصلاة بعد فوات وقتها'), ('الجماعة', 'أداء الصلاة مع الإمام'), ('وقت الكراهة', 'وقت تُكره فيه صلاة النافلة')], 'أداء الصلاة في وقتها يُسمّى أداءً، وأداؤها بعد وقتها يُسمّى قضاءً.', 'مفاهيم الصلاة'),
+ ('تُكره صلاة النافلة عند طلوع الشمس وعند استوائها في كبد السماء وعند غروبها.', 'نهى النبي ﷺ عن الصلاة في هذه الأوقات الثلاثة، وتُعرف بأوقات الكراهة.', 'أوقات الكراهة'),
+ ('كم ركعة صلاة الوتر؟', 'ثلاث', ['اثنتان', 'أربع', 'خمس'], 'صلاة الوتر عند الحنفية ثلاث ركعات وهي واجبة.', 'صلاة الوتر'),
 ]
 
 I18N = {'en': EN, 'de': DE, 'fr': FR, 'ar': AR}

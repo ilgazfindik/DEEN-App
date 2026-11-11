@@ -92,6 +92,10 @@ EN = [
  ("According to Al-Baqara 2:286, what does Allah not burden anyone with?", "What is beyond their capacity",
   ["Praying", "Making supplication", "Honesty"],
   "Al-Baqara 2:286: “Allah does not burden any soul beyond its capacity.”", "Burden"),
+ ('Match the concepts with their meanings:', [('Khushu', 'The heart turning to Allah in worship, full of reverence'), ('Patience (sabr)', 'Enduring hardship and the difficulty of worship'), ('Gratitude (shukr)', 'Feeling thankful for Allah’s blessings and using them rightly'), ('Taqwa', 'Obeying Allah’s commands and avoiding what He forbids out of a sense of responsibility to Him')], 'Khushu, patience, gratitude and taqwa are the inner values that give worship its spirit.', 'Inner values'),
+ ('Match the acts of worship with their effect on life:', [('Prayer', 'Keeps a person away from indecent and evil acts'), ('Fasting', 'Helps one reach taqwa'), ('Zakat', 'Strengthens solidarity and sharing in society'), ('Hajj', 'Brings Muslims of the world together and strengthens brotherhood')], 'Ankabut 45 says prayer keeps one from evil and Baqara 183 says fasting leads to taqwa; zakat and hajj strengthen social bonds.', 'Effect of worship on life'),
+ ('Match the concepts with their meanings:', [('Moderation (i‘tidal)', 'Avoiding excess in worship and keeping balance'), ('Ease (yusr)', 'The principle of ease in religion'), ('Tawqif', 'The form of acts of worship being set by Allah and His Messenger'), ('Voluntary worship (nafila)', 'Worship beyond the obligatory, done to earn reward')], 'In Islam worship is done in a balanced way, based on ease, within the framework set by the Qur’an and the Sunnah.', 'Balance in religion'),
+ ('A person may change the form of an act of worship according to his own taste.', 'How acts of worship are performed is set out in the Qur’an and the Sunnah; a person cannot change it by his own opinion.', 'The form of worship'),
 ]
 
 DE = [
@@ -187,6 +191,10 @@ DE = [
  ("Womit belastet Allah laut Al-Baqara 2:286 niemanden?", "Mit dem, was über seine Kraft geht",
   ["Mit dem Beten", "Mit dem Bittgebet", "Mit Ehrlichkeit"],
   "Al-Baqara 2:286: „Allah fordert von keiner Seele mehr, als sie zu leisten vermag.“", "Belastung"),
+ ('Ordne die Begriffe ihren Bedeutungen zu:', [('Chuschu‘', 'Das Herz wendet sich im Gottesdienst ehrfürchtig Allah zu'), ('Geduld (Sabr)', 'Schwierigkeiten und die Mühe des Gottesdienstes ertragen'), ('Dankbarkeit (Schukr)', 'Für Allahs Gaben dankbar sein und sie richtig nutzen'), ('Taqwa', 'Aus Verantwortungsbewusstsein Allah gegenüber seine Gebote befolgen und Verbotenes meiden')], 'Chuschu‘, Geduld, Dankbarkeit und Taqwa sind die inneren Werte, die dem Gottesdienst seine Seele geben.', 'Innere Werte'),
+ ('Ordne die Gottesdienste ihrer Wirkung auf das Leben zu:', [('Gebet', 'Hält den Menschen von Schändlichem und Bösem ab'), ('Fasten', 'Hilft, Taqwa zu erreichen'), ('Zakat', 'Stärkt Zusammenhalt und Teilen in der Gesellschaft'), ('Hadsch', 'Führt Muslime der Welt zusammen und stärkt die Brüderlichkeit')], 'Ankabut 45 sagt, dass das Gebet vom Bösen abhält, und Baqara 183, dass das Fasten zur Taqwa führt; Zakat und Hadsch stärken die sozialen Bande.', 'Wirkung des Gottesdienstes'),
+ ('Ordne die Begriffe ihren Bedeutungen zu:', [('Mäßigung (I‘tidal)', 'Übertreibung im Gottesdienst vermeiden und das Gleichgewicht halten'), ('Erleichterung (Jusr)', 'Das Prinzip der Erleichterung in der Religion'), ('Tauqif', 'Die Form der Gottesdienste ist von Allah und seinem Gesandten festgelegt'), ('Freiwilliger Gottesdienst (Nafila)', 'Gottesdienst über die Pflicht hinaus, um Lohn zu erlangen')], 'Im Islam wird der Gottesdienst ausgewogen, auf Erleichterung gegründet und im Rahmen von Koran und Sunna verrichtet.', 'Maß in der Religion'),
+ ('Ein Mensch darf die Form eines Gottesdienstes nach eigenem Geschmack ändern.', 'Wie Gottesdienste verrichtet werden, ist in Koran und Sunna festgelegt; der Mensch kann das nicht nach eigener Meinung ändern.', 'Die Form des Gottesdienstes'),
 ]
 
 FR = [
@@ -282,6 +290,10 @@ FR = [
  ("Selon Al-Baqara 2:286, de quoi Allah ne charge-t-Il personne ?", "De ce qui dépasse sa capacité",
   ["De prier", "D’invoquer", "D’être honnête"],
   "Al-Baqara 2:286 : « Allah n’impose à aucune âme une charge supérieure à sa capacité. »", "La charge"),
+ ('Associe les notions à leur sens :', [('Khouchou‘', 'Le cœur qui se tourne vers Allah dans l’adoration, plein de révérence'), ('Patience (sabr)', 'Supporter les difficultés et l’effort de l’adoration'), ('Gratitude (chukr)', 'Être reconnaissant pour les bienfaits d’Allah et bien les utiliser'), ('Taqwa', 'Obéir aux ordres d’Allah et éviter ses interdits par conscience de sa responsabilité envers Lui')], 'Le khouchou‘, la patience, la gratitude et la taqwa sont les valeurs intérieures qui donnent son âme à l’adoration.', 'Valeurs intérieures'),
+ ('Associe les actes d’adoration à leur effet sur la vie :', [('Prière', 'Éloigne la personne des actes indécents et mauvais'), ('Jeûne', 'Aide à atteindre la taqwa'), ('Zakat', 'Renforce l’entraide et le partage dans la société'), ('Hajj', 'Rassemble les musulmans du monde et renforce la fraternité')], 'Ankabout 45 dit que la prière éloigne du mal et Baqara 183 que le jeûne mène à la taqwa ; la zakat et le hajj renforcent les liens sociaux.', 'Effet de l’adoration sur la vie'),
+ ('Associe les notions à leur sens :', [('Modération (i‘tidal)', 'Éviter l’excès dans l’adoration et garder l’équilibre'), ('Facilité (yousr)', 'Le principe de facilité dans la religion'), ('Tawqif', 'La forme des actes d’adoration est fixée par Allah et son Messager'), ('Adoration surérogatoire (nafila)', 'Adoration au-delà de l’obligatoire, pour gagner une récompense')], 'En islam, l’adoration se fait avec équilibre, sur la base de la facilité, dans le cadre fixé par le Coran et la Sunna.', 'Mesure dans la religion'),
+ ('Une personne peut changer la forme d’un acte d’adoration selon son goût.', 'La manière d’accomplir les actes d’adoration est fixée par le Coran et la Sunna ; la personne ne peut pas la changer selon son avis.', 'La forme de l’adoration'),
 ]
 
 AR = [
@@ -377,6 +389,10 @@ AR = [
  ("وفق البقرة 2:286 بماذا لا يكلف الله أحدًا؟", "بما فوق طاقته",
   ["بالصلاة", "بالدعاء", "بالصدق"],
   "البقرة 2:286: «لا يكلف الله نفسًا إلا وسعها».", "التكليف"),
+ ('طابِق بين المفاهيم ومعانيها:', [('الخشوع', 'توجّه القلب إلى الله في العبادة بتعظيم وإجلال'), ('الصبر', 'تحمّل الشدائد ومشقّة العبادة'), ('الشكر', 'الامتنان لنِعَم الله واستعمالها على الوجه الصحيح'), ('التقوى', 'امتثال أوامر الله واجتناب نواهيه بدافع الشعور بالمسؤولية أمامه')], 'الخشوع والصبر والشكر والتقوى قيمٌ قلبية تمنح العبادة روحها.', 'القيم القلبية'),
+ ('طابِق بين العبادات وأثرها في الحياة:', [('الصلاة', 'تنهى الإنسان عن الفحشاء والمنكر'), ('الصيام', 'يعين على بلوغ التقوى'), ('الزكاة', 'تقوّي التكافل والمشاركة في المجتمع'), ('الحج', 'يجمع مسلمي العالم ويقوّي روح الأخوة')], 'تبيّن سورة العنكبوت 45 أن الصلاة تنهى عن المنكر، وتبيّن البقرة 183 أن الصيام يوصل إلى التقوى؛ والزكاة والحج يقوّيان الروابط الاجتماعية.', 'أثر العبادة في الحياة'),
+ ('طابِق بين المفاهيم ومعانيها:', [('الاعتدال', 'تجنّب الإفراط في العبادة والحفاظ على التوازن'), ('اليُسر', 'مبدأ التيسير في الدين'), ('التوقيف', 'كون صفة العبادات محدَّدة من الله ورسوله'), ('النافلة', 'عبادة زائدة على الفرض تُؤدّى طلبًا للأجر')], 'تُؤدّى العبادة في الإسلام باعتدال ويُسر ضمن إطار حدّده القرآن والسنّة.', 'الاعتدال في الدين'),
+ ('يجوز للإنسان أن يغيّر صفة العبادة بحسب ذوقه.', 'كيفية أداء العبادات مبيَّنة في القرآن والسنّة، ولا يجوز للإنسان تغييرها برأيه.', 'صفة العبادة'),
 ]
 
 I18N = {'en': EN, 'de': DE, 'fr': FR, 'ar': AR}

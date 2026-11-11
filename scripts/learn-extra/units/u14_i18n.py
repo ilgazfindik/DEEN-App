@@ -89,6 +89,11 @@ EN = [
  ("You are on a long bus journey and the noon prayer time has begun. As a traveller, what do you do?", "I pray the noon obligatory prayer as two units (qasr)",
   ["I make up the prayer later", "I pray noon as four units in every case", "I pray only its sunnah"],
   "A traveller prays a four-unit obligatory prayer as two units.", "Prayer on a journey"),
+ ('Match the parts of the prayer with their meanings:', [('Tahiyyat', 'The supplication recited at every sitting in prayer'), ('Salawat', 'The prayer for the Prophet recited in the final sitting'), ('Qunut supplication', 'The supplication recited in the third rak‘a of the witr prayer'), ('Ta‘dil al-arkan', 'Letting the limbs settle for a moment in bowing and prostration')], 'Tahiyyat and salawat are recited in the sittings and the qunut in the witr; ta‘dil al-arkan means doing the movements calmly.', 'Supplications in prayer'),
+ ('Match the surahs with their features:', [('Al-Fatiha', 'The first surah of the Qur’an; it has seven verses'), ('Al-Ikhlas', 'A four-verse surah declaring Allah’s oneness'), ('Al-Kawthar', 'The shortest surah, with three verses'), ('Al-Fil', 'A five-verse surah about the event of the elephant')], 'These surahs are often recited in prayer; the number of verses and subject of each are known.', 'Surahs recited in prayer'),
+ ('Match the concepts with their meanings:', [('Imam', 'The person who leads the congregation in prayer'), ('Muqtadi', 'A person who prays following the imam'), ('Row (saff)', 'The congregation lining up shoulder to shoulder'), ('Masbuq', 'One who joins late after missing one or more rak‘as with the imam')], 'In congregational prayer the imam stands in front and the followers form rows behind him.', 'Congregational prayer concepts'),
+ ('Prostration is performed by placing the forehead and nose, hands, knees and toes on the ground.', 'A hadith states that prostration is performed on seven parts of the body.', 'Seven parts in prostration'),
+ ('How many prostrations does the prostration of forgetfulness (sajdat al-sahw) have?', 'Two prostrations', ['One prostration', 'Three prostrations', 'Four prostrations'], 'If a wajib is left out by mistake in prayer, two prostrations are made in the final sitting; this is the prostration of forgetfulness.', 'Prostration of forgetfulness'),
 ]
 
 DE = [
@@ -181,6 +186,11 @@ DE = [
  ("Du bist auf einer langen Busfahrt und die Mittagsgebetszeit hat begonnen. Was tust du als Reisender?", "Ich bete das Mittags-Pflichtgebet in zwei Einheiten (Qasr)",
   ["Ich hole das Gebet später nach", "Ich bete das Mittagsgebet in jedem Fall in vier Einheiten", "Ich bete nur seine Sunna"],
   "Ein Reisender verrichtet ein vierteiliges Pflichtgebet in zwei Einheiten.", "Gebet auf der Reise"),
+ ('Ordne die Teile des Gebets ihren Bedeutungen zu:', [('Tahiyyat', 'Das Bittgebet, das bei jedem Sitzen im Gebet gesprochen wird'), ('Salawat', 'Das Segensgebet für den Propheten im letzten Sitzen'), ('Qunut-Bittgebet', 'Das Bittgebet in der dritten Rak‘a des Witr-Gebets'), ('Ta‘dil al-arkan', 'Die Glieder bei Verbeugung und Niederwerfung einen Moment zur Ruhe kommen lassen')], 'Tahiyyat und Salawat spricht man beim Sitzen, das Qunut im Witr; Ta‘dil al-arkan heißt, die Bewegungen ruhig auszuführen.', 'Bittgebete im Gebet'),
+ ('Ordne die Suren ihren Merkmalen zu:', [('Al-Fatiha', 'Die erste Sure des Korans; sie hat sieben Verse'), ('Al-Ikhlas', 'Eine Sure mit vier Versen über die Einheit Allahs'), ('Al-Kawthar', 'Die kürzeste Sure mit drei Versen'), ('Al-Fil', 'Eine Sure mit fünf Versen über das Ereignis mit dem Elefanten')], 'Diese Suren werden oft im Gebet gesprochen; Verszahl und Thema jeder Sure sind bekannt.', 'Suren im Gebet'),
+ ('Ordne die Begriffe ihren Bedeutungen zu:', [('Imam', 'Die Person, die die Gemeinschaft im Gebet leitet'), ('Muqtadi', 'Eine Person, die dem Imam folgend betet'), ('Reihe (Saff)', 'Die Gemeinschaft stellt sich Schulter an Schulter auf'), ('Masbuq', 'Wer später dazukommt, nachdem er eine oder mehrere Rak‘a mit dem Imam verpasst hat')], 'Beim Gemeinschaftsgebet steht der Imam vorn, die Folgenden bilden hinter ihm Reihen.', 'Begriffe des Gemeinschaftsgebets'),
+ ('Die Niederwerfung geschieht, indem Stirn und Nase, Hände, Knie und Zehen auf den Boden gesetzt werden.', 'Ein Hadith besagt, dass die Niederwerfung auf sieben Körperteilen erfolgt.', 'Sieben Teile bei der Niederwerfung'),
+ ('Wie viele Niederwerfungen hat die Vergessens-Niederwerfung (Sadschdat as-sahw)?', 'Zwei Niederwerfungen', ['Eine Niederwerfung', 'Drei Niederwerfungen', 'Vier Niederwerfungen'], 'Wird im Gebet versehentlich ein Wadschib ausgelassen, macht man im letzten Sitzen zwei Niederwerfungen; das ist die Vergessens-Niederwerfung.', 'Vergessens-Niederwerfung'),
 ]
 
 FR = [
@@ -273,6 +283,11 @@ FR = [
  ("Tu es dans un long trajet en bus et le temps de la prière de midi est entré. En tant que voyageur, que fais-tu ?", "Je prie l’obligatoire de midi en deux unités (qasr)",
   ["Je rattrape la prière plus tard", "Je prie midi en quatre unités dans tous les cas", "Je prie seulement sa sunna"],
   "Le voyageur accomplit une prière obligatoire de quatre unités en deux unités.", "Prière en voyage"),
+ ('Associe les parties de la prière à leur sens :', [('Tahiyyat', 'L’invocation récitée à chaque assise de la prière'), ('Salawat', 'L’invocation pour le Prophète récitée à la dernière assise'), ('Invocation du qounout', 'L’invocation récitée à la troisième rak‘a du witr'), ('Ta‘dil al-arkan', 'Laisser les membres se stabiliser un instant dans l’inclinaison et la prosternation')], 'Le tahiyyat et la salawat se récitent aux assises, le qounout au witr ; le ta‘dil al-arkan consiste à faire les mouvements calmement.', 'Invocations dans la prière'),
+ ('Associe les sourates à leurs caractéristiques :', [('Al-Fatiha', 'La première sourate du Coran ; elle compte sept versets'), ('Al-Ikhlas', 'Sourate de quatre versets proclamant l’unicité d’Allah'), ('Al-Kawthar', 'La plus courte sourate, de trois versets'), ('Al-Fil', 'Sourate de cinq versets sur l’épisode de l’éléphant')], 'Ces sourates sont souvent récitées dans la prière ; le nombre de versets et le sujet de chacune sont connus.', 'Sourates récitées dans la prière'),
+ ('Associe les notions à leur sens :', [('Imam', 'La personne qui dirige la prière du groupe'), ('Mouqtadi', 'La personne qui prie en suivant l’imam'), ('Rang (saff)', 'Les fidèles alignés épaule contre épaule'), ('Masbouq', 'Celui qui rejoint en retard après avoir manqué une ou plusieurs rak‘a avec l’imam')], 'Dans la prière en groupe, l’imam se tient devant et les fidèles forment des rangs derrière lui.', 'Notions de la prière en groupe'),
+ ('La prosternation se fait en posant le front et le nez, les mains, les genoux et les orteils sur le sol.', 'Un hadith indique que la prosternation se fait sur sept parties du corps.', 'Sept parties dans la prosternation'),
+ ('Combien de prosternations comporte la prosternation d’oubli (soujoud as-sahw) ?', 'Deux prosternations', ['Une prosternation', 'Trois prosternations', 'Quatre prosternations'], 'Si un wajib est omis par erreur dans la prière, on fait deux prosternations à la dernière assise ; c’est la prosternation d’oubli.', 'Prosternation d’oubli'),
 ]
 
 AR = [
@@ -365,6 +380,11 @@ AR = [
  ("أنت في رحلة طويلة بالحافلة ودخل وقت الظهر. ماذا تفعل بصفتك مسافرًا؟", "أصلي فرض الظهر ركعتين (قصرًا)",
   ["أقضي الصلاة لاحقًا", "أصلي الظهر أربعًا في كل حال", "أصلي سنتها فقط"],
   "يصلي المسافر الفرض الرباعي ركعتين.", "الصلاة في السفر"),
+ ('طابِق بين أجزاء الصلاة ومعانيها:', [('التحيّات', 'الدعاء الذي يُقرأ في كل جلوس في الصلاة'), ('الصلاة الإبراهيمية', 'الدعاء بالصلاة على النبي ﷺ في الجلوس الأخير'), ('دعاء القنوت', 'الدعاء الذي يُقرأ في الركعة الثالثة من الوتر'), ('تعديل الأركان', 'سكون الأعضاء لحظة في الركوع والسجود')], 'تُقرأ التحيات والصلاة على النبي في الجلوس، ودعاء القنوت في الوتر، وتعديل الأركان معناه أداء الحركات بسكينة.', 'الأدعية في الصلاة'),
+ ('طابِق بين السور وخصائصها:', [('الفاتحة', 'أول سور القرآن، وآياتها سبع'), ('الإخلاص', 'سورة من أربع آيات تعلن وحدانية الله'), ('الكوثر', 'أقصر سورة، وآياتها ثلاث'), ('الفيل', 'سورة من خمس آيات عن حادثة الفيل')], 'تُقرأ هذه السور كثيرًا في الصلاة، وعدد آيات كلٍّ منها وموضوعها معلومان.', 'السور المقروءة في الصلاة'),
+ ('طابِق بين المفاهيم ومعانيها:', [('الإمام', 'من يصلّي بالجماعة'), ('المقتدي', 'من يصلّي مقتديًا بالإمام'), ('الصف', 'وقوف المصلّين متراصّين كتفًا إلى كتف'), ('المسبوق', 'من فاته مع الإمام ركعة أو أكثر ثم التحق به')], 'في صلاة الجماعة يقف الإمام في الأمام ويصفّ المقتدون خلفه.', 'مفاهيم صلاة الجماعة'),
+ ('يكون السجود بوضع الجبهة والأنف واليدين والركبتين وأصابع القدمين على الأرض.', 'ورد في الحديث أن السجود يكون على سبعة أعضاء.', 'سبعة أعضاء في السجود'),
+ ('كم سجدة في سجود السهو؟', 'سجدتان', ['سجدة واحدة', 'ثلاث سجدات', 'أربع سجدات'], 'إذا تُرك واجب في الصلاة سهوًا سُجد سجدتان في الجلوس الأخير، وهذا هو سجود السهو.', 'سجود السهو'),
 ]
 
 I18N = {'en': EN, 'de': DE, 'fr': FR, 'ar': AR}

@@ -158,4 +158,10 @@ Q = [
   'Rükûya eğilmek',
   ['Abdest almak', 'Kıble yönünü bulmak', 'Örtülmesi gereken yerleri örtmek'],
   'Rükû namazın içinde yapılır; diğerleri namazdan önceki hazırlıklardır.'),
+ # --- Added with the duplicate clean-up: new facts and new matching sets
+ ('mt', 3, 'namaz_tur', 'Namaz çeşitleri', 'm', 'Aşağıdaki namazları özellikleriyle eşleştir:', [('Vitir namazı', 'Yatsıdan sonra kılınan üç rekâtlık vacip namaz'), ('Cuma namazı', 'Cuma günü öğle vaktinde cemaatle kılınan iki rekâtlık farz'), ('Bayram namazı', 'Ramazan ve Kurban bayramlarında kılınan iki rekâtlık vacip namaz'), ('Cenaze namazı', 'Ölen Müslüman için kılınan, rükû ve secdesi olmayan namaz')], 'Beş vakit dışında vitir, cuma, bayram ve cenaze gibi namazlar da vardır; her birinin hükmü ve kılınışı farklıdır.'),
+ ('mt', 3, 'ezan_anlam', 'Ezanın anlamı', 'm', 'Aşağıdaki ezan ifadelerini anlamlarıyla eşleştir:', [('Allâhü ekber', 'Allah en büyüktür'), ('Eşhedü en lâ ilâhe illallah', 'Allah’tan başka ilâh olmadığına şahitlik ederim'), ('Hayye ale’s-salâh', 'Namaza gelin'), ('Hayye ale’l-felâh', 'Kurtuluşa gelin')], 'Ezan, namaz vaktinin girdiğini duyurur ve Müslümanları namaza çağırır.'),
+ ('mt', 6, 'namaz_kavram', 'Namaz kavramları', 'h', 'Aşağıdaki kavramları anlamlarıyla eşleştir:', [('Eda', 'Namazı vaktinde kılmak'), ('Kaza', 'Vaktinde kılınamayan namazı sonradan kılmak'), ('Cemaat', 'Namazı imamla birlikte kılmak'), ('Kerahet vakti', 'Nafile namaz kılmanın mekruh olduğu zaman dilimi')], 'Namazın vaktinde kılınmasına eda, sonradan kılınmasına kaza denir.'),
+ ('tf', 5, 'kerahet', 'Kerahet vakitleri', 'm', 'Güneş doğarken, tam tepedeyken ve batarken nafile namaz kılmak mekruhtur.', True, 'Hz. Peygamber bu üç zamanda namaz kılmayı yasaklamıştır; bunlar kerahet vakitleri olarak bilinir.'),
+ ('mc', 4, 'vitir_rekat', 'Vitir namazı', 'm', 'Vitir namazı kaç rekâttır?', 'Üç', ['İki', 'Dört', 'Beş'], 'Hanefî mezhebine göre vitir namazı üç rekâttır ve vaciptir.'),
 ]

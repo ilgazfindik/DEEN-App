@@ -154,7 +154,7 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Doğru cevap: Allah’ın birliğine ve Hz. Muhammed’in elçiliğine kalpten bağlandığımı açıkça ilan etmektir
 - Açıklama: Şehadet, imanın temel esaslarına açık bir tanıklıktır.
 
-## U11 — ibadet_bilinci (35 soru)
+## U11 — ibadet_bilinci (39 soru)
 
 **DEEN-U11-S01-X001** · İbadet Nedir? · multiple_choice
 - Soru: “Ben cinleri ve insanları ancak bana kulluk etsinler diye yarattım” âyeti hangi surededir?
@@ -362,7 +362,28 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Doğru cevap: Gücünün yetmediği şeyle
 - Açıklama: Bakara 2:286: “Allah kimseye gücünün üstünde yük yüklemez.”
 
-## U12 — temizlik_abdest (35 soru)
+**DEEN-U11-S03-X006** · Kavramları Eşleştir · matching
+- Soru: Aşağıdaki kavramları anlamlarıyla eşleştir: Huşû, Sabır, Şükür ve Takva.
+- Eşleşmeler: Huşû → İbadette kalbin Allah’a yönelip saygıyla dolması; Sabır → Zorluklara ve ibadetin güçlüğüne dayanmak; Şükür → Allah’ın nimetlerine minnet duyup nimeti doğru kullanmak; Takva → Allah’a karşı sorumluluk bilinciyle emirlerine uyup yasaklarından sakınmak
+- Açıklama: Huşû, sabır, şükür ve takva; ibadetin ruhunu oluşturan kalbî değerlerdir.
+
+**DEEN-U11-S03-X007** · Kavramları Eşleştir · matching
+- Soru: Aşağıdaki ibadetleri hayata etkileriyle eşleştir: Namaz, Oruç, Zekât ve Hac.
+- Eşleşmeler: Namaz → Kişiyi çirkin ve kötü işlerden alıkoyar; Oruç → Takvaya ulaşmaya yardımcı olur; Zekât → Toplumda yardımlaşmayı ve paylaşmayı güçlendirir; Hac → Dünya Müslümanlarını bir araya getirip kardeşlik duygusunu güçlendirir
+- Açıklama: Ankebût 45 namazın kötülükten alıkoyduğunu, Bakara 183 orucun takvaya ulaştırdığını bildirir; zekât ve hac de toplumsal bağları güçlendirir.
+
+**DEEN-U11-S06-X004** · Akıllı Tekrar · matching
+- Soru: Aşağıdaki kavramları anlamlarıyla eşleştir: İtidal, Yüsr, Tevkîf ve Nafile.
+- Eşleşmeler: İtidal → İbadette aşırılıktan kaçınıp dengeyi korumak; Yüsr → Dinde kolaylık ilkesi; Tevkîf → İbadetlerin şeklinin Allah ve Resulü tarafından belirlenmiş olması; Nafile → Farz dışında, sevap kazanmak için yapılan ibadet
+- Açıklama: İslam’da ibadet dengeli, kolaylık esaslı ve Kur’an ile sünnetle belirlenmiş bir çerçevede yapılır.
+
+**DEEN-U11-S04-X007** · İbadetin Hayata Etkisi · true_false
+- Soru: Doğru mu, yanlış mı? Bir ibadetin şeklini kişi kendi beğenisine göre değiştirebilir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: İbadetlerin nasıl yapılacağı Kur’an ve sünnetle bildirilmiştir; kişi bunları kendi görüşüyle değiştiremez.
+
+## U12 — temizlik_abdest (39 soru)
 
 **DEEN-U12-S01-X001** · Temizlik ve Taharet · multiple_choice
 - Soru: “Temizlik imanın yarısıdır” sözü kimin hadisidir?
@@ -570,7 +591,28 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Doğru cevap: Allah’ın size güçlük çıkarmak istemediği
 - Açıklama: Mâide 5:6: “Allah size güçlük çıkarmak istemez; sizi temizlemek ve nimetini tamamlamak ister.”
 
-## U13 — namaza_hazirlik (37 soru)
+**DEEN-U12-S03-X006** · Abdest Adımlarını Tanı · matching
+- Soru: Aşağıdaki kavramları anlamlarıyla eşleştir: Hades-i asgar, Hades-i ekber, Necaset ve Mest.
+- Eşleşmeler: Hades-i asgar → Abdestle giderilen küçük hades; Hades-i ekber → Gusülle giderilen büyük hades; Necaset → Beden, elbise veya yerdeki görünür pislik; Mest → Ayağı topuklarla birlikte örten, üzerine mesh edilebilen deri çorap
+- Açıklama: Hades abdestsiz veya guslü gerektiren hâldir; necaset ise görünür pisliktir. Mest de abdestte ayakların yıkanması yerine meshedilebilen bir örtüdür.
+
+**DEEN-U12-S03-X007** · Abdest Adımlarını Tanı · matching
+- Soru: Aşağıdaki abdest sünnetlerini anlamlarıyla eşleştir: Mazmaza, İstinşak, Teslis ve Misvak.
+- Eşleşmeler: Mazmaza → Ağza su verip çalkalamak; İstinşak → Burna su çekip temizlemek; Teslis → Abdest organlarını üçer kez yıkamak; Misvak → Dişleri ve ağzı misvakla temizlemek
+- Açıklama: Ağza ve buruna su vermek, üçer kez yıkamak ve misvak kullanmak abdestin sünnetlerindendir.
+
+**DEEN-U12-S06-X004** · Akıllı Tekrar · matching
+- Soru: Aşağıdaki temizlik çeşitlerini anlamlarıyla eşleştir: Abdest, Gusül, Teyemmüm ve Mest üzerine mesh.
+- Eşleşmeler: Abdest → Küçük hadesten temizlenmek için yüz, kollar, baş ve ayaklarla yapılan temizlik; Gusül → Büyük hadesten temizlenmek için bütün bedenin yıkanması; Teyemmüm → Su bulunamadığında temiz toprakla yüz ve kolları meshetmek; Mest üzerine mesh → Ayakları yıkamak yerine mesti ıslak elle meshetmek
+- Açıklama: Küçük hadesten abdestle, büyük hadesten gusülle temizlenilir; su kullanılamıyorsa teyemmüm yapılır.
+
+**DEEN-U12-S05-X006** · Ortak Temel ve Farklar · scenario
+- Soru: Murat abdest alırken kollarını yalnızca bileklerine kadar yıkadı. Abdesti için ne söylenir?
+- Seçenekler: Geçerlidir, çünkü kollar abdestin farzı değildir | Eksiktir; kollar dirseklerle birlikte yıkanmalıdır | Geçerlidir, çünkü bileklere kadar yıkamak yeterlidir | Yalnızca sağ kol yıkanırsa yeterlidir
+- Doğru cevap: Eksiktir; kollar dirseklerle birlikte yıkanmalıdır
+- Açıklama: Abdestte kolların dirsekler dâhil yıkanması farzdır (Mâide 5:6).
+
+## U13 — namaza_hazirlik (42 soru)
 
 **DEEN-U13-S01-X001** · Namaza Hazırlık · multiple_choice
 - Soru: Namaza başlamadan önce yerine getirilmesi gereken şartlar kaç tanedir?
@@ -790,7 +832,34 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Doğru cevap: Rükûya eğilmek
 - Açıklama: Rükû namazın içinde yapılır; diğerleri namazdan önceki hazırlıklardır.
 
-## U14 — namazin_yapisi (35 soru)
+**DEEN-U13-S03-X006** · Şartları Eşleştir · matching
+- Soru: Aşağıdaki namazları özellikleriyle eşleştir: Vitir namazı, Cuma namazı, Bayram namazı ve Cenaze namazı.
+- Eşleşmeler: Vitir namazı → Yatsıdan sonra kılınan üç rekâtlık vacip namaz; Cuma namazı → Cuma günü öğle vaktinde cemaatle kılınan iki rekâtlık farz; Bayram namazı → Ramazan ve Kurban bayramlarında kılınan iki rekâtlık vacip namaz; Cenaze namazı → Ölen Müslüman için kılınan, rükû ve secdesi olmayan namaz
+- Açıklama: Beş vakit dışında vitir, cuma, bayram ve cenaze gibi namazlar da vardır; her birinin hükmü ve kılınışı farklıdır.
+
+**DEEN-U13-S03-X007** · Şartları Eşleştir · matching
+- Soru: Aşağıdaki ezan ifadelerini anlamlarıyla eşleştir: Allâhü ekber, Eşhedü en lâ ilâhe illallah, Hayye ale’s-salâh ve Hayye ale’l-felâh.
+- Eşleşmeler: Allâhü ekber → Allah en büyüktür; Eşhedü en lâ ilâhe illallah → Allah’tan başka ilâh olmadığına şahitlik ederim; Hayye ale’s-salâh → Namaza gelin; Hayye ale’l-felâh → Kurtuluşa gelin
+- Açıklama: Ezan, namaz vaktinin girdiğini duyurur ve Müslümanları namaza çağırır.
+
+**DEEN-U13-S06-X004** · Akıllı Tekrar · matching
+- Soru: Aşağıdaki kavramları anlamlarıyla eşleştir: Eda, Kaza, Cemaat ve Kerahet vakti.
+- Eşleşmeler: Eda → Namazı vaktinde kılmak; Kaza → Vaktinde kılınamayan namazı sonradan kılmak; Cemaat → Namazı imamla birlikte kılmak; Kerahet vakti → Nafile namaz kılmanın mekruh olduğu zaman dilimi
+- Açıklama: Namazın vaktinde kılınmasına eda, sonradan kılınmasına kaza denir.
+
+**DEEN-U13-S05-X007** · Beş Vakit · true_false
+- Soru: Doğru mu, yanlış mı? Güneş doğarken, tam tepedeyken ve batarken nafile namaz kılmak mekruhtur.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hz. Peygamber bu üç zamanda namaz kılmayı yasaklamıştır; bunlar kerahet vakitleri olarak bilinir.
+
+**DEEN-U13-S04-X007** · Hazırlık Senaryoları · multiple_choice
+- Soru: Vitir namazı kaç rekâttır?
+- Seçenekler: İki | Dört | Beş | Üç
+- Doğru cevap: Üç
+- Açıklama: Hanefî mezhebine göre vitir namazı üç rekâttır ve vaciptir.
+
+## U14 — namazin_yapisi (40 soru)
 
 **DEEN-U14-S01-X001** · Namazın Yapısı · multiple_choice
 - Soru: Namazın içinde yapılan farzlar (rükünler) kaç tanedir?
@@ -998,7 +1067,34 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Doğru cevap: Öğle farzını iki rekât (kasr) kılarım
 - Açıklama: Yolcu dört rekâtlı farzı iki rekât kılar.
 
-## U15 — oruc_ramazan (34 soru)
+**DEEN-U14-S03-X006** · Rekâtı Kur · matching
+- Soru: Aşağıdaki namaz bölümlerini anlamlarıyla eşleştir: Tahiyyat, Salavat, Kunut duası ve Tadil-i erkân.
+- Eşleşmeler: Tahiyyat → Namazda her oturuşta okunan dua; Salavat → Son oturuşta Peygamberimize okunan dua; Kunut duası → Vitir namazının üçüncü rekâtında okunan dua; Tadil-i erkân → Rükû ve secdede organların yerleşip bir an durması
+- Açıklama: Namazda tahiyyat ve salavat oturuşlarda, kunut duası vitirde okunur; tadil-i erkân ise hareketleri sükûnetle yapmaktır.
+
+**DEEN-U14-S03-X007** · Rekâtı Kur · matching
+- Soru: Aşağıdaki sureleri özellikleriyle eşleştir: Fâtiha, İhlâs, Kevser ve Fîl.
+- Eşleşmeler: Fâtiha → Kur’an’ın ilk suresi; yedi âyettir; İhlâs → Allah’ın birliğini bildiren dört âyetli sure; Kevser → Üç âyetten oluşan en kısa sure; Fîl → Fil olayını anlatan beş âyetli sure
+- Açıklama: Bu sureler namazda sık okunur; her birinin âyet sayısı ve konusu bellidir.
+
+**DEEN-U14-S06-X004** · Akıllı Tekrar · matching
+- Soru: Aşağıdaki kavramları anlamlarıyla eşleştir: İmam, Müktedi, Saf ve Mesbûk.
+- Eşleşmeler: İmam → Cemaate namaz kıldıran kişi; Müktedi → İmama uyarak namaz kılan kişi; Saf → Cemaatin omuz omuza dizilmesi; Mesbûk → İmamla bir veya daha fazla rekâtı kaçırıp sonradan katılan kişi
+- Açıklama: Cemaatle namazda imam öndedir, müktediler arkasında saf tutar.
+
+**DEEN-U14-S05-X006** · Mazerette Kolaylık · true_false
+- Soru: Doğru mu, yanlış mı? Secde; alın ve burun, eller, dizler ve ayak parmaklarının yere konmasıyla yapılır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hadiste secdenin yedi uzuv üzerine yapıldığı bildirilir.
+
+**DEEN-U14-S04-X007** · Namaz İçinde Akış · multiple_choice
+- Soru: Sehiv secdesi kaç secdedir?
+- Seçenekler: Üç secde | Bir secde | Dört secde | İki secde
+- Doğru cevap: İki secde
+- Açıklama: Namazda yanılma sonucu bir vacip terk edilirse son oturuşta iki secde yapılır; buna sehiv secdesi denir.
+
+## U15 — oruc_ramazan (38 soru)
 
 **DEEN-U15-S01-X001** · Oruç Nedir? · multiple_choice
 - Soru: Ramazan, hicrî takvimin kaçıncı ayıdır?
@@ -1200,3 +1296,25 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Seçenekler: İyileşince tutamadığı günleri kaza etmesini | Hasta olmasına rağmen tutmasını | Ramazan’ı beklemesini | Hiç tutmamasını
 - Doğru cevap: İyileşince tutamadığı günleri kaza etmesini
 - Açıklama: Mazeret sona erince tutulamayan günler kaza edilir.
+
+**DEEN-U15-S03-X006** · İmsak ve İftar · matching
+- Soru: Aşağıdaki kavramları anlamlarıyla eşleştir: Kadir Gecesi, Ramazan Bayramı, Hilal ve İmsak.
+- Eşleşmeler: Kadir Gecesi → Kur’an’ın indirilmeye başlandığı, bin aydan hayırlı gece; Ramazan Bayramı → Ramazan ayı bittikten sonra Şevval’in ilk günü başlayan bayram; Hilal → Ramazan’ın başlangıcı ve bitişi için esas alınan yeni ay; İmsak → Oruca başlama vakti
+- Açıklama: Ramazan hilalle başlar ve hilalle biter; ayın sonunda Ramazan Bayramı kutlanır.
+
+**DEEN-U15-S03-X007** · İmsak ve İftar · matching
+- Soru: Aşağıdaki durumları hükümleriyle eşleştir: İyileşme umudu olan hasta, Oruca gücü yetmeyen yaşlı, Ramazan’da orucu bilerek bozan ve Orucu unutarak yiyip içen.
+- Eşleşmeler: İyileşme umudu olan hasta → Orucu erteler, sonra kaza eder; Oruca gücü yetmeyen yaşlı → Her gün için fidye verir; Ramazan’da orucu bilerek bozan → Kaza ve kefaret gerekir; Orucu unutarak yiyip içen → Orucu bozulmaz
+- Açıklama: Özür sebebiyle tutulamayan oruç kaza edilir; gücü yetmeyenler fidye verir; unutarak yemek orucu bozmaz.
+
+**DEEN-U15-S05-X006** · Mazeret ve Kaza · true_false
+- Soru: Doğru mu, yanlış mı? Ramazan Bayramı’nın ilk günü oruç tutmak haramdır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Ramazan ve Kurban bayramlarının birinci günlerinde oruç tutmak yasaklanmıştır.
+
+**DEEN-U15-S04-X007** · Oruçlu Günlük Hayat · multiple_choice
+- Soru: Ramazan ayının başlangıcı hangisine göre belirlenir?
+- Seçenekler: Havaların ısınmasına | Hilal (yeni ay) | Yılın ilk gününe | Güneşin doğuş saatine
+- Doğru cevap: Hilal (yeni ay)
+- Açıklama: Ramazan, hilalin görülmesi veya hesapla belirlenmesiyle başlar; takvimin hilale dayandığı bildirilir.
