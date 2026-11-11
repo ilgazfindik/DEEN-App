@@ -4,6 +4,8 @@ on:
   pull_request:
     paths:
       - 'assets/design/home.js'
+      - 'assets/design/lesson.js'
+      - 'scripts/test-matching-title.cjs'
       - 'index.html'
       - 'scripts/test-done-i18n.cjs'
       - '.github/workflows/done-i18n-check.yml'
@@ -24,3 +26,4 @@ jobs:
           npm i --no-save playwright@1.49.1
           npx playwright install --with-deps chromium
           node scripts/test-done-i18n.cjs
+          node scripts/test-matching-title.cjs

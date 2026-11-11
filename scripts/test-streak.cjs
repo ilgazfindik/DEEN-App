@@ -15,6 +15,7 @@ async function run(base,browser,seed,label){
  let a=await run(base,browser,{state:st(4,ago(1))},'risk');
  await a.pg.waitForSelector('#dsStreakGuard',{timeout:60000});
  const cardTxt=await a.pg.textContent('#dsStreakGuard');assert(/4-day streak/.test(cardTxt),'card names the streak: '+cardTxt);
+ assert(await a.pg.evaluate(()=>document.getElementById('dsStreakGuard').nextElementSibling?.id==='v5Return'&&document.getElementById('dsStreakGuard').previousElementSibling?.id==='v5Stats'),'card sits between the stats header and the next-step card');
  await a.pg.click('#dsStreakGuard [data-dsg="buy"]');await a.pg.waitForTimeout(400);
  const fz=await a.pg.evaluate(()=>[state.streakMeta.streakFreeze,state.currency]);assert.deepStrictEqual(fz,[1,40],'one freeze bought for 20');
  await a.ctx.close();
