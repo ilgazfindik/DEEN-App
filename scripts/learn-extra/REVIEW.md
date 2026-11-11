@@ -4,6 +4,308 @@ Bu liste `assets/learn/extra-questions.js` dosyasındaki soruların okunabilir h
 Tüm sorular `needs_review` durumundadır: yayın öncesi bir din görevlisi / ilahiyatçı tarafından gözden geçirilmelidir.
 Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu görüşleri, Kur’an-ı Kerîm, sahih hadis kaynakları.
 
+## U02 — allaha_iman (50 soru)
+
+**DEEN-U02-S01-X001** · Allah'a İman Nedir? · multiple_choice
+- Soru: İhlâs Suresi kaç âyettir?
+- Seçenekler: Üç | Yedi | Dört | Beş
+- Doğru cevap: Dört
+- Açıklama: İhlâs Suresi dört âyettir; Allah’ın birliğini ve hiçbir şeye muhtaç olmadığını bildirir.
+
+**DEEN-U02-S02-X001** · Allah Birdir · multiple_choice
+- Soru: İhlâs Suresi’ndeki “Ehad” kelimesi Allah’ın hangi özelliğini anlatır?
+- Seçenekler: Gücünü | Merhametini | Birliğini | İlmini
+- Doğru cevap: Birliğini
+- Açıklama: “Ehad”, Allah’ın bir ve tek olduğunu ifade eder (Diyanet tefsiri).
+
+**DEEN-U02-S03-X001** · Yaratıcı ve Yaratılan · multiple_choice
+- Soru: İhlâs Suresi’ndeki “Samed” ismi Allah hakkında neyi bildirir?
+- Seçenekler: Yaratılmış olduğunu | Hiçbir şeye muhtaç olmadığını | Bir şehre ait olduğunu | Yalnızca geceleri görüldüğünü
+- Doğru cevap: Hiçbir şeye muhtaç olmadığını
+- Açıklama: “Samed”, Allah’ın var oluşta kimseye muhtaç olmadığını, her şeyin ise O’na muhtaç olduğunu anlatır (Diyanet tefsiri).
+
+**DEEN-U02-S03-X002** · Yaratıcı ve Yaratılan · true_false
+- Soru: Doğru mu, yanlış mı? İhlâs Suresi, Allah’ın doğurmadığını ve doğurulmadığını bildirir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: “Lem yelid ve lem yûled” âyeti, Allah’a çocuk isnat edilmesini reddeder (Diyanet tefsiri).
+
+**DEEN-U02-S04-X001** · Kavramları Bağla · true_false
+- Soru: Doğru mu, yanlış mı? Hadise göre İhlâs Suresi Kur’an’ın üçte birine denk sayılmıştır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Sûre Allah’ı tanıtan kısa bir özet olduğundan hadiste Kur’an’ın üçte biri değerinde anılır (Diyanet tefsiri).
+
+**DEEN-U02-S01-X002** · Allah'a İman Nedir? · multiple_choice
+- Soru: Kur’an’ın 112. suresi hangisidir?
+- Seçenekler: Nâs | İhlâs | Felak | Kevser
+- Doğru cevap: İhlâs
+- Açıklama: 112. sure olan İhlâs, Kur’an’ın tevhid özeti olarak bilinir.
+
+**DEEN-U02-S01-X003** · Allah'a İman Nedir? · multiple_choice
+- Soru: Fâtiha Suresi kaç âyettir?
+- Seçenekler: On | Yedi | Beş | Dokuz
+- Doğru cevap: Yedi
+- Açıklama: Fâtiha yedi âyettir; her rek‘atta okunur ve Allah’a hamd ile başlar.
+
+**DEEN-U02-S02-X002** · Allah Birdir · true_false
+- Soru: Doğru mu, yanlış mı? Fâtiha’da kul, “yalnız sana ibadet eder ve yalnız senden yardım dileriz” diye söyler.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: “İyyâke na‘büdü ve iyyâke nesta‘în” âyeti, ibadetin ve yardım dilemenin yalnız Allah’a yöneltildiğini ifade eder.
+
+**DEEN-U02-S03-X003** · Yaratıcı ve Yaratılan · multiple_choice
+- Soru: Âyetü’l-Kürsî hangi surede yer alır?
+- Seçenekler: Bakara | Mâide | Âl-i İmrân | Nisâ
+- Doğru cevap: Bakara
+- Açıklama: Âyetü’l-Kürsî, Bakara Suresi’nin 255. âyetidir ve Allah’ın birliğini, hayatını ve ilmini anlatır.
+
+**DEEN-U02-S01-X004** · Allah'a İman Nedir? · true_false
+- Soru: Doğru mu, yanlış mı? “Bismillâh”, “Allah’ın adıyla” anlamına gelir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Besmele, işe Allah’ın adıyla başlamayı ifade eder.
+
+**DEEN-U02-S02-X003** · Allah Birdir · true_false
+- Soru: Doğru mu, yanlış mı? Besmelede Allah’ın “er-Rahmân” ve “er-Rahîm” isimleri geçer.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: “Bismillâhirrahmânirrahîm”, Allah’ın merhametini bildiren iki ismi içerir.
+
+**DEEN-U02-S01-X005** · Allah'a İman Nedir? · multiple_choice
+- Soru: “Esmâ-i hüsnâ” ifadesi ne demektir?
+- Seçenekler: Peygamberin lakapları | Namaz vakitleri | Allah’ın en güzel isimleri | Kur’an sureleri
+- Doğru cevap: Allah’ın en güzel isimleri
+- Açıklama: Esmâ-i hüsnâ, Allah’ın güzel isimleri demektir; A‘râf 180’de bu isimlerle dua etmemiz öğütlenir.
+
+**DEEN-U02-S02-X004** · Allah Birdir · true_false
+- Soru: Doğru mu, yanlış mı? Hadise göre Allah’ın doksan dokuz ismi vardır ve bunları ezberleyip benimseyen cennete girer.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hadisin ilk kısmı Kütüb-i Sitte’de ve Müsned’de geçer; isimlerin tek tek sayıldığı liste Tirmizî ve İbn Mâce’dedir.
+
+**DEEN-U02-S05-X001** · İman Hayata Nasıl Yansır? · true_false
+- Soru: Doğru mu, yanlış mı? Âlimlere göre “doksan dokuz” sayısı, Allah’ın isimlerini bu sayıyla sınırlamaz.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: İslâm âlimleri bu sayının çokluğu ifade ettiğini ve sınırlandırıcı olmadığını belirtmiştir (TDV İslâm Ansiklopedisi).
+
+**DEEN-U02-S01-X006** · Allah'a İman Nedir? · multiple_choice
+- Soru: er-Rahmân ismi, Allah’ın hangi özelliğini bildirir?
+- Seçenekler: Her şeyi bildiğini | Her şeyi gördüğünü | Sonsuz merhamet sahibi olduğunu | Başlangıcı olmadığını
+- Doğru cevap: Sonsuz merhamet sahibi olduğunu
+- Açıklama: “er-Rahmân” ismi, Allah’ın sonsuz merhamet sahibi olduğunu anlatır.
+
+**DEEN-U02-S02-X005** · Allah Birdir · multiple_choice
+- Soru: el-Hâlık ismi, Allah’ın hangi özelliğini bildirir?
+- Seçenekler: Her şeyi yarattığını | Bütün canlılara rızık verdiğini | Çok bağışladığını | Çok cömert olduğunu
+- Doğru cevap: Her şeyi yarattığını
+- Açıklama: “el-Hâlık” ismi, Allah’ın her şeyi yarattığını anlatır.
+
+**DEEN-U02-S03-X004** · Yaratıcı ve Yaratılan · multiple_choice
+- Soru: es-Semî‘ ismi, Allah’ın hangi özelliğini bildirir?
+- Seçenekler: Başlangıcı olmadığını | Her şeyi bildiğini | Her şeyi işittiğini | Kullarını çok sevdiğini
+- Doğru cevap: Her şeyi işittiğini
+- Açıklama: “es-Semî‘” ismi, Allah’ın her şeyi işittiğini anlatır.
+
+**DEEN-U02-S04-X002** · Kavramları Bağla · multiple_choice
+- Soru: el-Basîr ismi, Allah’ın hangi özelliğini bildirir?
+- Seçenekler: Her şeyi gördüğünü | Sonsuz merhamet sahibi olduğunu | Çok bağışladığını | Çok cömert olduğunu
+- Doğru cevap: Her şeyi gördüğünü
+- Açıklama: “el-Basîr” ismi, Allah’ın her şeyi gördüğünü anlatır.
+
+**DEEN-U02-S05-X002** · İman Hayata Nasıl Yansır? · multiple_choice
+- Soru: er-Rezzâk ismi, Allah’ın hangi özelliğini bildirir?
+- Seçenekler: Başlangıcı olmadığını | Bütün canlılara rızık verdiğini | Kullarını çok sevdiğini | Her şeyi yarattığını
+- Doğru cevap: Bütün canlılara rızık verdiğini
+- Açıklama: “er-Rezzâk” ismi, Allah’ın bütün canlılara rızık verdiğini anlatır.
+
+**DEEN-U02-S06-X001** · Akıllı Tekrar · multiple_choice
+- Soru: el-Alîm ismi, Allah’ın hangi özelliğini bildirir?
+- Seçenekler: Her şeyi bildiğini | Çok cömert olduğunu | Her şeyi işittiğini | Sonsuz merhamet sahibi olduğunu
+- Doğru cevap: Her şeyi bildiğini
+- Açıklama: “el-Alîm” ismi, Allah’ın her şeyi bildiğini anlatır.
+
+**DEEN-U02-S07-X001** · Allah'a İman Challenge · multiple_choice
+- Soru: el-Gaffâr ismi, Allah’ın hangi özelliğini bildirir?
+- Seçenekler: Kullarını çok sevdiğini | Çok bağışladığını | Her şeyi yarattığını | Her şeyi gördüğünü
+- Doğru cevap: Çok bağışladığını
+- Açıklama: “el-Gaffâr” ismi, Allah’ın çok bağışladığını anlatır.
+
+**DEEN-U02-S01-X007** · Allah'a İman Nedir? · multiple_choice
+- Soru: el-Evvel ismi, Allah’ın hangi özelliğini bildirir?
+- Seçenekler: Her şeyi işittiğini | Sonsuz merhamet sahibi olduğunu | Bütün canlılara rızık verdiğini | Başlangıcı olmadığını
+- Doğru cevap: Başlangıcı olmadığını
+- Açıklama: “el-Evvel” ismi, Allah’ın başlangıcı olmadığını anlatır.
+
+**DEEN-U02-S02-X006** · Allah Birdir · multiple_choice
+- Soru: el-Kerîm ismi, Allah’ın hangi özelliğini bildirir?
+- Seçenekler: Her şeyi gördüğünü | Her şeyi bildiğini | Çok cömert olduğunu | Her şeyi yarattığını
+- Doğru cevap: Çok cömert olduğunu
+- Açıklama: “el-Kerîm” ismi, Allah’ın çok cömert olduğunu anlatır.
+
+**DEEN-U02-S03-X005** · Yaratıcı ve Yaratılan · multiple_choice
+- Soru: el-Vedûd ismi, Allah’ın hangi özelliğini bildirir?
+- Seçenekler: Bütün canlılara rızık verdiğini | Kullarını çok sevdiğini | Çok bağışladığını | Her şeyi işittiğini
+- Doğru cevap: Kullarını çok sevdiğini
+- Açıklama: “el-Vedûd” ismi, Allah’ın kullarını çok sevdiğini anlatır.
+
+**DEEN-U02-S03-X006** · Yaratıcı ve Yaratılan · multiple_choice
+- Soru: Şirk sözlükte ne anlama gelir?
+- Seçenekler: Yolculuk | Bağışlama | Yardımlaşma | Ortaklık, ortak koşma
+- Doğru cevap: Ortaklık, ortak koşma
+- Açıklama: Şirk, tevhidin zıddıdır; Allah’a ortak koşmak anlamına gelir (TDV İslâm Ansiklopedisi).
+
+**DEEN-U02-S03-X007** · Yaratıcı ve Yaratılan · true_false
+- Soru: Doğru mu, yanlış mı? Şirk, tevhidin zıddıdır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Tevhid Allah’ı bir bilmek, şirk ise O’na ortak koşmaktır.
+
+**DEEN-U02-S05-X003** · İman Hayata Nasıl Yansır? · true_false
+- Soru: Doğru mu, yanlış mı? Kur’an’da şirk, “büyük bir zulüm” olarak nitelenir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Lokman 31/13’te Hz. Lokman oğluna Allah’a ortak koşmamasını öğütler ve şirkin büyük bir zulüm olduğunu bildirir.
+
+**DEEN-U02-S05-X004** · İman Hayata Nasıl Yansır? · multiple_choice
+- Soru: Hz. Lokman’ın oğluna Allah’a ortak koşmamasını öğütlediği âyet hangi surededir?
+- Seçenekler: Kehf | Meryem | Yûsuf | Lokman
+- Doğru cevap: Lokman
+- Açıklama: Lokman Suresi’nin 13. âyetinde bu öğüt yer alır.
+
+**DEEN-U02-S04-X003** · Kavramları Bağla · multiple_choice
+- Soru: Aşağıdakilerden hangisi büyük şirke örnektir?
+- Seçenekler: Sözünü geç yerine getirmek | Namaza geç kalmak | Allah’tan başkasına ibadet etmek | Ödevini unutmak
+- Doğru cevap: Allah’tan başkasına ibadet etmek
+- Açıklama: Büyük şirk, Allah’a ortak koşmak ve O’ndan başkasına ibadet etmektir (Diyanet).
+
+**DEEN-U02-S06-X002** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Hadiste riya (gösteriş), “küçük şirk” diye anılır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hz. Peygamber, ümmeti için en çok korktuğu şeyin küçük şirk, yani riya olduğunu bildirmiştir.
+
+**DEEN-U02-S06-X003** · Akıllı Tekrar · multiple_choice
+- Soru: Riya nedir?
+- Seçenekler: İbadeti geç yapmak | İbadeti sessizce yapmak | İbadeti öğretmek | İbadeti Allah için değil, insanlara gösteriş için yapmak
+- Doğru cevap: İbadeti Allah için değil, insanlara gösteriş için yapmak
+- Açıklama: Riya, ibadet ve iyiliği insanlara gösterme niyetiyle yapmaktır; ihlasa aykırıdır.
+
+**DEEN-U02-S01-X008** · Allah'a İman Nedir? · multiple_choice
+- Soru: Enʻâm Suresi’nde Hz. İbrahim’in gece gördüğü ve önce “Rabbim bu mu?” dediği ilk gök cismi hangisidir?
+- Seçenekler: Bulut | Yıldız | Güneş | Ay
+- Doğru cevap: Yıldız
+- Açıklama: Enʻâm 76-78’de sırayla yıldız, ay ve güneş geçer; her biri batınca İbrahim bunların ilah olamayacağını gösterir.
+
+**DEEN-U02-S02-X007** · Allah Birdir · multiple_choice
+- Soru: Hz. İbrahim yıldız, ay ve güneşin batışını görünce hangi sonuca vardı?
+- Seçenekler: Ayın Rab olduğuna | Güneşin ilah olduğuna | Batan hiçbir şeyin ilah olamayacağına | Yıldızların yol gösterdiğine
+- Doğru cevap: Batan hiçbir şeyin ilah olamayacağına
+- Açıklama: İbrahim, yüzünü gökleri ve yeri yaratana çevirdiğini ve müşriklerden olmadığını ilan etti (En‘âm 79).
+
+**DEEN-U02-S02-X008** · Allah Birdir · true_false
+- Soru: Doğru mu, yanlış mı? Tevekkül, sebeplere başvurduktan sonra sonucu Allah’a bırakmaktır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Gerekli çabayı gösterip yapacak başka bir şey kalmayınca Allah’a dayanıp güvenmek tevekküldür.
+
+**DEEN-U02-S03-X008** · Yaratıcı ve Yaratılan · multiple_choice
+- Soru: Devesini bağlamadan Allah’a tevekkül edeceğini söyleyen kişiye Hz. Peygamber ne buyurmuştur?
+- Seçenekler: “Devenden vazgeç.” | “Deveni sat.” | “Sadece beklemek yeter.” | “Önce deveni bağla, sonra tevekkül et.”
+- Doğru cevap: “Önce deveni bağla, sonra tevekkül et.”
+- Açıklama: Tirmizî’de geçen bu hadis, tevekkülden önce tedbir almanın gerektiğine delil gösterilir.
+
+**DEEN-U02-S05-X005** · İman Hayata Nasıl Yansır? · true_false
+- Soru: Doğru mu, yanlış mı? Tevekkül, hiçbir tedbir almamak demektir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Tevekkül tedbirden vazgeçmek değildir; sebeplere başvurduktan sonra sonucu Allah’a bırakmaktır.
+
+**DEEN-U02-S04-X004** · Kavramları Bağla · multiple_choice
+- Soru: Evrendeki düzen ve uyumdan yola çıkarak Allah’ın varlığını gösteren delile ne ad verilir?
+- Seçenekler: Nizam delili | Hasret delili | Hudûs delili | Hicret delili
+- Doğru cevap: Nizam delili
+- Açıklama: Nizam delili, kâinatta bilinçli bir düzen bulunduğunu, bunun da bir yaratıcıya işaret ettiğini söyler (TDV İslâm Ansiklopedisi).
+
+**DEEN-U02-S05-X006** · İman Hayata Nasıl Yansır? · multiple_choice
+- Soru: “Âlem sonradan yaratılmıştır, o hâlde bir yaratıcıya muhtaçtır” düşüncesine dayanan delil hangisidir?
+- Seçenekler: Nizam delili | Hicret delili | Şükür delili | Hudûs delili
+- Doğru cevap: Hudûs delili
+- Açıklama: Hudûs delili, evrendeki değişkenlikten yola çıkarak evrenin sonradan var olduğunu ve bir yaratıcıya muhtaç bulunduğunu ileri sürer (TDV).
+
+**DEEN-U02-S01-X009** · Allah'a İman Nedir? · multiple_choice
+- Soru: “Lâ ilâhe illallah” ifadesinin anlamı nedir?
+- Seçenekler: Allah büyüktür | Allah’tan başka ilah yoktur | Allah’ı tesbih ederim | Allah’a hamdolsun
+- Doğru cevap: Allah’tan başka ilah yoktur
+- Açıklama: Kelime-i tevhid, Allah’ın birliğini ve ibadete yalnız O’nun layık olduğunu ifade eder.
+
+**DEEN-U02-S02-X009** · Allah Birdir · true_false
+- Soru: Doğru mu, yanlış mı? Kelime-i şehâdet, Allah’ın birliğine ve Hz. Muhammed’in O’nun kulu ve elçisi olduğuna şahitlik etmeyi içerir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: “Eşhedü en lâ ilâhe illallah ve eşhedü enne Muhammeden abdühû ve resûlüh” sözü bu iki şahitliği bir araya getirir.
+
+**DEEN-U02-S06-X004** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Kur’an, güneşe ve aya değil, onları yaratan Allah’a secde edilmesini bildirir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Fussilet 37’de güneşe ve aya secde etmeyin, onları yaratan Allah’a secde edin buyrulur.
+
+**DEEN-U02-S03-X009** · Yaratıcı ve Yaratılan · true_false
+- Soru: Doğru mu, yanlış mı? Kur’an, göklerin ve yerin yaratılışı üzerinde düşünmeye çağırır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Âl-i İmrân 190-191’de gökler ve yerin yaratılışı, gece ile gündüzün ardışıklığı akıl sahipleri için deliller olarak anılır.
+
+**DEEN-U02-S06-X005** · Akıllı Tekrar · multiple_choice
+- Soru: “Biz ona şah damarından daha yakınız” âyeti hangi surede geçer?
+- Seçenekler: Duhâ | Yâsîn | Kâf | Kevser
+- Doğru cevap: Kâf
+- Açıklama: Kâf 16’da Allah’ın insana şah damarından daha yakın olduğu bildirilir.
+
+**DEEN-U02-S07-X002** · Allah'a İman Challenge · true_false
+- Soru: Doğru mu, yanlış mı? Kur’an’a göre şükredenlere Allah nimetini artırır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: İbrâhîm 14/7’de “Eğer şükrederseniz, elbette size nimetimi artırırım” buyrulur.
+
+**DEEN-U02-S01-X010** · Allah'a İman Nedir? · multiple_choice
+- Soru: “Rab” kelimesi Allah için kullanıldığında neyi ifade eder?
+- Seçenekler: Sadece komşu | Yaratan, yetiştiren ve idare eden sahip | Yalnızca kral | Sadece öğretmen
+- Doğru cevap: Yaratan, yetiştiren ve idare eden sahip
+- Açıklama: Rab; varlıkları yaratıp yetiştiren, onları terbiye eden ve yöneten Allah’ı ifade eder.
+
+**DEEN-U02-S01-X011** · Allah'a İman Nedir? · multiple_choice
+- Soru: İman esaslarının ilki hangisidir?
+- Seçenekler: Allah’a iman | Ahirete iman | Kadere iman | Kitaplara iman
+- Doğru cevap: Allah’a iman
+- Açıklama: İman esaslarının ilki, Allah’a iman; yani O’nun varlığına ve birliğine inanmaktır.
+
+**DEEN-U02-S04-X005** · Kavramları Bağla · true_false
+- Soru: Doğru mu, yanlış mı? “el-Vâhid” ve “el-Ehad” isimleri Allah’ın birliğini bildirir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Her iki isim de Allah’ın bir ve tek olduğunu, eşi ve ortağı bulunmadığını ifade eder.
+
+**DEEN-U02-S01-X012** · Allah'a İman Nedir? · multiple_choice
+- Soru: İhlâs Suresi “Kul hüvallâhü ehad” ile başlar. “Kul” kelimesi ne demektir?
+- Seçenekler: Dinle | De ki | Yaz | Oku
+- Doğru cevap: De ki
+- Açıklama: “Kul” emir kipidir ve “De ki” anlamına gelir; Peygamber’e Allah’ın birliğini bildirmesi emredilir.
+
+**DEEN-U02-S05-X007** · İman Hayata Nasıl Yansır? · true_false
+- Soru: Doğru mu, yanlış mı? Âyetü’l-Kürsî’de Allah’ı ne uyuklamanın ne de uykunun tutmadığı bildirilir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Bakara 255’te “Onu ne uyuklama tutar ne de uyku” buyrulur; Allah diridir ve her şeyi ayakta tutandır.
+
+**DEEN-U02-S02-X010** · Allah Birdir · multiple_choice
+- Soru: Fâtiha Suresi’nin ilk cümlesi “el-hamdü lillâhi rabbi’l-âlemîn” ne anlama gelir?
+- Seçenekler: Yer ve gök yaratıldı | Namaz kılınız | Hamd, âlemlerin Rabbi Allah’a mahsustur | Allah büyüktür
+- Doğru cevap: Hamd, âlemlerin Rabbi Allah’a mahsustur
+- Açıklama: Fâtiha, âlemlerin Rabbi olan Allah’a hamd ile başlar.
+
 ## U03 — kelime_i_sehadet (25 soru)
 
 **DEEN-U03-S01-X001** · Şehadet Nedir? · multiple_choice

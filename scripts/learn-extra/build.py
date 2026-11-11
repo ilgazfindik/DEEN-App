@@ -28,7 +28,7 @@ import hashlib, importlib.util, json, pathlib, random, sys
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 UNITS_DIR = pathlib.Path(__file__).resolve().parent / 'units'
 LEVEL = {'e': 'easy', 'm': 'medium', 'h': 'hard'}
-WORLD = {'U03': 'foundations', 'U05': 'foundations'}
+WORLD = {'U02': 'foundations', 'U03': 'foundations', 'U05': 'foundations'}
 PREFIX = {'mc': '', 'tf': 'Doğru mu, yanlış mı? ', 'fb': 'Boşluğu tamamla: ', 'mi': 'Eksik kavramı seç: ',
           'sr': 'Hızlı tekrar: ', 'pr': 'İpucu olmadan tamamla: '}
 COG = {'mc': 'recognition', 'tf': 'recognition', 'fb': 'recall', 'mi': 'recognition', 'sc': 'application',
