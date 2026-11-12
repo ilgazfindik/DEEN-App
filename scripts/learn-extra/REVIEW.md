@@ -4,6 +4,308 @@ Bu liste `assets/learn/extra-questions.js` dosyasındaki soruların okunabilir h
 Tüm sorular `needs_review` durumundadır: yayın öncesi bir din görevlisi / ilahiyatçı tarafından gözden geçirilmelidir.
 Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu görüşleri, Kur’an-ı Kerîm, sahih hadis kaynakları.
 
+## U01 — islam_nedir (50 soru)
+
+**DEEN-U01-S01-X001** · İslam'la Tanış · multiple_choice
+- Soru: “İslam” kelimesi sözlükte hangi anlamları taşır?
+- Seçenekler: Savaşmak ve ayrılmak | Ticaret yapmak | Yolculuk etmek | Teslim olmak, barış ve esenlik
+- Doğru cevap: Teslim olmak, barış ve esenlik
+- Açıklama: İslam, s-l-m kökünden gelir; sözlükte teslim olmak, boyun eğmek ve barış içinde olmak anlamlarını taşır (TDV).
+
+**DEEN-U01-S01-X002** · İslam'la Tanış · true_false
+- Soru: Doğru mu, yanlış mı? “Müslüman” kelimesi, selameti ve barışı seçen kişiyi çağrıştırır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: “Müslüman” aynı kökten gelir; Allah’a teslim olan ve esenlik içinde yaşamayı seçen kişiyi anlatır (Diyanet).
+
+**DEEN-U01-S02-X001** · Müslüman Kimdir? · true_false
+- Soru: Doğru mu, yanlış mı? Hadise göre İslam beş esas üzerine kurulmuştur.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Buhârî ve Müslim’in rivayet ettiği hadiste İslam’ın şehadet, namaz, zekât, hac ve Ramazan orucu üzerine kurulduğu bildirilir.
+
+**DEEN-U01-S02-X002** · Müslüman Kimdir? · multiple_choice
+- Soru: İslam’ın temel esasları hadiste kaç madde olarak sayılır?
+- Seçenekler: Yedi | Üç | On | Beş
+- Doğru cevap: Beş
+- Açıklama: Hadiste şehadet, namaz, zekât, hac ve Ramazan orucu olmak üzere beş esas sayılır.
+
+**DEEN-U01-S03-X001** · Kavramları Eşleştir · multiple_choice
+- Soru: Aşağıdakilerden hangisi hadiste sayılan İslam’ın beş esasından biri değildir?
+- Seçenekler: Zekât | Hac | Ramazan orucu | Kurban kesmek
+- Doğru cevap: Kurban kesmek
+- Açıklama: Hadiste sayılan beş esas şehadet, namaz, zekât, hac ve Ramazan orucudur; kurban bunlar arasında değildir.
+
+**DEEN-U01-S01-X003** · İslam'la Tanış · multiple_choice
+- Soru: İslam’ın beş esasından ilki hangisidir?
+- Seçenekler: Oruç | Zekât | Şehadet (Kelime-i şehâdet) | Hac
+- Doğru cevap: Şehadet (Kelime-i şehâdet)
+- Açıklama: Hadiste ilk esas olarak Allah’tan başka ilah olmadığına ve Hz. Muhammed’in O’nun elçisi olduğuna şahitlik anılır.
+
+**DEEN-U01-S04-X001** · Günlük Hayat · true_false
+- Soru: Doğru mu, yanlış mı? İslam’ın beş esası, İslam’ın tamamı değil temelidir; ahlak ve diğer hükümler bu temel üzerine yükselir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hadiste geçen bina benzetmesi, beş esasın temel olduğunu, İslam’ın geri kalanının bu temel üzerinde yükseldiğini gösterir.
+
+**DEEN-U01-S05-X001** · Bildiklerini Kullan · multiple_choice
+- Soru: Cibril hadisinde Hz. Peygamber’e İslam ve iman sorulduktan sonra hangi kavram sorulur?
+- Seçenekler: Hicret | İhsan | Zekât | Cihat
+- Doğru cevap: İhsan
+- Açıklama: Cibril hadisinde İslam, iman ve ihsan sorulur; ihsan, Allah’ı görüyormuşçasına ibadet etmektir.
+
+**DEEN-U01-S06-X001** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? İhsan, Allah’ı görüyormuşçasına ibadet etmektir; görmesen de O seni görür.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Cibril hadisinde ihsan, Allah’ı görür gibi ibadet etmek, sen O’nu görmesen de O’nun seni gördüğünü bilmek olarak tarif edilir.
+
+**DEEN-U01-S03-X002** · Kavramları Eşleştir · multiple_choice
+- Soru: Hz. Muhammed hangi şehirde dünyaya gelmiştir?
+- Seçenekler: Taif | Kudüs | Medine | Mekke
+- Doğru cevap: Mekke
+- Açıklama: Hz. Muhammed, Fil Yılı olarak anılan yılda Mekke’de dünyaya gelmiştir (Diyanet).
+
+**DEEN-U01-S03-X003** · Kavramları Eşleştir · multiple_choice
+- Soru: Hz. Muhammed’in doğduğu yıl hangi adla anılır?
+- Seçenekler: Kıtlık Yılı | Fil Yılı | Sevinç Yılı | Hicret Yılı
+- Doğru cevap: Fil Yılı
+- Açıklama: Hz. Muhammed 571 yılında, Fil Yılı olarak bilinen yılda doğmuştur (Diyanet).
+
+**DEEN-U01-S03-X004** · Kavramları Eşleştir · multiple_choice
+- Soru: Hz. Muhammed’in babasının adı nedir?
+- Seçenekler: Ebû Tâlib | Abdullah | Hamza | Abdülmuttalib
+- Doğru cevap: Abdullah
+- Açıklama: Babası Abdullah, o doğmadan önce vefat etmiştir; annesi Âmine’dir.
+
+**DEEN-U01-S03-X005** · Kavramları Eşleştir · multiple_choice
+- Soru: Hz. Muhammed’in annesinin adı nedir?
+- Seçenekler: Halime | Fâtıma | Hatice | Âmine
+- Doğru cevap: Âmine
+- Açıklama: Annesi Âmine’dir; Hz. Hatice ise onun ilk eşidir.
+
+**DEEN-U01-S04-X002** · Günlük Hayat · multiple_choice
+- Soru: Hz. Muhammed’e peygamberlikten önce verilen ve “güvenilir” anlamına gelen unvan hangisidir?
+- Seçenekler: el-Fârûk | es-Sıddîk | el-Gaffâr | el-Emîn
+- Doğru cevap: el-Emîn
+- Açıklama: Ticaretteki ve toplum içindeki dürüstlüğü sebebiyle “Muhammedü’l-Emîn” diye anılırdı (TDV).
+
+**DEEN-U01-S04-X003** · Günlük Hayat · true_false
+- Soru: Doğru mu, yanlış mı? Hz. Muhammed, peygamberlikten önce de dürüstlüğüyle tanınırdı.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Mekkeliler onu güvenilir kişi anlamında “el-Emîn” diye çağırırlardı.
+
+**DEEN-U01-S05-X002** · Bildiklerini Kullan · multiple_choice
+- Soru: İlk vahiy Hz. Muhammed’e hangi yerde geldi?
+- Seçenekler: Sevr Mağarası | Kuba Mescidi | Uhud Dağı | Hira Mağarası
+- Doğru cevap: Hira Mağarası
+- Açıklama: İlk vahiy, Mekke yakınlarındaki Hira Mağarası’nda “İkra” diye başlayan âyetlerle geldi.
+
+**DEEN-U01-S05-X003** · Bildiklerini Kullan · multiple_choice
+- Soru: Hz. Muhammed’e ilk vahiy geldiğinde yaklaşık kaç yaşındaydı?
+- Seçenekler: Yirmi beş | Elli | Otuz | Kırk
+- Doğru cevap: Kırk
+- Açıklama: Diyanet kaynaklarına göre ilk vahiy, kırk yaşına geldiğinde Hira’da geldi.
+
+**DEEN-U01-S05-X004** · Bildiklerini Kullan · multiple_choice
+- Soru: İlk inen âyetler hangi kelimeyle başlar?
+- Seçenekler: Kul (De ki) | Yâ eyyühennâs (Ey insanlar) | Bismillâh | İkra (Oku)
+- Doğru cevap: İkra (Oku)
+- Açıklama: İlk vahyin âyetleri “İkra bismi rabbikellezî halak” (Alak 96/1) diye başlar.
+
+**DEEN-U01-S05-X005** · Bildiklerini Kullan · multiple_choice
+- Soru: İlk vahyin âyetleri Kur’an’ın hangi suresinde yer alır?
+- Seçenekler: Kevser | Fâtiha | Alak | Bakara
+- Doğru cevap: Alak
+- Açıklama: “İkra” ile başlayan ilk âyetler Alak Suresi’nin başındadır.
+
+**DEEN-U01-S05-X006** · Bildiklerini Kullan · multiple_choice
+- Soru: Allah’ın vahyini peygamberlere ileten melek hangisidir?
+- Seçenekler: İsrâfil | Mikâil | Azrâil | Cebrâil
+- Doğru cevap: Cebrâil
+- Açıklama: Vahiy meleği Cebrâil’dir; Kur’an’ı Hz. Muhammed’e o iletmiştir.
+
+**DEEN-U01-S05-X007** · Bildiklerini Kullan · true_false
+- Soru: Doğru mu, yanlış mı? Kur’an’ın indirilmeye başlandığı ay Ramazan’dır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Bakara 185’te Ramazan ayının, Kur’an’ın indirildiği ay olduğu bildirilir.
+
+**DEEN-U01-S05-X008** · Bildiklerini Kullan · multiple_choice
+- Soru: Kur’an’ın indirilmeye başlandığı gece Kur’an’da hangi adla anılır?
+- Seçenekler: Berat Gecesi | Mirac Gecesi | Regaib Gecesi | Kadir Gecesi
+- Doğru cevap: Kadir Gecesi
+- Açıklama: Kadr Suresi, Kur’an’ın Kadir Gecesi’nde indirildiğini bildirir.
+
+**DEEN-U01-S06-X002** · Akıllı Tekrar · multiple_choice
+- Soru: Hz. Peygamber’e ilk iman eden kişi kimdir?
+- Seçenekler: Hz. Hatice | Hz. Ömer | Hz. Hamza | Hz. Osman
+- Doğru cevap: Hz. Hatice
+- Açıklama: Birçok kaynağa göre ilk iman eden Hz. Hatice’dir; ardından Ebû Bekir, Ali ve Zeyd iman etmiştir (TDV).
+
+**DEEN-U01-S06-X003** · Akıllı Tekrar · multiple_choice
+- Soru: Hicret, hangi şehirden hangi şehre yapılan göçtür?
+- Seçenekler: Kudüs’ten Mekke’ye | Mekke’den Taif’e | Mekke’den Medine’ye | Medine’den Mekke’ye
+- Doğru cevap: Mekke’den Medine’ye
+- Açıklama: Hz. Peygamber ve Müslümanlar, Mekke’deki baskılar sebebiyle Medine’ye hicret ettiler.
+
+**DEEN-U01-S06-X004** · Akıllı Tekrar · multiple_choice
+- Soru: Hicret miladî hangi yılda gerçekleşti?
+- Seçenekler: 622 | 632 | 570 | 710
+- Doğru cevap: 622
+- Açıklama: Hicret 622 yılında gerçekleşti; Hicrî takvim bu olayı başlangıç alır.
+
+**DEEN-U01-S06-X005** · Akıllı Tekrar · multiple_choice
+- Soru: Hz. Peygamber hicret yolunda Hz. Ebû Bekir’le birlikte hangi mağarada saklandı?
+- Seçenekler: Uhud Mağarası | Sevr Mağarası | Ashâb-ı Kehf Mağarası | Hira Mağarası
+- Doğru cevap: Sevr Mağarası
+- Açıklama: İkisi Sevr Mağarası’nda üç gün kaldıktan sonra Medine’ye doğru yola çıktı (Diyanet).
+
+**DEEN-U01-S07-X001** · Ünite Challenge · true_false
+- Soru: Doğru mu, yanlış mı? Hicrî takvimin başlangıcı olarak hicret olayı esas alınmıştır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Müslümanlar yıl sayımını Hz. Peygamber’in Mekke’den Medine’ye hicretiyle başlatmıştır.
+
+**DEEN-U01-S07-X002** · Ünite Challenge · multiple_choice
+- Soru: Hz. Muhammed hangi şehirde vefat etmiştir?
+- Seçenekler: Şam | Mekke | Taif | Medine
+- Doğru cevap: Medine
+- Açıklama: Hz. Muhammed 632 yılında Medine’de vefat etmiş ve orada defnedilmiştir.
+
+**DEEN-U01-S07-X003** · Ünite Challenge · true_false
+- Soru: Doğru mu, yanlış mı? Kur’an’a göre Hz. Muhammed peygamberlerin sonuncusudur.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Ahzâb 40’ta Hz. Muhammed’in “peygamberlerin sonuncusu” (hâtemü’n-nebiyyîn) olduğu bildirilir.
+
+**DEEN-U01-S02-X003** · Müslüman Kimdir? · multiple_choice
+- Soru: Kur’an-ı Kerim kaç sureden oluşur?
+- Seçenekler: 114 | 100 | 99 | 124
+- Doğru cevap: 114
+- Açıklama: Osman mushafına göre Kur’an’da 114 sure vardır (TDV).
+
+**DEEN-U01-S02-X004** · Müslüman Kimdir? · multiple_choice
+- Soru: Kur’an’ın en uzun suresi hangisidir?
+- Seçenekler: Yâsîn | Bakara | Kehf | Nisâ
+- Doğru cevap: Bakara
+- Açıklama: Bakara, 286 âyetiyle Kur’an’ın en uzun suresidir ve Medine döneminde inmiştir (Diyanet).
+
+**DEEN-U01-S03-X006** · Kavramları Eşleştir · multiple_choice
+- Soru: Bakara Suresi kaç âyettir?
+- Seçenekler: 114 | 6236 | 200 | 286
+- Doğru cevap: 286
+- Açıklama: Bakara Suresi 286 âyettir (Diyanet).
+
+**DEEN-U01-S03-X007** · Kavramları Eşleştir · true_false
+- Soru: Doğru mu, yanlış mı? Tevbe Suresi dışındaki bütün surelerin başında besmele bulunur.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Osman mushafında Tevbe dışındaki surelerin başında besmele yer alır (TDV).
+
+**DEEN-U01-S04-X004** · Günlük Hayat · true_false
+- Soru: Doğru mu, yanlış mı? Asr, Kevser ve Nasr Sureleri üçer âyetlik kısa surelerdir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Bu üç sure üçer âyetten oluşur; Kur’an’ın en kısa surelerindendir (TDV).
+
+**DEEN-U01-S02-X005** · Müslüman Kimdir? · true_false
+- Soru: Doğru mu, yanlış mı? Kur’an, Arapça olarak indirilmiştir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Yûsuf 12/2’de Kur’an’ın Arapça bir Kur’an olarak indirildiği bildirilir.
+
+**DEEN-U01-S04-X005** · Günlük Hayat · multiple_choice
+- Soru: Tevrat hangi peygambere indirilmiştir?
+- Seçenekler: Hz. Mûsâ | Hz. Îsâ | Hz. İbrâhim | Hz. Dâvûd
+- Doğru cevap: Hz. Mûsâ
+- Açıklama: Tevrat Hz. Mûsâ’ya, Zebur Hz. Dâvûd’a, İncil Hz. Îsâ’ya, Kur’an ise Hz. Muhammed’e indirilmiştir.
+
+**DEEN-U01-S04-X006** · Günlük Hayat · multiple_choice
+- Soru: Zebur hangi peygambere indirilmiştir?
+- Seçenekler: Hz. Dâvûd | Hz. Nûh | Hz. Îsâ | Hz. Mûsâ
+- Doğru cevap: Hz. Dâvûd
+- Açıklama: Zebur, Hz. Dâvûd’a indirilen kutsal kitaptır.
+
+**DEEN-U01-S04-X007** · Günlük Hayat · multiple_choice
+- Soru: İncil hangi peygambere indirilmiştir?
+- Seçenekler: Hz. Mûsâ | Hz. Muhammed | Hz. Dâvûd | Hz. Îsâ
+- Doğru cevap: Hz. Îsâ
+- Açıklama: İncil, Hz. Îsâ’ya indirilen kutsal kitaptır.
+
+**DEEN-U01-S04-X008** · Günlük Hayat · multiple_choice
+- Soru: İslam inancına göre ilk peygamber kimdir?
+- Seçenekler: Hz. Mûsâ | Hz. Âdem | Hz. İbrâhim | Hz. Nûh
+- Doğru cevap: Hz. Âdem
+- Açıklama: İslam inancına göre ilk insan ve ilk peygamber Hz. Âdem’dir.
+
+**DEEN-U01-S05-X009** · Bildiklerini Kullan · true_false
+- Soru: Doğru mu, yanlış mı? Bütün peygamberler Allah’ın birliğini tebliğ etmiştir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Enbiyâ 21/25’te her peygambere “benden başka ilah yoktur, bana kulluk edin” vahyedildiği bildirilir.
+
+**DEEN-U01-S06-X006** · Akıllı Tekrar · multiple_choice
+- Soru: Kur’an’a göre insanlar ve cinler ne için yaratılmıştır?
+- Seçenekler: Yalnızca mal biriktirmeleri için | Allah’a kulluk etmeleri için | Yalnızca eğlenmeleri için | Birbirlerinden ayrılmaları için
+- Doğru cevap: Allah’a kulluk etmeleri için
+- Açıklama: Zâriyât 51/56’da Allah, insanları ve cinleri kendisine kulluk etsinler diye yarattığını bildirir.
+
+**DEEN-U01-S02-X006** · Müslüman Kimdir? · true_false
+- Soru: Doğru mu, yanlış mı? Kur’an’a göre mü’minler birbirinin kardeşidir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hucurât 49/10: “Mü’minler ancak kardeştirler.”
+
+**DEEN-U01-S03-X008** · Kavramları Eşleştir · true_false
+- Soru: Doğru mu, yanlış mı? Dil, ırk veya kavim farkı, iman kardeşliğini ortadan kaldırmaz.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Diyanet’e göre iman bağıyla birleşenler kardeştir; dil, ırk ya da kavim farkı bu kardeşliği ortadan kaldırmaz.
+
+**DEEN-U01-S04-X009** · Günlük Hayat · true_false
+- Soru: Doğru mu, yanlış mı? Hz. Peygamber, güzel ahlâkı tamamlamak için gönderildiğini bildirmiştir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: “Ben ancak güzel ahlâkı tamamlamak için gönderildim” hadisi Muvatta ve Müsned’de geçer.
+
+**DEEN-U01-S05-X010** · Bildiklerini Kullan · true_false
+- Soru: Doğru mu, yanlış mı? Kur’an, Hz. Peygamber’e “Sen elbette yüce bir ahlâk üzeresin” diye hitap eder.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Kalem 68/4’te bu hitap yer alır; Diyanet tefsirinde “yüce ahlâk” Kur’an ahlâkı olarak açıklanır.
+
+**DEEN-U01-S06-X007** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Hadise göre Müslüman, diğer insanların elinden ve dilinden güvende olduğu kimsedir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Buhârî ve Müslim’de geçen hadise göre Müslüman, dilinden ve elinden insanların güvende olduğu kimsedir.
+
+**DEEN-U01-S06-X008** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Hadise göre “din samimiyettir (nasihattir)”.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Müslim’de geçen hadis, dinin özünün samimiyet ve öğüt olduğunu vurgular.
+
+**DEEN-U01-S07-X004** · Ünite Challenge · multiple_choice
+- Soru: Hadiste mü’minlerin birbirine karşı durumu neye benzetilir?
+- Seçenekler: Birbirini destekleyen bir binaya | Rüzgârda savrulan yapraklara | Birbirinden ayrı adalara | Yarışan atlara
+- Doğru cevap: Birbirini destekleyen bir binaya
+- Açıklama: Hadise göre mü’min mü’mine karşı, parçaları birbirini destekleyen bir bina gibidir (Buhârî, Müslim).
+
+**DEEN-U01-S06-X009** · Akıllı Tekrar · multiple_choice
+- Soru: Medine’nin hicretten önceki adı nedir?
+- Seçenekler: Hayber | Yesrib | Bedir | Taif
+- Doğru cevap: Yesrib
+- Açıklama: Medine’nin eski adı Yesrib’dir; Hz. Peygamber’in hicretinden sonra “Medînetü’n-Nebî” diye anılmıştır.
+
+**DEEN-U01-S07-X005** · Ünite Challenge · multiple_choice
+- Soru: Hz. Peygamber’den sonra ilk halife kimdir?
+- Seçenekler: Hz. Ebû Bekir | Hz. Ali | Hz. Osman | Hz. Ömer
+- Doğru cevap: Hz. Ebû Bekir
+- Açıklama: Hz. Peygamber’in vefatından sonra ilk halife Hz. Ebû Bekir olmuştur.
+
 ## U02 — allaha_iman (50 soru)
 
 **DEEN-U02-S01-X001** · Allah'a İman Nedir? · multiple_choice
