@@ -87,6 +87,11 @@ EN = [
  ('Which aspect of Islam does the shahada express most concisely?', 'The foundation of faith and belonging', ['Only the hajj rites', 'Trade contracts', 'Inheritance shares'], 'The shahada concisely sets out the foundation of faith and belonging in Islam.', 'The shahada'),
  ('Which attitude is needed to understand the shahada correctly?', 'Grasping the meaning and requirements of its words', ['Looking only at the sound', 'Mixing it with other beliefs', 'Changing its meaning'], 'To understand the shahada correctly one must grasp its meaning and requirements.', 'The shahada'),
  ('The shahada is known as a testimony made of which two statements?', 'God’s oneness and Muhammad’s messengership', ['The time of fasting and hajj', 'The amount of prayer and zakat', 'The names of angels and books'], 'The shahada consists of two testimonies: God’s oneness and Muhammad’s messengership.', 'The shahada'),
+ ('What does the name “Muhammad” mean?', 'The much-praised', ['The very strong', 'The very rich', 'The very old'], '“Muhammad” means “the much-praised”.', 'The shahada'),
+ ('In what sense is the word “ilah” used in the shahada?', 'The being worthy of worship', ['Only an angel', 'Only a prophet', 'Only a king'], '“Ilah” means the being worthy of worship; the shahada affirms this for God alone.', 'The shahada'),
+ ('What is the basic step for entering Islam?', 'Saying the shahada with understanding and affirming it in the heart', ['Paying a fee', 'Attending a certain ceremony', 'Migrating to a city'], 'Entering Islam is by affirming the shahada in the heart and declaring it.', 'The shahada'),
+ ('Do the sentences of the shahada occur in the adhan?', 'Yes; the shahada phrases are recited in the adhan', ['No; they never occur', 'Only in the Friday adhan', 'Only in the iqama'], 'The adhan includes “Ashhadu an la ilaha illallah” and “Ashhadu anna Muhammadan rasulullah”.', 'The shahada'),
+ ('How can someone who does not know Arabic express the meaning of the shahada in their own language?', 'They may also say it in their own language knowing its meaning; its original wording is Arabic', ['They cannot say it', 'They say it according to another faith', 'They say it only in writing'], 'One who knows its meaning can also express the shahada in their own language, though its original wording is Arabic.', 'The shahada'),
 ]
 
 DE = [
@@ -177,6 +182,11 @@ DE = [
  ('Welchen Aspekt des Islam bringt die Schahada am knappsten zum Ausdruck?', 'Das Fundament von Glaube und Zugehörigkeit', ['Nur die Hadsch-Riten', 'Handelsverträge', 'Erbanteile'], 'Die Schahada bringt das Fundament von Glaube und Zugehörigkeit im Islam knapp zum Ausdruck.', 'Die Schahada'),
  ('Welche Haltung ist nötig, um die Schahada richtig zu verstehen?', 'Bedeutung und Anforderungen ihrer Worte zu erfassen', ['Nur auf den Klang zu achten', 'Sie mit anderen Glaubensinhalten zu vermischen', 'Ihre Bedeutung zu verändern'], 'Um die Schahada richtig zu verstehen, muss man Bedeutung und Anforderungen erfassen.', 'Die Schahada'),
  ('Aus welchen zwei Aussagen besteht das Zeugnis der Schahada?', 'Gottes Einheit und Muhammads Gesandtschaft', ['Zeit von Fasten und Hadsch', 'Menge von Gebet und Zakat', 'Namen der Engel und Bücher'], 'Die Schahada besteht aus zwei Zeugnissen: Gottes Einheit und Muhammads Gesandtschaft.', 'Die Schahada'),
+ ('Was bedeutet der Name „Muhammad“?', 'Der Vielgepriesene', ['Der Sehr-Starke', 'Der Sehr-Reiche', 'Der Sehr-Alte'], '„Muhammad“ bedeutet „der Vielgepriesene“.', 'Die Schahada'),
+ ('In welchem Sinn wird das Wort „Ilah“ in der Schahada gebraucht?', 'Das der Anbetung würdige Wesen', ['Nur ein Engel', 'Nur ein Prophet', 'Nur ein König'], '„Ilah“ bedeutet das der Anbetung würdige Wesen; die Schahada bejaht dies allein für Gott.', 'Die Schahada'),
+ ('Was ist der grundlegende Schritt zum Eintritt in den Islam?', 'Die Schahada verständig zu sprechen und im Herzen zu bejahen', ['Eine Gebühr zu zahlen', 'An einer bestimmten Zeremonie teilzunehmen', 'In eine Stadt auszuwandern'], 'Der Eintritt in den Islam geschieht durch die Bejahung der Schahada im Herzen und ihr Bekenntnis.', 'Die Schahada'),
+ ('Kommen die Sätze der Schahada im Adhan vor?', 'Ja; die Schahada-Sätze werden im Adhan gesprochen', ['Nein; sie kommen nie vor', 'Nur im Freitags-Adhan', 'Nur in der Iqama'], 'Der Adhan enthält „Aschhadu an la ilaha illallah“ und „Aschhadu anna Muhammadan rasulullah“.', 'Die Schahada'),
+ ('Wie kann jemand ohne Arabischkenntnisse den Sinn der Schahada in seiner Sprache ausdrücken?', 'Er kann sie in Kenntnis des Sinnes auch in der eigenen Sprache sprechen; ihr Urwortlaut ist arabisch', ['Er kann sie nicht sprechen', 'Er spricht sie nach einem anderen Glauben', 'Er spricht sie nur schriftlich'], 'Wer ihren Sinn kennt, kann die Schahada auch in der eigenen Sprache ausdrücken; ihr Urwortlaut ist arabisch.', 'Die Schahada'),
 ]
 
 FR = [
@@ -267,6 +277,11 @@ FR = [
  ('Quel aspect de l’islam la chahada exprime-t-elle le plus succinctement ?', 'Le fondement de la foi et de l’appartenance', ['Seulement les rites du hajj', 'Les contrats commerciaux', 'Les parts d’héritage'], 'La chahada pose de façon concise le fondement de la foi et de l’appartenance en islam.', 'La chahada'),
  ('Quelle attitude faut-il pour bien comprendre la chahada ?', 'Saisir le sens et les exigences de ses mots', ['Ne regarder que le son', 'La mélanger à d’autres croyances', 'En changer le sens'], 'Pour bien comprendre la chahada, il faut en saisir le sens et les exigences.', 'La chahada'),
  ('La chahada est connue comme un témoignage composé de quelles deux phrases ?', 'L’unicité de Dieu et la mission de Muhammad', ['Le temps du jeûne et du hajj', 'Le nombre de prières et de la zakat', 'Les noms des anges et des livres'], 'La chahada se compose de deux témoignages : l’unicité de Dieu et la mission de Muhammad.', 'La chahada'),
+ ('Que signifie le nom « Muhammad » ?', 'Le très loué', ['Le très fort', 'Le très riche', 'Le très âgé'], '« Muhammad » signifie « le très loué ».', 'La chahada'),
+ ('En quel sens le mot « ilah » est-il employé dans la chahada ?', 'L’être digne d’adoration', ['Seulement un ange', 'Seulement un prophète', 'Seulement un roi'], '« Ilah » signifie l’être digne d’adoration ; la chahada l’affirme pour Dieu seul.', 'La chahada'),
+ ('Quelle est l’étape de base pour entrer en islam ?', 'Prononcer la chahada en la comprenant et l’affirmer dans le cœur', ['Payer des frais', 'Assister à une cérémonie', 'Émigrer vers une ville'], 'L’entrée en islam se fait en affirmant la chahada dans le cœur et en la déclarant.', 'La chahada'),
+ ('Les phrases de la chahada figurent-elles dans l’adhan ?', 'Oui ; les phrases de la chahada y sont récitées', ['Non ; elles n’y figurent jamais', 'Seulement dans l’adhan du vendredi', 'Seulement dans l’iqama'], 'L’adhan comprend « Ashhadu an la ilaha illallah » et « Ashhadu anna Muhammadan rasulullah ».', 'La chahada'),
+ ('Comment une personne ne connaissant pas l’arabe peut-elle exprimer le sens de la chahada dans sa langue ?', 'Elle peut aussi la dire dans sa langue en connaissant son sens ; sa formulation originale est arabe', ['Elle ne peut pas la dire', 'Elle la dit selon une autre foi', 'Elle la dit seulement par écrit'], 'Celui qui en connaît le sens peut aussi exprimer la chahada dans sa langue, bien que sa formulation originale soit arabe.', 'La chahada'),
 ]
 
 AR = [
@@ -357,6 +372,11 @@ AR = [
  ('أي جانب من الإسلام تعبّر عنه الشهادة بإيجاز؟', 'أساس الإيمان والانتماء', ['مناسك الحج فقط', 'عقود التجارة', 'أنصبة الميراث'], 'الشهادة تبيّن بإيجاز أساس الإيمان والانتماء في الإسلام.', 'الشهادتان'),
  ('أي موقف يلزم لفهم الشهادة فهماً صحيحاً؟', 'إدراك معاني ألفاظها ومقتضياتها', ['النظر إلى تشابه الأصوات فقط', 'خلطها بمعتقدات أخرى', 'تغيير معناها'], 'لفهم الشهادة فهماً صحيحاً لا بد من إدراك معناها ومقتضاها.', 'الشهادتان'),
  ('ما الجملتان اللتان تتكون منهما شهادة الإسلام؟', 'وحدانية الله ورسالة محمد ﷺ', ['وقت الصوم والحج', 'مقدار الصلاة والزكاة', 'أسماء الملائكة والكتب'], 'الشهادة شهادتان: بوحدانية الله وبرسالة محمد ﷺ.', 'الشهادتان'),
+ ('ما معنى اسم «محمد»؟', 'كثير الحمد والثناء', ['شديد القوة', 'كثير المال', 'طويل العمر'], '«محمد» معناه كثير الحمد والمحمود.', 'الشهادتان'),
+ ('بأي معنى تُستعمل كلمة «إله» في الشهادة؟', 'المعبود المستحق للعبادة', ['الملك فقط', 'النبي فقط', 'الحاكم فقط'], '«الإله» هو المعبود المستحق للعبادة، وتثبته الشهادة لله وحده.', 'الشهادتان'),
+ ('ما الخطوة الأساسية للدخول في الإسلام؟', 'النطق بالشهادتين بفهم وتصديقهما بالقلب', ['دفع رسوم', 'حضور احتفال معين', 'الهجرة إلى مدينة'], 'يتم الدخول في الإسلام بتصديق الشهادتين بالقلب والإقرار بهما.', 'الشهادتان'),
+ ('هل ترد جمل الشهادتين في الأذان؟', 'نعم، تُقرأ الشهادتان في الأذان', ['لا، لا ترد أبداً', 'في أذان الجمعة فقط', 'في الإقامة فقط'], 'في الأذان «أشهد أن لا إله إلا الله» و«أشهد أن محمداً رسول الله».', 'الشهادتان'),
+ ('كيف يعبّر من لا يعرف العربية عن معنى الشهادة بلغته؟', 'يقولها بلغته أيضاً مع معرفة معناها، وأصل لفظها عربي', ['لا يستطيع قولها', 'يقولها بحسب عقيدة أخرى', 'يقولها كتابةً فقط'], 'من يعرف معناها يعبّر عنها بلغته أيضاً وإن كان أصل لفظها عربياً.', 'الشهادتان'),
 ]
 
 I18N = {'en': EN, 'de': DE, 'fr': FR, 'ar': AR}
