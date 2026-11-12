@@ -994,7 +994,7 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Doğru cevap: Ümmet bilinci ve eşitlik
 - Açıklama: Hacda herkes aynı ihramla aynı yerde bulunur; bu ümmet bilincini ve eşitliği hatırlatır.
 
-## U05 — imanin_esaslarina_giris (11 soru)
+## U05 — imanin_esaslarina_giris (31 soru)
 
 **DEEN-U05-S01-X001** · İman Ne Demektir? · true_false
 - Soru: Doğru mu, yanlış mı? Âmentü, imanın altı esasını sıralayan iman ifadesidir.
@@ -1061,6 +1061,126 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Seçenekler: Allah’ı andım | Allah’a şükrettim | Allah’tan korktum | Allah’a iman ettim
 - Doğru cevap: Allah’a iman ettim
 - Açıklama: “Âmentü billâh”, “Allah’a iman ettim” demektir.
+
+**DEEN-U05-S01-X003** · İman Ne Demektir? · multiple_choice
+- Soru: İmanın şartları kaç tanedir?
+- Seçenekler: Sekiz | Beş | Altı | Yedi
+- Doğru cevap: Altı
+- Açıklama: İmanın şartları altıdır: Allah, melekler, kitaplar, peygamberler, ahiret ve kader.
+
+**DEEN-U05-S01-X004** · İman Ne Demektir? · multiple_choice
+- Soru: İmanın şartlarından ilki hangisidir?
+- Seçenekler: Allah’a iman | Kitaplara iman | Kadere iman | Ahirete iman
+- Doğru cevap: Allah’a iman
+- Açıklama: İmanın ilk şartı Allah’a imandır.
+
+**DEEN-U05-S02-X003** · Altı Esası Tanı · multiple_choice
+- Soru: Meleklere iman, imanın kaçıncı şartı olarak sıralanır?
+- Seçenekler: Dördüncü | Altıncı | Birinci | İkinci
+- Doğru cevap: İkinci
+- Açıklama: Sıralama: Allah, melekler, kitaplar, peygamberler, ahiret, kader.
+
+**DEEN-U05-S02-X004** · Altı Esası Tanı · multiple_choice
+- Soru: Kitaplara iman, imanın şartları arasında hangi sıradadır?
+- Seçenekler: Birinci | Beşinci | Üçüncü | Altıncı
+- Doğru cevap: Üçüncü
+- Açıklama: Kitaplara iman üçüncü sıradadır.
+
+**DEEN-U05-S03-X003** · Kavramları Ayır · multiple_choice
+- Soru: Peygamberlere iman, imanın şartları arasında hangi sıradadır?
+- Seçenekler: Altıncı | Dördüncü | İkinci | Üçüncü
+- Doğru cevap: Dördüncü
+- Açıklama: Peygamberlere iman dördüncü sıradadır.
+
+**DEEN-U05-S03-X004** · Kavramları Ayır · multiple_choice
+- Soru: Ahiret gününe iman, imanın şartları arasında hangi sıradadır?
+- Seçenekler: İkinci | Dördüncü | Beşinci | Altıncı
+- Doğru cevap: Beşinci
+- Açıklama: Ahiret gününe iman beşinci sıradadır.
+
+**DEEN-U05-S04-X002** · Şart mı, İman Esası mı? · multiple_choice
+- Soru: Kader ve kazaya iman, imanın şartları arasında hangi sıradadır?
+- Seçenekler: Birinci | Beşinci | Altıncı | Üçüncü
+- Doğru cevap: Altıncı
+- Açıklama: Kader ve kazaya iman, sıralamanın sonuncusudur.
+
+**DEEN-U05-S04-X003** · Şart mı, İman Esası mı? · multiple_choice
+- Soru: İman esaslarının ortak özelliği hangisidir?
+- Seçenekler: Sadece ibadet hareketlerini anlatmak | Gayba ve vahyin bildirdiği hakikatlere inanmayı kapsaması | Sadece ahlaki kurallardan oluşmak | Yalnızca görülen nesnelere inanmak
+- Doğru cevap: Gayba ve vahyin bildirdiği hakikatlere inanmayı kapsaması
+- Açıklama: İman esasları, gayba ve vahyin bildirdiği hakikatlere inanmayı kapsar.
+
+**DEEN-U05-S05-X003** · Günlük Hayatta Kavramlar · multiple_choice
+- Soru: İman ile İslam kavramları arasındaki ilişki için hangisi doğrudur?
+- Seçenekler: Hiçbir ortak yönleri yoktur | İkisi de yalnızca hac anlamına gelir | Birbirini tamamlayan, bağlantılı kavramlardır | Birbirinin tam karşıtıdır
+- Doğru cevap: Birbirini tamamlayan, bağlantılı kavramlardır
+- Açıklama: İman kalpteki tasdik, İslam ise teslimiyet ve ibadettir; birbirini tamamlarlar.
+
+**DEEN-U05-S05-X004** · Günlük Hayatta Kavramlar · multiple_choice
+- Soru: İman esaslarının temel kaynağı hangisidir?
+- Seçenekler: Kur’an ve sahih sünnet | Mitolojik hikâyeler | Kişisel tahminler | Siyasi sloganlar
+- Doğru cevap: Kur’an ve sahih sünnet
+- Açıklama: İman esasları Kur’an ve sahih sünnetle bildirilir.
+
+**DEEN-U05-S04-X004** · Şart mı, İman Esası mı? · multiple_choice
+- Soru: İman esaslarını kabul etmek neyi gerektirir?
+- Seçenekler: Maddi zenginliği | Her konuda uzman olmayı | Kalben tasdik etmeyi | Sadece ezberlemeyi
+- Doğru cevap: Kalben tasdik etmeyi
+- Açıklama: İman esaslarını kabul etmek, kalben tasdik etmeyi gerektirir.
+
+**DEEN-U05-S05-X005** · Günlük Hayatta Kavramlar · multiple_choice
+- Soru: Ahirete iman hangi düşünceyi güçlendirir?
+- Seçenekler: Ölümün yok sayılmasını | Hesap ve sorumluluk bilincini | İyilik ve kötülüğün anlamsızlığını | Dünyada sınırsızlık fikrini
+- Doğru cevap: Hesap ve sorumluluk bilincini
+- Açıklama: Ahirete iman, hesap vereceğini bilerek sorumluluk bilincini güçlendirir.
+
+**DEEN-U05-S05-X006** · Günlük Hayatta Kavramlar · multiple_choice
+- Soru: Kitaplara iman hangi inancı kapsar?
+- Seçenekler: Bütün kitapların aynı metin olduğunu iddia etmeyi | Allah’ın peygamberlerine vahiy kitapları gönderdiğini kabul etmeyi | İnsan yazımı her eseri vahiy saymayı | Vahyin bulunmadığını kabul etmeyi
+- Doğru cevap: Allah’ın peygamberlerine vahiy kitapları gönderdiğini kabul etmeyi
+- Açıklama: Kitaplara iman, Allah’ın peygamberlerine kitaplar indirdiğine inanmayı kapsar.
+
+**DEEN-U05-S06-X002** · Kısım Öncesi Akıllı Tekrar · multiple_choice
+- Soru: Kader inancı hangi konuyla ilişkilidir?
+- Seçenekler: Allah’ın ilmi ve takdiriyle | Yalnızca insanın geçmişiyle | Sadece mevsimlerle | Yalnızca ekonomik planlamayla
+- Doğru cevap: Allah’ın ilmi ve takdiriyle
+- Açıklama: Kader inancı Allah’ın ilmi ve takdiriyle ilgilidir.
+
+**DEEN-U05-S06-X003** · Kısım Öncesi Akıllı Tekrar · multiple_choice
+- Soru: İmanın esasları arasında hangisi bulunmaz?
+- Seçenekler: Meleklere iman | Kitaplara iman | Fal ve uğur nesnelerine inanmak | Ahirete iman
+- Doğru cevap: Fal ve uğur nesnelerine inanmak
+- Açıklama: Fal ve uğur nesnelerine inanmak imanın esaslarından değildir.
+
+**DEEN-U05-S06-X004** · Kısım Öncesi Akıllı Tekrar · multiple_choice
+- Soru: İman esasları birbiriyle nasıl ilişkilidir?
+- Seçenekler: Yalnızca biri kabul edilir | Birbirini geçersiz kılarlar | Bir bütün oluştururlar | Sadece tarihsel bilgi sayılırlar
+- Doğru cevap: Bir bütün oluştururlar
+- Açıklama: İman esasları birbirini tamamlayan bir bütündür.
+
+**DEEN-U05-S07-X002** · İman Esasları Challenge · multiple_choice
+- Soru: İman esaslarının öğrenilmesinde en sağlıklı yöntem hangisidir?
+- Seçenekler: Kavramları birbirine karıştırmak | Kaynakları incelememek | Sadece kulaktan dolma bilgiye dayanmak | Güvenilir kaynaklardan anlamlarıyla öğrenmek
+- Doğru cevap: Güvenilir kaynaklardan anlamlarıyla öğrenmek
+- Açıklama: En sağlıklı yol, güvenilir kaynaklardan anlayarak öğrenmektir.
+
+**DEEN-U05-S07-X003** · İman Esasları Challenge · multiple_choice
+- Soru: İmanın kalple tasdik boyutu neyi ifade eder?
+- Seçenekler: Yalnızca yazılı sınavı geçmeyi | İnsanların beğenisini kazanmayı | İnanılan hakikatleri içten kabul etmeyi | Sadece yüksek sesle konuşmayı
+- Doğru cevap: İnanılan hakikatleri içten kabul etmeyi
+- Açıklama: Kalple tasdik, inanılan hakikatleri içten kabul etmektir.
+
+**DEEN-U05-S07-X004** · İman Esasları Challenge · multiple_choice
+- Soru: İslam akaidinde “gayb” ne anlama gelir?
+- Seçenekler: Duyularla doğrudan algılanamayan alan | Sadece geçmişte yaşanan olay | Herkesin gözlemlediği nesne | Yalnızca coğrafi bölge
+- Doğru cevap: Duyularla doğrudan algılanamayan alan
+- Açıklama: Gayb, duyularla doğrudan algılanamayan, vahiyle haber verilen alandır.
+
+**DEEN-U05-S07-X005** · İman Esasları Challenge · multiple_choice
+- Soru: İmanın şartları hangi hadisle meşhur biçimde açıklanmıştır?
+- Seçenekler: Ezan hadisi | Komşuluk hadisi | Cibril hadisi | Misvak hadisi
+- Doğru cevap: Cibril hadisi
+- Açıklama: İmanın şartları Cibril hadisinde sayılır.
 
 ## U11 — ibadet_bilinci (48 soru)
 
