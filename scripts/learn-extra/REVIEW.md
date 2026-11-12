@@ -878,7 +878,7 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Doğru cevap: Allah’ın birliği ve Hz. Muhammed’in risaleti
 - Açıklama: Şehadet, Allah’ın birliğine ve Hz. Muhammed’in risaletine iki tanıklıktan oluşur.
 
-## U04 — islamin_bes_sarti (19 soru)
+## U04 — islamin_bes_sarti (50 soru)
 
 **DEEN-U04-S01-X001** · Beş Şartı Tanı · multiple_choice
 - Soru: İslam’ın beş şartından hangisi mali ibadettir?
@@ -993,6 +993,192 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Seçenekler: Maddi zenginlik | Soyla ayrıcalık | Ümmet bilinci ve eşitlik | Irk üstünlüğü
 - Doğru cevap: Ümmet bilinci ve eşitlik
 - Açıklama: Hacda herkes aynı ihramla aynı yerde bulunur; bu ümmet bilincini ve eşitliği hatırlatır.
+
+**DEEN-U04-S01-X004** · Beş Şartı Tanı · multiple_choice
+- Soru: Aşağıdakilerden hangisi günlük beş vakit namazdan biri değildir?
+- Seçenekler: Öğle | İkindi | Yatsı | Duhâ
+- Doğru cevap: Duhâ
+- Açıklama: Beş vakit namaz sabah, öğle, ikindi, akşam ve yatsıdır; duhâ nafiledir.
+
+**DEEN-U04-S01-X005** · Beş Şartı Tanı · multiple_choice
+- Soru: Cuma namazı ne sıklıkla kılınır?
+- Seçenekler: Yılda bir | Ayda bir | Her gün | Haftada bir, cuma günü öğle vaktinde
+- Doğru cevap: Haftada bir, cuma günü öğle vaktinde
+- Açıklama: Cuma namazı haftada bir, cuma günü öğle vaktinde kılınır.
+
+**DEEN-U04-S01-X006** · Beş Şartı Tanı · multiple_choice
+- Soru: Altın, gümüş ve para zekâtında verilecek miktar nedir?
+- Seçenekler: Yüzde elli | Binde bir | Onda bir | Kırkta bir (yüzde iki buçuk)
+- Doğru cevap: Kırkta bir (yüzde iki buçuk)
+- Açıklama: Nisaba ulaşan altın, para ve ticaret mallarından kırkta bir (yüzde 2,5) zekât verilir.
+
+**DEEN-U04-S01-X007** · Beş Şartı Tanı · multiple_choice
+- Soru: Diyanet’e göre altının zekât nisabı yaklaşık kaç gramdır?
+- Seçenekler: 800 gram | 80,18 gram (20 miskal) | 1 gram | 8 gram
+- Doğru cevap: 80,18 gram (20 miskal)
+- Açıklama: Diyanet, altının nisabını 80,18 gram (20 miskal) olarak esas alır.
+
+**DEEN-U04-S02-X004** · Şehadet ve Namaz · multiple_choice
+- Soru: Nisap neyi ifade eder?
+- Seçenekler: Zekât vermenin farz olması için gereken asgari mal miktarı | Zekâtın verileceği kişi sayısı | Hac mesafesi | Zekât verme zamanı
+- Doğru cevap: Zekât vermenin farz olması için gereken asgari mal miktarı
+- Açıklama: Nisap, zekâtın farz olması için gereken asgari mal miktarıdır.
+
+**DEEN-U04-S02-X005** · Şehadet ve Namaz · multiple_choice
+- Soru: Nisaba ulaşan malın zekâtı, üzerinden ne kadar zaman geçince farz olur?
+- Seçenekler: Bir hafta | On yıl | Bir ay | Bir kamerî yıl
+- Doğru cevap: Bir kamerî yıl
+- Açıklama: Nisaba ulaşan malın üzerinden bir yıl geçmesi gerekir.
+
+**DEEN-U04-S02-X006** · Şehadet ve Namaz · multiple_choice
+- Soru: Zekât Tevbe Suresi’ne göre kaç sınıfa verilebilir?
+- Seçenekler: Üç | Sekiz | Beş | Oniki
+- Doğru cevap: Sekiz
+- Açıklama: Tevbe 60’ta zekâtın verileceği sekiz sınıf sayılır.
+
+**DEEN-U04-S02-X007** · Şehadet ve Namaz · multiple_choice
+- Soru: Zekât aşağıdakilerden hangisine verilmez?
+- Seçenekler: Kişinin kendi annesine ve babasına | Fakirlere | Borçlulara | Yolda kalmışlara
+- Doğru cevap: Kişinin kendi annesine ve babasına
+- Açıklama: Kişi zekâtını kendi anne-babasına ve çocuklarına veremez.
+
+**DEEN-U04-S03-X003** · Oruç, Zekât ve Hac · multiple_choice
+- Soru: Hanefî mezhebine göre fitre en geç ne zamana kadar verilmelidir?
+- Seçenekler: Yılın sonuna kadar | Hac mevsimine kadar | Kurban Bayramı’na kadar | Bayram namazından önce vermek müstehaptır
+- Doğru cevap: Bayram namazından önce vermek müstehaptır
+- Açıklama: Fitrenin Ramazan Bayramı namazından önce verilmesi müstehaptır.
+
+**DEEN-U04-S03-X004** · Oruç, Zekât ve Hac · multiple_choice
+- Soru: İftarı vaktinde yapmak hakkında hadis ne bildirir?
+- Seçenekler: İftar gece yarısı yapılır | İftarın vakti önemli değildir | İnsanlar iftarı acele ettikçe hayır üzere olurlar | İftar mümkün olduğunca geciktirilir
+- Doğru cevap: İnsanlar iftarı acele ettikçe hayır üzere olurlar
+- Açıklama: Hadise göre insanlar iftarı vaktinde acele ettikçe hayır üzere olurlar (Buhârî, Müslim).
+
+**DEEN-U04-S03-X005** · Oruç, Zekât ve Hac · multiple_choice
+- Soru: Sahur yapmak hakkında hangisi doğrudur?
+- Seçenekler: Sahur yalnızca hastalar içindir | Sahur orucu bozar | Sahur yapmak sünnettir ve bereketlidir | Sahur yapmak haramdır
+- Doğru cevap: Sahur yapmak sünnettir ve bereketlidir
+- Açıklama: Hadise göre sahurda bereket vardır; sahur yapmak sünnettir.
+
+**DEEN-U04-S03-X006** · Oruç, Zekât ve Hac · multiple_choice
+- Soru: Hac ibadeti hicrî takvimin hangi ayında yapılır?
+- Seçenekler: Zilhicce ayında | Receb ayında | Muharrem ayında | Ramazan ayında
+- Doğru cevap: Zilhicce ayında
+- Açıklama: Hac, Zilhicce ayının belirli günlerinde yapılır.
+
+**DEEN-U04-S04-X003** · Kavramları Eşleştir · multiple_choice
+- Soru: Hanefî mezhebinde teravih namazı kaç rekâttır?
+- Seçenekler: Dört rekât | Yirmi rekât | Kırk rekât | İki rekât
+- Doğru cevap: Yirmi rekât
+- Açıklama: Hanefî mezhebinde teravih yirmi rekâttır.
+
+**DEEN-U04-S04-X004** · Kavramları Eşleştir · multiple_choice
+- Soru: Erkeklerin hacda ihram olarak giydiği giysi nasıldır?
+- Seçenekler: Dikişli takım elbise | Siyah pelerin | Kürk ve deri | Dikişsiz iki parça beyaz bez (izar ve rida)
+- Doğru cevap: Dikişsiz iki parça beyaz bez (izar ve rida)
+- Açıklama: Erkekler ihramda dikişsiz iki parça bez (izar ve rida) giyer.
+
+**DEEN-U04-S04-X005** · Kavramları Eşleştir · multiple_choice
+- Soru: Hacda ihrama giren kişinin okuduğu söz hangisidir?
+- Seçenekler: Tesbih | Ezan | Telbiye (“Lebbeyk Allâhümme lebbeyk…”) | Kamet
+- Doğru cevap: Telbiye (“Lebbeyk Allâhümme lebbeyk…”)
+- Açıklama: İhrama giren kişi “Lebbeyk Allâhümme lebbeyk…” diyerek telbiye getirir.
+
+**DEEN-U04-S04-X006** · Kavramları Eşleştir · multiple_choice
+- Soru: Hacda Arafat vakfesi Zilhiccenin kaçıncı günü yapılır?
+- Seçenekler: Birinci günü | Üçüncü günü | Dokuzuncu günü | On beşinci günü
+- Doğru cevap: Dokuzuncu günü
+- Açıklama: Arafat vakfesi Zilhicce’nin dokuzuncu günü (arefe) yapılır.
+
+**DEEN-U04-S04-X007** · Kavramları Eşleştir · multiple_choice
+- Soru: Hanefî mezhebinde Müzdelife vakfesi hangi hükümdedir?
+- Seçenekler: Farzdır | Vaciptir | Mekruhtur | Haramdır
+- Doğru cevap: Vaciptir
+- Açıklama: Hanefîlere göre Müzdelife vakfesi vaciptir; Arafat vakfesi ise farzdır.
+
+**DEEN-U04-S04-X008** · Kavramları Eşleştir · multiple_choice
+- Soru: Hanefî mezhebinde haccın farzlarından biri olan tavaf hangisidir?
+- Seçenekler: Kudüm tavafı | Veda tavafı | Nafile tavaf | Ziyaret tavafı
+- Doğru cevap: Ziyaret tavafı
+- Açıklama: Hacda farz olan tavaf, Arafat vakfesinden sonra yapılan ziyaret tavafıdır.
+
+**DEEN-U04-S05-X004** · Hangisi Hangi Şart? · multiple_choice
+- Soru: Kâbe etrafında tavaf kaç defa dönülerek yapılır?
+- Seçenekler: On defa | Beş defa | Yedi defa | Üç defa
+- Doğru cevap: Yedi defa
+- Açıklama: Tavaf, Kâbe etrafında yedi defa dönülerek yapılır.
+
+**DEEN-U04-S05-X005** · Hangisi Hangi Şart? · multiple_choice
+- Soru: Safa ile Merve arasındaki sa’y kaç defa gidip gelinerek yapılır?
+- Seçenekler: Yedi defa | İki defa | Dokuz defa | Dört defa
+- Doğru cevap: Yedi defa
+- Açıklama: Sa’y, Safa ile Merve arasında yedi defa gidip gelinerek yapılır.
+
+**DEEN-U04-S05-X006** · Hangisi Hangi Şart? · multiple_choice
+- Soru: Kâbe’nin köşesinde bulunan ve tavafın başladığı yer kabul edilen siyah taş hangisidir?
+- Seçenekler: Hıcr-ı İsmâil | Hacerü’l-Esved | Zemzem | Makam-ı İbrâhim
+- Doğru cevap: Hacerü’l-Esved
+- Açıklama: Tavaf, Hacerü’l-Esved hizasından başlar.
+
+**DEEN-U04-S05-X007** · Hangisi Hangi Şart? · multiple_choice
+- Soru: Mescid-i Harâm’da bulunan ve hacılar tarafından içilen kutsal su kaynağı hangisidir?
+- Seçenekler: Selsebil | Zemzem | Cûdî | Kevser
+- Doğru cevap: Zemzem
+- Açıklama: Zemzem, Mescid-i Harâm’da bulunan kutsal su kaynağıdır.
+
+**DEEN-U04-S05-X008** · Hangisi Hangi Şart? · multiple_choice
+- Soru: Hanefî mezhebinde umre hangi hükme sahiptir?
+- Seçenekler: Vaciptir | Farzdır | Sünnet-i müekkeded | Haramdır
+- Doğru cevap: Sünnet-i müekkeded
+- Açıklama: Hanefîlere göre umre sünnet-i müekkededir; hac ise farzdır.
+
+**DEEN-U04-S06-X004** · Akıllı Tekrar · multiple_choice
+- Soru: Hacda şeytan taşlamaya ne ad verilir?
+- Seçenekler: Sa’y | Tavaf | Vakfe | Cemrelere taş atmak (Remy-i cimâr)
+- Doğru cevap: Cemrelere taş atmak (Remy-i cimâr)
+- Açıklama: Hacda üç cemreye taş atmaya remy-i cimâr denir.
+
+**DEEN-U04-S06-X005** · Akıllı Tekrar · multiple_choice
+- Soru: Cuma namazı kimlere farzdır?
+- Seçenekler: Yalnızca çocuklara | Yalnızca kadınlara | Mukim, sağlıklı, akıllı ve ergen erkeklere | Yalnızca yolculara
+- Doğru cevap: Mukim, sağlıklı, akıllı ve ergen erkeklere
+- Açıklama: Cuma namazı mukim, hür, sağlıklı, akıllı ve ergen erkeklere farzdır.
+
+**DEEN-U04-S06-X006** · Akıllı Tekrar · multiple_choice
+- Soru: Aşağıdakilerden hangisi namaz kılmanın farz olması için aranan şartlardan biridir?
+- Seçenekler: Yaşlı olmak | Zengin olmak | Akıllı ve ergen olmak | Evli olmak
+- Doğru cevap: Akıllı ve ergen olmak
+- Açıklama: Namaz, akıllı ve ergen Müslümanlara farzdır.
+
+**DEEN-U04-S07-X004** · Beş Şart Challenge · multiple_choice
+- Soru: Hac ibadetinin farz oluşu hangi surede bildirilir?
+- Seçenekler: Fil Suresi | Nas Suresi | Kureyş Suresi | Âl-i İmrân Suresi 97. âyet
+- Doğru cevap: Âl-i İmrân Suresi 97. âyet
+- Açıklama: Âl-i İmrân 97’de güç yetirenlere haccın farz olduğu bildirilir.
+
+**DEEN-U04-S07-X005** · Beş Şart Challenge · multiple_choice
+- Soru: İslam’ın beş şartından hangisi “mali ve bedenî” ibadetlerin birleşimidir?
+- Seçenekler: Oruç | Namaz | Hac | Kelime-i şehadet
+- Doğru cevap: Hac
+- Açıklama: Hac, hem beden hem mal ile yapılan ibadettir.
+
+**DEEN-U04-S05-X009** · Hangisi Hangi Şart? · multiple_choice
+- Soru: Hanefî mezhebinde Mekke dışından gelen hacıların yapması vacip olan son tavaf hangisidir?
+- Seçenekler: Kudüm tavafı | Ziyaret tavafı | Nafile tavaf | Veda tavafı
+- Doğru cevap: Veda tavafı
+- Açıklama: Hanefîlere göre Mekke dışından gelenler için veda tavafı vaciptir.
+
+**DEEN-U04-S06-X007** · Akıllı Tekrar · multiple_choice
+- Soru: Tavaftan sonra Makâm-ı İbrâhim’in arkasında kılınan namaz kaç rekâttır?
+- Seçenekler: İki rekât | Dört rekât | Bir rekât | Üç rekât
+- Doğru cevap: İki rekât
+- Açıklama: Tavaftan sonra iki rekât tavaf namazı kılınır.
+
+**DEEN-U04-S07-X006** · Beş Şart Challenge · multiple_choice
+- Soru: Zekâtın farz olması için aranan şartlardan biri hangisidir?
+- Seçenekler: Mekke’de yaşamak | Nisap miktarı mala sahip olmak ve bu malın temel ihtiyaçtan fazla olması | Her gün çalışmak | Evli olmak
+- Doğru cevap: Nisap miktarı mala sahip olmak ve bu malın temel ihtiyaçtan fazla olması
+- Açıklama: Zekât, temel ihtiyaçlar ve borçlardan fazla olarak nisaba sahip Müslümana farzdır.
 
 ## U05 — imanin_esaslarina_giris (31 soru)
 
@@ -1182,7 +1368,7 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Doğru cevap: Cibril hadisi
 - Açıklama: İmanın şartları Cibril hadisinde sayılır.
 
-## U06 — meleklere_iman (15 soru)
+## U06 — meleklere_iman (50 soru)
 
 **DEEN-U06-S01-X001** · Melekler Kimdir? · multiple_choice
 - Soru: Meleklerin yaratıldığı unsur İslamî kaynaklarda nasıl bildirilir?
@@ -1273,6 +1459,216 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Seçenekler: İnsanların ilah olduğu inancını | Hiçbir davranışın önemli olmadığı düşüncesini | Haksızlığın serbest olduğu fikrini | Davranışların kaydedildiği ve sorumluluk taşıdığı bilincini
 - Doğru cevap: Davranışların kaydedildiği ve sorumluluk taşıdığı bilincini
 - Açıklama: Meleklere iman, davranışların kaydedildiği bilincini ve sorumluluk duygusunu güçlendirir.
+
+**DEEN-U06-S01-X003** · Melekler Kimdir? · multiple_choice
+- Soru: Kur’an’a göre meleklerin sayısı hakkında hangisi doğrudur?
+- Seçenekler: Sayıları yalnızca yedidir | Sayıları hiç bilinmez ama yoktur | Sayıları insanlardan azdır | Rabbinin ordularını ancak kendisi bilir
+- Doğru cevap: Rabbinin ordularını ancak kendisi bilir
+- Açıklama: Müddessir 31’de “Rabbinin ordularını O’ndan başkası bilmez” buyrulur.
+
+**DEEN-U06-S01-X004** · Melekler Kimdir? · multiple_choice
+- Soru: Kur’an’a göre kıyamet günü Rabbinin arşını kaç melek taşıyacaktır?
+- Seçenekler: Dört | Oniki | Sekiz | İki
+- Doğru cevap: Sekiz
+- Açıklama: Hâkka 17’de o gün Rabbinin arşını onların üstünde sekiz meleğin taşıyacağı bildirilir.
+
+**DEEN-U06-S01-X005** · Melekler Kimdir? · multiple_choice
+- Soru: Müddessir Suresi’ne göre cehennemin bekçileri kaç melektir?
+- Seçenekler: Onbir | Ondokuz | Kırk | Yedi
+- Doğru cevap: Ondokuz
+- Açıklama: Müddessir 30’da cehennem üzerinde ondokuz meleğin görevli olduğu bildirilir.
+
+**DEEN-U06-S02-X004** · Meleklerin Özellikleri · multiple_choice
+- Soru: Fâtır Suresi’ne göre melekler nasıl tanıtılır?
+- Seçenekler: Tek kanatlı varlıklar olarak | Kanatsız varlıklar olarak | Yalnızca insan suretinde varlıklar olarak | İkişer, üçer, dörder kanatlı elçiler olarak
+- Doğru cevap: İkişer, üçer, dörder kanatlı elçiler olarak
+- Açıklama: Fâtır 1’de melekler ikişer, üçer, dörder kanatlı elçiler olarak anılır.
+
+**DEEN-U06-S02-X005** · Meleklerin Özellikleri · multiple_choice
+- Soru: Kur’an’a göre İblis hangi türdendir?
+- Seçenekler: Meleklerdendir | Hayvanlardandır | Cinlerdendir | İnsanlardandır
+- Doğru cevap: Cinlerdendir
+- Açıklama: Kehf 50’de İblis’in cinlerden olduğu bildirilir.
+
+**DEEN-U06-S02-X006** · Meleklerin Özellikleri · multiple_choice
+- Soru: Hadise göre melekler, cinler ve insan nelerden yaratılmıştır?
+- Seçenekler: Hepsi topraktan | Melekler nurdan, cinler ateşten, insan topraktan | Melekler ateşten, cinler nurdan | Hepsi sudan
+- Doğru cevap: Melekler nurdan, cinler ateşten, insan topraktan
+- Açıklama: Hadise göre melekler nurdan, cinler ateşten, Âdem topraktan yaratılmıştır (Müslim).
+
+**DEEN-U06-S02-X007** · Meleklerin Özellikleri · multiple_choice
+- Soru: Meleklerle ilgili hangisi doğrudur?
+- Seçenekler: Evlenip çocuk sahibi olurlar | Ölüp yeniden doğarlar | Evlenmezler; erkeklik ve dişilikle nitelenmezler | Yer içerler
+- Doğru cevap: Evlenmezler; erkeklik ve dişilikle nitelenmezler
+- Açıklama: Melekler evlenmez ve cinsiyetle nitelenmez; nuranî varlıklardır.
+
+**DEEN-U06-S03-X003** · Cebrâil ve Vahiy · multiple_choice
+- Soru: Kur’an’da Cebrâil’e verilen unvanlardan biri hangisidir?
+- Seçenekler: er-Rûhu’l-Emîn (güvenilir ruh) | el-Basîr | er-Rezzâk | el-Gaffâr
+- Doğru cevap: er-Rûhu’l-Emîn (güvenilir ruh)
+- Açıklama: Şuarâ 193’te Cebrâil “er-Rûhu’l-Emîn” diye anılır.
+
+**DEEN-U06-S03-X004** · Cebrâil ve Vahiy · multiple_choice
+- Soru: Cebrâil, Hz. Meryem’e hangi suretle görünmüştür?
+- Seçenekler: Bir bulut suretinde | Düzgün bir insan suretinde | Bir ışık suretinde | Bir kuş suretinde
+- Doğru cevap: Düzgün bir insan suretinde
+- Açıklama: Meryem 17’de Cebrâil, Meryem’e tam bir insan şeklinde görünür.
+
+**DEEN-U06-S03-X005** · Cebrâil ve Vahiy · multiple_choice
+- Soru: Hz. Peygamber, Cebrâil’i asıl suretinde kaç defa görmüştür?
+- Seçenekler: İki defa | Yüz defa | Hiç görmemiştir | Her gün
+- Doğru cevap: İki defa
+- Açıklama: Necm 13-14 ve hadislere göre Cebrâil’i asıl suretinde iki defa görmüştür.
+
+**DEEN-U06-S03-X006** · Cebrâil ve Vahiy · multiple_choice
+- Soru: Bakara Suresi’nde Hz. Îsâ’yı destekleyen “Rûhu’l-Kudüs” genellikle kim olarak anlaşılır?
+- Seçenekler: İsrâfil | Cebrâil | Münker | Mikâil
+- Doğru cevap: Cebrâil
+- Açıklama: Bakara 87’deki “Rûhu’l-Kudüs” çoğunlukla Cebrâil olarak yorumlanır.
+
+**DEEN-U06-S03-X007** · Cebrâil ve Vahiy · multiple_choice
+- Soru: Bedir Savaşı’nda Müslümanlara Kur’an’a göre hangi yardım ulaşmıştır?
+- Seçenekler: Düşman ordusu kendiliğinden dağılmıştır | Melekler indirilerek destek verilmiştir | Hiçbir yardım gelmemiştir | Yağmur yerine kar yağmıştır
+- Doğru cevap: Melekler indirilerek destek verilmiştir
+- Açıklama: Enfâl 9 ve Âl-i İmrân 123-125’te Bedir’de meleklerle yardım edildiği bildirilir.
+
+**DEEN-U06-S03-X008** · Cebrâil ve Vahiy · multiple_choice
+- Soru: Hz. İbrahim’e misafir olarak gelen ve ona müjde veren varlıklar kimlerdir?
+- Seçenekler: Melekler | Hayvanlar | Cinler | Peygamberler
+- Doğru cevap: Melekler
+- Açıklama: Hûd 69-70’te insan suretindeki melekler İbrahim’e müjde getirir.
+
+**DEEN-U06-S04-X003** · Kur'an'da Meleklerin Görevleri · multiple_choice
+- Soru: Kâf Suresi’ne göre insanın amellerini yazan melekler nerede bulunur?
+- Seçenekler: Başının üstünde uçar | Sağında ve solunda oturur | Ayaklarının altında durur | Gökte kalır
+- Doğru cevap: Sağında ve solunda oturur
+- Açıklama: Kâf 17-18’de sağda ve solda oturan iki kayıtçı melek bildirilir.
+
+**DEEN-U06-S04-X004** · Kur'an'da Meleklerin Görevleri · multiple_choice
+- Soru: Kâf 18’de insanın söylediklerini kaydeden meleklerin sıfatları nelerdir?
+- Seçenekler: Rakîb ve Atîd (gözetleyen ve hazır bekleyen) | Evvel ve Âhir | Kerîm ve Latîf | Kavî ve Metîn
+- Doğru cevap: Rakîb ve Atîd (gözetleyen ve hazır bekleyen)
+- Açıklama: Kâf 18’de meleklerden “rakîb” ve “atîd” diye söz edilir.
+
+**DEEN-U06-S04-X005** · Kur'an'da Meleklerin Görevleri · multiple_choice
+- Soru: Bakara Suresi’ne göre Allah, meleklere Hz. Âdem için ne emretmiştir?
+- Seçenekler: Onu korumalarını yasaklamayı | Onu dışlamalarını | Secde etmelerini | Ona öğretmenlik etmelerini
+- Doğru cevap: Secde etmelerini
+- Açıklama: Bakara 34’te meleklere Âdem’e secde etmeleri emredilir; İblis hariç hepsi secde eder.
+
+**DEEN-U06-S04-X006** · Kur'an'da Meleklerin Görevleri · multiple_choice
+- Soru: Kadir Suresi’ne göre Kadir Gecesi’nde melekler ve Rûh ne yapar?
+- Seçenekler: Kabirlere girer | Rablerinin izniyle iner | Gökte gizlenir | Yeryüzünden ayrılır
+- Doğru cevap: Rablerinin izniyle iner
+- Açıklama: Kadr 4’te melekler ve Rûh’un Rablerinin izniyle indikleri bildirilir.
+
+**DEEN-U06-S04-X007** · Kur'an'da Meleklerin Görevleri · multiple_choice
+- Soru: Arşı taşıyan melekler, Mü’min Suresi’ne göre kimler için dua eder?
+- Seçenekler: Yalnızca kendileri için | İman edenler için bağışlanma diler | Sadece peygamberler için | Kâfirler için
+- Doğru cevap: İman edenler için bağışlanma diler
+- Açıklama: Mü’min 7’de arşı taşıyan meleklerin müminler için bağışlanma dilediği bildirilir.
+
+**DEEN-U06-S04-X008** · Kur'an'da Meleklerin Görevleri · multiple_choice
+- Soru: Fussilet 30’a göre “Rabbimiz Allah’tır” deyip dosdoğru olanlara melekler ne der?
+- Seçenekler: Yalnız kalacaksınız | Hesaptan kurtulamazsınız | Korkmayın, üzülmeyin, size vaat edilen cennetle sevinin | Dünyada kalın, ölmeyeceksiniz
+- Doğru cevap: Korkmayın, üzülmeyin, size vaat edilen cennetle sevinin
+- Açıklama: Fussilet 30’da melekler istikamet üzere olanlara korku ve üzüntüden uzak olmalarını söyler.
+
+**DEEN-U06-S05-X003** · Meleklere İmanın Anlamı · multiple_choice
+- Soru: Hadise göre köpek veya canlı resmi bulunan eve ne olur?
+- Seçenekler: Evin rızkı artar | Melekler orada konaklar | Melekler (rahmet melekleri) girmez | Melekler orada zikreder
+- Doğru cevap: Melekler (rahmet melekleri) girmez
+- Açıklama: Hadise göre köpek veya canlı resmi bulunan eve rahmet melekleri girmez (Buhârî).
+
+**DEEN-U06-S05-X004** · Meleklere İmanın Anlamı · multiple_choice
+- Soru: Mirac olayında Hz. Peygamber’e gösterilen, her gün çok sayıda meleğin ibadet ettiği yer neresidir?
+- Seçenekler: Mescid-i Aksa | Beytü’l-Ma‘mûr | Kuba Mescidi | Hira Mağarası
+- Doğru cevap: Beytü’l-Ma‘mûr
+- Açıklama: Hadislere göre Mirac’da Beytü’l-Ma‘mûr gösterilmiş, orada her gün yetmiş bin melek ibadet etmiştir.
+
+**DEEN-U06-S05-X005** · Meleklere İmanın Anlamı · multiple_choice
+- Soru: Kur’an, “Melekler Allah’ın kızlarıdır” iddiasına nasıl yaklaşır?
+- Seçenekler: Hiç bahsetmez | Yalnızca bazı melekler için kabul eder | Bu iddiayı reddeder | Doğrular
+- Doğru cevap: Bu iddiayı reddeder
+- Açıklama: Kur’an, meleklere dişi demeyi ve Allah’a kız isnat etmeyi reddeder (İsrâ 40, Zuhruf 19).
+
+**DEEN-U06-S05-X006** · Meleklere İmanın Anlamı · multiple_choice
+- Soru: Meleklere iman, imanın kaçıncı şartıdır?
+- Seçenekler: Dördüncü şartıdır | Birinci şartıdır | Altıncı şartıdır | İkinci şartıdır
+- Doğru cevap: İkinci şartıdır
+- Açıklama: İmanın ikinci şartı meleklere imandır.
+
+**DEEN-U06-S05-X007** · Meleklere İmanın Anlamı · multiple_choice
+- Soru: Meleklerin varlığını inkâr etmek İslam inancında nasıl değerlendirilir?
+- Seçenekler: İmanın bir esasını inkâr sayılır | Hiçbir sonucu yoktur | Sadece bir görüş farkıdır | Küçük bir günahtır
+- Doğru cevap: İmanın bir esasını inkâr sayılır
+- Açıklama: Bakara 285 ve Nisâ 136’ya göre meleklere iman, imanın esasıdır; inkârı iman esasını reddetmektir.
+
+**DEEN-U06-S05-X008** · Meleklere İmanın Anlamı · multiple_choice
+- Soru: Hz. Lût’un kavmine azap getirmek için gönderilen varlıklar kimlerdir?
+- Seçenekler: Melekler | Cinler | Rüzgârlar | Kuşlar
+- Doğru cevap: Melekler
+- Açıklama: Hûd 77-83’te Lût kavminin helâki için melekler gönderilmiştir.
+
+**DEEN-U06-S06-X003** · Yanlış Anlamaları Düzelt · multiple_choice
+- Soru: Hz. Zekeriyya’ya oğlu Yahyâ’nın müjdesini kim vermiştir?
+- Seçenekler: Yaşlı bir kâhin | Melekler | Bir kervan | Cinler
+- Doğru cevap: Melekler
+- Açıklama: Âl-i İmrân 39’da melekler, Zekeriyya’ya Yahyâ’yı müjdeler.
+
+**DEEN-U06-S06-X004** · Yanlış Anlamaları Düzelt · multiple_choice
+- Soru: Fecr Suresi’ne göre kıyamet gününde melekler nasıl gelir?
+- Seçenekler: Yeryüzünden yükselerek | Tek tek ve gizlice | Dağınık olarak | Saf saf dizilmiş olarak
+- Doğru cevap: Saf saf dizilmiş olarak
+- Açıklama: Fecr 22’de Rabbin ve melekler saf saf geleceği bildirilir.
+
+**DEEN-U06-S06-X005** · Yanlış Anlamaları Düzelt · multiple_choice
+- Soru: Hadise göre biri “âmin” dediğinde melekler ne yapar?
+- Seçenekler: O da “âmin” der | Susar | Gökyüzüne çekilir | Yazıdan çıkarır
+- Doğru cevap: O da “âmin” der
+- Açıklama: Hadise göre imam ve cemaat “âmin” deyince melekler de âmin der; âmini meleklere denk gelenin günahları bağışlanır (Buhârî).
+
+**DEEN-U06-S06-X006** · Yanlış Anlamaları Düzelt · multiple_choice
+- Soru: Hârût ve Mârût haberi hangi surede geçer?
+- Seçenekler: Yâsîn Suresi | Bakara Suresi | Kehf Suresi | Nûr Suresi
+- Doğru cevap: Bakara Suresi
+- Açıklama: Hârût ve Mârût, Bakara 102’de Babil’de insanlara öğretilen sihir bağlamında anılır.
+
+**DEEN-U06-S06-X007** · Yanlış Anlamaları Düzelt · multiple_choice
+- Soru: Ra‘d 11’e göre insanın önünden ve ardından gelen, onu Allah’ın emriyle koruyan varlıklar kimlerdir?
+- Seçenekler: Takipçi melekler (muakkibât) | Cinler | Rüzgârlar | Kuşlar
+- Doğru cevap: Takipçi melekler (muakkibât)
+- Açıklama: Ra‘d 11’de insanı Allah’ın emriyle koruyan, peş peşe gelen melekler anılır.
+
+**DEEN-U06-S07-X003** · Melekler Ustalığı · multiple_choice
+- Soru: Meleklerin Hz. Âdem’e secde etmesi neyi ifade eder?
+- Seçenekler: Âdem’in meleklerin yaratıcısı olduğunu | Meleklerin Allah’a isyanını | Allah’a itaat ve Âdem’e saygı | Âdem’in ilahlığını
+- Doğru cevap: Allah’a itaat ve Âdem’e saygı
+- Açıklama: Melekler Allah’ın emrine uyarak Âdem’e saygı secdesi etmiştir; ibadet değildir.
+
+**DEEN-U06-S07-X004** · Melekler Ustalığı · multiple_choice
+- Soru: Melek, cin ve insan arasındaki farklardan biri hangisidir?
+- Seçenekler: Hepsi aynı unsurdan yaratılmıştır | Yalnızca melekler yer ve içer | Yalnızca insan sorumludur | Melekler günah işlemez; cin ve insanın iradesi vardır ve sorumludurlar
+- Doğru cevap: Melekler günah işlemez; cin ve insanın iradesi vardır ve sorumludurlar
+- Açıklama: Melekler isyan etmez; cin ve insan ise iradeleri ölçüsünde sorumludur.
+
+**DEEN-U06-S07-X005** · Melekler Ustalığı · multiple_choice
+- Soru: Hz. Peygamber’e göre melekler müminin kardeşi için gıyabında yaptığı duaya ne der?
+- Seçenekler: Duayı yazmaz | “Hayır” der | Hiçbir şey demez | “Sana da aynısı olsun” der
+- Doğru cevap: “Sana da aynısı olsun” der
+- Açıklama: Hadise göre kardeşi için gıyabında dua edene melek “sana da aynısı” der (Müslim).
+
+**DEEN-U06-S07-X006** · Melekler Ustalığı · multiple_choice
+- Soru: Kur’an’da cinlerle ilgili adı verilen sure hangisidir?
+- Seçenekler: Kevser Suresi | Cin Suresi | Asr Suresi | Fil Suresi
+- Doğru cevap: Cin Suresi
+- Açıklama: Kur’an’ın 72. suresi Cin Suresi’dir.
+
+**DEEN-U06-S07-X007** · Melekler Ustalığı · multiple_choice
+- Soru: Hadise göre Cebrâil, Ramazan aylarında Hz. Peygamber’le ne yapardı?
+- Seçenekler: Onunla savaşa giderdi | Ona oruç tutturmazdı | Ona hac öğretirdi | Kur’an’ı karşılıklı okurdu (mukabele)
+- Doğru cevap: Kur’an’ı karşılıklı okurdu (mukabele)
+- Açıklama: Cebrâil her Ramazan Hz. Peygamber’le Kur’an’ı karşılıklı okur, vefat yılında iki kez okumuşlardır (Buhârî).
 
 ## U07 — kitaplara_iman (16 soru)
 
