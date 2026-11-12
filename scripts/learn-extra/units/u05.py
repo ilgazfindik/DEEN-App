@@ -3,7 +3,6 @@ SLUG = 'imanin_esaslarina_giris'
 TITLES = {1: 'İman Ne Demektir?', 2: 'Altı Esası Tanı', 3: 'Kavramları Ayır', 4: 'Şart mı, İman Esası mı?', 5: 'Günlük Hayatta Kavramlar', 6: 'Kısım Öncesi Akıllı Tekrar', 7: 'İman Esasları Challenge'}
 
 Q = [
- # --- Added with the duplicate clean-up: new facts for the unit
  ('tf', 1, 'amentu', 'Amentü', 'e', 'Âmentü, imanın altı esasını sıralayan iman ifadesidir.', True, 'Âmentü, Allah’a, meleklere, kitaplara, peygamberlere, ahiret gününe ve kadere imanı dile getirir.'),
  ('mc', 2, 'cibril_uc', 'Cibril hadisi', 'm', 'Cibril hadisinde Hz. Peygamber hangi üç kavramı açıklamıştır?', 'İman, İslam ve ihsan', ['Namaz, oruç ve hac', 'Tevhid, nübüvvet ve ahiret', 'Farz, vacip ve sünnet'], 'Cibril hadisinde Hz. Peygamber, Cebrail’in sorularına cevap olarak iman, İslam ve ihsanı açıklamıştır.'),
  ('mc', 3, 'ihsan', 'İhsan', 'm', 'Hadiste ihsan nasıl tarif edilir?', 'Allah’ı görüyormuşçasına ibadet etmek', ['İbadeti kısa tutmak', 'Yalnızca farzları yapmak', 'Yalnızca yardım etmek'], 'İhsan, “Allah’ı görüyormuşçasına ibadet etmendir; sen O’nu görmesen de O seni görmektedir” şeklinde tarif edilir.'),
@@ -15,9 +14,8 @@ Q = [
  ('tf', 3, 'iman_tasdik', 'İmanın niteliği', 'm', 'İman, yalnızca bilgi sahibi olmak değil, kalpten benimseyip kabul etmektir.', True, 'İman, bilmenin ötesinde kalbin tasdik etmesi ve teslimiyet göstermesidir.'),
  ('tf', 7, 'mumin', 'Mümin', 'e', 'Mümin, Allah’a ve Hz. Peygamber’in getirdiklerine inanan kimsedir.', True, 'Mümin, iman esaslarına inanıp Hz. Peygamber’in Allah’tan getirdiklerini kabul eden kişidir.'),
  ('mc', 1, 'amentu_anlam', 'Âmentü billâh', 'e', '“Âmentü billâh” ifadesi ne anlama gelir?', 'Allah’a iman ettim', ['Allah’a şükrettim', 'Allah’tan korktum', 'Allah’ı andım'], '“Âmentü billâh”, “Allah’a iman ettim” demektir.'),
- # --- Selected from the supplied question pool
  ('mc', 1, 'p5_sayi', 'İman esasları', 'e', 'İmanın şartları kaç tanedir?', 'Altı', ['Beş', 'Yedi', 'Sekiz'], 'İmanın şartları altıdır: Allah, melekler, kitaplar, peygamberler, ahiret ve kader.'),
- ('mc', 1, 'p5_ilk', 'İman esasları', 'e', 'İmanın şartlarından ilki hangisidir?', 'Allah’a iman', ['Ahirete iman', 'Kitaplara iman', 'Kadere iman'], 'İmanın ilk şartı Allah’a imandır.'),
+ ('mc', 1, 'y5_kiyamet_sorusu', 'Cibril hadisi', 'h', 'Cibril hadisinde kıyamet vakti sorulunca Hz. Peygamber ne cevap vermiştir?', '“Kendisine sorulan sorandan daha bilgili değildir”', ['“Yarın kopacaktır”', '“Bu yıl kopacaktır”', '“Hiç kopmayacaktır”'], 'Hz. Peygamber, kıyamet vakti hakkında “Kendisine sorulan sorandan daha bilgili değildir” demiştir (Müslim).'),
  ('mc', 2, 'p5_melek_sira', 'İman esasları', 'e', 'Meleklere iman, imanın kaçıncı şartı olarak sıralanır?', 'İkinci', ['Dördüncü', 'Altıncı', 'Birinci'], 'Sıralama: Allah, melekler, kitaplar, peygamberler, ahiret, kader.'),
  ('mc', 2, 'p5_kitap_sira', 'İman esasları', 'e', 'Kitaplara iman, imanın şartları arasında hangi sıradadır?', 'Üçüncü', ['Altıncı', 'Beşinci', 'Birinci'], 'Kitaplara iman üçüncü sıradadır.'),
  ('mc', 3, 'p5_peygamber_sira', 'İman esasları', 'e', 'Peygamberlere iman, imanın şartları arasında hangi sıradadır?', 'Dördüncü', ['İkinci', 'Üçüncü', 'Altıncı'], 'Peygamberlere iman dördüncü sıradadır.'),
@@ -36,7 +34,6 @@ Q = [
  ('mc', 7, 'p5_tasdik_boyut', 'İman esasları', 'm', 'İmanın kalple tasdik boyutu neyi ifade eder?', 'İnanılan hakikatleri içten kabul etmeyi', ['İnsanların beğenisini kazanmayı', 'Sadece yüksek sesle konuşmayı', 'Yalnızca yazılı sınavı geçmeyi'], 'Kalple tasdik, inanılan hakikatleri içten kabul etmektir.'),
  ('mc', 7, 'p5_gayb', 'İman esasları', 'm', 'İslam akaidinde “gayb” ne anlama gelir?', 'Duyularla doğrudan algılanamayan alan', ['Yalnızca coğrafi bölge', 'Herkesin gözlemlediği nesne', 'Sadece geçmişte yaşanan olay'], 'Gayb, duyularla doğrudan algılanamayan, vahiyle haber verilen alandır.'),
  ('mc', 7, 'p5_cibril', 'İman esasları', 'm', 'İmanın şartları hangi hadisle meşhur biçimde açıklanmıştır?', 'Cibril hadisi', ['Misvak hadisi', 'Ezan hadisi', 'Komşuluk hadisi'], 'İmanın şartları Cibril hadisinde sayılır.'),
- # --- Added to reach 50
  ('mc', 1, 'c5_iman_lugat', 'İman esasları', 'e', '“İman” kelimesi sözlükte ne anlama gelir?', 'Güvenmek, tasdik etmek', ['Savaşmak', 'Gezmek', 'Satın almak'], 'İman, sözlükte güvenmek ve doğru kabul etmek (tasdik) anlamına gelir.'),
  ('mc', 1, 'c5_iman_tanim', 'İman esasları', 'm', 'Dinî terim olarak iman neyi ifade eder?', 'Allah’ın bildirdiklerini kalpten tasdik edip dille ikrar etmeyi', ['Yalnızca bir şeyi ezberlemeyi', 'Sadece dış görünüşe uymayı', 'Bir topluluğa aidiyeti'], 'Hanefî-Mâtürîdî anlayışta iman, Allah’ın bildirdiklerini kalben tasdik ve dille ikrardır.'),
  ('mc', 1, 'c5_mumin', 'İman esasları', 'e', 'İman eden kişiye ne denir?', 'Mümin', ['Münkir', 'Münafık', 'Mürted'], 'İman eden kişiye mümin denir.'),

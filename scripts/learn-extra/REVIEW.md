@@ -617,10 +617,10 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Açıklama: Şehadet, bir şeye tanıklık etmek demektir; kelime-i şehadet Allah’ın birliğine ve Hz. Muhammed’in elçiliğine tanıklıktır.
 
 **DEEN-U03-S01-X002** · Şehadet Nedir? · multiple_choice
-- Soru: İslam’ın şartlarının ilki hangisidir?
-- Seçenekler: Teravih kılmak | Kelime-i şehadet getirmek | Hacca gitmek | Zekât vermek
-- Doğru cevap: Kelime-i şehadet getirmek
-- Açıklama: Hadise göre İslam beş esas üzerine kurulmuştur; bunların ilki kelime-i şehadettir.
+- Soru: “Lâ ilâhe illallah” ifadesinde “lâ” ve “illâ” hangi anlamı birlikte kurar?
+- Seçenekler: Yalnızca dua eder | Önce Allah’tan başka ilahları reddeder, sonra Allah’ı kabul eder | Yalnızca soru sorar | Önce Allah’ı reddeder, sonra başkasını kabul eder
+- Doğru cevap: Önce Allah’tan başka ilahları reddeder, sonra Allah’ı kabul eder
+- Açıklama: “Lâ” reddeder (nefy), “illâ” istisna ederek Allah’ı kabul eder (isbat).
 
 **DEEN-U03-S01-X003** · Şehadet Nedir? · multiple_choice
 - Soru: Müslüman olmak isteyen biri ne yapar?
@@ -629,10 +629,10 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Açıklama: Müslüman olmak için kelime-i şehadet kalben inanılarak ve dille ikrar edilerek söylenir.
 
 **DEEN-U03-S01-X004** · Şehadet Nedir? · multiple_choice
-- Soru: İlk Müslüman olan kişi kabul edilen, Hz. Peygamber’in eşi kimdir?
-- Seçenekler: Hz. Fâtıma | Hz. Zeyneb | Hz. Âişe | Hz. Hatice
-- Doğru cevap: Hz. Hatice
-- Açıklama: Hz. Hatice, Hz. Peygamber’e ilk iman eden kişi olarak bilinir.
+- Soru: “Bil ki Allah’tan başka ilah yoktur” hitabı hangi surede geçer?
+- Seçenekler: Kureyş Suresi | Asr Suresi | Fil Suresi | Muhammed Suresi 19. âyet
+- Doğru cevap: Muhammed Suresi 19. âyet
+- Açıklama: Muhammed 19’da “Bil ki Allah’tan başka ilah yoktur” buyrulur.
 
 **DEEN-U03-S01-X005** · Şehadet Nedir? · true_false
 - Soru: Doğru mu, yanlış mı? Kelime-i şehadet ezanda da okunur.
@@ -1285,10 +1285,10 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Açıklama: İmanın şartları altıdır: Allah, melekler, kitaplar, peygamberler, ahiret ve kader.
 
 **DEEN-U05-S01-X004** · İman Ne Demektir? · multiple_choice
-- Soru: İmanın şartlarından ilki hangisidir?
-- Seçenekler: Allah’a iman | Kitaplara iman | Kadere iman | Ahirete iman
-- Doğru cevap: Allah’a iman
-- Açıklama: İmanın ilk şartı Allah’a imandır.
+- Soru: Cibril hadisinde kıyamet vakti sorulunca Hz. Peygamber ne cevap vermiştir?
+- Seçenekler: “Kendisine sorulan sorandan daha bilgili değildir” | “Bu yıl kopacaktır” | “Hiç kopmayacaktır” | “Yarın kopacaktır”
+- Doğru cevap: “Kendisine sorulan sorandan daha bilgili değildir”
+- Açıklama: Hz. Peygamber, kıyamet vakti hakkında “Kendisine sorulan sorandan daha bilgili değildir” demiştir (Müslim).
 
 **DEEN-U05-S02-X003** · Altı Esası Tanı · multiple_choice
 - Soru: Meleklere iman, imanın kaçıncı şartı olarak sıralanır?
@@ -1737,10 +1737,10 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Açıklama: Kur’an, meleklere dişi demeyi ve Allah’a kız isnat etmeyi reddeder (İsrâ 40, Zuhruf 19).
 
 **DEEN-U06-S05-X006** · Meleklere İmanın Anlamı · multiple_choice
-- Soru: Meleklere iman, imanın kaçıncı şartıdır?
-- Seçenekler: Dördüncü şartıdır | Birinci şartıdır | Altıncı şartıdır | İkinci şartıdır
-- Doğru cevap: İkinci şartıdır
-- Açıklama: İmanın ikinci şartı meleklere imandır.
+- Soru: Enbiyâ 20’ye göre melekler Allah’ı nasıl tesbih eder?
+- Seçenekler: Yalnızca cuma günleri | Yalnızca gündüz | Yılda bir kez | Gece gündüz usanmadan
+- Doğru cevap: Gece gündüz usanmadan
+- Açıklama: Enbiyâ 20’de melekler gece gündüz usanmadan Allah’ı tesbih eder.
 
 **DEEN-U06-S05-X007** · Meleklere İmanın Anlamı · multiple_choice
 - Soru: Meleklerin varlığını inkâr etmek İslam inancında nasıl değerlendirilir?
@@ -2407,10 +2407,10 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Açıklama: Hz. Nuh, Allah’ın emriyle bir gemi yapmıştır (Hûd 37-38).
 
 **DEEN-U08-S06-X007** · Yanlış Anlamaları Düzelt · multiple_choice
-- Soru: Bakara 285’e göre müminler peygamberlere karşı nasıl davranır?
-- Seçenekler: Yalnızca birine inanırlar | Hiçbirini kabul etmezler | Aralarında ayrım yapmazlar | Birini diğerinden üstün ilah sayarlar
-- Doğru cevap: Aralarında ayrım yapmazlar
-- Açıklama: Bakara 285’te müminlerin Allah’ın peygamberleri arasında ayrım yapmadığı bildirilir.
+- Soru: Ankebût 14’e göre Hz. Nuh kavmi arasında ne kadar kalmıştır?
+- Seçenekler: Yüz yıl | Üç yıl | Elli yıl eksik bin yıl (950 yıl) | Kırk yıl
+- Doğru cevap: Elli yıl eksik bin yıl (950 yıl)
+- Açıklama: Ankebût 14’te Nuh’un kavmi arasında bin yıldan elli yıl eksik kaldığı bildirilir.
 
 **DEEN-U08-S07-X007** · Peygamberlere İman Ustalığı · multiple_choice
 - Soru: Ulü’l-azm peygamberlerin sayısı kaçtır?
@@ -3055,10 +3055,10 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Açıklama: Hadislerde dua, ibadetin özü (ta kendisi) olarak nitelenir (Tirmizî, Ebû Dâvûd).
 
 **DEEN-U11-S01-X006** · İbadet Nedir? · multiple_choice
-- Soru: Zekâtın verileceği kimselerin sayısı (Tevbe 9:60) kaçtır?
-- Seçenekler: Beş | Sekiz | On iki | Üç
-- Doğru cevap: Sekiz
-- Açıklama: Tevbe 9:60’ta fakirler, yoksullar vb. zekâtın verileceği sekiz grup sayılır.
+- Soru: Hadise göre sadakayı gizli verenin durumu nasıl anlatılır?
+- Seçenekler: Karşılık bekleyerek verir | Sağ elinin verdiğini sol eli bilmeyecek kadar gizli verir | Hiç vermez | Herkese duyurarak verir
+- Doğru cevap: Sağ elinin verdiğini sol eli bilmeyecek kadar gizli verir
+- Açıklama: Hadiste, gölgesinden başka gölge olmayan günde Allah’ın gölgelendireceği kişilerden biri, sağ eli verdiğini sol eli bilmeyecek kadar gizli sadaka verendir (Buhârî, Müslim).
 
 **DEEN-U11-S01-X007** · İbadet Nedir? · multiple_choice
 - Soru: Farz dışında, gönülden yapılan ek ibadetlere ne ad verilir?
@@ -3195,10 +3195,10 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Açıklama: Zekât, belirli bir miktara (nisap) ulaşan mal varlığı olan kişiye farzdır.
 
 **DEEN-U11-S05-X005** · Bildiklerini Kullan · multiple_choice
-- Soru: Niyetin yeri neresidir?
-- Seçenekler: Kulak | Eller | Dil | Kalp
-- Doğru cevap: Kalp
-- Açıklama: Niyet kalbin yönelmesidir; dil ile söylemek şart değildir.
+- Soru: Duaya başlarken hangi söz ve ardından salavat müstehaptır?
+- Seçenekler: Dua etmeyi ertelemek | Yüksek sesle bağırmak | Dua sırasında susmak | Allah’a hamd ve Peygamber’e salavatla başlamak
+- Doğru cevap: Allah’a hamd ve Peygamber’e salavatla başlamak
+- Açıklama: Duaya Allah’a hamd ve Peygamber’e salavatla başlamak adaptandır.
 
 **DEEN-U11-S06-X001** · Akıllı Tekrar · speed_review
 - Soru: Hızlı tekrar: Zekât hangi tür ibadettir?
@@ -4377,11 +4377,11 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Doğru cevap: Altı
 - Açıklama: Namazın içindeki farzlar: iftitah tekbiri, kıyam, kıraat, rükû, secde ve son oturuş (ka’de-i ahîre).
 
-**DEEN-U14-S01-X002** · Namazın Yapısı · fill_blank
-- Soru: Boşluğu tamamla: Namaza başlarken alınan tekbire ___ tekbiri denir.
-- Seçenekler: kamet | ezan | teşrik | iftitah
-- Doğru cevap: iftitah
-- Açıklama: İftitah tekbiri (tahrime), “Allahu ekber” diyerek namaza başlamaktır.
+**DEEN-U14-S01-X002** · Namazın Yapısı · multiple_choice
+- Soru: Hanefî mezhebinde erkekler namazda ellerini nereye bağlar?
+- Seçenekler: Başın üstüne | Dizlerine koyar | Yanlara salar | Göbeğin altına
+- Doğru cevap: Göbeğin altına
+- Açıklama: Hanefî mezhebinde erkekler ellerini göbeğin altına bağlar.
 
 **DEEN-U14-S01-X003** · Namazın Yapısı · multiple_choice
 - Soru: Rükûda okunan tesbih hangisidir?
@@ -5034,10 +5034,10 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Açıklama: Hz. Peygamber pazartesi ve perşembe günleri oruç tutardı ve bu günlerde amellerin Allah’a arz edildiğini bildirmiştir.
 
 **DEEN-U15-S06-X005** · Akıllı Tekrar · multiple_choice
-- Soru: Hanefî mezhebine göre teravih namazı kaç rekâttır?
-- Seçenekler: Yirmi | Sekiz | Otuz | On
-- Doğru cevap: Yirmi
-- Açıklama: Teravih, Ramazan gecelerinde yatsıdan sonra kılınan ve Hanefî mezhebinde yirmi rekât olan sünnet bir namazdır.
+- Soru: Hadise göre oruçlunun ağız kokusu Allah katında neye benzetilir?
+- Seçenekler: Misk kokusundan daha güzeldir | Hiçbir önemi yoktur | Sirke kokusu gibidir | Gül suyundan daha kötüdür
+- Doğru cevap: Misk kokusundan daha güzeldir
+- Açıklama: Hadise göre oruçlunun ağız kokusu Allah katında misk kokusundan daha güzeldir (Buhârî, Müslim).
 
 **DEEN-U15-S07-X004** · Ünite Challenge · true_false
 - Soru: Doğru mu, yanlış mı? Ramazan Bayramı üç gündür.
