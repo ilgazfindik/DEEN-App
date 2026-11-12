@@ -3,7 +3,6 @@ SLUG = 'peygamberlere_iman'
 TITLES = {1: 'Peygamberlere İman Nedir?', 2: 'Peygamberlerin İnsan Oluşu ve Vahiy', 3: 'Tebliğ, Müjde ve Uyarı', 4: 'Ortak Çağrı ve İman Birliği', 5: 'Hz. Muhammed ve Risalet', 6: 'Yanlış Anlamaları Düzelt', 7: 'Peygamberlere İman Ustalığı'}
 
 Q = [
- # --- Selected from the supplied question pool
  ('mc', 1, 'p8_tebligh', 'Peygamberlere iman', 'e', 'Peygamberlerin Allah’tan aldıkları mesajı insanlara bildirmesine ne denir?', 'Tebliğ', ['İcma', 'Kıyas', 'Tavaf'], 'Peygamberlerin vahyi insanlara ulaştırmasına tebliğ denir.'),
  ('mc', 1, 'p8_sidk', 'Peygamberlere iman', 'e', 'Peygamberlerin doğru sözlü olması hangi sıfatla ifade edilir?', 'Sıdk', ['İsmet', 'Fetanet', 'Emanet'], 'Doğru sözlülük sıdk sıfatıdır.'),
  ('mc', 2, 'p8_emanet', 'Peygamberlere iman', 'e', 'Peygamberlerin güvenilir olması hangi sıfattır?', 'Emanet', ['Tebliğ', 'Sıdk', 'Fetanet'], 'Güvenilir olmak emanet sıfatıdır.'),
@@ -33,7 +32,6 @@ Q = [
  ('mc', 7, 'p8_medine_kardeslik', 'Peygamberlere iman', 'm', 'Hz. Muhammed’in Medine’de kurduğu toplumsal düzenin temel ilkelerinden biri hangisidir?', 'Kardeşlik ve ortak sorumluluk', ['Kabile ayrımcılığı', 'Haksız ticaret', 'Zorla zenginleştirme'], 'Medine’de muhacir ve ensar arasında kardeşlik ve ortak sorumluluk esas alınmıştır.'),
  ('mc', 7, 'p8_son_elci', 'Peygamberlere iman', 'm', 'Hz. Muhammed’e iman, onun hangi yönünü kabul etmeyi gerektirir?', 'Allah’ın son elçisi olduğunu', ['Allah’ın ortağı olduğunu', 'Vahyi kendi başına oluşturduğunu', 'Meleklerin yaratıcısı olduğunu'], 'Hz. Muhammed’e iman, onun Allah’ın kulu ve son elçisi olduğunu kabul etmeyi gerektirir.'),
  ('mc', 6, 'p8_tum_peygamber', 'Peygamberlere iman', 'h', 'Peygamberlere iman bakımından doğru ifade hangisidir?', 'Müslümanlar Allah’ın gönderdiği bütün peygamberlere inanır', ['Peygamberlik insanın kendi kendine kazandığı makamdır', 'Peygamberler tanrı kabul edilir', 'Yalnızca son peygambere inanılır'], 'Müslümanlar, Allah’ın gönderdiği bütün peygamberlere inanır ve aralarında ayrım yapmaz.'),
- # --- Added to reach 50
  ('mc', 1, 'c8_nebi_resul', 'Peygamberlere iman', 'h', '“Resûl” ve “nebî” arasındaki yaygın ayrım nedir?', 'Resûl yeni bir şeriat/kitapla gönderilen, nebî ise genel olarak vahiy alan peygamberdir', ['İkisi tamamen aynıdır', 'Nebî hiç vahiy almaz', 'Resûl melektir'], 'Yaygın görüşe göre her resûl nebîdir; resûl ayrıca yeni bir kitap veya şeriatla gönderilendir.'),
  ('mc', 1, 'c8_idris', 'Peygamberlere iman', 'e', 'Meryem 56’da Hz. İdris için hangi sıfat kullanılır?', 'Sıddîk (çok doğru) bir peygamber', ['Bir hükümdar', 'Bir tüccar', 'Bir sihirbaz'], 'Meryem 56’da İdris “çok doğru bir peygamber (sıddîk nebî)” olarak anılır.'),
  ('mc', 1, 'c8_israil', 'Peygamberlere iman', 'm', 'Hz. Yakup’un Kur’an’daki diğer adı nedir?', 'İsrâil', ['Zülkifl', 'Zeyd', 'Yesrib'], 'Hz. Yakup’a “İsrâil” denir; oğulları İsrâiloğulları olarak anılır.'),
@@ -53,6 +51,6 @@ Q = [
  ('mc', 5, 'c8_mujde_uyari', 'Peygamberlere iman', 'm', 'Bakara 213’e göre peygamberler hangi iki sıfatla gönderilmiştir?', 'Müjdeleyici ve uyarıcı', ['Yargıç ve asker', 'Tüccar ve elçi', 'Hekim ve mühendis'], 'Bakara 213’te peygamberler müjdeleyici ve uyarıcı olarak gönderilmiştir.'),
  ('mc', 5, 'c8_ummi', 'Peygamberlere iman', 'm', 'Hz. Muhammed için kullanılan “ümmî” sıfatı neyi ifade eder?', 'Okuma yazma öğrenmemiş olmasını', ['Çok zengin olmasını', 'Çok yaşlı olmasını', 'Hiç yolculuk yapmamasını'], '“Ümmî”, Peygamber’in okuma-yazma öğrenmediğini, bilgisinin vahiyden geldiğini ifade eder.'),
  ('mc', 6, 'c8_nuh_gemi', 'Peygamberlere iman', 'e', 'Hz. Nuh tufandan önce Allah’ın emriyle ne inşa etmiştir?', 'Gemi', ['Mescid', 'Köprü', 'Kale'], 'Hz. Nuh, Allah’ın emriyle bir gemi yapmıştır (Hûd 37-38).'),
- ('mc', 6, 'c8_iman_hepsi', 'Peygamberlere iman', 'm', 'Bakara 285’e göre müminler peygamberlere karşı nasıl davranır?', 'Aralarında ayrım yapmazlar', ['Yalnızca birine inanırlar', 'Birini diğerinden üstün ilah sayarlar', 'Hiçbirini kabul etmezler'], 'Bakara 285’te müminlerin Allah’ın peygamberleri arasında ayrım yapmadığı bildirilir.'),
+ ('mc', 6, 'x8_nuh_yil', 'Hz. Nûh', 'm', 'Ankebût 14’e göre Hz. Nuh kavmi arasında ne kadar kalmıştır?', 'Elli yıl eksik bin yıl (950 yıl)', ['Yüz yıl', 'Kırk yıl', 'Üç yıl'], 'Ankebût 14’te Nuh’un kavmi arasında bin yıldan elli yıl eksik kaldığı bildirilir.'),
  ('mc', 7, 'c8_ulul_sayi', 'Peygamberlere iman', 'm', 'Ulü’l-azm peygamberlerin sayısı kaçtır?', 'Beş', ['Üç', 'Yedi', 'On'], 'Ulü’l-azm peygamberler Nuh, İbrahim, Musa, Îsâ ve Muhammed’dir.'),
 ]

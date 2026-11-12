@@ -1,4 +1,4 @@
-# Model-translated, pending expert review. Rows follow u05.py (same order); see build.py for the row shapes.
+# Model-translated, pending expert review. Rows follow u05.py (same order).
 EN = [
  ('The Amantu is the statement of faith that lists the six articles of faith.', 'The Amantu expresses belief in Allah, the angels, the books, the prophets, the Last Day and the divine decree.', 'The Amantu'),
  ('Which three concepts did the Prophet explain in the Hadith of Gabriel?', 'Iman, Islam and ihsan', ['Prayer, fasting and hajj', 'Tawhid, prophethood and the hereafter', 'Fard, wajib and sunnah'], 'In the Hadith of Gabriel the Prophet explained iman, Islam and ihsan in answer to Gabriel’s questions.', 'The Hadith of Gabriel'),
@@ -12,7 +12,7 @@ EN = [
  ('A mu’min is a person who believes in Allah and in what the Prophet brought.', 'A mu’min is one who believes in the articles of faith and accepts what the Prophet brought from Allah.', 'The believer'),
  ('What does “Amantu billah” mean?', 'I believed in Allah', ['I thanked Allah', 'I feared Allah', 'I remembered Allah'], '“Amantu billah” means “I believe in Allah”.', 'Amantu billah'),
  ('How many articles of faith are there?', 'Six', ['Five', 'Seven', 'Eight'], 'There are six: God, angels, books, prophets, the Hereafter and destiny.', 'Articles of faith'),
- ('Which is the first article of faith?', 'Belief in God', ['Belief in the Hereafter', 'Belief in the books', 'Belief in destiny'], 'The first article of faith is belief in God.', 'Articles of faith'),
+ ('In the hadith of Gabriel, what did the Prophet answer when asked about the time of the Hour?', '“The one asked knows no more than the one asking”', ['“It will come tomorrow”', '“It will come this year”', '“It will never come”'], 'About the time of the Hour the Prophet said: “The one asked knows no more than the one asking” (Muslim).', 'Hadith of Gabriel'),
  ('Which article of faith is belief in angels in the usual order?', 'The second', ['The fourth', 'The sixth', 'The first'], 'The order is God, angels, books, prophets, the Hereafter, destiny.', 'Articles of faith'),
  ('What position does belief in the books hold among the articles of faith?', 'Third', ['Sixth', 'Fifth', 'First'], 'Belief in the books is third.', 'Articles of faith'),
  ('What position does belief in the prophets hold among the articles of faith?', 'Fourth', ['Second', 'Third', 'Sixth'], 'Belief in the prophets is fourth.', 'Articles of faith'),
@@ -64,7 +64,7 @@ DE = [
  ('Ein Mu’min ist jemand, der an Allah und an das glaubt, was der Prophet gebracht hat.', 'Ein Mu’min glaubt an die Glaubensartikel und nimmt an, was der Prophet von Allah gebracht hat.', 'Der Gläubige'),
  ('Was bedeutet „Amantu billah“?', 'Ich glaube an Allah', ['Ich habe Allah gedankt', 'Ich habe Allah gefürchtet', 'Ich habe Allahs gedacht'], '„Amantu billah“ bedeutet „Ich glaube an Allah“.', 'Amantu billah'),
  ('Wie viele Glaubensartikel gibt es?', 'Sechs', ['Fünf', 'Sieben', 'Acht'], 'Es sind sechs: Gott, Engel, Bücher, Propheten, Jenseits und Schicksal.', 'Glaubensartikel'),
- ('Welches ist der erste Glaubensartikel?', 'Der Glaube an Gott', ['Der Glaube an das Jenseits', 'Der Glaube an die Bücher', 'Der Glaube an das Schicksal'], 'Der erste Glaubensartikel ist der Glaube an Gott.', 'Glaubensartikel'),
+ ('Was antwortete der Prophet im Gabriel-Hadith auf die Frage nach der Zeit der Stunde?', '„Der Gefragte weiß nicht mehr als der Fragende“', ['„Sie kommt morgen“', '„Sie kommt dieses Jahr“', '„Sie kommt nie“'], 'Zur Zeit der Stunde sagte der Prophet: „Der Gefragte weiß nicht mehr als der Fragende“ (Muslim).', 'Gabriel-Hadith'),
  ('Der wievielte Glaubensartikel ist der Glaube an die Engel in der üblichen Reihenfolge?', 'Der zweite', ['Der vierte', 'Der sechste', 'Der erste'], 'Die Reihenfolge lautet: Gott, Engel, Bücher, Propheten, Jenseits, Schicksal.', 'Glaubensartikel'),
  ('An welcher Stelle steht der Glaube an die Bücher unter den Glaubensartikeln?', 'An dritter', ['An sechster', 'An fünfter', 'An erster'], 'Der Glaube an die Bücher steht an dritter Stelle.', 'Glaubensartikel'),
  ('An welcher Stelle steht der Glaube an die Propheten unter den Glaubensartikeln?', 'An vierter', ['An zweiter', 'An dritter', 'An sechster'], 'Der Glaube an die Propheten steht an vierter Stelle.', 'Glaubensartikel'),
@@ -116,7 +116,7 @@ FR = [
  ('Un mou’min est une personne qui croit en Allah et à ce que le Prophète a apporté.', 'Un mou’min croit aux articles de la foi et accepte ce que le Prophète a apporté de la part d’Allah.', 'Le croyant'),
  ('Que signifie « Amantou billah » ?', 'J’ai cru en Allah', ['J’ai remercié Allah', 'J’ai craint Allah', 'J’ai invoqué Allah'], '« Amantou billah » signifie « Je crois en Allah ».', 'Amantou billah'),
  ('Combien y a-t-il d’articles de foi ?', 'Six', ['Cinq', 'Sept', 'Huit'], 'Il y en a six : Dieu, les anges, les livres, les prophètes, l’au-delà et le destin.', 'Articles de foi'),
- ('Quel est le premier article de foi ?', 'La foi en Dieu', ['La foi en l’au-delà', 'La foi aux livres', 'La foi au destin'], 'Le premier article de foi est la foi en Dieu.', 'Articles de foi'),
+ ('Que répondit le Prophète dans le hadith de Gabriel quand on l’interrogea sur l’heure de l’Heure ?', '« Celui qu’on interroge n’en sait pas plus que celui qui interroge »', ['« Elle viendra demain »', '« Elle viendra cette année »', '« Elle ne viendra jamais »'], 'Sur le moment de l’Heure, le Prophète dit : « Celui qu’on interroge n’en sait pas plus que celui qui interroge » (Muslim).', 'Hadith de Gabriel'),
  ('Quel numéro porte la foi aux anges dans l’ordre habituel ?', 'Le deuxième', ['Le quatrième', 'Le sixième', 'Le premier'], 'L’ordre est : Dieu, anges, livres, prophètes, au-delà, destin.', 'Articles de foi'),
  ('À quelle place se trouve la foi aux livres parmi les articles de foi ?', 'La troisième', ['La sixième', 'La cinquième', 'La première'], 'La foi aux livres est en troisième position.', 'Articles de foi'),
  ('À quelle place se trouve la foi aux prophètes parmi les articles de foi ?', 'La quatrième', ['La deuxième', 'La troisième', 'La sixième'], 'La foi aux prophètes est en quatrième position.', 'Articles de foi'),
@@ -168,7 +168,7 @@ AR = [
  ('المؤمن من آمن بالله وبما جاء به النبي ﷺ.', 'المؤمن من صدّق بأركان الإيمان وقبل ما جاء به النبي ﷺ من عند الله.', 'المؤمن'),
  ('ماذا تعني عبارة «آمنتُ بالله»؟', 'صدّقتُ بالله وآمنتُ به', ['شكرتُ الله', 'خفتُ من الله', 'ذكرتُ الله'], '«آمنتُ بالله» تعني: صدّقتُ بالله.', 'آمنتُ بالله'),
  ('كم عدد أركان الإيمان؟', 'ستة', ['خمسة', 'سبعة', 'ثمانية'], 'أركان الإيمان ستة: الله والملائكة والكتب والرسل والآخرة والقدر.', 'أركان الإيمان'),
- ('ما أول أركان الإيمان؟', 'الإيمان بالله', ['الإيمان بالآخرة', 'الإيمان بالكتب', 'الإيمان بالقدر'], 'أول أركان الإيمان الإيمان بالله.', 'أركان الإيمان'),
+ ('ماذا أجاب النبي ﷺ في حديث جبريل حين سُئل عن وقت الساعة؟', '«ما المسؤول عنها بأعلم من السائل»', ['«ستقوم غداً»', '«ستقوم هذا العام»', '«لن تقوم أبداً»'], 'قال النبي ﷺ عن وقت الساعة: «ما المسؤول عنها بأعلم من السائل» (مسلم).', 'حديث جبريل'),
  ('ما ترتيب الإيمان بالملائكة بين أركان الإيمان؟', 'الثاني', ['الرابع', 'السادس', 'الأول'], 'الترتيب: الله والملائكة والكتب والرسل والآخرة والقدر.', 'أركان الإيمان'),
  ('ما ترتيب الإيمان بالكتب بين أركان الإيمان؟', 'الثالث', ['السادس', 'الخامس', 'الأول'], 'الإيمان بالكتب هو الركن الثالث.', 'أركان الإيمان'),
  ('ما ترتيب الإيمان بالأنبياء بين أركان الإيمان؟', 'الرابع', ['الثاني', 'الثالث', 'السادس'], 'الإيمان بالرسل هو الركن الرابع.', 'أركان الإيمان'),

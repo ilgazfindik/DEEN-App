@@ -48,7 +48,7 @@ EN = [
  ('According to al-Baqara 213, with which two attributes were the prophets sent?', 'As bearers of glad tidings and warners', ['As judge and soldier', 'As merchant and envoy', 'As physician and engineer'], 'Al-Baqara 213 says the prophets were sent as bearers of glad tidings and warners.', 'Belief in the prophets'),
  ('What does the epithet “ummi” used for Muhammad express?', 'That he had not learned to read and write', ['That he was very rich', 'That he was very old', 'That he never traveled'], '“Ummi” expresses that the Prophet had not learned to read and write; his knowledge came through revelation.', 'Belief in the prophets'),
  ('What did Noah build before the flood by God’s command?', 'An ark (ship)', ['A mosque', 'A bridge', 'A fortress'], 'Noah built an ark by God’s command (Hud 37-38).', 'Belief in the prophets'),
- ('According to al-Baqara 285, how do believers treat the prophets?', 'They make no distinction among them', ['They believe in only one', 'They deem one a god above the others', 'They accept none'], 'Al-Baqara 285 states believers make no distinction among God’s messengers.', 'Belief in the prophets'),
+ ('According to al-‘Ankabut 14, how long did Noah stay among his people?', 'A thousand years less fifty (950 years)', ['A hundred years', 'Forty years', 'Three years'], 'Al-‘Ankabut 14 says Noah stayed among his people a thousand years less fifty.', 'Noah'),
  ('How many are the Ulu al-‘Azm prophets?', 'Five', ['Three', 'Seven', 'Ten'], 'The Ulu al-‘Azm prophets are Noah, Abraham, Moses, Jesus and Muhammad.', 'Belief in the prophets'),
 ]
 DE = [
@@ -100,7 +100,7 @@ DE = [
  ('Mit welchen beiden Eigenschaften wurden die Propheten laut al-Baqara 213 gesandt?', 'Als Freudenboten und Warner', ['Als Richter und Soldat', 'Als Kaufmann und Gesandter', 'Als Arzt und Ingenieur'], 'Al-Baqara 213: Die Propheten wurden als Freudenboten und Warner gesandt.', 'Glaube an die Propheten'),
  ('Was drückt der für Muhammad gebrauchte Beiname „Ummi“ aus?', 'Dass er nicht lesen und schreiben gelernt hatte', ['Dass er sehr reich war', 'Dass er sehr alt war', 'Dass er nie reiste'], '„Ummi“ drückt aus, dass der Prophet nicht lesen und schreiben gelernt hatte; sein Wissen kam durch Offenbarung.', 'Glaube an die Propheten'),
  ('Was baute Noah vor der Sintflut auf Gottes Befehl?', 'Eine Arche (ein Schiff)', ['Eine Moschee', 'Eine Brücke', 'Eine Festung'], 'Noah baute auf Gottes Befehl eine Arche (Hud 37-38).', 'Glaube an die Propheten'),
- ('Wie verhalten sich die Gläubigen laut al-Baqara 285 zu den Propheten?', 'Sie machen keinen Unterschied zwischen ihnen', ['Sie glauben nur an einen', 'Sie halten einen über den anderen für einen Gott', 'Sie erkennen keinen an'], 'Al-Baqara 285: Die Gläubigen machen keinen Unterschied zwischen Gottes Gesandten.', 'Glaube an die Propheten'),
+ ('Wie lange blieb Noah laut al-‘Ankabut 14 unter seinem Volk?', 'Tausend Jahre weniger fünfzig (950 Jahre)', ['Hundert Jahre', 'Vierzig Jahre', 'Drei Jahre'], 'Al-‘Ankabut 14: Noah blieb tausend Jahre weniger fünfzig unter seinem Volk.', 'Noah'),
  ('Wie viele sind die Ulu-al-‘Azm-Propheten?', 'Fünf', ['Drei', 'Sieben', 'Zehn'], 'Die Ulu-al-‘Azm-Propheten sind Noah, Abraham, Mose, Jesus und Muhammad.', 'Glaube an die Propheten'),
 ]
 FR = [
@@ -152,7 +152,7 @@ FR = [
  ('Avec quelles deux qualités les prophètes furent-ils envoyés selon al-Baqara 213 ?', 'Comme annonciateurs de bonnes nouvelles et avertisseurs', ['Comme juge et soldat', 'Comme marchand et envoyé', 'Comme médecin et ingénieur'], 'Al-Baqara 213 : les prophètes furent envoyés comme annonciateurs et avertisseurs.', 'Foi aux prophètes'),
  ('Qu’exprime l’épithète « ummi » donnée à Muhammad ?', 'Qu’il n’avait pas appris à lire et à écrire', ['Qu’il était très riche', 'Qu’il était très âgé', 'Qu’il n’avait jamais voyagé'], '« Ummi » exprime que le Prophète n’avait pas appris à lire et à écrire ; son savoir venait de la révélation.', 'Foi aux prophètes'),
  ('Que construisit Noé avant le déluge sur l’ordre de Dieu ?', 'Une arche (un navire)', ['Une mosquée', 'Un pont', 'Une forteresse'], 'Noé construisit une arche par ordre de Dieu (Hud 37-38).', 'Foi aux prophètes'),
- ('Comment les croyants se comportent-ils envers les prophètes selon al-Baqara 285 ?', 'Ils ne font aucune distinction entre eux', ['Ils ne croient qu’à un seul', 'Ils tiennent l’un pour un dieu au-dessus des autres', 'Ils n’en acceptent aucun'], 'Al-Baqara 285 : les croyants ne font aucune distinction entre les messagers de Dieu.', 'Foi aux prophètes'),
+ ('Combien de temps Noé est-il resté parmi son peuple selon al-‘Ankabut 14 ?', 'Mille ans moins cinquante (950 ans)', ['Cent ans', 'Quarante ans', 'Trois ans'], 'Al-‘Ankabut 14 : Noé resta parmi son peuple mille ans moins cinquante.', 'Noé'),
  ('Combien sont les prophètes Oulou al-‘Azm ?', 'Cinq', ['Trois', 'Sept', 'Dix'], 'Les prophètes Oulou al-‘Azm sont Noé, Abraham, Moïse, Jésus et Muhammad.', 'Foi aux prophètes'),
 ]
 AR = [
@@ -204,7 +204,7 @@ AR = [
  ('بأي صفتين أُرسل الأنبياء بحسب البقرة ٢١٣؟', 'مبشرين ومنذرين', ['قاضياً وجندياً', 'تاجراً ورسولاً', 'طبيباً ومهندساً'], 'في البقرة ٢١٣: «فبعث الله النبيين مبشرين ومنذرين».', 'الإيمان بالأنبياء'),
  ('ماذا يعبّر وصف «الأمي» الذي وُصف به محمد ﷺ؟', 'أنه لم يتعلم القراءة والكتابة', ['أنه كثير المال', 'أنه طويل العمر', 'أنه لم يسافر قط'], '«الأمي» أنه ﷺ لم يتعلم القراءة والكتابة وجاءه علمه بالوحي.', 'الإيمان بالأنبياء'),
  ('ماذا بنى نوح قبل الطوفان بأمر الله؟', 'سفينة', ['مسجداً', 'جسراً', 'قلعة'], 'بنى نوح سفينة بأمر الله (هود ٣٧-٣٨).', 'الإيمان بالأنبياء'),
- ('كيف يتعامل المؤمنون مع الرسل بحسب البقرة ٢٨٥؟', 'لا يفرّقون بين أحد منهم', ['يؤمنون بواحد فقط', 'يعدّون أحدهم إلهاً فوق الآخرين', 'لا يقبلون أحداً'], 'في البقرة ٢٨٥: «لا نفرق بين أحد من رسله».', 'الإيمان بالأنبياء'),
+ ('كم لبث نوح في قومه بحسب العنكبوت ١٤؟', 'ألف سنة إلا خمسين عاماً', ['مئة سنة', 'أربعين سنة', 'ثلاث سنين'], 'في العنكبوت ١٤: «فلبث فيهم ألف سنة إلا خمسين عاماً».', 'نوح'),
  ('كم عدد أولي العزم من الرسل؟', 'خمسة', ['ثلاثة', 'سبعة', 'عشرة'], 'أولو العزم: نوح وإبراهيم وموسى وعيسى ومحمد عليهم السلام.', 'الإيمان بالأنبياء'),
 ]
 
