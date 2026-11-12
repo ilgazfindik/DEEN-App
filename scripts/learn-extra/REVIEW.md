@@ -1182,6 +1182,196 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Doğru cevap: Cibril hadisi
 - Açıklama: İmanın şartları Cibril hadisinde sayılır.
 
+## U06 — meleklere_iman (15 soru)
+
+**DEEN-U06-S01-X001** · Melekler Kimdir? · multiple_choice
+- Soru: Meleklerin yaratıldığı unsur İslamî kaynaklarda nasıl bildirilir?
+- Seçenekler: Su | Toprak | Nur | Ateş
+- Doğru cevap: Nur
+- Açıklama: Hadise göre melekler nurdan yaratılmıştır.
+
+**DEEN-U06-S01-X002** · Melekler Kimdir? · multiple_choice
+- Soru: Melekler Allah’ın emirlerine karşı nasıl davranır?
+- Seçenekler: İnsanlar gibi günah işlemekte serbesttirler | Allah’ın emirlerini reddederler | İsyan etmez, emredileni yerine getirirler | Kendi ilahlarını seçerler
+- Doğru cevap: İsyan etmez, emredileni yerine getirirler
+- Açıklama: Melekler Allah’a isyan etmez, kendilerine emredileni yaparlar (Tahrîm 6).
+
+**DEEN-U06-S02-X001** · Meleklerin Özellikleri · multiple_choice
+- Soru: Vahiy getirmekle görevli melek kimdir?
+- Seçenekler: Mikâil | Azrâil | İsrâfil | Cebrâil
+- Doğru cevap: Cebrâil
+- Açıklama: Cebrâil, Allah’ın vahyini peygamberlere ulaştıran melektir.
+
+**DEEN-U06-S02-X002** · Meleklerin Özellikleri · multiple_choice
+- Soru: Tabiat olayları ve rızıkla ilgili görevlerle anılan melek kimdir?
+- Seçenekler: Mâlik | İsrâfil | Cebrâil | Mikâil
+- Doğru cevap: Mikâil
+- Açıklama: Mikâil, yağmur ve rızık gibi görevlerle anılır.
+
+**DEEN-U06-S02-X003** · Meleklerin Özellikleri · multiple_choice
+- Soru: Sûra üflemekle görevli melek kimdir?
+- Seçenekler: Cebrâil | Mikâil | İsrâfil | Kirâmen Kâtibîn
+- Doğru cevap: İsrâfil
+- Açıklama: İsrâfil, kıyametin kopması için sûra üfleyecek melektir.
+
+**DEEN-U06-S03-X001** · Cebrâil ve Vahiy · multiple_choice
+- Soru: Can almakla görevli melek hangi adla bilinir?
+- Seçenekler: Melekü’l-mevt | İsrâfil | Cebrâil | Mikâil
+- Doğru cevap: Melekü’l-mevt
+- Açıklama: Can almakla görevli melek, Kur’an’da “Melekü’l-mevt” (ölüm meleği) diye anılır; halk arasında Azrâil denir.
+
+**DEEN-U06-S03-X002** · Cebrâil ve Vahiy · multiple_choice
+- Soru: İnsanların iyi ve kötü davranışlarını yazmakla görevli melekler nasıl adlandırılır?
+- Seçenekler: Zebânîler | Hamele-i Arş | Kirâmen Kâtibîn | Mukarrebûn
+- Doğru cevap: Kirâmen Kâtibîn
+- Açıklama: Kirâmen Kâtibîn, insanların davranışlarını kaydeden değerli yazıcı meleklerdir (İnfitâr 10-12).
+
+**DEEN-U06-S04-X001** · Kur'an'da Meleklerin Görevleri · multiple_choice
+- Soru: Kabir sorgusuyla ilişkilendirilen melekler hangileridir?
+- Seçenekler: İsrâfil ve Azrâil | Cebrâil ve Mikâil | Münker ve Nekir | Hârût ve Mârût
+- Doğru cevap: Münker ve Nekir
+- Açıklama: Hadislerde kabirde sorgu yapan melekler Münker ve Nekir olarak anılır.
+
+**DEEN-U06-S04-X002** · Kur'an'da Meleklerin Görevleri · multiple_choice
+- Soru: Cennet bekçisi olarak anılan meleğin adı hangisidir?
+- Seçenekler: Mâlik | Mikâil | Rıdvan | Cebrâil
+- Doğru cevap: Rıdvan
+- Açıklama: Cennet görevlisi melek Rıdvan adıyla anılır.
+
+**DEEN-U06-S05-X001** · Meleklere İmanın Anlamı · multiple_choice
+- Soru: Cehennem görevlisi olarak Kur’an’da adı geçen melek hangisidir?
+- Seçenekler: İsrâfil | Mâlik | Mikâil | Rıdvan
+- Doğru cevap: Mâlik
+- Açıklama: Zuhruf 77’de cehennem bekçisi olarak Mâlik’in adı geçer.
+
+**DEEN-U06-S05-X002** · Meleklere İmanın Anlamı · multiple_choice
+- Soru: Meleklerin cinsiyetleri hakkında İslamî yaklaşım hangisidir?
+- Seçenekler: İnsanlarla aynı biyolojik yapıya sahiptirler | Hepsi erkektir | İnsanların cinsiyet kategorileriyle tanımlanmazlar | Hepsi kadındır
+- Doğru cevap: İnsanların cinsiyet kategorileriyle tanımlanmazlar
+- Açıklama: Melekler, insanın cinsiyet kategorileriyle tanımlanmaz; Kur’an onlara dişi demeyi eleştirir (Zuhruf 19).
+
+**DEEN-U06-S06-X001** · Yanlış Anlamaları Düzelt · multiple_choice
+- Soru: İslam inancına göre melekler hangi özelliğe sahiptir?
+- Seçenekler: Gaybî varlıklardır | Her zaman insan gözüyle görülürler | Yaratıcıdırlar | Allah’a ortaktırlar
+- Doğru cevap: Gaybî varlıklardır
+- Açıklama: Melekler, duyularla doğrudan algılanmayan gaybî varlıklardır.
+
+**DEEN-U06-S06-X002** · Yanlış Anlamaları Düzelt · multiple_choice
+- Soru: Dört büyük melekten biri olmayan hangisidir?
+- Seçenekler: Mikâil | Münker | İsrâfil | Cebrâil
+- Doğru cevap: Münker
+- Açıklama: Dört büyük melek Cebrâil, Mikâil, İsrâfil ve Azrâil’dir.
+
+**DEEN-U06-S07-X001** · Melekler Ustalığı · multiple_choice
+- Soru: Meleklerin Allah’ın izni olmadan bağımsız güç kullanabildiğine inanmak doğru mudur?
+- Seçenekler: Evet; yaratma gücüne sahiptirler | Evet; Allah’tan bağımsızdırlar | Hayır; çünkü melekler yoktur | Hayır; görevlerini Allah’ın emri ve izniyle yerine getirirler
+- Doğru cevap: Hayır; görevlerini Allah’ın emri ve izniyle yerine getirirler
+- Açıklama: Melekler görevlerini Allah’ın emri ve izniyle yerine getirirler; bağımsız güç sahibi değildirler.
+
+**DEEN-U06-S07-X002** · Melekler Ustalığı · multiple_choice
+- Soru: Meleklere iman insanda hangi bilinci güçlendirebilir?
+- Seçenekler: İnsanların ilah olduğu inancını | Hiçbir davranışın önemli olmadığı düşüncesini | Haksızlığın serbest olduğu fikrini | Davranışların kaydedildiği ve sorumluluk taşıdığı bilincini
+- Doğru cevap: Davranışların kaydedildiği ve sorumluluk taşıdığı bilincini
+- Açıklama: Meleklere iman, davranışların kaydedildiği bilincini ve sorumluluk duygusunu güçlendirir.
+
+## U07 — kitaplara_iman (16 soru)
+
+**DEEN-U07-S01-X001** · Kitaplara İman Nedir? · multiple_choice
+- Soru: Kur’an’ın ilk suresi hangisidir?
+- Seçenekler: Nas | Fâtiha | İhlâs | Bakara
+- Doğru cevap: Fâtiha
+- Açıklama: Mushaftaki ilk sure Fâtiha Suresi’dir.
+
+**DEEN-U07-S01-X002** · Kitaplara İman Nedir? · multiple_choice
+- Soru: Kur’an’ın son suresi hangisidir?
+- Seçenekler: Felak | Fâtiha | Kevser | Nas
+- Doğru cevap: Nas
+- Açıklama: Mushaftaki son sure Nas Suresi’dir.
+
+**DEEN-U07-S02-X001** · Tevrat, İncil, Zebur ve Sahifeler · multiple_choice
+- Soru: Kur’an’da âyetlerin bir araya gelerek oluşturduğu bölüm nedir?
+- Seçenekler: Sure | Rükû | Cüz | Hizip
+- Doğru cevap: Sure
+- Açıklama: Âyetlerden oluşan bölümlere sure denir.
+
+**DEEN-U07-S02-X002** · Tevrat, İncil, Zebur ve Sahifeler · multiple_choice
+- Soru: Kur’an’ın 30 eşit bölüme ayrılmış kısımlarına ne denir?
+- Seçenekler: Cüz | Sure | Âyet | Hizip
+- Doğru cevap: Cüz
+- Açıklama: Kur’an otuz cüze ayrılmıştır.
+
+**DEEN-U07-S03-X001** · Kur'an'ın Konumu · multiple_choice
+- Soru: Kur’an’ın indirilişi yaklaşık kaç yıl sürmüştür?
+- Seçenekler: 23 yıl | 10 yıl | 63 yıl | 40 yıl
+- Doğru cevap: 23 yıl
+- Açıklama: Vahiy, peygamberliğin başından vefata kadar yaklaşık 23 yıl sürmüştür.
+
+**DEEN-U07-S03-X002** · Kur'an'ın Konumu · multiple_choice
+- Soru: Kur’an’ın korunmuşluğu inancı hangi temel düşünceyi ifade eder?
+- Seçenekler: Metnin her dönemde değişmesi | Her kişinin yeni sure ekleyebilmesi | Allah’ın vahyini koruyacağını bildirmesi | Kur’an’ın yalnızca sözlü aktarılması
+- Doğru cevap: Allah’ın vahyini koruyacağını bildirmesi
+- Açıklama: Hicr 9’da Allah’ın Kur’an’ı koruyacağı bildirilir.
+
+**DEEN-U07-S03-X003** · Kur'an'ın Konumu · multiple_choice
+- Soru: Mushaf ne demektir?
+- Seçenekler: Namazın bir rüknü | Kur’an âyetlerinin kitap hâlinde toplanmış şekli | Vahiy meleğinin görevi | Bir melek adı
+- Doğru cevap: Kur’an âyetlerinin kitap hâlinde toplanmış şekli
+- Açıklama: Mushaf, Kur’an’ın kitap hâlinde bir araya getirilmiş şeklidir.
+
+**DEEN-U07-S04-X001** · İlahi Kitapların Ortak Kaynağı · multiple_choice
+- Soru: Kur’an’da adı geçen büyük kitaplardan biri olmayan hangisidir?
+- Seçenekler: Veda | Tevrat | İncil | Zebur
+- Doğru cevap: Veda
+- Açıklama: Kur’an’da Tevrat, Zebur, İncil ve Kur’an anılır; “Veda” bir kitap adı değildir.
+
+**DEEN-U07-S04-X002** · İlahi Kitapların Ortak Kaynağı · multiple_choice
+- Soru: Kur’an’ın temel konularından biri hangisidir?
+- Seçenekler: Yalnızca matematik formülleri | İnanç, ibadet, ahlak ve hayat ilkeleri | Yalnızca şiir ölçüleri | Sadece savaş tarihleri
+- Doğru cevap: İnanç, ibadet, ahlak ve hayat ilkeleri
+- Açıklama: Kur’an, inanç, ibadet, ahlak ve hayat ilkelerini bildirir.
+
+**DEEN-U07-S05-X001** · Kur'an'ın Rehberliği ve Korunması · multiple_choice
+- Soru: Kur’an âyetlerinin Hz. Muhammed’e bildirilmesine ne denir?
+- Seçenekler: Vahiy | Rüya tabiri | Kıyas | İlham
+- Doğru cevap: Vahiy
+- Açıklama: Allah’ın peygamberlerine bildirdiği mesaja vahiy denir.
+
+**DEEN-U07-S05-X002** · Kur'an'ın Rehberliği ve Korunması · multiple_choice
+- Soru: Kur’an’ı doğru anlamak için hangi yaklaşım uygundur?
+- Seçenekler: Kaynakları tamamen dışlamak | Bir ayeti bağlamından koparmak | Kişisel çıkarı tek ölçü yapmak | Ayetleri bağlamı ve güvenilir açıklamalarıyla değerlendirmek
+- Doğru cevap: Ayetleri bağlamı ve güvenilir açıklamalarıyla değerlendirmek
+- Açıklama: Kur’an, bağlamı ve güvenilir açıklamaları gözetilerek anlaşılır.
+
+**DEEN-U07-S05-X003** · Kur'an'ın Rehberliği ve Korunması · multiple_choice
+- Soru: Kur’an’ın indiriliş amacı için hangisi uygundur?
+- Seçenekler: İnsanları bilgiden uzaklaştırmak | İnsanlara hidayet ve rehberlik etmek | Yalnızca tarihî olayları listelemek | Sadece belirli bir kavme hitap etmek
+- Doğru cevap: İnsanlara hidayet ve rehberlik etmek
+- Açıklama: Kur’an, insanlara hidayet ve rehberlik için indirilmiştir.
+
+**DEEN-U07-S06-X001** · Yanlış Anlamaları Düzelt · multiple_choice
+- Soru: İlahi kitaplara iman ile peygamberlere iman arasındaki bağ hangisidir?
+- Seçenekler: İkisi arasında ilişki yoktur | Kitaplar peygamberlere vahyedilmiştir | Kitaplar melekler tarafından yazılmıştır | Peygamberler kitapları kendileri ilah olarak üretmiştir
+- Doğru cevap: Kitaplar peygamberlere vahyedilmiştir
+- Açıklama: İlahi kitaplar, Allah tarafından peygamberlere vahyedilmiştir.
+
+**DEEN-U07-S07-X001** · Kitaplara İman Ustalığı · multiple_choice
+- Soru: Kur’an’ın ezberlenmesi ve okunmasıyla ilgili kavram hangisidir?
+- Seçenekler: Vakfe | Tavaf | Hıfz | Sa’y
+- Doğru cevap: Hıfz
+- Açıklama: Kur’an’ı ezberlemeye hıfz denir; ezberleyene hâfız denir.
+
+**DEEN-U07-S07-X002** · Kitaplara İman Ustalığı · multiple_choice
+- Soru: Kur’an’ı güzel ve kurallarına uygun okumayı inceleyen ilim hangisidir?
+- Seçenekler: Kelam | Tecvid | Siyer | Fıkıh
+- Doğru cevap: Tecvid
+- Açıklama: Tecvid, Kur’an’ın harf ve kurallarına uygun okunmasını inceleyen ilimdir.
+
+**DEEN-U07-S07-X003** · Kitaplara İman Ustalığı · multiple_choice
+- Soru: Kur’an’ın açıklanması ve yorumlanmasıyla ilgilenen ilim hangisidir?
+- Seçenekler: Tefsir | Aruz | Hadis usulü | Sarf
+- Doğru cevap: Tefsir
+- Açıklama: Tefsir, Kur’an’ın açıklanması ve yorumlanmasıyla ilgilenen ilimdir.
+
 ## U11 — ibadet_bilinci (48 soru)
 
 **DEEN-U11-S01-X001** · İbadet Nedir? · multiple_choice
