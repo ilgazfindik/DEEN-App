@@ -608,7 +608,7 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Doğru cevap: Hamd, âlemlerin Rabbi Allah’a mahsustur
 - Açıklama: Fâtiha, âlemlerin Rabbi olan Allah’a hamd ile başlar.
 
-## U03 — kelime_i_sehadet (25 soru)
+## U03 — kelime_i_sehadet (45 soru)
 
 **DEEN-U03-S01-X001** · Şehadet Nedir? · multiple_choice
 - Soru: “Şehadet” kelimesi sözlükte ne anlama gelir?
@@ -757,6 +757,242 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Seçenekler: Allah’ın birliğine ve Hz. Muhammed’in elçiliğine kalpten bağlandığımı açıkça ilan etmektir | Yalnızca bir selamlaşma biçimidir | Yalnızca bir şiirdir | Bir sözleşmeye imza atmaktır
 - Doğru cevap: Allah’ın birliğine ve Hz. Muhammed’in elçiliğine kalpten bağlandığımı açıkça ilan etmektir
 - Açıklama: Şehadet, imanın temel esaslarına açık bir tanıklıktır.
+
+**DEEN-U03-S01-X006** · Şehadet Nedir? · multiple_choice
+- Soru: Kelime-i şehadetin ilk bölümü neyi bildirir?
+- Seçenekler: Peygamberlerin ilah olduğunu | Meleklerin yaratıcı olduğunu | Ahiretin bulunmadığını | Allah’tan başka ilah olmadığına şahitliği
+- Doğru cevap: Allah’tan başka ilah olmadığına şahitliği
+- Açıklama: İlk bölüm, Allah’tan başka ilah olmadığına tanıklık eder.
+
+**DEEN-U03-S01-X007** · Şehadet Nedir? · multiple_choice
+- Soru: Kelime-i şehadetin ikinci bölümü kime peygamberlik ve kulluk vasfını bildirir?
+- Seçenekler: Hz. Musa’ya | Hz. Muhammed’e | Hz. İbrahim’e | Hz. Nuh’a
+- Doğru cevap: Hz. Muhammed’e
+- Açıklama: İkinci bölüm, Hz. Muhammed’in Allah’ın kulu ve elçisi olduğuna tanıklık eder.
+
+**DEEN-U03-S02-X007** · Anlamını Öğren · multiple_choice
+- Soru: Kelime-i şehadette geçen “abduhû” ifadesinin anlamı nedir?
+- Seçenekler: O’nun ortağı | O’nun babası | O’nun kulu | O’nun meleği
+- Doğru cevap: O’nun kulu
+- Açıklama: “Abduhû”, “O’nun kulu” demektir.
+
+**DEEN-U03-S02-X008** · Anlamını Öğren · multiple_choice
+- Soru: Kelime-i şehadette geçen “resûlühû” ifadesinin anlamı nedir?
+- Seçenekler: O’nun hükmü | O’nun elçisi | O’nun yarattığı kitap | O’nun evi
+- Doğru cevap: O’nun elçisi
+- Açıklama: “Resûlühû”, “O’nun elçisi” demektir.
+
+**DEEN-U03-S01-X008** · Şehadet Nedir? · multiple_choice
+- Soru: Kelime-i şehadetin Arapça başlangıcı hangisidir?
+- Seçenekler: Sübhaneke Allahümme | Eşhedü en lâ ilâhe illallah | Elhamdülillahi rabbilâlemin | Bismillahirrahmanirrahim
+- Doğru cevap: Eşhedü en lâ ilâhe illallah
+- Açıklama: Şehadet “Eşhedü en lâ ilâhe illallah” diye başlar.
+
+**DEEN-U03-S03-X001** · Dinle ve Tanı · multiple_choice
+- Soru: Kelime-i şehadet getirmek İslam’da neyle ilişkilidir?
+- Seçenekler: İslam’ın temel iman ikrarıyla | Oruç fidyesiyle | Zekât miktarının belirlenmesiyle | Hac tavafının tamamlanmasıyla
+- Doğru cevap: İslam’ın temel iman ikrarıyla
+- Açıklama: Şehadet, İslam’a girişin ve iman ikrarının ifadesidir.
+
+**DEEN-U03-S05-X006** · Ne Söylediğini Anla · multiple_choice
+- Soru: Kelime-i şehadetin anlamını bilerek söylemek neden önemlidir?
+- Seçenekler: İkrar edilen inancın bilinçli olmasını sağlar | Namazı gereksiz kılar | Sözü bir şarkıya dönüştürür | Kişiyi bütün sorumluluklardan çıkarır
+- Doğru cevap: İkrar edilen inancın bilinçli olmasını sağlar
+- Açıklama: Anlamı bilinerek söylenen şehadet, inancın bilinçli bir ikrarı olur.
+
+**DEEN-U03-S03-X002** · Dinle ve Tanı · multiple_choice
+- Soru: Kelime-i şehadet, Allah’ın birliği bakımından hangi anlayışı reddeder?
+- Seçenekler: Allah’a kulluğu | Peygamberlere imanı | Allah’a ortak koşmayı | Ahirete inanmayı
+- Doğru cevap: Allah’a ortak koşmayı
+- Açıklama: Şehadet, Allah’a ortak koşmayı (şirki) reddeder.
+
+**DEEN-U03-S02-X009** · Anlamını Öğren · multiple_choice
+- Soru: Kelime-i şehadet hangi dildeki ifadelerle yaygın olarak okunur?
+- Seçenekler: Arapça | Latince | Farsça | İbranice
+- Doğru cevap: Arapça
+- Açıklama: Şehadet, Peygamberimizin öğrettiği şekliyle Arapça okunur.
+
+**DEEN-U03-S04-X005** · Şehadeti Oluştur · multiple_choice
+- Soru: Kelime-i şehadet ile kelime-i tevhid arasındaki temel fark hangi seçenekte doğru verilmiştir?
+- Seçenekler: Şehadet yalnızca namaz vakitlerini bildirir | Şehadet, Hz. Muhammed’in elçiliğine tanıklığı da açıkça içerir | İkisi de peygamberliği reddeder | Tevhid Allah’ın birliğini reddeder
+- Doğru cevap: Şehadet, Hz. Muhammed’in elçiliğine tanıklığı da açıkça içerir
+- Açıklama: Kelime-i tevhid Allah’ın birliğini, kelime-i şehadet ise buna ek olarak Hz. Muhammed’in elçiliğini de ifade eder.
+
+**DEEN-U03-S04-X006** · Şehadeti Oluştur · multiple_choice
+- Soru: Bir kişi Allah’ın birliğini kabul edip Hz. Muhammed’in peygamberliğini reddederse şehadetin hangi kısmını kabul etmemiş olur?
+- Seçenekler: Allah’ın birliğine şahitlik kısmını | Hiçbir kısmını | Sadece dua kısmını | Resul oluşuna şahitlik kısmını
+- Doğru cevap: Resul oluşuna şahitlik kısmını
+- Açıklama: Şehadetin ikinci kısmı Hz. Muhammed’in elçiliğine tanıklıktır.
+
+**DEEN-U03-S02-X010** · Anlamını Öğren · multiple_choice
+- Soru: Kelime-i şehadetin “lâ ilâhe illallah” bölümü hangi anlama gelir?
+- Seçenekler: Birden fazla ilah vardır | Her insan ilah olabilir | Melekler yaratıcıdır | Allah’tan başka hak ilah yoktur
+- Doğru cevap: Allah’tan başka hak ilah yoktur
+- Açıklama: “Lâ ilâhe illallah”, Allah’tan başka hak ilah olmadığını bildirir.
+
+**DEEN-U03-S05-X007** · Ne Söylediğini Anla · multiple_choice
+- Soru: Şehadet getirmek sadece sesli bir tekrar mıdır?
+- Seçenekler: Evet; yalnızca ezanda söylenir | Evet; anlamı önemli değildir | Hayır; inancı ikrar etmeyi ifade eder | Hayır; yalnızca hacda söylenir
+- Doğru cevap: Hayır; inancı ikrar etmeyi ifade eder
+- Açıklama: Şehadet, sadece söz tekrarı değil, inancın ikrarıdır.
+
+**DEEN-U03-S03-X003** · Dinle ve Tanı · multiple_choice
+- Soru: Kelime-i şehadet hangi ibadetin içinde oturuşta okunur?
+- Seçenekler: Hacda sa’y yapılırken | Oruç açılırken zorunlu olarak | Zekât verilirken | Namazın oturuşunda (teşehhüdde)
+- Doğru cevap: Namazın oturuşunda (teşehhüdde)
+- Açıklama: Namazın oturuşunda okunan teşehhüd duasında şehadet kelimeleri de bulunur.
+
+**DEEN-U03-S05-X008** · Ne Söylediğini Anla · multiple_choice
+- Soru: Şehadet inancı Müslümanın hangi sorumluluğunu güçlendirir?
+- Seçenekler: Allah’a kulluk ve peygambere bağlılık | İbadetleri gösteriş için yapma | Başkalarını küçümseme | Haksız kazancı meşru görme
+- Doğru cevap: Allah’a kulluk ve peygambere bağlılık
+- Açıklama: Şehadet, Allah’a kulluk ve Hz. Peygamber’e bağlılık sorumluluğunu güçlendirir.
+
+**DEEN-U03-S04-X007** · Şehadeti Oluştur · multiple_choice
+- Soru: Kelime-i şehadetin ilk kısmı hangi inanç esasının özlü ifadesidir?
+- Seçenekler: Kitaplara iman | Allah’a iman | Kadere iman | Ahirete iman
+- Doğru cevap: Allah’a iman
+- Açıklama: İlk kısım, Allah’a imanın ve tevhidin özlü ifadesidir.
+
+**DEEN-U03-S04-X008** · Şehadeti Oluştur · multiple_choice
+- Soru: Kelime-i şehadetin ikinci kısmı hangi inanç esasını doğrudan ifade eder?
+- Seçenekler: Ahiret gününe iman | Peygamberlere iman | Kader ve kazaya iman | Meleklere iman
+- Doğru cevap: Peygamberlere iman
+- Açıklama: İkinci kısım, peygamberlere imanın ifadesidir.
+
+**DEEN-U03-S06-X004** · Akıllı Tekrar · multiple_choice
+- Soru: Kelime-i şehadet İslam’ın hangi yönünü en özlü biçimde ortaya koyar?
+- Seçenekler: İman ve aidiyet temelini | Ticaret sözleşmelerini | Yalnızca hac menasikini | Miras paylarını
+- Doğru cevap: İman ve aidiyet temelini
+- Açıklama: Şehadet, İslam’ın iman ve topluluğa aidiyet temelini özlü biçimde ortaya koyar.
+
+**DEEN-U03-S06-X005** · Akıllı Tekrar · multiple_choice
+- Soru: Kelime-i şehadetin doğru anlaşılması için hangi tutum gereklidir?
+- Seçenekler: Başka inançlarla karıştırmak | İfadelerin anlamını ve gereğini kavramak | Anlamını değiştirmek | Sadece ses benzerliğine bakmak
+- Doğru cevap: İfadelerin anlamını ve gereğini kavramak
+- Açıklama: Şehadetin doğru anlaşılması için anlamı ve gereğinin kavranması gerekir.
+
+**DEEN-U03-S07-X003** · Şehadet Challenge · multiple_choice
+- Soru: Kelime-i şehadet hangi iki cümleden oluşan tanıklık olarak bilinir?
+- Seçenekler: Oruç ve haccın zamanı | Melek ve kitapların isimleri | Namazın ve zekâtın miktarı | Allah’ın birliği ve Hz. Muhammed’in risaleti
+- Doğru cevap: Allah’ın birliği ve Hz. Muhammed’in risaleti
+- Açıklama: Şehadet, Allah’ın birliğine ve Hz. Muhammed’in risaletine iki tanıklıktan oluşur.
+
+## U04 — islamin_bes_sarti (19 soru)
+
+**DEEN-U04-S01-X001** · Beş Şartı Tanı · multiple_choice
+- Soru: İslam’ın beş şartından hangisi mali ibadettir?
+- Seçenekler: Oruç tutmak | Namaz kılmak | Kelime-i şehadet getirmek | Zekât vermek
+- Doğru cevap: Zekât vermek
+- Açıklama: Zekât, mala bağlı olduğu için mali ibadettir.
+
+**DEEN-U04-S02-X001** · Şehadet ve Namaz · multiple_choice
+- Soru: İslam’ın beş şartından hangisi imkânı olanların ömründe bir kez yerine getirmesi gereken ibadettir?
+- Seçenekler: Hac | Her yıl umre | Her gün cuma namazı | Her ay itikâf
+- Doğru cevap: Hac
+- Açıklama: Hac, gücü yetenlere ömürde bir kez farzdır.
+
+**DEEN-U04-S01-X002** · Beş Şartı Tanı · multiple_choice
+- Soru: İslam’ın beş şartı arasında yer alan iman ikrarı hangisidir?
+- Seçenekler: İstiğfar | Salavat | Kelime-i şehadet | Tekbir
+- Doğru cevap: Kelime-i şehadet
+- Açıklama: İman ikrarı, kelime-i şehadettir.
+
+**DEEN-U04-S01-X003** · Beş Şartı Tanı · multiple_choice
+- Soru: Günde beş vakit farz olan ibadet hangisidir?
+- Seçenekler: Hac | Kurban | Namaz | Zekât
+- Doğru cevap: Namaz
+- Açıklama: Namaz günde beş vakit farzdır.
+
+**DEEN-U04-S03-X001** · Oruç, Zekât ve Hac · multiple_choice
+- Soru: Zekâtın temel amaçlarından biri hangisidir?
+- Seçenekler: Ticarette tekel oluşturmak | Malı arındırmak ve ihtiyaç sahiplerine destek olmak | Zenginliği gösteriş için artırmak | Borçluyu küçük düşürmek
+- Doğru cevap: Malı arındırmak ve ihtiyaç sahiplerine destek olmak
+- Açıklama: Zekât malı arındırır ve ihtiyaç sahiplerine destek sağlar.
+
+**DEEN-U04-S02-X002** · Şehadet ve Namaz · multiple_choice
+- Soru: Oruç ibadeti hangi zaman diliminde tutulur?
+- Seçenekler: Fecrin doğuşundan güneşin batışına kadar | Yalnızca gece yarısı | Güneş doğduktan öğlene kadar | İkindi ile yatsı arasında
+- Doğru cevap: Fecrin doğuşundan güneşin batışına kadar
+- Açıklama: Oruç, fecrin doğuşundan güneş batıncaya kadar tutulur.
+
+**DEEN-U04-S02-X003** · Şehadet ve Namaz · multiple_choice
+- Soru: Hac ibadeti hangi kutsal şehirde yerine getirilir?
+- Seçenekler: Taif | Medine | Kudüs | Mekke
+- Doğru cevap: Mekke
+- Açıklama: Hac, Mekke ve çevresinde yerine getirilir.
+
+**DEEN-U04-S05-X001** · Hangisi Hangi Şart? · multiple_choice
+- Soru: İslam’ın beş şartı hangi kaynağa dayanan meşhur hadisle açıklanır?
+- Seçenekler: Yalnızca mirası anlatan hadis | Sadece savaş hukukunu anlatan hadis | İslam’ın beş esas üzerine kurulduğunu bildiren hadis | Sadece ticareti anlatan hadis
+- Doğru cevap: İslam’ın beş esas üzerine kurulduğunu bildiren hadis
+- Açıklama: Beş esas, “İslam beş şey üzerine kurulmuştur” hadisiyle açıklanır (Buhârî, Müslim).
+
+**DEEN-U04-S06-X001** · Akıllı Tekrar · multiple_choice
+- Soru: Zekâtın verileceği grupları açıklayan âyet hangi surede yer alır?
+- Seçenekler: Kevser Suresi | Felak Suresi | Kureyş Suresi | Tevbe Suresi
+- Doğru cevap: Tevbe Suresi
+- Açıklama: Zekâtın verileceği sekiz grup Tevbe 60’ta sayılır.
+
+**DEEN-U04-S03-X002** · Oruç, Zekât ve Hac · multiple_choice
+- Soru: Hac ibadeti kimlere farzdır?
+- Seçenekler: Gücü yeten Müslümanlara | Her yaştaki bütün insanlara | Sadece Mekke’de yaşayanlara | Yalnızca din görevlilerine
+- Doğru cevap: Gücü yeten Müslümanlara
+- Açıklama: Hac, bedenen ve malen gücü yeten Müslümanlara farzdır.
+
+**DEEN-U04-S04-X001** · Kavramları Eşleştir · multiple_choice
+- Soru: Oruçta imsak neyi ifade eder?
+- Seçenekler: Orucu açma vaktini | Hac ihramından çıkmayı | Bayram namazı vaktini | Oruca başlama vaktini
+- Doğru cevap: Oruca başlama vaktini
+- Açıklama: İmsak, orucun başladığı vakittir.
+
+**DEEN-U04-S04-X002** · Kavramları Eşleştir · multiple_choice
+- Soru: İftar ne zaman yapılır?
+- Seçenekler: Öğle ezanında | İmsak vaktinde | Güneş battığında | Güneş doğduğunda
+- Doğru cevap: Güneş battığında
+- Açıklama: Oruç güneşin batmasıyla açılır.
+
+**DEEN-U04-S05-X002** · Hangisi Hangi Şart? · multiple_choice
+- Soru: Hacda Kâbe’nin etrafında dönmeye ne denir?
+- Seçenekler: Vakfe | Tavaf | Telbiye | Sa’y
+- Doğru cevap: Tavaf
+- Açıklama: Kâbe’nin etrafında yedi defa dönmeye tavaf denir.
+
+**DEEN-U04-S05-X003** · Hangisi Hangi Şart? · multiple_choice
+- Soru: Safa ile Merve arasında gidip gelmeye ne denir?
+- Seçenekler: Arafat vakfesi | İhram | Tavaf | Sa’y
+- Doğru cevap: Sa’y
+- Açıklama: Safa ile Merve arasında yedi defa gidip gelmeye sa’y denir.
+
+**DEEN-U04-S06-X002** · Akıllı Tekrar · multiple_choice
+- Soru: Hacda Arafat’ta belirli zamanda bulunmanın adı nedir?
+- Seçenekler: Şeytan taşlama | Vakfe | Sa’y | Tavaf
+- Doğru cevap: Vakfe
+- Açıklama: Arafat’ta belirli zamanda bulunmaya vakfe denir; hacın en önemli rüknüdür.
+
+**DEEN-U04-S07-X001** · Beş Şart Challenge · multiple_choice
+- Soru: İslam’ın beş şartından hangisi bedenî ibadettir?
+- Seçenekler: Zekât | Sadaka-i fıtır | Namaz | Mali kefaret
+- Doğru cevap: Namaz
+- Açıklama: Namaz, beden ile yapılan ibadettir.
+
+**DEEN-U04-S06-X003** · Akıllı Tekrar · multiple_choice
+- Soru: Zekâtın toplumsal işlevlerinden biri hangisidir?
+- Seçenekler: İsrafı teşvik etmek | İhtiyaç sahiplerini dışlamak | Dayanışmayı güçlendirmek | Gelir adaletsizliğini kutsamak
+- Doğru cevap: Dayanışmayı güçlendirmek
+- Açıklama: Zekât, toplumda dayanışmayı ve paylaşmayı güçlendirir.
+
+**DEEN-U04-S07-X002** · Beş Şart Challenge · multiple_choice
+- Soru: Oruç ibadetinin ahlaki kazanımlarından biri hangisidir?
+- Seçenekler: Kibir | Öfkeyi artırmak | İsraf | Sabır ve öz denetim
+- Doğru cevap: Sabır ve öz denetim
+- Açıklama: Oruç, sabır ve nefsi denetleme alışkanlığı kazandırır.
+
+**DEEN-U04-S07-X003** · Beş Şart Challenge · multiple_choice
+- Soru: Hac ibadeti Müslümanlara hangi ortaklığı hatırlatır?
+- Seçenekler: Maddi zenginlik | Soyla ayrıcalık | Ümmet bilinci ve eşitlik | Irk üstünlüğü
+- Doğru cevap: Ümmet bilinci ve eşitlik
+- Açıklama: Hacda herkes aynı ihramla aynı yerde bulunur; bu ümmet bilincini ve eşitliği hatırlatır.
 
 ## U05 — imanin_esaslarina_giris (11 soru)
 
