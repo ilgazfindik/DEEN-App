@@ -1372,6 +1372,182 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Doğru cevap: Tefsir
 - Açıklama: Tefsir, Kur’an’ın açıklanması ve yorumlanmasıyla ilgilenen ilimdir.
 
+## U08 — peygamberlere_iman (29 soru)
+
+**DEEN-U08-S01-X001** · Peygamberlere İman Nedir? · multiple_choice
+- Soru: Peygamberlerin Allah’tan aldıkları mesajı insanlara bildirmesine ne denir?
+- Seçenekler: Kıyas | Tavaf | İcma | Tebliğ
+- Doğru cevap: Tebliğ
+- Açıklama: Peygamberlerin vahyi insanlara ulaştırmasına tebliğ denir.
+
+**DEEN-U08-S01-X002** · Peygamberlere İman Nedir? · multiple_choice
+- Soru: Peygamberlerin doğru sözlü olması hangi sıfatla ifade edilir?
+- Seçenekler: İsmet | Sıdk | Fetanet | Emanet
+- Doğru cevap: Sıdk
+- Açıklama: Doğru sözlülük sıdk sıfatıdır.
+
+**DEEN-U08-S02-X001** · Peygamberlerin İnsan Oluşu ve Vahiy · multiple_choice
+- Soru: Peygamberlerin güvenilir olması hangi sıfattır?
+- Seçenekler: Sıdk | Tebliğ | Fetanet | Emanet
+- Doğru cevap: Emanet
+- Açıklama: Güvenilir olmak emanet sıfatıdır.
+
+**DEEN-U08-S02-X002** · Peygamberlerin İnsan Oluşu ve Vahiy · multiple_choice
+- Soru: Peygamberlerin akıllı ve anlayışlı olması hangi sıfattır?
+- Seçenekler: Emanet | Sıdk | Fetanet | İsmet
+- Doğru cevap: Fetanet
+- Açıklama: Akıllı ve zeki olmak fetanet sıfatıdır.
+
+**DEEN-U08-S02-X003** · Peygamberlerin İnsan Oluşu ve Vahiy · multiple_choice
+- Soru: Peygamberlerin vahyi eksiksiz bildirmesi hangi sıfattır?
+- Seçenekler: Tebliğ | Emanet | Sıdk | Fetanet
+- Doğru cevap: Tebliğ
+- Açıklama: Vahyi eksiksiz iletmek tebliğ sıfatıdır.
+
+**DEEN-U08-S03-X001** · Tebliğ, Müjde ve Uyarı · multiple_choice
+- Soru: Peygamberlerin Allah’ın korumasıyla günahlardan korunması hangi kavramla anlatılır?
+- Seçenekler: Fetanet | Sıdk | İsmet | Tebliğ
+- Doğru cevap: İsmet
+- Açıklama: İsmet, peygamberlerin Allah’ın korumasıyla günahtan uzak tutulmasıdır.
+
+**DEEN-U08-S03-X002** · Tebliğ, Müjde ve Uyarı · multiple_choice
+- Soru: Kur’an’da adı geçen peygamberlerden biri hangisidir?
+- Seçenekler: Konfüçyüs | Sokrates | Hz. Yusuf | Buda
+- Doğru cevap: Hz. Yusuf
+- Açıklama: Hz. Yusuf, Kur’an’da adı geçen peygamberlerdendir.
+
+**DEEN-U08-S03-X003** · Tebliğ, Müjde ve Uyarı · multiple_choice
+- Soru: Ulü’l-azm peygamberlerden biri hangisidir?
+- Seçenekler: Hz. Zülkarneyn | Hz. Lokman | Hz. Hızır | Hz. Nuh
+- Doğru cevap: Hz. Nuh
+- Açıklama: Ulü’l-azm peygamberler Nuh, İbrahim, Mûsâ, Îsâ ve Muhammed’dir.
+
+**DEEN-U08-S03-X004** · Tebliğ, Müjde ve Uyarı · multiple_choice
+- Soru: Hz. İbrahim hangi özelliğiyle tevhid mücadelesinin örnek isimlerindendir?
+- Seçenekler: Putperestliğe karşı Allah’ın birliğini savunması | Firavunluk yapması | Mekke’yi terk edip hiç dönmemesi | Kur’an’ı yazması
+- Doğru cevap: Putperestliğe karşı Allah’ın birliğini savunması
+- Açıklama: Hz. İbrahim, putperestliğe karşı tevhidi savunmasıyla tanınır.
+
+**DEEN-U08-S03-X005** · Tebliğ, Müjde ve Uyarı · multiple_choice
+- Soru: Hz. Musa’nın karşısında mücadele ettiği hükümdar kimdir?
+- Seçenekler: Kisra | Nemrut | Ebrehe | Firavun
+- Doğru cevap: Firavun
+- Açıklama: Hz. Musa, Mısır hükümdarı Firavun’a karşı mücadele etmiştir.
+
+**DEEN-U08-S04-X001** · Ortak Çağrı ve İman Birliği · multiple_choice
+- Soru: Hz. Yusuf’un kıssası hangi surede geniş biçimde anlatılır?
+- Seçenekler: Kehf Suresi | Yusuf Suresi | Nuh Suresi | Meryem Suresi
+- Doğru cevap: Yusuf Suresi
+- Açıklama: Yusuf’un kıssası Yusuf Suresi’nde ayrıntılı anlatılır.
+
+**DEEN-U08-S04-X002** · Ortak Çağrı ve İman Birliği · multiple_choice
+- Soru: Hz. Yunus’un balık kıssası Yusuf Suresi dışında hangi surede de anılır?
+- Seçenekler: Kevser | Nas | Enbiyâ | Fil
+- Doğru cevap: Enbiyâ
+- Açıklama: Hz. Yunus’un kıssası Enbiyâ Suresi’nde de anılır (87).
+
+**DEEN-U08-S04-X003** · Ortak Çağrı ve İman Birliği · multiple_choice
+- Soru: Peygamberlerin gönderilmesinin temel amacı nedir?
+- Seçenekler: Dünya servetini artırmak | Kabile üstünlüğünü sağlamak | Kendilerine kulluk edilmesini istemek | İnsanlara Allah’ın mesajını ve doğru yolu bildirmek
+- Doğru cevap: İnsanlara Allah’ın mesajını ve doğru yolu bildirmek
+- Açıklama: Peygamberler, Allah’ın mesajını ve doğru yolu bildirmek için gönderilmiştir.
+
+**DEEN-U08-S05-X001** · Hz. Muhammed ve Risalet · multiple_choice
+- Soru: Hz. Muhammed’in peygamberlik görevinin evrenselliği hangi ifadeyle anlatılır?
+- Seçenekler: Sadece Arap kabilelerine gönderilmiştir | Yalnızca kendi ailesine gönderilmiştir | Yalnızca Mekkelilere gönderilmiştir | Bütün insanlığa gönderilmiştir
+- Doğru cevap: Bütün insanlığa gönderilmiştir
+- Açıklama: Hz. Muhammed bütün insanlığa gönderilmiştir (Sebe’ 28).
+
+**DEEN-U08-S05-X002** · Hz. Muhammed ve Risalet · multiple_choice
+- Soru: Hz. Nuh hangi olayla tanınır?
+- Seçenekler: Ateşe atılması | Tufan ve uzun süreli tebliğ mücadelesi | Balığın karnında kalması | Denizin ikiye ayrılması
+- Doğru cevap: Tufan ve uzun süreli tebliğ mücadelesi
+- Açıklama: Hz. Nuh, tufan ve uzun yıllar süren tebliğ mücadelesiyle bilinir.
+
+**DEEN-U08-S05-X003** · Hz. Muhammed ve Risalet · multiple_choice
+- Soru: Hz. Süleyman’a verilen nimetlerden biri Kur’an’da nasıl anlatılır?
+- Seçenekler: Gemiyi inşa etme | Denizi yarma | Beşikte konuşma | Kuşların dilini anlama ve hükümranlık
+- Doğru cevap: Kuşların dilini anlama ve hükümranlık
+- Açıklama: Neml 16-17’de Süleyman’a kuşların dilinin öğretildiği ve ordularının bulunduğu bildirilir.
+
+**DEEN-U08-S05-X004** · Hz. Muhammed ve Risalet · multiple_choice
+- Soru: Hz. Salih hangi kavme gönderilmiştir?
+- Seçenekler: Medyen halkına | İsrailoğulları’na | Âd kavmine | Semûd kavmine
+- Doğru cevap: Semûd kavmine
+- Açıklama: Hz. Salih, Semûd kavmine gönderilmiştir.
+
+**DEEN-U08-S05-X005** · Hz. Muhammed ve Risalet · multiple_choice
+- Soru: Hz. Hud hangi kavme gönderilmiştir?
+- Seçenekler: Âd kavmine | Kureyş’e | Medyen halkına | Semûd kavmine
+- Doğru cevap: Âd kavmine
+- Açıklama: Hz. Hud, Âd kavmine gönderilmiştir.
+
+**DEEN-U08-S06-X001** · Yanlış Anlamaları Düzelt · multiple_choice
+- Soru: Hz. Şuayb hangi halka gönderilmiştir?
+- Seçenekler: Semûd kavmine | Medyen halkına | Firavun hanedanına | Âd kavmine
+- Doğru cevap: Medyen halkına
+- Açıklama: Hz. Şuayb, Medyen halkına gönderilmiştir.
+
+**DEEN-U08-S06-X002** · Yanlış Anlamaları Düzelt · multiple_choice
+- Soru: Hz. İsmail hangi peygamberin oğludur?
+- Seçenekler: Hz. Yakup’un | Hz. İbrahim’in | Hz. Musa’nın | Hz. Davud’un
+- Doğru cevap: Hz. İbrahim’in
+- Açıklama: Hz. İsmail, Hz. İbrahim’in oğludur.
+
+**DEEN-U08-S06-X003** · Yanlış Anlamaları Düzelt · multiple_choice
+- Soru: Hz. Yakup’un oğlu olan peygamber kimdir?
+- Seçenekler: Hz. İsa | Hz. İdris | Hz. Yusuf | Hz. Harun
+- Doğru cevap: Hz. Yusuf
+- Açıklama: Hz. Yusuf, Hz. Yakup’un oğludur.
+
+**DEEN-U08-S06-X004** · Yanlış Anlamaları Düzelt · multiple_choice
+- Soru: Hz. Harun hangi peygamberin kardeşidir?
+- Seçenekler: Hz. Davud’un | Hz. Nuh’un | Hz. İbrahim’in | Hz. Musa’nın
+- Doğru cevap: Hz. Musa’nın
+- Açıklama: Hz. Harun, Hz. Musa’nın kardeşi ve yardımcısıdır.
+
+**DEEN-U08-S07-X001** · Peygamberlere İman Ustalığı · multiple_choice
+- Soru: Peygamberlerin mucizeleri hangi ilkeye bağlıdır?
+- Seçenekler: Peygamberlerin bağımsız yaratma gücüdür | Sihirle aynı şeydir | Allah’ın izni ve kudretiyle gerçekleşir | Her insanın istediğinde yapabileceği olaylardır
+- Doğru cevap: Allah’ın izni ve kudretiyle gerçekleşir
+- Açıklama: Mucizeler, Allah’ın izni ve kudretiyle gerçekleşir; peygamberin kendi gücü değildir.
+
+**DEEN-U08-S07-X002** · Peygamberlere İman Ustalığı · multiple_choice
+- Soru: Hz. Muhammed’in en büyük mucizesi olarak kabul edilen kitap hangisidir?
+- Seçenekler: Zebur | İncil | Tevrat | Kur’an-ı Kerim
+- Doğru cevap: Kur’an-ı Kerim
+- Açıklama: Kur’an, Hz. Muhammed’in en büyük ve kalıcı mucizesi kabul edilir.
+
+**DEEN-U08-S07-X003** · Peygamberlere İman Ustalığı · multiple_choice
+- Soru: Siyer ilmi neyi inceler?
+- Seçenekler: Hz. Muhammed’in hayatını | Arap şiir vezinlerini | Kur’an’ın harf özelliklerini | Miras hesaplarını
+- Doğru cevap: Hz. Muhammed’in hayatını
+- Açıklama: Siyer, Hz. Peygamber’in hayatını inceleyen ilimdir.
+
+**DEEN-U08-S07-X004** · Peygamberlere İman Ustalığı · multiple_choice
+- Soru: Peygamberlerin ortak özelliklerinden biri hangisidir?
+- Seçenekler: Hepsinin aynı kavimden olması | Hepsine aynı kitap verilmesi | Hepsinin aynı dönemde yaşaması | Allah’tan vahiy almaları
+- Doğru cevap: Allah’tan vahiy almaları
+- Açıklama: Bütün peygamberlerin ortak özelliği Allah’tan vahiy almalarıdır.
+
+**DEEN-U08-S07-X005** · Peygamberlere İman Ustalığı · multiple_choice
+- Soru: Hz. Muhammed’in Medine’de kurduğu toplumsal düzenin temel ilkelerinden biri hangisidir?
+- Seçenekler: Zorla zenginleştirme | Kardeşlik ve ortak sorumluluk | Kabile ayrımcılığı | Haksız ticaret
+- Doğru cevap: Kardeşlik ve ortak sorumluluk
+- Açıklama: Medine’de muhacir ve ensar arasında kardeşlik ve ortak sorumluluk esas alınmıştır.
+
+**DEEN-U08-S07-X006** · Peygamberlere İman Ustalığı · multiple_choice
+- Soru: Hz. Muhammed’e iman, onun hangi yönünü kabul etmeyi gerektirir?
+- Seçenekler: Allah’ın ortağı olduğunu | Vahyi kendi başına oluşturduğunu | Allah’ın son elçisi olduğunu | Meleklerin yaratıcısı olduğunu
+- Doğru cevap: Allah’ın son elçisi olduğunu
+- Açıklama: Hz. Muhammed’e iman, onun Allah’ın kulu ve son elçisi olduğunu kabul etmeyi gerektirir.
+
+**DEEN-U08-S06-X005** · Yanlış Anlamaları Düzelt · multiple_choice
+- Soru: Peygamberlere iman bakımından doğru ifade hangisidir?
+- Seçenekler: Peygamberler tanrı kabul edilir | Peygamberlik insanın kendi kendine kazandığı makamdır | Yalnızca son peygambere inanılır | Müslümanlar Allah’ın gönderdiği bütün peygamberlere inanır
+- Doğru cevap: Müslümanlar Allah’ın gönderdiği bütün peygamberlere inanır
+- Açıklama: Müslümanlar, Allah’ın gönderdiği bütün peygamberlere inanır ve aralarında ayrım yapmaz.
+
 ## U11 — ibadet_bilinci (48 soru)
 
 **DEEN-U11-S01-X001** · İbadet Nedir? · multiple_choice
