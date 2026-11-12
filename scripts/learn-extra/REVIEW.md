@@ -608,7 +608,7 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Doğru cevap: Hamd, âlemlerin Rabbi Allah’a mahsustur
 - Açıklama: Fâtiha, âlemlerin Rabbi olan Allah’a hamd ile başlar.
 
-## U03 — kelime_i_sehadet (45 soru)
+## U03 — kelime_i_sehadet (50 soru)
 
 **DEEN-U03-S01-X001** · Şehadet Nedir? · multiple_choice
 - Soru: “Şehadet” kelimesi sözlükte ne anlama gelir?
@@ -877,6 +877,36 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Seçenekler: Oruç ve haccın zamanı | Melek ve kitapların isimleri | Namazın ve zekâtın miktarı | Allah’ın birliği ve Hz. Muhammed’in risaleti
 - Doğru cevap: Allah’ın birliği ve Hz. Muhammed’in risaleti
 - Açıklama: Şehadet, Allah’ın birliğine ve Hz. Muhammed’in risaletine iki tanıklıktan oluşur.
+
+**DEEN-U03-S01-X009** · Şehadet Nedir? · multiple_choice
+- Soru: “Muhammed” isminin anlamı nedir?
+- Seçenekler: Çok güçlü | Çok yaşlı | Çok zengin | Çok övülen
+- Doğru cevap: Çok övülen
+- Açıklama: “Muhammed”, “çok övülen” anlamına gelir.
+
+**DEEN-U03-S02-X011** · Anlamını Öğren · multiple_choice
+- Soru: “İlâh” kelimesi şehadette hangi anlamda kullanılır?
+- Seçenekler: Yalnızca peygamber | Yalnızca melek | İbadete layık olan, tapılan varlık | Yalnızca kral
+- Doğru cevap: İbadete layık olan, tapılan varlık
+- Açıklama: “İlâh”, ibadete layık görülen tapılan varlık demektir; şehadet bunu yalnızca Allah için kabul eder.
+
+**DEEN-U03-S03-X004** · Dinle ve Tanı · multiple_choice
+- Soru: İslam’a girmenin temel adımı hangisidir?
+- Seçenekler: Bir şehre göç etmek | Belirli bir törene katılmak | Kelime-i şehadeti anlayarak söyleyip kalple tasdik etmek | Bir ücret ödemek
+- Doğru cevap: Kelime-i şehadeti anlayarak söyleyip kalple tasdik etmek
+- Açıklama: İslam’a giriş, kelime-i şehadeti kalben tasdik edip ikrar etmekle olur.
+
+**DEEN-U03-S04-X009** · Şehadeti Oluştur · multiple_choice
+- Soru: Ezanda kelime-i şehadet cümleleri geçer mi?
+- Seçenekler: Evet; ezanda şehadet cümleleri okunur | Yalnızca cuma ezanında geçer | Hayır; hiç geçmez | Yalnızca ikamette geçer
+- Doğru cevap: Evet; ezanda şehadet cümleleri okunur
+- Açıklama: Ezanda “Eşhedü en lâ ilâhe illallah” ve “Eşhedü enne Muhammeden resûlullah” cümleleri vardır.
+
+**DEEN-U03-S05-X009** · Ne Söylediğini Anla · multiple_choice
+- Soru: Arapça bilmeyen bir kişi şehadetin anlamını kendi dilinde nasıl ifade edebilir?
+- Seçenekler: Söyleyemez | Anlamını bilerek kendi dilinde de söyleyebilir; asıl söylenişi Arapçadır | Başka bir inanca göre söyler | Yalnızca yazıyla söyler
+- Doğru cevap: Anlamını bilerek kendi dilinde de söyleyebilir; asıl söylenişi Arapçadır
+- Açıklama: Anlamını bilen kişi şehadeti kendi dilinde de ifade edebilir; ancak asıl söylenişi Arapçadır.
 
 ## U04 — islamin_bes_sarti (50 soru)
 
@@ -1180,7 +1210,7 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Doğru cevap: Nisap miktarı mala sahip olmak ve bu malın temel ihtiyaçtan fazla olması
 - Açıklama: Zekât, temel ihtiyaçlar ve borçlardan fazla olarak nisaba sahip Müslümana farzdır.
 
-## U05 — imanin_esaslarina_giris (31 soru)
+## U05 — imanin_esaslarina_giris (50 soru)
 
 **DEEN-U05-S01-X001** · İman Ne Demektir? · true_false
 - Soru: Doğru mu, yanlış mı? Âmentü, imanın altı esasını sıralayan iman ifadesidir.
@@ -1367,6 +1397,120 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Seçenekler: Ezan hadisi | Komşuluk hadisi | Cibril hadisi | Misvak hadisi
 - Doğru cevap: Cibril hadisi
 - Açıklama: İmanın şartları Cibril hadisinde sayılır.
+
+**DEEN-U05-S01-X005** · İman Ne Demektir? · multiple_choice
+- Soru: “İman” kelimesi sözlükte ne anlama gelir?
+- Seçenekler: Gezmek | Satın almak | Güvenmek, tasdik etmek | Savaşmak
+- Doğru cevap: Güvenmek, tasdik etmek
+- Açıklama: İman, sözlükte güvenmek ve doğru kabul etmek (tasdik) anlamına gelir.
+
+**DEEN-U05-S01-X006** · İman Ne Demektir? · multiple_choice
+- Soru: Dinî terim olarak iman neyi ifade eder?
+- Seçenekler: Sadece dış görünüşe uymayı | Bir topluluğa aidiyeti | Allah’ın bildirdiklerini kalpten tasdik edip dille ikrar etmeyi | Yalnızca bir şeyi ezberlemeyi
+- Doğru cevap: Allah’ın bildirdiklerini kalpten tasdik edip dille ikrar etmeyi
+- Açıklama: Hanefî-Mâtürîdî anlayışta iman, Allah’ın bildirdiklerini kalben tasdik ve dille ikrardır.
+
+**DEEN-U05-S01-X007** · İman Ne Demektir? · multiple_choice
+- Soru: İman eden kişiye ne denir?
+- Seçenekler: Mümin | Münafık | Mürted | Münkir
+- Doğru cevap: Mümin
+- Açıklama: İman eden kişiye mümin denir.
+
+**DEEN-U05-S02-X005** · Altı Esası Tanı · multiple_choice
+- Soru: Âmentü duasındaki “Âmentü” kelimesi ne demektir?
+- Seçenekler: Okudum | İnandım | Gördüm | Duydum
+- Doğru cevap: İnandım
+- Açıklama: “Âmentü” kelimesi “inandım” anlamına gelir.
+
+**DEEN-U05-S02-X006** · Altı Esası Tanı · multiple_choice
+- Soru: Âmentü’de ölümden sonra dirilişe iman hangi ifadeyle geçer?
+- Seçenekler: Ve’l-hamdü lillâh | Ve’s-salâtü ve’s-selâm | Ve’l-ba‘sü ba‘de’l-mevt | Ve’l-ahdü ve’l-mîsâk
+- Doğru cevap: Ve’l-ba‘sü ba‘de’l-mevt
+- Açıklama: Âmentü’de “ve’l-ba‘sü ba‘de’l-mevt” ölümden sonra dirilişe imanı ifade eder.
+
+**DEEN-U05-S02-X007** · Altı Esası Tanı · multiple_choice
+- Soru: Küfür kelimesi sözlükte neyi ifade eder?
+- Seçenekler: Açmak | Taşımak | Beslemek | Örtmek, gizlemek
+- Doğru cevap: Örtmek, gizlemek
+- Açıklama: Küfür, sözlükte “örtmek” demektir; terim olarak imanı inkâr etmektir.
+
+**DEEN-U05-S03-X005** · Kavramları Ayır · multiple_choice
+- Soru: Terim olarak küfür nedir?
+- Seçenekler: Bir hata yapmak | İman esaslarından birini veya birkaçını inkâr etmek | Bir günah işlemek | Bir ibadeti geç yapmak
+- Doğru cevap: İman esaslarından birini veya birkaçını inkâr etmek
+- Açıklama: Küfür, iman esaslarını inkâr etmektir; her günah küfür sayılmaz.
+
+**DEEN-U05-S03-X006** · Kavramları Ayır · multiple_choice
+- Soru: Nifak ne demektir?
+- Seçenekler: Yolculukta oruç tutmamak | Kalpte inanıp dilde inkâr etmek | Ibadeti geç yapmak | Dilde iman iddia edip kalpte inanmamak
+- Doğru cevap: Dilde iman iddia edip kalpte inanmamak
+- Açıklama: Nifak, dilde inanmış görünüp kalpte inanmamaktır; böyle kişiye münafık denir.
+
+**DEEN-U05-S03-X007** · Kavramları Ayır · multiple_choice
+- Soru: Fısk ne anlama gelir?
+- Seçenekler: Büyük günah işleyerek Allah’a itaatten çıkmak | Yolculukta oruç tutmamak | Zekât vermek | Namazı kısaltmak
+- Doğru cevap: Büyük günah işleyerek Allah’a itaatten çıkmak
+- Açıklama: Fısk, büyük günah işleyerek itaatten uzaklaşmaktır.
+
+**DEEN-U05-S04-X005** · Şart mı, İman Esası mı? · multiple_choice
+- Soru: Hucurât 14’e göre “iman ettik” diyen bedevilere ne söylenmesi emredilmiştir?
+- Seçenekler: “İman etmediniz, ama boyun eğdik deyin” | “İman ettiniz” | “Susun” | “Kâfir oldunuz”
+- Doğru cevap: “İman etmediniz, ama boyun eğdik deyin”
+- Açıklama: Hucurât 14’te henüz iman kalplerine girmeyenlere “boyun eğdik (eslemnâ) deyin” denir.
+
+**DEEN-U05-S04-X006** · Şart mı, İman Esası mı? · multiple_choice
+- Soru: Bakara 3’e göre müttakilerin ilk özelliklerinden biri nedir?
+- Seçenekler: Hiçbir şeye inanmazlar | Yalnızca bilimi kabul ederler | Gayba inanırlar | Yalnızca görüleni kabul ederler
+- Doğru cevap: Gayba inanırlar
+- Açıklama: Bakara 3’te müttakiler gayba inanan, namazı kılan ve infak eden kimseler olarak anılır.
+
+**DEEN-U05-S04-X007** · Şart mı, İman Esası mı? · multiple_choice
+- Soru: Enfâl 2’ye göre müminlerin özelliklerinden biri hangisidir?
+- Seçenekler: Kalpleri katılaşır | Allah anılınca uzaklaşırlar | Allah anıldığında kalpleri titrer | Hiçbir şeyi önemsemezler
+- Doğru cevap: Allah anıldığında kalpleri titrer
+- Açıklama: Enfâl 2’de müminler, Allah anıldığında kalpleri titreyenlerdir.
+
+**DEEN-U05-S05-X007** · Günlük Hayatta Kavramlar · multiple_choice
+- Soru: Asr Suresi’ne göre insan hangi hâlde ziyandan kurtulur?
+- Seçenekler: Çok mal biriktirmek | Çok konuşmak | Çok yaşamak | İman edip salih amel işlemek, hakkı ve sabrı tavsiye etmek
+- Doğru cevap: İman edip salih amel işlemek, hakkı ve sabrı tavsiye etmek
+- Açıklama: Asr Suresi’nde iman edip salih amel işleyenler, hakkı ve sabrı tavsiye edenler ziyandan kurtulur.
+
+**DEEN-U05-S05-X008** · Günlük Hayatta Kavramlar · multiple_choice
+- Soru: Hadise göre hayâ imanın neyidir?
+- Seçenekler: İmanın bir şubesidir | İmanın zıddıdır | İmanın şartıdır | İmanla ilgisizdir
+- Doğru cevap: İmanın bir şubesidir
+- Açıklama: Hadise göre iman altmış küsur şubedir; hayâ da imandan bir şubedir (Buhârî, Müslim).
+
+**DEEN-U05-S05-X009** · Günlük Hayatta Kavramlar · multiple_choice
+- Soru: Hadise göre biri neye ulaşmadıkça gerçek anlamda iman etmiş olmaz?
+- Seçenekler: Şehir değiştirmedikçe | Mal biriktirmedikçe | Çok konuşmadıkça | Kendisi için sevdiğini kardeşi için de sevmedikçe
+- Doğru cevap: Kendisi için sevdiğini kardeşi için de sevmedikçe
+- Açıklama: Hadise göre kişi, kendisi için sevdiğini kardeşi için de sevmedikçe iman etmiş olmaz (Buhârî, Müslim).
+
+**DEEN-U05-S06-X005** · Kısım Öncesi Akıllı Tekrar · multiple_choice
+- Soru: Nisâ 136’da müminlere hangi çağrıda bulunulur?
+- Seçenekler: Yalnızca ticaret yapmaları | Allah’a, Peygamberine ve indirdiği kitaplara iman etmeleri | Yalnızca savaşmaları | Yalnızca yolculuk etmeleri
+- Doğru cevap: Allah’a, Peygamberine ve indirdiği kitaplara iman etmeleri
+- Açıklama: Nisâ 136’da müminler Allah’a, Peygamberine ve indirilen kitaplara iman etmeye çağrılır.
+
+**DEEN-U05-S06-X006** · Kısım Öncesi Akıllı Tekrar · multiple_choice
+- Soru: Bakara 260’ta Hz. İbrahim, ölüleri nasıl dirilttiğini görmek isteyerek neyi arzu etmiştir?
+- Seçenekler: Daha çok mal | Kalbinin yatışmasını (itmi’nân) | Uzun ömür | Başka bir şehir
+- Doğru cevap: Kalbinin yatışmasını (itmi’nân)
+- Açıklama: Hz. İbrahim, “kalbim mutmain olsun diye” ölüleri nasıl dirilttiğini göstermesini istemiştir (Bakara 260).
+
+**DEEN-U05-S07-X006** · İman Esasları Challenge · multiple_choice
+- Soru: Tahkikî iman ile taklidî iman arasındaki fark nedir?
+- Seçenekler: Tahkikî iman delilini bilerek, taklidî iman başkasına uyarak benimsenir | Taklidî iman delile dayanır | İkisi aynı şeydir | Tahkikî iman hiç delile dayanmaz
+- Doğru cevap: Tahkikî iman delilini bilerek, taklidî iman başkasına uyarak benimsenir
+- Açıklama: Tahkikî iman delilleriyle bilinerek, taklidî iman başkalarına uyularak benimsenen imandır.
+
+**DEEN-U05-S07-X007** · İman Esasları Challenge · multiple_choice
+- Soru: Hanefî-Mâtürîdî anlayışta amelin imanla ilişkisi için hangisi doğrudur?
+- Seçenekler: Amel imanın tamamen yerine geçer | Amel imanın aslından sayılmaz, ancak imanı tamamlar ve olgunlaştırır | Amel olmayan iman geçersizdir | Amelin imanla ilgisi yoktur
+- Doğru cevap: Amel imanın aslından sayılmaz, ancak imanı tamamlar ve olgunlaştırır
+- Açıklama: Hanefî-Mâtürîdî anlayışta ibadetler imanın aslından değil, onun kemâlindendir.
 
 ## U06 — meleklere_iman (50 soru)
 
@@ -1972,7 +2116,7 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Doğru cevap: Öğüt ve hatırlatma
 - Açıklama: “Zikr”, Kur’an’ın öğüt ve hatırlatma yönünü anlatan adlarından biridir.
 
-## U08 — peygamberlere_iman (29 soru)
+## U08 — peygamberlere_iman (50 soru)
 
 **DEEN-U08-S01-X001** · Peygamberlere İman Nedir? · multiple_choice
 - Soru: Peygamberlerin Allah’tan aldıkları mesajı insanlara bildirmesine ne denir?
@@ -2147,6 +2291,132 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Seçenekler: Peygamberler tanrı kabul edilir | Peygamberlik insanın kendi kendine kazandığı makamdır | Yalnızca son peygambere inanılır | Müslümanlar Allah’ın gönderdiği bütün peygamberlere inanır
 - Doğru cevap: Müslümanlar Allah’ın gönderdiği bütün peygamberlere inanır
 - Açıklama: Müslümanlar, Allah’ın gönderdiği bütün peygamberlere inanır ve aralarında ayrım yapmaz.
+
+**DEEN-U08-S01-X003** · Peygamberlere İman Nedir? · multiple_choice
+- Soru: “Resûl” ve “nebî” arasındaki yaygın ayrım nedir?
+- Seçenekler: Nebî hiç vahiy almaz | İkisi tamamen aynıdır | Resûl yeni bir şeriat/kitapla gönderilen, nebî ise genel olarak vahiy alan peygamberdir | Resûl melektir
+- Doğru cevap: Resûl yeni bir şeriat/kitapla gönderilen, nebî ise genel olarak vahiy alan peygamberdir
+- Açıklama: Yaygın görüşe göre her resûl nebîdir; resûl ayrıca yeni bir kitap veya şeriatla gönderilendir.
+
+**DEEN-U08-S01-X004** · Peygamberlere İman Nedir? · multiple_choice
+- Soru: Meryem 56’da Hz. İdris için hangi sıfat kullanılır?
+- Seçenekler: Bir tüccar | Sıddîk (çok doğru) bir peygamber | Bir sihirbaz | Bir hükümdar
+- Doğru cevap: Sıddîk (çok doğru) bir peygamber
+- Açıklama: Meryem 56’da İdris “çok doğru bir peygamber (sıddîk nebî)” olarak anılır.
+
+**DEEN-U08-S01-X005** · Peygamberlere İman Nedir? · multiple_choice
+- Soru: Hz. Yakup’un Kur’an’daki diğer adı nedir?
+- Seçenekler: Yesrib | İsrâil | Zülkifl | Zeyd
+- Doğru cevap: İsrâil
+- Açıklama: Hz. Yakup’a “İsrâil” denir; oğulları İsrâiloğulları olarak anılır.
+
+**DEEN-U08-S02-X004** · Peygamberlerin İnsan Oluşu ve Vahiy · multiple_choice
+- Soru: Kehf 110’da Hz. Muhammed kendisini nasıl tanıtır?
+- Seçenekler: “Ben bir melekim” | “Ben de ancak sizin gibi bir beşerim; bana ilahınızın bir tek ilah olduğu vahyolunuyor” | “Ben ilahım” | “Ben bir cinim”
+- Doğru cevap: “Ben de ancak sizin gibi bir beşerim; bana ilahınızın bir tek ilah olduğu vahyolunuyor”
+- Açıklama: Kehf 110’da Peygamber kendisinin sizin gibi bir beşer olduğunu, kendisine vahyedildiğini söyler.
+
+**DEEN-U08-S02-X005** · Peygamberlerin İnsan Oluşu ve Vahiy · multiple_choice
+- Soru: Hz. İbrahim’in iki peygamber oğlu hangileridir?
+- Seçenekler: Yusuf ve Yakup | İsmâil ve İshâk | Nuh ve Hud | Musa ve Harun
+- Doğru cevap: İsmâil ve İshâk
+- Açıklama: Hz. İbrahim’in oğulları Hz. İsmâil ve Hz. İshâk’tır; ikisi de peygamberdir.
+
+**DEEN-U08-S02-X006** · Peygamberlerin İnsan Oluşu ve Vahiy · multiple_choice
+- Soru: Enbiyâ 69’a göre Hz. İbrahim ateşe atıldığında ateşe ne söylenmiştir?
+- Seçenekler: “Ey ateş, yak” | “Ey ateş, söndür” | “Ey ateş, İbrahim’e karşı serin ve selâmet ol” | “Ey ateş, bekle”
+- Doğru cevap: “Ey ateş, İbrahim’e karşı serin ve selâmet ol”
+- Açıklama: Enbiyâ 69’da ateşe “İbrahim’e karşı serin ve selâmet ol” denir.
+
+**DEEN-U08-S03-X006** · Tebliğ, Müjde ve Uyarı · multiple_choice
+- Soru: Hz. Eyyûb hangi özelliğiyle bilinir?
+- Seçenekler: Hastalık ve sıkıntılara karşı sabrıyla | Gemi yapımıyla | Savaşçılığıyla | Çok mal sahibi oluşuyla
+- Doğru cevap: Hastalık ve sıkıntılara karşı sabrıyla
+- Açıklama: Hz. Eyyûb, ağır hastalık ve sıkıntılara sabrıyla bilinir (Enbiyâ 83-84).
+
+**DEEN-U08-S03-X007** · Tebliğ, Müjde ve Uyarı · multiple_choice
+- Soru: Hz. Yunus’un balığın karnında yaptığı dua hangisidir?
+- Seçenekler: “Senden başka ilah yoktur; seni tenzih ederim, ben zalimlerden oldum” | “Şükürler olsun, kurtuldum” | “Beni geri gönder” | “Bana güç ver”
+- Doğru cevap: “Senden başka ilah yoktur; seni tenzih ederim, ben zalimlerden oldum”
+- Açıklama: Enbiyâ 87’de Yunus “Lâ ilâhe illâ ente sübhâneke innî küntü mine’z-zâlimîn” diye dua eder.
+
+**DEEN-U08-S03-X008** · Tebliğ, Müjde ve Uyarı · multiple_choice
+- Soru: Hz. Mûsâ’nın mucizelerinden biri hangisidir?
+- Seçenekler: Kuşlarla konuşması | Gemi yapması | Balığın karnında kalması | Asasının yılana dönüşmesi
+- Doğru cevap: Asasının yılana dönüşmesi
+- Açıklama: Hz. Mûsâ’nın asasının Allah’ın izniyle yılana dönüşmesi mucizelerindendir.
+
+**DEEN-U08-S03-X009** · Tebliğ, Müjde ve Uyarı · multiple_choice
+- Soru: Kur’an’a göre Hz. Îsâ’nın mucizeleri nasıl gerçekleşmiştir?
+- Seçenekler: Tesadüfen | Allah’ın izniyle | Kendi bağımsız gücüyle | Büyü ile
+- Doğru cevap: Allah’ın izniyle
+- Açıklama: Âl-i İmrân 49’da Îsâ’nın mucizeleri “Allah’ın izniyle” gerçekleşir.
+
+**DEEN-U08-S03-X010** · Tebliğ, Müjde ve Uyarı · multiple_choice
+- Soru: Hz. Salih’ın kavmine gösterdiği mucize hangisidir?
+- Seçenekler: Mucizevî bir deve | Gökten inen sofra | Yağmur | Denizin yarılması
+- Doğru cevap: Mucizevî bir deve
+- Açıklama: Hz. Salih’ın kavmine Allah’ın devesi mucize olarak gösterilmiştir.
+
+**DEEN-U08-S04-X004** · Ortak Çağrı ve İman Birliği · multiple_choice
+- Soru: Hz. Dâvûd’un genç yaşta karşılaştığı ve yendiği düşman komutan kimdir?
+- Seçenekler: Hâmân | Câlût | Nemrut | Firavun
+- Doğru cevap: Câlût
+- Açıklama: Bakara 251’de Dâvûd’un Câlût’u öldürdüğü bildirilir.
+
+**DEEN-U08-S04-X005** · Ortak Çağrı ve İman Birliği · multiple_choice
+- Soru: Neml Suresi’nde Hz. Süleyman’ın mektup gönderdiği hükümdar kimdir?
+- Seçenekler: Firavun | Sebe Melikesi (Belkıs) | Kisra | Nemrut
+- Doğru cevap: Sebe Melikesi (Belkıs)
+- Açıklama: Neml Suresi’nde Süleyman’ın Sebe melikesine mektup gönderdiği anlatılır.
+
+**DEEN-U08-S04-X006** · Ortak Çağrı ve İman Birliği · multiple_choice
+- Soru: Kehf Suresi’nde Hz. Mûsâ’nın ilim öğrenmek için yolculuk yaptığı kişi genellikle kimdir?
+- Seçenekler: Hârût | Zülkarneyn | Hızır olarak bilinen salih kul | Lokman
+- Doğru cevap: Hızır olarak bilinen salih kul
+- Açıklama: Kehf 60-82’de Mûsâ’nın ilim öğrenmek için yolculuk yaptığı salih kul, rivayetlerde Hızır diye anılır.
+
+**DEEN-U08-S04-X007** · Ortak Çağrı ve İman Birliği · multiple_choice
+- Soru: Hz. Yusuf’a kardeşleri ne yapmıştır?
+- Seçenekler: Onu kral yapmışlardır | Onu korumuşlardır | Onu kuyuya atmışlardır | Onu şehre göndermişlerdir
+- Doğru cevap: Onu kuyuya atmışlardır
+- Açıklama: Yusuf Suresi’nde kardeşleri Yusuf’u kuyuya atmıştır.
+
+**DEEN-U08-S04-X008** · Ortak Çağrı ve İman Birliği · multiple_choice
+- Soru: Kur’an’da adı geçen tek kadın kimdir?
+- Seçenekler: Hz. Âişe | Hz. Fâtıma | Hz. Meryem | Hz. Hatice
+- Doğru cevap: Hz. Meryem
+- Açıklama: Kur’an’da adı açıkça geçen tek kadın Hz. Meryem’dir.
+
+**DEEN-U08-S05-X006** · Hz. Muhammed ve Risalet · multiple_choice
+- Soru: Bakara 213’e göre peygamberler hangi iki sıfatla gönderilmiştir?
+- Seçenekler: Tüccar ve elçi | Yargıç ve asker | Müjdeleyici ve uyarıcı | Hekim ve mühendis
+- Doğru cevap: Müjdeleyici ve uyarıcı
+- Açıklama: Bakara 213’te peygamberler müjdeleyici ve uyarıcı olarak gönderilmiştir.
+
+**DEEN-U08-S05-X007** · Hz. Muhammed ve Risalet · multiple_choice
+- Soru: Hz. Muhammed için kullanılan “ümmî” sıfatı neyi ifade eder?
+- Seçenekler: Okuma yazma öğrenmemiş olmasını | Çok zengin olmasını | Çok yaşlı olmasını | Hiç yolculuk yapmamasını
+- Doğru cevap: Okuma yazma öğrenmemiş olmasını
+- Açıklama: “Ümmî”, Peygamber’in okuma-yazma öğrenmediğini, bilgisinin vahiyden geldiğini ifade eder.
+
+**DEEN-U08-S06-X006** · Yanlış Anlamaları Düzelt · multiple_choice
+- Soru: Hz. Nuh tufandan önce Allah’ın emriyle ne inşa etmiştir?
+- Seçenekler: Köprü | Gemi | Mescid | Kale
+- Doğru cevap: Gemi
+- Açıklama: Hz. Nuh, Allah’ın emriyle bir gemi yapmıştır (Hûd 37-38).
+
+**DEEN-U08-S06-X007** · Yanlış Anlamaları Düzelt · multiple_choice
+- Soru: Bakara 285’e göre müminler peygamberlere karşı nasıl davranır?
+- Seçenekler: Yalnızca birine inanırlar | Hiçbirini kabul etmezler | Aralarında ayrım yapmazlar | Birini diğerinden üstün ilah sayarlar
+- Doğru cevap: Aralarında ayrım yapmazlar
+- Açıklama: Bakara 285’te müminlerin Allah’ın peygamberleri arasında ayrım yapmadığı bildirilir.
+
+**DEEN-U08-S07-X007** · Peygamberlere İman Ustalığı · multiple_choice
+- Soru: Ulü’l-azm peygamberlerin sayısı kaçtır?
+- Seçenekler: Üç | Beş | Yedi | On
+- Doğru cevap: Beş
+- Açıklama: Ulü’l-azm peygamberler Nuh, İbrahim, Musa, Îsâ ve Muhammed’dir.
 
 ## U09 — ahiret_gunune_iman (50 soru)
 
