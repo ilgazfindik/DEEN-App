@@ -35,13 +35,18 @@ const server=http.createServer((req,res)=>{res.setHeader('Content-Type','text/ht
  // 3. level-up unlocks wolf (level 2 at 300 xp) and announces it
  await ev(()=>{window.state.xp=300});
  assert.equal(await ev(()=>DEEN_COMPANIONS.unlocked('wolf')),true);
- await page.waitForFunction(()=>window.toasts.some(t=>/Kurt/.test(t)&&/açıldı/.test(t)),null,{timeout:4000});
+ await page.waitForFunction(()=>/Yeni yol arkadaşı/.test(document.querySelector('#v5SheetTitle').textContent),null,{timeout:4000});
+ assert.match(await page.locator('#v5SheetBody').innerText(),/Yeni yol arkadaşı|Kurt/,'unlock celebration shown');
+ await page.locator('#v5SheetBody [data-dcz=open]').click();
+ assert.match(await page.locator('.dcz-next').innerText(),/Baykuş · Seviye 3/,'next unlock line');
+ assert.equal(await ev(()=>DEEN_COMPANIONS.levels.eagle),7);
  // 4. grandfathering: an old choice stays usable at level 1
  await ev(()=>{window.state.xp=0;window.state.profile.companion='eagle'});
  assert.equal(await ev(()=>DEEN_COMPANIONS.unlocked('eagle')),true);
  await ev(()=>{window.state.profile.companion='cat'});
  // 5. animal room + wardrobe
  await page.waitForSelector('#dczEntry');
+ await ev(()=>closeSheet());
  await page.locator('#dczEntry').click();
  await page.locator('.dcz-card').first().waitFor();
  assert.equal(await page.locator('.dcz-card').count(),6);

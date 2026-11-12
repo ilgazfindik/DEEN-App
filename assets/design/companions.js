@@ -7,7 +7,7 @@
  'use strict';
  if(window.DEEN_COMPANIONS)return;
  const ORDER=['lion','cat','wolf','owl','turtle','eagle'];
- const LEVELS={lion:1,cat:1,wolf:2,owl:4,turtle:6,eagle:9};
+ const LEVELS={lion:1,cat:1,wolf:2,owl:3,turtle:5,eagle:7};
  const EMOJI={lion:'🦁',cat:'🐈',wolf:'🐺',owl:'🦉',turtle:'🐢',eagle:'🦅'};
  const ITEMS=[
   {id:'bg_dune',kind:'bg',cost:30,icon:'🏜️',css:'linear-gradient(160deg,#e9b26a,#7d3f2b)'},
@@ -18,27 +18,27 @@
   {id:'ac_leaf',kind:'ac',cost:45,icon:'🍃'}
  ];
  const S={
-  tr:{room:'Hayvan Odası',animals:'Hayvanlar',wardrobe:'Gardırop',lv:n=>'Seviye '+n,locked:n=>'Seviye '+n+' ile açılır',use:'Seç',active:'Seçili',
+  tr:{next:(a,n,x)=>'Sıradaki: '+a+' · Seviye '+n+' (' + x + ' XP kaldı)',all:'Tüm hayvanlar açık!',cele:'Yeni yol arkadaşı!',keep:'Şimdilik kalsın',room:'Hayvan Odası',animals:'Hayvanlar',wardrobe:'Gardırop',lv:n=>'Seviye '+n,locked:n=>'Seviye '+n+' ile açılır',use:'Seç',active:'Seçili',
    unlock:(a,n)=>a+' açıldı! Hayvan Odası’ndan seçebilirsin.',lockedToast:(a,n)=>a+' için seviye '+n+' gerekiyor.',bg:'Arka plan',ac:'Rozet',none:'Yok',
    buy:c=>c+' ◇ ile al',equip:'Tak',off:'Çıkar',on:'Takılı',need:'Yeterli Pırıltı yok',bought:'Gardıroba eklendi',
    hint:'Pırıltıyı günlük ve haftalık sandıklardan, serilerden ve derslerden kazanırsın.',
    it:{bg_dune:'Çöl',bg_night:'Gece',bg_garden:'Bahçe',ac_star:'Yıldız',ac_moon:'Hilal',ac_leaf:'Yaprak'}},
-  en:{room:'Animal Room',animals:'Animals',wardrobe:'Wardrobe',lv:n=>'Level '+n,locked:n=>'Unlocks at level '+n,use:'Choose',active:'Chosen',
+  en:{next:(a,n,x)=>'Next: '+a+' · Level '+n+' ('+x+' XP to go)',all:'All animals unlocked!',cele:'New companion!',keep:'Maybe later',room:'Animal Room',animals:'Animals',wardrobe:'Wardrobe',lv:n=>'Level '+n,locked:n=>'Unlocks at level '+n,use:'Choose',active:'Chosen',
    unlock:a=>a+' unlocked! You can choose it in the Animal Room.',lockedToast:(a,n)=>a+' unlocks at level '+n+'.',bg:'Backdrop',ac:'Badge',none:'None',
    buy:c=>'Get for '+c+' ◇',equip:'Wear',off:'Remove',on:'Worn',need:'Not enough Sparkles',bought:'Added to your wardrobe',
    hint:'You earn Sparkles from daily and weekly chests, streaks and lessons.',
    it:{bg_dune:'Desert',bg_night:'Night',bg_garden:'Garden',ac_star:'Star',ac_moon:'Crescent',ac_leaf:'Leaf'}},
-  de:{room:'Tierzimmer',animals:'Tiere',wardrobe:'Garderobe',lv:n=>'Stufe '+n,locked:n=>'Ab Stufe '+n,use:'Wählen',active:'Gewählt',
+  de:{next:(a,n,x)=>'Als Nächstes: '+a+' · Stufe '+n+' (noch '+x+' XP)',all:'Alle Tiere freigeschaltet!',cele:'Neuer Begleiter!',keep:'Vielleicht später',room:'Tierzimmer',animals:'Tiere',wardrobe:'Garderobe',lv:n=>'Stufe '+n,locked:n=>'Ab Stufe '+n,use:'Wählen',active:'Gewählt',
    unlock:a=>a+' freigeschaltet! Du kannst es im Tierzimmer wählen.',lockedToast:(a,n)=>a+' wird auf Stufe '+n+' freigeschaltet.',bg:'Hintergrund',ac:'Abzeichen',none:'Keins',
    buy:c=>'Für '+c+' ◇ holen',equip:'Anlegen',off:'Ablegen',on:'Getragen',need:'Nicht genug Funken',bought:'Zur Garderobe hinzugefügt',
    hint:'Funken verdienst du mit täglichen und wöchentlichen Truhen, Serien und Lektionen.',
    it:{bg_dune:'Wüste',bg_night:'Nacht',bg_garden:'Garten',ac_star:'Stern',ac_moon:'Halbmond',ac_leaf:'Blatt'}},
-  fr:{room:'Salle des animaux',animals:'Animaux',wardrobe:'Garde-robe',lv:n=>'Niveau '+n,locked:n=>'Se débloque au niveau '+n,use:'Choisir',active:'Choisi',
+  fr:{next:(a,n,x)=>'Prochain : '+a+' · niveau '+n+' ('+x+' XP restants)',all:'Tous les animaux sont débloqués !',cele:'Nouveau compagnon !',keep:'Plus tard',room:'Salle des animaux',animals:'Animaux',wardrobe:'Garde-robe',lv:n=>'Niveau '+n,locked:n=>'Se débloque au niveau '+n,use:'Choisir',active:'Choisi',
    unlock:a=>a+' débloqué ! Tu peux le choisir dans la salle des animaux.',lockedToast:(a,n)=>a+' se débloque au niveau '+n+'.',bg:'Décor',ac:'Badge',none:'Aucun',
    buy:c=>'Obtenir pour '+c+' ◇',equip:'Porter',off:'Retirer',on:'Porté',need:'Pas assez d’étincelles',bought:'Ajouté à la garde-robe',
    hint:'Tu gagnes des étincelles avec les coffres quotidiens et hebdomadaires, les séries et les leçons.',
    it:{bg_dune:'Désert',bg_night:'Nuit',bg_garden:'Jardin',ac_star:'Étoile',ac_moon:'Croissant',ac_leaf:'Feuille'}},
-  ar:{room:'غرفة الحيوانات',animals:'الحيوانات',wardrobe:'خزانة الملابس',lv:n=>'المستوى '+n,locked:n=>'يُفتح عند المستوى '+n,use:'اختيار',active:'مختار',
+  ar:{next:(a,n,x)=>'التالي: '+a+' · المستوى '+n+' (باقي '+x+' نقطة خبرة)',all:'تم فتح جميع الحيوانات!',cele:'رفيق جديد!',keep:'لاحقًا',room:'غرفة الحيوانات',animals:'الحيوانات',wardrobe:'خزانة الملابس',lv:n=>'المستوى '+n,locked:n=>'يُفتح عند المستوى '+n,use:'اختيار',active:'مختار',
    unlock:a=>'تم فتح '+a+'! يمكنك اختياره من غرفة الحيوانات.',lockedToast:(a,n)=>a+' يُفتح عند المستوى '+n+'.',bg:'الخلفية',ac:'شارة',none:'بدون',
    buy:c=>'احصل عليه بـ '+c+' ◇',equip:'ارتداء',off:'إزالة',on:'مرتدى',need:'لا تكفي الشرارات',bought:'أُضيف إلى الخزانة',
    hint:'تكسب الشرارات من الصناديق اليومية والأسبوعية والسلاسل والدروس.',
@@ -56,6 +56,8 @@
  const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const app=()=>{try{return typeof state!=='undefined'&&state&&typeof state==='object'?state:null}catch(_){return null}};
  const lvl=()=>{try{return Math.max(1,Number(level(app().xp||0).n)||1)}catch(_){return 1}};
+ function xpFor(n){let b=0,span=300;for(let k=2;k<=n;k++){b+=span;span=300+k*100-100+0}return b}
+ function nextLock(){const l=lvl();return ORDER.filter(id=>LEVELS[id]>l&&!unlocked(id)).sort((a,b)=>LEVELS[a]-LEVELS[b])[0]||null}
  function meta(){
   const st=app();if(!st)return null;
   const m=st.companionMeta=st.companionMeta&&typeof st.companionMeta==='object'?st.companionMeta:{};
@@ -80,7 +82,13 @@
   fresh.forEach(id=>m.seen.push(id));
   if(first){m.announced=1;save();return} // first run: record what is already open without a toast
   m.announced=1;save();
-  try{toast(T().unlock(N(fresh[fresh.length-1])))}catch(_){}
+  const last=fresh[fresh.length-1];
+  const busy=document.querySelector('#v5Sheet[open],#lesson.active,#v998Onboarding');
+  if(!busy&&typeof window.sheet==='function'){
+   const t=T();
+   try{window.sheet(t.cele,'<div class="dcz" dir="'+(lang()==='ar'?'rtl':'ltr')+'" style="text-align:center">'+stage(last,120)+'<p><b>'+esc(N(last))+'</b></p><p>'+esc(t.unlock(N(last)))+'</p><div class="dcz-tabs"><button type="button" class="on" data-dcz="pick" data-id="'+last+'">'+esc(t.use)+'</button><button type="button" data-dcz="open" data-id="animals">'+esc(t.keep)+'</button></div></div>');return}catch(_){}
+  }
+  try{toast(T().unlock(N(last)))}catch(_){}
  }
  function select(id){
   const st=app();if(!st||!unlocked(id))return false;
@@ -111,7 +119,8 @@
   const t=T(),st=app(),m=meta(),cur=String(st.profile?.companion||'');
   let body;
   if(tab==='animals'){
-   body='<div class="dcz-grid">'+ORDER.map(id=>{
+   const nx=nextLock();
+   body=(nx?'<p class="dcz-next">'+esc(t.next(N(nx),LEVELS[nx],Math.max(0,xpFor(LEVELS[nx])-(Number(st.xp)||0))))+'</p>':'<p class="dcz-next">'+esc(t.all)+'</p>')+'<div class="dcz-grid">'+ORDER.map(id=>{
     const ok=unlocked(id),on=cur===id;
     return '<button type="button" class="dcz-card'+(ok?'':' locked')+(on?' on':'')+'" data-dcz="'+(ok?'pick':'lock')+'" data-id="'+id+'" aria-disabled="'+(ok?'false':'true')+'">'+
      (ok?stage(id,76):'<span class="dcz-stage dcz-dim" style="width:76px;height:76px"><img src="'+avatarSrc(id)+'" alt="" loading="lazy"><b class="dcz-lock">🔒</b></span>')+
@@ -146,6 +155,7 @@
   if(el){
    const a=el.dataset.dcz,id=el.dataset.id;
    if(a==='tab'){tab=id;refresh()}
+   else if(a==='open'){open('animals');ev.preventDefault();return}
    else if(a==='pick'){if(select(id)){try{closeSheet()}catch(_){}}}
    else if(a==='lock'){try{toast(T().lockedToast(N(id),LEVELS[id]))}catch(_){}}
    else if(a==='item'){
@@ -200,6 +210,7 @@
 .dcz-tabs button{flex:1;min-height:44px;border-radius:12px;border:1px solid rgba(140,235,208,.35);background:rgba(255,255,255,.06);color:inherit;font:600 14px/1 inherit;cursor:pointer}
 .dcz-tabs button.on{background:#8cebd0;color:#06232a}
 .dcz-cur{font:600 13px/1 inherit;opacity:.85;margin:0 2px 10px}
+.dcz-next{font-size:13px;opacity:.85;margin:0 2px 10px}
 .dcz-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 .dcz-card{display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 6px;min-height:150px;border-radius:16px;border:1px solid rgba(140,235,208,.3);background:rgba(255,255,255,.05);color:inherit;cursor:pointer}
 .dcz-card.on{border-color:#9af2d9;box-shadow:0 0 0 2px rgba(154,242,217,.35)}
