@@ -1762,7 +1762,7 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Doğru cevap: Tedavi aramak ve Allah’a güvenmek
 - Açıklama: Hastalıkta tedavi aramak kader inancına aykırı değildir; şifa Allah’tandır.
 
-## U11 — ibadet_bilinci (48 soru)
+## U11 — ibadet_bilinci (69 soru)
 
 **DEEN-U11-S01-X001** · İbadet Nedir? · multiple_choice
 - Soru: “Ben cinleri ve insanları ancak bana kulluk etsinler diye yarattım” âyeti hangi surededir?
@@ -2045,7 +2045,133 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Doğru cevap: Doğru
 - Açıklama: Çoğu mezhebe göre kurban sünnettir; Hanefî mezhebinde tercih edilen görüş ise vacip olduğudur.
 
-## U12 — temizlik_abdest (52 soru)
+**DEEN-U11-S01-X009** · İbadet Nedir? · multiple_choice
+- Soru: İbadette niyetin önemi nedir?
+- Seçenekler: Davranışın Allah rızası için yapılmasını belirlemesi | İbadeti gösteriye çevirmesi | İbadetin maddi değerini artırması | İbadetin süresini uzatması
+- Doğru cevap: Davranışın Allah rızası için yapılmasını belirlemesi
+- Açıklama: Niyet, davranışın Allah rızası için yapıldığını belirler.
+
+**DEEN-U11-S01-X010** · İbadet Nedir? · multiple_choice
+- Soru: İhlas ne demektir?
+- Seçenekler: Gösteriş yapmak | İbadeti yalnız Allah rızası için yapmak | Başkalarını küçümsemek | İnsanların beğenisini amaçlamak
+- Doğru cevap: İbadeti yalnız Allah rızası için yapmak
+- Açıklama: İhlas, ibadeti yalnız Allah rızası için yapmaktır.
+
+**DEEN-U11-S02-X008** · Niyet ve İhlas · multiple_choice
+- Soru: İbadetlerin bireysel faydalarından biri hangisidir?
+- Seçenekler: Disiplin ve öz denetim kazandırması | İnsanı başkalarından üstün kılması | Sorumluluğu ortadan kaldırması | Çalışmayı gereksiz görmesi
+- Doğru cevap: Disiplin ve öz denetim kazandırması
+- Açıklama: İbadetler kişiye disiplin ve öz denetim kazandırır.
+
+**DEEN-U11-S02-X009** · Niyet ve İhlas · multiple_choice
+- Soru: İbadetlerin toplumsal faydalarından biri hangisidir?
+- Seçenekler: İhtiyaç sahiplerini dışlaması | Ayrımcılığı artırması | Dayanışma ve kardeşliği güçlendirmesi | Haksızlığı meşrulaştırması
+- Doğru cevap: Dayanışma ve kardeşliği güçlendirmesi
+- Açıklama: İbadetler toplumda dayanışmayı ve kardeşliği güçlendirir.
+
+**DEEN-U11-S02-X010** · Niyet ve İhlas · multiple_choice
+- Soru: Şükür ne anlama gelir?
+- Seçenekler: Her şeyi kendi gücüne bağlamak | Nimetlerin Allah’tan olduğunu bilip teşekkür etmek | Nimetleri küçümsemek | Sahip olunanı israf etmek
+- Doğru cevap: Nimetlerin Allah’tan olduğunu bilip teşekkür etmek
+- Açıklama: Şükür, nimetlerin Allah’tan olduğunu bilip teşekkür etmektir.
+
+**DEEN-U11-S02-X011** · Niyet ve İhlas · multiple_choice
+- Soru: Sabır ibadet bilinci açısından neyi ifade eder?
+- Seçenekler: Haksızlığa destek olmak | Hiçbir çaba göstermemek | Öfkeyle hareket etmek | Zorluklarda doğru tutumda sebat etmek
+- Doğru cevap: Zorluklarda doğru tutumda sebat etmek
+- Açıklama: Sabır, zorluklarda doğru tutumda sebat etmektir.
+
+**DEEN-U11-S03-X010** · Kavramları Eşleştir · multiple_choice
+- Soru: Farz ibadet ne demektir?
+- Seçenekler: Dinî açıdan kesin ve bağlayıcı biçimde emredilen ibadet | Yapılması yasaklanan davranış | Sadece kültürel alışkanlık | İsteğe bağlı her davranış
+- Doğru cevap: Dinî açıdan kesin ve bağlayıcı biçimde emredilen ibadet
+- Açıklama: Farz, kesin delille bağlayıcı olarak emredilen ibadettir.
+
+**DEEN-U11-S03-X011** · Kavramları Eşleştir · multiple_choice
+- Soru: Nafile ibadet neyi ifade eder?
+- Seçenekler: Farz ve vaciplerin dışında Allah’a yakınlaşmak için yapılan gönüllü ibadet | Yalnızca toplumsal tören | Kesinlikle yasak davranış | Sadece borç ödeme
+- Doğru cevap: Farz ve vaciplerin dışında Allah’a yakınlaşmak için yapılan gönüllü ibadet
+- Açıklama: Nafile, farz ve vaciplerin dışında gönüllü olarak yapılan ibadettir.
+
+**DEEN-U11-S03-X012** · Kavramları Eşleştir · multiple_choice
+- Soru: İbadetlerde kolaylık ilkesi hangi düşünceyi içerir?
+- Seçenekler: İbadetlerin keyfî biçimde değiştirilmesi | Dinî yükümlülüklerin güç yetirme ve ruhsat hükümleriyle değerlendirilmesi | Bütün yükümlülüklerin kaldırılması | Zorluk çıkarmanın amaç olması
+- Doğru cevap: Dinî yükümlülüklerin güç yetirme ve ruhsat hükümleriyle değerlendirilmesi
+- Açıklama: Kolaylık ilkesi, yükümlülüklerin güç yetirme ve ruhsatlarla değerlendirilmesini içerir.
+
+**DEEN-U11-S03-X013** · Kavramları Eşleştir · multiple_choice
+- Soru: Bir ibadeti başkalarının görmesi için yapmak hangi kavramla açıklanır?
+- Seçenekler: Riya | İhlas | Takva | Tevekkül
+- Doğru cevap: Riya
+- Açıklama: Gösteriş için yapılan ibadet riyadır.
+
+**DEEN-U11-S04-X009** · İbadetin Hayata Etkisi · multiple_choice
+- Soru: Takva kavramı hangi tutumla ilişkilidir?
+- Seçenekler: Sadece görünüşe önem vermek | Allah’a karşı sorumluluk bilinciyle sakınmak | İnsanları küçümsemek | Haksız kazancı normal görmek
+- Doğru cevap: Allah’a karşı sorumluluk bilinciyle sakınmak
+- Açıklama: Takva, Allah’a karşı sorumluluk bilinciyle günahlardan sakınmaktır.
+
+**DEEN-U11-S04-X010** · İbadetin Hayata Etkisi · multiple_choice
+- Soru: Namazın kişiye kazandırabileceği özelliklerden biri hangisidir?
+- Seçenekler: Ayrımcılık | Vakit bilinci ve düzen | Kibir | İsraf
+- Doğru cevap: Vakit bilinci ve düzen
+- Açıklama: Namaz, vakit bilinci ve düzen kazandırır.
+
+**DEEN-U11-S04-X011** · İbadetin Hayata Etkisi · multiple_choice
+- Soru: Zekâtın ibadet bilinci açısından temel yönü hangisidir?
+- Seçenekler: İhtiyaç sahiplerini dışlama | Malı yalnızca biriktirme | Malı paylaşma ve arındırma | Ticarette hile yapma
+- Doğru cevap: Malı paylaşma ve arındırma
+- Açıklama: Zekât, malı paylaşmayı ve arındırmayı sağlar.
+
+**DEEN-U11-S04-X012** · İbadetin Hayata Etkisi · multiple_choice
+- Soru: Tövbe ne anlama gelir?
+- Seçenekler: Günahı savunmak | Günahtan pişman olup Allah’a yönelmek ve bağışlanma dilemek | Başkalarını suçlamak | Haksızlığı sürdürmek
+- Doğru cevap: Günahtan pişman olup Allah’a yönelmek ve bağışlanma dilemek
+- Açıklama: Tövbe, günahtan pişman olup Allah’a yönelmektir.
+
+**DEEN-U11-S05-X007** · Bildiklerini Kullan · multiple_choice
+- Soru: İstiğfar hangi anlamdadır?
+- Seçenekler: Sadaka vermeyi yasaklamak | Şükürden kaçınmak | Allah’tan bağışlanma dilemek | Yolculuğa çıkmak
+- Doğru cevap: Allah’tan bağışlanma dilemek
+- Açıklama: İstiğfar, Allah’tan bağışlanma dilemektir.
+
+**DEEN-U11-S05-X008** · Bildiklerini Kullan · multiple_choice
+- Soru: İbadetlerde ölçülülük neyi gerektirir?
+- Seçenekler: Aşırılıktan kaçınmayı ve dengeli davranmayı | Kendine zarar vermeyi | İbadeti gösterişe dönüştürmeyi | Başkalarının hakkını ihmal etmeyi
+- Doğru cevap: Aşırılıktan kaçınmayı ve dengeli davranmayı
+- Açıklama: İbadette ölçülülük, aşırılıktan kaçınıp dengeli davranmayı gerektirir.
+
+**DEEN-U11-S05-X009** · Bildiklerini Kullan · multiple_choice
+- Soru: Sadaka ibadet ve yardımlaşma açısından neyi ifade eder?
+- Seçenekler: Yalnızca zorunlu vergi | Allah rızası için yapılan gönüllü yardım | Faiz geliri | Haksız kazanç
+- Doğru cevap: Allah rızası için yapılan gönüllü yardım
+- Açıklama: Sadaka, Allah rızası için yapılan gönüllü yardımdır.
+
+**DEEN-U11-S06-X007** · Akıllı Tekrar · multiple_choice
+- Soru: İbadetlerin kişiyi kötü davranışlardan alıkoyması hangi ayette özellikle namaz için vurgulanır?
+- Seçenekler: Nasr Suresi 1. âyet | Kevser Suresi 1. âyet | Fil Suresi 1. âyet | Ankebût Suresi 45. âyet
+- Doğru cevap: Ankebût Suresi 45. âyet
+- Açıklama: Ankebût 45’te namazın hayâsızlıktan ve kötülükten alıkoyduğu bildirilir.
+
+**DEEN-U11-S06-X008** · Akıllı Tekrar · multiple_choice
+- Soru: İbadetlerde ruhsat ne demektir?
+- Seçenekler: Geçerli mazeretlerde tanınan kolaylık ve izin | Farzı keyfî terk etmek | İbadeti alaya almak | İbadetleri başkalarına zorla yaptırmak
+- Doğru cevap: Geçerli mazeretlerde tanınan kolaylık ve izin
+- Açıklama: Ruhsat, geçerli mazeret hâllerinde tanınan kolaylıktır.
+
+**DEEN-U11-S07-X005** · Ünite Challenge · multiple_choice
+- Soru: İbadetlerde aşırıya kaçmak yerine dengeyi gözetmek hangi dinî ilkeyle uyumludur?
+- Seçenekler: Riya | İsraf | Tekebbür | İtidal
+- Doğru cevap: İtidal
+- Açıklama: Aşırıya kaçmadan dengeyi gözetmek itidal ilkesidir.
+
+**DEEN-U11-S07-X006** · Ünite Challenge · multiple_choice
+- Soru: İbadet bilincine sahip kişi hata yaptığında nasıl davranır?
+- Seçenekler: Pişmanlığı gereksiz görür | Başkalarını suçlayıp sürdürür | Hatasını sürekli savunur | Hatasını kabul eder, tövbe eder ve düzeltmeye çalışır
+- Doğru cevap: Hatasını kabul eder, tövbe eder ve düzeltmeye çalışır
+- Açıklama: İbadet bilinci olan kişi hatasını kabul eder, tövbe eder ve düzeltmeye çalışır.
+
+## U12 — temizlik_abdest (70 soru)
 
 **DEEN-U12-S01-X001** · Temizlik ve Taharet · multiple_choice
 - Soru: “Temizlik imanın yarısıdır” sözü kimin hadisidir?
@@ -2352,7 +2478,115 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Doğru cevap: Doğru
 - Açıklama: Abdest veya gusülde kullanılan su (müstamel su) maddî bir pislik taşımıyorsa temizdir; fakat onunla yeniden abdest alınmaz.
 
-## U13 — namaza_hazirlik (72 soru)
+**DEEN-U12-S01-X009** · Temizlik ve Taharet · multiple_choice
+- Soru: İslam’da temizlik hangi açıdan önemlidir?
+- Seçenekler: Dinî hayatla ilgisi yoktur | Sadece bayramlarda gerekir | Yalnızca dış görünüşle ilgilidir | İbadet ve günlük hayatın önemli bir parçasıdır
+- Doğru cevap: İbadet ve günlük hayatın önemli bir parçasıdır
+- Açıklama: Temizlik hem ibadetin hem de günlük hayatın önemli bir parçasıdır.
+
+**DEEN-U12-S01-X010** · Temizlik ve Taharet · multiple_choice
+- Soru: Abdest hangi ibadet için temel şartlardan biridir?
+- Seçenekler: Sadaka | Namaz | Oruç | Zekât
+- Doğru cevap: Namaz
+- Açıklama: Abdest, namazın geçerli olması için temel şartlardandır.
+
+**DEEN-U12-S02-X010** · Abdestin Temeli · multiple_choice
+- Soru: Hanefî mezhebine göre başın en az dörtte birini mesh etmek hangi hükme sahiptir?
+- Seçenekler: Farz | Haram | Mekruh | Müstehap
+- Doğru cevap: Farz
+- Açıklama: Hanefîlere göre başın en az dörtte birini mesh etmek abdestin farzlarındandır.
+
+**DEEN-U12-S02-X011** · Abdestin Temeli · multiple_choice
+- Soru: Hanefî mezhebine göre ayakları topuklarla birlikte yıkamak hangi hükme sahiptir?
+- Seçenekler: Mekruh | Farz | Sünnet | Müstehap
+- Doğru cevap: Farz
+- Açıklama: Hanefîlere göre ayakları topuklarla birlikte yıkamak abdestin farzıdır.
+
+**DEEN-U12-S02-X012** · Abdestin Temeli · multiple_choice
+- Soru: Abdestte suyu gereğinden fazla kullanmak hangi davranıştır?
+- Seçenekler: Tevekkül | İhlas | İsraf | İtidal
+- Doğru cevap: İsraf
+- Açıklama: Abdestte gereğinden fazla su kullanmak israftır.
+
+**DEEN-U12-S03-X011** · Abdest Adımlarını Tanı · multiple_choice
+- Soru: Aşağıdakilerden hangisi abdesti bozan durumlardandır?
+- Seçenekler: Önden veya arkadan çıkan şeyler | Saç kestirmek | Gözyaşı dökmek | Tırnak kesmek
+- Doğru cevap: Önden veya arkadan çıkan şeyler
+- Açıklama: Ön veya arka yoldan bir şey çıkması abdesti bozar.
+
+**DEEN-U12-S03-X012** · Abdest Adımlarını Tanı · multiple_choice
+- Soru: Hanefî mezhebine göre ağız dolusu kusmak abdesti nasıl etkiler?
+- Seçenekler: Hiçbir durumda bozmaz | Teyemmümü bozar | Abdesti bozar | Guslü farz kılar
+- Doğru cevap: Abdesti bozar
+- Açıklama: Hanefîlere göre ağız dolusu kusmak abdesti bozar.
+
+**DEEN-U12-S03-X013** · Abdest Adımlarını Tanı · multiple_choice
+- Soru: Uyku abdesti hangi durumda bozar?
+- Seçenekler: Kişinin kontrolünü kaybettiği ve oturuş güvenliğinin bulunmadığı durumlarda mezhep hükümlerine göre | Yalnızca gece uykusu hiçbir istisna olmadan | Uyku hiçbir mezhepte abdesti bozmaz | Her tür hafif uyuklama mutlaka
+- Doğru cevap: Kişinin kontrolünü kaybettiği ve oturuş güvenliğinin bulunmadığı durumlarda mezhep hükümlerine göre
+- Açıklama: Uykunun abdesti bozması, kişinin kontrolü kaybetmesi ve oturuş güvenliğinin bulunmamasına göre mezhep hükümlerinde ayrıntılanır.
+
+**DEEN-U12-S04-X008** · Teyemmüm ve Kolaylık · multiple_choice
+- Soru: Teyemmüm hangi ibadet için abdest veya gusül yerine geçebilir?
+- Seçenekler: Şartları oluştuğunda namaz için | Kurban kesmek için | Sadaka dağıtmak için | Zekât vermek için
+- Doğru cevap: Şartları oluştuğunda namaz için
+- Açıklama: Teyemmüm, şartları oluştuğunda namaz gibi ibadetler için abdest veya gusül yerine geçer.
+
+**DEEN-U12-S04-X009** · Teyemmüm ve Kolaylık · multiple_choice
+- Soru: Teyemmümde yüz ve ellerin mesh edilmesi hangi işleme aittir?
+- Seçenekler: Gusül | Tavaf | Teyemmüm | Normal abdest
+- Doğru cevap: Teyemmüm
+- Açıklama: Yüzün ve ellerin temiz toprakla mesh edilmesi teyemmümdür.
+
+**DEEN-U12-S05-X009** · Ortak Temel ve Farklar · multiple_choice
+- Soru: Abdestte yüzün sınırları genel olarak neresidir?
+- Seçenekler: Sadece göz çevresi | Sadece alın bölgesi | Boynun tamamı | Saç bitiminden çene altına, iki kulak yumuşağı arasına kadar
+- Doğru cevap: Saç bitiminden çene altına, iki kulak yumuşağı arasına kadar
+- Açıklama: Yüz, saç bitiminden çene altına, iki kulak yumuşağı arasına kadar olan bölgedir.
+
+**DEEN-U12-S05-X010** · Ortak Temel ve Farklar · multiple_choice
+- Soru: Baş meshinde esas olan nedir?
+- Seçenekler: Başı sabunla yıkamak | Başı kuru havluyla silmek | Islak elle başın mesh edilmesi | Saçı tamamen kesmek
+- Doğru cevap: Islak elle başın mesh edilmesi
+- Açıklama: Baş meshi, ıslak elle başın silinmesidir.
+
+**DEEN-U12-S05-X011** · Ortak Temel ve Farklar · multiple_choice
+- Soru: Ayak yıkamada topukların da yıkanması neden önemlidir?
+- Seçenekler: Sadece gelenek olduğu için | Yalnızca yaz aylarında gerektiği için | Abdestte ayaklar yıkanmadığı için | Yıkanması gereken alanın parçası oldukları için
+- Doğru cevap: Yıkanması gereken alanın parçası oldukları için
+- Açıklama: Topuklar, yıkanması gereken alanın parçasıdır.
+
+**DEEN-U12-S06-X007** · Akıllı Tekrar · multiple_choice
+- Soru: Abdestin bozulduğundan şüphe eden fakat kesin bilgiye sahip olmayan kişi için temel ilke nedir?
+- Seçenekler: Abdest her dakika yenilenmelidir | Kesin olan hâl şüpheyle ortadan kalkmaz | Şüphe varsa gusül gerekir | Her şüphe abdesti kesin bozar
+- Doğru cevap: Kesin olan hâl şüpheyle ortadan kalkmaz
+- Açıklama: Fıkıh kaidesi: kesin olan şeyin hükmü şüpheyle kalkmaz.
+
+**DEEN-U12-S06-X008** · Akıllı Tekrar · multiple_choice
+- Soru: Kadınların hayız ve nifas hâllerinde namazla ilgili temel hüküm hangisidir?
+- Seçenekler: Namaz aynen kılınır | Bu hâllerde namaz kılınmaz ve sonradan kaza edilmez | Namaz kılınır ama zekât verilmez | Her namaz iki kat kılınır
+- Doğru cevap: Bu hâllerde namaz kılınmaz ve sonradan kaza edilmez
+- Açıklama: Hayız ve nifas süresince namaz kılınmaz; bu namazların kazası da gerekmez.
+
+**DEEN-U12-S07-X005** · Ünite Challenge · multiple_choice
+- Soru: Abdest alırken uzuvları yıkamada suyun niteliği nasıl olmalıdır?
+- Seçenekler: Temiz ve kullanılmaya elverişli su | Necis su | Her türlü içecek | Kirli atık su
+- Doğru cevap: Temiz ve kullanılmaya elverişli su
+- Açıklama: Abdest için temiz ve temizleyici su gerekir.
+
+**DEEN-U12-S07-X006** · Ünite Challenge · multiple_choice
+- Soru: Gusül gerektiren hâllerden biri hangisidir?
+- Seçenekler: Yemek yemek | Cinsel ilişki veya meni gelmesi gibi fıkhen belirlenen hâller | Saç taramak | Tırnak kesmek
+- Doğru cevap: Cinsel ilişki veya meni gelmesi gibi fıkhen belirlenen hâller
+- Açıklama: Cünüplük gibi fıkhen belirlenen hâller gusül gerektirir.
+
+**DEEN-U12-S07-X007** · Ünite Challenge · multiple_choice
+- Soru: Temizlik ile iman arasındaki ilişkiyi anlatan meşhur hadis ifadesi hangisidir?
+- Seçenekler: Kolaylaştırınız, zorlaştırmayınız | Ameller niyetlere göredir | Komşusu açken tok yatan bizden değildir | Temizlik imanın yarısıdır
+- Doğru cevap: Temizlik imanın yarısıdır
+- Açıklama: “Temizlik imanın yarısıdır” hadisi temizliğin imandaki önemini gösterir (Müslim).
+
+## U13 — namaza_hazirlik (88 soru)
 
 **DEEN-U13-S01-X001** · Namaza Hazırlık · multiple_choice
 - Soru: Namaza başlamadan önce yerine getirilmesi gereken şartlar kaç tanedir?
@@ -2779,7 +3013,103 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Doğru cevap: Lâ havle ve lâ kuvvete illâ billâh
 - Açıklama: Bu iki cümlede “Lâ havle ve lâ kuvvete illâ billâh” denmesi sünnettir.
 
-## U14 — namazin_yapisi (49 soru)
+**DEEN-U13-S01-X012** · Namaza Hazırlık · multiple_choice
+- Soru: Namaz kılarken yönelinen kıble neresidir?
+- Seçenekler: Hira Mağarası | Mescid-i Nebevî | Kâbe | Mescid-i Aksa
+- Doğru cevap: Kâbe
+- Açıklama: Namazda yönelinen kıble Kâbe’dir.
+
+**DEEN-U13-S01-X013** · Namaza Hazırlık · multiple_choice
+- Soru: Namaza başlarken alınan ilk tekbir hangi adla bilinir?
+- Seçenekler: Cenaze tekbiri | İftitah tekbiri | Teşrik tekbiri | Kunut tekbiri
+- Doğru cevap: İftitah tekbiri
+- Açıklama: Namaza başlarken alınan ilk tekbire iftitah tekbiri denir.
+
+**DEEN-U13-S02-X013** · Vakit ve Kıble · multiple_choice
+- Soru: Namazda kıbleye yönelmeye ne denir?
+- Seçenekler: Setr-i avret | İstikbal-i kıble | Kıyam | Rükû
+- Doğru cevap: İstikbal-i kıble
+- Açıklama: Namazda kıbleye yönelmeye istikbâl-i kıble denir.
+
+**DEEN-U13-S02-X014** · Vakit ve Kıble · multiple_choice
+- Soru: Namazın farzlarından biri olmayan hangisidir?
+- Seçenekler: Kıyam | Ezan okumak | Secde | Rükû
+- Doğru cevap: Ezan okumak
+- Açıklama: Ezan namazın farzlarından değil, vakit ve cemaat için okunan çağrıdır.
+
+**DEEN-U13-S02-X015** · Vakit ve Kıble · multiple_choice
+- Soru: Namaz vakitlerini belirleyen temel ölçü nedir?
+- Seçenekler: Güneşin konumuna bağlı vakitler | Yalnızca takvimdeki ay adı | Rüzgâr yönü | Ayın haftalık evreleri
+- Doğru cevap: Güneşin konumuna bağlı vakitler
+- Açıklama: Namaz vakitleri güneşin konumuna göre belirlenir.
+
+**DEEN-U13-S03-X012** · Şartları Eşleştir · multiple_choice
+- Soru: Cenaze namazında rükû ve secde bulunur mu?
+- Seçenekler: Hayır; ayakta tekbirlerle kılınır | Evet; dört secde vardır | Yalnızca oturarak kılınır | Evet; iki rükû vardır
+- Doğru cevap: Hayır; ayakta tekbirlerle kılınır
+- Açıklama: Cenaze namazı ayakta ve tekbirlerle kılınır; rükû ve secde yoktur.
+
+**DEEN-U13-S03-X013** · Şartları Eşleştir · multiple_choice
+- Soru: Namaz kılacak kişinin niyeti neyi belirler?
+- Seçenekler: Kıble yönünü | Hangi namazı kıldığını | Namazın ezanını | Abdest suyunun miktarını
+- Doğru cevap: Hangi namazı kıldığını
+- Açıklama: Niyet, kişinin hangi namazı kıldığını belirler.
+
+**DEEN-U13-S03-X014** · Şartları Eşleştir · multiple_choice
+- Soru: Namazda niyetin yeri neresidir?
+- Seçenekler: Namaz bittikten sonra yapılır | Kalptedir; dil ile söylemek şart değildir | Sadece imam yapar | Mutlaka yüksek sesle söylenmelidir
+- Doğru cevap: Kalptedir; dil ile söylemek şart değildir
+- Açıklama: Niyet kalple yapılır; dille söylemek şart değildir.
+
+**DEEN-U13-S04-X012** · Hazırlık Senaryoları · multiple_choice
+- Soru: Seferî olan kişinin dört rekâtlı farz namazları hangi kolaylıkla kısaltılır?
+- Seçenekler: Tamamen terk edilir | İki rekât olarak kılınabilir | Bir rekât kılınır | Altı rekâta çıkarılır
+- Doğru cevap: İki rekât olarak kılınabilir
+- Açıklama: Yolcu, dört rekâtlı farzları iki rekât olarak kılar (kasr).
+
+**DEEN-U13-S04-X013** · Hazırlık Senaryoları · multiple_choice
+- Soru: Namaz kılarken kişinin önünden geçilmesini önlemek için konulan nesneye ne denir?
+- Seçenekler: Kürsü | Mihrap | Minber | Sütre
+- Doğru cevap: Sütre
+- Açıklama: Namaz kılanın önünden geçilmesini önlemek için konulan nesneye sütre denir.
+
+**DEEN-U13-S05-X012** · Beş Vakit · multiple_choice
+- Soru: Mihrap camide neyi gösterir?
+- Seçenekler: Abdest musluklarını | İmamın hutbe okuduğu yeri | Ayakkabı bölümünü | Kıble yönünü
+- Doğru cevap: Kıble yönünü
+- Açıklama: Mihrap, camide kıble yönünü gösterir.
+
+**DEEN-U13-S05-X013** · Beş Vakit · multiple_choice
+- Soru: Minberin temel işlevi nedir?
+- Seçenekler: Kur’an’ı saklamak | Abdest almak | Cuma ve bayram gibi namazlarda hutbenin okunduğu yer olmak | Kıbleyi göstermek
+- Doğru cevap: Cuma ve bayram gibi namazlarda hutbenin okunduğu yer olmak
+- Açıklama: Minber, hutbenin okunduğu yerdir.
+
+**DEEN-U13-S05-X014** · Beş Vakit · multiple_choice
+- Soru: Kadın ve erkeklerin namazdaki avret sınırları konusunda fıkıh mezheplerinde ayrıntı farklılıkları bulunur mu?
+- Seçenekler: Evet; ayrıntılarda mezhep görüşleri bulunur | Evet; fakat namazın kıblesi de değişir | Hayır; örtünme şartı yoktur | Hayır; hiçbir ayrıntı farkı yoktur
+- Doğru cevap: Evet; ayrıntılarda mezhep görüşleri bulunur
+- Açıklama: Örtünme şartı bütün mezheplerde vardır; ancak avret sınırlarının ayrıntısında görüş farkları bulunur.
+
+**DEEN-U13-S06-X011** · Akıllı Tekrar · multiple_choice
+- Soru: Namazda başlama tekbirinin anlamı nedir?
+- Seçenekler: Secdeden çıkmak | Rükûdan kalkmak | Namazı bitirmek | Allah’ın en büyük olduğunu ilan ederek namaza başlamak
+- Doğru cevap: Allah’ın en büyük olduğunu ilan ederek namaza başlamak
+- Açıklama: Başlama tekbiri, Allah’ın en büyük olduğunu ilan ederek namaza girmektir.
+
+**DEEN-U13-S06-X012** · Akıllı Tekrar · multiple_choice
+- Soru: Namaz kılacak kişi kıbleyi bulmak için günümüzde hangi araçtan yararlanabilir?
+- Seçenekler: Takvimdeki ay adı | Pusula veya güvenilir kıble uygulaması | Hava sıcaklığı ölçer | Ses kayıt cihazı
+- Doğru cevap: Pusula veya güvenilir kıble uygulaması
+- Açıklama: Kıble yönü pusula veya güvenilir bir uygulamayla bulunabilir.
+
+**DEEN-U13-S07-X007** · Ünite Challenge · multiple_choice
+- Soru: Namazın şartları ile rükünleri arasındaki temel fark hangisidir?
+- Seçenekler: İkisi tamamen aynı kavramdır | Şartlar yalnızca sünnettir | Şartlar namaz öncesi/dışındaki gereklilikler, rükünler namazın içindeki temel unsurlardır | Rükünler namazdan sonra yapılır
+- Doğru cevap: Şartlar namaz öncesi/dışındaki gereklilikler, rükünler namazın içindeki temel unsurlardır
+- Açıklama: Şartlar namazın dışındaki gereklilikler, rükünler ise namazın içindeki temel unsurlardır.
+
+## U14 — namazin_yapisi (68 soru)
 
 **DEEN-U14-S01-X001** · Namazın Yapısı · multiple_choice
 - Soru: Namazın içinde yapılan farzlar (rükünler) kaç tanedir?
@@ -3068,7 +3398,121 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Doğru cevap: Doğru
 - Açıklama: Hanefî görüşüne göre rükûda “Sübhâne rabbiyel-azîm”, secdede “Sübhâne rabbiyel-a‘lâ” sözlerini en az üç defa söylemek sünnettir.
 
-## U15 — oruc_ramazan (49 soru)
+**DEEN-U14-S01-X009** · Namazın Yapısı · multiple_choice
+- Soru: Namazda oturuşa ne denir?
+- Seçenekler: Rükû | Ka’de | İhram | Kıyam
+- Doğru cevap: Ka’de
+- Açıklama: Namazda oturuşa ka’de denir.
+
+**DEEN-U14-S01-X010** · Namazın Yapısı · multiple_choice
+- Soru: Namazda Kur’an’dan âyet veya sure okumaya ne denir?
+- Seçenekler: Kıyam | Rükû | Kıraat | Ka’de
+- Doğru cevap: Kıraat
+- Açıklama: Namazda Kur’an okumaya kıraat denir.
+
+**DEEN-U14-S02-X009** · Kıyam, Kıraat, Rükû, Secde · multiple_choice
+- Soru: Namazda rükûdan doğrulmaya ne denir?
+- Seçenekler: Ka’de-i ahîre | Kavme | Celse | İftitah
+- Doğru cevap: Kavme
+- Açıklama: Rükûdan sonra doğrulup ayakta durmaya kavme denir.
+
+**DEEN-U14-S02-X010** · Kıyam, Kıraat, Rükû, Secde · multiple_choice
+- Soru: İki secde arasında oturmaya ne denir?
+- Seçenekler: Celse | Kıraat | Kavme | Kıyam
+- Doğru cevap: Celse
+- Açıklama: İki secde arasında kısa oturuşa celse denir.
+
+**DEEN-U14-S02-X011** · Kıyam, Kıraat, Rükû, Secde · multiple_choice
+- Soru: Rükûda yaygın olarak hangi tesbih okunur?
+- Seçenekler: Sübhâne rabbiye’l-a’lâ | Sübhâne rabbiye’l-azîm | Rabbena âtinâ | Ettehiyyâtü
+- Doğru cevap: Sübhâne rabbiye’l-azîm
+- Açıklama: Rükûda “Sübhâne rabbiye’l-azîm” okunur.
+
+**DEEN-U14-S03-X010** · Rekâtı Kur · multiple_choice
+- Soru: Namazı bozan davranışlardan biri hangisidir?
+- Seçenekler: Fâtiha okumak | Namazla ilgisiz bilerek konuşmak | Rükû yapmak | Secde etmek
+- Doğru cevap: Namazla ilgisiz bilerek konuşmak
+- Açıklama: Namazda bilerek ve namazla ilgisiz konuşmak namazı bozar.
+
+**DEEN-U14-S03-X011** · Rekâtı Kur · multiple_choice
+- Soru: Namazda bilerek yemek veya içmek nasıl değerlendirilir?
+- Seçenekler: Namazı güzelleştirir | Hiçbir etkisi yoktur | Sadece sünneti bozar | Namazı bozar
+- Doğru cevap: Namazı bozar
+- Açıklama: Namazda bilerek yemek veya içmek namazı bozar.
+
+**DEEN-U14-S03-X012** · Rekâtı Kur · multiple_choice
+- Soru: Vitir namazı Hanefî mezhebinde hangi hükümle değerlendirilir?
+- Seçenekler: Farz-ı ayn | Mekruh | Vacip | Haram
+- Doğru cevap: Vacip
+- Açıklama: Hanefî mezhebinde vitir namazı vaciptir.
+
+**DEEN-U14-S04-X011** · Namaz İçinde Akış · multiple_choice
+- Soru: Cenaze namazında kaç tekbir bulunur?
+- Seçenekler: Üç | Beş | Dört | İki
+- Doğru cevap: Dört
+- Açıklama: Cenaze namazında dört tekbir vardır.
+
+**DEEN-U14-S04-X012** · Namaz İçinde Akış · multiple_choice
+- Soru: Namazda imamın arkasında cemaatin uyması hangi kavramla anlatılır?
+- Seçenekler: İtikâf | İstinca | İktida | İhram
+- Doğru cevap: İktida
+- Açıklama: İmama uymaya iktida denir.
+
+**DEEN-U14-S04-X013** · Namaz İçinde Akış · multiple_choice
+- Soru: Namazı tek başına kılmaya ne denir?
+- Seçenekler: Hutbe okumak | İktida etmek | İmamlık yapmak | Münferit kılmak
+- Doğru cevap: Münferit kılmak
+- Açıklama: Namazı tek başına kılana münferit denir.
+
+**DEEN-U14-S05-X008** · Mazerette Kolaylık · multiple_choice
+- Soru: Namazda imamın yaptığı hatayı düzeltmek için erkek cemaatin söylemesi gereken ifade hangisidir?
+- Seçenekler: Estağfirullah | Sübhânallah | Elhamdülillah | Allahu ekber
+- Doğru cevap: Sübhânallah
+- Açıklama: Erkekler imamı uyarmak için “Sübhânallah” der.
+
+**DEEN-U14-S05-X009** · Mazerette Kolaylık · multiple_choice
+- Soru: Kadın cemaatin imamı uyarmak için el çırpması hangi uygulamadır?
+- Seçenekler: Rükû yerine geçen hareket | Fıkıhta bildirilen uyarı yöntemi | Namazı bitirme işareti | Ezanın bir parçası
+- Doğru cevap: Fıkıhta bildirilen uyarı yöntemi
+- Açıklama: Kadınlar imamı uyarmak için elle işaret eder (el çırpar); bu fıkıhta bildirilen uyarı yöntemidir.
+
+**DEEN-U14-S05-X010** · Mazerette Kolaylık · multiple_choice
+- Soru: Namazda rükû ve secdelerin sakin ve yerleşerek yapılmasına ne denir?
+- Seçenekler: İmsak | Ta’dil-i erkân | İstikbal-i kıble | Setr-i avret
+- Doğru cevap: Ta’dil-i erkân
+- Açıklama: Rükû ve secdelerde sükûnetle durmaya ta’dîl-i erkân denir.
+
+**DEEN-U14-S06-X006** · Akıllı Tekrar · multiple_choice
+- Soru: Sehiv secdesi hangi amaçla yapılır?
+- Seçenekler: Oruç borcunu ödemek | Namazdaki belirli yanılma ve eksiklikleri telafi etmek | Namazın rekâtını iki katına çıkarmak | Abdest yerine geçmek
+- Doğru cevap: Namazdaki belirli yanılma ve eksiklikleri telafi etmek
+- Açıklama: Sehiv secdesi, namazda yanılmayla yapılan eksiklikleri telafi eder.
+
+**DEEN-U14-S06-X007** · Akıllı Tekrar · multiple_choice
+- Soru: Namazda sehven bir vacibin terk edilmesi Hanefî mezhebinde genellikle neyi gerektirir?
+- Seçenekler: Oruç kefareti | Gusül | Teyemmüm | Sehiv secdesi
+- Doğru cevap: Sehiv secdesi
+- Açıklama: Hanefîlere göre namazda sehven bir vacibin terki sehiv secdesi gerektirir.
+
+**DEEN-U14-S06-X008** · Akıllı Tekrar · multiple_choice
+- Soru: Namazda huşû neyi ifade eder?
+- Seçenekler: Başkalarını izlemeyi | Allah’ın huzurunda saygı, dikkat ve içtenlikle durmayı | Hızlı hareket etmeyi | Gösteriş yapmayı
+- Doğru cevap: Allah’ın huzurunda saygı, dikkat ve içtenlikle durmayı
+- Açıklama: Huşû, Allah’ın huzurunda saygı ve içtenlikle durmaktır.
+
+**DEEN-U14-S07-X003** · Ünite Challenge · multiple_choice
+- Soru: Namazda rükûdan kalkarken söylenen “Semiallahu limen hamideh” ifadesinin anlamı hangisidir?
+- Seçenekler: Allah kendisine hamd edeni işitir | Allah en büyüktür | Hamd yalnızca insanadır | Allah her türlü eksiklikten uzaktır
+- Doğru cevap: Allah kendisine hamd edeni işitir
+- Açıklama: “Semiallahu limen hamideh”, “Allah kendisine hamd edeni işitir” demektir.
+
+**DEEN-U14-S07-X004** · Ünite Challenge · multiple_choice
+- Soru: Namazda oturuşta okunan tahiyyat hangi ifadeyle başlar?
+- Seçenekler: Bismillahirrahmanirrahim | Elhamdülillahi rabbilâlemin | Kul hüvallahu ehad | Ettehiyyâtü lillâhi
+- Doğru cevap: Ettehiyyâtü lillâhi
+- Açıklama: Tahiyyat “Ettehiyyâtü lillâhi…” diye başlar.
+
+## U15 — oruc_ramazan (68 soru)
 
 **DEEN-U15-S01-X001** · Oruç Nedir? · multiple_choice
 - Soru: Ramazan, hicrî takvimin kaçıncı ayıdır?
@@ -3358,3 +3802,117 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Seçenekler: Doğru | Yanlış
 - Doğru cevap: Doğru
 - Açıklama: Boğaza su kaçıp orucu bozma tehlikesi bulunduğundan oruçlu kimse abdestte ağza ve buruna aşırı su çekmez.
+
+**DEEN-U15-S01-X009** · Oruç Nedir? · multiple_choice
+- Soru: Oruç ibadetinin temel amacı Kur’an’da hangi kavramla ilişkilendirilir?
+- Seçenekler: Ticaret | Takva | Üstünlük | Şöhret
+- Doğru cevap: Takva
+- Açıklama: Bakara 183’te orucun amacı takvaya ermek olarak bildirilir.
+
+**DEEN-U15-S01-X010** · Oruç Nedir? · multiple_choice
+- Soru: Ramazan orucu hangi âyette farz kılınmıştır?
+- Seçenekler: Fâtiha Suresi 1. âyet | Bakara Suresi 183. âyet ve devamındaki âyetler | Nas Suresi 6. âyet | Fil Suresi 1. âyet
+- Doğru cevap: Bakara Suresi 183. âyet ve devamındaki âyetler
+- Açıklama: Oruç, Bakara 183 ve devamındaki âyetlerle farz kılınmıştır.
+
+**DEEN-U15-S02-X008** · Ramazan ve Takva · multiple_choice
+- Soru: Oruç tutmaya gücü yetmeyen sürekli hasta veya yaşlı kişi için fıkıhta hangi kolaylık gündeme gelir?
+- Seçenekler: Yemin kefareti | Fidye | Sa’y | Tavaf
+- Doğru cevap: Fidye
+- Açıklama: Oruca gücü yetmeyen yaşlı ve sürekli hasta için fidye gündeme gelir.
+
+**DEEN-U15-S02-X009** · Ramazan ve Takva · multiple_choice
+- Soru: Yolculukta oruç tutmama ruhsatı hangi ilkeyle ilgilidir?
+- Seçenekler: İsraf | Riya | Meşakkat ve kolaylık | Gösteriş
+- Doğru cevap: Meşakkat ve kolaylık
+- Açıklama: Yolcuya oruç ruhsatı, zorluğu giderme ve kolaylık ilkesine dayanır.
+
+**DEEN-U15-S02-X010** · Ramazan ve Takva · multiple_choice
+- Soru: Oruçlu kişinin unutarak yiyip içmesi durumunda genel hüküm nedir?
+- Seçenekler: Kefaret her durumda gerekir | Orucu kesin bozulur | Gusül gerekir | Orucu bozulmaz; hatırlayınca devam eder
+- Doğru cevap: Orucu bozulmaz; hatırlayınca devam eder
+- Açıklama: Unutarak yiyip içmek orucu bozmaz; hatırlayınca oruca devam edilir.
+
+**DEEN-U15-S03-X009** · İmsak ve İftar · multiple_choice
+- Soru: Ramazan ayının her yıl miladi takvimde farklı mevsimlere gelmesinin sebebi nedir?
+- Seçenekler: Güneşin her yıl yer değiştirmesi | Ayların sabit olmaması | Hicrî yılın güneş yılından daha kısa olması | Dünya’nın dönmemesi
+- Doğru cevap: Hicrî yılın güneş yılından daha kısa olması
+- Açıklama: Hicrî (ay) yıl, güneş yılından yaklaşık 11 gün kısa olduğu için Ramazan her yıl kayar.
+
+**DEEN-U15-S03-X010** · İmsak ve İftar · multiple_choice
+- Soru: Oruçta niyet neyi ifade eder?
+- Seçenekler: Oruç ibadetini bilinçli olarak yapmaya karar vermeyi | İftar yemeğini seçmeyi | Sahur saatini değiştirmeyi | Teravih rekâtını belirlemeyi
+- Doğru cevap: Oruç ibadetini bilinçli olarak yapmaya karar vermeyi
+- Açıklama: Niyet, orucu bilinçli olarak tutmaya karar vermektir.
+
+**DEEN-U15-S03-X011** · İmsak ve İftar · multiple_choice
+- Soru: Kaza orucu ne demektir?
+- Seçenekler: Bayram günü tutulan oruç | Oruç fidyesi vermek | Vaktinde tutulamayan farz orucun daha sonra tutulması | Gönüllü olarak her gün tutulan oruç
+- Doğru cevap: Vaktinde tutulamayan farz orucun daha sonra tutulması
+- Açıklama: Kaza orucu, vaktinde tutulamayan farz orucun sonradan tutulmasıdır.
+
+**DEEN-U15-S03-X012** · İmsak ve İftar · multiple_choice
+- Soru: Kefaret orucu hangi durumda gündeme gelebilir?
+- Seçenekler: Ramazan orucunun belirli şartlarla kasten bozulması gibi fıkhî durumlarda | Sahura kalkılmadığında | Unutarak su içildiğinde her durumda | İftar duası okunmadığında
+- Doğru cevap: Ramazan orucunun belirli şartlarla kasten bozulması gibi fıkhî durumlarda
+- Açıklama: Kefaret, Ramazan orucunun belirli şartlarla kasten bozulması gibi fıkhî durumlarda gündeme gelir.
+
+**DEEN-U15-S04-X009** · Oruçlu Günlük Hayat · multiple_choice
+- Soru: Fidye neyi ifade eder?
+- Seçenekler: Belirli mazeretler nedeniyle oruç tutamayanın şartları oluştuğunda verdiği bedel/yardım | Namazın son oturuşu | Hacda yapılan tavaf | Her Müslümanın her gün ödediği zekât
+- Doğru cevap: Belirli mazeretler nedeniyle oruç tutamayanın şartları oluştuğunda verdiği bedel/yardım
+- Açıklama: Fidye, mazeret sebebiyle oruç tutamayanın şartlar oluştuğunda verdiği bedeldir.
+
+**DEEN-U15-S04-X010** · Oruçlu Günlük Hayat · multiple_choice
+- Soru: Fitre (sadaka-i fıtır) hangi ibadet ve zamanla ilişkilidir?
+- Seçenekler: Ramazan ayı ve Ramazan Bayramı | Hac ihramı | Kurban Bayramı’nın yalnızca üçüncü günü | Cuma hutbesi
+- Doğru cevap: Ramazan ayı ve Ramazan Bayramı
+- Açıklama: Fitre, Ramazan ayı ve Ramazan Bayramı ile ilişkilidir.
+
+**DEEN-U15-S04-X011** · Oruçlu Günlük Hayat · multiple_choice
+- Soru: Ramazan ayında Kur’an’ı karşılıklı okuyup takip etme geleneğine ne denir?
+- Seçenekler: Sa’y | Vakfe | Mukabele | Tavaf
+- Doğru cevap: Mukabele
+- Açıklama: Ramazan’da Kur’an’ın karşılıklı okunup takip edilmesine mukabele denir.
+
+**DEEN-U15-S05-X010** · Mazeret ve Kaza · multiple_choice
+- Soru: İtikâf ne demektir?
+- Seçenekler: Hacda Kâbe’yi tavaf etmek | Zekât hesaplamak | Belirli şartlarla ibadet niyetiyle mescitte kalmak | Oruç açmak
+- Doğru cevap: Belirli şartlarla ibadet niyetiyle mescitte kalmak
+- Açıklama: İtikâf, ibadet niyetiyle belirli şartlarla mescitte kalmaktır.
+
+**DEEN-U15-S05-X011** · Mazeret ve Kaza · multiple_choice
+- Soru: Ramazan gecelerinde kılınan teravih namazı hangi vakitten sonra kılınır?
+- Seçenekler: Sabah namazından önce | İkindi namazından önce | Öğle namazından sonra | Yatsı namazından sonra
+- Doğru cevap: Yatsı namazından sonra
+- Açıklama: Teravih, yatsı namazından sonra kılınır.
+
+**DEEN-U15-S05-X012** · Mazeret ve Kaza · multiple_choice
+- Soru: Oruç ibadetinin farz olduğu kişiler için temel şartlardan biri hangisidir?
+- Seçenekler: Mekke’de yaşamak | Müslüman, akıllı ve ergen olmak; ayrıca oruca güç yetirmek | Evli olmak | Mutlaka zengin olmak
+- Doğru cevap: Müslüman, akıllı ve ergen olmak; ayrıca oruca güç yetirmek
+- Açıklama: Oruç; Müslüman, akıllı ve ergen olup oruca gücü yeten kişiye farzdır.
+
+**DEEN-U15-S06-X006** · Akıllı Tekrar · multiple_choice
+- Soru: Hayız ve nifas hâlindeki kadınların Ramazan orucuyla ilgili temel hüküm hangisidir?
+- Seçenekler: Fidye her durumda tek seçenektir | Oruç tutmak zorunludur | O günlerde oruç tutmaz, daha sonra kaza eder | Oruçları geçerli olur ve kaza gerekmez
+- Doğru cevap: O günlerde oruç tutmaz, daha sonra kaza eder
+- Açıklama: Hayız ve nifas günlerinde oruç tutulmaz; sonradan kaza edilir.
+
+**DEEN-U15-S06-X007** · Akıllı Tekrar · multiple_choice
+- Soru: Ramazan ayının son on gününde özellikle aranan gece hangisidir?
+- Seçenekler: Regaip Gecesi | Kadir Gecesi | Berat Gecesi | Miraç Gecesi
+- Doğru cevap: Kadir Gecesi
+- Açıklama: Kadir Gecesi, Ramazan’ın son on gününde aranır.
+
+**DEEN-U15-S06-X008** · Akıllı Tekrar · multiple_choice
+- Soru: Kadir Suresi’nde bu gecenin değeri nasıl ifade edilir?
+- Seçenekler: Yalnızca bir saat sürdüğü bildirilir | Sadece gündüz yaşandığı bildirilir | Bin aydan hayırlı olduğu bildirilir | Her yıl aynı miladi tarihe denk geldiği bildirilir
+- Doğru cevap: Bin aydan hayırlı olduğu bildirilir
+- Açıklama: Kadr 97/3’te Kadir Gecesi’nin bin aydan hayırlı olduğu bildirilir.
+
+**DEEN-U15-S07-X005** · Ünite Challenge · multiple_choice
+- Soru: Oruç ibadetinin yalnızca aç ve susuz kalmaktan ibaret olmadığını gösteren davranış hangisidir?
+- Seçenekler: Haksız kazanç elde etmek | İftar sofrasında israf etmek | Başkalarını kırmak | Yalan, gıybet ve kötü sözden uzak durmak
+- Doğru cevap: Yalan, gıybet ve kötü sözden uzak durmak
+- Açıklama: Oruç, aç kalmanın ötesinde yalan, gıybet ve kötü sözden uzak durmayı da gerektirir.
