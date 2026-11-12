@@ -19,7 +19,7 @@ const retired=JSON.parse(fs.readFileSync(path.join(root,'scripts/learn-extra/ret
  assert.strictEqual(r.size,retired.length,'retired list is in the engine');
  assert(r.allRetiredKnown,'every id in retired.json is in the engine');
  assert.deepStrictEqual(r.retiredInPool,[],'no retired question in the review pool');
- assert.strictEqual(r.extraCount,719,'719 extra questions');
+ assert.strictEqual(r.extraCount,818,'818 extra questions');
  assert.deepStrictEqual(r.dups,[],'no exact duplicate left in the pool: '+JSON.stringify(r.dups.slice(0,5)));
  assert(r.poolSize>1500,'pool still large: '+r.poolSize);
  // Real lessons of units 11-15 (every macro stage): none of the questions the engine picks is retired.

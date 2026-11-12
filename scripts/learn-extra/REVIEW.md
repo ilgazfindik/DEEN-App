@@ -1670,7 +1670,7 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Doğru cevap: Kur’an’ı karşılıklı okurdu (mukabele)
 - Açıklama: Cebrâil her Ramazan Hz. Peygamber’le Kur’an’ı karşılıklı okur, vefat yılında iki kez okumuşlardır (Buhârî).
 
-## U07 — kitaplara_iman (16 soru)
+## U07 — kitaplara_iman (50 soru)
 
 **DEEN-U07-S01-X001** · Kitaplara İman Nedir? · multiple_choice
 - Soru: Kur’an’ın ilk suresi hangisidir?
@@ -1767,6 +1767,210 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Seçenekler: Tefsir | Aruz | Hadis usulü | Sarf
 - Doğru cevap: Tefsir
 - Açıklama: Tefsir, Kur’an’ın açıklanması ve yorumlanmasıyla ilgilenen ilimdir.
+
+**DEEN-U07-S01-X003** · Kitaplara İman Nedir? · multiple_choice
+- Soru: Kur’an Hz. Peygamber’e nasıl indirilmiştir?
+- Seçenekler: Yalnızca Medine’de topluca | Yaklaşık yirmi üç yılda parça parça | Bir kitap hâlinde Mekke’de | Tek seferde bir gecede
+- Doğru cevap: Yaklaşık yirmi üç yılda parça parça
+- Açıklama: Kur’an, olaylara ve ihtiyaçlara göre tedricen, yaklaşık yirmi üç yılda indirilmiştir (Furkan 32).
+
+**DEEN-U07-S01-X004** · Kitaplara İman Nedir? · multiple_choice
+- Soru: “Mekkî” sure ne demektir?
+- Seçenekler: Yalnızca Kâbe hakkındaki sure | Mekke’de okunan sure | Mekke’de yazılan sure | Hicretten önce inen sure
+- Doğru cevap: Hicretten önce inen sure
+- Açıklama: Mekkî sureler, çoğunlukla hicretten önce inen surelerdir.
+
+**DEEN-U07-S02-X003** · Tevrat, İncil, Zebur ve Sahifeler · multiple_choice
+- Soru: Aşağıdakilerden hangisi Medenî bir surededir?
+- Seçenekler: Alak Suresi | Kureyş Suresi | Fil Suresi | Bakara Suresi
+- Doğru cevap: Bakara Suresi
+- Açıklama: Bakara Suresi Medine döneminde inmiştir.
+
+**DEEN-U07-S02-X004** · Tevrat, İncil, Zebur ve Sahifeler · multiple_choice
+- Soru: Aşağıdakilerden hangisi Mekkî bir surededir?
+- Seçenekler: Bakara Suresi | Nisâ Suresi | Alak Suresi | Mâide Suresi
+- Doğru cevap: Alak Suresi
+- Açıklama: Alak Suresi, ilk vahyin geldiği Mekkî bir suredir.
+
+**DEEN-U07-S02-X005** · Tevrat, İncil, Zebur ve Sahifeler · multiple_choice
+- Soru: Kur’an’ın ilk defa mushaf hâlinde toplanması hangi halife döneminde gerçekleşmiştir?
+- Seçenekler: Hz. Ömer b. Abdülazîz | Hz. Muâviye | Hz. Ebû Bekir | Hz. Ali
+- Doğru cevap: Hz. Ebû Bekir
+- Açıklama: Yemâme Savaşı’nda çok sayıda hâfızın şehit olması üzerine Hz. Ebû Bekir Kur’an’ı topluttu.
+
+**DEEN-U07-S02-X006** · Tevrat, İncil, Zebur ve Sahifeler · multiple_choice
+- Soru: Hz. Ebû Bekir, Kur’an’ın toplanması görevini kime vermiştir?
+- Seçenekler: Zeyd b. Sâbit’e | Hz. Ali’ye | Hz. Bilâl’e | Hz. Hâlid’e
+- Doğru cevap: Zeyd b. Sâbit’e
+- Açıklama: Hz. Ebû Bekir bu görevi vahiy kâtiplerinden Zeyd b. Sâbit’e vermiştir.
+
+**DEEN-U07-S03-X004** · Kur'an'ın Konumu · multiple_choice
+- Soru: Hz. Osman döneminde Kur’an nüshalarının çoğaltılmasının sebebi nedir?
+- Seçenekler: Kıraat ihtilaflarının artması ve birliğin sağlanması | Yeni sureler eklenmesi | Mushafın Arapça dışına çevrilmesi | Kur’an’ın kaybolması
+- Doğru cevap: Kıraat ihtilaflarının artması ve birliğin sağlanması
+- Açıklama: Hz. Osman, kıraat ihtilaflarını önlemek ve birliği sağlamak için nüshalar çoğalttırdı (TDV).
+
+**DEEN-U07-S03-X005** · Kur'an'ın Konumu · multiple_choice
+- Soru: Hz. Osman’un çoğalttırdığı mushafların bir kısmı hangi şehirlere gönderilmiştir?
+- Seçenekler: Yalnızca Kudüs’e | Hiçbir şehre | Mekke, Kûfe, Basra ve Dımaşk gibi merkezlere | Sadece Hind’e
+- Doğru cevap: Mekke, Kûfe, Basra ve Dımaşk gibi merkezlere
+- Açıklama: TDV’ye göre nüshalardan biri Medine’de kalmış, diğerleri Mekke, Kûfe, Basra ve Dımaşk gibi merkezlere gönderilmiştir.
+
+**DEEN-U07-S03-X006** · Kur'an'ın Konumu · multiple_choice
+- Soru: Hz. Ebû Bekir döneminde toplanan Kur’an sahifeleri Hz. Ömer’den sonra kimin yanında muhafaza edilmiştir?
+- Seçenekler: Hz. Hatice’nin | Hz. Âişe’nin | Hz. Fâtıma’nın | Hz. Hafsa’nın
+- Doğru cevap: Hz. Hafsa’nın
+- Açıklama: Toplanan sahifeler Hz. Ömer’den sonra Peygamber’in eşi Hz. Hafsa’nın yanında saklanmıştır.
+
+**DEEN-U07-S03-X007** · Kur'an'ın Konumu · multiple_choice
+- Soru: Aşağıdakilerden hangisi Kur’an’ın isimlerinden biridir?
+- Seçenekler: Zebur | Furkan | İncil | Tevrat
+- Doğru cevap: Furkan
+- Açıklama: Furkan, “hakkı bâtıldan ayıran” anlamıyla Kur’an’ın adlarındandır.
+
+**DEEN-U07-S03-X008** · Kur'an'ın Konumu · multiple_choice
+- Soru: Kur’an, kendisi hakkında şüphe edenlere hangi çağrıda bulunur?
+- Seçenekler: Onu yakmalarını | Ondan uzak durmalarını | Benzeri bir sure getirmelerini ister | Onu ezberlemelerini
+- Doğru cevap: Benzeri bir sure getirmelerini ister
+- Açıklama: Bakara 23’te şüphe edenlerden Kur’an’ın benzeri bir sure getirmeleri istenir.
+
+**DEEN-U07-S04-X003** · İlahi Kitapların Ortak Kaynağı · multiple_choice
+- Soru: Kur’an’ın en uzun âyeti hangi konuyla ilgilidir?
+- Seçenekler: Hac menâsiki | Miras paylaşımı | Namaz vakitleri | Borçlanma ve yazılı kayıt (müdâyene)
+- Doğru cevap: Borçlanma ve yazılı kayıt (müdâyene)
+- Açıklama: Bakara 282, Kur’an’ın en uzun âyetidir ve borç ilişkilerinin yazılmasını düzenler.
+
+**DEEN-U07-S04-X004** · İlahi Kitapların Ortak Kaynağı · multiple_choice
+- Soru: Fâtiha Suresi’nin adlarından biri hangisidir?
+- Seçenekler: Ümmü’l-Kitâb | Ümmü’l-Kurâ | Ümmü’l-Hayât | Ümmü’l-Mü’minîn
+- Doğru cevap: Ümmü’l-Kitâb
+- Açıklama: Fâtiha, Kur’an’ın özü sayıldığı için “Ümmü’l-Kitâb” diye de anılır.
+
+**DEEN-U07-S04-X005** · İlahi Kitapların Ortak Kaynağı · multiple_choice
+- Soru: Hanefî mezhebinde Kur’an’da kaç secde âyeti vardır?
+- Seçenekler: Yedi | Üç | On dört | Yirmi bir
+- Doğru cevap: On dört
+- Açıklama: Hanefîlere göre Kur’an’da on dört tilavet secdesi âyeti vardır.
+
+**DEEN-U07-S04-X006** · İlahi Kitapların Ortak Kaynağı · multiple_choice
+- Soru: Tevrat hangi dilde indirilmiştir?
+- Seçenekler: Arapça | Latince | Yunanca | İbranice
+- Doğru cevap: İbranice
+- Açıklama: Tevrat’ın asıl dili İbranicedir.
+
+**DEEN-U07-S04-X007** · İlahi Kitapların Ortak Kaynağı · multiple_choice
+- Soru: Hz. İbrahim’e verilen vahiy hangi adla anılır?
+- Seçenekler: Furkan | Mushaf | Zebur | Sahifeler (suhuf)
+- Doğru cevap: Sahifeler (suhuf)
+- Açıklama: Kur’an’da Hz. İbrahim ve Hz. Musa’nın sahifelerinden söz edilir (A‘lâ 18-19).
+
+**DEEN-U07-S05-X004** · Kur'an'ın Rehberliği ve Korunması · multiple_choice
+- Soru: Kur’an kendisinden önceki ilahî kitaplar hakkında ne der?
+- Seçenekler: Onlardan hiç söz etmez | Yalnızca Zebur’u kabul eder | Onları doğrulayıcıdır (musaddık) | Hepsini geçersiz sayar
+- Doğru cevap: Onları doğrulayıcıdır (musaddık)
+- Açıklama: Kur’an, önceki kitapları doğrulayıcı ve gözetici olarak nitelenir (Mâide 48).
+
+**DEEN-U07-S05-X005** · Kur'an'ın Rehberliği ve Korunması · multiple_choice
+- Soru: Bakara 285’e göre müminler peygamberlere ve kitaplara karşı nasıl davranır?
+- Seçenekler: Hiçbirini ayırt etmeden hepsine inanır | Hiçbirine inanmaz | Yalnızca sonuncusuna inanır | Bazılarını reddeder
+- Doğru cevap: Hiçbirini ayırt etmeden hepsine inanır
+- Açıklama: Bakara 285’te müminlerin Allah’a, meleklerine, kitaplarına ve peygamberlerine inandığı, aralarında ayrım yapmadığı bildirilir.
+
+**DEEN-U07-S05-X006** · Kur'an'ın Rehberliği ve Korunması · multiple_choice
+- Soru: Kur’an’ın tamamını ezberleyen kişiye ne denir?
+- Seçenekler: Müezzin | İmam-ı azam | Vaiz | Hâfız
+- Doğru cevap: Hâfız
+- Açıklama: Kur’an’ı baştan sona ezberleyene hâfız denir.
+
+**DEEN-U07-S05-X007** · Kur'an'ın Rehberliği ve Korunması · multiple_choice
+- Soru: Bazı surelerin başındaki “Elif-Lâm-Mîm” gibi harflere ne denir?
+- Seçenekler: Hurûf-ı mukatta‘a | Hurûf-ı tehecci | Rükû | Hizip
+- Doğru cevap: Hurûf-ı mukatta‘a
+- Açıklama: Surelerin başındaki bu harf gruplarına hurûf-ı mukatta‘a denir.
+
+**DEEN-U07-S05-X008** · Kur'an'ın Rehberliği ve Korunması · multiple_choice
+- Soru: Kur’an’da “Ehl-i Kitap” ifadesi genel olarak kimleri anlatır?
+- Seçenekler: Putperestler | Cinler | Yahudiler ve Hıristiyanlar | Yalnızca Mekkeliler
+- Doğru cevap: Yahudiler ve Hıristiyanlar
+- Açıklama: Kur’an’da “Ehl-i Kitap” genellikle Yahudi ve Hıristiyanları ifade eder.
+
+**DEEN-U07-S05-X009** · Kur'an'ın Rehberliği ve Korunması · multiple_choice
+- Soru: Nahl 44’e göre Hz. Peygamber’in Kur’an karşısındaki görevi nedir?
+- Seçenekler: Onu değiştirmektir | İndirileni insanlara açıklamaktır | Onu yalnızca yazmaktır | Onu gizlemektir
+- Doğru cevap: İndirileni insanlara açıklamaktır
+- Açıklama: Nahl 44’te Peygamber’e insanlara indirileni açıklaması bildirilir; bu, sünnetin temelidir.
+
+**DEEN-U07-S06-X002** · Yanlış Anlamaları Düzelt · multiple_choice
+- Soru: İslam hukukunun (fıkhın) dört temel delili hangileridir?
+- Seçenekler: İcmâ, sezgi, felsefe ve kıyas | Kitap, sünnet, icmâ ve kıyas | Sünnet, örf, rüya ve ilham | Kitap, tarih, şiir ve kıyas
+- Doğru cevap: Kitap, sünnet, icmâ ve kıyas
+- Açıklama: Fıkhın dört temel delili Kur’an, sünnet, icmâ ve kıyastır.
+
+**DEEN-U07-S06-X003** · Yanlış Anlamaları Düzelt · multiple_choice
+- Soru: Hadis ne demektir?
+- Seçenekler: Kur’an’ın yazılmış hâli | Eski kitapların özeti | Hz. Peygamber’in söz, fiil ve onaylarının nakli | Sahabenin kişisel görüşleri
+- Doğru cevap: Hz. Peygamber’in söz, fiil ve onaylarının nakli
+- Açıklama: Hadis, Hz. Peygamber’in söz, fiil ve onaylarını aktaran rivayettir.
+
+**DEEN-U07-S06-X004** · Yanlış Anlamaları Düzelt · multiple_choice
+- Soru: Hadis-i kudsî hangi özelliğiyle diğer hadislerden ayrılır?
+- Seçenekler: Yalnızca duayla ilgili olması | Kur’an’ın bir suresi olması | Anlamının Allah’a, ifadesinin Hz. Peygamber’e ait olması | Hiç senedi bulunmaması
+- Doğru cevap: Anlamının Allah’a, ifadesinin Hz. Peygamber’e ait olması
+- Açıklama: Hadis-i kudsîde mana Allah’tandır, lafız Hz. Peygamber’e aittir.
+
+**DEEN-U07-S06-X005** · Yanlış Anlamaları Düzelt · multiple_choice
+- Soru: Kütüb-i Sitte kaç hadis kitabından oluşur?
+- Seçenekler: Üç | Altı | Dokuz | Oniki
+- Doğru cevap: Altı
+- Açıklama: Kütüb-i Sitte, altı temel hadis kitabını ifade eder.
+
+**DEEN-U07-S06-X006** · Yanlış Anlamaları Düzelt · multiple_choice
+- Soru: “Sahîhayn” ifadesi hangi iki hadis kitabını anlatır?
+- Seçenekler: Tirmizî ve Ebû Dâvûd’u | Nesâî ve İbn Mâce’yi | Muvatta ve Müsned’i | Buhârî ve Müslim’in Sahîh’lerini
+- Doğru cevap: Buhârî ve Müslim’in Sahîh’lerini
+- Açıklama: Sahîhayn, Buhârî ve Müslim’in Sahîh kitaplarına verilen addır.
+
+**DEEN-U07-S06-X007** · Yanlış Anlamaları Düzelt · multiple_choice
+- Soru: “İncil” kelimesi hangi anlamla ilişkilendirilir?
+- Seçenekler: Yasa | Müjde | Kıssa | Hikmet
+- Doğru cevap: Müjde
+- Açıklama: İncil, “müjde” anlamıyla anılır.
+
+**DEEN-U07-S07-X004** · Kitaplara İman Ustalığı · multiple_choice
+- Soru: Müzzemmil 4’te Kur’an’ın nasıl okunması emredilir?
+- Seçenekler: Anlamadan | Çok hızlı | Fısıltıyla | Tertil ile, yani ağır ve düzgün şekilde
+- Doğru cevap: Tertil ile, yani ağır ve düzgün şekilde
+- Açıklama: Müzzemmil 4’te Kur’an’ı tertil ile okumak emredilir.
+
+**DEEN-U07-S07-X005** · Kitaplara İman Ustalığı · multiple_choice
+- Soru: A‘râf 204’e göre Kur’an okunduğunda ne yapılmalıdır?
+- Seçenekler: Yüksek sesle konuşulmalıdır | Gülünmelidir | Susup dinlenmelidir | Uzaklaşılmalıdır
+- Doğru cevap: Susup dinlenmelidir
+- Açıklama: A‘râf 204’te Kur’an okunduğunda dinlemek ve susmak emredilir.
+
+**DEEN-U07-S07-X006** · Kitaplara İman Ustalığı · multiple_choice
+- Soru: Vahiy ile ilham arasındaki temel fark hangisidir?
+- Seçenekler: İkisi aynı şeydir | Vahiy her insana gelir | İlham yalnızca meleklere gelir | Vahiy peygamberlere özgü ilahî bildirimdir; ilham böyle bağlayıcı değildir
+- Doğru cevap: Vahiy peygamberlere özgü ilahî bildirimdir; ilham böyle bağlayıcı değildir
+- Açıklama: Vahiy peygamberlere özgü, bağlayıcı bir ilahî bildirimdir; ilham ise vahiy gibi bağlayıcı değildir.
+
+**DEEN-U07-S07-X007** · Kitaplara İman Ustalığı · multiple_choice
+- Soru: Kur’an “meali” ne demektir?
+- Seçenekler: Kur’an’ın aslı | Kur’an’ın süslenmesi | Kur’an’ın ezberlenmesi | Kur’an’ın anlamının başka bir dille ifade edilmesi
+- Doğru cevap: Kur’an’ın anlamının başka bir dille ifade edilmesi
+- Açıklama: Meal, Kur’an’ın anlamının başka bir dille aktarılmasıdır; Kur’an’ın yerine geçmez.
+
+**DEEN-U07-S07-X008** · Kitaplara İman Ustalığı · multiple_choice
+- Soru: Nahl 98’e göre Kur’an okumaya başlarken ne yapılır?
+- Seçenekler: Kovulmuş şeytandan Allah’a sığınılır (istiâze) | Secde edilir | Yüksek sesle ezan okunur | Hiçbir şey söylenmez
+- Doğru cevap: Kovulmuş şeytandan Allah’a sığınılır (istiâze)
+- Açıklama: Nahl 98’de Kur’an okurken kovulmuş şeytandan Allah’a sığınmak emredilir.
+
+**DEEN-U07-S07-X009** · Kitaplara İman Ustalığı · multiple_choice
+- Soru: Hicr 9’da Kur’an için kullanılan “Zikr” kelimesi neyi ifade eder?
+- Seçenekler: Ticaret | Yolculuk | Öğüt ve hatırlatma | Savaş
+- Doğru cevap: Öğüt ve hatırlatma
+- Açıklama: “Zikr”, Kur’an’ın öğüt ve hatırlatma yönünü anlatan adlarından biridir.
 
 ## U08 — peygamberlere_iman (29 soru)
 
@@ -1944,7 +2148,7 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Doğru cevap: Müslümanlar Allah’ın gönderdiği bütün peygamberlere inanır
 - Açıklama: Müslümanlar, Allah’ın gönderdiği bütün peygamberlere inanır ve aralarında ayrım yapmaz.
 
-## U09 — ahiret_gunune_iman (21 soru)
+## U09 — ahiret_gunune_iman (50 soru)
 
 **DEEN-U09-S01-X001** · Ahiret Gününe İman Nedir? · multiple_choice
 - Soru: Ahiret inancı hangi hayatı ifade eder?
@@ -2072,7 +2276,181 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Doğru cevap: Dünya hayatı ahireti gözeterek sorumlulukla yaşanmalıdır
 - Açıklama: İslam, dünya ve ahiret dengesini gözeten sorumlu bir hayatı öğütler.
 
-## U10 — kader_ve_kazaya_iman (14 soru)
+**DEEN-U09-S01-X003** · Ahiret Gününe İman Nedir? · multiple_choice
+- Soru: Kur’an’ın 75. suresi hangisidir ve kıyametle ilgilidir?
+- Seçenekler: Kıyâme Suresi | Mülk Suresi | Duhâ Suresi | Kevser Suresi
+- Doğru cevap: Kıyâme Suresi
+- Açıklama: 75. sure Kıyâme Suresi’dir ve kıyamet gününü anlatır.
+
+**DEEN-U09-S01-X004** · Ahiret Gününe İman Nedir? · multiple_choice
+- Soru: Fâtiha Suresi’nde Allah için kullanılan “Mâliki yevmi’d-dîn” ifadesi neyi bildirir?
+- Seçenekler: Allah’ın dinler arasında seçtiğini | Allah’ın yalnızca dünyanın sahibi olduğunu | Allah’ın günleri saydığını | Allah’ın hesap ve ceza gününün sahibi olduğunu
+- Doğru cevap: Allah’ın hesap ve ceza gününün sahibi olduğunu
+- Açıklama: “Yevmü’d-dîn”, hesap ve karşılık günüdür; Allah o günün sahibidir (Fâtiha 4).
+
+**DEEN-U09-S01-X005** · Ahiret Gününe İman Nedir? · multiple_choice
+- Soru: Kıyametin ne zaman kopacağını kim bilir?
+- Seçenekler: Melekler | Peygamberler | Âlimler | Yalnızca Allah
+- Doğru cevap: Yalnızca Allah
+- Açıklama: Kıyametin vaktini yalnızca Allah bilir (A‘râf 187, Lokman 34).
+
+**DEEN-U09-S02-X004** · Ölüm ve Dünya Hayatının Sonu · multiple_choice
+- Soru: Kur’an’a göre sûra kaç kez üfürülecektir?
+- Seçenekler: Yedi kez | İki kez | Bir kez | Üç kez
+- Doğru cevap: İki kez
+- Açıklama: Zümer 68’de sûra iki kez üfürüleceği anlaşılır: ilkinde herkes ölür, ikincisinde diriltilirler.
+
+**DEEN-U09-S02-X005** · Ölüm ve Dünya Hayatının Sonu · multiple_choice
+- Soru: Hadislerde büyük kıyamet alametlerinden biri olarak bildirilen olay hangisidir?
+- Seçenekler: Yağmurun yağması | Mevsimlerin değişmesi | Güneşin batıdan doğması | Ayın dolunay olması
+- Doğru cevap: Güneşin batıdan doğması
+- Açıklama: Güneşin batıdan doğması büyük kıyamet alametlerinden biridir.
+
+**DEEN-U09-S02-X006** · Ölüm ve Dünya Hayatının Sonu · multiple_choice
+- Soru: Hadislerde “yalancı mesih” olarak anılan ve kıyamet öncesi çıkacağı bildirilen kişi kimdir?
+- Seçenekler: Zülkarneyn | Lokman | Mehdî | Deccâl
+- Doğru cevap: Deccâl
+- Açıklama: Deccâl, kıyamet öncesi çıkıp ilahlık iddia edecek olan yalancıdır.
+
+**DEEN-U09-S02-X007** · Ölüm ve Dünya Hayatının Sonu · multiple_choice
+- Soru: Kur’an’da kıyamet öncesinde yeryüzüne yayılacağı bildirilen kavim hangisidir?
+- Seçenekler: Yecüc ve Mecüc | Medyen | Kureyş | Âd ve Semûd
+- Doğru cevap: Yecüc ve Mecüc
+- Açıklama: Kehf 94 ve Enbiyâ 96’da Yecüc ve Mecüc’ün yayılacağı bildirilir.
+
+**DEEN-U09-S02-X008** · Ölüm ve Dünya Hayatının Sonu · multiple_choice
+- Soru: Neml 82’de kıyamet öncesinde yerden çıkarılacağı bildirilen varlık hangisidir?
+- Seçenekler: Kirâmen Kâtibîn | Sırat | Dâbbetü’l-arz | Deccâl
+- Doğru cevap: Dâbbetü’l-arz
+- Açıklama: Neml 82’de insanlarla konuşacak bir “yerden çıkan canlı”dan (Dâbbetü’l-arz) söz edilir.
+
+**DEEN-U09-S03-X004** · Kıyamet ve Yeniden Diriliş · multiple_choice
+- Soru: Hadislerde kıyamet öncesinde yeryüzüne inmesi bildirilen peygamber kimdir?
+- Seçenekler: Hz. Mûsâ | Hz. Yûnus | Hz. Nûh | Hz. Îsâ
+- Doğru cevap: Hz. Îsâ
+- Açıklama: Hadislere göre Hz. Îsâ kıyamet öncesinde yeryüzüne inecektir.
+
+**DEEN-U09-S03-X005** · Kıyamet ve Yeniden Diriliş · multiple_choice
+- Soru: İnşikak Suresi’ne göre amel defteri sağ eline verilen kişinin hesabı nasıl olur?
+- Seçenekler: Çok ağır olur | Hiç hesaba çekilmez | Kolay bir hesap görülür | Gizli kalır
+- Doğru cevap: Kolay bir hesap görülür
+- Açıklama: İnşikak 7-8’de kitabı sağından verilen kişinin kolay bir hesapla hesaba çekileceği bildirilir.
+
+**DEEN-U09-S03-X006** · Kıyamet ve Yeniden Diriliş · multiple_choice
+- Soru: İnşikak Suresi’ne göre kitabı arkasından verilen kişi ne ister?
+- Seçenekler: Hesabı ertelemeyi | Dünyaya dönmeyi | Cennete girmeyi | Helâk olmayı ister
+- Doğru cevap: Helâk olmayı ister
+- Açıklama: İnşikak 10-11’de kitabı arkasından verilenin helâk olmayı isteyeceği bildirilir.
+
+**DEEN-U09-S03-X007** · Kıyamet ve Yeniden Diriliş · multiple_choice
+- Soru: Kâria Suresi’ne göre mizanda tartıları ağır gelen kimse nasıl bir hayat sürer?
+- Seçenekler: Pişman bir hayat | Sürekli korku içinde bir hayat | Hoşnut bir hayat | Hiçbir hayat
+- Doğru cevap: Hoşnut bir hayat
+- Açıklama: Kâria 6-7’de tartıları ağır gelenin hoşnut bir hayat içinde olacağı bildirilir.
+
+**DEEN-U09-S03-X008** · Kıyamet ve Yeniden Diriliş · multiple_choice
+- Soru: Zilzâl Suresi’ne göre zerre kadar hayır veya şer işleyen ne olur?
+- Seçenekler: Hiçbir şey olmaz | Unutulur | Yalnızca hayrı sayılır | Karşılığını görür
+- Doğru cevap: Karşılığını görür
+- Açıklama: Zilzâl 7-8’de zerre kadar hayır ve şerrin karşılığının görüleceği bildirilir.
+
+**DEEN-U09-S04-X004** · Hesap, Amel Defteri ve İlahi Adalet · multiple_choice
+- Soru: Hadislere göre Hz. Peygamber’in kıyamet günü ümmetine suyunu içireceği yer neresidir?
+- Seçenekler: Zemzem | Havz-ı Kevser (Havz) | Arafat | Sırat köprüsü
+- Doğru cevap: Havz-ı Kevser (Havz)
+- Açıklama: Hadislere göre Peygamber’in havzı vardır; ümmeti oradan su içecektir.
+
+**DEEN-U09-S04-X005** · Hesap, Amel Defteri ve İlahi Adalet · multiple_choice
+- Soru: Hadise göre cennetin kaç kapısı vardır?
+- Seçenekler: Üç | Sekiz | On iki | Yedi
+- Doğru cevap: Sekiz
+- Açıklama: Hadise göre cennetin sekiz kapısı vardır (Buhârî, Müslim).
+
+**DEEN-U09-S04-X006** · Hesap, Amel Defteri ve İlahi Adalet · multiple_choice
+- Soru: Hicr 44’e göre cehennemin kaç kapısı vardır?
+- Seçenekler: Üç | Oniki | Sekiz | Yedi
+- Doğru cevap: Yedi
+- Açıklama: Hicr 44’te cehennemin yedi kapısı bulunduğu bildirilir.
+
+**DEEN-U09-S04-X007** · Hesap, Amel Defteri ve İlahi Adalet · multiple_choice
+- Soru: Kur’an’da cennet ile cehennem arasındaki yer olarak anılan yer hangisidir?
+- Seçenekler: Sırat | Â‘râf | Berzah | Mahşer
+- Doğru cevap: Â‘râf
+- Açıklama: A‘râf 46’da cennet ve cehennem ehli arasında bir perde/yüksek yerden söz edilir.
+
+**DEEN-U09-S04-X008** · Hesap, Amel Defteri ve İlahi Adalet · multiple_choice
+- Soru: Ehl-i sünnet inancına göre kabir azabı ve nimeti hakkında hangisi doğrudur?
+- Seçenekler: Sadece Mekkelilere özeldir | Kesinlikle yoktur | Yalnızca bir mecazdır | Haktır; hadislerle bildirilmiştir
+- Doğru cevap: Haktır; hadislerle bildirilmiştir
+- Açıklama: Ehl-i sünnet’e göre kabir hayatı ve azabı/nimeti haktır.
+
+**DEEN-U09-S04-X009** · Hesap, Amel Defteri ve İlahi Adalet · multiple_choice
+- Soru: Hadise göre kıyamet günü kulun ilk hesaba çekileceği ibadet hangisidir?
+- Seçenekler: Namaz | Zekât | Hac | Kurban
+- Doğru cevap: Namaz
+- Açıklama: Hadise göre kulun kıyamette ilk hesaba çekileceği amel namazıdır (Tirmizî, Nesâî).
+
+**DEEN-U09-S05-X004** · Ahiret Bilincinin Hayata Etkisi · multiple_choice
+- Soru: Hadise göre insanlar arasında kıyamette ilk hüküm verilecek konu hangisidir?
+- Seçenekler: Ticaret ortaklıkları | Komşuluk ilişkileri | Misafirlik | Kan davaları (insanlar arasındaki kan dâvâları)
+- Doğru cevap: Kan davaları (insanlar arasındaki kan dâvâları)
+- Açıklama: Hadise göre insanlar arasında kıyamette ilk hüküm verilecek konu kan davalarıdır (Buhârî, Müslim).
+
+**DEEN-U09-S05-X005** · Ahiret Bilincinin Hayata Etkisi · multiple_choice
+- Soru: İsrâ 79’da Hz. Peygamber’e vaat edilen makam hangisidir?
+- Seçenekler: Makâm-ı Cennet | Makâm-ı Dünya | Makâm-ı Mahmûd | Makâm-ı İbrâhim
+- Doğru cevap: Makâm-ı Mahmûd
+- Açıklama: İsrâ 79’da Peygamber’e “Makâm-ı Mahmûd” (övülmüş makam) vaat edilir.
+
+**DEEN-U09-S05-X006** · Ahiret Bilincinin Hayata Etkisi · multiple_choice
+- Soru: Kur’an’da cennet ehli için sıkça kullanılan “hâlidîn” kelimesi neyi ifade eder?
+- Seçenekler: Orada kısa süre kalacaklarını | Oradan çıkacaklarını | Orada hiç olmayacaklarını | Orada ebedî kalacaklarını
+- Doğru cevap: Orada ebedî kalacaklarını
+- Açıklama: “Hâlidîn”, cennet ehlinin orada ebedî kalacağını ifade eder.
+
+**DEEN-U09-S05-X007** · Ahiret Bilincinin Hayata Etkisi · multiple_choice
+- Soru: Âl-i İmrân 185’e göre her nefis ne tadacaktır?
+- Seçenekler: Ölümü | Yalnızca zenginliği | Yalnızca acıyı | Hiçbir şeyi
+- Doğru cevap: Ölümü
+- Açıklama: Âl-i İmrân 185’te “Her nefis ölümü tadacaktır” buyrulur.
+
+**DEEN-U09-S05-X008** · Ahiret Bilincinin Hayata Etkisi · multiple_choice
+- Soru: Hadîd 20’ye göre dünya hayatı nasıl tanıtılır?
+- Seçenekler: Oyun, eğlence ve geçici bir süs | Hesapsız bir alan | Sonsuz bir yurt | Cennetin kendisi
+- Doğru cevap: Oyun, eğlence ve geçici bir süs
+- Açıklama: Hadîd 20’de dünya hayatı oyun, eğlence ve geçici bir süs olarak tanıtılır.
+
+**DEEN-U09-S06-X005** · Yanlış Anlamaları Düzelt · multiple_choice
+- Soru: Kehf 107’de müminlere hazırlandığı bildirilen cennet bahçelerinin adı nedir?
+- Seçenekler: Firdevs | Cûdî | Kevser | Selsebil
+- Doğru cevap: Firdevs
+- Açıklama: Kehf 107’de iman edip salih amel işleyenler için Firdevs cennetlerinin hazırlandığı bildirilir.
+
+**DEEN-U09-S06-X006** · Yanlış Anlamaları Düzelt · multiple_choice
+- Soru: Vâkıa Suresi, kıyamet gününde insanları kaç gruba ayırır?
+- Seçenekler: Beş gruba | Yedi gruba | İki gruba | Üç gruba
+- Doğru cevap: Üç gruba
+- Açıklama: Vâkıa 7-10’da insanlar üç gruba ayrılır: sağ taraf, sol taraf ve öne geçenler.
+
+**DEEN-U09-S06-X007** · Yanlış Anlamaları Düzelt · multiple_choice
+- Soru: Aşağıdakilerden hangisi kıyametin kopuşunu anlatan surelerdendir?
+- Seçenekler: Tekvîr Suresi | Kureyş Suresi | Fil Suresi | Mâûn Suresi
+- Doğru cevap: Tekvîr Suresi
+- Açıklama: Tekvîr, İnfitâr ve İnşikâk sureleri kıyametin kopuşunu anlatır.
+
+**DEEN-U09-S06-X008** · Yanlış Anlamaları Düzelt · multiple_choice
+- Soru: Ehl-i sünnet inancına göre cennet ve cehennem hakkında hangisi doğrudur?
+- Seçenekler: Yalnızca geçicidir | Sadece birer semboldür | Kıyametten sonra yaratılacaklardır | Şu an yaratılmışlardır ve ebedîdirler
+- Doğru cevap: Şu an yaratılmışlardır ve ebedîdirler
+- Açıklama: Ehl-i sünnet’e göre cennet ve cehennem yaratılmıştır ve ebedîdir.
+
+**DEEN-U09-S07-X004** · Ahiret İmanı Ustalığı · multiple_choice
+- Soru: Hadise göre kul kıyamette hangi konuda sorgulanmadan yerinden ayrılamaz?
+- Seçenekler: Yalnızca adından | Yalnızca dilinden | Ömrünü, ilmini, malını ve bedenini nasıl kullandığından | Yalnızca yaşından
+- Doğru cevap: Ömrünü, ilmini, malını ve bedenini nasıl kullandığından
+- Açıklama: Hadise göre kul ömrünü, ilmini, malını ve bedenini nerede kullandığından sorulmadan yerinden ayrılamaz (Tirmizî).
+
+## U10 — kader_ve_kazaya_iman (50 soru)
 
 **DEEN-U10-S01-X001** · Kader ve Kazaya İman Nedir? · multiple_choice
 - Soru: Kader kavramı genel olarak neyi ifade eder?
@@ -2157,6 +2535,222 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Seçenekler: Önlem almayı şirk saymak | Tedaviyi kesin olarak reddetmek | Tedavi aramak ve Allah’a güvenmek | Hastalığı başkalarına yüklemek
 - Doğru cevap: Tedavi aramak ve Allah’a güvenmek
 - Açıklama: Hastalıkta tedavi aramak kader inancına aykırı değildir; şifa Allah’tandır.
+
+**DEEN-U10-S01-X002** · Kader ve Kazaya İman Nedir? · multiple_choice
+- Soru: Kader inancına göre her şeyin yazılı olduğu kitaba ne ad verilir?
+- Seçenekler: Amel defteri | Sahife-i Kıraat | Levh-i Mahfûz | Mushaf
+- Doğru cevap: Levh-i Mahfûz
+- Açıklama: Ehl-i sünnete göre Allah’ın ilmi, Levh-i Mahfûz’da yazılıdır (Bürûc 21-22).
+
+**DEEN-U10-S01-X003** · Kader ve Kazaya İman Nedir? · multiple_choice
+- Soru: Kamer 49’a göre Allah her şeyi nasıl yaratmıştır?
+- Seçenekler: Yalnızca insanlar için | Ölçüsüz biçimde | Bir ölçüye (kader) göre | Tesadüfen
+- Doğru cevap: Bir ölçüye (kader) göre
+- Açıklama: Kamer 49’da “Biz her şeyi bir ölçüyle yarattık” buyrulur.
+
+**DEEN-U10-S01-X004** · Kader ve Kazaya İman Nedir? · multiple_choice
+- Soru: Hadîd 22’ye göre yeryüzünde ve insanın başına gelen musibetler hakkında hangisi bildirilir?
+- Seçenekler: Hepsi, yaratılmadan önce bir kitapta yazılıdır | Hiçbiri yazılı değildir | Yalnızca iyiler yazılıdır | Rastgele gelir
+- Doğru cevap: Hepsi, yaratılmadan önce bir kitapta yazılıdır
+- Açıklama: Hadîd 22, her musibetin yaratılmadan önce bir kitapta yazılı olduğunu bildirir.
+
+**DEEN-U10-S01-X005** · Kader ve Kazaya İman Nedir? · multiple_choice
+- Soru: Yâsîn 12’de her şeyin nerede sayılıp kaydedildiği bildirilir?
+- Seçenekler: Apaçık bir kitapta (imâm-ı mübîn) | Denizde | Gökyüzünde | Rüzgârda
+- Doğru cevap: Apaçık bir kitapta (imâm-ı mübîn)
+- Açıklama: Yâsîn 12’de her şeyin apaçık bir kitapta (imâm-ı mübîn) sayıldığı bildirilir.
+
+**DEEN-U10-S01-X006** · Kader ve Kazaya İman Nedir? · multiple_choice
+- Soru: Hadise göre Allah, kaderleri göklerin ve yerin yaratılışından ne kadar önce yazmıştır?
+- Seçenekler: Bir ay önce | Yüz yıl önce | Elli bin yıl önce | Bir gün önce
+- Doğru cevap: Elli bin yıl önce
+- Açıklama: Hadise göre Allah, mahlûkatın kaderlerini gökleri ve yeri yaratmadan elli bin yıl önce yazmıştır (Müslim).
+
+**DEEN-U10-S02-X002** · Allah'ın İlmi, Ölçüsü ve Takdiri · multiple_choice
+- Soru: Bakara 286’ya göre Allah kişiye neyi yüklemez?
+- Seçenekler: Hiçbir sorumluluk | Gücünün üstünde yük | Namazı | Zekâtı
+- Doğru cevap: Gücünün üstünde yük
+- Açıklama: Bakara 286’da “Allah kimseye gücünün üstünde yük yüklemez” buyrulur.
+
+**DEEN-U10-S02-X003** · Allah'ın İlmi, Ölçüsü ve Takdiri · multiple_choice
+- Soru: Hz. Ömer’in Şam yolculuğunda taun salgınını öğrenince geri dönmesine itiraz edenlere söylediği söz hangisidir?
+- Seçenekler: Allah bizi korumaz | Kaderden kaçış yoktur, devam ederiz | Salgın kader değildir | Allah’ın kaderinden Allah’ın kaderine kaçıyoruz
+- Doğru cevap: Allah’ın kaderinden Allah’ın kaderine kaçıyoruz
+- Açıklama: Hz. Ömer, tedbir olarak dönerken “Allah’ın kaderinden Allah’ın kaderine kaçıyoruz” demiştir (Buhârî, Müslim).
+
+**DEEN-U10-S02-X004** · Allah'ın İlmi, Ölçüsü ve Takdiri · multiple_choice
+- Soru: İbn Mes‘ûd hadisine göre ana rahmindeki çocuğa melek ne yazar?
+- Seçenekler: Rızkını, ecelini, amelini ve bahtiyar mı bedbaht mı olacağını | Yalnızca boyunu | Yalnızca adını | Hiçbir şey
+- Doğru cevap: Rızkını, ecelini, amelini ve bahtiyar mı bedbaht mı olacağını
+- Açıklama: Hadise göre melek, çocuğun rızkını, ecelini, amelini ve saîd/şakî oluşunu yazar (Buhârî, Müslim).
+
+**DEEN-U10-S02-X005** · Allah'ın İlmi, Ölçüsü ve Takdiri · multiple_choice
+- Soru: Ehl-i sünnet, kader konusunda hangi yolu benimsemiştir?
+- Seçenekler: Kader konusuna hiç girmemeyi | Yalnızca insan iradesini | Yalnızca cebir görüşünü | Cebir ile insanın mutlak yaratıcılığı arasında orta yolu
+- Doğru cevap: Cebir ile insanın mutlak yaratıcılığı arasında orta yolu
+- Açıklama: Ehl-i sünnet, cebriyye ile kaderiyye arasında orta yolu (kesb) benimsemiştir.
+
+**DEEN-U10-S03-X003** · İnsan İradesi ve Sorumluluk · multiple_choice
+- Soru: Cebriyye mezhebi insanın fiilleri hakkında ne iddia eder?
+- Seçenekler: Fiillerin olmadığını | İnsanın fiillerinin tamamen Allah’a ait olduğunu, insanın etkisinin bulunmadığını | Fiillerin tesadüf olduğunu | İnsanın her şeyi yarattığını
+- Doğru cevap: İnsanın fiillerinin tamamen Allah’a ait olduğunu, insanın etkisinin bulunmadığını
+- Açıklama: Cebriyye, insanın fiillerinde gerçek bir etkisi olmadığını ileri sürer (TDV).
+
+**DEEN-U10-S03-X004** · İnsan İradesi ve Sorumluluk · multiple_choice
+- Soru: Kaderiyye (kaderî) görüşü insanın fiilleri hakkında ne iddia eder?
+- Seçenekler: Allah’ın hiçbir şey bilmediğini | Fiillerin olmadığını | Sorumluluk gerektiren fiilleri yalnızca insanın iradesiyle yaptığını | Fiillerin tamamen Allah’a ait olduğunu
+- Doğru cevap: Sorumluluk gerektiren fiilleri yalnızca insanın iradesiyle yaptığını
+- Açıklama: Kaderiyye, sorumluluk gerektiren fiillerin yalnızca insan iradesiyle işlendiğini savunur (TDV).
+
+**DEEN-U10-S03-X005** · İnsan İradesi ve Sorumluluk · multiple_choice
+- Soru: Kelâmda “kesb” kavramı neyi ifade eder?
+- Seçenekler: İnsanın, Allah’ın yarattığı irade ve güçle fiile yönelmesini | Fiillerin tesadüfen oluşmasını | Allah’ın fiilleri yaratmamasını | İnsanın hiçbir şey yapmamasını
+- Doğru cevap: İnsanın, Allah’ın yarattığı irade ve güçle fiile yönelmesini
+- Açıklama: Kesb, insanın Allah’ın yarattığı irade ve güç ile bir fiile yönelmesidir (TDV).
+
+**DEEN-U10-S03-X006** · İnsan İradesi ve Sorumluluk · multiple_choice
+- Soru: Mu‘tezile’nin insan fiilleri hakkındaki görüşü hangisine yakındır?
+- Seçenekler: Fiillerin tamamen Allah’a ait olduğu | Fiillerin olmadığı | Allah’ın fiilleri bilmediği | İnsanın kendi fiillerini yarattığı
+- Doğru cevap: İnsanın kendi fiillerini yarattığı
+- Açıklama: Mu‘tezile, insanın kendi fiillerini yarattığını savunur; Ehl-i sünnet bu görüşü kabul etmez.
+
+**DEEN-U10-S03-X007** · İnsan İradesi ve Sorumluluk · multiple_choice
+- Soru: Kader inancına göre Allah insanın fiillerini önceden bilir; bu bilgi insanı fiile zorlar mı?
+- Seçenekler: İnsan hiç fiil işleyemez | Allah bilmez | Hayır; ilim insanı mecbur etmez | Evet; insan mecburdur
+- Doğru cevap: Hayır; ilim insanı mecbur etmez
+- Açıklama: Allah’ın önceden bilmesi insanı zorlamaz; insan tercihiyle fiili yapar.
+
+**DEEN-U10-S03-X008** · İnsan İradesi ve Sorumluluk · multiple_choice
+- Soru: A‘râf 34’e göre bir ümmetin eceli geldiğinde ne olur?
+- Seçenekler: Kısaltılır | Unutulur | Ertelenir | Bir an bile geri kalmaz ve öne geçmez
+- Doğru cevap: Bir an bile geri kalmaz ve öne geçmez
+- Açıklama: A‘râf 34’te ecel geldiğinde bir saat bile ne geri kalınır ne de öne geçilir.
+
+**DEEN-U10-S04-X003** · Çaba, Tedbir ve Tevekkül · multiple_choice
+- Soru: Hûd 6’ya göre yeryüzündeki her canlının rızkı kime aittir?
+- Seçenekler: Allah’a | Meleklere | İnsanlara | Devletlere
+- Doğru cevap: Allah’a
+- Açıklama: Hûd 6’da yeryüzündeki her canlının rızkının Allah’a ait olduğu bildirilir.
+
+**DEEN-U10-S04-X004** · Çaba, Tedbir ve Tevekkül · multiple_choice
+- Soru: Kasas 56’ya göre hidayete erdirecek olan kimdir?
+- Seçenekler: Melekler hidayet verir | İnsan kendi başına hidayet verir | Allah dilediğini hidayete erdirir | Peygamber her dilediğini hidayete erdirir
+- Doğru cevap: Allah dilediğini hidayete erdirir
+- Açıklama: Kasas 56’da Allah’ın dilediğini hidayete erdireceği, peygamberin ise sevdiğini hidayete erdiremeyeceği bildirilir.
+
+**DEEN-U10-S04-X005** · Çaba, Tedbir ve Tevekkül · multiple_choice
+- Soru: En‘âm 59’a göre gaybın anahtarları kimin yanındadır?
+- Seçenekler: Peygamberlerin | Âlimlerin | Yalnızca Allah’ın | Meleklerin
+- Doğru cevap: Yalnızca Allah’ın
+- Açıklama: En‘âm 59’da gaybın anahtarlarının yalnızca Allah’ın yanında olduğu bildirilir.
+
+**DEEN-U10-S04-X006** · Çaba, Tedbir ve Tevekkül · multiple_choice
+- Soru: Bakara 156’ya göre musibete uğrayanların söylediği söz hangisidir?
+- Seçenekler: Sübhânallâh | Allâhü ekber | Elhamdülillâh | İnnâ lillâhi ve innâ ileyhi râciûn
+- Doğru cevap: İnnâ lillâhi ve innâ ileyhi râciûn
+- Açıklama: Musibet anında “Biz Allah’a aidiz ve O’na döneceğiz” denir (Bakara 156).
+
+**DEEN-U10-S04-X007** · Çaba, Tedbir ve Tevekkül · multiple_choice
+- Soru: Cibril hadisinde kader hakkında ne bildirilir?
+- Seçenekler: Yalnızca şerri Allah’tandır | Hiçbiri Allah’tan değildir | Hayrıyla ve şerriyle Allah’tandır | Yalnızca hayrı Allah’tandır
+- Doğru cevap: Hayrıyla ve şerriyle Allah’tandır
+- Açıklama: Cibril hadisinde “kadere, hayrıyla ve şerriyle iman etmen” sayılır.
+
+**DEEN-U10-S04-X008** · Çaba, Tedbir ve Tevekkül · multiple_choice
+- Soru: A‘râf 172’de Allah, ruhlara ne sormuştur?
+- Seçenekler: “Ben sizin Rabbiniz değil miyim?” | “Namaz kılacak mısınız?” | “Hacca gidecek misiniz?” | “Kim yarattı sizi?”
+- Doğru cevap: “Ben sizin Rabbiniz değil miyim?”
+- Açıklama: A‘râf 172’de “Ben sizin Rabbiniz değil miyim?” diye sorulur; “Evet” cevabı verilir.
+
+**DEEN-U10-S05-X004** · Musibet, Sabır ve Denge · multiple_choice
+- Soru: Nisâ 165’e göre peygamberlerin gönderilmesinin sebeplerinden biri nedir?
+- Seçenekler: Kabile üstünlüğü kurmak | İnsanların Allah’a karşı delil ileri sürememesi | Savaş çıkarmak | Servet biriktirmek
+- Doğru cevap: İnsanların Allah’a karşı delil ileri sürememesi
+- Açıklama: Nisâ 165’te peygamberler, insanların Allah’a karşı bir delil ileri sürmesin diye gönderilmiştir.
+
+**DEEN-U10-S05-X005** · Musibet, Sabır ve Denge · multiple_choice
+- Soru: Fussilet 46’ya göre Allah kullarına karşı nasıldır?
+- Seçenekler: Hiçbir şeye bakmaz | Zulmedicidir | Adaletsizdir | Kullarına zulmedici değildir
+- Doğru cevap: Kullarına zulmedici değildir
+- Açıklama: Fussilet 46’da “Rabbin kullarına zulmedici değildir” buyrulur.
+
+**DEEN-U10-S05-X006** · Musibet, Sabır ve Denge · multiple_choice
+- Soru: Bakara 286’ya göre insanın kazandığı iyilik ve kötülük kime yazılır?
+- Seçenekler: Meleklere | Hiç kimseye | Başkalarına | Kazandığı kendi lehine, yaptığı kendi aleyhine
+- Doğru cevap: Kazandığı kendi lehine, yaptığı kendi aleyhine
+- Açıklama: Bakara 286’da “Kazandığı iyilik kendi lehine, işlediği kötülük kendi aleyhinedir” buyrulur.
+
+**DEEN-U10-S05-X007** · Musibet, Sabır ve Denge · multiple_choice
+- Soru: Yâsîn 82’ye göre Allah bir şeyi dilediğinde nasıl olur?
+- Seçenekler: Yalnızca bazı şeyleri yapar | Uzun süre bekler | Meleklere danışır | “Ol” der, o da hemen olur
+- Doğru cevap: “Ol” der, o da hemen olur
+- Açıklama: Yâsîn 82’de Allah bir şeyi dilediğinde ona “Ol” der ve olur.
+
+**DEEN-U10-S05-X008** · Musibet, Sabır ve Denge · multiple_choice
+- Soru: Tekvîr 29’a göre insan neyi dileyebilir?
+- Seçenekler: Allah’tan bağımsız her şeyi | Allah dilediği sürece dileyebilir | Sadece geleceği | Hiçbir şeyi
+- Doğru cevap: Allah dilediği sürece dileyebilir
+- Açıklama: Tekvîr 29’da “Allah dilemedikçe siz dileyemezsiniz” buyrulur.
+
+**DEEN-U10-S05-X009** · Musibet, Sabır ve Denge · multiple_choice
+- Soru: Sâffât 96’ya göre Allah neyi yaratmıştır?
+- Seçenekler: Yalnızca yaptıklarınızı | Yalnızca sizi | Hiçbirini | Sizi de yaptıklarınızı da
+- Doğru cevap: Sizi de yaptıklarınızı da
+- Açıklama: Sâffât 96’da “Sizi de yaptıklarınızı da Allah yarattı” buyrulur.
+
+**DEEN-U10-S05-X010** · Musibet, Sabır ve Denge · multiple_choice
+- Soru: Hadise göre uğursuzluğa inanmak (tıyere) nasıl değerlendirilir?
+- Seçenekler: Sevap sayılmıştır | Mubah sayılmıştır | Şirk sayılmıştır | Farz sayılmıştır
+- Doğru cevap: Şirk sayılmıştır
+- Açıklama: Hadislerde tıyere (uğursuzluğa inanma) şirk olarak nitelenmiş ve kader inancına aykırı görülmüştür (Ebû Dâvûd, Tirmizî).
+
+**DEEN-U10-S06-X004** · Yanlış Anlamaları Düzelt · multiple_choice
+- Soru: Müslim’deki hadise göre Hz. Peygamber, kuvvetli mümin hakkında ne buyurmuştur?
+- Seçenekler: Zayıf mümin daha hayırlıdır | İkisi de hayırsızdır | Kuvvetli mümin, zayıf müminden daha hayırlıdır; ikisinde de hayır vardır | Güç iman için önemsizdir
+- Doğru cevap: Kuvvetli mümin, zayıf müminden daha hayırlıdır; ikisinde de hayır vardır
+- Açıklama: Hadiste, faydalı olana gayret etmek, Allah’tan yardım dilemek ve başa gelende “Allah’ın takdiri” demek öğütlenir (Müslim).
+
+**DEEN-U10-S06-X005** · Yanlış Anlamaları Düzelt · multiple_choice
+- Soru: Müslim’deki hadise göre müminin her işi hakkında hangisi söylenir?
+- Seçenekler: Sevinince kibirlenir | Sevinince şükreder, sıkıntıda sabreder; ikisi de onun için hayırdır | Hiç değişmez | Sıkıntıda şikâyet eder
+- Doğru cevap: Sevinince şükreder, sıkıntıda sabreder; ikisi de onun için hayırdır
+- Açıklama: Hadise göre müminin işi hep hayırdır: sevinince şükrü, sıkıntıda sabrı ona hayır olur (Müslim).
+
+**DEEN-U10-S06-X006** · Yanlış Anlamaları Düzelt · multiple_choice
+- Soru: Hadise göre sabır ne zaman asıl değerini gösterir?
+- Seçenekler: Hiçbir zaman | Her zaman | Aradan çok zaman geçince | İlk sarsıntıda
+- Doğru cevap: İlk sarsıntıda
+- Açıklama: Hadise göre sabır, musibetin ilk sarsıntısında gösterilendir (Buhârî, Müslim).
+
+**DEEN-U10-S06-X007** · Yanlış Anlamaları Düzelt · multiple_choice
+- Soru: Şûrâ 30’a göre insanın başına gelen musibetler neyin sonucu olabilir?
+- Seçenekler: Hiçbir şeyin | Ellerinin kazandığı şeylerin | Yalnızca yıldızların | Yalnızca tesadüfün
+- Doğru cevap: Ellerinin kazandığı şeylerin
+- Açıklama: Şûrâ 30’da başa gelen musibetlerin çoğunlukla insanların kazandıklarından olduğu bildirilir; Allah çoğunu affeder.
+
+**DEEN-U10-S06-X008** · Yanlış Anlamaları Düzelt · multiple_choice
+- Soru: İnsanın dinen sorumlu tutulmasının kader inancıyla uyumunu sağlayan temel kavram nedir?
+- Seçenekler: Cüz’î irade | Berzah | Mizan | Küllî irade
+- Doğru cevap: Cüz’î irade
+- Açıklama: İnsan, Allah’ın verdiği cüz’î iradesiyle tercih yaptığı için sorumludur.
+
+**DEEN-U10-S07-X003** · Kader İnancı Ustalığı · multiple_choice
+- Soru: Kader inancı helal rızkı aramakla nasıl bir ilişki içindedir?
+- Seçenekler: Haram yoldan aramak serbesttir | Rızık aramak gereksizdir | Rızık aramak yasaktır | Rızkı helal yoldan aramak kader inancına aykırı değildir
+- Doğru cevap: Rızkı helal yoldan aramak kader inancına aykırı değildir
+- Açıklama: Rızkın Allah’tan olduğuna inanmak, helal yoldan çalışmayı gerektirir.
+
+**DEEN-U10-S07-X004** · Kader İnancı Ustalığı · multiple_choice
+- Soru: A‘râf 23’te Hz. Âdem ve eşi hatalarından sonra ne demişlerdir?
+- Seçenekler: “Bizi kader zorladı” | “Başkaları suçlu” | “Rabbimiz, kendimize zulmettik; bizi bağışlamazsan hüsrana uğrarız” | “Bizim hatamız yok”
+- Doğru cevap: “Rabbimiz, kendimize zulmettik; bizi bağışlamazsan hüsrana uğrarız”
+- Açıklama: A‘râf 23’te Âdem ve eşi hatalarını kabul edip bağışlanma dilemişlerdir.
+
+**DEEN-U10-S07-X005** · Kader İnancı Ustalığı · multiple_choice
+- Soru: Hadise göre Hz. Peygamber hastalıkta ne buyurmuştur?
+- Seçenekler: Hastalık kaderdir, bir şey yapmayın | Tedavi olmayın | Tedavi şirktir | Tedavi olunuz; Allah her derdin devasını yaratmıştır
+- Doğru cevap: Tedavi olunuz; Allah her derdin devasını yaratmıştır
+- Açıklama: Hadiste “Ey Allah’ın kulları, tedavi olunuz; Allah her derdin devasını yaratmıştır” buyrulur (Ebû Dâvûd, Tirmizî).
 
 ## U11 — ibadet_bilinci (69 soru)
 
