@@ -133,7 +133,7 @@ Q = [
  # --- Added with the duplicate clean-up: new facts and new matching sets
  ('mt', 3, 'ramazan_kavram', 'Ramazan kavramları', 'm', 'Aşağıdaki kavramları anlamlarıyla eşleştir:', [('Kadir Gecesi', 'Kur’an’ın indirilmeye başlandığı, bin aydan hayırlı gece'), ('Ramazan Bayramı', 'Ramazan ayı bittikten sonra Şevval’in ilk günü başlayan bayram'), ('Hilal', 'Ramazan’ın başlangıcı ve bitişi için esas alınan yeni ay'), ('İmsak', 'Oruca başlama vakti')], 'Ramazan hilalle başlar ve hilalle biter; ayın sonunda Ramazan Bayramı kutlanır.'),
  ('mt', 3, 'oruc_ozur', 'Oruçta özür ve hükümler', 'h', 'Aşağıdaki durumları hükümleriyle eşleştir:', [('İyileşme umudu olan hasta', 'Orucu erteler, sonra kaza eder'), ('Oruca gücü yetmeyen yaşlı', 'Her gün için fidye verir'), ('Ramazan’da orucu bilerek bozan', 'Kaza ve kefaret gerekir'), ('Orucu unutarak yiyip içen', 'Orucu bozulmaz')], 'Özür sebebiyle tutulamayan oruç kaza edilir; gücü yetmeyenler fidye verir; unutarak yemek orucu bozmaz.'),
- ('tf', 5, 'bayram_oruc', 'Bayram günü oruç', 'm', 'Ramazan Bayramı’nın ilk günü oruç tutmak haramdır.', True, 'Ramazan ve Kurban bayramlarının birinci günlerinde oruç tutmak yasaklanmıştır.'),
+ ('tf', 5, 'bayram_oruc', 'Bayram günü oruç', 'm', 'Ramazan Bayramı’nın ilk günü oruç tutmak dinen yasaktır.', True, 'Ramazan ve Kurban bayramlarının birinci günlerinde oruç tutmak yasaklanmıştır.'),
  ('mc', 4, 'hilal_esas', 'Ramazan’ın başlangıcı', 'm', 'Ramazan ayının başlangıcı hangisine göre belirlenir?', 'Hilal (yeni ay)', ['Güneşin doğuş saatine', 'Havaların ısınmasına', 'Yılın ilk gününe'], 'Ramazan, hilalin görülmesi veya hesapla belirlenmesiyle başlar; takvimin hilale dayandığı bildirilir.'),
  # --- Added with the duplicate clean-up (round 2): new facts
  ('mc', 2, 'ay_gun', 'Ramazan’ın süresi', 'e', 'Ramazan ayı kaç gün çeker?', 'Yirmi dokuz veya otuz gün', ['On beş gün', 'Kırk gün', 'Her yıl aynı sayıda'], 'Kameri aylar yirmi dokuz veya otuz gün sürer; Ramazan da böyledir.'),
@@ -146,4 +146,6 @@ Q = [
  ('tf', 7, 'bayram_uc_gun', 'Bayramın süresi', 'e', 'Ramazan Bayramı üç gündür.', True, 'Ramazan Bayramı, Şevval ayının birinci gününden üçüncü gününe kadar sürer.'),
  ('mc', 1, 'hadis_kudsi_oruc', 'Hadis-i kudsî', 'm', 'Hadis-i kudsîde “Mükâfatını bizzat ben vereceğim” buyrulan ibadet hangisidir?', 'Oruç', ['Namaz', 'Hac', 'Zekât'], '“Oruç benim içindir ve onun mükâfatını ben vereceğim” hadis-i kudsîsi oruç ibadetinin değerini gösterir (Buhârî).'),
  ('tf', 5, 'iftar_hurma', 'Hurma ile iftar', 'e', 'İftarı hurma veya su ile açmak sünnettir.', True, 'Hz. Peygamber iftarı taze hurmayla, bulamazsa kuru hurmayla, o da yoksa su ile açardı (Ebû Dâvûd, Tirmizî).'),
+ # --- Web-verified additions (Diyanet / TDV sources)
+ ('tf', 5, 'oruclu_mubalaga', 'Oruçlu ve abdest', 'm', 'Oruçlu kişi, abdestte ağıza ve buruna su verirken mübalağa yapmaz.', True, 'Boğaza su kaçıp orucu bozma tehlikesi bulunduğundan oruçlu kimse abdestte ağza ve buruna aşırı su çekmez.'),
 ]

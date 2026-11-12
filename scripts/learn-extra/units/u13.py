@@ -184,7 +184,7 @@ Q = [
  ('mc', 7, 'ezan_kamet_hangi', 'Ezan ve kamet', 'm', 'Ezan ve kamet hangi namazlar için okunur?', 'Farz namazlar için', ['Yalnızca nafile namazlar için', 'Bütün namazlar için', 'Yalnızca cenaze namazı için'], 'Ezan ve kamet, beş vakit farz namaz ve cuma namazı için okunur; nafile ve cenaze namazı için okunmaz.'),
  ('mc', 1, 'medine_mescit', 'Mescid-i Nebevî', 'e', 'Hz. Peygamber’in kabrinin de bulunduğu Mescid-i Nebevî hangi şehirdedir?', 'Medine', ['Mekke', 'Kudüs', 'Şam'], 'Mescid-i Nebevî Medine’dedir; Hz. Peygamber hicretten sonra bu mescidi inşa etmiştir.'),
  ('mc', 7, 'gunluk_farz_toplam', 'Günlük farz rekât toplamı', 'h', 'Beş vakit namazın toplam farz rekât sayısı kaçtır?', 'On yedi', ['On beş', 'Yirmi', 'On bir'], 'Beş vakitte farz rekâtlar: sabah 2, öğle 4, ikindi 4, akşam 3, yatsı 4; toplam 17’dir.'),
- ('mc', 6, 'ezan_cumle', 'Ezanın cümleleri', 'h', 'Ezan kaç cümleden oluşur?', 'On beş', ['Yedi', 'On bir', 'Yirmi'], 'Ezan, tekrarlarıyla birlikte on beş cümleden oluşur.'),
+ ('mc', 6, 'ezan_cumle', 'Ezanın cümleleri', 'h', 'Hanefî ezanında ilk “Allâhü ekber” cümlesi kaç defa söylenir?', 'Dört', ['İki', 'Üç', 'Altı'], 'Hanefî usulündeki ezan, başta dört defa “Allâhü ekber” denmesiyle başlar.'),
  ('tf', 7, 'ezan_arapca', 'Ezanın dili', 'e', 'Ezan Arapça okunur.', True, 'Ezan, Hz. Peygamber’den öğretilen şekliyle Arapça okunur.'),
  ('tf', 4, 'sart_rukun', 'Şart ve farz ayrımı', 'h', 'Namazın şartları namazın dışında, farzları ise namazın içinde yerine getirilir.', True, 'Abdest, kıble ve vakit gibi şartlar namazdan önce sağlanır; kıyam, rükû ve secde gibi farzlar namazın içindedir.'),
  ('mc', 3, 'cuma_vakit', 'Cuma namazının vakti', 'e', 'Cuma namazı hangi vakitte kılınır?', 'Öğle vaktinde', ['Sabah vaktinde', 'İkindi vaktinde', 'Yatsı vaktinde'], 'Cuma namazı, cuma günü öğle vaktinde kılınır ve o günün öğle namazının yerine geçer.'),
@@ -193,4 +193,7 @@ Q = [
  ('tf', 2, 'camiye_vakar', 'Camiye giderken', 'e', 'Namaza giderken acele etmeyip sakin ve vakarlı yürümek gerekir.', True, 'Hz. Peygamber, ikâmet getirildiğinde koşarak değil, sakin ve vakarlı biçimde yürümeyi tavsiye etmiştir.'),
  ('tf', 1, 'kabe_insa', 'Kâbe’nin inşası', 'm', 'Kâbe’yi Hz. İbrahim ve oğlu Hz. İsmail inşa etmiştir.', True, 'Bakara 2:127’de Hz. İbrahim ile Hz. İsmail’in Kâbe’nin temellerini yükselttiği bildirilir.'),
  ('tf', 7, 'ezan_medine', 'Ezanın başlangıcı', 'm', 'Ezan, Medine döneminde okunmaya başlanmıştır.', True, 'Hicretten sonra Medine’de, Müslümanları namaza çağırmak için ezan usulü belirlenmiştir.'),
+ # --- Web-verified additions (Diyanet / TDV sources)
+ ('tf', 6, 'ezan_icabet', 'Ezana icabet', 'e', 'Ezan okunurken müezzinin söylediklerini tekrar etmek sünnettir.', True, 'Hz. Peygamber, ezanı işitenlerin müezzinin dediği gibi söylemesini, ardından kendisine salavat getirmesini tavsiye etmiştir (Müslim).'),
+ ('mc', 6, 'hayye_icabet', 'Ezana karşılık', 'h', 'Ezanda “Hayye ale’s-salâh” ve “Hayye ale’l-felâh” cümlelerine karşılık ne denir?', 'Lâ havle ve lâ kuvvete illâ billâh', ['Allâhü ekber', 'Sübhânallah', 'Elhamdülillâh'], 'Bu iki cümlede “Lâ havle ve lâ kuvvete illâ billâh” denmesi sünnettir.'),
 ]

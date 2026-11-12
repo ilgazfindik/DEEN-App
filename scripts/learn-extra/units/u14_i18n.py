@@ -102,6 +102,7 @@ EN = [
  ('While standing in prayer the gaze is directed to the place of prostration.', 'For concentration, in standing the eyes look at the place where one will prostrate.', 'Etiquette in prayer'),
  ('In prostration a man does not spread his elbows on the ground; he keeps his arms away from his sides.', 'In prostration men keep the belly away from the thighs and the arms away from the sides, and do not lay the elbows on the ground.', 'Etiquette of prostration'),
  ('Men raise their hands to ear level at the opening takbir.', 'When saying the opening takbir, men raise the tips of their fingers to ear level.', 'Hands at the opening takbir'),
+ ('Saying the tasbih at least three times in bowing and prostration is a sunnah.', 'In the Hanafi view, saying “Subhana rabbiyal-‘azim” in bowing and “Subhana rabbiyal-a‘la” in prostration at least three times is a sunnah.', 'Tasbih in bowing and prostration'),
 ]
 
 DE = [
@@ -207,6 +208,7 @@ DE = [
  ('Beim Stehen im Gebet richtet sich der Blick auf die Stelle der Niederwerfung.', 'Zur Sammlung blickt man im Stehen auf die Stelle, an der man sich niederwirft.', 'Gebetsetikette'),
  ('Ein Mann breitet bei der Niederwerfung die Ellbogen nicht auf dem Boden aus; er hält die Arme von den Seiten ab.', 'Männer halten bei der Niederwerfung den Bauch von den Oberschenkeln und die Arme von den Seiten fern und legen die Ellbogen nicht auf den Boden.', 'Etikette der Niederwerfung'),
  ('Männer heben beim Eröffnungstakbir die Hände auf Ohrhöhe.', 'Beim Eröffnungstakbir heben Männer die Fingerspitzen auf Ohrhöhe.', 'Hände beim Eröffnungstakbir'),
+ ('Im Beugen und in der Niederwerfung den Lobpreis mindestens dreimal zu sprechen ist Sunna.', 'Nach hanafitischer Ansicht ist es Sunna, im Beugen „Subhana rabbiyal-azim“ und in der Niederwerfung „Subhana rabbiyal-a‘la“ mindestens dreimal zu sagen.', 'Lobpreis in Beugen und Niederwerfung'),
 ]
 
 FR = [
@@ -312,6 +314,7 @@ FR = [
  ('En se tenant debout dans la prière, le regard est dirigé vers l’endroit de la prosternation.', 'Pour le recueillement, debout, les yeux regardent l’endroit où l’on se prosternera.', 'Bienséance de la prière'),
  ('Dans la prosternation, l’homme n’étale pas les coudes sur le sol ; il écarte les bras des flancs.', 'Dans la prosternation, les hommes éloignent le ventre des cuisses et les bras des flancs et ne posent pas les coudes au sol.', 'Bienséance de la prosternation'),
  ('Les hommes lèvent les mains à hauteur des oreilles lors du takbir d’ouverture.', 'En disant le takbir d’ouverture, les hommes lèvent le bout des doigts à hauteur des oreilles.', 'Les mains au takbir d’ouverture'),
+ ('Dire le tasbih au moins trois fois à l’inclinaison et à la prosternation est une sunna.', 'Selon les hanafites, dire « Subhana rabbiyal-‘azim » à l’inclinaison et « Subhana rabbiyal-a‘la » à la prosternation au moins trois fois est une sunna.', 'Tasbih à l’inclinaison et à la prosternation'),
 ]
 
 AR = [
@@ -417,6 +420,7 @@ AR = [
  ('ينظر المصلّي وهو قائم إلى موضع سجوده.', 'طلبًا للخشوع يكون النظر في القيام إلى موضع السجود.', 'آداب الصلاة'),
  ('لا يفترش الرجل ذراعيه في السجود، بل يُجافي عضديه عن جنبيه.', 'يُبعد الرجال بطونهم عن أفخاذهم وأعضادهم عن جنوبهم في السجود ولا يضعون المرافق على الأرض.', 'آداب السجود'),
  ('يرفع الرجال أيديهم حذو أذنيهم عند تكبيرة الإحرام.', 'عند تكبيرة الإحرام يرفع الرجال أطراف أصابعهم إلى حذاء الأذنين.', 'اليدان عند تكبيرة الإحرام'),
+ ('التسبيح في الركوع والسجود ثلاث مرات على الأقل سنّة.', 'عند الحنفية يُسنّ قول «سبحان ربي العظيم» في الركوع و«سبحان ربي الأعلى» في السجود ثلاث مرات على الأقل.', 'التسبيح في الركوع والسجود'),
 ]
 
 I18N = {'en': EN, 'de': DE, 'fr': FR, 'ar': AR}

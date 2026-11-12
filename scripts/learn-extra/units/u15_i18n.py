@@ -98,6 +98,7 @@ EN = [
  ('Eid al-Fitr lasts three days.', 'Eid al-Fitr lasts from the first to the third day of Shawwal.', 'Length of the Eid'),
  ('Which act of worship does Allah say in a hadith qudsi “I Myself will reward it”?', 'Fasting', ['Prayer', 'Hajj', 'Zakat'], 'The hadith qudsi “Fasting is for Me and I Myself will reward it” shows the worth of fasting (Bukhari).', 'Hadith qudsi on fasting'),
  ('Breaking the fast with dates or water is sunnah.', 'The Prophet used to break his fast with fresh dates, or dry dates if there were none, or else with water.', 'Breaking the fast with dates'),
+ ('A fasting person does not overdo rinsing the mouth and nose during ablution.', 'Since water may slip down the throat and break the fast, a fasting person does not exaggerate rinsing the mouth and nose.', 'Fasting and ablution'),
 ]
 
 DE = [
@@ -199,6 +200,7 @@ DE = [
  ('Das Fest des Fastenbrechens dauert drei Tage.', 'Das Fest des Fastenbrechens dauert vom ersten bis zum dritten Tag des Schawwal.', 'Dauer des Festes'),
  ('Von welchem Gottesdienst sagt Allah in einem Hadith Qudsi: „Ich selbst werde ihn belohnen“?', 'Vom Fasten', ['Vom Gebet', 'Vom Hadsch', 'Von der Zakat'], 'Der Hadith Qudsi „Das Fasten ist für Mich und Ich selbst werde es belohnen“ zeigt den Wert des Fastens (Buchari).', 'Hadith Qudsi über das Fasten'),
  ('Das Fastenbrechen mit Datteln oder Wasser ist Sunna.', 'Der Prophet brach sein Fasten mit frischen Datteln, wenn es keine gab mit trockenen Datteln, sonst mit Wasser.', 'Fastenbrechen mit Datteln'),
+ ('Wer fastet, übertreibt beim Ausspülen von Mund und Nase in der Waschung nicht.', 'Da Wasser in den Rachen gelangen und das Fasten brechen kann, spült ein Fastender Mund und Nase nicht übertrieben.', 'Fasten und Waschung'),
 ]
 
 FR = [
@@ -300,6 +302,7 @@ FR = [
  ('L’Aïd al-Fitr dure trois jours.', 'L’Aïd al-Fitr dure du premier au troisième jour de Chawwal.', 'Durée de la fête'),
  ('De quel acte d’adoration Allah dit-il dans un hadith qoudsi : « Je le récompenserai Moi-même » ?', 'Du jeûne', ['De la prière', 'Du hajj', 'De la zakat'], 'Le hadith qoudsi « Le jeûne est pour Moi et Je le récompenserai Moi-même » montre la valeur du jeûne (Boukhari).', 'Hadith qoudsi sur le jeûne'),
  ('Rompre le jeûne avec des dattes ou de l’eau est sunna.', 'Le Prophète rompait son jeûne avec des dattes fraîches, à défaut des dattes sèches, sinon avec de l’eau.', 'Rompre le jeûne avec des dattes'),
+ ('La personne qui jeûne n’exagère pas le rinçage de la bouche et du nez lors des ablutions.', 'Comme l’eau risque de passer dans la gorge et d’invalider le jeûne, on évite d’exagérer le rinçage.', 'Jeûne et ablutions'),
 ]
 
 AR = [
@@ -389,7 +392,7 @@ AR = [
   "إذا زال العذر قُضيت الأيام الفائتة.", "طالب مريض"),
  ('طابِق بين المفاهيم ومعانيها:', [('ليلة القدر', 'الليلة الخير من ألف شهر التي بدأ فيها نزول القرآن'), ('عيد الفطر', 'العيد الذي يبدأ في أول يوم من شوال بعد انتهاء رمضان'), ('الهلال', 'القمر الجديد الذي يُعتمد في بدء رمضان وانتهائه'), ('الإمساك', 'وقت بدء الصيام')], 'يبدأ رمضان وينتهي بالهلال، ويُحتفل بعيد الفطر في نهاية الشهر.', 'مفاهيم رمضان'),
  ('طابِق بين الحالات وأحكامها:', [('المريض الذي يُرجى شفاؤه', 'يؤخّر الصيام ويقضيه لاحقًا'), ('الشيخ الكبير العاجز عن الصيام', 'يُخرج فدية عن كل يوم'), ('من أفطر عمدًا في رمضان', 'عليه القضاء والكفارة'), ('من أكل أو شرب ناسيًا', 'لا يفسد صومه')], 'يُقضى الصوم الذي فات لعذر، ويُخرج العاجز الفدية، والأكل ناسيًا لا يفسد الصوم.', 'الأعذار والأحكام في الصيام'),
- ('يحرم صيام اليوم الأول من عيد الفطر.', 'نُهي عن الصيام في اليوم الأول من عيد الفطر وعيد الأضحى.', 'الصيام يوم العيد'),
+ ('نُهي عن صيام اليوم الأول من عيد الفطر.', 'نُهي عن الصيام في اليوم الأول من عيد الفطر وعيد الأضحى.', 'الصيام يوم العيد'),
  ('بماذا يُحدَّد بدء شهر رمضان؟', 'بالهلال (القمر الجديد)', ['بوقت شروق الشمس', 'بارتفاع حرارة الجو', 'بأول يوم في السنة'], 'يبدأ رمضان برؤية الهلال أو بتحديده بالحساب، والتقويم قائم على الشهر القمري.', 'بدء رمضان'),
  ('كم يومًا يدوم شهر رمضان؟', 'تسعة وعشرون أو ثلاثون يومًا', ['خمسة عشر يومًا', 'أربعون يومًا', 'عدد ثابت كل سنة'], 'الشهور القمرية تسعة وعشرون أو ثلاثون يومًا، ومنها رمضان.', 'مدة رمضان'),
  ('ما الشهر الذي يسبق رمضان مباشرة؟', 'شعبان', ['رجب', 'شوال', 'محرم'], 'في التقويم الهجري يسبق شعبانُ رمضانَ ويليه شوال.', 'الشهر الذي قبل رمضان'),
@@ -401,6 +404,7 @@ AR = [
  ('عيد الفطر ثلاثة أيام.', 'يمتد عيد الفطر من اليوم الأول إلى اليوم الثالث من شوال.', 'مدة العيد'),
  ('أيّ عبادة قال الله عنها في الحديث القدسي: «وأنا أجزي به»؟', 'الصيام', ['الصلاة', 'الحج', 'الزكاة'], 'الحديث القدسي «الصوم لي وأنا أجزي به» يبيّن قيمة الصيام (البخاري).', 'حديث قدسي في الصيام'),
  ('الإفطار على التمر أو الماء سنّة.', 'كان النبي ﷺ يفطر على رُطَب، فإن لم يكن فعلى تمر، فإن لم يكن حسا حسوات من ماء.', 'الإفطار على التمر'),
+ ('الصائم لا يبالغ في المضمضة والاستنشاق في الوضوء.', 'لأن الماء قد يسبق إلى الحلق فيفسد الصوم، لا يبالغ الصائم في المضمضة والاستنشاق.', 'الصيام والوضوء'),
 ]
 
 I18N = {'en': EN, 'de': DE, 'fr': FR, 'ar': AR}

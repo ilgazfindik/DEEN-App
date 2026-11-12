@@ -19,13 +19,13 @@ const retired=JSON.parse(fs.readFileSync(path.join(root,'scripts/learn-extra/ret
  assert.strictEqual(r.size,retired.length,'retired list is in the engine');
  assert(r.allRetiredKnown,'every id in retired.json is in the engine');
  assert.deepStrictEqual(r.retiredInPool,[],'no retired question in the review pool');
- assert.strictEqual(r.extraCount,298,'298 extra questions');
+ assert.strictEqual(r.extraCount,356,'356 extra questions');
  assert.deepStrictEqual(r.dups,[],'no exact duplicate left in the pool: '+JSON.stringify(r.dups.slice(0,5)));
  assert(r.poolSize>1500,'pool still large: '+r.poolSize);
  // Real lessons of units 11-15 (every macro stage): none of the questions the engine picks is retired.
  const lessons=await pg.evaluate(()=>{
   state.completed=[...new Set(QUESTIONS.map(q=>q.stage_id))];state.energy=30;state.premium=true;state.sectionFinal={completed:true};state.section2Final={completed:true};state.section3Final={completed:true};
-  const out=[];const defs=DEEN_FIVE_STAGE.all().filter(d=>/^U(05|1[1-5])/.test(d.id));
+  const out=[];const defs=DEEN_FIVE_STAGE.all().filter(d=>/^U(02|05|1[1-5])/.test(d.id));
   for(const d of defs){try{startMacroStage(d.id);const qs=(session&&session.questions)||[];out.push({id:d.id,n:qs.length,bad:qs.filter(q=>DEEN_RETIRED_IDS.has(q.id)).map(q=>q.id)});try{closeLesson()}catch(e){}}catch(e){out.push({id:d.id,err:String(e).slice(0,80)})}}
   return out});
  assert(lessons.length>=30,'macro stages found: '+lessons.length);
