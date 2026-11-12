@@ -1548,6 +1548,220 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Doğru cevap: Müslümanlar Allah’ın gönderdiği bütün peygamberlere inanır
 - Açıklama: Müslümanlar, Allah’ın gönderdiği bütün peygamberlere inanır ve aralarında ayrım yapmaz.
 
+## U09 — ahiret_gunune_iman (21 soru)
+
+**DEEN-U09-S01-X001** · Ahiret Gününe İman Nedir? · multiple_choice
+- Soru: Ahiret inancı hangi hayatı ifade eder?
+- Seçenekler: Dünya hayatından sonraki hayatı | İnsanlık tarihinin başlangıcını | Sadece çocukluk dönemini | Yalnızca rüya âlemini
+- Doğru cevap: Dünya hayatından sonraki hayatı
+- Açıklama: Ahiret, ölümden sonra başlayan ebedî hayattır.
+
+**DEEN-U09-S01-X002** · Ahiret Gününe İman Nedir? · multiple_choice
+- Soru: Kıyamet neyi ifade eder?
+- Seçenekler: Bir ülkenin yönetim değişikliğini | Dünya düzeninin sona erip ahiret sürecinin başlamasını | Her insanın günlük uykusunu | Mevsimlerin değişmesini
+- Doğru cevap: Dünya düzeninin sona erip ahiret sürecinin başlamasını
+- Açıklama: Kıyamet, dünya düzeninin son bulup ahiret sürecinin başlamasıdır.
+
+**DEEN-U09-S02-X001** · Ölüm ve Dünya Hayatının Sonu · multiple_choice
+- Soru: Öldükten sonra yeniden diriltilmeye ne denir?
+- Seçenekler: Tavaf | Ba’s | İhram | Sa’y
+- Doğru cevap: Ba’s
+- Açıklama: Öldükten sonra yeniden diriltilmeye ba’s denir.
+
+**DEEN-U09-S02-X002** · Ölüm ve Dünya Hayatının Sonu · multiple_choice
+- Soru: İnsanların dünyadaki davranışlarının değerlendirilmesine ne denir?
+- Seçenekler: İftar | Hesap | İmsak | İtikâf
+- Doğru cevap: Hesap
+- Açıklama: Ahirette dünya amellerinin sorgulanmasına hesap denir.
+
+**DEEN-U09-S02-X003** · Ölüm ve Dünya Hayatının Sonu · multiple_choice
+- Soru: İyilik ve kötülüklerin tartılmasını ifade eden kavram hangisidir?
+- Seçenekler: Mizan | Mikat | Minber | Mihrap
+- Doğru cevap: Mizan
+- Açıklama: Mizan, amellerin ahirette adaletle tartılmasıdır.
+
+**DEEN-U09-S03-X001** · Kıyamet ve Yeniden Diriliş · multiple_choice
+- Soru: Cennet hangi anlamla ilişkilidir?
+- Seçenekler: Bir melek adı | Ahirette müminler için hazırlanan nimet yurdu | Dünya üzerindeki her bahçe | Sadece bir dağ
+- Doğru cevap: Ahirette müminler için hazırlanan nimet yurdu
+- Açıklama: Cennet, ahirette Allah’ın müminler için hazırladığı nimet yurdudur.
+
+**DEEN-U09-S03-X002** · Kıyamet ve Yeniden Diriliş · multiple_choice
+- Soru: Cehennem hangi anlamı taşır?
+- Seçenekler: Ahirette azap yurdu | Dünya üzerindeki çöl | Bir kutsal kitap | Bir peygamber adı
+- Doğru cevap: Ahirette azap yurdu
+- Açıklama: Cehennem, ahirette azap görülecek yurttur.
+
+**DEEN-U09-S03-X003** · Kıyamet ve Yeniden Diriliş · multiple_choice
+- Soru: Kabir hayatı hangi iki dönem arasındaki süreçtir?
+- Seçenekler: Dünya ile yolculuk arası | Doğum ile ergenlik arası | Ölüm ile yeniden diriliş arasındaki berzah dönemi | Çocukluk ile gençlik arası
+- Doğru cevap: Ölüm ile yeniden diriliş arasındaki berzah dönemi
+- Açıklama: Kabir hayatı, ölümle yeniden diriliş arasındaki berzah dönemidir.
+
+**DEEN-U09-S04-X001** · Hesap, Amel Defteri ve İlahi Adalet · multiple_choice
+- Soru: Sırat kavramı ahiret inancında neyle ilişkilidir?
+- Seçenekler: Kâbe’nin çevresindeki dönüş | Cehennem üzerine kurulacağı bildirilen geçit | Oruç başlangıcı | Vahiy meleğinin adı
+- Doğru cevap: Cehennem üzerine kurulacağı bildirilen geçit
+- Açıklama: Sırat, hadislerde cehennemin üzerine kurulacağı bildirilen köprü/geçittir.
+
+**DEEN-U09-S04-X002** · Hesap, Amel Defteri ve İlahi Adalet · multiple_choice
+- Soru: Şefaat kavramı İslam inancında hangi çerçevede ele alınır?
+- Seçenekler: Allah’tan bağımsız kurtarma gücü | Dünya mahkemesinde avukatlık | Allah’ın izniyle gerçekleşen aracılık/yardım | İnsanların kendi kendini ilahlaştırması
+- Doğru cevap: Allah’ın izniyle gerçekleşen aracılık/yardım
+- Açıklama: Şefaat, ancak Allah’ın izniyle gerçekleşen aracılıktır.
+
+**DEEN-U09-S04-X003** · Hesap, Amel Defteri ve İlahi Adalet · multiple_choice
+- Soru: Ahirette insanların amellerinin kaydedildiği defterler hangi kavramla anılır?
+- Seçenekler: Amel defteri | Mushaf | Sahife-i kıraat | Mikat
+- Doğru cevap: Amel defteri
+- Açıklama: İnsanların amellerinin yazıldığı kayıtlara amel defteri denir.
+
+**DEEN-U09-S05-X001** · Ahiret Bilincinin Hayata Etkisi · multiple_choice
+- Soru: Ahiret inancına göre dünya hayatı nasıl değerlendirilir?
+- Seçenekler: Hiçbir anlamı olmayan bir süreç | Sorumluluk ve imtihan alanı | Sonsuz ve hesapsız hayat | Sadece eğlence alanı
+- Doğru cevap: Sorumluluk ve imtihan alanı
+- Açıklama: Dünya hayatı, bir imtihan ve sorumluluk alanıdır (Mülk 2).
+
+**DEEN-U09-S05-X002** · Ahiret Bilincinin Hayata Etkisi · multiple_choice
+- Soru: Ahirette hesap düşüncesi hangi davranışı teşvik eder?
+- Seçenekler: İsrafı artırmayı | Yalanı alışkanlık hâline getirmeyi | Kul hakkından kaçınmayı | Gizli haksızlığı normal görmeyi
+- Doğru cevap: Kul hakkından kaçınmayı
+- Açıklama: Hesap bilinci, kul hakkına girmekten sakındırır.
+
+**DEEN-U09-S05-X003** · Ahiret Bilincinin Hayata Etkisi · multiple_choice
+- Soru: Ölüm İslam inancında nasıl değerlendirilir?
+- Seçenekler: İnsan sorumluluğunun hiç başlamaması | Varlığın mutlak yok oluşu | Dünya hayatından ahiret hayatına geçiş | Sadece biyolojik bir uyku
+- Doğru cevap: Dünya hayatından ahiret hayatına geçiş
+- Açıklama: Ölüm, yok oluş değil, ahiret hayatına geçiştir.
+
+**DEEN-U09-S06-X001** · Yanlış Anlamaları Düzelt · multiple_choice
+- Soru: Mahşer neyi ifade eder?
+- Seçenekler: Namazdaki kıyamı | Hacda tavaf alanını | İnsanların hesap için bir araya toplanmasını | Oruçta imsak vaktini
+- Doğru cevap: İnsanların hesap için bir araya toplanmasını
+- Açıklama: Mahşer, insanların hesap için toplanacağı yer ve durumdur.
+
+**DEEN-U09-S06-X002** · Yanlış Anlamaları Düzelt · multiple_choice
+- Soru: Haşir kavramı hangi olayla ilişkilidir?
+- Seçenekler: Dirilişten sonra toplanma | Zekâtın hesaplanması | Vahyin ilk gelişi | Hicret yolculuğu
+- Doğru cevap: Dirilişten sonra toplanma
+- Açıklama: Haşir, yeniden dirildikten sonra insanların toplanmasıdır.
+
+**DEEN-U09-S06-X003** · Yanlış Anlamaları Düzelt · multiple_choice
+- Soru: Ahirette adaletin tam olarak gerçekleşeceğine inanmak hangi sonucu doğurur?
+- Seçenekler: Dünyada adalet aramaktan vazgeçmek | İyilik yapmayı gereksiz görmek | Haksızlıkların karşılıksız kalmayacağı bilinci | İnsan haklarını önemsememek
+- Doğru cevap: Haksızlıkların karşılıksız kalmayacağı bilinci
+- Açıklama: Ahirette adaletin yerini bulacağına inanmak, haksızlığın karşılıksız kalmayacağı bilincini verir.
+
+**DEEN-U09-S06-X004** · Yanlış Anlamaları Düzelt · multiple_choice
+- Soru: Ahiret gününe iman, kişinin gizli davranışlarını da neden etkiler?
+- Seçenekler: Gizli davranışların hiçbir sonucu olmadığı için | Yalnızca toplum baskısı nedeniyle | Allah’ın her şeyi bildiğine ve hesap gününe inanması nedeniyle | İnsanların birbirini denetlemesi nedeniyle
+- Doğru cevap: Allah’ın her şeyi bildiğine ve hesap gününe inanması nedeniyle
+- Açıklama: Allah’ın her şeyi bildiğine ve hesap gününe inanan, gizlide de sorumlu davranır.
+
+**DEEN-U09-S07-X001** · Ahiret İmanı Ustalığı · multiple_choice
+- Soru: Ahiret inancı, ölüm karşısında hangi yaklaşımı destekler?
+- Seçenekler: Başkalarının acısını küçümsemek | Ölümü hiç düşünmemek | Hayatı değersizleştirip sorumluluğu terk etmek | Ölümü hayatın sonu değil, ahirete geçiş olarak görmek
+- Doğru cevap: Ölümü hayatın sonu değil, ahirete geçiş olarak görmek
+- Açıklama: Ahiret inancı, ölümü sonsuz hayata geçiş olarak görmeyi sağlar.
+
+**DEEN-U09-S07-X002** · Ahiret İmanı Ustalığı · multiple_choice
+- Soru: Ahirette amel defterinin verilmesi hangi düşünceyi pekiştirir?
+- Seçenekler: Dünyada sorumluluk bulunmadığını | Davranışların kayda geçtiği ve hesabın bulunduğu inancını | İnsanların hiçbir davranışının önemsiz olduğunu | Yalnızca sözlerin önemli olduğunu
+- Doğru cevap: Davranışların kayda geçtiği ve hesabın bulunduğu inancını
+- Açıklama: Amel defteri, davranışların kayda geçtiği ve hesabın olacağı inancını pekiştirir.
+
+**DEEN-U09-S07-X003** · Ahiret İmanı Ustalığı · multiple_choice
+- Soru: İslam’da dünya ve ahiret dengesi için hangisi doğrudur?
+- Seçenekler: Yalnızca maddi kazanç önemlidir | Dünya hayatı ahireti gözeterek sorumlulukla yaşanmalıdır | Ahiret inancı çalışmayı yasaklar | Dünya bütünüyle terk edilmelidir
+- Doğru cevap: Dünya hayatı ahireti gözeterek sorumlulukla yaşanmalıdır
+- Açıklama: İslam, dünya ve ahiret dengesini gözeten sorumlu bir hayatı öğütler.
+
+## U10 — kader_ve_kazaya_iman (14 soru)
+
+**DEEN-U10-S01-X001** · Kader ve Kazaya İman Nedir? · multiple_choice
+- Soru: Kader kavramı genel olarak neyi ifade eder?
+- Seçenekler: İnsanın geleceği kesin olarak bilmesini | İnsan iradesinin tamamen yok sayılmasını | Allah’ın olmuş ve olacakları ilmiyle bilip takdir etmesini | Tesadüflerin ilah olmasını
+- Doğru cevap: Allah’ın olmuş ve olacakları ilmiyle bilip takdir etmesini
+- Açıklama: Kader, Allah’ın her şeyi ilmiyle bilip takdir etmesidir.
+
+**DEEN-U10-S02-X001** · Allah'ın İlmi, Ölçüsü ve Takdiri · multiple_choice
+- Soru: Kaza kavramı kelam geleneğinde genel olarak neyi ifade eder?
+- Seçenekler: Bir ibadetin vakit dışına çıkmasını | Allah’ın takdir ettiği şeylerin zamanı gelince gerçekleşmesini | Yalnızca geçmiş olayları yazmayı | İnsanın tahmin yürütmesini
+- Doğru cevap: Allah’ın takdir ettiği şeylerin zamanı gelince gerçekleşmesini
+- Açıklama: Kelamda kaza, takdir edilenlerin zamanı gelince Allah’ın hükmüyle gerçekleşmesidir.
+
+**DEEN-U10-S03-X001** · İnsan İradesi ve Sorumluluk · multiple_choice
+- Soru: İnsanın seçme ve karar verme gücü hangi kavramla ilişkilidir?
+- Seçenekler: Küllî irade | Berzah | Cüz’î irade | Mizan
+- Doğru cevap: Cüz’î irade
+- Açıklama: İnsanın sınırlı seçme gücüne cüz’î irade denir.
+
+**DEEN-U10-S03-X002** · İnsan İradesi ve Sorumluluk · multiple_choice
+- Soru: Allah’ın sınırsız irade ve dilemesi hangi kavramla anlatılır?
+- Seçenekler: Cüz’î irade | Küllî irade | İmsak | Ba’s
+- Doğru cevap: Küllî irade
+- Açıklama: Allah’ın sınırsız iradesine küllî irade denir.
+
+**DEEN-U10-S04-X001** · Çaba, Tedbir ve Tevekkül · multiple_choice
+- Soru: Kader inancı insanın tedbir almasını gereksiz kılar mı?
+- Seçenekler: Hayır; yalnızca zenginler tedbir alır | Evet; çalışmak yasaktır | Hayır; insan sorumluluğu ölçüsünde tedbir alır | Evet; hiçbir çaba gerekmez
+- Doğru cevap: Hayır; insan sorumluluğu ölçüsünde tedbir alır
+- Açıklama: Kader inancı, tedbir almayı ve çalışmayı ortadan kaldırmaz.
+
+**DEEN-U10-S04-X002** · Çaba, Tedbir ve Tevekkül · multiple_choice
+- Soru: Bir öğrencinin sınava çalışmayıp başarısızlığını kadere bağlaması hangi açıdan yanlıştır?
+- Seçenekler: İnsan iradesini en iyi şekilde kullanır | Kader inancını doğru uygular | Tevekkülün gereğini yerine getirir | Kendi sorumluluğunu ve çabasını yok sayar
+- Doğru cevap: Kendi sorumluluğunu ve çabasını yok sayar
+- Açıklama: Çalışmayıp kadere sığınmak, insanın sorumluluğunu yok saymaktır.
+
+**DEEN-U10-S05-X001** · Musibet, Sabır ve Denge · multiple_choice
+- Soru: Kader inancı Allah’ın hangi sıfatıyla yakından ilişkilidir?
+- Seçenekler: Sadece işitme | Sadece konuşma | Sadece görme | İlim
+- Doğru cevap: İlim
+- Açıklama: Kader inancı, Allah’ın her şeyi kuşatan ilmiyle yakından ilgilidir.
+
+**DEEN-U10-S05-X002** · Musibet, Sabır ve Denge · multiple_choice
+- Soru: İnsan iradesiyle ilgili doğru ifade hangisidir?
+- Seçenekler: İnsan tercihleri ölçüsünde sorumludur | İnsan Allah’ın bilgisi dışında kalır | İnsan hiçbir seçim yapamaz | İnsan bütün sonuçları kontrol eder
+- Doğru cevap: İnsan tercihleri ölçüsünde sorumludur
+- Açıklama: İnsan, iradesi dâhilindeki tercihlerinden sorumludur.
+
+**DEEN-U10-S05-X003** · Musibet, Sabır ve Denge · multiple_choice
+- Soru: Doğal afetler karşısında kader inancına uygun tutum hangisidir?
+- Seçenekler: Zarar görenleri suçlamak | Önlem almamak | Önlem almak, yardımlaşmak ve sonucu Allah’a bırakmak | Bilimsel tedbiri reddetmek
+- Doğru cevap: Önlem almak, yardımlaşmak ve sonucu Allah’a bırakmak
+- Açıklama: Kader inancı, önlem almayı ve yardımlaşmayı gerektirir.
+
+**DEEN-U10-S06-X001** · Yanlış Anlamaları Düzelt · multiple_choice
+- Soru: Bir insanın iyi veya kötü davranışları hangi ölçüde kendisine aittir?
+- Seçenekler: Başkalarının bütün tercihleri ölçüsünde | Yalnızca tesadüf ölçüsünde | Hiçbir şekilde kendisine ait değildir | İradesi ve gücü dâhilindeki tercihleri ölçüsünde
+- Doğru cevap: İradesi ve gücü dâhilindeki tercihleri ölçüsünde
+- Açıklama: İnsan, iradesi ve gücü dâhilindeki davranışlarından sorumludur.
+
+**DEEN-U10-S06-X002** · Yanlış Anlamaları Düzelt · multiple_choice
+- Soru: İnsan iradesinin sınırlı olması ne anlama gelir?
+- Seçenekler: İnsan Allah’ın yerine karar verir | İnsan geleceği bütünüyle bilir | İnsan her şeyi kontrol edemez ama gücü ölçüsünde tercih yapar | İnsan hiçbir şeyden sorumlu değildir
+- Doğru cevap: İnsan her şeyi kontrol edemez ama gücü ölçüsünde tercih yapar
+- Açıklama: İnsan her şeye hâkim değildir, ama gücü ölçüsünde tercih yapar ve sorumludur.
+
+**DEEN-U10-S06-X003** · Yanlış Anlamaları Düzelt · multiple_choice
+- Soru: Kader konusunda aşırı kadercilik hangi hataya yol açar?
+- Seçenekler: İyiliği çoğaltmaya | Çalışma ve gayreti artırmaya | İnsanın sorumluluğunu ve tedbiri ihmal etmeye | Hakkı gözetmeye
+- Doğru cevap: İnsanın sorumluluğunu ve tedbiri ihmal etmeye
+- Açıklama: Aşırı kadercilik, sorumluluğu ve tedbiri ihmale yol açar.
+
+**DEEN-U10-S07-X001** · Kader İnancı Ustalığı · multiple_choice
+- Soru: Kader inancında “ilim” neyi ifade eder?
+- Seçenekler: Meleklerin bağımsız bilgisini | Sadece geçmişin kaydını | İnsanın sınırlı tahminini | Allah’ın her şeyi kuşatan bilgisini
+- Doğru cevap: Allah’ın her şeyi kuşatan bilgisini
+- Açıklama: Kaderdeki ilim, Allah’ın her şeyi kuşatan bilgisidir.
+
+**DEEN-U10-S07-X002** · Kader İnancı Ustalığı · multiple_choice
+- Soru: Kader inancı açısından hastalık durumunda doğru davranış hangisidir?
+- Seçenekler: Önlem almayı şirk saymak | Tedaviyi kesin olarak reddetmek | Tedavi aramak ve Allah’a güvenmek | Hastalığı başkalarına yüklemek
+- Doğru cevap: Tedavi aramak ve Allah’a güvenmek
+- Açıklama: Hastalıkta tedavi aramak kader inancına aykırı değildir; şifa Allah’tandır.
+
 ## U11 — ibadet_bilinci (48 soru)
 
 **DEEN-U11-S01-X001** · İbadet Nedir? · multiple_choice
