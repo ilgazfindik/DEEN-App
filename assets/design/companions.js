@@ -56,6 +56,16 @@
  const outItem=id=>OUT.list.find(o=>o.id===id);
  const outName=o=>(o.name&&(o.name[lang()]||o.name.en||o.name.tr))||o.id;
  const outFor=id=>OUT.list.filter(o=>o.art&&o.art[id]);
+ // A free "default" outfit (e.g. thobe) is always worn unless another outfit takes its slot, so the plain body is never shown bare.
+ const hasDefault=id=>outFor(id).some(o=>o.default===true);
+ const fullBody=id=>BODY.includes(id)&&hasDefault(id);
+ function wornOutfit(a){
+  const m=meta(),w={};
+  outFor(a).filter(o=>o.default===true).forEach(o=>{w[o.slot]=o.id});
+  const own=(m&&m.outfit&&m.outfit[a])||{};
+  Object.keys(own).forEach(slot=>{const o=outItem(own[slot]);if(o&&o.art&&o.art[a]&&o.slot===slot)w[slot]=o.id});
+  return w;
+ }
  function loadOutfits(){
   if(OUT.loaded)return;OUT.loaded=true;
   try{fetch('assets/companions/outfits.json',{cache:'no-cache'}).then(r=>r.ok?r.json():null).then(j=>{
@@ -155,10 +165,11 @@
   return true;
  }
  function toggleItem(id){
-  const m=meta(),it=item(id);if(!m||!it||!m.items.includes(id))return;
+  const m=meta(),it=item(id);if(!m||!it||!(m.items.includes(id)||it.default===true))return;
   if(it.slot){ // outfit: worn per animal and slot
    const a=String(app()?.profile?.companion||'');if(!a||!it.art||!it.art[a])return;
    const o=m.outfit=m.outfit&&typeof m.outfit==='object'?m.outfit:{};const w=o[a]=o[a]||{};
+   if(it.default===true){delete w[it.slot];save();return} // putting the default back
    if(w[it.slot]===id)delete w[it.slot];else w[it.slot]=id;save();return;
   }
   if(m.eq[it.kind]===id)delete m.eq[it.kind];else m.eq[it.kind]=id;save();
@@ -170,18 +181,21 @@
   return '<span class="dcz-stage" style="width:'+size+'px;height:'+size+'px"'+(bg?' data-dcz-bg="'+bg.id+'"':'')+(fr?' data-dcz-fr="'+fr.id+'"':'')+'><img src="'+avatarSrc(id)+'" alt="" loading="lazy" onerror="this.replaceWith(document.createTextNode(\''+EMOJI[id]+'\'))">'+badgeHtml(ac)+'</span>';
  }
  function bodyStage(id){
-  const m=meta(),bg=item(m?.eq?.bg),fr=item(m?.eq?.fr),ac=item(m?.eq?.ac),w=(m?.outfit&&m.outfit[id])||{};
-  const layers=Object.values(w).map(oid=>outItem(oid)).filter(o=>o&&o.art&&o.art[id]).sort((a,b)=>(Number(a.z)||0)-(Number(b.z)||0));
-  return '<span class="dcz-body"'+(bg?' data-dcz-bg="'+bg.id+'"':'')+(fr?' data-dcz-fr="'+fr.id+'"':'')+'><img class="dcz-base" src="'+bodySrc(id)+'" alt="">'+layers.map(o=>'<img class="dcz-layer" data-slot="'+o.slot+'" style="z-index:'+(Number(o.z)||10)+'" src="'+esc(o.art[id])+'" alt="">').join('')+badgeHtml(ac)+'</span>';
+  const m=meta(),bg=item(m?.eq?.bg),fr=item(m?.eq?.fr),ac=item(m?.eq?.ac),w=wornOutfit(id);
+  const worn=Object.values(w).map(oid=>outItem(oid)).filter(o=>o&&o.art&&o.art[id]);
+  // A body outfit marked "full" is the whole dressed character (background removed): it replaces the plain body picture.
+  const fullO=worn.find(o=>o.slot==='body'&&o.full===true),baseSrc=fullO?fullO.art[id]:bodySrc(id);
+  const layers=worn.filter(o=>o!==fullO).sort((a,b)=>(Number(a.z)||0)-(Number(b.z)||0));
+  return '<span class="dcz-body"'+(bg?' data-dcz-bg="'+bg.id+'"':'')+(fr?' data-dcz-fr="'+fr.id+'"':'')+'><img class="dcz-base" src="'+esc(baseSrc)+'" alt="">'+layers.map(o=>'<img class="dcz-layer" data-slot="'+o.slot+'" style="z-index:'+(Number(o.z)||10)+'" src="'+esc(o.art[id])+'" alt="">').join('')+badgeHtml(ac)+'</span>';
  }
  let tab='animals';
  function outfitHtml(pv,m,t){
-  const list=outFor(pv);if(!list.length||!BODY.includes(pv))return '';
-  const w=(m.outfit&&m.outfit[pv])||{};
+  const list=outFor(pv);if(!list.length||!fullBody(pv))return '';
+  const w=wornOutfit(pv);
   return '<h4>'+esc(OUTFIT_LABEL[lang()])+'</h4><div class="dcz-items">'+list.map(o=>{
-   const own=m.items.includes(o.id),worn=w[o.slot]===o.id;
-   const label=own?(worn?t.off:t.equip):t.buy(Number(o.cost));
-   return '<button type="button" class="dcz-item'+(worn?' on':'')+(own?' own':'')+'" data-dcz="item" data-id="'+esc(o.id)+'"><span class="dcz-ic dcz-ic-ot"><img src="'+esc(o.art[pv])+'" alt=""></span><b>'+esc(outName(o))+'</b><small>'+esc(worn?t.on:label)+'</small></button>';
+   const dflt=o.default===true,own=dflt||m.items.includes(o.id),worn=w[o.slot]===o.id;
+   const label=own?(worn?(dflt?t.on:t.off):t.equip):t.buy(Number(o.cost));
+   return '<button type="button" class="dcz-item'+(worn?' on':'')+(own?' own':'')+'" data-dcz="item" data-id="'+esc(o.id)+'"><span class="dcz-ic dcz-ic-ot"><img src="'+esc(o.art[pv])+'" alt=""></span><b>'+esc(outName(o))+'</b><small>'+esc(worn&&dflt?t.on:label)+'</small></button>';
   }).join('')+'</div>';
  }
  function html(){
@@ -197,7 +211,7 @@
    }).join('')+'</div>';
   }else{
    const kinds=['bg','fr','ac'],owned=m.items.length;
-   const pv=cur&&ORDER.includes(cur)?cur:'lion',full=BODY.includes(pv);
+   const pv=cur&&ORDER.includes(cur)?cur:'lion',full=fullBody(pv);
    body='<div class="dcz-prev'+(full?' dcz-prev-body':'')+'">'+(full?bodyStage(pv):stage(pv,104))+'<b>'+esc(N(cur&&ORDER.includes(cur)?cur:'lion'))+'</b><small>'+esc(owned+' / '+ITEMS.length)+'</small></div>'+kinds.map(k=>
     '<h4>'+esc(k==='fr'?FR[lang()]:t[k])+'</h4><div class="dcz-items">'+ITEMS.filter(i=>i.kind===k).map(i=>{
      const own=m.items.includes(i.id),worn=m.eq[k]===i.id;
@@ -232,7 +246,7 @@
    else if(a==='lock'){try{toast(T().lockedToast(N(id),LEVELS[id]))}catch(_){}}
    else if(a==='item'){
     const m=meta();
-    if(m.items.includes(id))toggleItem(id);
+    if(m.items.includes(id)||item(id)?.default===true)toggleItem(id);
     else if(buyItem(id)){try{toast(T().bought)}catch(_){}}
     else{try{toast(T().need)}catch(_){}}
     refresh();
@@ -327,7 +341,7 @@
   :'.dcz [data-dcz-fr="'+i.id+'"],html body #profileScreenBody .dsp-avatar-slot[data-dcz-fr="'+i.id+'"]{box-shadow:'+i.css+'!important}').join('\n');
  css.textContent+=rules;
  document.head.appendChild(css);
- window.DEEN_COMPANIONS=Object.freeze({version:'companions-v3',order:ORDER.slice(),levels:Object.assign({},LEVELS),items:ITEMS.map(i=>i.id),bodyArt:BODY.slice(),outfits:()=>OUT.list.map(o=>o.id),unlocked,select,open,buyItem,toggleItem,isUnlocked:unlocked});
+ window.DEEN_COMPANIONS=Object.freeze({version:'companions-v5',order:ORDER.slice(),levels:Object.assign({},LEVELS),items:ITEMS.map(i=>i.id),bodyArt:BODY.slice(),outfits:()=>OUT.list.map(o=>o.id),unlocked,select,open,buyItem,toggleItem,isUnlocked:unlocked});
  // Wrap the engine's own chooser so a locked animal can never be selected programmatically.
  function wrap(){
   const c=window.DEEN_COMPANION;

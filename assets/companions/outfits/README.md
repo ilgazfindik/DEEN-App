@@ -20,3 +20,36 @@ Her kıyafet, hayvanın tam boy görseliyle **aynı tuvalde** çizilmiş saydam 
 - `z`: üst üste sırası (büyük olan üstte). Öneri: body 10, neck 20, head 30, hand 40.
 - `cost`: Pırıltı fiyatı (gerçek para yok).
 - `art`: yalnızca görseli olan hayvanlar yazılır; görseli olmayan hayvanda eşya görünmez.
+
+## Kıyafet katmanını hazırlama (önerilen yol)
+
+AI araçlarının "yalnızca kıyafet, saydam arka plan" üretmesi zordur. Daha kolay yol:
+
+1. Hayvanın düz tam boy görselini (`<hayvan>_body.webp`) bir görsel düzenleme aracına ver ve **aynı pozda, aynı çerçevede** kıyafetli halini iste (örnek istek: "Aynı karakteri, aynı poz ve boyutta bırak; sadece kafasına kırmızı bir kep ekle. Arka planı ve karakterin geri kalanını değiştirme.").
+2. Çıkan görseli 2:3 oranında kırp, sonra katmanı çıkar:
+
+```bash
+python3 scripts/extract-outfit-layer.py \
+  --base assets/companions/cat/cat_body.webp \
+  --dressed cat_kep.png \
+  --out assets/companions/outfits/cat/ot_cap.webp \
+  --preview onizleme.png
+```
+
+3. `onizleme.png`'ye bak: solda yalnızca kıyafet katmanı, sağda hayvanın üstünde. Tüyler veya yüz de kesilmişse araç hayvanı da değiştirmiştir; daha az değiştiren bir istekle yeniden dene ya da `--threshold` değerini yükselt (örn. 40).
+4. Katmanı `outfits.json`'a ekle (yukarıdaki biçim).
+
+Not: Araç yalnızca iki görsel arasında **değişen pikselleri** alır. Düzenleme aracı hayvanın kendisini de biraz değiştirirse (renk, poz, yüz) o kısımlar da katmana sızar.
+
+## Gövde kıyafetleri (cübbe, yelek...) için `--full`
+
+Gövdeyi kaplayan kıyafetlerde kesilmiş katman, hayvanın altta kalan tüylerinin kenarlardan görünmesine yol açabilir. Bunun yerine kıyafetli **bütün karakteri** düz arka plandan ayırıp tam boy görsel olarak kullanın:
+
+```bash
+python3 scripts/extract-outfit-layer.py --full \
+  --dressed kedi_cubbe.png \
+  --out assets/companions/outfits/cat/ot_thobe.webp \
+  --preview onizleme.png
+```
+
+`outfits.json` kaydında `"slot":"body"` ve `"full":true` yazın. Bu görsel o hayvanın düz gövde resminin **yerine** geçer; şapka, atkı gibi diğer katmanlar (`head`, `neck`) üstüne binmeye devam eder. `"default":true` ve `"cost":0` olan gövde kıyafeti ücretsiz varsayılandır, çıkarılamaz.
