@@ -12,11 +12,37 @@ pixels that changed and writes a transparent 512x768 layer that stacks on the pl
 Tips: the closer the dressed picture's pose, size and framing are to the base, the cleaner the cut.
 Open the --preview image (layer over a checkerboard, and layer over the base) before you use a layer.
 """
-import argparse, os, sys
+import argparse, json, os, sys
 import numpy as np
 from PIL import Image, ImageFilter
 
 W, H = 512, 768
+
+
+FRAMES = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "assets", "companions", "body-frames.json")
+
+
+def load_framed(path, animal):
+    """Dressed picture made from a plain render that was placed with normalize-companion-body.py:
+    resize/pad it with the very same scale and offset, so it lands exactly on the 512x768 canvas."""
+    frames = json.load(open(FRAMES, encoding="utf8")) if os.path.exists(FRAMES) else {}
+    if animal not in frames:
+        sys.exit(f"No recorded frame for '{animal}' - run normalize-companion-body.py on its plain render first.")
+    f = frames[animal]
+    im = Image.open(path).convert("RGBA")
+    sw, sh = f["src"]
+    if im.size != (sw, sh):
+        if abs(im.size[0] / im.size[1] - sw / sh) > 0.03:
+            sys.exit(f"{path}: {im.size[0]}x{im.size[1]} has a different shape than the plain render ({sw}x{sh}). "
+                     "Ask the image tool to keep the same canvas size, or crop it to the same framing.")
+        im = im.resize((sw, sh), Image.LANCZOS)
+    opaque = np.asarray(im.getchannel("A")).min() >= 250
+    px = np.asarray(im.convert("RGB"), dtype=np.int16)
+    bg = tuple(int(v) for v in np.median(np.array([px[2, 2], px[2, -3], px[-3, 2], px[-3, -3]]), axis=0)) + (255,) if opaque else (0, 0, 0, 0)
+    scaled = im.resize((round(sw * f["scale"]), round(sh * f["scale"])), Image.LANCZOS)
+    canvas = Image.new("RGBA", (W, H), bg)
+    canvas.paste(scaled, (f["dx"], f["dy"]))
+    return canvas
 
 
 def load(path):
@@ -132,6 +158,7 @@ def write_full(a, dressed):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--animal", help="wolf/owl/turtle/eagle: the dressed picture was made from the plain render recorded in assets/companions/body-frames.json (normalize-companion-body.py); it is placed with the same scale/offset. Not needed for cat and lion (2:3 pictures).")
     ap.add_argument("--base", required=False)
     ap.add_argument("--dressed", required=True)
     ap.add_argument("--out", required=True)
@@ -153,7 +180,7 @@ def main():
 
     if not a.full and not a.base:
         sys.exit('--base is required (unless you use --full)')
-    dressed = load(a.dressed)
+    dressed = load_framed(a.dressed, a.animal) if a.animal else load(a.dressed)
     if a.full:
         return write_full(a, dressed)
     base = load(a.base)

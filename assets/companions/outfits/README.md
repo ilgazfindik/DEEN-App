@@ -53,3 +53,19 @@ python3 scripts/extract-outfit-layer.py --full \
 ```
 
 `outfits.json` kaydında `"slot":"body"` ve `"full":true` yazın. Bu görsel o hayvanın düz gövde resminin **yerine** geçer; şapka, atkı gibi diğer katmanlar (`head`, `neck`) üstüne binmeye devam eder. `"default":true` ve `"cost":0` olan gövde kıyafeti ücretsiz varsayılandır, çıkarılamaz.
+
+## Kurt, baykuş, kaplumbağa, kartal için (2:3 olmayan görseller)
+
+Bu dört hayvanın düz görselleri 2:3 değil, daha dar. `normalize-companion-body.py` bunları aynı 512×768 tuvale, aynı taban çizgisiyle yerleştirir ve nasıl ölçeklendiğini `assets/companions/body-frames.json`'a yazar (düz hali zaten yerleştirildi: `<hayvan>_body.webp`).
+
+Kıyafetli görseli bu düz görselle **aynı tuval boyutunda** (örn. baykuş 377×1024) üretin; sonra `--animal` ile çalıştırın, katman aynı yere oturur:
+
+```bash
+python3 scripts/extract-outfit-layer.py --full --animal wolf \
+  --dressed kurt_cubbe.png --out assets/companions/outfits/wolf/ot_thobe.webp --preview onizleme.png
+# şapka/atkı katmanı için (taban = cübbeli tam karakter):
+python3 scripts/extract-outfit-layer.py --animal wolf --base assets/companions/outfits/wolf/ot_thobe.webp \
+  --dressed kurt_cubbe_takke.png --out assets/companions/outfits/wolf/ot_kufi_white.webp
+```
+
+Görsel aracı tuvali değiştirirse (farklı oran) araç hata verir; aynı boyutta isteyin ya da aynı çerçeveye kırpın.
