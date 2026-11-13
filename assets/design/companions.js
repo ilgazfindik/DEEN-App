@@ -45,8 +45,25 @@
   fr:{bg_dawn:'Aube',bg_sea:'Mer',bg_rose:'Rose',bg_geo:'Motif',bg_gold:'Or',fr_gold:'Or',fr_emerald:'Émeraude',fr_amethyst:'Améthyste',fr_nur:'Lumière',ac_lamp:'Lanterne',ac_book:'Livre',ac_heart:'Cœur'},
   ar:{bg_dawn:'الفجر',bg_sea:'البحر',bg_rose:'الورد',bg_geo:'زخرفة',bg_gold:'الذهب',fr_gold:'ذهبي',fr_emerald:'زمردي',fr_amethyst:'جمشتي',fr_nur:'نور',ac_lamp:'فانوس',ac_book:'كتاب',ac_heart:'قلب'}
  };
+ const OUTFIT_LABEL={tr:'Kıyafet',en:'Outfit',de:'Outfit',fr:'Tenue',ar:'ملابس'};
  const FR={tr:'Çerçeve',en:'Frame',de:'Rahmen',fr:'Cadre',ar:'إطار'};
  const itName=id=>(T().it[id]||IT2[lang()][id]||id);
+ /* Layered outfits: full-body art + transparent clothing layers drawn on the same canvas (512x768).
+    Layers come from assets/companions/outfits.json so new art needs no code change. */
+ const BODY=['cat','lion'];
+ const OUT={list:[],loaded:false};
+ const bodySrc=id=>'assets/companions/'+id+'/'+id+'_body.webp';
+ const outItem=id=>OUT.list.find(o=>o.id===id);
+ const outName=o=>(o.name&&(o.name[lang()]||o.name.en||o.name.tr))||o.id;
+ const outFor=id=>OUT.list.filter(o=>o.art&&o.art[id]);
+ function loadOutfits(){
+  if(OUT.loaded)return;OUT.loaded=true;
+  try{fetch('assets/companions/outfits.json',{cache:'no-cache'}).then(r=>r.ok?r.json():null).then(j=>{
+   if(!j||!Array.isArray(j.items))return;
+   OUT.list=j.items.filter(o=>o&&/^ot_[a-z0-9_]+$/.test(o.id||'')&&['head','neck','body','hand'].includes(o.slot)&&o.art&&typeof o.art==='object'&&Number.isFinite(Number(o.cost)));
+   try{refresh()}catch(_){}
+  }).catch(()=>{})}catch(_){}
+ }
  const S={
   tr:{next:(a,n,x)=>'Sıradaki: '+a+' · Seviye '+n+' (' + x + ' XP kaldı)',all:'Tüm hayvanlar açık!',cele:'Yeni yol arkadaşı!',keep:'Şimdilik kalsın',room:'Hayvan Odası',animals:'Hayvanlar',wardrobe:'Gardırop',lv:n=>'Seviye '+n,locked:n=>'Seviye '+n+' ile açılır',use:'Seç',active:'Seçili',
    unlock:(a,n)=>a+' açıldı! Hayvan Odası’ndan seçebilirsin.',lockedToast:(a,n)=>a+' için seviye '+n+' gerekiyor.',bg:'Arka plan',ac:'Rozet',none:'Yok',
@@ -128,15 +145,22 @@
   return true;
  }
  /* Wardrobe */
- function item(id){return ITEMS.find(i=>i.id===id)}
+ function item(id){return ITEMS.find(i=>i.id===id)||outItem(id)}
  function buyItem(id){
   const st=app(),m=meta(),it=item(id);if(!st||!m||!it||m.items.includes(id))return false;
   if((Number(st.currency)||0)<it.cost)return false;
-  st.currency-=it.cost;m.items.push(id);m.eq[it.kind]=id;save();try{updateUI()}catch(_){}
+  st.currency-=it.cost;m.items.push(id);
+  if(it.slot)toggleItem(id);else m.eq[it.kind]=id;
+  save();try{updateUI()}catch(_){}
   return true;
  }
  function toggleItem(id){
   const m=meta(),it=item(id);if(!m||!it||!m.items.includes(id))return;
+  if(it.slot){ // outfit: worn per animal and slot
+   const a=String(app()?.profile?.companion||'');if(!a||!it.art||!it.art[a])return;
+   const o=m.outfit=m.outfit&&typeof m.outfit==='object'?m.outfit:{};const w=o[a]=o[a]||{};
+   if(w[it.slot]===id)delete w[it.slot];else w[it.slot]=id;save();return;
+  }
   if(m.eq[it.kind]===id)delete m.eq[it.kind];else m.eq[it.kind]=id;save();
  }
  const avatarSrc=id=>'assets/companions/'+id+'/'+id+'_avatar.png';
@@ -145,7 +169,21 @@
   const m=meta(),bg=item(m?.eq?.bg),ac=item(m?.eq?.ac),fr=item(m?.eq?.fr);
   return '<span class="dcz-stage" style="width:'+size+'px;height:'+size+'px"'+(bg?' data-dcz-bg="'+bg.id+'"':'')+(fr?' data-dcz-fr="'+fr.id+'"':'')+'><img src="'+avatarSrc(id)+'" alt="" loading="lazy" onerror="this.replaceWith(document.createTextNode(\''+EMOJI[id]+'\'))">'+badgeHtml(ac)+'</span>';
  }
+ function bodyStage(id){
+  const m=meta(),bg=item(m?.eq?.bg),fr=item(m?.eq?.fr),ac=item(m?.eq?.ac),w=(m?.outfit&&m.outfit[id])||{};
+  const layers=Object.values(w).map(oid=>outItem(oid)).filter(o=>o&&o.art&&o.art[id]).sort((a,b)=>(Number(a.z)||0)-(Number(b.z)||0));
+  return '<span class="dcz-body"'+(bg?' data-dcz-bg="'+bg.id+'"':'')+(fr?' data-dcz-fr="'+fr.id+'"':'')+'><img class="dcz-base" src="'+bodySrc(id)+'" alt="">'+layers.map(o=>'<img class="dcz-layer" data-slot="'+o.slot+'" style="z-index:'+(Number(o.z)||10)+'" src="'+esc(o.art[id])+'" alt="">').join('')+badgeHtml(ac)+'</span>';
+ }
  let tab='animals';
+ function outfitHtml(pv,m,t){
+  const list=outFor(pv);if(!list.length||!BODY.includes(pv))return '';
+  const w=(m.outfit&&m.outfit[pv])||{};
+  return '<h4>'+esc(OUTFIT_LABEL[lang()])+'</h4><div class="dcz-items">'+list.map(o=>{
+   const own=m.items.includes(o.id),worn=w[o.slot]===o.id;
+   const label=own?(worn?t.off:t.equip):t.buy(Number(o.cost));
+   return '<button type="button" class="dcz-item'+(worn?' on':'')+(own?' own':'')+'" data-dcz="item" data-id="'+esc(o.id)+'"><span class="dcz-ic dcz-ic-ot"><img src="'+esc(o.art[pv])+'" alt=""></span><b>'+esc(outName(o))+'</b><small>'+esc(worn?t.on:label)+'</small></button>';
+  }).join('')+'</div>';
+ }
  function html(){
   const t=T(),st=app(),m=meta(),cur=String(st.profile?.companion||'');
   let body;
@@ -159,18 +197,20 @@
    }).join('')+'</div>';
   }else{
    const kinds=['bg','fr','ac'],owned=m.items.length;
-   body='<div class="dcz-prev">'+stage(cur&&ORDER.includes(cur)?cur:'lion',104)+'<b>'+esc(N(cur&&ORDER.includes(cur)?cur:'lion'))+'</b><small>'+esc(owned+' / '+ITEMS.length)+'</small></div>'+kinds.map(k=>
+   const pv=cur&&ORDER.includes(cur)?cur:'lion',full=BODY.includes(pv);
+   body='<div class="dcz-prev'+(full?' dcz-prev-body':'')+'">'+(full?bodyStage(pv):stage(pv,104))+'<b>'+esc(N(cur&&ORDER.includes(cur)?cur:'lion'))+'</b><small>'+esc(owned+' / '+ITEMS.length)+'</small></div>'+kinds.map(k=>
     '<h4>'+esc(k==='fr'?FR[lang()]:t[k])+'</h4><div class="dcz-items">'+ITEMS.filter(i=>i.kind===k).map(i=>{
      const own=m.items.includes(i.id),worn=m.eq[k]===i.id;
      const label=own?(worn?t.off:t.equip):t.buy(i.cost);
      const sw=k==='ac'?ICON[i.svg]:'';
      return '<button type="button" class="dcz-item'+(worn?' on':'')+(own?' own':'')+'" data-dcz="item" data-id="'+i.id+'"><span class="dcz-ic"'+(k==='bg'?' data-dcz-bg="'+i.id+'"':k==='fr'?' data-dcz-fr="'+i.id+'"':'')+'>'+sw+'</span><b>'+esc(itName(i.id))+'</b><small>'+esc(worn?t.on:label)+'</small></button>';
-    }).join('')+'</div>').join('')+'<p class="dcz-hint">'+esc(t.hint)+'</p>';
+    }).join('')+'</div>').join('')+outfitHtml(pv,m,t)+'<p class="dcz-hint">'+esc(t.hint)+'</p>';
   }
   return '<div class="dcz" dir="'+(lang()==='ar'?'rtl':'ltr')+'"><div class="dcz-tabs" role="tablist"><button type="button" role="tab" class="'+(tab==='animals'?'on':'')+'" data-dcz="tab" data-id="animals">'+esc(t.animals)+'</button><button type="button" role="tab" class="'+(tab==='wardrobe'?'on':'')+'" data-dcz="tab" data-id="wardrobe">'+esc(t.wardrobe)+'</button></div>'+
    '<div class="dcz-cur">◇ '+(Number(st.currency)||0)+' · '+esc(t.lv(lvl()))+'</div>'+body+'</div>';
  }
  function open(which){
+  loadOutfits();
   if(!app()||typeof window.sheet!=='function')return false;
   if(which)tab=which;
   window.sheet(T().room,html());
@@ -269,6 +309,12 @@
 .dcz-item{transition:transform .15s}
 .dcz-item:active,.dcz-card:active{transform:scale(.97)}
 @media(prefers-reduced-motion:no-preference){.dcz-prev .dcz-stage{animation:dczFloat 3.6s ease-in-out infinite}@keyframes dczFloat{50%{transform:translateY(-3px)}}}
+.dcz-prev-body{padding:12px 0 8px}
+.dcz-body{position:relative;display:block;width:min(62vw,230px);aspect-ratio:2/3;border-radius:22px;overflow:hidden;background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02));box-shadow:0 6px 18px rgba(0,0,0,.35)}
+.dcz-body img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;pointer-events:none}
+.dcz-body .dcz-badge{width:17%;height:auto;aspect-ratio:1;right:6%;bottom:4%;z-index:99}
+.dcz-ic-ot img{width:100%;height:100%;object-fit:contain}
+.dcz-ic-ot{width:48px;height:56px;border-radius:14px;padding:3px!important;overflow:hidden}
 .dcz-hint{font-size:12px;opacity:.7;margin:12px 2px 0}
 .dcz-entry{display:block;width:100%;min-height:44px;margin:10px 0;border-radius:14px;border:1px solid rgba(140,235,208,.4);background:rgba(140,235,208,.12);color:inherit;font:600 15px/1 inherit;cursor:pointer}
 .dcz-locked{opacity:.55;filter:grayscale(.8)}
@@ -281,7 +327,7 @@
   :'.dcz [data-dcz-fr="'+i.id+'"],html body #profileScreenBody .dsp-avatar-slot[data-dcz-fr="'+i.id+'"]{box-shadow:'+i.css+'!important}').join('\n');
  css.textContent+=rules;
  document.head.appendChild(css);
- window.DEEN_COMPANIONS=Object.freeze({version:'companions-v2',order:ORDER.slice(),levels:Object.assign({},LEVELS),items:ITEMS.map(i=>i.id),unlocked,select,open,buyItem,toggleItem,isUnlocked:unlocked});
+ window.DEEN_COMPANIONS=Object.freeze({version:'companions-v3',order:ORDER.slice(),levels:Object.assign({},LEVELS),items:ITEMS.map(i=>i.id),bodyArt:BODY.slice(),outfits:()=>OUT.list.map(o=>o.id),unlocked,select,open,buyItem,toggleItem,isUnlocked:unlocked});
  // Wrap the engine's own chooser so a locked animal can never be selected programmatically.
  function wrap(){
   const c=window.DEEN_COMPANION;
