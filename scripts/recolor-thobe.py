@@ -2,7 +2,7 @@
 """Make coloured copies of a white-robed companion picture (full dressed character, transparent, 512x768).
 
   python3 scripts/recolor-thobe.py --animal wolf
-  (reads assets/companions/outfits/<animal>/ot_thobe.webp, writes ot_thobe_blue/beige/gray/olive.webp next to it)
+  (reads assets/companions/outfits/<animal>/<base>.webp, writes <base>_blue/beige/gray/olive.webp next to it)
 
 Only the cloth is tinted (neutral near-white/grey pixels that belong to the robe's biggest connected piece plus its soft rim);
 fur, skin, feathers and shell keep their colours, and the robe's folds and shading are preserved by multiplying."""
@@ -39,10 +39,11 @@ def robe_mask(rgba, core_sat=12, core_lum=196, rim_sat=22, rim_lum=140):
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--animal", required=True)
+    ap.add_argument("--base", default="ot_thobe", help="file stem to recolour (default ot_thobe; use ot_thobe_kufi for the capped robe: the white cap stays white)")
     ap.add_argument("--preview")
     a = ap.parse_args()
     d = os.path.join(HERE, "..", "assets", "companions", "outfits", a.animal)
-    src = Image.open(os.path.join(d, "ot_thobe.webp")).convert("RGBA")
+    src = Image.open(os.path.join(d, a.base + ".webp")).convert("RGBA")
     m = np.asarray(robe_mask(src)).astype(np.float32) / 255
     print(f"{a.animal}: robe covers {100 * (m > 0.5).mean():.1f}% of the canvas")
     arr = np.asarray(src).astype(np.float32)
@@ -53,7 +54,7 @@ def main():
         out = arr.copy()
         out[..., :3] = arr[..., :3] * (1 - m[..., None]) + tinted * m[..., None]
         im = Image.fromarray(out.astype("uint8"), "RGBA")
-        im.save(os.path.join(d, f"ot_thobe_{name}.webp"), "WEBP", quality=88, method=6)
+        im.save(os.path.join(d, f"{a.base}_{name}.webp"), "WEBP", quality=88, method=6)
         sheet.alpha_composite(im, (512 * i, 0))
     if a.preview:
         sheet.convert("RGB").resize((1536, 576), Image.LANCZOS).save(a.preview)
