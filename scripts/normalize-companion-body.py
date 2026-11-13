@@ -20,6 +20,7 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--animal", required=True)
     ap.add_argument("--src", required=True, help="plain render with a transparent background")
+    ap.add_argument("--out", help="write a dressed full character here instead of the plain body (then body-frames.json is left alone)")
     ap.add_argument("--quality", type=int, default=88)
     a = ap.parse_args()
     im = Image.open(a.src).convert("RGBA")
@@ -36,9 +37,12 @@ def main():
     canvas = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     canvas.alpha_composite(im.resize((nw, nh), Image.LANCZOS), (max(dx, 0), max(dy, 0))) if dx >= 0 and dy >= 0 else \
         canvas.paste(im.resize((nw, nh), Image.LANCZOS), (dx, dy))
-    out = os.path.join(os.path.dirname(__file__), "..", "assets", "companions", a.animal, f"{a.animal}_body.webp")
-    os.makedirs(os.path.dirname(out), exist_ok=True)
+    out = a.out or os.path.join(os.path.dirname(__file__), "..", "assets", "companions", a.animal, f"{a.animal}_body.webp")
+    os.makedirs(os.path.dirname(os.path.abspath(out)), exist_ok=True)
     canvas.save(out, "WEBP", quality=a.quality, method=6)
+    if a.out:
+        print(f"{a.animal}: wrote {a.out} ({os.path.getsize(out)//1024} KB)")
+        return
     frames = {}
     if os.path.exists(FRAMES):
         frames = json.load(open(FRAMES, encoding="utf8"))
