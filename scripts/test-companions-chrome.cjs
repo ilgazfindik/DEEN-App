@@ -46,9 +46,12 @@ const server=http.createServer((req,res)=>{
  // 3. level-up unlocks wolf (level 2 at 300 xp) and announces it
  await ev(()=>{window.state.xp=300});
  assert.equal(await ev(()=>DEEN_COMPANIONS.unlocked('wolf')),true);
- await page.waitForFunction(()=>/Yeni yol arkadaşı/.test(document.querySelector('#v5SheetTitle').textContent),null,{timeout:4000});
- assert.match(await page.locator('#v5SheetBody').innerText(),/Yeni yol arkadaşı|Kurt/,'unlock celebration shown');
- await page.locator('#v5SheetBody [data-dcz=open]').click();
+ await page.waitForFunction(()=>window.toasts.some(t=>/Kurt/.test(t)&&/açıldı/.test(t)),null,{timeout:4000});
+ assert.equal(await page.locator('#v5Sheet[open]').count(),0,'unlocking never pops a modal over other screens');
+ await ev(()=>DEEN_COMPANIONS.open('animals'));
+ assert.equal(await page.locator('.dcz-card .dcz-new').count(),1,'new animal is tagged in the Animal Room');
+ await ev(()=>DEEN_COMPANIONS.open('animals'));
+ assert.equal(await page.locator('.dcz-card .dcz-new').count(),0,'the tag disappears after it was seen');
  assert.match(await page.locator('.dcz-next').innerText(),/Baykuş · Seviye 3/,'next unlock line');
  assert.equal(await ev(()=>DEEN_COMPANIONS.levels.eagle),7);
  // 4. grandfathering: an old choice stays usable at level 1
