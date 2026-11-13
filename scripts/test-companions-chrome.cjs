@@ -4,6 +4,7 @@ const root=path.resolve(__dirname,'..');
 const html='<!doctype html><html lang="tr"><body><dialog id="v5Sheet"><h3 id="v5SheetTitle"></h3><div id="v5SheetBody"></div></dialog><div id="profileScreenBody"><section class="dsp-id"><span class="dsp-avatar-slot"></span></section></div><div id="picker"></div></body></html>';
 const PNG=Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==','base64');
 const OUTFITS={items:[
+ {id:'ot_robe',slot:'body',z:10,cost:0,default:true,name:{tr:'Cübbe',en:'Thobe'},art:{cat:'assets/companions/outfits/cat/ot_robe.png'}},
  {id:'ot_cap',slot:'head',z:30,cost:60,name:{tr:'Şapka',en:'Cap'},art:{cat:'assets/companions/outfits/cat/ot_cap.png'}},
  {id:'ot_scarf',slot:'neck',z:20,cost:40,name:{tr:'Atkı',en:'Scarf'},art:{cat:'assets/companions/outfits/cat/ot_scarf.png',lion:'assets/companions/outfits/lion/ot_scarf.png'}},
  {id:'bad id',slot:'head',z:1,cost:1,art:{cat:'x.png'}}
@@ -83,20 +84,21 @@ const server=http.createServer((req,res)=>{
  // 5b. layered outfits (full-body art + transparent layers, per animal)
  await ev(()=>{state.currency=300;state.profile.companion='cat';DEEN_COMPANIONS.open('wardrobe')});
  await page.locator('.dcz-body .dcz-base').waitFor();
- await page.waitForFunction(()=>DEEN_COMPANIONS.outfits().length===2,null,{timeout:4000});
- assert.deepEqual(await ev(()=>DEEN_COMPANIONS.outfits()),['ot_cap','ot_scarf'],'invalid outfit ids are rejected');
+ await page.waitForFunction(()=>DEEN_COMPANIONS.outfits().length===3,null,{timeout:4000});
+ assert.deepEqual(await ev(()=>DEEN_COMPANIONS.outfits()),['ot_robe','ot_cap','ot_scarf'],'invalid outfit ids are rejected');
  assert.equal(await page.locator('[data-id=ot_cap]').count(),1);
  await page.locator('[data-id=ot_scarf]').click();
  await page.locator('[data-id=ot_cap]').click();
- assert.equal(await ev(()=>state.currency),200,'outfits cost 40+60');
- assert.deepEqual(await page.locator('.dcz-body .dcz-layer').evaluateAll(a=>a.map(e=>e.dataset.slot+':'+e.style.zIndex)),['neck:20','head:30'],'layers stack by z');
+ assert.equal(await ev(()=>state.currency),200,'outfits cost 40+60; the default robe is free');
+ assert.deepEqual(await page.locator('.dcz-body .dcz-layer').evaluateAll(a=>a.map(e=>e.dataset.slot+':'+e.style.zIndex)),['body:10','neck:20','head:30'],'default robe + layers stack by z');
  await page.locator('[data-id=ot_cap]').click();
- assert.equal(await page.locator('.dcz-body .dcz-layer').count(),1,'outfit removed');
+ assert.equal(await page.locator('.dcz-body .dcz-layer').count(),2,'cap removed, robe stays');
+ await page.locator('[data-id=ot_robe]').click();
+ assert.equal(await page.locator('.dcz-body .dcz-layer[data-slot=body]').count(),1,'the default robe cannot be taken off');
  await ev(()=>{state.profile.companion='lion';DEEN_COMPANIONS.open('wardrobe')});
- await page.locator('.dcz-body').waitFor();
+ await page.locator('.dcz-prev .dcz-stage').waitFor();
+ assert.equal(await page.locator('.dcz-body').count(),0,'no full-body view (bare body) for an animal without a default outfit');
  assert.equal(await page.locator('[data-id=ot_cap]').count(),0,'items without lion art stay hidden');
- assert.equal(await page.locator('[data-id=ot_scarf]').count(),1);
- assert.equal(await page.locator('.dcz-body .dcz-layer').count(),0,'outfits are per animal');
  await ev(()=>{state.profile.companion='cat'});
  // 6. every language renders without throwing
  for(const l of ['tr','en','de','fr','ar']){

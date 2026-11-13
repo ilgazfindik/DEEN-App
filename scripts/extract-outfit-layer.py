@@ -41,36 +41,119 @@ def box(mask_img, size, grow):
     return mask_img.filter(f) if grow else mask_img
 
 
+def drop_specks(mask_img, min_part):
+    """Keep only connected pieces that are at least min_part of the largest piece."""
+    from collections import deque
+    m = np.asarray(mask_img) > 127
+    lab = np.zeros(m.shape, dtype=np.int32)
+    sizes = {}
+    n = 0
+    hgt, wid = m.shape
+    for y0 in range(hgt):
+        for x0 in range(wid):
+            if m[y0, x0] and lab[y0, x0] == 0:
+                n += 1
+                lab[y0, x0] = n
+                q = deque([(y0, x0)])
+                c = 0
+                while q:
+                    y, x = q.popleft()
+                    c += 1
+                    for dy, dx in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+                        yy, xx = y + dy, x + dx
+                        if 0 <= yy < hgt and 0 <= xx < wid and m[yy, xx] and lab[yy, xx] == 0:
+                            lab[yy, xx] = n
+                            q.append((yy, xx))
+                sizes[n] = c
+    if not sizes:
+        return mask_img
+    big = max(sizes.values())
+    keep = [k for k, v in sizes.items() if v >= big * min_part]
+    out = np.isin(lab, keep)
+    return Image.fromarray((out * 255).astype(np.uint8), "L")
+
+
+def fill_holes(mask_img):
+    """Fill enclosed holes (pixels where cloth and fur happened to match) inside the cut-out."""
+    from collections import deque
+    m = np.asarray(mask_img) > 127
+    hgt, wid = m.shape
+    outside = np.zeros(m.shape, dtype=bool)
+    q = deque()
+    for x in range(wid):
+        for y in (0, hgt - 1):
+            if not m[y, x] and not outside[y, x]:
+                outside[y, x] = True; q.append((y, x))
+    for y in range(hgt):
+        for x in (0, wid - 1):
+            if not m[y, x] and not outside[y, x]:
+                outside[y, x] = True; q.append((y, x))
+    while q:
+        y, x = q.popleft()
+        for dy, dx in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+            yy, xx = y + dy, x + dx
+            if 0 <= yy < hgt and 0 <= xx < wid and not m[yy, xx] and not outside[yy, xx]:
+                outside[yy, xx] = True; q.append((yy, xx))
+    return Image.fromarray(((~outside) * 255).astype(np.uint8), "L")
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--base", required=True)
     ap.add_argument("--dressed", required=True)
     ap.add_argument("--out", required=True)
-    ap.add_argument("--threshold", type=int, default=28, help="colour change (0-255) that counts as clothing")
-    ap.add_argument("--grow", type=int, default=2, help="pixels to grow the cut-out to catch soft edges")
+    ap.add_argument("--threshold", type=int, default=None, help="colour change (0-255) that counts as clothing (default 28; 60 when the dressed picture has a solid background)")
+    ap.add_argument("--bg-tol", type=int, default=7, help="opaque-background pictures: how far from the background colour counts as clothing")
+    ap.add_argument("--grow", type=int, default=None, help="pixels to grow (+) or shrink (-) the cut-out edge; default +2, or -1 when the dressed picture has a solid background (removes the background halo)")
+    ap.add_argument("--fill-holes", action=argparse.BooleanOptionalAction, default=True, help="fill enclosed gaps inside the cut-out (default on)")
+    ap.add_argument("--min-part", type=float, default=0.04, help="drop separate specks smaller than this fraction of the largest piece (stray changes on face/fur)")
     ap.add_argument("--feather", type=float, default=1.2, help="edge softness in pixels")
     ap.add_argument("--preview", help="write a preview sheet (checkerboard | on base) to this PNG")
     ap.add_argument("--quality", type=int, default=88)
     a = ap.parse_args()
+    explicit_thr = a.threshold is not None
 
     base, dressed = load(a.base), load(a.dressed)
-    # Compare on two backgrounds so soft glow and transparent regions cannot hide a change.
-    diff = np.zeros((H, W), dtype=np.int16)
-    for bg in ((0, 0, 0), (255, 255, 255)):
-        d = np.abs(over(base, bg) - over(dressed, bg)).max(axis=2)
-        diff = np.maximum(diff, d)
+    dr_alpha = np.asarray(dressed.getchannel("A"))
+    opaque = bool(dr_alpha.min() >= 250)
+    if a.threshold is None:
+        a.threshold = 60 if opaque else 28  # dressed picture has a solid background (e.g. white), not transparency
+    if opaque:
+        # Compare on the dressed picture's own background colour (sampled from its corners).
+        arr_d = np.asarray(dressed.convert("RGB"), dtype=np.int16)
+        corners = np.array([arr_d[2, 2], arr_d[2, -3], arr_d[-3, 2], arr_d[-3, -3]])
+        bgc = tuple(int(v) for v in np.median(corners, axis=0))
+        diff = np.abs(over(base, bgc) - arr_d).max(axis=2)
+        # Anything that is not background-coloured and lies outside the plain animal's silhouette
+        # (robe hems, wide sleeves) is clothing even when it is nearly the same colour as the background.
+        fg = np.abs(arr_d - np.array(bgc, dtype=np.int16)).max(axis=2) >= a.bg_tol
+        sil = base.getchannel("A").point(lambda v: 255 if v > 40 else 0).filter(ImageFilter.MaxFilter(5))
+        outside = np.asarray(sil) == 0
+        diff = np.where(outside & fg, np.maximum(diff, a.threshold), diff)
+        print(f"dressed picture has an opaque background {bgc}; treating it as background")
+    else:
+        # Compare on two backgrounds so soft glow and transparent regions cannot hide a change.
+        diff = np.zeros((H, W), dtype=np.int16)
+        for bg in ((0, 0, 0), (255, 255, 255)):
+            d = np.abs(over(base, bg) - over(dressed, bg)).max(axis=2)
+            diff = np.maximum(diff, d)
     mask = Image.fromarray(((diff >= a.threshold) * 255).astype(np.uint8), "L")
 
     # Close pinholes (open then close with small kernels), then grow slightly for soft edges.
     mask = box(box(mask, (W, H), 2), (W, H), -2)   # close small gaps
     mask = box(box(mask, (W, H), -1), (W, H), 1)   # drop single-pixel specks
-    mask = box(mask, (W, H), a.grow)
+    grow = a.grow if a.grow is not None else (-1 if opaque else 2)
+    mask = box(mask, (W, H), grow)
+    mask = drop_specks(mask, a.min_part)
+    if a.fill_holes:
+        mask = fill_holes(mask)
     if a.feather > 0:
         mask = mask.filter(ImageFilter.GaussianBlur(a.feather))
 
     arr = np.asarray(mask, dtype=np.float32) / 255.0
     # Where the dressed picture itself is transparent there is nothing to show.
-    arr *= np.asarray(dressed.getchannel("A"), dtype=np.float32) / 255.0
+    if not opaque:
+        arr *= np.asarray(dressed.getchannel("A"), dtype=np.float32) / 255.0
     layer = dressed.copy()
     layer.putalpha(Image.fromarray((arr * 255).astype(np.uint8), "L"))
 
