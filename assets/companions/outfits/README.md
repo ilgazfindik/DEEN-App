@@ -40,3 +40,16 @@ python3 scripts/extract-outfit-layer.py \
 4. Katmanı `outfits.json`'a ekle (yukarıdaki biçim).
 
 Not: Araç yalnızca iki görsel arasında **değişen pikselleri** alır. Düzenleme aracı hayvanın kendisini de biraz değiştirirse (renk, poz, yüz) o kısımlar da katmana sızar.
+
+## Gövde kıyafetleri (cübbe, yelek...) için `--full`
+
+Gövdeyi kaplayan kıyafetlerde kesilmiş katman, hayvanın altta kalan tüylerinin kenarlardan görünmesine yol açabilir. Bunun yerine kıyafetli **bütün karakteri** düz arka plandan ayırıp tam boy görsel olarak kullanın:
+
+```bash
+python3 scripts/extract-outfit-layer.py --full \
+  --dressed kedi_cubbe.png \
+  --out assets/companions/outfits/cat/ot_thobe.webp \
+  --preview onizleme.png
+```
+
+`outfits.json` kaydında `"slot":"body"` ve `"full":true` yazın. Bu görsel o hayvanın düz gövde resminin **yerine** geçer; şapka, atkı gibi diğer katmanlar (`head`, `neck`) üstüne binmeye devam eder. `"default":true` ve `"cost":0` olan gövde kıyafeti ücretsiz varsayılandır, çıkarılamaz.

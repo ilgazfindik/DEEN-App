@@ -182,8 +182,11 @@
  }
  function bodyStage(id){
   const m=meta(),bg=item(m?.eq?.bg),fr=item(m?.eq?.fr),ac=item(m?.eq?.ac),w=wornOutfit(id);
-  const layers=Object.values(w).map(oid=>outItem(oid)).filter(o=>o&&o.art&&o.art[id]).sort((a,b)=>(Number(a.z)||0)-(Number(b.z)||0));
-  return '<span class="dcz-body"'+(bg?' data-dcz-bg="'+bg.id+'"':'')+(fr?' data-dcz-fr="'+fr.id+'"':'')+'><img class="dcz-base" src="'+bodySrc(id)+'" alt="">'+layers.map(o=>'<img class="dcz-layer" data-slot="'+o.slot+'" style="z-index:'+(Number(o.z)||10)+'" src="'+esc(o.art[id])+'" alt="">').join('')+badgeHtml(ac)+'</span>';
+  const worn=Object.values(w).map(oid=>outItem(oid)).filter(o=>o&&o.art&&o.art[id]);
+  // A body outfit marked "full" is the whole dressed character (background removed): it replaces the plain body picture.
+  const fullO=worn.find(o=>o.slot==='body'&&o.full===true),baseSrc=fullO?fullO.art[id]:bodySrc(id);
+  const layers=worn.filter(o=>o!==fullO).sort((a,b)=>(Number(a.z)||0)-(Number(b.z)||0));
+  return '<span class="dcz-body"'+(bg?' data-dcz-bg="'+bg.id+'"':'')+(fr?' data-dcz-fr="'+fr.id+'"':'')+'><img class="dcz-base" src="'+esc(baseSrc)+'" alt="">'+layers.map(o=>'<img class="dcz-layer" data-slot="'+o.slot+'" style="z-index:'+(Number(o.z)||10)+'" src="'+esc(o.art[id])+'" alt="">').join('')+badgeHtml(ac)+'</span>';
  }
  let tab='animals';
  function outfitHtml(pv,m,t){
@@ -338,7 +341,7 @@
   :'.dcz [data-dcz-fr="'+i.id+'"],html body #profileScreenBody .dsp-avatar-slot[data-dcz-fr="'+i.id+'"]{box-shadow:'+i.css+'!important}').join('\n');
  css.textContent+=rules;
  document.head.appendChild(css);
- window.DEEN_COMPANIONS=Object.freeze({version:'companions-v4',order:ORDER.slice(),levels:Object.assign({},LEVELS),items:ITEMS.map(i=>i.id),bodyArt:BODY.slice(),outfits:()=>OUT.list.map(o=>o.id),unlocked,select,open,buyItem,toggleItem,isUnlocked:unlocked});
+ window.DEEN_COMPANIONS=Object.freeze({version:'companions-v5',order:ORDER.slice(),levels:Object.assign({},LEVELS),items:ITEMS.map(i=>i.id),bodyArt:BODY.slice(),outfits:()=>OUT.list.map(o=>o.id),unlocked,select,open,buyItem,toggleItem,isUnlocked:unlocked});
  // Wrap the engine's own chooser so a locked animal can never be selected programmatically.
  function wrap(){
   const c=window.DEEN_COMPANION;

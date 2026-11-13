@@ -12,7 +12,7 @@ pixels that changed and writes a transparent 512x768 layer that stacks on the pl
 Tips: the closer the dressed picture's pose, size and framing are to the base, the cleaner the cut.
 Open the --preview image (layer over a checkerboard, and layer over the base) before you use a layer.
 """
-import argparse, sys
+import argparse, os, sys
 import numpy as np
 from PIL import Image, ImageFilter
 
@@ -97,23 +97,66 @@ def fill_holes(mask_img):
     return Image.fromarray(((~outside) * 255).astype(np.uint8), "L")
 
 
+def write_full(a, dressed):
+    """Remove the solid background of a dressed character picture and keep the whole character."""
+    arr_d = np.asarray(dressed.convert("RGB"), dtype=np.int16)
+    corners = np.array([arr_d[2, 2], arr_d[2, -3], arr_d[-3, 2], arr_d[-3, -3]])
+    bgc = np.median(corners, axis=0)
+    tol = a.bg_tol if a.bg_tol_set else 3
+    fg = np.abs(arr_d - bgc).max(axis=2) >= tol
+    mask = Image.fromarray((fg * 255).astype(np.uint8), "L")
+    mask = drop_specks(mask, a.min_part)
+    mask = fill_holes(mask)
+    mask = box(mask, (W, H), a.grow if a.grow is not None else -2)  # shave the light background halo off fur edges
+    if a.feather > 0:
+        mask = mask.filter(ImageFilter.GaussianBlur(a.feather))
+    out_im = dressed.convert("RGBA")
+    out_im.putalpha(mask)
+    os.makedirs(os.path.dirname(a.out) or ".", exist_ok=True)
+    out_im.save(a.out, "WEBP", quality=a.quality, method=6) if a.out.lower().endswith(".webp") else out_im.save(a.out)
+    print(f"wrote {a.out}  (full character, background removed)")
+    if a.preview:
+        chk = Image.new("RGBA", (W, H))
+        px = chk.load()
+        for y in range(H):
+            for x in range(W):
+                v = 200 if ((x // 16) + (y // 16)) % 2 else 150
+                px[x, y] = (v, v, v, 255)
+        dark = Image.new("RGBA", (W, H), (20, 40, 48, 255))
+        left = chk.copy(); left.alpha_composite(out_im); dark.alpha_composite(out_im)
+        sheet = Image.new("RGBA", (W * 2 + 8, H), (0, 0, 0, 255))
+        sheet.paste(left, (0, 0)); sheet.paste(dark, (W + 8, 0))
+        sheet.convert("RGB").save(a.preview)
+        print(f"wrote preview {a.preview}")
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--base", required=True)
+    ap.add_argument("--base", required=False)
     ap.add_argument("--dressed", required=True)
     ap.add_argument("--out", required=True)
     ap.add_argument("--threshold", type=int, default=None, help="colour change (0-255) that counts as clothing (default 28; 60 when the dressed picture has a solid background)")
-    ap.add_argument("--bg-tol", type=int, default=7, help="opaque-background pictures: how far from the background colour counts as clothing")
+    ap.add_argument("--bg-tol", type=int, default=None, help="opaque-background pictures: how far from the background colour counts as clothing")
     ap.add_argument("--grow", type=int, default=None, help="pixels to grow (+) or shrink (-) the cut-out edge; default +2, or -1 when the dressed picture has a solid background (removes the background halo)")
     ap.add_argument("--fill-holes", action=argparse.BooleanOptionalAction, default=True, help="fill enclosed gaps inside the cut-out (default on)")
+    ap.add_argument("--keep-color-tol", type=int, default=0, help="single-colour garments: drop cut-out pixels whose colour is further than this from the garment's median colour (removes leaked fur/skin; try 45). 0 = off")
+    ap.add_argument("--full", action="store_true", help="body outfits: instead of a cut-out layer, write the WHOLE dressed character with its background removed (it then replaces the plain body picture; no bare fur can poke out around the clothes). --base is not needed")
     ap.add_argument("--min-part", type=float, default=0.04, help="drop separate specks smaller than this fraction of the largest piece (stray changes on face/fur)")
     ap.add_argument("--feather", type=float, default=1.2, help="edge softness in pixels")
     ap.add_argument("--preview", help="write a preview sheet (checkerboard | on base) to this PNG")
     ap.add_argument("--quality", type=int, default=88)
     a = ap.parse_args()
+    a.bg_tol_set = a.bg_tol is not None
+    if a.bg_tol is None:
+        a.bg_tol = 7
     explicit_thr = a.threshold is not None
 
-    base, dressed = load(a.base), load(a.dressed)
+    if not a.full and not a.base:
+        sys.exit('--base is required (unless you use --full)')
+    dressed = load(a.dressed)
+    if a.full:
+        return write_full(a, dressed)
+    base = load(a.base)
     dr_alpha = np.asarray(dressed.getchannel("A"))
     opaque = bool(dr_alpha.min() >= 250)
     if a.threshold is None:
@@ -144,6 +187,12 @@ def main():
     mask = box(box(mask, (W, H), -1), (W, H), 1)   # drop single-pixel specks
     grow = a.grow if a.grow is not None else (-1 if opaque else 2)
     mask = box(mask, (W, H), grow)
+    if a.keep_color_tol > 0:
+        rgb = np.asarray(dressed.convert('RGB'), dtype=np.int16)
+        m0 = np.asarray(mask) > 127
+        med = np.median(rgb[m0], axis=0)
+        far = np.abs(rgb - med).max(axis=2) > a.keep_color_tol
+        mask = Image.fromarray(((m0 & ~far) * 255).astype(np.uint8), 'L')
     mask = drop_specks(mask, a.min_part)
     if a.fill_holes:
         mask = fill_holes(mask)
@@ -158,7 +207,6 @@ def main():
     layer.putalpha(Image.fromarray((arr * 255).astype(np.uint8), "L"))
 
     out = a.out
-    import os
     os.makedirs(os.path.dirname(out) or ".", exist_ok=True)
     if out.lower().endswith(".webp"):
         layer.save(out, "WEBP", quality=a.quality, method=6)
