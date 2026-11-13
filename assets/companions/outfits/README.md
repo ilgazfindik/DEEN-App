@@ -69,3 +69,7 @@ python3 scripts/extract-outfit-layer.py --animal wolf --base assets/companions/o
 ```
 
 Görsel aracı tuvali değiştirirse (farklı oran) araç hata verir; aynı boyutta isteyin ya da aynı çerçeveye kırpın.
+
+## Önemli: görsel araçları karakteri yeniden çizer
+
+Görsel düzenleme araçları çoğu zaman karakteri piksel piksel korumaz, yeniden çizer (birkaç piksel kayma, küçük yüz farkları). Bu yüzden takke/atkı gibi eşyaları "farkı alıp ayrı katman yapmak" güvenilir olmaz. Kolay ve sağlam yol: **kıyafetli bütün karakteri** tam görsel olarak eklemek (`"slot":"body","full":true`). Örnek: `ot_thobe_kufi` = takkeli beyaz cübbe. Takkeli renkli cübbe gibi kombinler için aynı görseli üretip aynı yöntemle eklenir.
