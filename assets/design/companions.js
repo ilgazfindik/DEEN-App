@@ -9,14 +9,44 @@
  const ORDER=['lion','cat','wolf','owl','turtle','eagle'];
  const LEVELS={lion:1,cat:1,wolf:2,owl:3,turtle:5,eagle:7};
  const EMOJI={lion:'🦁',cat:'🐈',wolf:'🐺',owl:'🦉',turtle:'🐢',eagle:'🦅'};
+ const SV=(body)=>'<svg viewBox="0 0 24 24" aria-hidden="true">'+body+'</svg>';
+ const ICON={
+  star:SV('<path fill="#ffd45e" stroke="#c8932a" stroke-width="1" stroke-linejoin="round" d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4 6.1 20.5l1.2-6.5L2.5 9.4l6.6-.9z"/>'),
+  moon:SV('<path fill="#f4e6b0" stroke="#c8a24a" stroke-width="1" d="M16.5 3.2A9 9 0 1 0 20.8 16 7.2 7.2 0 0 1 16.5 3.2z"/><circle cx="17.5" cy="8" r="1.1" fill="#ffd45e"/>'),
+  leaf:SV('<path fill="#5fd39a" stroke="#1f8a5b" stroke-width="1" stroke-linejoin="round" d="M4 20C4 10 10 4 20 4c0 10-6 16-16 16z"/><path d="M4 20L14 10" stroke="#1f8a5b" stroke-width="1.4" fill="none" stroke-linecap="round"/>'),
+  lamp:SV('<path d="M12 1.8v3" stroke="#b9691a" stroke-width="1.6" stroke-linecap="round"/><path fill="#ffb14a" stroke="#b9691a" stroke-width="1" stroke-linejoin="round" d="M9 5.6h6l2.2 3.2v7L15 19.2H9l-2.2-3.4v-7z"/><circle cx="12" cy="12.6" r="2.5" fill="#fff3b0"/><path d="M8.5 21.2h7" stroke="#b9691a" stroke-width="1.6" stroke-linecap="round"/>'),
+  book:SV('<path fill="#2fb88f" stroke="#127a5c" stroke-width="1" stroke-linejoin="round" d="M3 5.5c3-1.3 6-1.3 9 .8 3-2.1 6-2.1 9-.8V19c-3-1.3-6-1.3-9 .8-3-2.1-6-2.1-9-.8z"/><path d="M12 6.3v13.5" stroke="#127a5c" stroke-width="1" fill="none"/>'),
+  heart:SV('<path fill="#ff7a8f" stroke="#c44058" stroke-width="1" stroke-linejoin="round" d="M12 20.5S3.5 15 3.5 9.2A4.6 4.6 0 0 1 12 7a4.6 4.6 0 0 1 8.5 2.2C20.5 15 12 20.5 12 20.5z"/>')
+ };
  const ITEMS=[
-  {id:'bg_dune',kind:'bg',cost:30,icon:'🏜️',css:'linear-gradient(160deg,#e9b26a,#7d3f2b)'},
-  {id:'bg_night',kind:'bg',cost:30,icon:'🌌',css:'linear-gradient(160deg,#25316e,#080c24)'},
-  {id:'bg_garden',kind:'bg',cost:30,icon:'🌿',css:'linear-gradient(160deg,#5fbf8a,#124c3a)'},
-  {id:'ac_star',kind:'ac',cost:45,icon:'⭐'},
-  {id:'ac_moon',kind:'ac',cost:45,icon:'🌙'},
-  {id:'ac_leaf',kind:'ac',cost:45,icon:'🍃'}
+  {id:'bg_dune',kind:'bg',cost:30,css:'linear-gradient(160deg,#e9b26a,#7d3f2b)'},
+  {id:'bg_night',kind:'bg',cost:30,css:'radial-gradient(circle at 22% 24%,#fff 0 1px,transparent 2px),radial-gradient(circle at 72% 18%,#fff 0 1.2px,transparent 2.4px),radial-gradient(circle at 82% 62%,rgba(255,255,255,.7) 0 1px,transparent 2px),linear-gradient(160deg,#25316e,#080c24)'},
+  {id:'bg_garden',kind:'bg',cost:30,css:'linear-gradient(160deg,#5fbf8a,#124c3a)'},
+  {id:'bg_dawn',kind:'bg',cost:40,css:'linear-gradient(180deg,#ffd29a,#f08fa0 55%,#6d5aa8)'},
+  {id:'bg_sea',kind:'bg',cost:40,css:'linear-gradient(180deg,#8fe3f0,#1b78a8 58%,#0b3358)'},
+  {id:'bg_rose',kind:'bg',cost:40,css:'radial-gradient(circle at 70% 28%,#ffc2d1,#d6587b 55%,#5b1f3f)'},
+  {id:'bg_geo',kind:'bg',cost:60,css:'radial-gradient(circle,#f2cf75 0 1.6px,transparent 2.2px) 0 0/16px 16px,repeating-conic-gradient(#0f6a57 0 25%,#137d68 0 50%) 0 0/16px 16px'},
+  {id:'bg_gold',kind:'bg',cost:80,css:'radial-gradient(circle at 30% 24%,#fff3b8,#e2b04a 46%,#8a5a14)'},
+  {id:'fr_gold',kind:'fr',cost:50,css:'0 0 0 3px #f4c95d,0 0 14px rgba(244,201,93,.55)'},
+  {id:'fr_emerald',kind:'fr',cost:50,css:'0 0 0 3px #37d6a3,0 0 14px rgba(55,214,163,.5)'},
+  {id:'fr_amethyst',kind:'fr',cost:60,css:'0 0 0 3px #a78bfa,0 0 14px rgba(167,139,250,.55)'},
+  {id:'fr_nur',kind:'fr',cost:80,css:'0 0 0 3px #fff,0 0 0 6px #8cebd0,0 0 18px rgba(140,235,208,.6)'},
+  {id:'ac_star',kind:'ac',cost:45,svg:'star'},
+  {id:'ac_moon',kind:'ac',cost:45,svg:'moon'},
+  {id:'ac_leaf',kind:'ac',cost:45,svg:'leaf'},
+  {id:'ac_lamp',kind:'ac',cost:55,svg:'lamp'},
+  {id:'ac_book',kind:'ac',cost:55,svg:'book'},
+  {id:'ac_heart',kind:'ac',cost:55,svg:'heart'}
  ];
+ const IT2={
+  tr:{bg_dawn:'Fecr',bg_sea:'Deniz',bg_rose:'Gül',bg_geo:'Geometri',bg_gold:'Altın',fr_gold:'Altın',fr_emerald:'Zümrüt',fr_amethyst:'Ametist',fr_nur:'Nur',ac_lamp:'Fener',ac_book:'Kitap',ac_heart:'Kalp'},
+  en:{bg_dawn:'Dawn',bg_sea:'Sea',bg_rose:'Rose',bg_geo:'Pattern',bg_gold:'Gold',fr_gold:'Gold',fr_emerald:'Emerald',fr_amethyst:'Amethyst',fr_nur:'Light',ac_lamp:'Lantern',ac_book:'Book',ac_heart:'Heart'},
+  de:{bg_dawn:'Morgenrot',bg_sea:'Meer',bg_rose:'Rosé',bg_geo:'Muster',bg_gold:'Gold',fr_gold:'Gold',fr_emerald:'Smaragd',fr_amethyst:'Amethyst',fr_nur:'Licht',ac_lamp:'Laterne',ac_book:'Buch',ac_heart:'Herz'},
+  fr:{bg_dawn:'Aube',bg_sea:'Mer',bg_rose:'Rose',bg_geo:'Motif',bg_gold:'Or',fr_gold:'Or',fr_emerald:'Émeraude',fr_amethyst:'Améthyste',fr_nur:'Lumière',ac_lamp:'Lanterne',ac_book:'Livre',ac_heart:'Cœur'},
+  ar:{bg_dawn:'الفجر',bg_sea:'البحر',bg_rose:'الورد',bg_geo:'زخرفة',bg_gold:'الذهب',fr_gold:'ذهبي',fr_emerald:'زمردي',fr_amethyst:'جمشتي',fr_nur:'نور',ac_lamp:'فانوس',ac_book:'كتاب',ac_heart:'قلب'}
+ };
+ const FR={tr:'Çerçeve',en:'Frame',de:'Rahmen',fr:'Cadre',ar:'إطار'};
+ const itName=id=>(T().it[id]||IT2[lang()][id]||id);
  const S={
   tr:{next:(a,n,x)=>'Sıradaki: '+a+' · Seviye '+n+' (' + x + ' XP kaldı)',all:'Tüm hayvanlar açık!',cele:'Yeni yol arkadaşı!',keep:'Şimdilik kalsın',room:'Hayvan Odası',animals:'Hayvanlar',wardrobe:'Gardırop',lv:n=>'Seviye '+n,locked:n=>'Seviye '+n+' ile açılır',use:'Seç',active:'Seçili',
    unlock:(a,n)=>a+' açıldı! Hayvan Odası’ndan seçebilirsin.',lockedToast:(a,n)=>a+' için seviye '+n+' gerekiyor.',bg:'Arka plan',ac:'Rozet',none:'Yok',
@@ -110,9 +140,10 @@
   if(m.eq[it.kind]===id)delete m.eq[it.kind];else m.eq[it.kind]=id;save();
  }
  const avatarSrc=id=>'assets/companions/'+id+'/'+id+'_avatar.png';
+ function badgeHtml(ac){return ac?'<i class="dcz-badge" aria-hidden="true">'+ICON[ac.svg]+'</i>':''}
  function stage(id,size){
-  const m=meta(),bg=item(m?.eq?.bg),ac=item(m?.eq?.ac);
-  return '<span class="dcz-stage" style="width:'+size+'px;height:'+size+'px'+(bg?';background:'+bg.css:'')+'"><img src="'+avatarSrc(id)+'" alt="" loading="lazy" onerror="this.replaceWith(document.createTextNode(\''+EMOJI[id]+'\'))">'+(ac?'<i class="dcz-badge" aria-hidden="true">'+ac.icon+'</i>':'')+'</span>';
+  const m=meta(),bg=item(m?.eq?.bg),ac=item(m?.eq?.ac),fr=item(m?.eq?.fr);
+  return '<span class="dcz-stage" style="width:'+size+'px;height:'+size+'px"'+(bg?' data-dcz-bg="'+bg.id+'"':'')+(fr?' data-dcz-fr="'+fr.id+'"':'')+'><img src="'+avatarSrc(id)+'" alt="" loading="lazy" onerror="this.replaceWith(document.createTextNode(\''+EMOJI[id]+'\'))">'+badgeHtml(ac)+'</span>';
  }
  let tab='animals';
  function html(){
@@ -127,12 +158,13 @@
      '<b>'+esc(N(id))+'</b><small>'+esc(ok?(on?t.active:t.use):t.locked(LEVELS[id]))+'</small></button>';
    }).join('')+'</div>';
   }else{
-   const kinds=['bg','ac'];
-   body='<div class="dcz-prev">'+stage(cur&&ORDER.includes(cur)?cur:'lion',96)+'</div>'+kinds.map(k=>
-    '<h4>'+esc(t[k])+'</h4><div class="dcz-items">'+ITEMS.filter(i=>i.kind===k).map(i=>{
+   const kinds=['bg','fr','ac'],owned=m.items.length;
+   body='<div class="dcz-prev">'+stage(cur&&ORDER.includes(cur)?cur:'lion',104)+'<b>'+esc(N(cur&&ORDER.includes(cur)?cur:'lion'))+'</b><small>'+esc(owned+' / '+ITEMS.length)+'</small></div>'+kinds.map(k=>
+    '<h4>'+esc(k==='fr'?FR[lang()]:t[k])+'</h4><div class="dcz-items">'+ITEMS.filter(i=>i.kind===k).map(i=>{
      const own=m.items.includes(i.id),worn=m.eq[k]===i.id;
      const label=own?(worn?t.off:t.equip):t.buy(i.cost);
-     return '<button type="button" class="dcz-item'+(worn?' on':'')+'" data-dcz="item" data-id="'+i.id+'"><span class="dcz-ic" style="'+(i.css?'background:'+i.css:'')+'">'+i.icon+'</span><b>'+esc(t.it[i.id])+'</b><small>'+esc(worn?t.on:label)+'</small></button>';
+     const sw=k==='ac'?ICON[i.svg]:'';
+     return '<button type="button" class="dcz-item'+(worn?' on':'')+(own?' own':'')+'" data-dcz="item" data-id="'+i.id+'"><span class="dcz-ic"'+(k==='bg'?' data-dcz-bg="'+i.id+'"':k==='fr'?' data-dcz-fr="'+i.id+'"':'')+'>'+sw+'</span><b>'+esc(itName(i.id))+'</b><small>'+esc(worn?t.on:label)+'</small></button>';
     }).join('')+'</div>').join('')+'<p class="dcz-hint">'+esc(t.hint)+'</p>';
   }
   return '<div class="dcz" dir="'+(lang()==='ar'?'rtl':'ltr')+'"><div class="dcz-tabs" role="tablist"><button type="button" role="tab" class="'+(tab==='animals'?'on':'')+'" data-dcz="tab" data-id="animals">'+esc(t.animals)+'</button><button type="button" role="tab" class="'+(tab==='wardrobe'?'on':'')+'" data-dcz="tab" data-id="wardrobe">'+esc(t.wardrobe)+'</button></div>'+
@@ -197,10 +229,11 @@
   // Wardrobe on the profile avatar.
   const slot=document.querySelector('#profileScreenBody .dsp-avatar-slot'),m=meta();
   if(slot&&m){
-   const bg=item(m.eq.bg),ac=item(m.eq.ac);
-   slot.style.background=bg?bg.css:'';
+   const bg=item(m.eq.bg),ac=item(m.eq.ac),fr=item(m.eq.fr);
+   if(bg)slot.dataset.dczBg=bg.id;else delete slot.dataset.dczBg;
+   if(fr)slot.dataset.dczFr=fr.id;else delete slot.dataset.dczFr;
    let badge=slot.querySelector('.dcz-badge');
-   if(ac){if(!badge){badge=document.createElement('i');badge.className='dcz-badge';slot.appendChild(badge)}if(badge.textContent!==ac.icon)badge.textContent=ac.icon}else badge?.remove();
+   if(ac){const h=ICON[ac.svg];if(!badge){badge=document.createElement('i');badge.className='dcz-badge';slot.appendChild(badge)}if(badge.dataset.k!==ac.svg){badge.dataset.k=ac.svg;badge.innerHTML=h}}else badge?.remove();
   }
  }
  document.addEventListener('click',ev=>{if(ev.target.closest?.('[data-dcz-open]')){ev.preventDefault();open('animals')}});
@@ -216,27 +249,39 @@
 .dcz-card.on{border-color:#9af2d9;box-shadow:0 0 0 2px rgba(154,242,217,.35)}
 .dcz-card.locked{opacity:.8}
 .dcz-card small{opacity:.8}
-.dcz-stage{position:relative;display:inline-grid;place-items:center;border-radius:50%;overflow:hidden;background:linear-gradient(145deg,#173b3e,#0c252d)}
+.dcz-stage{position:relative;display:inline-grid;place-items:center;border-radius:50%;overflow:hidden;background:linear-gradient(145deg,#173b3e,#0c252d);box-shadow:0 4px 14px rgba(0,0,0,.35)}
 .dcz-stage img{width:100%;height:100%;object-fit:cover;border-radius:50%}
 .dcz-dim img{filter:grayscale(1) brightness(.45)}
 .dcz-lock{position:absolute;font-size:26px}
-.dcz-badge{position:absolute;right:16%;bottom:12%;font-style:normal;font-size:22px;line-height:1;filter:drop-shadow(0 1px 2px rgba(0,0,0,.6))}
-.dcz-prev{display:grid;place-items:center;margin:4px 0 8px}
+.dcz-badge{position:absolute;right:14%;bottom:10%;width:28%;height:28%;min-width:16px;min-height:16px;display:block;filter:drop-shadow(0 1px 2px rgba(0,0,0,.55))}
+.dcz-badge svg,.dcz-ic svg{display:block;width:100%;height:100%}
+.dcz-prev{display:grid;place-items:center;gap:4px;margin:4px 0 6px;padding:14px 0 10px;border-radius:18px;background:radial-gradient(circle at 50% 30%,rgba(140,235,208,.16),rgba(255,255,255,.03))}
+.dcz-prev small{opacity:.75;font-size:12px}
+.dcz-prev .dcz-stage{margin:6px 0}
 .dcz h4{margin:12px 2px 6px;font-size:14px}
 .dcz-items{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
 .dcz-item{display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 4px;min-height:96px;border-radius:14px;border:1px solid rgba(140,235,208,.3);background:rgba(255,255,255,.05);color:inherit;cursor:pointer}
 .dcz-item.on{border-color:#9af2d9;box-shadow:0 0 0 2px rgba(154,242,217,.35)}
 .dcz-item small{font-size:11px;opacity:.85}
-.dcz-ic{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;font-size:22px;background:rgba(255,255,255,.1)}
+.dcz-ic{display:grid;place-items:center;width:44px;height:44px;padding:0;border-radius:50%;background:rgba(255,255,255,.1)}
+.dcz-ic:not([data-dcz-bg]):not([data-dcz-fr]){padding:8px;box-sizing:border-box}
+.dcz-item.own:not(.on) small{color:#8cebd0}
+.dcz-item{transition:transform .15s}
+.dcz-item:active,.dcz-card:active{transform:scale(.97)}
+@media(prefers-reduced-motion:no-preference){.dcz-prev .dcz-stage{animation:dczFloat 3.6s ease-in-out infinite}@keyframes dczFloat{50%{transform:translateY(-3px)}}}
 .dcz-hint{font-size:12px;opacity:.7;margin:12px 2px 0}
 .dcz-entry{display:block;width:100%;min-height:44px;margin:10px 0;border-radius:14px;border:1px solid rgba(140,235,208,.4);background:rgba(140,235,208,.12);color:inherit;font:600 15px/1 inherit;cursor:pointer}
 .dcz-locked{opacity:.55;filter:grayscale(.8)}
 .dcz-locked small{display:none}
 .dcz-tag{position:static;display:block;margin-top:6px;font-style:normal;font-size:12px;font-weight:700;text-align:center;color:#fff}
-#profileScreenBody .dsp-avatar-slot .dcz-badge{font-size:20px}
 `;
+ // Item looks are generated from the ITEMS table so previews, swatches and the profile avatar always agree.
+ const rules=ITEMS.filter(i=>i.kind!=='ac').map(i=>i.kind==='bg'
+  ?'.dcz [data-dcz-bg="'+i.id+'"],html body #profileScreenBody .dsp-avatar-slot[data-dcz-bg="'+i.id+'"]{background:'+i.css+'!important}'
+  :'.dcz [data-dcz-fr="'+i.id+'"],html body #profileScreenBody .dsp-avatar-slot[data-dcz-fr="'+i.id+'"]{box-shadow:'+i.css+'!important}').join('\n');
+ css.textContent+=rules;
  document.head.appendChild(css);
- window.DEEN_COMPANIONS=Object.freeze({version:'companions-v1',order:ORDER.slice(),levels:Object.assign({},LEVELS),items:ITEMS.map(i=>i.id),unlocked,select,open,buyItem,toggleItem,isUnlocked:unlocked});
+ window.DEEN_COMPANIONS=Object.freeze({version:'companions-v2',order:ORDER.slice(),levels:Object.assign({},LEVELS),items:ITEMS.map(i=>i.id),unlocked,select,open,buyItem,toggleItem,isUnlocked:unlocked});
  // Wrap the engine's own chooser so a locked animal can never be selected programmatically.
  function wrap(){
   const c=window.DEEN_COMPANION;

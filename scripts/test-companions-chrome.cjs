@@ -63,6 +63,14 @@ const server=http.createServer((req,res)=>{res.setHeader('Content-Type','text/ht
  assert.ok(!(await ev(()=>state.companionMeta.items.includes('ac_moon'))));
  await page.locator('[data-id=bg_dune]').click(); // un-wear
  assert.equal(await ev(()=>state.companionMeta.eq.bg),undefined);
+ await ev(()=>{state.currency=100});
+ assert.equal(await ev(()=>DEEN_COMPANIONS.items.length),18);
+ await page.locator('[data-id=fr_gold]').click();
+ assert.equal(await ev(()=>state.currency),50,'frame costs 50');
+ assert.equal(await ev(()=>state.companionMeta.eq.fr),'fr_gold');
+ assert.equal(await page.locator('.dcz-prev .dcz-stage[data-dcz-fr=fr_gold]').count(),1,'frame shown on preview');
+ assert.equal(await page.locator('.dcz-prev .dcz-badge svg').count(),1,'badge is svg');
+ assert.equal(await ev(()=>getComputedStyle(document.querySelector('.dcz-prev .dcz-stage')).boxShadow.includes('244, 201, 93')),true,'frame ring is styled');
  // 6. every language renders without throwing
  for(const l of ['tr','en','de','fr','ar']){
   await ev(l=>{window.__lang=l;DEEN_COMPANIONS.open('animals')},l);
