@@ -63,7 +63,7 @@
   const m=meta(),w={};
   outFor(a).filter(o=>o.default===true).forEach(o=>{w[o.slot]=o.id});
   const own=(m&&m.outfit&&m.outfit[a])||{};
-  Object.keys(own).forEach(slot=>{const o=outItem(own[slot]);if(o&&o.art&&o.art[a]&&o.slot===slot)w[slot]=o.id});
+  Object.keys(own).forEach(slot=>{const o=outItem(own[slot]);if(o&&o.art&&o.art[a]&&o.slot===slot&&has(o.id))w[slot]=o.id});
   return w;
  }
  function loadOutfits(){
@@ -126,14 +126,20 @@
   if(ORDER.includes(cur)&&!m.owned.includes(cur))m.owned.push(cur); // grandfather earlier choices
   return m;
  }
- function unlocked(id){
+ // Admin test switch (admin panel): everything counts as unlocked and owned, but nothing is saved as owned.
+ const adminAll=()=>{try{return !!window.DEEN_ADMIN_WARDROBE?.()}catch(_){return false}};
+ function unlockedReal(id){
   const m=meta();if(!LEVELS[id])return false;
   return LEVELS[id]<=lvl()||!!(m&&m.owned.includes(id));
  }
+ function unlocked(id){return !!LEVELS[id]&&(adminAll()||unlockedReal(id))}
+ // Owned = bought, a free default outfit, or admin test mode. Worn items that are not owned (admin mode switched off) are ignored.
+ function has(id){const m=meta(),it=item(id);return !!it&&(adminAll()||it.default===true||!!(m&&m.items.includes(id)))}
+ const eqItem=(m,kind)=>{const it=item(m?.eq?.[kind]);return it&&has(it.id)?it:null};
  function save(){try{saveState()}catch(_){}}
  function announce(){
   const st=app(),m=meta();if(!st||!m||!st.onboarded)return;
-  const fresh=ORDER.filter(id=>unlocked(id)&&!m.seen.includes(id));
+  const fresh=ORDER.filter(id=>unlockedReal(id)&&!m.seen.includes(id));
   if(!fresh.length)return;
   const first=!m.seen.length&&!m.announced;
   fresh.forEach(id=>m.seen.push(id));
@@ -153,7 +159,8 @@
  /* Wardrobe */
  function item(id){return ITEMS.find(i=>i.id===id)||outItem(id)}
  function buyItem(id){
-  const st=app(),m=meta(),it=item(id);if(!st||!m||!it||m.items.includes(id))return false;
+  const st=app(),m=meta(),it=item(id);if(!st||!m||!it||m.items.includes(id)||it.default===true)return false;
+  if(adminAll()){if(it.slot)toggleItem(id);else m.eq[it.kind]=id;save();return true} // admin test: free; worn but never saved as bought, so it disappears when the switch is turned off
   if((Number(st.currency)||0)<it.cost)return false;
   st.currency-=it.cost;m.items.push(id);
   if(it.slot)toggleItem(id);else m.eq[it.kind]=id;
@@ -161,7 +168,7 @@
   return true;
  }
  function toggleItem(id){
-  const m=meta(),it=item(id);if(!m||!it||!(m.items.includes(id)||it.default===true))return;
+  const m=meta(),it=item(id);if(!m||!it||!has(id))return;
   if(it.slot){ // outfit: worn per animal and slot
    const a=String(app()?.profile?.companion||'');if(!a||!it.art||!it.art[a])return;
    const o=m.outfit=m.outfit&&typeof m.outfit==='object'?m.outfit:{};const w=o[a]=o[a]||{};
@@ -173,11 +180,11 @@
  const avatarSrc=id=>'assets/companions/'+id+'/'+id+'_avatar.png';
  function badgeHtml(ac){return ac?'<i class="dcz-badge" aria-hidden="true">'+ICON[ac.svg]+'</i>':''}
  function stage(id,size){
-  const m=meta(),bg=item(m?.eq?.bg),ac=item(m?.eq?.ac),fr=item(m?.eq?.fr);
+  const m=meta(),bg=eqItem(m,'bg'),ac=eqItem(m,'ac'),fr=eqItem(m,'fr');
   return '<span class="dcz-stage" style="width:'+size+'px;height:'+size+'px"'+(bg?' data-dcz-bg="'+bg.id+'"':'')+(fr?' data-dcz-fr="'+fr.id+'"':'')+'><img src="'+avatarSrc(id)+'" alt="" loading="lazy" onerror="this.replaceWith(document.createTextNode(\''+EMOJI[id]+'\'))">'+badgeHtml(ac)+'</span>';
  }
  function bodyStage(id){
-  const m=meta(),bg=item(m?.eq?.bg),fr=item(m?.eq?.fr),ac=item(m?.eq?.ac),w=wornOutfit(id);
+  const m=meta(),bg=eqItem(m,'bg'),fr=eqItem(m,'fr'),ac=eqItem(m,'ac'),w=wornOutfit(id);
   const worn=Object.values(w).map(oid=>outItem(oid)).filter(o=>o&&o.art&&o.art[id]);
   // A body outfit marked "full" is the whole dressed character (background removed): it replaces the plain body picture.
   const fullO=worn.find(o=>o.slot==='body'&&o.full===true),baseSrc=fullO?fullO.art[id]:bodySrc(id);
@@ -189,7 +196,7 @@
   const list=outFor(pv);if(!list.length||!fullBody(pv))return '';
   const w=wornOutfit(pv);
   return '<h4>'+esc(OUTFIT_LABEL[lang()])+'</h4><div class="dcz-items">'+list.map(o=>{
-   const dflt=o.default===true,own=dflt||m.items.includes(o.id),worn=w[o.slot]===o.id;
+   const dflt=o.default===true,own=has(o.id),worn=w[o.slot]===o.id;
    const label=own?(worn?(dflt?t.on:t.off):t.equip):t.buy(Number(o.cost));
    return '<button type="button" class="dcz-item'+(worn?' on':'')+(own?' own':'')+'" data-dcz="item" data-id="'+esc(o.id)+'"><span class="dcz-ic dcz-ic-ot"><img src="'+esc(o.art[pv])+'" alt=""></span><b>'+esc(outName(o))+'</b><small>'+esc(worn&&dflt?t.on:label)+'</small></button>';
   }).join('')+'</div>';
@@ -210,7 +217,7 @@
    const pv=cur&&ORDER.includes(cur)?cur:'lion',full=fullBody(pv);
    body='<div class="dcz-prev'+(full?' dcz-prev-body':'')+'">'+(full?bodyStage(pv):stage(pv,104))+'<b>'+esc(N(cur&&ORDER.includes(cur)?cur:'lion'))+'</b><small>'+esc(owned+' / '+ITEMS.length)+'</small></div>'+kinds.map(k=>
     '<h4>'+esc(k==='fr'?FR[lang()]:t[k])+'</h4><div class="dcz-items">'+ITEMS.filter(i=>i.kind===k).map(i=>{
-     const own=m.items.includes(i.id),worn=m.eq[k]===i.id;
+     const own=has(i.id),worn=eqItem(m,k)?.id===i.id;
      const label=own?(worn?t.off:t.equip):t.buy(i.cost);
      const sw=k==='ac'?ICON[i.svg]:'';
      return '<button type="button" class="dcz-item'+(worn?' on':'')+(own?' own':'')+'" data-dcz="item" data-id="'+i.id+'"><span class="dcz-ic"'+(k==='bg'?' data-dcz-bg="'+i.id+'"':k==='fr'?' data-dcz-fr="'+i.id+'"':'')+'>'+sw+'</span><b>'+esc(itName(i.id))+'</b><small>'+esc(worn?t.on:label)+'</small></button>';
@@ -243,7 +250,7 @@
    else if(a==='lock'){try{toast(T().lockedToast(N(id),LEVELS[id]))}catch(_){}}
    else if(a==='item'){
     const m=meta();
-    if(m.items.includes(id)||item(id)?.default===true)toggleItem(id);
+    if(has(id))toggleItem(id);
     else if(buyItem(id)){try{toast(T().bought)}catch(_){}}
     else{try{toast(T().need)}catch(_){}}
     refresh();
@@ -280,7 +287,7 @@
   // Wardrobe on the profile avatar.
   const slot=document.querySelector('#profileScreenBody .dsp-avatar-slot'),m=meta();
   if(slot&&m){
-   const bg=item(m.eq.bg),ac=item(m.eq.ac),fr=item(m.eq.fr);
+   const bg=eqItem(m,'bg'),ac=eqItem(m,'ac'),fr=eqItem(m,'fr');
    if(bg)slot.dataset.dczBg=bg.id;else delete slot.dataset.dczBg;
    if(fr)slot.dataset.dczFr=fr.id;else delete slot.dataset.dczFr;
    let badge=slot.querySelector('.dcz-badge');
@@ -340,7 +347,7 @@
   :'.dcz [data-dcz-fr="'+i.id+'"],html body #profileScreenBody .dsp-avatar-slot[data-dcz-fr="'+i.id+'"]{box-shadow:'+i.css+'!important}').join('\n');
  css.textContent+=rules;
  document.head.appendChild(css);
- window.DEEN_COMPANIONS=Object.freeze({version:'companions-v6',order:ORDER.slice(),levels:Object.assign({},LEVELS),items:ITEMS.map(i=>i.id),bodyArt:BODY.slice(),outfits:()=>OUT.list.map(o=>o.id),unlocked,select,open,buyItem,toggleItem,isUnlocked:unlocked});
+ window.DEEN_COMPANIONS=Object.freeze({version:'companions-v7',order:ORDER.slice(),levels:Object.assign({},LEVELS),items:ITEMS.map(i=>i.id),bodyArt:BODY.slice(),outfits:()=>OUT.list.map(o=>o.id),unlocked,select,open,buyItem,toggleItem,isUnlocked:unlocked});
  // Wrap the engine's own chooser so a locked animal can never be selected programmatically.
  function wrap(){
   const c=window.DEEN_COMPANION;

@@ -59,6 +59,7 @@ jobs:
           node scripts/test-premium-completion-chrome.cjs
           node scripts/test-premium-hub-chrome.cjs
           node scripts/test-companions-chrome.cjs
+          node scripts/test-admin-wardrobe-chrome.cjs
           node scripts/test-arabic-v2-question-engine-chrome.cjs
           node scripts/test-arabic-pack-a-chrome.cjs
           node scripts/test-arabic-pack-b-chrome.cjs

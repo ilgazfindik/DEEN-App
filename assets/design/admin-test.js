@@ -2,7 +2,7 @@
    section for trying: the Learn path's locks (the panel's own "preview" switch), the Arabic path (letters, vowels,
    reading, words, meaning, ...), the reading-signs and letter-form units, the unit reviews and the surah path, with
    unlimited energy. Nothing is completed or erased: the switch only lifts the locks, and turns off again.
-   Under it, one tap goes into each section, including the arena, the review and the progress screen.
+   The panel also has two wardrobe switches (all wardrobe open, unlimited Sparkles). Under it, one tap goes into each section, including the arena, the review and the progress screen.
    The locks ask window.DEEN_ADMIN_UNLOCK(); it answers true once the switch has been turned on in the panel. Like the
    panel's other switches (pass everything, open every lock) it only changes this device's own progress view. */
 (()=>{
@@ -14,6 +14,37 @@
  const stored=()=>{try{return localStorage.getItem(KEY)==='1'}catch(_){return false}};
  const on=()=>stored();
  window.DEEN_ADMIN_UNLOCK=on;
+
+ /* Wardrobe test switches (same non-destructive idea as the test mode): "all wardrobe" makes every animal, backdrop, frame,
+    badge and outfit usable without buying (nothing is saved as bought); "unlimited Sparkles" keeps the balance topped up
+    and puts the real balance back when it is turned off. Own storage names, so the production guard does not purge them. */
+ const WKEY='deen_admin_all_wardrobe',SKEY='deen_admin_inf_sparkles',SPREV='deen_admin_inf_sparkles_prev',BIG=999999;
+ const flag=k=>{try{return localStorage.getItem(k)==='1'}catch(_){return false}};
+ const wardrobeOn=()=>flag(WKEY),sparklesOn=()=>flag(SKEY);
+ window.DEEN_ADMIN_WARDROBE=wardrobeOn;
+ function topUp(){
+  if(!sparklesOn())return;
+  try{if(typeof state==='object'&&state&&(Number(state.currency)||0)<BIG){state.currency=BIG;saveState?.();updateUI?.()}}catch(_){}
+ }
+ function setSparkles(v){
+  try{
+   if(v){
+    try{if(localStorage.getItem(SPREV)==null)localStorage.setItem(SPREV,String(Number(state.currency)||0))}catch(_){}
+    localStorage.setItem(SKEY,'1');topUp();
+   }else{
+    localStorage.removeItem(SKEY);
+    let prev=null;try{prev=localStorage.getItem(SPREV);localStorage.removeItem(SPREV)}catch(_){}
+    if(prev!=null&&Number.isFinite(Number(prev))){state.currency=Number(prev);saveState?.();updateUI?.()}
+   }
+  }catch(_){}
+  try{window.DEEN_ADMIN?.render?.()}catch(_){}
+  note(v?'Sınırsız Pırıltı açık.':'Sınırsız Pırıltı kapalı: gerçek bakiyen geri geldi.');
+ }
+ function setWardrobe(v){
+  try{v?localStorage.setItem(WKEY,'1'):localStorage.removeItem(WKEY)}catch(_){}
+  try{window.DEEN_ADMIN?.render?.()}catch(_){}
+  note(v?'Tüm gardırop açık: hayvanlar, arka planlar, çerçeveler, rozetler ve kıyafetler.':'Gardırop kilitleri normale döndü.');
+ }
 
  function refresh(){
   try{window.DEEN_QURAN_PATHS?.refresh?.()}catch(_){}
@@ -77,23 +108,45 @@
    '<div class="deen-admin-grid">'+GO.map(([k,l])=>'<button class="deen-admin-btn" data-adm2="go" data-arg="'+k+'">'+l+'</button>').join('')+'</div>';
   return sec;
  }
+ function buildWardrobe(){
+  const w=wardrobeOn(),sp=sparklesOn(),sec=document.createElement('section');
+  sec.id='deenAdminWardrobe';sec.className='deen-admin-section';sec.dataset.on=(w?'1':'0')+(sp?'1':'0');
+  sec.innerHTML='<h3>GARDIROP · PIRILTI</h3><div class="deen-admin-grid">'+
+   '<button class="deen-admin-btn '+(sp?'gold':'primary')+'" data-adm2="sparkles">'+(sp?'SINIRSIZ PIRILTI AÇIK':'SINIRSIZ PIRILTI')+'</button>'+
+   '<button class="deen-admin-btn '+(w?'gold':'primary')+'" data-adm2="wardrobe">'+(w?'TÜM GARDIROP AÇIK':'TÜM GARDIROBU AÇ')+'</button></div>'+
+   '<p class="deen-admin-note">Sınırsız Pırıltı bakiyeyi 999.999’da tutar; kapatınca gerçek bakiyen geri gelir (bu sırada satın aldıkların kalır). Tüm gardırop açıkken bütün hayvanlar, arka planlar, çerçeveler, rozetler ve kıyafetler ücretsiz denenebilir; hiçbiri satın alınmış sayılmaz, kapatınca kilitler geri gelir.</p>';
+  return sec;
+ }
  function inject(){
   const body=document.getElementById('deenAdminBody');if(!body)return;
   const old=document.getElementById('deenAdminTestMode');
-  if(old&&old.dataset.on===String(on()))return;
+  if(old&&old.dataset.on===String(on())){injectWardrobe();return}
   old?.remove();
   const sec=build(),status=body.querySelector('.deen-admin-status');
   if(status&&status.nextSibling)body.insertBefore(sec,status.nextSibling);else body.append(sec);
+  injectWardrobe();
+ }
+ function injectWardrobe(){
+  const body=document.getElementById('deenAdminBody');if(!body)return;
+  const key=(wardrobeOn()?'1':'0')+(sparklesOn()?'1':'0'),old=document.getElementById('deenAdminWardrobe');
+  if(old&&old.dataset.on===key)return;
+  old?.remove();
+  const test=document.getElementById('deenAdminTestMode'),sec=buildWardrobe();
+  if(test&&test.nextSibling)body.insertBefore(sec,test.nextSibling);else body.append(sec);
  }
  document.addEventListener('click',e=>{
   const b=e.target.closest?.('[data-adm2]');if(!b)return;
   e.preventDefault();e.stopPropagation();
   if(b.dataset.adm2==='toggle')set(!on());
   else if(b.dataset.adm2==='go')go(b.dataset.arg);
+  else if(b.dataset.adm2==='sparkles')setSparkles(!sparklesOn());
+  else if(b.dataset.adm2==='wardrobe')setWardrobe(!wardrobeOn());
  },true);
  // The panel draws itself again after most actions; put the section back each time.
  if(typeof MutationObserver!=='undefined')new MutationObserver(()=>{if(document.getElementById('deenAdminBody'))setTimeout(inject,0)}).observe(document.body,{childList:true,subtree:true});
  // A reload keeps the mode: lift the Learn path's locks again after each run of the production guard (100 ... 6500 ms).
  if(on())[1800,3800,5300,6800,8000].forEach(ms=>setTimeout(()=>{if(on()){legacy(true);refresh()}},ms));
- window.DEEN_ADMIN_TEST=Object.freeze({on,set,go,inject});
+ // Keep the unlimited balance topped up (spending in the store or wardrobe lowers it).
+ if(typeof setInterval!=='undefined')setInterval(topUp,1200);
+ window.DEEN_ADMIN_TEST=Object.freeze({on,set,go,inject,wardrobeOn,sparklesOn,setWardrobe,setSparkles});
 })();
