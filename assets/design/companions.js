@@ -50,7 +50,7 @@
  const itName=id=>(T().it[id]||IT2[lang()][id]||id);
  /* Layered outfits: full-body art + transparent clothing layers drawn on the same canvas (512x768).
     Layers come from assets/companions/outfits.json so new art needs no code change. */
- const BODY=['cat','lion'];
+ const BODY=['cat','lion','wolf','owl','turtle','eagle'];
  const OUT={list:[],loaded:false};
  const bodySrc=id=>'assets/companions/'+id+'/'+id+'_body.webp';
  const outItem=id=>OUT.list.find(o=>o.id===id);
