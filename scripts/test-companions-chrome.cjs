@@ -2,7 +2,16 @@
 const {chromium}=require('playwright'),http=require('node:http'),path=require('node:path'),assert=require('node:assert/strict');
 const root=path.resolve(__dirname,'..');
 const html='<!doctype html><html lang="tr"><body><dialog id="v5Sheet"><h3 id="v5SheetTitle"></h3><div id="v5SheetBody"></div></dialog><div id="profileScreenBody"><section class="dsp-id"><span class="dsp-avatar-slot"></span></section></div><div id="picker"></div></body></html>';
-const server=http.createServer((req,res)=>{res.setHeader('Content-Type','text/html');res.end(html)});
+const PNG=Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==','base64');
+const OUTFITS={items:[
+ {id:'ot_cap',slot:'head',z:30,cost:60,name:{tr:'Şapka',en:'Cap'},art:{cat:'assets/companions/outfits/cat/ot_cap.png'}},
+ {id:'ot_scarf',slot:'neck',z:20,cost:40,name:{tr:'Atkı',en:'Scarf'},art:{cat:'assets/companions/outfits/cat/ot_scarf.png',lion:'assets/companions/outfits/lion/ot_scarf.png'}},
+ {id:'bad id',slot:'head',z:1,cost:1,art:{cat:'x.png'}}
+]};
+const server=http.createServer((req,res)=>{
+ if(req.url.includes('outfits.json')){res.setHeader('Content-Type','application/json');return res.end(JSON.stringify(OUTFITS))}
+ if(/\.(png|webp)(\?|$)/.test(req.url)){res.setHeader('Content-Type','image/png');return res.end(PNG)}
+ res.setHeader('Content-Type','text/html');res.end(html)});
 (async()=>{
  await new Promise(r=>server.listen(0,'127.0.0.1',r));
  let browser;try{browser=await chromium.launch({channel:'chrome',headless:true,args:['--no-sandbox','--disable-dev-shm-usage']})}catch(_){browser=await chromium.launch({headless:true,args:['--no-sandbox']})}
@@ -68,9 +77,27 @@ const server=http.createServer((req,res)=>{res.setHeader('Content-Type','text/ht
  await page.locator('[data-id=fr_gold]').click();
  assert.equal(await ev(()=>state.currency),50,'frame costs 50');
  assert.equal(await ev(()=>state.companionMeta.eq.fr),'fr_gold');
- assert.equal(await page.locator('.dcz-prev .dcz-stage[data-dcz-fr=fr_gold]').count(),1,'frame shown on preview');
+ assert.equal(await page.locator('.dcz-prev [data-dcz-fr=fr_gold]').count(),1,'frame shown on preview');
  assert.equal(await page.locator('.dcz-prev .dcz-badge svg').count(),1,'badge is svg');
- assert.equal(await ev(()=>getComputedStyle(document.querySelector('.dcz-prev .dcz-stage')).boxShadow.includes('244, 201, 93')),true,'frame ring is styled');
+ assert.equal(await ev(()=>getComputedStyle(document.querySelector('.dcz-prev [data-dcz-fr]')).boxShadow.includes('244, 201, 93')),true,'frame ring is styled');
+ // 5b. layered outfits (full-body art + transparent layers, per animal)
+ await ev(()=>{state.currency=300;state.profile.companion='cat';DEEN_COMPANIONS.open('wardrobe')});
+ await page.locator('.dcz-body .dcz-base').waitFor();
+ await page.waitForFunction(()=>DEEN_COMPANIONS.outfits().length===2,null,{timeout:4000});
+ assert.deepEqual(await ev(()=>DEEN_COMPANIONS.outfits()),['ot_cap','ot_scarf'],'invalid outfit ids are rejected');
+ assert.equal(await page.locator('[data-id=ot_cap]').count(),1);
+ await page.locator('[data-id=ot_scarf]').click();
+ await page.locator('[data-id=ot_cap]').click();
+ assert.equal(await ev(()=>state.currency),200,'outfits cost 40+60');
+ assert.deepEqual(await page.locator('.dcz-body .dcz-layer').evaluateAll(a=>a.map(e=>e.dataset.slot+':'+e.style.zIndex)),['neck:20','head:30'],'layers stack by z');
+ await page.locator('[data-id=ot_cap]').click();
+ assert.equal(await page.locator('.dcz-body .dcz-layer').count(),1,'outfit removed');
+ await ev(()=>{state.profile.companion='lion';DEEN_COMPANIONS.open('wardrobe')});
+ await page.locator('.dcz-body').waitFor();
+ assert.equal(await page.locator('[data-id=ot_cap]').count(),0,'items without lion art stay hidden');
+ assert.equal(await page.locator('[data-id=ot_scarf]').count(),1);
+ assert.equal(await page.locator('.dcz-body .dcz-layer').count(),0,'outfits are per animal');
+ await ev(()=>{state.profile.companion='cat'});
  // 6. every language renders without throwing
  for(const l of ['tr','en','de','fr','ar']){
   await ev(l=>{window.__lang=l;DEEN_COMPANIONS.open('animals')},l);
