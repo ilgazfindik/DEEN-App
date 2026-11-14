@@ -76,27 +76,27 @@
   }).catch(()=>{})}catch(_){}
  }
  const S={
-  tr:{pickHint:'Bir eşya seç; satın almadan önce üstünde dene.',ownedL:'Sende',tryOn:'Önizleme',fresh:'Yeni',next:(a,n,x)=>'Sıradaki: '+a+' · Seviye '+n+' (' + x + ' XP kaldı)',all:'Tüm hayvanlar açık!',cele:'Yeni yol arkadaşı!',keep:'Şimdilik kalsın',room:'Hayvan Odası',animals:'Hayvanlar',wardrobe:'Gardırop',lv:n=>'Seviye '+n,locked:n=>'Seviye '+n+' ile açılır',use:'Seç',active:'Seçili',
+  tr:{tabShop:'Mağaza',tabCloset:'Gardırobum',save:'Kaydet',saved:'Kaydedildi',unsaved:'Kaydetmeden çıkmak için tekrar dokun',emptyCloset:'Henüz bir şeyin yok. Mağazadan alabilirsin.',undoL:'Geri al',redoL:'İleri al',closeL:'Kapat',pickHint:'Bir eşya seç; satın almadan önce üstünde dene.',ownedL:'Sende',tryOn:'Önizleme',fresh:'Yeni',next:(a,n,x)=>'Sıradaki: '+a+' · Seviye '+n+' (' + x + ' XP kaldı)',all:'Tüm hayvanlar açık!',cele:'Yeni yol arkadaşı!',keep:'Şimdilik kalsın',room:'Hayvan Odası',animals:'Hayvanlar',wardrobe:'Gardırop',lv:n=>'Seviye '+n,locked:n=>'Seviye '+n+' ile açılır',use:'Seç',active:'Seçili',
    unlock:(a,n)=>a+' açıldı! Hayvan Odası’ndan seçebilirsin.',lockedToast:(a,n)=>a+' için seviye '+n+' gerekiyor.',bg:'Arka plan',ac:'Rozet',none:'Yok',
    buy:c=>c+' ◇ ile al',equip:'Tak',off:'Çıkar',on:'Takılı',need:'Yeterli Pırıltı yok',bought:'Gardıroba eklendi',
    hint:'Pırıltıyı günlük ve haftalık sandıklardan, serilerden ve derslerden kazanırsın.',
    it:{bg_dune:'Çöl',bg_night:'Gece',bg_garden:'Bahçe',ac_star:'Yıldız',ac_moon:'Hilal',ac_leaf:'Yaprak'}},
-  en:{pickHint:'Pick an item to try it on before you buy.',ownedL:'Owned',tryOn:'Preview',fresh:'New',next:(a,n,x)=>'Next: '+a+' · Level '+n+' ('+x+' XP to go)',all:'All animals unlocked!',cele:'New companion!',keep:'Maybe later',room:'Animal Room',animals:'Animals',wardrobe:'Wardrobe',lv:n=>'Level '+n,locked:n=>'Unlocks at level '+n,use:'Choose',active:'Chosen',
+  en:{tabShop:'Shop',tabCloset:'My closet',save:'Save',saved:'Saved',unsaved:'Tap again to leave without saving',emptyCloset:'Nothing here yet. Get items from the shop.',undoL:'Undo',redoL:'Redo',closeL:'Close',pickHint:'Pick an item to try it on before you buy.',ownedL:'Owned',tryOn:'Preview',fresh:'New',next:(a,n,x)=>'Next: '+a+' · Level '+n+' ('+x+' XP to go)',all:'All animals unlocked!',cele:'New companion!',keep:'Maybe later',room:'Animal Room',animals:'Animals',wardrobe:'Wardrobe',lv:n=>'Level '+n,locked:n=>'Unlocks at level '+n,use:'Choose',active:'Chosen',
    unlock:a=>a+' unlocked! You can choose it in the Animal Room.',lockedToast:(a,n)=>a+' unlocks at level '+n+'.',bg:'Backdrop',ac:'Badge',none:'None',
    buy:c=>'Get for '+c+' ◇',equip:'Wear',off:'Remove',on:'Worn',need:'Not enough Sparkles',bought:'Added to your wardrobe',
    hint:'You earn Sparkles from daily and weekly chests, streaks and lessons.',
    it:{bg_dune:'Desert',bg_night:'Night',bg_garden:'Garden',ac_star:'Star',ac_moon:'Crescent',ac_leaf:'Leaf'}},
-  de:{pickHint:'Wähle ein Teil und probiere es vor dem Kauf an.',ownedL:'Im Besitz',tryOn:'Vorschau',fresh:'Neu',next:(a,n,x)=>'Als Nächstes: '+a+' · Stufe '+n+' (noch '+x+' XP)',all:'Alle Tiere freigeschaltet!',cele:'Neuer Begleiter!',keep:'Vielleicht später',room:'Tierzimmer',animals:'Tiere',wardrobe:'Garderobe',lv:n=>'Stufe '+n,locked:n=>'Ab Stufe '+n,use:'Wählen',active:'Gewählt',
+  de:{tabShop:'Shop',tabCloset:'Mein Schrank',save:'Speichern',saved:'Gespeichert',unsaved:'Erneut tippen, um ohne Speichern zu verlassen',emptyCloset:'Noch nichts da. Hol dir Teile im Shop.',undoL:'Rückgängig',redoL:'Wiederholen',closeL:'Schließen',pickHint:'Wähle ein Teil und probiere es vor dem Kauf an.',ownedL:'Im Besitz',tryOn:'Vorschau',fresh:'Neu',next:(a,n,x)=>'Als Nächstes: '+a+' · Stufe '+n+' (noch '+x+' XP)',all:'Alle Tiere freigeschaltet!',cele:'Neuer Begleiter!',keep:'Vielleicht später',room:'Tierzimmer',animals:'Tiere',wardrobe:'Garderobe',lv:n=>'Stufe '+n,locked:n=>'Ab Stufe '+n,use:'Wählen',active:'Gewählt',
    unlock:a=>a+' freigeschaltet! Du kannst es im Tierzimmer wählen.',lockedToast:(a,n)=>a+' wird auf Stufe '+n+' freigeschaltet.',bg:'Hintergrund',ac:'Abzeichen',none:'Keins',
    buy:c=>'Für '+c+' ◇ holen',equip:'Anlegen',off:'Ablegen',on:'Getragen',need:'Nicht genug Funken',bought:'Zur Garderobe hinzugefügt',
    hint:'Funken verdienst du mit täglichen und wöchentlichen Truhen, Serien und Lektionen.',
    it:{bg_dune:'Wüste',bg_night:'Nacht',bg_garden:'Garten',ac_star:'Stern',ac_moon:'Halbmond',ac_leaf:'Blatt'}},
-  fr:{pickHint:'Choisis un article et essaie-le avant de l’acheter.',ownedL:'Possédé',tryOn:'Aperçu',fresh:'Nouveau',next:(a,n,x)=>'Prochain : '+a+' · niveau '+n+' ('+x+' XP restants)',all:'Tous les animaux sont débloqués !',cele:'Nouveau compagnon !',keep:'Plus tard',room:'Salle des animaux',animals:'Animaux',wardrobe:'Garde-robe',lv:n=>'Niveau '+n,locked:n=>'Se débloque au niveau '+n,use:'Choisir',active:'Choisi',
+  fr:{tabShop:'Boutique',tabCloset:'Ma garde-robe',save:'Enregistrer',saved:'Enregistré',unsaved:'Touche à nouveau pour quitter sans enregistrer',emptyCloset:'Rien ici pour l’instant. Prends des articles à la boutique.',undoL:'Annuler',redoL:'Rétablir',closeL:'Fermer',pickHint:'Choisis un article et essaie-le avant de l’acheter.',ownedL:'Possédé',tryOn:'Aperçu',fresh:'Nouveau',next:(a,n,x)=>'Prochain : '+a+' · niveau '+n+' ('+x+' XP restants)',all:'Tous les animaux sont débloqués !',cele:'Nouveau compagnon !',keep:'Plus tard',room:'Salle des animaux',animals:'Animaux',wardrobe:'Garde-robe',lv:n=>'Niveau '+n,locked:n=>'Se débloque au niveau '+n,use:'Choisir',active:'Choisi',
    unlock:a=>a+' débloqué ! Tu peux le choisir dans la salle des animaux.',lockedToast:(a,n)=>a+' se débloque au niveau '+n+'.',bg:'Décor',ac:'Badge',none:'Aucun',
    buy:c=>'Obtenir pour '+c+' ◇',equip:'Porter',off:'Retirer',on:'Porté',need:'Pas assez d’étincelles',bought:'Ajouté à la garde-robe',
    hint:'Tu gagnes des étincelles avec les coffres quotidiens et hebdomadaires, les séries et les leçons.',
    it:{bg_dune:'Désert',bg_night:'Nuit',bg_garden:'Jardin',ac_star:'Étoile',ac_moon:'Croissant',ac_leaf:'Feuille'}},
-  ar:{pickHint:'اختر قطعة وجرّبها قبل الشراء.',ownedL:'مملوك',tryOn:'معاينة',fresh:'جديد',next:(a,n,x)=>'التالي: '+a+' · المستوى '+n+' (باقي '+x+' نقطة خبرة)',all:'تم فتح جميع الحيوانات!',cele:'رفيق جديد!',keep:'لاحقًا',room:'غرفة الحيوانات',animals:'الحيوانات',wardrobe:'خزانة الملابس',lv:n=>'المستوى '+n,locked:n=>'يُفتح عند المستوى '+n,use:'اختيار',active:'مختار',
+  ar:{tabShop:'المتجر',tabCloset:'خزانتي',save:'حفظ',saved:'تم الحفظ',unsaved:'اضغط مرة أخرى للخروج دون حفظ',emptyCloset:'لا شيء هنا بعد. احصل على قطع من المتجر.',undoL:'تراجع',redoL:'إعادة',closeL:'إغلاق',pickHint:'اختر قطعة وجرّبها قبل الشراء.',ownedL:'مملوك',tryOn:'معاينة',fresh:'جديد',next:(a,n,x)=>'التالي: '+a+' · المستوى '+n+' (باقي '+x+' نقطة خبرة)',all:'تم فتح جميع الحيوانات!',cele:'رفيق جديد!',keep:'لاحقًا',room:'غرفة الحيوانات',animals:'الحيوانات',wardrobe:'خزانة الملابس',lv:n=>'المستوى '+n,locked:n=>'يُفتح عند المستوى '+n,use:'اختيار',active:'مختار',
    unlock:a=>'تم فتح '+a+'! يمكنك اختياره من غرفة الحيوانات.',lockedToast:(a,n)=>a+' يُفتح عند المستوى '+n+'.',bg:'الخلفية',ac:'شارة',none:'بدون',
    buy:c=>'احصل عليه بـ '+c+' ◇',equip:'ارتداء',off:'إزالة',on:'مرتدى',need:'لا تكفي الشرارات',bought:'أُضيف إلى الخزانة',
    hint:'تكسب الشرارات من الصناديق اليومية والأسبوعية والسلاسل والدروس.',
@@ -180,131 +180,167 @@
  }
  const avatarSrc=id=>'assets/companions/'+id+'/'+id+'_avatar.png';
  function badgeHtml(ac){return ac?'<i class="dcz-badge" aria-hidden="true">'+ICON[ac.svg]+'</i>':''}
- // ov = the item that is only being previewed (selected, maybe not owned): it replaces what is worn in its slot.
- const pick=(m,kind,ov)=>ov&&ov.kind===kind?ov:eqItem(m,kind);
- function stage(id,size,ov){
-  const m=meta(),bg=pick(m,'bg',ov),ac=pick(m,'ac',ov),fr=pick(m,'fr',ov);
-  return '<span class="dcz-stage" style="width:'+size+'px;height:'+size+'px"'+(bg?' data-dcz-bg="'+bg.id+'"':'')+(fr?' data-dcz-fr="'+fr.id+'"':'')+'><img src="'+avatarSrc(id)+'" alt="" loading="lazy" onerror="this.replaceWith(document.createTextNode(\''+EMOJI[id]+'\'))">'+badgeHtml(ac)+'</span>';
+ /* ---------- Animal Room: a full-screen page (not a bottom sheet) ----------
+    Left/top: big stage with the animal. Bottom: panel with tabs (Shop / My closet / Animals), category icons and a 3-column grid.
+    Tapping an item only PREVIEWS it (a draft); Save buys what is not owned yet and equips everything at once. Undo/redo step through the draft. */
+ let tab='shop',cat='ot',catUser=false,freshShown=[],draft={},hist=[],fut=[],leaving=false,warned=false,room=null,onKey=null;
+ const svgI=(d,w)=>'<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="'+(w||1.8)+'" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+d+'</svg>';
+ const IC={
+  hanger:svgI('<path d="M12 7.5a2.2 2.2 0 1 0-2.2-2.2M12 7.5v1.6l8 5.4a1.6 1.6 0 0 1-.9 2.9H4.9a1.6 1.6 0 0 1-.9-2.9l8-5.4"/>'),
+  picture:svgI('<rect x="3.5" y="5" width="17" height="14" rx="2.5"/><circle cx="9" cy="10" r="1.6"/><path d="M4 17l5-4.5 3.5 3 3-2.5 4.5 4"/>'),
+  frame:svgI('<rect x="4" y="4" width="16" height="16" rx="3"/><rect x="8" y="8" width="8" height="8" rx="1.5"/>'),
+  star:svgI('<path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L12 16.9 6.8 19.6l1-5.8L3.5 9.7l5.9-.8z"/>'),
+  bag:svgI('<path d="M5 8h14l-1 11.5a1.5 1.5 0 0 1-1.5 1.4h-9A1.5 1.5 0 0 1 6 19.5zM9 8V6.5a3 3 0 0 1 6 0V8"/>'),
+  heart:svgI('<path d="M12 20s-7.5-4.7-7.5-10A4.3 4.3 0 0 1 12 7.3 4.3 4.3 0 0 1 19.5 10C19.5 15.3 12 20 12 20z"/>'),
+  paw:svgI('<circle cx="7.5" cy="10" r="1.8"/><circle cx="12" cy="7.5" r="1.8"/><circle cx="16.5" cy="10" r="1.8"/><path d="M12 12.5c-3 0-5 2.3-5 4.2 0 1.6 1.4 2.3 3 2 .8-.2 1.3-.4 2-.4s1.2.2 2 .4c1.6.3 3-.4 3-2 0-1.9-2-4.2-5-4.2z"/>'),
+  undo:svgI('<path d="M9 6L5 10l4 4"/><path d="M5 10h8.5a5 5 0 0 1 0 10H11"/>',2),
+  redo:svgI('<path d="M15 6l4 4-4 4"/><path d="M19 10h-8.5a5 5 0 0 0 0 10H13"/>',2),
+  close:svgI('<path d="M6 6l12 12M18 6L6 18"/>',2.4)
+ };
+ const CAT_ICON={ot:'hanger',bg:'picture',fr:'frame',ac:'star'};
+ const slotKey=it=>it.slot?'o:'+it.slot:it.kind;
+ const curAnimal=()=>{const c=String(app()?.profile?.companion||'');return ORDER.includes(c)?c:'lion'};
+ const hasOwn=(o,k)=>Object.prototype.hasOwnProperty.call(o,k);
+ function wornId(key,a,m){return key.startsWith('o:')?(wornOutfit(a)[key.slice(2)]||''):(eqItem(m,key)?.id||'')}
+ function defaultId(key,a){if(!key.startsWith('o:'))return '';const d=outFor(a).find(o=>o.slot===key.slice(2)&&o.default===true);return d?d.id:''}
+ const effId=(key,a,m)=>hasOwn(draft,key)?draft[key]:wornId(key,a,m);
+ function setDraft(key,id,a,m){ // id '' = take it off
+  const before=JSON.stringify(draft);
+  if(id===wornId(key,a,m))delete draft[key];else draft[key]=id;
+  const now=JSON.stringify(draft);
+  if(now!==before){hist.push(before);fut=[]}
  }
- function bodyStage(id,ov){
-  const m=meta(),bg=pick(m,'bg',ov),fr=pick(m,'fr',ov),ac=pick(m,'ac',ov),w=wornOutfit(id);
-  if(ov&&ov.slot&&ov.art&&ov.art[id])w[ov.slot]=ov.id;
-  const worn=Object.values(w).map(oid=>outItem(oid)).filter(o=>o&&o.art&&o.art[id]);
-  // A body outfit marked "full" is the whole dressed character (background removed): it replaces the plain body picture.
-  const fullO=worn.find(o=>o.slot==='body'&&o.full===true),baseSrc=fullO?fullO.art[id]:bodySrc(id);
-  const layers=worn.filter(o=>o!==fullO).sort((a,b)=>(Number(a.z)||0)-(Number(b.z)||0));
-  return '<span class="dcz-body"'+(bg?' data-dcz-bg="'+bg.id+'"':'')+(fr?' data-dcz-fr="'+fr.id+'"':'')+'><img class="dcz-base" src="'+esc(baseSrc)+'" alt="">'+layers.map(o=>'<img class="dcz-layer" data-slot="'+o.slot+'" style="z-index:'+(Number(o.z)||10)+'" src="'+esc(o.art[id])+'" alt="">').join('')+badgeHtml(ac)+'</span>';
+ function draftCost(){return Object.values(draft).filter(id=>id&&!has(id)).reduce((n,id)=>n+(Number(item(id)?.cost)||0),0)}
+ function catsFor(a){return (fullBody(a)&&outFor(a).length?['ot']:[]).concat(['bg','fr','ac'])}
+ function catItems(k,a){return k==='ot'?outFor(a):ITEMS.filter(i=>i.kind===k)}
+ function itemName(it){return it.slot?outName(it):itName(it.id)}
+ function insetShadow(css){const parts=[];let d=0,cur='';for(const ch of css){if(ch==='(')d++;if(ch===')')d--;if(ch===','&&d===0){parts.push(cur);cur=''}else cur+=ch}parts.push(cur);return parts.map(x=>'inset '+x.trim()).join(',')}
+ /* the animal on the stage: what is saved, with the draft laid over it */
+ function charHtml(a,m){
+  const full=fullBody(a),get=k=>{const id=effId(k,a,m);return id?item(id):null};
+  const ac=get('ac');let inner;
+  if(full){
+   const ov={};['head','neck','body','hand'].forEach(sl=>{const o=outItem(effId('o:'+sl,a,m));if(o&&o.art&&o.art[a]&&o.slot===sl)ov[sl]=o});
+   const fullO=ov.body&&ov.body.full===true?ov.body:null,layers=Object.values(ov).filter(o=>o!==fullO).sort((x,y)=>(Number(x.z)||0)-(Number(y.z)||0));
+   inner='<img class="dcz-base" src="'+esc(fullO?fullO.art[a]:bodySrc(a))+'" alt="">'+layers.map(o=>'<img class="dcz-layer" data-slot="'+o.slot+'" style="z-index:'+(Number(o.z)||10)+'" src="'+esc(o.art[a])+'" alt="">').join('');
+  }else inner='<img class="dcz-base dcz-av" src="'+avatarSrc(a)+'" alt="">';
+  return '<div class="dcz-char">'+inner+(ac?'<i class="dcz-badge dcz-bdg" aria-hidden="true">'+ICON[ac.svg]+'</i>':'')+'</div>';
  }
- let tab='animals',freshShown=[]; // animals that were new when the room was last opened (stays tagged while it stays open)
- /* ---- Wardrobe tab: sticky preview + action, category chips, tidy grids, colour dots for outfit families ---- */
- let cat=null,selId=null,catUser=false; // catUser: the player picked a category by hand (otherwise the first one, which can appear once outfits finish loading)
- const CAT_LABEL=t=>({ot:OUTFIT_LABEL[lang()],bg:t.bg,fr:FR[lang()],ac:t.ac});
- const groupName=g=>{const x=OUT.groups&&OUT.groups[g];return x&&x.name?(x.name[lang()]||x.name.en||x.name.tr||g):g};
- function selOk(it,a){return !!it&&(!it.slot||!!(it.art&&it.art[a]))}
- function wornNow(it,a,m){return it.slot?wornOutfit(a)[it.slot]===it.id:eqItem(m,it.kind)?.id===it.id}
- function statusOf(it,a,m,t){
-  if(wornNow(it,a,m))return {k:'worn',txt:t.on};
-  if(has(it.id))return {k:'own',txt:t.ownedL};
-  return {k:'buy',txt:'◇ '+Number(it.cost)};
+ function tileHtml(it,a,m,t){
+  const key=slotKey(it),sel=effId(key,a,m)===it.id,saved=wornId(key,a,m)===it.id,own=has(it.id);
+  const th=it.slot?'<img src="'+esc(it.art[a])+'" alt="">':it.kind==='ac'?'<span class="dcz-ico">'+ICON[it.svg]+'</span>':it.kind==='bg'?'<span class="dcz-sw" data-dcz-bg="'+it.id+'"></span>':'<span class="dcz-ring" data-dcz-fr="'+it.id+'"></span>';
+  return '<button type="button" class="dcz-tile'+(sel?' sel':'')+(saved?' saved':'')+(own?'':' lock')+'" data-dcz="tile" data-id="'+esc(it.id)+'" aria-pressed="'+sel+'"><span class="dcz-th">'+th+(sel?'<i class="dcz-ck">✓</i>':'')+(own?'':'<i class="dcz-pr">◇ '+Number(it.cost)+'</i>')+'</span><b>'+esc(itemName(it))+'</b></button>';
  }
- function catItems(k,pv){return k==='ot'?outFor(pv):ITEMS.filter(i=>i.kind===k)}
- function swatchHtml(it,pv){
-  if(it.slot)return '<span class="dcz-ic dcz-ic-ot"><img src="'+esc(it.art[pv])+'" alt=""></span>';
-  if(it.kind==='ac')return '<span class="dcz-ic">'+ICON[it.svg]+'</span>';
-  return '<span class="dcz-ic" data-dcz-'+it.kind+'="'+it.id+'"></span>';
+ function animalTile(id,t,cur){
+  const ok=unlocked(id),on=cur===id;
+  return '<button type="button" class="dcz-tile an'+(on?' sel':'')+(ok?'':' lock')+'" data-dcz="'+(ok?'pick':'lock')+'" data-id="'+id+'" aria-disabled="'+(ok?'false':'true')+'"><span class="dcz-th dcz-ath"><img src="'+avatarSrc(id)+'" alt=""'+(ok?'':' class="dcz-dim"')+'>'+(ok?'':'<b class="dcz-lk">🔒</b>')+'</span><b>'+esc(N(id))+'</b><small>'+esc(ok?(on?t.active:t.use):t.locked(LEVELS[id]))+'</small>'+(ok&&freshShown.includes(id)?'<em class="dcz-new">'+esc(t.fresh)+'</em>':'')+'</button>';
  }
- function itemCard(it,pv,m,t){
-  const st=statusOf(it,pv,m,t),nm=it.slot?outName(it):itName(it.id);
-  return '<button type="button" class="dcz-item '+st.k+(selId===it.id?' sel':'')+'" data-dcz="sel" data-id="'+esc(it.id)+'" aria-pressed="'+(selId===it.id)+'">'+swatchHtml(it,pv)+'<b>'+esc(nm)+'</b><small>'+esc(st.txt)+'</small></button>';
- }
- function groupCard(g,list,pv,m,t){
-  const w=wornOutfit(pv),cur=list.find(o=>o.id===selId)||list.find(o=>w[o.slot]===o.id)||list[0];
-  const owned=list.filter(o=>has(o.id)).length;
-  return '<div class="dcz-grp'+(list.some(o=>o.id===selId)?' sel':'')+'"><div class="dcz-grp-top"><span class="dcz-ic dcz-ic-ot"><img src="'+esc(cur.art[pv])+'" alt=""></span><span class="dcz-grp-t"><b>'+esc(groupName(g))+'</b><small>'+esc(owned+' / '+list.length)+'</small></span></div>'+
-   '<div class="dcz-dots">'+list.map(o=>{const st=statusOf(o,pv,m,t);return '<button type="button" class="dcz-dot '+st.k+(selId===o.id?' sel':'')+'" style="--c:'+esc(o.swatch||'#ccc')+'" data-dcz="sel" data-id="'+esc(o.id)+'" aria-label="'+esc(outName(o)+' · '+st.txt)+'" aria-pressed="'+(selId===o.id)+'"><i></i></button>'}).join('')+'</div></div>';
- }
- function outfitGrid(pv,m,t){
-  const list=outFor(pv),seen=[],parts=[];
-  list.forEach(o=>{
-   if(o.group){
-    if(seen.includes(o.group))return;seen.push(o.group);
-    const fam=list.filter(x=>x.group===o.group);
-    parts.push({big:fam.length>1,html:fam.length>1?groupCard(o.group,fam,pv,m,t):itemCard(fam[0],pv,m,t)});
-   }else parts.push({big:false,html:itemCard(o,pv,m,t)});
-  });
-  // families first (full width), single outfits after them in a 3-column grid
-  return parts.filter(x=>x.big).map(x=>x.html).join('')+'<div class="dcz-items">'+parts.filter(x=>!x.big).map(x=>x.html).join('')+'</div>';
- }
- function actionHtml(it,pv,m,t){
-  if(!it)return '<p class="dcz-pick">'+esc(t.pickHint)+'</p>';
-  const nm=it.slot?outName(it):itName(it.id),worn=wornNow(it,pv,m),own=has(it.id),dflt=it.default===true,afford=(Number(app()?.currency)||0)>=Number(it.cost);
-  let label,cls='',dis='';
-  if(worn){label=dflt?t.on:t.off;cls=' alt';dis=dflt?' disabled':''}
-  else if(own)label=t.equip;
-  else{label=t.buy(Number(it.cost));if(!afford)cls=' poor'}
-  return '<div class="dcz-selname"><b>'+esc(nm)+'</b>'+(own||dflt?'':'<small>'+esc(t.tryOn)+'</small>')+'</div><button type="button" class="dcz-act'+cls+'" data-dcz="act"'+dis+'>'+esc(label)+'</button>';
- }
- function wardrobeHtml(t,st,m,cur){
-  const pv=cur&&ORDER.includes(cur)?cur:'lion',full=fullBody(pv);
-  let sel=selId?item(selId):null;if(!selOk(sel,pv)){sel=null;selId=null}
-  const cats=[];if(full&&outFor(pv).length)cats.push('ot');cats.push('bg','fr','ac');
-  if(!catUser||!cats.includes(cat))cat=cats[0];
-  const labels=CAT_LABEL(t);
-  const chips=cats.map(k=>{const l=catItems(k,pv);return '<button type="button" role="tab" class="dcz-chip'+(cat===k?' on':'')+'" data-dcz="cat" data-id="'+k+'" aria-selected="'+(cat===k)+'">'+esc(labels[k])+'<small>'+l.filter(i=>has(i.id)).length+'/'+l.length+'</small></button>'}).join('');
-  const preview=full?bodyStage(pv,sel):stage(pv,120,sel);
-  const head='<div class="dcz-sticky"><div class="dcz-hd"><div class="dcz-pv'+(full?' dcz-pv-body':'')+'">'+preview+'</div><div class="dcz-side"><div class="dcz-who"><b>'+esc(N(pv))+'</b><small>◇ '+(Number(st.currency)||0)+' · '+esc(t.lv(lvl()))+'</small></div><div class="dcz-actbox">'+actionHtml(sel,pv,m,t)+'</div></div></div><div class="dcz-chips" role="tablist">'+chips+'</div></div>';
-  const items=cat==='ot'?outfitGrid(pv,m,t):'<div class="dcz-items">'+catItems(cat,pv).map(i=>itemCard(i,pv,m,t)).join('')+'</div>';
-  return head+items+'<p class="dcz-hint">'+esc(t.hint)+'</p>';
- }
- function html(){
-  const t=T(),st=app(),m=meta(),cur=String(st.profile?.companion||'');
-  let body;
+ function setHtml(el,sig,html){if(!el||el.dataset.sig===sig)return false;el.dataset.sig=sig;el.innerHTML=html;return true}
+ function paint(){
+  if(!room)return;
+  const t=T(),st=app(),m=meta(),a=curAnimal(),$=sel=>room.querySelector(sel);
+  room.dir=lang()==='ar'?'rtl':'ltr';
+  const cats=catsFor(a);if(!catUser||!cats.includes(cat))cat=cats[0]; // outfits can finish loading after the room opened: until the player picks a category by hand, show the first one
+  const cost=draftCost(),dirty=Object.keys(draft).length>0,bal=Number(st.currency)||0;
+  // top bar
+  setHtml($('.dcz-top'),[bal,lvl(),dirty,cost,lang()].join('|'),
+   '<button type="button" class="dcz-x" data-dcz="close" aria-label="'+esc(t.closeL)+'">'+IC.close+'</button>'+
+   '<span class="dcz-pill">◇ '+bal+' · '+esc(t.lv(lvl()))+'</span>'+
+   '<button type="button" class="dcz-save'+(dirty?'':' off')+'" data-dcz="save"'+(dirty?'':' disabled')+'>'+esc(t.save)+(cost>0?' ◇'+cost:'')+'</button>');
+  // stage
+  const bg=effId('bg',a,m),fr=effId('fr',a,m),stageSig=JSON.stringify([a,draft,wornId('bg',a,m),wornId('fr',a,m),wornId('ac',a,m),wornId('o:body',a,m),wornId('o:head',a,m),wornId('o:neck',a,m),hist.length,fut.length,OUT.list.length,admin()]);
+  const stEl=$('.dcz-st');
+  if(setHtml(stEl,stageSig,'<div class="dcz-floor"></div>'+charHtml(a,m)+'<div class="dcz-ur"><button type="button" data-dcz="undo" aria-label="'+esc(t.undoL)+'"'+(hist.length?'':' disabled')+'>'+IC.undo+'</button><button type="button" data-dcz="redo" aria-label="'+esc(t.redoL)+'"'+(fut.length?'':' disabled')+'>'+IC.redo+'</button></div>')||true){
+   if(bg&&item(bg))stEl.dataset.dczBg=bg;else delete stEl.dataset.dczBg;
+   if(fr&&item(fr))stEl.dataset.dczFr=fr;else delete stEl.dataset.dczFr;
+  }
+  // tabs + categories
+  const tabs=[['shop',IC.bag,t.tabShop],['closet',IC.heart,t.tabCloset],['animals',IC.paw,t.animals]];
+  setHtml($('.dcz-tabs3'),tab+'|'+lang(),tabs.map(([k,ic,l])=>'<button type="button" role="tab" class="dcz-tab'+(tab===k?' on':'')+'" data-dcz="tab" data-id="'+k+'" aria-selected="'+(tab===k)+'">'+ic+'<span>'+esc(l)+'</span></button>').join(''));
+  const labels={ot:OUTFIT_LABEL[lang()],bg:t.bg,fr:FR[lang()],ac:t.ac};
+  setHtml($('.dcz-cats'),tab+'|'+cat+'|'+cats.join(),tab==='animals'?'':cats.map(k=>'<button type="button" role="tab" class="dcz-cat'+(cat===k?' on':'')+'" data-dcz="cat" data-id="'+k+'" aria-label="'+esc(labels[k])+'" aria-selected="'+(cat===k)+'">'+IC[CAT_ICON[k]]+'</button>').join(''));
+  $('.dcz-cats').hidden=tab==='animals';
+  // grid
+  const grid=$('.dcz-grid3'),gk=tab+'|'+cat+'|'+a,keep=grid.dataset.gk===gk?grid.scrollTop:0;
+  let html;
   if(tab==='animals'){
-   const nx=nextLock(),fresh=freshShown;
-   body=(nx?'<p class="dcz-next">'+esc(t.next(N(nx),LEVELS[nx],Math.max(0,xpFor(LEVELS[nx])-(Number(st.xp)||0))))+'</p>':'<p class="dcz-next">'+esc(t.all)+'</p>')+'<div class="dcz-grid">'+ORDER.map(id=>{
-    const ok=unlocked(id),on=cur===id;
-    return '<button type="button" class="dcz-card'+(ok?'':' locked')+(on?' on':'')+'" data-dcz="'+(ok?'pick':'lock')+'" data-id="'+id+'" aria-disabled="'+(ok?'false':'true')+'">'+
-     (ok?stage(id,76):'<span class="dcz-stage dcz-dim" style="width:76px;height:76px"><img src="'+avatarSrc(id)+'" alt="" loading="lazy"><b class="dcz-lock">🔒</b></span>')+
-     (ok&&fresh.includes(id)?'<em class="dcz-new">'+esc(t.fresh)+'</em>':'')+'<b>'+esc(N(id))+'</b><small>'+esc(ok?(on?t.active:t.use):t.locked(LEVELS[id]))+'</small></button>';
-   }).join('')+'</div>'+'<div class="dcz-cur">◇ '+(Number(st.currency)||0)+' · '+esc(t.lv(lvl()))+'</div>';
-  }else body=wardrobeHtml(t,st,m,cur);
-  return '<div class="dcz" dir="'+(lang()==='ar'?'rtl':'ltr')+'"><div class="dcz-tabs" role="tablist"><button type="button" role="tab" class="'+(tab==='animals'?'on':'')+'" data-dcz="tab" data-id="animals">'+esc(t.animals)+'</button><button type="button" role="tab" class="'+(tab==='wardrobe'?'on':'')+'" data-dcz="tab" data-id="wardrobe">'+esc(t.wardrobe)+'</button></div>'+body+'</div>';
+   const nx=nextLock();
+   html=(nx?'<p class="dcz-next">'+esc(t.next(N(nx),LEVELS[nx],Math.max(0,xpFor(LEVELS[nx])-(Number(st.xp)||0))))+'</p>':'<p class="dcz-next">'+esc(t.all)+'</p>')+ORDER.map(id=>animalTile(id,t,a)).join('');
+  }else{
+   let list=catItems(cat,a);if(tab==='closet')list=list.filter(i=>has(i.id));
+   html=list.length?list.map(i=>tileHtml(i,a,m,t)).join('')+'<p class="dcz-hint">'+esc(t.hint)+'</p>':'<p class="dcz-empty">'+esc(t.emptyCloset)+'</p>';
+  }
+  if(setHtml(grid,gk+'|'+JSON.stringify(draft)+'|'+bal+'|'+freshShown.join()+'|'+OUT.list.length+'|'+admin()+'|'+lang(),html)){grid.dataset.gk=gk;grid.scrollTop=keep}
  }
+ const refresh=paint;
+ const admin=adminAll;
  function open(which){
   loadOutfits();
-  if(!app()||typeof window.sheet!=='function')return false;
-  if(which)tab=which;
-  selId=null;catUser=false; // a fresh open never previews a stale selection
+  if(!app()||typeof document==='undefined')return false;
   try{const m=meta();if(m&&Array.isArray(m.fresh)&&m.fresh.length){freshShown=m.fresh.slice();m.fresh=[];save()}else freshShown=[]}catch(_){freshShown=[]}
-  window.sheet(T().room,html());
+  tab=which==='animals'?'animals':which?'shop':(freshShown.length?'animals':'shop');
+  cat='ot';catUser=false;draft={};hist=[];fut=[];warned=false;leaving=false;
+  if(room){room.remove();room=null}
+  room=document.createElement('div');room.className='dcz dcz-room';room.setAttribute('role','dialog');room.setAttribute('aria-modal','true');room.setAttribute('aria-label',T().room);
+  room.innerHTML='<div class="dcz-top"></div><div class="dcz-st"></div><div class="dcz-panel"><div class="dcz-tabs3" role="tablist"></div><div class="dcz-cats" role="tablist"></div><div class="dcz-grid3"></div></div>';
+  (document.getElementById('phone')||document.body).appendChild(room);
+  paint();
+  onKey=e=>{if(e.key==='Escape'){e.preventDefault();closeRoom(false)}};
+  document.addEventListener('keydown',onKey);
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{if(room)room.classList.add('in')}));
   return true;
  }
- function refresh(){
-  const box=document.querySelector('.dcz');if(!box)return;
-  const y=box.closest('.sheet,#v5Sheet,[role=dialog]')?.scrollTop;
-  const tmp=document.createElement('div');tmp.innerHTML=html();box.replaceWith(tmp.firstChild);
-  if(y!=null){const p=document.querySelector('.dcz')?.closest('.sheet,#v5Sheet,[role=dialog]');if(p)p.scrollTop=y}
+ function closeRoom(force){
+  if(!room||leaving)return false;
+  if(!force&&Object.keys(draft).length&&!warned){warned=true;try{toast(T().unsaved)}catch(_){}return false}
+  leaving=true;const r=room;r.classList.remove('in');r.classList.add('out');
+  if(onKey){document.removeEventListener('keydown',onKey);onKey=null}
+  const fast=!!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  setTimeout(()=>{r.remove();if(room===r)room=null;leaving=false},fast?0:360);
+  return true;
+ }
+ function tapTile(id){
+  const it=item(id),a=curAnimal(),m=meta();if(!it||!m||!(!it.slot||(it.art&&it.art[a])))return;
+  const key=slotKey(it),eff=effId(key,a,m);
+  if(eff===id){const d=defaultId(key,a);if(d===id)return;setDraft(key,d,a,m)} // tap the chosen one again = take it off (the default robe stays)
+  else setDraft(key,id,a,m);
+  warned=false;paint();
+ }
+ function undo(){if(!hist.length)return;fut.push(JSON.stringify(draft));draft=JSON.parse(hist.pop());warned=false;paint()}
+ function redo(){if(!fut.length)return;hist.push(JSON.stringify(draft));draft=JSON.parse(fut.pop());paint()}
+ function saveDraft(){
+  const st=app(),m=meta(),a=curAnimal(),keys=Object.keys(draft);if(!st||!m||!keys.length)return false;
+  const cost=draftCost(),bal=Number(st.currency)||0;
+  if(cost>bal){try{toast(T().need)}catch(_){}return false}
+  const buy=keys.map(k=>draft[k]).filter(id=>id&&!has(id));
+  st.currency=bal-cost;buy.forEach(id=>{if(!m.items.includes(id))m.items.push(id)});
+  keys.forEach(key=>{
+   const id=draft[key];
+   if(key.startsWith('o:')){const o=m.outfit=m.outfit&&typeof m.outfit==='object'?m.outfit:{},w=o[a]=o[a]||{},slot=key.slice(2);if(!id||id===defaultId(key,a))delete w[slot];else w[slot]=id}
+   else if(id)m.eq[key]=id;else delete m.eq[key];
+  });
+  draft={};hist=[];fut=[];save();try{updateUI()}catch(_){}
+  try{toast(cost>0?T().bought:T().saved)}catch(_){}
+  closeRoom(true);
+  return true;
+ }
+ function pickAnimal(id){
+  if(!select(id))return;
+  draft={};hist=[];fut=[];warned=false;tab='shop';cat='ot';catUser=false;paint();
  }
  document.addEventListener('click',ev=>{
   const el=ev.target.closest?.('[data-dcz]');
   if(el){
    const a=el.dataset.dcz,id=el.dataset.id;
-   if(a==='tab'){tab=id;refresh()}
-   else if(a==='open'){open('animals');ev.preventDefault();return}
-   else if(a==='pick'){if(select(id)){try{closeSheet()}catch(_){}}}
+   if(a==='tab'){tab=id;paint()}
+   else if(a==='cat'){cat=id;catUser=true;paint()}
+   else if(a==='tile')tapTile(id);
+   else if(a==='undo')undo();
+   else if(a==='redo')redo();
+   else if(a==='save')saveDraft();
+   else if(a==='close')closeRoom(false);
+   else if(a==='pick')pickAnimal(id);
    else if(a==='lock'){try{toast(T().lockedToast(N(id),LEVELS[id]))}catch(_){}}
-   else if(a==='cat'){cat=id;catUser=true;refresh()}
-   else if(a==='sel'){selId=id;refresh()}
-   else if(a==='act'){
-    const it=selId?item(selId):null;
-    if(it){
-     const pv=String(app()?.profile?.companion||'');
-     if(has(it.id)){const was=wornNow(it,pv,meta());toggleItem(it.id);if(was)selId=null} // taken off: clear the selection so the preview shows the real result
-     else if(buyItem(it.id)){try{toast(T().bought)}catch(_){}}
-     else{try{toast(T().need)}catch(_){}}
-    }
-    refresh();
-   }
    ev.preventDefault();return;
   }
   /* Lock the existing pickers (onboarding + in-game chooser) for animals that are not unlocked yet. */
@@ -344,96 +380,90 @@
    if(ac){const h=ICON[ac.svg];if(!badge){badge=document.createElement('i');badge.className='dcz-badge';slot.appendChild(badge)}if(badge.dataset.k!==ac.svg){badge.dataset.k=ac.svg;badge.innerHTML=h}}else badge?.remove();
   }
  }
- document.addEventListener('click',ev=>{if(ev.target.closest?.('[data-dcz-open]')){ev.preventDefault();open('animals')}});
+ document.addEventListener('click',ev=>{if(ev.target.closest?.('[data-dcz-open]')){ev.preventDefault();open()}});
  const css=document.createElement('style');css.id='dcz-style';css.textContent=`
-.dcz{display:block;color:inherit}
-.dcz-tabs{display:flex;gap:8px;margin:2px 0 10px}
-.dcz-tabs button{flex:1;min-height:44px;border-radius:12px;border:1px solid rgba(140,235,208,.35);background:rgba(255,255,255,.06);color:inherit;font:600 14px/1 inherit;cursor:pointer}
-.dcz-tabs button.on{background:#8cebd0;color:#06232a}
-.dcz-cur{font:600 13px/1 inherit;opacity:.85;margin:0 2px 10px}
-.dcz-card{position:relative}
-.dcz-new{position:absolute;top:8px;right:8px;padding:2px 8px;border-radius:999px;background:#8cebd0;color:#06232a;font:700 11px/1.4 inherit;font-style:normal}
-.dcz-next{font-size:13px;opacity:.85;margin:0 2px 10px}
-.dcz-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.dcz-card{display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 6px;min-height:150px;border-radius:16px;border:1px solid rgba(140,235,208,.3);background:rgba(255,255,255,.05);color:inherit;cursor:pointer}
-.dcz-card.on{border-color:#9af2d9;box-shadow:0 0 0 2px rgba(154,242,217,.35)}
-.dcz-card.locked{opacity:.8}
-.dcz-card small{opacity:.8}
-.dcz-stage{position:relative;display:inline-grid;place-items:center;border-radius:50%;overflow:hidden;background:linear-gradient(145deg,#173b3e,#0c252d);box-shadow:0 4px 14px rgba(0,0,0,.35)}
-.dcz-stage img{width:100%;height:100%;object-fit:cover;border-radius:50%}
-.dcz-dim img{filter:grayscale(1) brightness(.45)}
-.dcz-lock{position:absolute;font-size:26px}
 .dcz-badge{position:absolute;right:14%;bottom:10%;width:28%;height:28%;min-width:16px;min-height:16px;display:block;filter:drop-shadow(0 1px 2px rgba(0,0,0,.55))}
-.dcz-badge svg,.dcz-ic svg{display:block;width:100%;height:100%}
-.dcz-prev{display:grid;place-items:center;gap:4px;margin:4px 0 6px;padding:14px 0 10px;border-radius:18px;background:radial-gradient(circle at 50% 30%,rgba(140,235,208,.16),rgba(255,255,255,.03))}
-.dcz-prev small{opacity:.75;font-size:12px}
-.dcz-prev .dcz-stage{margin:6px 0}
-.dcz h4{margin:12px 2px 6px;font-size:14px}
-.dcz-items{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
-.dcz-item{display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 4px;min-height:96px;border-radius:14px;border:1px solid rgba(140,235,208,.3);background:rgba(255,255,255,.05);color:inherit;cursor:pointer}
-.dcz-item.on{border-color:#9af2d9;box-shadow:0 0 0 2px rgba(154,242,217,.35)}
-.dcz-item small{font-size:11px;opacity:.85}
-.dcz-ic{display:grid;place-items:center;width:44px;height:44px;padding:0;border-radius:50%;background:rgba(255,255,255,.1)}
-.dcz-ic:not([data-dcz-bg]):not([data-dcz-fr]){padding:8px;box-sizing:border-box}
-.dcz-item.own:not(.on) small{color:#8cebd0}
-.dcz-item{transition:transform .15s}
-.dcz-item:active,.dcz-card:active{transform:scale(.97)}
-@media(prefers-reduced-motion:no-preference){.dcz-prev .dcz-stage{animation:dczFloat 3.6s ease-in-out infinite}@keyframes dczFloat{50%{transform:translateY(-3px)}}}
-.dcz-prev-body{padding:12px 0 8px}
-.dcz-body{position:relative;display:block;width:min(62vw,230px);aspect-ratio:2/3;border-radius:22px;overflow:hidden;background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02));box-shadow:0 6px 18px rgba(0,0,0,.35)}
-.dcz-body img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;pointer-events:none}
-.dcz-body .dcz-badge{width:17%;height:auto;aspect-ratio:1;right:6%;bottom:4%;z-index:99}
-.dcz-ic-ot img{width:100%;height:100%;object-fit:contain}
-.dcz-ic-ot{width:48px;height:56px;border-radius:14px;padding:3px!important;overflow:hidden}
-.dcz-sticky{position:sticky;top:0;z-index:5;margin:0 -4px 8px;padding:8px 4px 10px;background:rgba(10,36,44,.97);backdrop-filter:blur(6px);border-radius:0 0 18px 18px;border-bottom:1px solid rgba(140,235,208,.14)}
-.dcz-hd{display:flex;gap:12px;align-items:stretch}
-.dcz-pv{flex:0 0 auto;display:grid;place-items:center}
-.dcz-pv-body .dcz-body{width:112px;border-radius:16px}
-.dcz-pv .dcz-stage{margin:0}
-.dcz-side{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:space-between;gap:8px}
-.dcz-who b{display:block;font-size:17px}
-.dcz-who small{opacity:.8;font-size:12.5px}
-.dcz-actbox{display:flex;flex-direction:column;gap:8px}
-.dcz-pick{font-size:12.5px;line-height:1.35;opacity:.8;margin:0}
-.dcz-selname b{display:block;font-size:14px;line-height:1.25}
-.dcz-selname small{color:#ffd45e;font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
-.dcz-act{min-height:46px;border-radius:14px;border:0;background:#8cebd0;color:#06232a;font:700 15px/1 inherit;cursor:pointer}
-.dcz-act.alt{background:rgba(255,255,255,.08);color:inherit;border:1px solid rgba(140,235,208,.4)}
-.dcz-act.poor{background:#d9a441;color:#2a1a00}
-.dcz-act[disabled]{opacity:.6;cursor:default}
-.dcz-chips{display:flex;gap:6px;overflow-x:auto;margin-top:10px;scrollbar-width:none}
-.dcz-chips::-webkit-scrollbar{display:none}
-.dcz-chip{flex:0 0 auto;display:flex;align-items:center;gap:6px;min-height:40px;padding:0 12px;border-radius:999px;border:1px solid rgba(140,235,208,.3);background:rgba(255,255,255,.05);color:inherit;font:600 13px/1 inherit;cursor:pointer;white-space:nowrap}
-.dcz-chip small{opacity:.7;font-size:11px}
-.dcz-chip.on{background:#8cebd0;color:#06232a;border-color:#8cebd0}
-.dcz-item.sel{border-color:#9af2d9;box-shadow:0 0 0 2px rgba(154,242,217,.35)}
-.dcz-item.worn small{color:#8cebd0;font-weight:700}
-.dcz-item.own small{color:#8cebd0}
-.dcz-item.buy small{color:#ffd45e}
-.dcz-grp{padding:10px 12px 6px;margin:0 0 10px;border-radius:16px;border:1px solid rgba(140,235,208,.3);background:rgba(255,255,255,.05)}
-.dcz-grp.sel{border-color:#9af2d9;box-shadow:0 0 0 2px rgba(154,242,217,.25)}
-.dcz-grp-top{display:flex;align-items:center;gap:12px}
-.dcz-grp-t b{display:block;font-size:15px}
-.dcz-grp-t small{opacity:.75}
-.dcz-dots{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
-.dcz-dot{width:44px;height:44px;border-radius:50%;border:0;background:transparent;display:grid;place-items:center;cursor:pointer;padding:0}
-.dcz-dot i{width:30px;height:30px;border-radius:50%;background:var(--c);box-shadow:inset 0 0 0 1px rgba(255,255,255,.35)}
-.dcz-dot.buy i{opacity:.7;outline:2px dashed rgba(255,255,255,.35);outline-offset:2px}
-.dcz-dot.worn i{outline:2px solid #ffd45e;outline-offset:2px}
-.dcz-dot.sel i{outline:2px solid #8cebd0;outline-offset:2px;transform:scale(1.08)}
-.dcz-hint{font-size:12px;opacity:.7;margin:12px 2px 0}
+.dcz-badge svg{display:block;width:100%;height:100%}
 .dcz-entry{display:block;width:100%;min-height:44px;margin:10px 0;border-radius:14px;border:1px solid rgba(140,235,208,.4);background:rgba(140,235,208,.12);color:inherit;font:600 15px/1 inherit;cursor:pointer}
 .dcz-locked{opacity:.55;filter:grayscale(.8)}
 .dcz-locked small{display:none}
 .dcz-tag{position:static;display:block;margin-top:6px;font-style:normal;font-size:12px;font-weight:700;text-align:center;color:#fff}
+/* ---- full-screen room ---- */
+.dcz-room{position:absolute;inset:0;z-index:500;display:flex;flex-direction:column;overflow:hidden;color:#eff6f4;background:#081b22;opacity:0;transform:translateY(26px) scale(.985);transition:opacity .28s ease,transform .4s cubic-bezier(.2,.8,.2,1)}
+.dcz-room.in{opacity:1;transform:none}
+.dcz-room.out{opacity:0;transform:translateY(18px) scale(.99);transition:opacity .26s ease,transform .3s ease}
+.dcz-st{position:relative;flex:1 1 0;min-height:0;background:radial-gradient(ellipse at 50% 34%,#2d6d69 0,#15434a 52%,#0a232b 100%);transition:background .3s}
+.dcz-floor{position:absolute;left:0;right:0;bottom:0;height:34%;background:radial-gradient(ellipse at 50% 100%,rgba(140,235,208,.22),rgba(140,235,208,0) 62%);pointer-events:none}
+.dcz-char{position:absolute;inset:62px 0 10px;display:grid;place-items:center;opacity:0;transform:translateY(16px) scale(.96);transition:opacity .4s ease .12s,transform .5s cubic-bezier(.2,.8,.2,1) .12s}
+.dcz-room.in .dcz-char{opacity:1;transform:none}
+.dcz-char .dcz-base{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 14px 18px rgba(0,0,0,.35));animation:dczFade .24s ease}
+.dcz-char .dcz-av{inset:12% 14%;width:72%;height:76%;border-radius:50%}
+.dcz-char .dcz-layer{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;pointer-events:none;animation:dczFade .24s ease}
+.dcz-char .dcz-bdg{left:auto;right:6%;top:auto;bottom:6%;width:52px;height:52px;z-index:99}
+@keyframes dczFade{from{opacity:0}to{opacity:1}}
+@keyframes dczPop{0%{transform:scale(.94)}60%{transform:scale(1.03)}100%{transform:scale(1)}}
+.dcz-top{position:absolute;top:0;left:0;right:0;z-index:4;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:max(12px,env(safe-area-inset-top)) 64px 0 12px;pointer-events:none}
+[dir=rtl] .dcz-top{padding:max(12px,env(safe-area-inset-top)) 12px 0 64px}
+.dcz-top>*{pointer-events:auto}
+.dcz-x{flex:0 0 auto;width:44px;height:44px;border-radius:50%;border:0;background:rgba(0,0,0,.38);color:#fff;display:grid;place-items:center;cursor:pointer;backdrop-filter:blur(6px)}
+.dcz-pill{flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;text-align:center;padding:9px 12px;border-radius:999px;background:rgba(0,0,0,.34);font:600 13px/1 inherit;backdrop-filter:blur(6px);white-space:nowrap}
+.dcz-save{flex:0 0 auto;min-height:44px;padding:0 16px;border-radius:999px;border:0;background:#8cebd0;color:#06232a;font:700 15px/1 inherit;cursor:pointer;white-space:nowrap;transition:opacity .2s,transform .15s}
+.dcz-save.off{background:rgba(255,255,255,.22);color:rgba(255,255,255,.7);cursor:default}
+.dcz-save:not(.off):active{transform:scale(.96)}
+.dcz-ur{position:absolute;left:14px;bottom:14px;z-index:4;display:flex;border-radius:999px;overflow:hidden;background:rgba(0,0,0,.38);backdrop-filter:blur(6px)}
+.dcz-ur button{width:48px;height:44px;border:0;background:transparent;color:#fff;display:grid;place-items:center;cursor:pointer}
+.dcz-ur button+button{border-left:1px solid rgba(255,255,255,.14)}
+.dcz-ur button:disabled{opacity:.35;cursor:default}
+[dir=rtl] .dcz-ur{left:auto;right:14px}
+[dir=rtl] .dcz-ur button+button{border-left:0;border-right:1px solid rgba(255,255,255,.14)}
+.dcz-panel{position:relative;z-index:5;flex:0 0 clamp(300px,47%,450px);display:flex;flex-direction:column;min-height:0;border-radius:26px 26px 0 0;background:rgba(9,32,40,.97);box-shadow:0 -12px 40px rgba(0,0,0,.4);transform:translateY(100%);transition:transform .46s cubic-bezier(.2,.8,.2,1) .05s}
+.dcz-room.in .dcz-panel{transform:none}
+.dcz-room.out .dcz-panel{transform:translateY(40%);transition:transform .3s ease}
+.dcz-tabs3{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid rgba(255,255,255,.08)}
+.dcz-tab{display:flex;flex-direction:column;align-items:center;gap:4px;padding:12px 4px 9px;border:0;background:transparent;color:rgba(239,246,244,.62);font:600 12.5px/1 inherit;cursor:pointer;border-bottom:3px solid transparent;transition:color .2s,border-color .2s}
+.dcz-tab.on{color:#fff;border-bottom-color:#8cebd0}
+.dcz-cats{display:flex;justify-content:space-around;padding:4px 8px;border-bottom:1px solid rgba(255,255,255,.08)}
+.dcz-cats[hidden]{display:none}
+.dcz-cat{flex:1;height:48px;border:0;background:transparent;color:rgba(239,246,244,.55);display:grid;place-items:center;cursor:pointer;border-bottom:3px solid transparent;transition:color .2s,border-color .2s}
+.dcz-cat.on{color:#8cebd0;border-bottom-color:#8cebd0}
+.dcz-grid3{flex:1 1 0;min-height:0;overflow-y:auto;overscroll-behavior:contain;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:max-content;gap:10px;align-content:start;padding:12px 14px calc(20px + env(safe-area-inset-bottom))}
+.dcz-grid3>.dcz-hint,.dcz-grid3>.dcz-empty,.dcz-grid3>.dcz-next{grid-column:1/-1}
+.dcz-next{font-size:13px;opacity:.85;margin:0 2px 2px}
+.dcz-empty{text-align:center;opacity:.75;margin:24px 8px;font-size:14px}
+.dcz-tile{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:6px;padding:7px 6px 8px;height:auto;min-height:0;flex:none;border-radius:16px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.06);color:inherit;cursor:pointer;min-width:0}
+.dcz-tile b{font:600 11.5px/1.2 inherit;text-align:center;overflow-wrap:anywhere;min-height:2.4em;display:flex;align-items:center}
+.dcz-tile small{font-size:11px;opacity:.75}
+.dcz-tile.sel{border-color:#9af2d9;background:rgba(140,235,208,.14);animation:dczPop .26s ease}
+.dcz-tile.saved:not(.sel){border-color:rgba(255,212,94,.5)}
+.dcz-th{position:relative;display:block;width:100%;height:auto;aspect-ratio:3/4;flex:0 0 auto;border-radius:12px;overflow:hidden;background:rgba(255,255,255,.05)}
+.dcz-th>img,.dcz-th>.dcz-sw,.dcz-th>.dcz-ring,.dcz-th>.dcz-ico,.dcz-th>.dcz-lk{position:absolute}
+.dcz-th>img{inset:0;width:100%;height:100%;object-fit:contain}
+.dcz-ath{width:80%;aspect-ratio:1/1;border-radius:50%;margin-top:4px}
+.dcz-ath>img{object-fit:cover;border-radius:50%}
+.dcz-dim{filter:grayscale(1) brightness(.45)}
+.dcz-lk{inset:0;display:grid;place-items:center;font-size:24px}
+.dcz-sw{inset:0;display:block}
+.dcz-ring{left:21%;right:21%;top:50%;aspect-ratio:1/1;transform:translateY(-50%);display:block;border-radius:50%;background:rgba(255,255,255,.08)}
+.dcz-ico{left:24%;right:24%;top:50%;aspect-ratio:1/1;transform:translateY(-50%);display:block}
+.dcz-ico svg{display:block;width:100%;height:100%}
+.dcz-ck{position:absolute;top:6px;right:6px;width:22px;height:22px;border-radius:50%;background:#8cebd0;color:#06232a;display:grid;place-items:center;font:800 13px/1 inherit;font-style:normal}
+.dcz-pr{position:absolute;right:6px;bottom:6px;padding:3px 7px;border-radius:999px;background:rgba(10,30,36,.88);border:1px solid rgba(255,212,94,.55);color:#ffd45e;font:700 11px/1.2 inherit;font-style:normal}
+[dir=rtl] .dcz-ck{right:auto;left:6px}
+[dir=rtl] .dcz-pr{right:auto;left:6px}
+.dcz-new{position:absolute;top:8px;right:8px;padding:2px 8px;border-radius:999px;background:#8cebd0;color:#06232a;font:700 11px/1.4 inherit;font-style:normal}
+.dcz-tile.lock.an{opacity:.8}
+.dcz-hint{font-size:12px;opacity:.65;margin:6px 2px 0}
+@media(max-height:700px){.dcz-panel{flex-basis:clamp(260px,44%,340px)}.dcz-char{inset:56px 0 4px}.dcz-tab{padding:9px 4px 7px}.dcz-cat{height:42px}.dcz-tile b{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.dcz-room,.dcz-room.in,.dcz-room.out,.dcz-panel,.dcz-room.in .dcz-panel,.dcz-char,.dcz-room.in .dcz-char{transition:none!important;transform:none!important}.dcz-char .dcz-base,.dcz-char .dcz-layer,.dcz-tile.sel{animation:none!important}.dcz-room.out{opacity:0}}
 `;
  // Item looks are generated from the ITEMS table so previews, swatches and the profile avatar always agree.
  const rules=ITEMS.filter(i=>i.kind!=='ac').map(i=>i.kind==='bg'
   ?'.dcz [data-dcz-bg="'+i.id+'"],html body #profileScreenBody .dsp-avatar-slot[data-dcz-bg="'+i.id+'"]{background:'+i.css+'!important}'
   :'.dcz [data-dcz-fr="'+i.id+'"],html body #profileScreenBody .dsp-avatar-slot[data-dcz-fr="'+i.id+'"]{box-shadow:'+i.css+'!important}').join('\n');
- css.textContent+=rules;
+ const stageRules=ITEMS.filter(i=>i.kind==='fr').map(i=>'.dcz .dcz-st[data-dcz-fr="'+i.id+'"]{box-shadow:'+insetShadow(i.css)+'!important}').join('\n');
+ css.textContent+=rules+'\n'+stageRules;
  document.head.appendChild(css);
- window.DEEN_COMPANIONS=Object.freeze({version:'companions-v8',order:ORDER.slice(),levels:Object.assign({},LEVELS),items:ITEMS.map(i=>i.id),bodyArt:BODY.slice(),outfits:()=>OUT.list.map(o=>o.id),unlocked,select,open,buyItem,toggleItem,isUnlocked:unlocked});
+ window.DEEN_COMPANIONS=Object.freeze({version:'companions-v9',order:ORDER.slice(),levels:Object.assign({},LEVELS),items:ITEMS.map(i=>i.id),bodyArt:BODY.slice(),outfits:()=>OUT.list.map(o=>o.id),unlocked,select,open,close:()=>closeRoom(true),isOpen:()=>!!room,save:saveDraft,buyItem,toggleItem,isUnlocked:unlocked});
  // Wrap the engine's own chooser so a locked animal can never be selected programmatically.
  function wrap(){
   const c=window.DEEN_COMPANION;

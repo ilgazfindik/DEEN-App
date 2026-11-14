@@ -48,91 +48,146 @@ const server=http.createServer((req,res)=>{
  assert.equal(await ev(()=>DEEN_COMPANIONS.unlocked('wolf')),true);
  await page.waitForFunction(()=>window.toasts.some(t=>/Kurt/.test(t)&&/açıldı/.test(t)),null,{timeout:4000});
  assert.equal(await page.locator('#v5Sheet[open]').count(),0,'unlocking never pops a modal over other screens');
+ await ev(()=>DEEN_COMPANIONS.open());
+ assert.equal(await page.locator('.dcz-tab.on[data-id=animals]').count(),1,'a new animal opens the Animals tab');
+ assert.equal(await page.locator('.dcz-tile .dcz-new').count(),1,'new animal is tagged in the Animal Room');
+ await ev(()=>DEEN_COMPANIONS.close());
+ await page.waitForFunction(()=>!document.querySelector('.dcz-room'));
  await ev(()=>DEEN_COMPANIONS.open('animals'));
- assert.equal(await page.locator('.dcz-card .dcz-new').count(),1,'new animal is tagged in the Animal Room');
- await ev(()=>DEEN_COMPANIONS.open('animals'));
- assert.equal(await page.locator('.dcz-card .dcz-new').count(),0,'the tag disappears after it was seen');
+ assert.equal(await page.locator('.dcz-tile .dcz-new').count(),0,'the tag disappears after it was seen');
  assert.match(await page.locator('.dcz-next').innerText(),/Baykuş · Seviye 3/,'next unlock line');
  assert.equal(await ev(()=>DEEN_COMPANIONS.levels.eagle),7);
  // 4. grandfathering: an old choice stays usable at level 1
  await ev(()=>{window.state.xp=0;window.state.profile.companion='eagle'});
  assert.equal(await ev(()=>DEEN_COMPANIONS.unlocked('eagle')),true);
  await ev(()=>{window.state.profile.companion='cat'});
- // 5. animal room + wardrobe
+ // 5. full-screen room (not a bottom sheet)
+ await ev(()=>DEEN_COMPANIONS.close());
+ await page.waitForFunction(()=>!document.querySelector('.dcz-room'));
  await page.waitForSelector('#dczEntry');
  await ev(()=>closeSheet());
  await page.locator('#dczEntry').click();
- await page.locator('.dcz-card').first().waitFor();
- assert.equal(await page.locator('.dcz-card').count(),6);
- assert.equal(await page.locator('.dcz-card.locked').count(),3,'wolf is open (level 2), 3 remain locked');
+ await page.locator('.dcz-room.in').waitFor();
+ assert.equal(await page.locator('#v5Sheet[open]').count(),0,'the room is its own page, not the bottom sheet');
+ await page.waitForFunction(()=>getComputedStyle(document.querySelector('.dcz-panel')).transform==='none',null,{timeout:4000});
+ assert.equal(await page.locator('.dcz-tab').count(),3,'Shop / My closet / Animals');
+ const tabk=k=>page.locator('[data-dcz=tab][data-id='+k+']').click();
  const cat=k=>page.locator('[data-dcz=cat][data-id='+k+']').click();
- const sel=id=>page.locator('[data-dcz=sel][data-id='+id+']').click();
- const act=()=>page.locator('[data-dcz=act]').click();
- await page.locator('[data-dcz=tab][data-id=wardrobe]').click();
- assert.equal(await ev(()=>getComputedStyle(document.querySelector('.dcz-sticky')).position),'sticky','preview and action stay in view while the list scrolls');
- // try it on first: selecting previews the item but neither buys nor wears it
- await cat('bg');await sel('bg_dune');
- assert.equal(await page.locator('.dcz-pv [data-dcz-bg=bg_dune]').count(),1,'selected backdrop is previewed');
- assert.equal(await ev(()=>state.currency),100,'selecting does not charge');
- assert.equal(await ev(()=>state.companionMeta.eq.bg),undefined,'selecting does not wear');
- assert.match(await page.locator('.dcz-selname small').textContent(),/Önizleme/,'unowned item is marked as preview');
- await act();
+ const tile=id=>page.locator('[data-dcz=tile][data-id='+id+']').click();
+ const save=()=>page.locator('[data-dcz=save]').click();
+ const closed=()=>page.waitForFunction(()=>!document.querySelector('.dcz-room'));
+ const openRoom=async(which)=>{await ev(w=>DEEN_COMPANIONS.open(w),which);await page.locator('.dcz-room.in').waitFor()};
+ await tabk('animals');
+ assert.equal(await page.locator('.dcz-tile.an').count(),6);
+ assert.equal(await page.locator('.dcz-tile.an.lock').count(),3,'wolf is open (level 2), 3 remain locked');
+ await tabk('shop');
+ // try it on first: a tap only previews; Save buys and equips everything at once
+ await cat('bg');await tile('bg_dune');
+ assert.equal(await page.locator('.dcz-st[data-dcz-bg=bg_dune]').count(),1,'selected backdrop is previewed on the stage');
+ assert.equal(await ev(()=>state.currency),100,'previewing does not charge');
+ assert.equal(await ev(()=>state.companionMeta.eq.bg),undefined,'previewing does not wear');
+ assert.match(await page.locator('[data-dcz=save]').textContent(),/30/,'Save shows what it will cost');
+ await save();await closed();
  assert.equal(await ev(()=>state.currency),70,'backdrop costs 30');
  assert.equal(await ev(()=>state.companionMeta.eq.bg),'bg_dune');
- await cat('ac');await sel('ac_star');await act();
- assert.equal(await ev(()=>state.currency),25);
+ // several slots in one go: total price, one Save
+ await ev(()=>{state.currency=100});
+ await openRoom('wardrobe');
+ await cat('bg');await tile('bg_night');await cat('ac');await tile('ac_star');
+ assert.match(await page.locator('[data-dcz=save]').textContent(),/75/,'30 + 45 in one Save');
+ // undo / redo step through the draft
+ await page.locator('[data-dcz=undo]').click();
+ assert.match(await page.locator('[data-dcz=save]').textContent(),/30/,'undo removes the badge');
+ await page.locator('[data-dcz=redo]').click();
+ assert.match(await page.locator('[data-dcz=save]').textContent(),/75/,'redo brings it back');
+ // leaving with unsaved changes asks first
+ await page.locator('[data-dcz=close]').click();
+ assert.equal(await page.locator('.dcz-room').count(),1,'first tap on X only warns');
+ assert.ok((await ev(()=>window.toasts)).some(x=>/Kaydetmeden/.test(x)));
+ await page.locator('[data-dcz=close]').click();await closed();
+ assert.equal(await ev(()=>state.currency),100,'discarded draft costs nothing');
+ await openRoom('wardrobe');
+ await cat('bg');await tile('bg_night');await cat('ac');await tile('ac_star');await save();await closed();
+ assert.equal(await ev(()=>state.currency),25,'both bought in one Save');
+ assert.equal(await ev(()=>state.companionMeta.eq.ac),'ac_star');
+ // not enough Sparkles: nothing is applied and the room stays open
  await ev(()=>{state.currency=10});
- await sel('ac_moon');
- assert.equal(await page.locator('.dcz-act.poor').count(),1,'not enough Sparkles is shown on the button');
- await act();
+ await openRoom('wardrobe');
+ await cat('ac');await tile('ac_moon');await save();
+ assert.equal(await page.locator('.dcz-room').count(),1,'room stays open when the price is too high');
  assert.equal(await ev(()=>state.currency),10,'no purchase without enough sparkles');
  assert.ok(!(await ev(()=>state.companionMeta.items.includes('ac_moon'))));
- await cat('bg');await sel('bg_dune');await act(); // worn -> take off
- assert.equal(await ev(()=>state.companionMeta.eq.bg),undefined);
- await ev(()=>{state.currency=100});
+ // tapping the chosen item again takes it off
+ await cat('bg');await tile('bg_dune'); // owned: previewed for free
+ assert.equal(await page.locator('.dcz-st[data-dcz-bg=bg_dune]').count(),1);
+ await tile('bg_dune');
+ assert.equal(await page.locator('.dcz-st[data-dcz-bg]').count(),0,'tap again = no backdrop');
+ await ev(()=>DEEN_COMPANIONS.close());await closed();
+ // My closet shows only what is owned
+ await openRoom('wardrobe');await tabk('closet');await cat('bg');
+ assert.equal(await page.locator('.dcz-tile').count(),2,'two backdrops owned (dune, night)');
+ await cat('fr');
+ assert.equal(await page.locator('.dcz-tile').count(),0,'no frame owned yet');
+ assert.equal(await page.locator('.dcz-empty').count(),1,'empty state is explained');
+ await ev(()=>{state.currency=100;DEEN_COMPANIONS.close()});await closed();
  assert.equal(await ev(()=>DEEN_COMPANIONS.items.length),18);
- await cat('fr');await sel('fr_gold');await act();
+ await openRoom('wardrobe');
+ await cat('fr');await tile('fr_gold');await save();await closed();
  assert.equal(await ev(()=>state.currency),50,'frame costs 50');
- assert.equal(await ev(()=>state.companionMeta.eq.fr),'fr_gold');
- assert.equal(await page.locator('.dcz-pv [data-dcz-fr=fr_gold]').count(),1,'frame shown on preview');
- assert.equal(await page.locator('.dcz-pv .dcz-badge svg').count(),1,'badge is svg');
- assert.equal(await ev(()=>getComputedStyle(document.querySelector('.dcz-pv [data-dcz-fr]')).boxShadow.includes('244, 201, 93')),true,'frame ring is styled');
- // 5b. layered outfits (full-body art + transparent layers, per animal)
- await ev(()=>{state.currency=300;state.profile.companion='cat';DEEN_COMPANIONS.open('wardrobe')});
- await page.locator('.dcz-body .dcz-base').waitFor();
+ await openRoom('wardrobe');
+ assert.equal(await page.locator('.dcz-st[data-dcz-fr=fr_gold]').count(),1,'frame shown on the stage');
+ assert.equal(await page.locator('.dcz-char .dcz-badge svg').count(),1,'badge is svg');
+ assert.equal(await ev(()=>getComputedStyle(document.querySelector('.dcz-st[data-dcz-fr]')).boxShadow.includes('inset')),true,'the frame is an inner glow on the full-bleed stage');
+ await ev(()=>DEEN_COMPANIONS.close());await closed();
+ // 5b. outfits: full-body art + transparent layers, per animal
+ await ev(()=>{state.currency=300;state.profile.companion='cat'});
+ await openRoom('wardrobe');
+ await page.locator('.dcz-char .dcz-base').waitFor();
  await page.waitForFunction(()=>DEEN_COMPANIONS.outfits().length===4,null,{timeout:4000});
  assert.deepEqual(await ev(()=>DEEN_COMPANIONS.outfits()),['ot_robe','ot_robe_blue','ot_cap','ot_scarf'],'invalid outfit ids are rejected');
+ assert.equal(await page.locator('[data-dcz=cat][data-id=ot]').count(),1);
  await cat('ot');
- assert.equal(await page.locator('.dcz-grp .dcz-dot').count(),2,'a family of colours is one card with colour dots');
- assert.equal(await page.locator('[data-id=ot_cap]').count(),1);
- await sel('ot_scarf');await act();
- await sel('ot_cap');await act();
+ assert.equal(await page.locator('[data-dcz=tile][data-id=ot_cap]').count(),1);
+ await tile('ot_scarf');await tile('ot_cap');
+ assert.deepEqual(await page.locator('.dcz-char .dcz-layer').evaluateAll(a=>a.map(e=>e.dataset.slot+':'+e.style.zIndex)),['neck:20','head:30'],'layers stack by z over the full dressed character');
+ await save();await closed();
  assert.equal(await ev(()=>state.currency),200,'outfits cost 40+60; the default robe is free');
- assert.deepEqual(await page.locator('.dcz-body .dcz-layer').evaluateAll(a=>a.map(e=>e.dataset.slot+':'+e.style.zIndex)),['neck:20','head:30'],'layers stack by z over the full dressed character');
- await sel('ot_cap');await act(); // worn -> take off
- assert.equal(await page.locator('.dcz-body .dcz-layer').count(),1,'cap removed');
+ await openRoom('wardrobe');await cat('ot');
+ assert.equal(await page.locator('.dcz-char .dcz-layer').count(),2,'saved outfit is worn when the room opens');
+ await tile('ot_cap'); // tap the chosen one again = take it off
+ assert.equal(await page.locator('.dcz-char .dcz-layer').count(),1,'cap taken off in the draft');
+ await save();await closed();
  await ev(()=>{state.currency=300});
- await sel('ot_robe_blue');
- assert.match(await page.locator('.dcz-body .dcz-base').getAttribute('src'),/ot_robe_blue\.png/,'a colour is previewed before it is bought');
+ await openRoom('wardrobe');await cat('ot');
+ await tile('ot_robe_blue');
+ assert.match(await page.locator('.dcz-char .dcz-base').getAttribute('src'),/ot_robe_blue\.png/,'a colour is previewed before it is bought');
  assert.equal(await ev(()=>state.currency),300,'previewing does not charge');
- await act();
+ await save();await closed();
  assert.equal(await ev(()=>state.currency),240,'second robe costs 60');
- await act(); // worn -> take off
- assert.match(await page.locator('.dcz-body .dcz-base').getAttribute('src'),/ot_robe\.png/,'taking it off brings the default robe back');
- await ev(()=>{state.currency=200});
- await sel('ot_robe');
- assert.equal(await page.locator('.dcz-act[disabled]').count(),1,'the default robe cannot be taken off');
- assert.match(await page.locator('.dcz-body .dcz-base').getAttribute('src'),/ot_robe\.png/,'the default full robe is the base picture');
- await ev(()=>{state.profile.companion='lion';DEEN_COMPANIONS.open('wardrobe')});
- await page.locator('.dcz-pv .dcz-stage').waitFor();
- assert.equal(await page.locator('.dcz-body').count(),0,'no full-body view (bare body) for an animal without a default outfit');
+ await openRoom('wardrobe');await cat('ot');
+ await tile('ot_robe_blue'); // take it off
+ assert.match(await page.locator('.dcz-char .dcz-base').getAttribute('src'),/ot_robe\.png/,'taking it off brings the default robe back');
+ await tile('ot_robe'); // the default stays
+ assert.match(await page.locator('.dcz-char .dcz-base').getAttribute('src'),/ot_robe\.png/,'the default robe cannot be taken off');
+ await ev(()=>DEEN_COMPANIONS.close());await closed();
+ await ev(()=>{state.profile.companion='lion'});
+ await openRoom('wardrobe');
  assert.equal(await page.locator('[data-dcz=cat][data-id=ot]').count(),0,'no outfit category for an animal without outfits');
+ assert.equal(await page.locator('.dcz-char .dcz-av').count(),1,'no bare full-body view for an animal without a default outfit');
+ await ev(()=>DEEN_COMPANIONS.close());await closed();
  await ev(()=>{state.profile.companion='cat'});
+ // closing animation removes the room
+ await openRoom('wardrobe');
+ await page.locator('[data-dcz=close]').click();
+ await page.waitForFunction(()=>document.querySelector('.dcz-room')?.classList.contains('out')||!document.querySelector('.dcz-room'));
+ await closed();
  // 6. every language renders without throwing
  for(const l of ['tr','en','de','fr','ar']){
   await ev(l=>{window.__lang=l;DEEN_COMPANIONS.open('animals')},l);
-  assert.equal(await page.locator('.dcz-card').count(),6,l);
-  assert.equal(await page.locator('.dcz').getAttribute('dir'),l==='ar'?'rtl':'ltr');
+  assert.equal(await page.locator('.dcz-tile.an').count(),6,l);
+  assert.equal(await page.locator('.dcz-room').getAttribute('dir'),l==='ar'?'rtl':'ltr');
+  await ev(()=>DEEN_COMPANIONS.close());
+  await page.waitForFunction(()=>!document.querySelector('.dcz-room'));
  }
  assert.deepEqual(errors,[]);
  await browser.close();server.close();
