@@ -3,9 +3,9 @@ const {chromium}=require('playwright'),http=require('node:http'),path=require('n
 const root=path.resolve(__dirname,'..');
 const html='<!doctype html><html lang="tr"><body><dialog id="v5Sheet"><h3 id="v5SheetTitle"></h3><div id="v5SheetBody"></div></dialog><div id="profileScreenBody"><section class="dsp-id"><span class="dsp-avatar-slot"></span></section></div><div id="picker"></div></body></html>';
 const PNG=Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==','base64');
-const OUTFITS={items:[
- {id:'ot_robe',slot:'body',z:10,cost:0,default:true,full:true,name:{tr:'Cübbe',en:'Thobe'},art:{cat:'assets/companions/outfits/cat/ot_robe.png'}},
- {id:'ot_robe_blue',slot:'body',z:10,cost:60,full:true,name:{tr:'Mavi',en:'Blue'},art:{cat:'assets/companions/outfits/cat/ot_robe_blue.png'}},
+const OUTFITS={groups:{robes:{name:{tr:'Cübbe',en:'Thobe'}}},items:[
+ {id:'ot_robe',slot:'body',z:10,cost:0,default:true,full:true,group:'robes',swatch:'#f4f4f6',name:{tr:'Cübbe',en:'Thobe'},art:{cat:'assets/companions/outfits/cat/ot_robe.png'}},
+ {id:'ot_robe_blue',slot:'body',z:10,cost:60,full:true,group:'robes',swatch:'#5678a8',name:{tr:'Mavi',en:'Blue'},art:{cat:'assets/companions/outfits/cat/ot_robe_blue.png'}},
  {id:'ot_cap',slot:'head',z:30,cost:60,name:{tr:'Şapka',en:'Cap'},art:{cat:'assets/companions/outfits/cat/ot_cap.png'}},
  {id:'ot_scarf',slot:'neck',z:20,cost:40,name:{tr:'Atkı',en:'Scarf'},art:{cat:'assets/companions/outfits/cat/ot_scarf.png',lion:'assets/companions/outfits/lion/ot_scarf.png'}},
  {id:'bad id',slot:'head',z:1,cost:1,art:{cat:'x.png'}}
@@ -65,52 +65,68 @@ const server=http.createServer((req,res)=>{
  await page.locator('.dcz-card').first().waitFor();
  assert.equal(await page.locator('.dcz-card').count(),6);
  assert.equal(await page.locator('.dcz-card.locked').count(),3,'wolf is open (level 2), 3 remain locked');
+ const cat=k=>page.locator('[data-dcz=cat][data-id='+k+']').click();
+ const sel=id=>page.locator('[data-dcz=sel][data-id='+id+']').click();
+ const act=()=>page.locator('[data-dcz=act]').click();
  await page.locator('[data-dcz=tab][data-id=wardrobe]').click();
- await page.locator('[data-id=bg_dune]').click();
+ assert.equal(await ev(()=>getComputedStyle(document.querySelector('.dcz-sticky')).position),'sticky','preview and action stay in view while the list scrolls');
+ // try it on first: selecting previews the item but neither buys nor wears it
+ await cat('bg');await sel('bg_dune');
+ assert.equal(await page.locator('.dcz-pv [data-dcz-bg=bg_dune]').count(),1,'selected backdrop is previewed');
+ assert.equal(await ev(()=>state.currency),100,'selecting does not charge');
+ assert.equal(await ev(()=>state.companionMeta.eq.bg),undefined,'selecting does not wear');
+ assert.match(await page.locator('.dcz-selname small').textContent(),/Önizleme/,'unowned item is marked as preview');
+ await act();
  assert.equal(await ev(()=>state.currency),70,'backdrop costs 30');
  assert.equal(await ev(()=>state.companionMeta.eq.bg),'bg_dune');
- await page.locator('[data-id=ac_star]').click();
+ await cat('ac');await sel('ac_star');await act();
  assert.equal(await ev(()=>state.currency),25);
  await ev(()=>{state.currency=10});
- await page.locator('[data-id=ac_moon]').click();
+ await sel('ac_moon');
+ assert.equal(await page.locator('.dcz-act.poor').count(),1,'not enough Sparkles is shown on the button');
+ await act();
  assert.equal(await ev(()=>state.currency),10,'no purchase without enough sparkles');
  assert.ok(!(await ev(()=>state.companionMeta.items.includes('ac_moon'))));
- await page.locator('[data-id=bg_dune]').click(); // un-wear
+ await cat('bg');await sel('bg_dune');await act(); // worn -> take off
  assert.equal(await ev(()=>state.companionMeta.eq.bg),undefined);
  await ev(()=>{state.currency=100});
  assert.equal(await ev(()=>DEEN_COMPANIONS.items.length),18);
- await page.locator('[data-id=fr_gold]').click();
+ await cat('fr');await sel('fr_gold');await act();
  assert.equal(await ev(()=>state.currency),50,'frame costs 50');
  assert.equal(await ev(()=>state.companionMeta.eq.fr),'fr_gold');
- assert.equal(await page.locator('.dcz-prev [data-dcz-fr=fr_gold]').count(),1,'frame shown on preview');
- assert.equal(await page.locator('.dcz-prev .dcz-badge svg').count(),1,'badge is svg');
- assert.equal(await ev(()=>getComputedStyle(document.querySelector('.dcz-prev [data-dcz-fr]')).boxShadow.includes('244, 201, 93')),true,'frame ring is styled');
+ assert.equal(await page.locator('.dcz-pv [data-dcz-fr=fr_gold]').count(),1,'frame shown on preview');
+ assert.equal(await page.locator('.dcz-pv .dcz-badge svg').count(),1,'badge is svg');
+ assert.equal(await ev(()=>getComputedStyle(document.querySelector('.dcz-pv [data-dcz-fr]')).boxShadow.includes('244, 201, 93')),true,'frame ring is styled');
  // 5b. layered outfits (full-body art + transparent layers, per animal)
  await ev(()=>{state.currency=300;state.profile.companion='cat';DEEN_COMPANIONS.open('wardrobe')});
  await page.locator('.dcz-body .dcz-base').waitFor();
  await page.waitForFunction(()=>DEEN_COMPANIONS.outfits().length===4,null,{timeout:4000});
  assert.deepEqual(await ev(()=>DEEN_COMPANIONS.outfits()),['ot_robe','ot_robe_blue','ot_cap','ot_scarf'],'invalid outfit ids are rejected');
+ await cat('ot');
+ assert.equal(await page.locator('.dcz-grp .dcz-dot').count(),2,'a family of colours is one card with colour dots');
  assert.equal(await page.locator('[data-id=ot_cap]').count(),1);
- await page.locator('[data-id=ot_scarf]').click();
- await page.locator('[data-id=ot_cap]').click();
+ await sel('ot_scarf');await act();
+ await sel('ot_cap');await act();
  assert.equal(await ev(()=>state.currency),200,'outfits cost 40+60; the default robe is free');
  assert.deepEqual(await page.locator('.dcz-body .dcz-layer').evaluateAll(a=>a.map(e=>e.dataset.slot+':'+e.style.zIndex)),['neck:20','head:30'],'layers stack by z over the full dressed character');
- await page.locator('[data-id=ot_cap]').click();
+ await sel('ot_cap');await act(); // worn -> take off
  assert.equal(await page.locator('.dcz-body .dcz-layer').count(),1,'cap removed');
  await ev(()=>{state.currency=300});
- await page.locator('[data-id=ot_robe_blue]').click();
- assert.match(await page.locator('.dcz-body .dcz-base').getAttribute('src'),/ot_robe_blue\.png/,'another full body outfit replaces the default one');
+ await sel('ot_robe_blue');
+ assert.match(await page.locator('.dcz-body .dcz-base').getAttribute('src'),/ot_robe_blue\.png/,'a colour is previewed before it is bought');
+ assert.equal(await ev(()=>state.currency),300,'previewing does not charge');
+ await act();
  assert.equal(await ev(()=>state.currency),240,'second robe costs 60');
- await page.locator('[data-id=ot_robe_blue]').click();
+ await act(); // worn -> take off
  assert.match(await page.locator('.dcz-body .dcz-base').getAttribute('src'),/ot_robe\.png/,'taking it off brings the default robe back');
  await ev(()=>{state.currency=200});
+ await sel('ot_robe');
+ assert.equal(await page.locator('.dcz-act[disabled]').count(),1,'the default robe cannot be taken off');
  assert.match(await page.locator('.dcz-body .dcz-base').getAttribute('src'),/ot_robe\.png/,'the default full robe is the base picture');
- await page.locator('[data-id=ot_robe]').click();
- assert.match(await page.locator('.dcz-body .dcz-base').getAttribute('src'),/ot_robe\.png/,'the default robe cannot be taken off');
  await ev(()=>{state.profile.companion='lion';DEEN_COMPANIONS.open('wardrobe')});
- await page.locator('.dcz-prev .dcz-stage').waitFor();
+ await page.locator('.dcz-pv .dcz-stage').waitFor();
  assert.equal(await page.locator('.dcz-body').count(),0,'no full-body view (bare body) for an animal without a default outfit');
- assert.equal(await page.locator('[data-id=ot_cap]').count(),0,'items without lion art stay hidden');
+ assert.equal(await page.locator('[data-dcz=cat][data-id=ot]').count(),0,'no outfit category for an animal without outfits');
  await ev(()=>{state.profile.companion='cat'});
  // 6. every language renders without throwing
  for(const l of ['tr','en','de','fr','ar']){

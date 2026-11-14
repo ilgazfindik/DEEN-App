@@ -21,7 +21,9 @@
     "turtle": "assets/companions/outfits/turtle/ot_thobe.webp",
     "eagle": "assets/companions/outfits/eagle/ot_thobe.webp"
    },
-   "full": true
+   "full": true,
+   "group": "thobe",
+   "swatch": "#f4f4f6"
   },
   {
    "id": "ot_thobe_blue",
@@ -43,7 +45,9 @@
     "owl": "assets/companions/outfits/owl/ot_thobe_blue.webp",
     "turtle": "assets/companions/outfits/turtle/ot_thobe_blue.webp",
     "eagle": "assets/companions/outfits/eagle/ot_thobe_blue.webp"
-   }
+   },
+   "group": "thobe",
+   "swatch": "#5678a8"
   },
   {
    "id": "ot_thobe_beige",
@@ -65,7 +69,9 @@
     "owl": "assets/companions/outfits/owl/ot_thobe_beige.webp",
     "turtle": "assets/companions/outfits/turtle/ot_thobe_beige.webp",
     "eagle": "assets/companions/outfits/eagle/ot_thobe_beige.webp"
-   }
+   },
+   "group": "thobe",
+   "swatch": "#dec496"
   },
   {
    "id": "ot_thobe_gray",
@@ -87,7 +93,9 @@
     "owl": "assets/companions/outfits/owl/ot_thobe_gray.webp",
     "turtle": "assets/companions/outfits/turtle/ot_thobe_gray.webp",
     "eagle": "assets/companions/outfits/eagle/ot_thobe_gray.webp"
-   }
+   },
+   "group": "thobe",
+   "swatch": "#626872"
   },
   {
    "id": "ot_thobe_olive",
@@ -109,7 +117,9 @@
     "owl": "assets/companions/outfits/owl/ot_thobe_olive.webp",
     "turtle": "assets/companions/outfits/turtle/ot_thobe_olive.webp",
     "eagle": "assets/companions/outfits/eagle/ot_thobe_olive.webp"
-   }
+   },
+   "group": "thobe",
+   "swatch": "#707a48"
   },
   {
    "id": "ot_thobe_kufi",
@@ -131,7 +141,9 @@
     "eagle": "assets/companions/outfits/eagle/ot_thobe_kufi.webp",
     "cat": "assets/companions/outfits/cat/ot_thobe_kufi.webp",
     "lion": "assets/companions/outfits/lion/ot_thobe_kufi.webp"
-   }
+   },
+   "group": "thobe_kufi",
+   "swatch": "#f4f4f6"
   },
   {
    "id": "ot_thobe_kufi_blue",
@@ -153,7 +165,9 @@
     "eagle": "assets/companions/outfits/eagle/ot_thobe_kufi_blue.webp",
     "cat": "assets/companions/outfits/cat/ot_thobe_kufi_blue.webp",
     "lion": "assets/companions/outfits/lion/ot_thobe_kufi_blue.webp"
-   }
+   },
+   "group": "thobe_kufi",
+   "swatch": "#5678a8"
   },
   {
    "id": "ot_thobe_kufi_beige",
@@ -175,7 +189,9 @@
     "eagle": "assets/companions/outfits/eagle/ot_thobe_kufi_beige.webp",
     "cat": "assets/companions/outfits/cat/ot_thobe_kufi_beige.webp",
     "lion": "assets/companions/outfits/lion/ot_thobe_kufi_beige.webp"
-   }
+   },
+   "group": "thobe_kufi",
+   "swatch": "#dec496"
   },
   {
    "id": "ot_thobe_kufi_gray",
@@ -197,7 +213,9 @@
     "eagle": "assets/companions/outfits/eagle/ot_thobe_kufi_gray.webp",
     "cat": "assets/companions/outfits/cat/ot_thobe_kufi_gray.webp",
     "lion": "assets/companions/outfits/lion/ot_thobe_kufi_gray.webp"
-   }
+   },
+   "group": "thobe_kufi",
+   "swatch": "#626872"
   },
   {
    "id": "ot_thobe_kufi_olive",
@@ -219,7 +237,9 @@
     "eagle": "assets/companions/outfits/eagle/ot_thobe_kufi_olive.webp",
     "cat": "assets/companions/outfits/cat/ot_thobe_kufi_olive.webp",
     "lion": "assets/companions/outfits/lion/ot_thobe_kufi_olive.webp"
-   }
+   },
+   "group": "thobe_kufi",
+   "swatch": "#707a48"
   },
   {
    "id": "ot_thobe_kufi_scarf",
@@ -281,5 +301,25 @@
     "lion": "assets/companions/outfits/lion/ot_thobe_kufi_scarf_vest.webp"
    }
   }
- ]
+ ],
+ "groups": {
+  "thobe": {
+   "name": {
+    "tr": "Cübbe",
+    "en": "Thobe",
+    "de": "Thobe",
+    "fr": "Thobe",
+    "ar": "ثوب"
+   }
+  },
+  "thobe_kufi": {
+   "name": {
+    "tr": "Takkeli cübbe",
+    "en": "Thobe with cap",
+    "de": "Thobe mit Kappe",
+    "fr": "Thobe avec calotte",
+    "ar": "ثوب مع طاقية"
+   }
+  }
+ }
 }

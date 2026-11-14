@@ -51,7 +51,7 @@
  /* Layered outfits: full-body art + transparent clothing layers drawn on the same canvas (512x768).
     Layers come from assets/companions/outfits.json so new art needs no code change. */
  const BODY=['cat','lion','wolf','owl','turtle','eagle'];
- const OUT={list:[],loaded:false};
+ const OUT={list:[],groups:{},loaded:false};
  const bodySrc=id=>'assets/companions/'+id+'/'+id+'_body.webp';
  const outItem=id=>OUT.list.find(o=>o.id===id);
  const outName=o=>(o.name&&(o.name[lang()]||o.name.en||o.name.tr))||o.id;
@@ -70,32 +70,33 @@
   if(OUT.loaded)return;OUT.loaded=true;
   try{fetch('assets/companions/outfits.json',{cache:'no-cache'}).then(r=>r.ok?r.json():null).then(j=>{
    if(!j||!Array.isArray(j.items))return;
+   OUT.groups=j.groups&&typeof j.groups==='object'?j.groups:{};
    OUT.list=j.items.filter(o=>o&&/^ot_[a-z0-9_]+$/.test(o.id||'')&&['head','neck','body','hand'].includes(o.slot)&&o.art&&typeof o.art==='object'&&Number.isFinite(Number(o.cost)));
    try{refresh()}catch(_){}
   }).catch(()=>{})}catch(_){}
  }
  const S={
-  tr:{fresh:'Yeni',next:(a,n,x)=>'Sıradaki: '+a+' · Seviye '+n+' (' + x + ' XP kaldı)',all:'Tüm hayvanlar açık!',cele:'Yeni yol arkadaşı!',keep:'Şimdilik kalsın',room:'Hayvan Odası',animals:'Hayvanlar',wardrobe:'Gardırop',lv:n=>'Seviye '+n,locked:n=>'Seviye '+n+' ile açılır',use:'Seç',active:'Seçili',
+  tr:{pickHint:'Bir eşya seç; satın almadan önce üstünde dene.',ownedL:'Sende',tryOn:'Önizleme',fresh:'Yeni',next:(a,n,x)=>'Sıradaki: '+a+' · Seviye '+n+' (' + x + ' XP kaldı)',all:'Tüm hayvanlar açık!',cele:'Yeni yol arkadaşı!',keep:'Şimdilik kalsın',room:'Hayvan Odası',animals:'Hayvanlar',wardrobe:'Gardırop',lv:n=>'Seviye '+n,locked:n=>'Seviye '+n+' ile açılır',use:'Seç',active:'Seçili',
    unlock:(a,n)=>a+' açıldı! Hayvan Odası’ndan seçebilirsin.',lockedToast:(a,n)=>a+' için seviye '+n+' gerekiyor.',bg:'Arka plan',ac:'Rozet',none:'Yok',
    buy:c=>c+' ◇ ile al',equip:'Tak',off:'Çıkar',on:'Takılı',need:'Yeterli Pırıltı yok',bought:'Gardıroba eklendi',
    hint:'Pırıltıyı günlük ve haftalık sandıklardan, serilerden ve derslerden kazanırsın.',
    it:{bg_dune:'Çöl',bg_night:'Gece',bg_garden:'Bahçe',ac_star:'Yıldız',ac_moon:'Hilal',ac_leaf:'Yaprak'}},
-  en:{fresh:'New',next:(a,n,x)=>'Next: '+a+' · Level '+n+' ('+x+' XP to go)',all:'All animals unlocked!',cele:'New companion!',keep:'Maybe later',room:'Animal Room',animals:'Animals',wardrobe:'Wardrobe',lv:n=>'Level '+n,locked:n=>'Unlocks at level '+n,use:'Choose',active:'Chosen',
+  en:{pickHint:'Pick an item to try it on before you buy.',ownedL:'Owned',tryOn:'Preview',fresh:'New',next:(a,n,x)=>'Next: '+a+' · Level '+n+' ('+x+' XP to go)',all:'All animals unlocked!',cele:'New companion!',keep:'Maybe later',room:'Animal Room',animals:'Animals',wardrobe:'Wardrobe',lv:n=>'Level '+n,locked:n=>'Unlocks at level '+n,use:'Choose',active:'Chosen',
    unlock:a=>a+' unlocked! You can choose it in the Animal Room.',lockedToast:(a,n)=>a+' unlocks at level '+n+'.',bg:'Backdrop',ac:'Badge',none:'None',
    buy:c=>'Get for '+c+' ◇',equip:'Wear',off:'Remove',on:'Worn',need:'Not enough Sparkles',bought:'Added to your wardrobe',
    hint:'You earn Sparkles from daily and weekly chests, streaks and lessons.',
    it:{bg_dune:'Desert',bg_night:'Night',bg_garden:'Garden',ac_star:'Star',ac_moon:'Crescent',ac_leaf:'Leaf'}},
-  de:{fresh:'Neu',next:(a,n,x)=>'Als Nächstes: '+a+' · Stufe '+n+' (noch '+x+' XP)',all:'Alle Tiere freigeschaltet!',cele:'Neuer Begleiter!',keep:'Vielleicht später',room:'Tierzimmer',animals:'Tiere',wardrobe:'Garderobe',lv:n=>'Stufe '+n,locked:n=>'Ab Stufe '+n,use:'Wählen',active:'Gewählt',
+  de:{pickHint:'Wähle ein Teil und probiere es vor dem Kauf an.',ownedL:'Im Besitz',tryOn:'Vorschau',fresh:'Neu',next:(a,n,x)=>'Als Nächstes: '+a+' · Stufe '+n+' (noch '+x+' XP)',all:'Alle Tiere freigeschaltet!',cele:'Neuer Begleiter!',keep:'Vielleicht später',room:'Tierzimmer',animals:'Tiere',wardrobe:'Garderobe',lv:n=>'Stufe '+n,locked:n=>'Ab Stufe '+n,use:'Wählen',active:'Gewählt',
    unlock:a=>a+' freigeschaltet! Du kannst es im Tierzimmer wählen.',lockedToast:(a,n)=>a+' wird auf Stufe '+n+' freigeschaltet.',bg:'Hintergrund',ac:'Abzeichen',none:'Keins',
    buy:c=>'Für '+c+' ◇ holen',equip:'Anlegen',off:'Ablegen',on:'Getragen',need:'Nicht genug Funken',bought:'Zur Garderobe hinzugefügt',
    hint:'Funken verdienst du mit täglichen und wöchentlichen Truhen, Serien und Lektionen.',
    it:{bg_dune:'Wüste',bg_night:'Nacht',bg_garden:'Garten',ac_star:'Stern',ac_moon:'Halbmond',ac_leaf:'Blatt'}},
-  fr:{fresh:'Nouveau',next:(a,n,x)=>'Prochain : '+a+' · niveau '+n+' ('+x+' XP restants)',all:'Tous les animaux sont débloqués !',cele:'Nouveau compagnon !',keep:'Plus tard',room:'Salle des animaux',animals:'Animaux',wardrobe:'Garde-robe',lv:n=>'Niveau '+n,locked:n=>'Se débloque au niveau '+n,use:'Choisir',active:'Choisi',
+  fr:{pickHint:'Choisis un article et essaie-le avant de l’acheter.',ownedL:'Possédé',tryOn:'Aperçu',fresh:'Nouveau',next:(a,n,x)=>'Prochain : '+a+' · niveau '+n+' ('+x+' XP restants)',all:'Tous les animaux sont débloqués !',cele:'Nouveau compagnon !',keep:'Plus tard',room:'Salle des animaux',animals:'Animaux',wardrobe:'Garde-robe',lv:n=>'Niveau '+n,locked:n=>'Se débloque au niveau '+n,use:'Choisir',active:'Choisi',
    unlock:a=>a+' débloqué ! Tu peux le choisir dans la salle des animaux.',lockedToast:(a,n)=>a+' se débloque au niveau '+n+'.',bg:'Décor',ac:'Badge',none:'Aucun',
    buy:c=>'Obtenir pour '+c+' ◇',equip:'Porter',off:'Retirer',on:'Porté',need:'Pas assez d’étincelles',bought:'Ajouté à la garde-robe',
    hint:'Tu gagnes des étincelles avec les coffres quotidiens et hebdomadaires, les séries et les leçons.',
    it:{bg_dune:'Désert',bg_night:'Nuit',bg_garden:'Jardin',ac_star:'Étoile',ac_moon:'Croissant',ac_leaf:'Feuille'}},
-  ar:{fresh:'جديد',next:(a,n,x)=>'التالي: '+a+' · المستوى '+n+' (باقي '+x+' نقطة خبرة)',all:'تم فتح جميع الحيوانات!',cele:'رفيق جديد!',keep:'لاحقًا',room:'غرفة الحيوانات',animals:'الحيوانات',wardrobe:'خزانة الملابس',lv:n=>'المستوى '+n,locked:n=>'يُفتح عند المستوى '+n,use:'اختيار',active:'مختار',
+  ar:{pickHint:'اختر قطعة وجرّبها قبل الشراء.',ownedL:'مملوك',tryOn:'معاينة',fresh:'جديد',next:(a,n,x)=>'التالي: '+a+' · المستوى '+n+' (باقي '+x+' نقطة خبرة)',all:'تم فتح جميع الحيوانات!',cele:'رفيق جديد!',keep:'لاحقًا',room:'غرفة الحيوانات',animals:'الحيوانات',wardrobe:'خزانة الملابس',lv:n=>'المستوى '+n,locked:n=>'يُفتح عند المستوى '+n,use:'اختيار',active:'مختار',
    unlock:a=>'تم فتح '+a+'! يمكنك اختياره من غرفة الحيوانات.',lockedToast:(a,n)=>a+' يُفتح عند المستوى '+n+'.',bg:'الخلفية',ac:'شارة',none:'بدون',
    buy:c=>'احصل عليه بـ '+c+' ◇',equip:'ارتداء',off:'إزالة',on:'مرتدى',need:'لا تكفي الشرارات',bought:'أُضيف إلى الخزانة',
    hint:'تكسب الشرارات من الصناديق اليومية والأسبوعية والسلاسل والدروس.',
@@ -179,12 +180,15 @@
  }
  const avatarSrc=id=>'assets/companions/'+id+'/'+id+'_avatar.png';
  function badgeHtml(ac){return ac?'<i class="dcz-badge" aria-hidden="true">'+ICON[ac.svg]+'</i>':''}
- function stage(id,size){
-  const m=meta(),bg=eqItem(m,'bg'),ac=eqItem(m,'ac'),fr=eqItem(m,'fr');
+ // ov = the item that is only being previewed (selected, maybe not owned): it replaces what is worn in its slot.
+ const pick=(m,kind,ov)=>ov&&ov.kind===kind?ov:eqItem(m,kind);
+ function stage(id,size,ov){
+  const m=meta(),bg=pick(m,'bg',ov),ac=pick(m,'ac',ov),fr=pick(m,'fr',ov);
   return '<span class="dcz-stage" style="width:'+size+'px;height:'+size+'px"'+(bg?' data-dcz-bg="'+bg.id+'"':'')+(fr?' data-dcz-fr="'+fr.id+'"':'')+'><img src="'+avatarSrc(id)+'" alt="" loading="lazy" onerror="this.replaceWith(document.createTextNode(\''+EMOJI[id]+'\'))">'+badgeHtml(ac)+'</span>';
  }
- function bodyStage(id){
-  const m=meta(),bg=eqItem(m,'bg'),fr=eqItem(m,'fr'),ac=eqItem(m,'ac'),w=wornOutfit(id);
+ function bodyStage(id,ov){
+  const m=meta(),bg=pick(m,'bg',ov),fr=pick(m,'fr',ov),ac=pick(m,'ac',ov),w=wornOutfit(id);
+  if(ov&&ov.slot&&ov.art&&ov.art[id])w[ov.slot]=ov.id;
   const worn=Object.values(w).map(oid=>outItem(oid)).filter(o=>o&&o.art&&o.art[id]);
   // A body outfit marked "full" is the whole dressed character (background removed): it replaces the plain body picture.
   const fullO=worn.find(o=>o.slot==='body'&&o.full===true),baseSrc=fullO?fullO.art[id]:bodySrc(id);
@@ -192,14 +196,65 @@
   return '<span class="dcz-body"'+(bg?' data-dcz-bg="'+bg.id+'"':'')+(fr?' data-dcz-fr="'+fr.id+'"':'')+'><img class="dcz-base" src="'+esc(baseSrc)+'" alt="">'+layers.map(o=>'<img class="dcz-layer" data-slot="'+o.slot+'" style="z-index:'+(Number(o.z)||10)+'" src="'+esc(o.art[id])+'" alt="">').join('')+badgeHtml(ac)+'</span>';
  }
  let tab='animals',freshShown=[]; // animals that were new when the room was last opened (stays tagged while it stays open)
- function outfitHtml(pv,m,t){
-  const list=outFor(pv);if(!list.length||!fullBody(pv))return '';
-  const w=wornOutfit(pv);
-  return '<h4>'+esc(OUTFIT_LABEL[lang()])+'</h4><div class="dcz-items">'+list.map(o=>{
-   const dflt=o.default===true,own=has(o.id),worn=w[o.slot]===o.id;
-   const label=own?(worn?(dflt?t.on:t.off):t.equip):t.buy(Number(o.cost));
-   return '<button type="button" class="dcz-item'+(worn?' on':'')+(own?' own':'')+'" data-dcz="item" data-id="'+esc(o.id)+'"><span class="dcz-ic dcz-ic-ot"><img src="'+esc(o.art[pv])+'" alt=""></span><b>'+esc(outName(o))+'</b><small>'+esc(worn&&dflt?t.on:label)+'</small></button>';
-  }).join('')+'</div>';
+ /* ---- Wardrobe tab: sticky preview + action, category chips, tidy grids, colour dots for outfit families ---- */
+ let cat=null,selId=null,catUser=false; // catUser: the player picked a category by hand (otherwise the first one, which can appear once outfits finish loading)
+ const CAT_LABEL=t=>({ot:OUTFIT_LABEL[lang()],bg:t.bg,fr:FR[lang()],ac:t.ac});
+ const groupName=g=>{const x=OUT.groups&&OUT.groups[g];return x&&x.name?(x.name[lang()]||x.name.en||x.name.tr||g):g};
+ function selOk(it,a){return !!it&&(!it.slot||!!(it.art&&it.art[a]))}
+ function wornNow(it,a,m){return it.slot?wornOutfit(a)[it.slot]===it.id:eqItem(m,it.kind)?.id===it.id}
+ function statusOf(it,a,m,t){
+  if(wornNow(it,a,m))return {k:'worn',txt:t.on};
+  if(has(it.id))return {k:'own',txt:t.ownedL};
+  return {k:'buy',txt:'◇ '+Number(it.cost)};
+ }
+ function catItems(k,pv){return k==='ot'?outFor(pv):ITEMS.filter(i=>i.kind===k)}
+ function swatchHtml(it,pv){
+  if(it.slot)return '<span class="dcz-ic dcz-ic-ot"><img src="'+esc(it.art[pv])+'" alt=""></span>';
+  if(it.kind==='ac')return '<span class="dcz-ic">'+ICON[it.svg]+'</span>';
+  return '<span class="dcz-ic" data-dcz-'+it.kind+'="'+it.id+'"></span>';
+ }
+ function itemCard(it,pv,m,t){
+  const st=statusOf(it,pv,m,t),nm=it.slot?outName(it):itName(it.id);
+  return '<button type="button" class="dcz-item '+st.k+(selId===it.id?' sel':'')+'" data-dcz="sel" data-id="'+esc(it.id)+'" aria-pressed="'+(selId===it.id)+'">'+swatchHtml(it,pv)+'<b>'+esc(nm)+'</b><small>'+esc(st.txt)+'</small></button>';
+ }
+ function groupCard(g,list,pv,m,t){
+  const w=wornOutfit(pv),cur=list.find(o=>o.id===selId)||list.find(o=>w[o.slot]===o.id)||list[0];
+  const owned=list.filter(o=>has(o.id)).length;
+  return '<div class="dcz-grp'+(list.some(o=>o.id===selId)?' sel':'')+'"><div class="dcz-grp-top"><span class="dcz-ic dcz-ic-ot"><img src="'+esc(cur.art[pv])+'" alt=""></span><span class="dcz-grp-t"><b>'+esc(groupName(g))+'</b><small>'+esc(owned+' / '+list.length)+'</small></span></div>'+
+   '<div class="dcz-dots">'+list.map(o=>{const st=statusOf(o,pv,m,t);return '<button type="button" class="dcz-dot '+st.k+(selId===o.id?' sel':'')+'" style="--c:'+esc(o.swatch||'#ccc')+'" data-dcz="sel" data-id="'+esc(o.id)+'" aria-label="'+esc(outName(o)+' · '+st.txt)+'" aria-pressed="'+(selId===o.id)+'"><i></i></button>'}).join('')+'</div></div>';
+ }
+ function outfitGrid(pv,m,t){
+  const list=outFor(pv),seen=[],parts=[];
+  list.forEach(o=>{
+   if(o.group){
+    if(seen.includes(o.group))return;seen.push(o.group);
+    const fam=list.filter(x=>x.group===o.group);
+    parts.push({big:fam.length>1,html:fam.length>1?groupCard(o.group,fam,pv,m,t):itemCard(fam[0],pv,m,t)});
+   }else parts.push({big:false,html:itemCard(o,pv,m,t)});
+  });
+  // families first (full width), single outfits after them in a 3-column grid
+  return parts.filter(x=>x.big).map(x=>x.html).join('')+'<div class="dcz-items">'+parts.filter(x=>!x.big).map(x=>x.html).join('')+'</div>';
+ }
+ function actionHtml(it,pv,m,t){
+  if(!it)return '<p class="dcz-pick">'+esc(t.pickHint)+'</p>';
+  const nm=it.slot?outName(it):itName(it.id),worn=wornNow(it,pv,m),own=has(it.id),dflt=it.default===true,afford=(Number(app()?.currency)||0)>=Number(it.cost);
+  let label,cls='',dis='';
+  if(worn){label=dflt?t.on:t.off;cls=' alt';dis=dflt?' disabled':''}
+  else if(own)label=t.equip;
+  else{label=t.buy(Number(it.cost));if(!afford)cls=' poor'}
+  return '<div class="dcz-selname"><b>'+esc(nm)+'</b>'+(own||dflt?'':'<small>'+esc(t.tryOn)+'</small>')+'</div><button type="button" class="dcz-act'+cls+'" data-dcz="act"'+dis+'>'+esc(label)+'</button>';
+ }
+ function wardrobeHtml(t,st,m,cur){
+  const pv=cur&&ORDER.includes(cur)?cur:'lion',full=fullBody(pv);
+  let sel=selId?item(selId):null;if(!selOk(sel,pv)){sel=null;selId=null}
+  const cats=[];if(full&&outFor(pv).length)cats.push('ot');cats.push('bg','fr','ac');
+  if(!catUser||!cats.includes(cat))cat=cats[0];
+  const labels=CAT_LABEL(t);
+  const chips=cats.map(k=>{const l=catItems(k,pv);return '<button type="button" role="tab" class="dcz-chip'+(cat===k?' on':'')+'" data-dcz="cat" data-id="'+k+'" aria-selected="'+(cat===k)+'">'+esc(labels[k])+'<small>'+l.filter(i=>has(i.id)).length+'/'+l.length+'</small></button>'}).join('');
+  const preview=full?bodyStage(pv,sel):stage(pv,120,sel);
+  const head='<div class="dcz-sticky"><div class="dcz-hd"><div class="dcz-pv'+(full?' dcz-pv-body':'')+'">'+preview+'</div><div class="dcz-side"><div class="dcz-who"><b>'+esc(N(pv))+'</b><small>◇ '+(Number(st.currency)||0)+' · '+esc(t.lv(lvl()))+'</small></div><div class="dcz-actbox">'+actionHtml(sel,pv,m,t)+'</div></div></div><div class="dcz-chips" role="tablist">'+chips+'</div></div>';
+  const items=cat==='ot'?outfitGrid(pv,m,t):'<div class="dcz-items">'+catItems(cat,pv).map(i=>itemCard(i,pv,m,t)).join('')+'</div>';
+  return head+items+'<p class="dcz-hint">'+esc(t.hint)+'</p>';
  }
  function html(){
   const t=T(),st=app(),m=meta(),cur=String(st.profile?.companion||'');
@@ -211,25 +266,15 @@
     return '<button type="button" class="dcz-card'+(ok?'':' locked')+(on?' on':'')+'" data-dcz="'+(ok?'pick':'lock')+'" data-id="'+id+'" aria-disabled="'+(ok?'false':'true')+'">'+
      (ok?stage(id,76):'<span class="dcz-stage dcz-dim" style="width:76px;height:76px"><img src="'+avatarSrc(id)+'" alt="" loading="lazy"><b class="dcz-lock">🔒</b></span>')+
      (ok&&fresh.includes(id)?'<em class="dcz-new">'+esc(t.fresh)+'</em>':'')+'<b>'+esc(N(id))+'</b><small>'+esc(ok?(on?t.active:t.use):t.locked(LEVELS[id]))+'</small></button>';
-   }).join('')+'</div>';
-  }else{
-   const kinds=['bg','fr','ac'],owned=m.items.length;
-   const pv=cur&&ORDER.includes(cur)?cur:'lion',full=fullBody(pv);
-   body='<div class="dcz-prev'+(full?' dcz-prev-body':'')+'">'+(full?bodyStage(pv):stage(pv,104))+'<b>'+esc(N(cur&&ORDER.includes(cur)?cur:'lion'))+'</b><small>'+esc(owned+' / '+ITEMS.length)+'</small></div>'+kinds.map(k=>
-    '<h4>'+esc(k==='fr'?FR[lang()]:t[k])+'</h4><div class="dcz-items">'+ITEMS.filter(i=>i.kind===k).map(i=>{
-     const own=has(i.id),worn=eqItem(m,k)?.id===i.id;
-     const label=own?(worn?t.off:t.equip):t.buy(i.cost);
-     const sw=k==='ac'?ICON[i.svg]:'';
-     return '<button type="button" class="dcz-item'+(worn?' on':'')+(own?' own':'')+'" data-dcz="item" data-id="'+i.id+'"><span class="dcz-ic"'+(k==='bg'?' data-dcz-bg="'+i.id+'"':k==='fr'?' data-dcz-fr="'+i.id+'"':'')+'>'+sw+'</span><b>'+esc(itName(i.id))+'</b><small>'+esc(worn?t.on:label)+'</small></button>';
-    }).join('')+'</div>').join('')+outfitHtml(pv,m,t)+'<p class="dcz-hint">'+esc(t.hint)+'</p>';
-  }
-  return '<div class="dcz" dir="'+(lang()==='ar'?'rtl':'ltr')+'"><div class="dcz-tabs" role="tablist"><button type="button" role="tab" class="'+(tab==='animals'?'on':'')+'" data-dcz="tab" data-id="animals">'+esc(t.animals)+'</button><button type="button" role="tab" class="'+(tab==='wardrobe'?'on':'')+'" data-dcz="tab" data-id="wardrobe">'+esc(t.wardrobe)+'</button></div>'+
-   '<div class="dcz-cur">◇ '+(Number(st.currency)||0)+' · '+esc(t.lv(lvl()))+'</div>'+body+'</div>';
+   }).join('')+'</div>'+'<div class="dcz-cur">◇ '+(Number(st.currency)||0)+' · '+esc(t.lv(lvl()))+'</div>';
+  }else body=wardrobeHtml(t,st,m,cur);
+  return '<div class="dcz" dir="'+(lang()==='ar'?'rtl':'ltr')+'"><div class="dcz-tabs" role="tablist"><button type="button" role="tab" class="'+(tab==='animals'?'on':'')+'" data-dcz="tab" data-id="animals">'+esc(t.animals)+'</button><button type="button" role="tab" class="'+(tab==='wardrobe'?'on':'')+'" data-dcz="tab" data-id="wardrobe">'+esc(t.wardrobe)+'</button></div>'+body+'</div>';
  }
  function open(which){
   loadOutfits();
   if(!app()||typeof window.sheet!=='function')return false;
   if(which)tab=which;
+  selId=null;catUser=false; // a fresh open never previews a stale selection
   try{const m=meta();if(m&&Array.isArray(m.fresh)&&m.fresh.length){freshShown=m.fresh.slice();m.fresh=[];save()}else freshShown=[]}catch(_){freshShown=[]}
   window.sheet(T().room,html());
   return true;
@@ -248,11 +293,16 @@
    else if(a==='open'){open('animals');ev.preventDefault();return}
    else if(a==='pick'){if(select(id)){try{closeSheet()}catch(_){}}}
    else if(a==='lock'){try{toast(T().lockedToast(N(id),LEVELS[id]))}catch(_){}}
-   else if(a==='item'){
-    const m=meta();
-    if(has(id))toggleItem(id);
-    else if(buyItem(id)){try{toast(T().bought)}catch(_){}}
-    else{try{toast(T().need)}catch(_){}}
+   else if(a==='cat'){cat=id;catUser=true;refresh()}
+   else if(a==='sel'){selId=id;refresh()}
+   else if(a==='act'){
+    const it=selId?item(selId):null;
+    if(it){
+     const pv=String(app()?.profile?.companion||'');
+     if(has(it.id)){const was=wornNow(it,pv,meta());toggleItem(it.id);if(was)selId=null} // taken off: clear the selection so the preview shows the real result
+     else if(buyItem(it.id)){try{toast(T().bought)}catch(_){}}
+     else{try{toast(T().need)}catch(_){}}
+    }
     refresh();
    }
    ev.preventDefault();return;
@@ -335,6 +385,42 @@
 .dcz-body .dcz-badge{width:17%;height:auto;aspect-ratio:1;right:6%;bottom:4%;z-index:99}
 .dcz-ic-ot img{width:100%;height:100%;object-fit:contain}
 .dcz-ic-ot{width:48px;height:56px;border-radius:14px;padding:3px!important;overflow:hidden}
+.dcz-sticky{position:sticky;top:0;z-index:5;margin:0 -4px 8px;padding:8px 4px 10px;background:rgba(10,36,44,.97);backdrop-filter:blur(6px);border-radius:0 0 18px 18px;border-bottom:1px solid rgba(140,235,208,.14)}
+.dcz-hd{display:flex;gap:12px;align-items:stretch}
+.dcz-pv{flex:0 0 auto;display:grid;place-items:center}
+.dcz-pv-body .dcz-body{width:112px;border-radius:16px}
+.dcz-pv .dcz-stage{margin:0}
+.dcz-side{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:space-between;gap:8px}
+.dcz-who b{display:block;font-size:17px}
+.dcz-who small{opacity:.8;font-size:12.5px}
+.dcz-actbox{display:flex;flex-direction:column;gap:8px}
+.dcz-pick{font-size:12.5px;line-height:1.35;opacity:.8;margin:0}
+.dcz-selname b{display:block;font-size:14px;line-height:1.25}
+.dcz-selname small{color:#ffd45e;font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+.dcz-act{min-height:46px;border-radius:14px;border:0;background:#8cebd0;color:#06232a;font:700 15px/1 inherit;cursor:pointer}
+.dcz-act.alt{background:rgba(255,255,255,.08);color:inherit;border:1px solid rgba(140,235,208,.4)}
+.dcz-act.poor{background:#d9a441;color:#2a1a00}
+.dcz-act[disabled]{opacity:.6;cursor:default}
+.dcz-chips{display:flex;gap:6px;overflow-x:auto;margin-top:10px;scrollbar-width:none}
+.dcz-chips::-webkit-scrollbar{display:none}
+.dcz-chip{flex:0 0 auto;display:flex;align-items:center;gap:6px;min-height:40px;padding:0 12px;border-radius:999px;border:1px solid rgba(140,235,208,.3);background:rgba(255,255,255,.05);color:inherit;font:600 13px/1 inherit;cursor:pointer;white-space:nowrap}
+.dcz-chip small{opacity:.7;font-size:11px}
+.dcz-chip.on{background:#8cebd0;color:#06232a;border-color:#8cebd0}
+.dcz-item.sel{border-color:#9af2d9;box-shadow:0 0 0 2px rgba(154,242,217,.35)}
+.dcz-item.worn small{color:#8cebd0;font-weight:700}
+.dcz-item.own small{color:#8cebd0}
+.dcz-item.buy small{color:#ffd45e}
+.dcz-grp{padding:10px 12px 6px;margin:0 0 10px;border-radius:16px;border:1px solid rgba(140,235,208,.3);background:rgba(255,255,255,.05)}
+.dcz-grp.sel{border-color:#9af2d9;box-shadow:0 0 0 2px rgba(154,242,217,.25)}
+.dcz-grp-top{display:flex;align-items:center;gap:12px}
+.dcz-grp-t b{display:block;font-size:15px}
+.dcz-grp-t small{opacity:.75}
+.dcz-dots{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+.dcz-dot{width:44px;height:44px;border-radius:50%;border:0;background:transparent;display:grid;place-items:center;cursor:pointer;padding:0}
+.dcz-dot i{width:30px;height:30px;border-radius:50%;background:var(--c);box-shadow:inset 0 0 0 1px rgba(255,255,255,.35)}
+.dcz-dot.buy i{opacity:.7;outline:2px dashed rgba(255,255,255,.35);outline-offset:2px}
+.dcz-dot.worn i{outline:2px solid #ffd45e;outline-offset:2px}
+.dcz-dot.sel i{outline:2px solid #8cebd0;outline-offset:2px;transform:scale(1.08)}
 .dcz-hint{font-size:12px;opacity:.7;margin:12px 2px 0}
 .dcz-entry{display:block;width:100%;min-height:44px;margin:10px 0;border-radius:14px;border:1px solid rgba(140,235,208,.4);background:rgba(140,235,208,.12);color:inherit;font:600 15px/1 inherit;cursor:pointer}
 .dcz-locked{opacity:.55;filter:grayscale(.8)}
@@ -347,7 +433,7 @@
   :'.dcz [data-dcz-fr="'+i.id+'"],html body #profileScreenBody .dsp-avatar-slot[data-dcz-fr="'+i.id+'"]{box-shadow:'+i.css+'!important}').join('\n');
  css.textContent+=rules;
  document.head.appendChild(css);
- window.DEEN_COMPANIONS=Object.freeze({version:'companions-v7',order:ORDER.slice(),levels:Object.assign({},LEVELS),items:ITEMS.map(i=>i.id),bodyArt:BODY.slice(),outfits:()=>OUT.list.map(o=>o.id),unlocked,select,open,buyItem,toggleItem,isUnlocked:unlocked});
+ window.DEEN_COMPANIONS=Object.freeze({version:'companions-v8',order:ORDER.slice(),levels:Object.assign({},LEVELS),items:ITEMS.map(i=>i.id),bodyArt:BODY.slice(),outfits:()=>OUT.list.map(o=>o.id),unlocked,select,open,buyItem,toggleItem,isUnlocked:unlocked});
  // Wrap the engine's own chooser so a locked animal can never be selected programmatically.
  function wrap(){
   const c=window.DEEN_COMPANION;
