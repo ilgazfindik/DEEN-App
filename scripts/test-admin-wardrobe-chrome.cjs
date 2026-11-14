@@ -46,9 +46,12 @@ const server=http.createServer((req,res)=>{
  await ev(()=>DEEN_COMPANIONS.open('wardrobe'));
  await page.waitForFunction(()=>DEEN_COMPANIONS.outfits().length===2);
  await page.locator('.dcz-body').waitFor();
- await page.locator('[data-id=ot_blue]').click();
+ await page.locator('[data-dcz=cat][data-id=ot]').click();
+ await page.locator('[data-dcz=sel][data-id=ot_blue]').click();
+ await page.locator('[data-dcz=act]').click();
  assert.match(await page.locator('.dcz-body .dcz-base').getAttribute('src'),/ot_blue\.png/,'every outfit can be tried');
- assert.equal(await page.locator('[data-id=bg_garden]').innerText().then(t=>/ile al/.test(t)),false,'items show as owned');
+ await page.locator('[data-dcz=cat][data-id=bg]').click();
+ assert.equal(await page.locator('[data-id=bg_garden]').textContent().then(t=>/◇/.test(t)),false,'items show as owned (no price)');
 await ev(()=>closeSheet());
  // 3. switching off restores the locks and ignores what was only worn through the switch
  await page.locator('[data-adm2=wardrobe]').click();

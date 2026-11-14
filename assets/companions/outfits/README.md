@@ -73,3 +73,14 @@ Görsel aracı tuvali değiştirirse (farklı oran) araç hata verir; aynı boyu
 ## Önemli: görsel araçları karakteri yeniden çizer
 
 Görsel düzenleme araçları çoğu zaman karakteri piksel piksel korumaz, yeniden çizer (birkaç piksel kayma, küçük yüz farkları). Bu yüzden takke/atkı gibi eşyaları "farkı alıp ayrı katman yapmak" güvenilir olmaz. Kolay ve sağlam yol: **kıyafetli bütün karakteri** tam görsel olarak eklemek (`"slot":"body","full":true`). Örnek: `ot_thobe_kufi` = takkeli beyaz cübbe. Takkeli renkli cübbe gibi kombinler için aynı görseli üretip aynı yöntemle eklenir.
+
+## Renk aileleri (gardırop kartları)
+
+Aynı kıyafetin renkleri tek kartta, renk noktalarıyla gösterilir. `outfits.json`'a bir `groups` tablosu ekleyin ve ilgili kıyafetlere `group` ile `swatch` (nokta rengi) yazın:
+
+```json
+{"groups":{"thobe":{"name":{"tr":"Cübbe","en":"Thobe","de":"Thobe","fr":"Thobe","ar":"ثوب"}}},
+ "items":[{"id":"ot_thobe_blue","group":"thobe","swatch":"#5678a8", "slot":"body","full":true,"cost":60, "...":"..."}]}
+```
+
+`group` yazmayan kıyafetler tek başına kart olarak görünür. Bir ailede tek kıyafet varsa da tek kart olur.
