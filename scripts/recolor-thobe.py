@@ -40,11 +40,15 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--animal", required=True)
     ap.add_argument("--base", default="ot_thobe", help="file stem to recolour (default ot_thobe; use ot_thobe_kufi for the capped robe: the white cap stays white)")
+    ap.add_argument("--core-lum", type=int, default=196, help="brightness above which neutral pixels count as robe (lower it when the robe has deep fold shadows, e.g. 150)")
+    ap.add_argument("--rim-lum", type=int, default=140)
+    ap.add_argument("--core-sat", type=int, default=12, help="how far from neutral grey a pixel may be and still count as robe (raise it for sources with tinted JPEG blocks, e.g. 26)")
+    ap.add_argument("--rim-sat", type=int, default=22)
     ap.add_argument("--preview")
     a = ap.parse_args()
     d = os.path.join(HERE, "..", "assets", "companions", "outfits", a.animal)
     src = Image.open(os.path.join(d, a.base + ".webp")).convert("RGBA")
-    m = np.asarray(robe_mask(src)).astype(np.float32) / 255
+    m = np.asarray(robe_mask(src, core_sat=a.core_sat, core_lum=a.core_lum, rim_sat=a.rim_sat, rim_lum=a.rim_lum)).astype(np.float32) / 255
     print(f"{a.animal}: robe covers {100 * (m > 0.5).mean():.1f}% of the canvas")
     arr = np.asarray(src).astype(np.float32)
     lum = np.clip(arr[..., :3].mean(2, keepdims=True) / 242.0, 0, 1.05)
