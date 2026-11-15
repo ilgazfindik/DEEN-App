@@ -181,6 +181,20 @@ const server=http.createServer((req,res)=>{
  await page.locator('[data-dcz=close]').click();
  await page.waitForFunction(()=>document.querySelector('.dcz-room')?.classList.contains('out')||!document.querySelector('.dcz-room'));
  await closed();
+ // 5c. the player's own animal is shown dressed wherever the plain avatar appears
+ await ev(()=>{
+  const m=state.companionMeta;if(!m.items.includes('ot_robe_blue'))m.items.push('ot_robe_blue');
+  state.profile.companion='cat';m.outfit={};
+  document.body.insertAdjacentHTML('beforeend','<img id="avMine" src="assets/companions/cat/cat_avatar.png" alt=""><img id="avOther" src="assets/companions/lion/lion_avatar.png" alt="">');
+ });
+ await page.waitForTimeout(1500);
+ assert.match(await ev(()=>document.getElementById('avMine').getAttribute('src')),/cat_avatar\.png/,'nothing customised: the original avatar stays');
+ await ev(()=>{state.companionMeta.outfit={cat:{body:'ot_robe_blue'}}});
+ await page.waitForFunction(()=>/^data:image/.test(document.getElementById('avMine').getAttribute('src')),null,{timeout:6000});
+ assert.match(await ev(()=>document.getElementById('avOther').getAttribute('src')),/lion_avatar\.png/,'only the own animal is replaced');
+ await ev(()=>{state.companionMeta.outfit={}});
+ await page.waitForFunction(()=>/cat_avatar\.png/.test(document.getElementById('avMine').getAttribute('src')),null,{timeout:6000});
+ await ev(()=>{document.getElementById('avMine').remove();document.getElementById('avOther').remove()});
  // 6. every language renders without throwing
  for(const l of ['tr','en','de','fr','ar']){
   await ev(l=>{window.__lang=l;DEEN_COMPANIONS.open('animals')},l);
