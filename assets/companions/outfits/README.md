@@ -84,3 +84,8 @@ Aynı kıyafetin renkleri tek kartta, renk noktalarıyla gösterilir. `outfits.j
 ```
 
 `group` yazmayan kıyafetler tek başına kart olarak görünür. Bir ailede tek kıyafet varsa da tek kart olur.
+
+## Başarı ve mevsim alanları (`outfits.json`)
+
+- `"reward":{"type":"streak|level|stages","n":7}`: eşya satın alınamaz, hedefe ulaşınca açılır (en uzun seri, seviye, tamamlanan ders sayısı).
+- `"season":"ramadan|eid"` (kod tarafındaki `ITEMS` listesinde de aynı alan): eşya yalnızca o dönemde satın alınır; alınan yıl boyu kullanılır. Dönemler cihazın Hicri takvimiyle (Ümmü'l-Kurâ, hesaba dayalı) bulunur: Ramazan = Hicri 9. ay, Bayram = Şevval 1-4 ve Zilhicce 10-13. Ay görmeye dayalı resmî takvimden bir gün farklı olabilir. Yönetici panelindeki "ÖZEL GÜN" düğmesi dönemi denemek için zorlar.

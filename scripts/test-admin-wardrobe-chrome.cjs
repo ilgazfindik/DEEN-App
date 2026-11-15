@@ -59,6 +59,13 @@ const server=http.createServer((req,res)=>{
  await page.locator('[data-dcz=cat][data-id=bg]').click();
  assert.equal(await page.locator('[data-id=bg_garden]').textContent().then(t=>/◇/.test(t)),false,'items show as owned (no price)');
  await ev(()=>DEEN_COMPANIONS.close());await closed();
+ // 2b. the season switch cycles Ramadan -> Eid -> real calendar
+ await page.locator('[data-adm2=season]').click();
+ assert.equal(await ev(()=>DEEN_COMPANIONS.season().id),'ramadan','season switch: Ramadan');
+ await page.locator('[data-adm2=season]').click();
+ assert.equal(await ev(()=>DEEN_COMPANIONS.season().id),'eid','season switch: Eid');
+ await page.locator('[data-adm2=season]').click();
+ assert.equal(await ev(()=>localStorage.getItem('deen_admin_season')),null,'season switch: back to the real calendar');
  // 3. switching off restores the locks and ignores what was only worn through the switch
  await page.locator('[data-adm2=wardrobe]').click();
  assert.equal(await ev(()=>DEEN_COMPANIONS.unlocked('eagle')),false);

@@ -130,7 +130,7 @@ const server=http.createServer((req,res)=>{
  assert.equal(await page.locator('.dcz-tile').count(),0,'no frame owned yet');
  assert.equal(await page.locator('.dcz-empty').count(),1,'empty state is explained');
  await ev(()=>{state.currency=100;DEEN_COMPANIONS.close()});await closed();
- assert.equal(await ev(()=>DEEN_COMPANIONS.items.length),18);
+ assert.equal(await ev(()=>DEEN_COMPANIONS.items.length),26);
  await openRoom('wardrobe');
  await cat('fr');await tile('fr_gold');await save();await closed();
  assert.equal(await ev(()=>state.currency),50,'frame costs 50');
@@ -223,6 +223,29 @@ const server=http.createServer((req,res)=>{
  assert.equal(await ev(()=>state.companionMeta.combos.cat[0]),null,'a slot can be emptied');
  await ev(()=>DEEN_COMPANIONS.close());await closed();
  await ev(()=>{state.companionMeta.eq={};state.companionMeta.outfit={}});
+ // 5e. seasons: Ramadan and the Eids come from the Hijri calendar; seasonal items can only be bought in season
+ assert.equal(await ev(()=>DEEN_COMPANIONS.seasonFor(new Date('2027-02-10T12:00:00')).id),'ramadan','Ramadan 1448');
+ assert.ok(await ev(()=>DEEN_COMPANIONS.seasonFor(new Date('2027-02-10T12:00:00')).left)>10,'days left are counted');
+ assert.equal(await ev(()=>DEEN_COMPANIONS.seasonFor(new Date('2027-03-10T12:00:00')).id),'eid','Eid al-Fitr');
+ assert.equal(await ev(()=>DEEN_COMPANIONS.seasonFor(new Date('2027-05-16T12:00:00')).id),'eid','Eid al-Adha');
+ assert.equal(await ev(()=>DEEN_COMPANIONS.seasonFor(new Date('2026-11-15T12:00:00'))),null,'an ordinary day has no season');
+ await ev(()=>{state.profile.companion='cat';state.currency=900;state.companionMeta.items=[];state.companionMeta.eq={};window.DEEN_ADMIN_SEASON=()=>window.__season||'';window.__season='eid'});
+ await openRoom('wardrobe');await cat('bg');
+ assert.match(await page.locator('.dcz-banner').textContent(),/Bayramınız mübarek olsun/,'a banner greets the season');
+ assert.equal(await page.locator('[data-dcz=tile][data-id=bg_ramadan].rw').count(),1,'a Ramadan item is closed during Eid');
+ assert.equal(await page.locator('[data-dcz=tile][data-id=bg_eid].rw').count(),0,'an Eid item is open during Eid');
+ await tile('bg_ramadan');
+ assert.ok((await ev(()=>window.toasts)).some(m=>/Ramazan ayında alınabilir/.test(m)),'tapping a closed seasonal item explains');
+ assert.equal(await ev(()=>DEEN_COMPANIONS.buyItem('bg_ramadan')),false,'closed seasonal items cannot be bought');
+ await tile('bg_eid');await save();await closed();
+ assert.equal(await ev(()=>state.currency),850,'an open seasonal item costs its price');
+ assert.equal(await ev(()=>state.companionMeta.eq.bg),'bg_eid');
+ // what was bought stays usable after the season ends
+ await ev(()=>{window.__season=''});
+ await openRoom('wardrobe');await tabk('closet');await cat('bg');
+ assert.equal(await page.locator('[data-dcz=tile][data-id=bg_eid]').count(),1,'owned seasonal items stay in My closet all year');
+ await ev(()=>DEEN_COMPANIONS.close());await closed();
+ await ev(()=>{state.companionMeta.eq={};state.companionMeta.items=[]});
  // 5c. the player's own animal is shown dressed wherever the plain avatar appears
  await ev(()=>{
   const m=state.companionMeta;if(!m.items.includes('ot_robe_blue'))m.items.push('ot_robe_blue');
