@@ -22,6 +22,10 @@
  const flag=k=>{try{return localStorage.getItem(k)==='1'}catch(_){return false}};
  const wardrobeOn=()=>flag(WKEY),sparklesOn=()=>flag(SKEY);
  window.DEEN_ADMIN_WARDROBE=wardrobeOn;
+ const SEAS='deen_admin_season';
+ const seasonNow=()=>{try{const v=localStorage.getItem(SEAS);return v==='ramadan'||v==='eid'?v:''}catch(_){return ''}};
+ window.DEEN_ADMIN_SEASON=seasonNow;
+ function cycleSeason(){const n=seasonNow(),next=n===''?'ramadan':n==='ramadan'?'eid':'';try{next?localStorage.setItem(SEAS,next):localStorage.removeItem(SEAS)}catch(_){}try{window.DEEN_ADMIN?.render?.()}catch(_){}note(next==='ramadan'?'Ramazan teması açık (deneme).':next==='eid'?'Bayram teması açık (deneme).':'Özel gün teması gerçek takvime döndü.')}
  function topUp(){
   if(!sparklesOn())return;
   try{if(typeof state==='object'&&state&&(Number(state.currency)||0)<BIG){state.currency=BIG;saveState?.();updateUI?.()}}catch(_){}
@@ -110,10 +114,11 @@
  }
  function buildWardrobe(){
   const w=wardrobeOn(),sp=sparklesOn(),sec=document.createElement('section');
-  sec.id='deenAdminWardrobe';sec.className='deen-admin-section';sec.dataset.on=(w?'1':'0')+(sp?'1':'0');
+  sec.id='deenAdminWardrobe';sec.className='deen-admin-section';sec.dataset.on=(w?'1':'0')+(sp?'1':'0')+seasonNow();
   sec.innerHTML='<h3>GARDIROP · PIRILTI</h3><div class="deen-admin-grid">'+
    '<button class="deen-admin-btn '+(sp?'gold':'primary')+'" data-adm2="sparkles">'+(sp?'SINIRSIZ PIRILTI AÇIK':'SINIRSIZ PIRILTI')+'</button>'+
-   '<button class="deen-admin-btn '+(w?'gold':'primary')+'" data-adm2="wardrobe">'+(w?'TÜM GARDIROP AÇIK':'TÜM GARDIROBU AÇ')+'</button></div>'+
+   '<button class="deen-admin-btn '+(w?'gold':'primary')+'" data-adm2="wardrobe">'+(w?'TÜM GARDIROP AÇIK':'TÜM GARDIROBU AÇ')+'</button>'+
+   '<button class="deen-admin-btn '+(seasonNow()?'gold':'primary')+'" data-adm2="season" style="grid-column:1/-1">'+(seasonNow()==='ramadan'?'ÖZEL GÜN: RAMAZAN (DENEME)':seasonNow()==='eid'?'ÖZEL GÜN: BAYRAM (DENEME)':'ÖZEL GÜN TEMASI: GERÇEK TAKVİM')+'</button></div>'+
    '<p class="deen-admin-note">Sınırsız Pırıltı bakiyeyi 999.999’da tutar; kapatınca gerçek bakiyen geri gelir (bu sırada satın aldıkların kalır). Tüm gardırop açıkken bütün hayvanlar, arka planlar, çerçeveler, rozetler ve kıyafetler ücretsiz denenebilir; hiçbiri satın alınmış sayılmaz, kapatınca kilitler geri gelir.</p>';
   return sec;
  }
@@ -128,7 +133,7 @@
  }
  function injectWardrobe(){
   const body=document.getElementById('deenAdminBody');if(!body)return;
-  const key=(wardrobeOn()?'1':'0')+(sparklesOn()?'1':'0'),old=document.getElementById('deenAdminWardrobe');
+  const key=(wardrobeOn()?'1':'0')+(sparklesOn()?'1':'0')+seasonNow(),old=document.getElementById('deenAdminWardrobe');
   if(old&&old.dataset.on===key)return;
   old?.remove();
   const test=document.getElementById('deenAdminTestMode'),sec=buildWardrobe();
@@ -141,6 +146,7 @@
   else if(b.dataset.adm2==='go')go(b.dataset.arg);
   else if(b.dataset.adm2==='sparkles')setSparkles(!sparklesOn());
   else if(b.dataset.adm2==='wardrobe')setWardrobe(!wardrobeOn());
+  else if(b.dataset.adm2==='season')cycleSeason();
  },true);
  // The panel draws itself again after most actions; put the section back each time.
  if(typeof MutationObserver!=='undefined')new MutationObserver(()=>{if(document.getElementById('deenAdminBody'))setTimeout(inject,0)}).observe(document.body,{childList:true,subtree:true});

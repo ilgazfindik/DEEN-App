@@ -16,8 +16,15 @@
   leaf:SV('<path fill="#5fd39a" stroke="#1f8a5b" stroke-width="1" stroke-linejoin="round" d="M4 20C4 10 10 4 20 4c0 10-6 16-16 16z"/><path d="M4 20L14 10" stroke="#1f8a5b" stroke-width="1.4" fill="none" stroke-linecap="round"/>'),
   lamp:SV('<path d="M12 1.8v3" stroke="#b9691a" stroke-width="1.6" stroke-linecap="round"/><path fill="#ffb14a" stroke="#b9691a" stroke-width="1" stroke-linejoin="round" d="M9 5.6h6l2.2 3.2v7L15 19.2H9l-2.2-3.4v-7z"/><circle cx="12" cy="12.6" r="2.5" fill="#fff3b0"/><path d="M8.5 21.2h7" stroke="#b9691a" stroke-width="1.6" stroke-linecap="round"/>'),
   book:SV('<path fill="#2fb88f" stroke="#127a5c" stroke-width="1" stroke-linejoin="round" d="M3 5.5c3-1.3 6-1.3 9 .8 3-2.1 6-2.1 9-.8V19c-3-1.3-6-1.3-9 .8-3-2.1-6-2.1-9-.8z"/><path d="M12 6.3v13.5" stroke="#127a5c" stroke-width="1" fill="none"/>'),
-  heart:SV('<path fill="#ff7a8f" stroke="#c44058" stroke-width="1" stroke-linejoin="round" d="M12 20.5S3.5 15 3.5 9.2A4.6 4.6 0 0 1 12 7a4.6 4.6 0 0 1 8.5 2.2C20.5 15 12 20.5 12 20.5z"/>')
+  heart:SV('<path fill="#ff7a8f" stroke="#c44058" stroke-width="1" stroke-linejoin="round" d="M12 20.5S3.5 15 3.5 9.2A4.6 4.6 0 0 1 12 7a4.6 4.6 0 0 1 8.5 2.2C20.5 15 12 20.5 12 20.5z"/>'),
+  fanus:SV('<path d="M12 2v2.4" stroke="#a8691a" stroke-width="1.4" stroke-linecap="round" fill="none"/><path d="M8.3 6.1h7.4l-1 2.1H9.3z" fill="#e8b04a" stroke="#a8691a" stroke-width="1" stroke-linejoin="round"/><path d="M7.7 8.7h8.6l-.9 9.2H8.6z" fill="#2f9d86" stroke="#14624f" stroke-width="1" stroke-linejoin="round"/><path d="M10 10.6h4v5h-4z" fill="#ffe08a"/><path d="M8.1 18.6h7.8l-.8 2.3H8.9z" fill="#e8b04a" stroke="#a8691a" stroke-width="1" stroke-linejoin="round"/>'),
+  mosque:SV('<path d="M3.5 21v-7h17v7z" fill="#eef2ee" stroke="#8aa09a" stroke-width="1" stroke-linejoin="round"/><path d="M7.2 14a4.8 4.8 0 0 1 9.6 0z" fill="#3aa58f" stroke="#1d6b5a" stroke-width="1" stroke-linejoin="round"/><path d="M12 6.4v-2" stroke="#a8691a" stroke-width="1.3" stroke-linecap="round"/><circle cx="12" cy="3.7" r="1" fill="#e8b04a"/><path d="M4.4 14V8l1.1-1.7L6.6 8v6M17.4 14V8l1.1-1.7 1.1 1.7v6" fill="#d9e2de" stroke="#8aa09a" stroke-width="1" stroke-linejoin="round"/><path d="M10.6 21v-3.4a1.4 1.4 0 0 1 2.8 0V21z" fill="#3aa58f"/>'),
+  candy:SV('<ellipse cx="12" cy="12" rx="5.2" ry="3.9" fill="#ff7aa8" stroke="#c4437a" stroke-width="1"/><path d="M6.9 12L3.4 9v6z" fill="#ffd45e" stroke="#c8932a" stroke-width=".8" stroke-linejoin="round"/><path d="M17.1 12l3.5-3v6z" fill="#ffd45e" stroke="#c8932a" stroke-width=".8" stroke-linejoin="round"/><path d="M9.3 9.6l1.6 4.8M13 9.1l1.6 5.4" stroke="#fff" stroke-width="1.2" stroke-linecap="round" opacity=".75"/>'),
+  gift:SV('<rect x="4" y="10" width="16" height="10.5" rx="1.6" fill="#7b8cff" stroke="#4553c9" stroke-width="1"/><rect x="3" y="7.2" width="18" height="3.8" rx="1.2" fill="#96a3ff" stroke="#4553c9" stroke-width="1"/><path d="M12 7.2v13.3" stroke="#ffd45e" stroke-width="2.2"/><path d="M12 7.2C9.6 7.2 8 6 8 4.8S9.5 3.2 10.6 4c.9.7 1.4 2 1.4 3.2zM12 7.2c2.4 0 4-1.2 4-2.4s-1.5-1.6-2.6-.8c-.9.7-1.4 2-1.4 3.2z" fill="#ffd45e" stroke="#c8932a" stroke-width=".9" stroke-linejoin="round"/>')
  };
+ const svgUri=(w,h,body)=>'url("data:image/svg+xml,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+w+' '+h+'" preserveAspectRatio="xMidYMid slice">'+body+'</svg>')+'")';
+ const NIGHT=svgUri(100,130,'<g fill="#fff"><circle cx="14" cy="16" r="1"/><circle cx="34" cy="9" r=".8"/><circle cx="52" cy="22" r="1.1"/><circle cx="71" cy="12" r=".9"/><circle cx="88" cy="30" r="1"/><circle cx="22" cy="40" r=".7"/><circle cx="80" cy="52" r=".8"/></g><path d="M74 10a13 13 0 1 0 14 17 10.5 10.5 0 0 1-14-17z" fill="#f8e7a6"/><path d="M60 24l1.3 2.9 3.1.4-2.3 2.1.6 3.1-2.7-1.6-2.7 1.6.6-3.1-2.3-2.1 3.1-.4z" fill="#f8e7a6"/><g stroke="#e8b04a" stroke-width=".6"><path d="M18 0v28M44 0v18"/></g><path d="M14.6 28h6.8l-.8 12H15.4z" fill="#f2b84b"/><path d="M40.6 18h6.8l-.8 10h-5.2z" fill="#f2b84b"/><path d="M0 104h8V94l3-5 3 5v10h8V84l3-7 3 7v20h10V96a9 9 0 0 1 18 0v8h8V90l3-6 3 6v14h10V92l3-5 3 5v12h12v26H0z" fill="#050a22" opacity=".92"/>');
+ const FEAST=svgUri(100,130,'<path d="M0 6l100 0" stroke="#fff" stroke-width=".8" opacity=".5"/><path d="M0 4h14l-7 14zM14 4h14l-7 14zM28 4h14l-7 14zM42 4h14l-7 14zM56 4h14l-7 14zM70 4h14l-7 14zM84 4h16l-8 14z" fill="#ffd45e" opacity=".9"/><path d="M14 4h14l-7 14zM42 4h14l-7 14zM70 4h14l-7 14z" fill="#7be3c4"/><g opacity=".85"><circle cx="16" cy="52" r="2.2" fill="#fff"/><circle cx="76" cy="44" r="2.6" fill="#ffd45e"/><circle cx="48" cy="72" r="2" fill="#7be3c4"/><circle cx="86" cy="86" r="2.4" fill="#fff"/><circle cx="24" cy="98" r="2.6" fill="#ffd45e"/><circle cx="62" cy="108" r="2" fill="#7be3c4"/></g><path d="M50 34l1.5 3.3 3.5.4-2.6 2.4.7 3.5-3.1-1.8-3.1 1.8.7-3.5-2.6-2.4 3.5-.4z" fill="#fff" opacity=".9"/><path d="M82 64l1.1 2.4 2.6.3-1.9 1.7.5 2.6-2.3-1.3-2.3 1.3.5-2.6-1.9-1.7 2.6-.3z" fill="#ffd45e"/>');
  const ITEMS=[
   {id:'bg_dune',kind:'bg',cost:30,css:'linear-gradient(160deg,#e9b26a,#7d3f2b)'},
   {id:'bg_night',kind:'bg',cost:30,css:'radial-gradient(circle at 22% 24%,#fff 0 1px,transparent 2px),radial-gradient(circle at 72% 18%,#fff 0 1.2px,transparent 2.4px),radial-gradient(circle at 82% 62%,rgba(255,255,255,.7) 0 1px,transparent 2px),linear-gradient(160deg,#25316e,#080c24)'},
@@ -36,8 +43,23 @@
   {id:'ac_leaf',kind:'ac',cost:45,svg:'leaf'},
   {id:'ac_lamp',kind:'ac',cost:55,svg:'lamp'},
   {id:'ac_book',kind:'ac',cost:55,reward:{type:'stages',n:10},svg:'book'},
-  {id:'ac_heart',kind:'ac',cost:55,svg:'heart'}
+  {id:'ac_heart',kind:'ac',cost:55,svg:'heart'},
+  {id:'bg_ramadan',kind:'bg',cost:50,season:'ramadan',css:NIGHT+' center/cover no-repeat,linear-gradient(180deg,#1d2f78,#0a1030)'},
+  {id:'fr_ramadan',kind:'fr',cost:60,season:'ramadan',css:'0 0 0 3px #e8b04a,0 0 0 6px #1f8f78,0 0 18px rgba(232,176,74,.55)'},
+  {id:'ac_fanus',kind:'ac',cost:50,season:'ramadan',svg:'fanus'},
+  {id:'ac_mosque',kind:'ac',cost:50,season:'ramadan',svg:'mosque'},
+  {id:'bg_eid',kind:'bg',cost:50,season:'eid',css:FEAST+' center/cover no-repeat,linear-gradient(160deg,#ff9a6a,#c9407f 55%,#4f2a86)'},
+  {id:'fr_eid',kind:'fr',cost:60,season:'eid',css:'0 0 0 3px #ffd45e,0 0 0 6px #ff7aa8,0 0 18px rgba(255,122,168,.55)'},
+  {id:'ac_candy',kind:'ac',cost:45,season:'eid',svg:'candy'},
+  {id:'ac_gift',kind:'ac',cost:45,season:'eid',svg:'gift'}
  ];
+ const IT3={
+  tr:{bg_ramadan:'Ramazan Gecesi',fr_ramadan:'Ramazan Işığı',ac_fanus:'Fanus',ac_mosque:'Cami',bg_eid:'Bayram Şenliği',fr_eid:'Bayram Işıltısı',ac_candy:'Bayram Şekeri',ac_gift:'Hediye'},
+  en:{bg_ramadan:'Ramadan Night',fr_ramadan:'Ramadan Glow',ac_fanus:'Ramadan Lantern',ac_mosque:'Mosque',bg_eid:'Eid Festival',fr_eid:'Eid Sparkle',ac_candy:'Eid Candy',ac_gift:'Gift'},
+  de:{bg_ramadan:'Ramadan-Nacht',fr_ramadan:'Ramadan-Glanz',ac_fanus:'Ramadan-Laterne',ac_mosque:'Moschee',bg_eid:'Eid-Fest',fr_eid:'Eid-Funkeln',ac_candy:'Eid-Bonbon',ac_gift:'Geschenk'},
+  fr:{bg_ramadan:'Nuit du Ramadan',fr_ramadan:'Éclat du Ramadan',ac_fanus:'Lanterne',ac_mosque:'Mosquée',bg_eid:'Fête de l’Aïd',fr_eid:'Éclat de l’Aïd',ac_candy:'Bonbon de l’Aïd',ac_gift:'Cadeau'},
+  ar:{bg_ramadan:'ليلة رمضان',fr_ramadan:'نور رمضان',ac_fanus:'فانوس',ac_mosque:'مسجد',bg_eid:'فرحة العيد',fr_eid:'بهجة العيد',ac_candy:'حلوى العيد',ac_gift:'هدية'}
+ };
  const IT2={
   tr:{bg_dawn:'Fecr',bg_sea:'Deniz',bg_rose:'Gül',bg_geo:'Geometri',bg_gold:'Altın',fr_gold:'Altın',fr_emerald:'Zümrüt',fr_amethyst:'Ametist',fr_nur:'Nur',ac_lamp:'Fener',ac_book:'Kitap',ac_heart:'Kalp'},
   en:{bg_dawn:'Dawn',bg_sea:'Sea',bg_rose:'Rose',bg_geo:'Pattern',bg_gold:'Gold',fr_gold:'Gold',fr_emerald:'Emerald',fr_amethyst:'Amethyst',fr_nur:'Light',ac_lamp:'Lantern',ac_book:'Book',ac_heart:'Heart'},
@@ -47,7 +69,7 @@
  };
  const OUTFIT_LABEL={tr:'Kıyafet',en:'Outfit',de:'Outfit',fr:'Tenue',ar:'ملابس'};
  const FR={tr:'Çerçeve',en:'Frame',de:'Rahmen',fr:'Cadre',ar:'إطار'};
- const itName=id=>(T().it[id]||IT2[lang()][id]||id);
+ const itName=id=>(T().it[id]||IT2[lang()][id]||IT3[lang()][id]||id);
  /* Layered outfits: full-body art + transparent clothing layers drawn on the same canvas (512x768).
     Layers come from assets/companions/outfits.json so new art needs no code change. */
  const BODY=['cat','lion','wolf','owl','turtle','eagle'];
@@ -77,27 +99,27 @@
   }).catch(()=>{})}catch(_){}
  }
  const S={
-  tr:{tabCombos:'Kombin',saveLook:'Bunu kaydet',slotEmpty:'Boş yuva',slotN:n=>'Kombin '+n,applyL:'Giy',delL:'Sil',comboSaved:'Kombin kaydedildi',comboNeedOwn:'Önce eşyaları satın al ya da kaydet',comboHint:'Giydiğin görünümü bir yuvaya kaydet; sonra tek dokunuşla giy.',reqToast:r=>'Açmak için: '+r,rewardNew:n=>'Yeni ödül: '+n,rs:{streak:n=>n+' günlük seri',level:n=>'Seviye '+n,stages:n=>n+' ders'},tabShop:'Mağaza',tabCloset:'Gardırobum',save:'Kaydet',saved:'Kaydedildi',unsaved:'Kaydetmeden çıkmak için tekrar dokun',emptyCloset:'Henüz bir şeyin yok. Mağazadan alabilirsin.',undoL:'Geri al',redoL:'İleri al',closeL:'Kapat',pickHint:'Bir eşya seç; satın almadan önce üstünde dene.',ownedL:'Sende',tryOn:'Önizleme',fresh:'Yeni',next:(a,n,x)=>'Sıradaki: '+a+' · Seviye '+n+' (' + x + ' XP kaldı)',all:'Tüm hayvanlar açık!',cele:'Yeni yol arkadaşı!',keep:'Şimdilik kalsın',room:'Hayvan Odası',animals:'Hayvanlar',wardrobe:'Gardırop',lv:n=>'Seviye '+n,locked:n=>'Seviye '+n+' ile açılır',use:'Seç',active:'Seçili',
+  tr:{sg:{ramadan:'🌙 Hayırlı Ramazanlar',eid:'🎉 Bayramınız mübarek olsun'},sleft:n=>n>0?n+' gün kaldı':'Son gün',sopen:'Mevsimlik eşyalar şimdi açık.',sl:{ramadan:'Ramazan’da açılır',eid:'Bayramda açılır'},sltoast:{ramadan:'Bu eşya Ramazan ayında alınabilir.',eid:'Bu eşya bayram günlerinde alınabilir.'},tabCombos:'Kombin',saveLook:'Bunu kaydet',slotEmpty:'Boş yuva',slotN:n=>'Kombin '+n,applyL:'Giy',delL:'Sil',comboSaved:'Kombin kaydedildi',comboNeedOwn:'Önce eşyaları satın al ya da kaydet',comboHint:'Giydiğin görünümü bir yuvaya kaydet; sonra tek dokunuşla giy.',reqToast:r=>'Açmak için: '+r,rewardNew:n=>'Yeni ödül: '+n,rs:{streak:n=>n+' günlük seri',level:n=>'Seviye '+n,stages:n=>n+' ders'},tabShop:'Mağaza',tabCloset:'Gardırobum',save:'Kaydet',saved:'Kaydedildi',unsaved:'Kaydetmeden çıkmak için tekrar dokun',emptyCloset:'Henüz bir şeyin yok. Mağazadan alabilirsin.',undoL:'Geri al',redoL:'İleri al',closeL:'Kapat',pickHint:'Bir eşya seç; satın almadan önce üstünde dene.',ownedL:'Sende',tryOn:'Önizleme',fresh:'Yeni',next:(a,n,x)=>'Sıradaki: '+a+' · Seviye '+n+' (' + x + ' XP kaldı)',all:'Tüm hayvanlar açık!',cele:'Yeni yol arkadaşı!',keep:'Şimdilik kalsın',room:'Hayvan Odası',animals:'Hayvanlar',wardrobe:'Gardırop',lv:n=>'Seviye '+n,locked:n=>'Seviye '+n+' ile açılır',use:'Seç',active:'Seçili',
    unlock:(a,n)=>a+' açıldı! Hayvan Odası’ndan seçebilirsin.',lockedToast:(a,n)=>a+' için seviye '+n+' gerekiyor.',bg:'Arka plan',ac:'Rozet',none:'Yok',
    buy:c=>c+' ◇ ile al',equip:'Tak',off:'Çıkar',on:'Takılı',need:'Yeterli Pırıltı yok',bought:'Gardıroba eklendi',
    hint:'Pırıltıyı günlük ve haftalık sandıklardan, serilerden ve derslerden kazanırsın.',
    it:{bg_dune:'Çöl',bg_night:'Gece',bg_garden:'Bahçe',ac_star:'Yıldız',ac_moon:'Hilal',ac_leaf:'Yaprak'}},
-  en:{tabCombos:'Outfits',saveLook:'Save look',slotEmpty:'Empty slot',slotN:n=>'Outfit '+n,applyL:'Wear',delL:'Delete',comboSaved:'Outfit saved',comboNeedOwn:'Buy or save the items first',comboHint:'Save your current look in a slot, then wear it with one tap.',reqToast:r=>'Unlock with: '+r,rewardNew:n=>'New reward: '+n,rs:{streak:n=>n+'-day streak',level:n=>'Level '+n,stages:n=>n+' lessons'},tabShop:'Shop',tabCloset:'My closet',save:'Save',saved:'Saved',unsaved:'Tap again to leave without saving',emptyCloset:'Nothing here yet. Get items from the shop.',undoL:'Undo',redoL:'Redo',closeL:'Close',pickHint:'Pick an item to try it on before you buy.',ownedL:'Owned',tryOn:'Preview',fresh:'New',next:(a,n,x)=>'Next: '+a+' · Level '+n+' ('+x+' XP to go)',all:'All animals unlocked!',cele:'New companion!',keep:'Maybe later',room:'Animal Room',animals:'Animals',wardrobe:'Wardrobe',lv:n=>'Level '+n,locked:n=>'Unlocks at level '+n,use:'Choose',active:'Chosen',
+  en:{sg:{ramadan:'🌙 Ramadan Mubarak',eid:'🎉 Eid Mubarak'},sleft:n=>n>0?n+' days left':'Last day',sopen:'Seasonal items are open now.',sl:{ramadan:'Opens in Ramadan',eid:'Opens at Eid'},sltoast:{ramadan:'This item can be bought during Ramadan.',eid:'This item can be bought during Eid.'},tabCombos:'Outfits',saveLook:'Save look',slotEmpty:'Empty slot',slotN:n=>'Outfit '+n,applyL:'Wear',delL:'Delete',comboSaved:'Outfit saved',comboNeedOwn:'Buy or save the items first',comboHint:'Save your current look in a slot, then wear it with one tap.',reqToast:r=>'Unlock with: '+r,rewardNew:n=>'New reward: '+n,rs:{streak:n=>n+'-day streak',level:n=>'Level '+n,stages:n=>n+' lessons'},tabShop:'Shop',tabCloset:'My closet',save:'Save',saved:'Saved',unsaved:'Tap again to leave without saving',emptyCloset:'Nothing here yet. Get items from the shop.',undoL:'Undo',redoL:'Redo',closeL:'Close',pickHint:'Pick an item to try it on before you buy.',ownedL:'Owned',tryOn:'Preview',fresh:'New',next:(a,n,x)=>'Next: '+a+' · Level '+n+' ('+x+' XP to go)',all:'All animals unlocked!',cele:'New companion!',keep:'Maybe later',room:'Animal Room',animals:'Animals',wardrobe:'Wardrobe',lv:n=>'Level '+n,locked:n=>'Unlocks at level '+n,use:'Choose',active:'Chosen',
    unlock:a=>a+' unlocked! You can choose it in the Animal Room.',lockedToast:(a,n)=>a+' unlocks at level '+n+'.',bg:'Backdrop',ac:'Badge',none:'None',
    buy:c=>'Get for '+c+' ◇',equip:'Wear',off:'Remove',on:'Worn',need:'Not enough Sparkles',bought:'Added to your wardrobe',
    hint:'You earn Sparkles from daily and weekly chests, streaks and lessons.',
    it:{bg_dune:'Desert',bg_night:'Night',bg_garden:'Garden',ac_star:'Star',ac_moon:'Crescent',ac_leaf:'Leaf'}},
-  de:{tabCombos:'Outfits',saveLook:'Speichern',slotEmpty:'Leerer Platz',slotN:n=>'Outfit '+n,applyL:'Anziehen',delL:'Löschen',comboSaved:'Outfit gespeichert',comboNeedOwn:'Hol oder speichere die Teile zuerst',comboHint:'Speichere deinen Look in einem Platz und zieh ihn mit einem Tipp an.',reqToast:r=>'Freischalten mit: '+r,rewardNew:n=>'Neue Belohnung: '+n,rs:{streak:n=>n+'-Tage-Serie',level:n=>'Stufe '+n,stages:n=>n+' Lektionen'},tabShop:'Shop',tabCloset:'Mein Schrank',save:'Speichern',saved:'Gespeichert',unsaved:'Erneut tippen, um ohne Speichern zu verlassen',emptyCloset:'Noch nichts da. Hol dir Teile im Shop.',undoL:'Rückgängig',redoL:'Wiederholen',closeL:'Schließen',pickHint:'Wähle ein Teil und probiere es vor dem Kauf an.',ownedL:'Im Besitz',tryOn:'Vorschau',fresh:'Neu',next:(a,n,x)=>'Als Nächstes: '+a+' · Stufe '+n+' (noch '+x+' XP)',all:'Alle Tiere freigeschaltet!',cele:'Neuer Begleiter!',keep:'Vielleicht später',room:'Tierzimmer',animals:'Tiere',wardrobe:'Garderobe',lv:n=>'Stufe '+n,locked:n=>'Ab Stufe '+n,use:'Wählen',active:'Gewählt',
+  de:{sg:{ramadan:'🌙 Ramadan Mubarak',eid:'🎉 Eid Mubarak'},sleft:n=>n>0?'Noch '+n+' Tage':'Letzter Tag',sopen:'Saisonteile sind jetzt freigeschaltet.',sl:{ramadan:'Öffnet im Ramadan',eid:'Öffnet zum Eid'},sltoast:{ramadan:'Dieses Teil gibt es im Ramadan.',eid:'Dieses Teil gibt es zum Eid-Fest.'},tabCombos:'Outfits',saveLook:'Speichern',slotEmpty:'Leerer Platz',slotN:n=>'Outfit '+n,applyL:'Anziehen',delL:'Löschen',comboSaved:'Outfit gespeichert',comboNeedOwn:'Hol oder speichere die Teile zuerst',comboHint:'Speichere deinen Look in einem Platz und zieh ihn mit einem Tipp an.',reqToast:r=>'Freischalten mit: '+r,rewardNew:n=>'Neue Belohnung: '+n,rs:{streak:n=>n+'-Tage-Serie',level:n=>'Stufe '+n,stages:n=>n+' Lektionen'},tabShop:'Shop',tabCloset:'Mein Schrank',save:'Speichern',saved:'Gespeichert',unsaved:'Erneut tippen, um ohne Speichern zu verlassen',emptyCloset:'Noch nichts da. Hol dir Teile im Shop.',undoL:'Rückgängig',redoL:'Wiederholen',closeL:'Schließen',pickHint:'Wähle ein Teil und probiere es vor dem Kauf an.',ownedL:'Im Besitz',tryOn:'Vorschau',fresh:'Neu',next:(a,n,x)=>'Als Nächstes: '+a+' · Stufe '+n+' (noch '+x+' XP)',all:'Alle Tiere freigeschaltet!',cele:'Neuer Begleiter!',keep:'Vielleicht später',room:'Tierzimmer',animals:'Tiere',wardrobe:'Garderobe',lv:n=>'Stufe '+n,locked:n=>'Ab Stufe '+n,use:'Wählen',active:'Gewählt',
    unlock:a=>a+' freigeschaltet! Du kannst es im Tierzimmer wählen.',lockedToast:(a,n)=>a+' wird auf Stufe '+n+' freigeschaltet.',bg:'Hintergrund',ac:'Abzeichen',none:'Keins',
    buy:c=>'Für '+c+' ◇ holen',equip:'Anlegen',off:'Ablegen',on:'Getragen',need:'Nicht genug Funken',bought:'Zur Garderobe hinzugefügt',
    hint:'Funken verdienst du mit täglichen und wöchentlichen Truhen, Serien und Lektionen.',
    it:{bg_dune:'Wüste',bg_night:'Nacht',bg_garden:'Garten',ac_star:'Stern',ac_moon:'Halbmond',ac_leaf:'Blatt'}},
-  fr:{tabCombos:'Tenues',saveLook:'Enregistrer',slotEmpty:'Emplacement vide',slotN:n=>'Tenue '+n,applyL:'Porter',delL:'Supprimer',comboSaved:'Tenue enregistrée',comboNeedOwn:'Prends ou enregistre d’abord les articles',comboHint:'Enregistre ton look dans un emplacement, puis porte-le d’un seul toucher.',reqToast:r=>'Pour débloquer : '+r,rewardNew:n=>'Nouvelle récompense : '+n,rs:{streak:n=>'série de '+n+' jours',level:n=>'niveau '+n,stages:n=>n+' leçons'},tabShop:'Boutique',tabCloset:'Ma garde-robe',save:'Enregistrer',saved:'Enregistré',unsaved:'Touche à nouveau pour quitter sans enregistrer',emptyCloset:'Rien ici pour l’instant. Prends des articles à la boutique.',undoL:'Annuler',redoL:'Rétablir',closeL:'Fermer',pickHint:'Choisis un article et essaie-le avant de l’acheter.',ownedL:'Possédé',tryOn:'Aperçu',fresh:'Nouveau',next:(a,n,x)=>'Prochain : '+a+' · niveau '+n+' ('+x+' XP restants)',all:'Tous les animaux sont débloqués !',cele:'Nouveau compagnon !',keep:'Plus tard',room:'Salle des animaux',animals:'Animaux',wardrobe:'Garde-robe',lv:n=>'Niveau '+n,locked:n=>'Se débloque au niveau '+n,use:'Choisir',active:'Choisi',
+  fr:{sg:{ramadan:'🌙 Ramadan Moubarak',eid:'🎉 Aïd Moubarak'},sleft:n=>n>0?n+' jours restants':'Dernier jour',sopen:'Les articles de saison sont ouverts.',sl:{ramadan:'S’ouvre pendant le Ramadan',eid:'S’ouvre à l’Aïd'},sltoast:{ramadan:'Cet article s’obtient pendant le Ramadan.',eid:'Cet article s’obtient pendant l’Aïd.'},tabCombos:'Tenues',saveLook:'Enregistrer',slotEmpty:'Emplacement vide',slotN:n=>'Tenue '+n,applyL:'Porter',delL:'Supprimer',comboSaved:'Tenue enregistrée',comboNeedOwn:'Prends ou enregistre d’abord les articles',comboHint:'Enregistre ton look dans un emplacement, puis porte-le d’un seul toucher.',reqToast:r=>'Pour débloquer : '+r,rewardNew:n=>'Nouvelle récompense : '+n,rs:{streak:n=>'série de '+n+' jours',level:n=>'niveau '+n,stages:n=>n+' leçons'},tabShop:'Boutique',tabCloset:'Ma garde-robe',save:'Enregistrer',saved:'Enregistré',unsaved:'Touche à nouveau pour quitter sans enregistrer',emptyCloset:'Rien ici pour l’instant. Prends des articles à la boutique.',undoL:'Annuler',redoL:'Rétablir',closeL:'Fermer',pickHint:'Choisis un article et essaie-le avant de l’acheter.',ownedL:'Possédé',tryOn:'Aperçu',fresh:'Nouveau',next:(a,n,x)=>'Prochain : '+a+' · niveau '+n+' ('+x+' XP restants)',all:'Tous les animaux sont débloqués !',cele:'Nouveau compagnon !',keep:'Plus tard',room:'Salle des animaux',animals:'Animaux',wardrobe:'Garde-robe',lv:n=>'Niveau '+n,locked:n=>'Se débloque au niveau '+n,use:'Choisir',active:'Choisi',
    unlock:a=>a+' débloqué ! Tu peux le choisir dans la salle des animaux.',lockedToast:(a,n)=>a+' se débloque au niveau '+n+'.',bg:'Décor',ac:'Badge',none:'Aucun',
    buy:c=>'Obtenir pour '+c+' ◇',equip:'Porter',off:'Retirer',on:'Porté',need:'Pas assez d’étincelles',bought:'Ajouté à la garde-robe',
    hint:'Tu gagnes des étincelles avec les coffres quotidiens et hebdomadaires, les séries et les leçons.',
    it:{bg_dune:'Désert',bg_night:'Nuit',bg_garden:'Jardin',ac_star:'Étoile',ac_moon:'Croissant',ac_leaf:'Feuille'}},
-  ar:{tabCombos:'إطلالات',saveLook:'احفظ',slotEmpty:'خانة فارغة',slotN:n=>'إطلالة '+n,applyL:'ارتداء',delL:'حذف',comboSaved:'تم حفظ الإطلالة',comboNeedOwn:'احصل على القطع أو احفظها أولاً',comboHint:'احفظ إطلالتك في خانة ثم ارتدها بلمسة واحدة.',reqToast:r=>'للفتح: '+r,rewardNew:n=>'مكافأة جديدة: '+n,rs:{streak:n=>'سلسلة من '+n+' يومًا',level:n=>'المستوى '+n,stages:n=>n+' درسًا'},tabShop:'المتجر',tabCloset:'خزانتي',save:'حفظ',saved:'تم الحفظ',unsaved:'اضغط مرة أخرى للخروج دون حفظ',emptyCloset:'لا شيء هنا بعد. احصل على قطع من المتجر.',undoL:'تراجع',redoL:'إعادة',closeL:'إغلاق',pickHint:'اختر قطعة وجرّبها قبل الشراء.',ownedL:'مملوك',tryOn:'معاينة',fresh:'جديد',next:(a,n,x)=>'التالي: '+a+' · المستوى '+n+' (باقي '+x+' نقطة خبرة)',all:'تم فتح جميع الحيوانات!',cele:'رفيق جديد!',keep:'لاحقًا',room:'غرفة الحيوانات',animals:'الحيوانات',wardrobe:'خزانة الملابس',lv:n=>'المستوى '+n,locked:n=>'يُفتح عند المستوى '+n,use:'اختيار',active:'مختار',
+  ar:{sg:{ramadan:'🌙 رمضان مبارك',eid:'🎉 عيد مبارك'},sleft:n=>n>0?'باقٍ '+n+' أيام':'اليوم الأخير',sopen:'القطع الموسمية متاحة الآن.',sl:{ramadan:'يُفتح في رمضان',eid:'يُفتح في العيد'},sltoast:{ramadan:'يمكن الحصول على هذه القطعة في رمضان.',eid:'يمكن الحصول على هذه القطعة في العيد.'},tabCombos:'إطلالات',saveLook:'احفظ',slotEmpty:'خانة فارغة',slotN:n=>'إطلالة '+n,applyL:'ارتداء',delL:'حذف',comboSaved:'تم حفظ الإطلالة',comboNeedOwn:'احصل على القطع أو احفظها أولاً',comboHint:'احفظ إطلالتك في خانة ثم ارتدها بلمسة واحدة.',reqToast:r=>'للفتح: '+r,rewardNew:n=>'مكافأة جديدة: '+n,rs:{streak:n=>'سلسلة من '+n+' يومًا',level:n=>'المستوى '+n,stages:n=>n+' درسًا'},tabShop:'المتجر',tabCloset:'خزانتي',save:'حفظ',saved:'تم الحفظ',unsaved:'اضغط مرة أخرى للخروج دون حفظ',emptyCloset:'لا شيء هنا بعد. احصل على قطع من المتجر.',undoL:'تراجع',redoL:'إعادة',closeL:'إغلاق',pickHint:'اختر قطعة وجرّبها قبل الشراء.',ownedL:'مملوك',tryOn:'معاينة',fresh:'جديد',next:(a,n,x)=>'التالي: '+a+' · المستوى '+n+' (باقي '+x+' نقطة خبرة)',all:'تم فتح جميع الحيوانات!',cele:'رفيق جديد!',keep:'لاحقًا',room:'غرفة الحيوانات',animals:'الحيوانات',wardrobe:'خزانة الملابس',lv:n=>'المستوى '+n,locked:n=>'يُفتح عند المستوى '+n,use:'اختيار',active:'مختار',
    unlock:a=>'تم فتح '+a+'! يمكنك اختياره من غرفة الحيوانات.',lockedToast:(a,n)=>a+' يُفتح عند المستوى '+n+'.',bg:'الخلفية',ac:'شارة',none:'بدون',
    buy:c=>'احصل عليه بـ '+c+' ◇',equip:'ارتداء',off:'إزالة',on:'مرتدى',need:'لا تكفي الشرارات',bought:'أُضيف إلى الخزانة',
    hint:'تكسب الشرارات من الصناديق اليومية والأسبوعية والسلاسل والدروس.',
@@ -136,6 +158,24 @@
  }
  function unlocked(id){return !!LEVELS[id]&&(adminAll()||unlockedReal(id))}
  // Owned = bought, a free default outfit, or admin test mode. Worn items that are not owned (admin mode switched off) are ignored.
+ /* ---- Seasons: Ramadan and the two Eids, from the device's own Hijri calendar (Umm al-Qura, calculation based: it can differ by a day from the moon-sighting calendar). ---- */
+ const HJ=(()=>{try{return new Intl.DateTimeFormat('en-u-ca-islamic-umalqura-nu-latn',{day:'numeric',month:'numeric',year:'numeric'})}catch(_){return null}})();
+ function hijri(d){if(!HJ)return null;try{const p=HJ.formatToParts(d),g=t=>Number((p.find(x=>x.type===t)||{}).value);const m=g('month'),dd=g('day');return m&&dd?{m,d:dd}:null}catch(_){return null}}
+ const seasonOf=h=>!h?null:(h.m===9?'ramadan':((h.m===10&&h.d<=4)||(h.m===12&&h.d>=10&&h.d<=13))?'eid':null);
+ function seasonFor(date){
+  const id=seasonOf(hijri(date));if(!id)return null;
+  let left=0;for(let i=1;i<=40;i++){if(seasonOf(hijri(new Date(date.getTime()+i*864e5)))!==id)break;left=i}
+  return {id,left};
+ }
+ let seasonCache={k:'',v:null};
+ function season(){
+  let f='';try{f=window.DEEN_ADMIN_SEASON?.()||''}catch(_){}
+  if(f==='ramadan'||f==='eid')return {id:f,left:7};
+  const d=new Date(),k=d.getFullYear()+'-'+d.getMonth()+'-'+d.getDate();
+  if(seasonCache.k!==k)seasonCache={k,v:seasonFor(d)};
+  return seasonCache.v;
+ }
+ const seasonOpen=it=>!it.season||adminAll()||(season()&&season().id===it.season);
  /* Rewards: an item with reward:{type,n} cannot be bought; it opens when the player reaches the goal (best streak, level or lessons done). */
  function rewardValue(r){
   const st=app();if(!st||!r)return 0;
@@ -182,7 +222,7 @@
  /* Wardrobe */
  function item(id){return ITEMS.find(i=>i.id===id)||outItem(id)}
  function buyItem(id){
-  const st=app(),m=meta(),it=item(id);if(!st||!m||!it||m.items.includes(id)||it.default===true||(it.reward&&!earned(it)&&!adminAll()))return false;
+  const st=app(),m=meta(),it=item(id);if(!st||!m||!it||m.items.includes(id)||it.default===true||(it.reward&&!earned(it)&&!adminAll())||!seasonOpen(it))return false;
   if(adminAll()){if(it.slot)toggleItem(id);else m.eq[it.kind]=id;save();return true} // admin test: free; worn but never saved as bought, so it disappears when the switch is turned off
   if((Number(st.currency)||0)<it.cost)return false;
   st.currency-=it.cost;m.items.push(id);
@@ -252,7 +292,7 @@
  function tileHtml(it,a,m,t){
   const key=slotKey(it),sel=effId(key,a,m)===it.id,saved=wornId(key,a,m)===it.id,own=has(it.id);
   const th=it.slot?'<img src="'+esc(it.art[a])+'" alt="">':it.kind==='ac'?'<span class="dcz-ico">'+ICON[it.svg]+'</span>':it.kind==='bg'?'<span class="dcz-sw" data-dcz-bg="'+it.id+'"></span>':'<span class="dcz-ring" data-dcz-fr="'+it.id+'"></span>';
-  return '<button type="button" class="dcz-tile'+(sel?' sel':'')+(saved?' saved':'')+(own?'':' lock')+(it.reward&&!own?' rw':'')+'" data-dcz="tile" data-id="'+esc(it.id)+'" aria-pressed="'+sel+'"><span class="dcz-th">'+th+(sel?'<i class="dcz-ck">✓</i>':'')+(own?'':it.reward?'<i class="dcz-pr dcz-rq">🔒 '+esc(reqText(it))+'</i>':'<i class="dcz-pr">◇ '+Number(it.cost)+'</i>')+'</span><b>'+esc(itemName(it))+'</b></button>';
+  return '<button type="button" class="dcz-tile'+(sel?' sel':'')+(saved?' saved':'')+(own?'':' lock')+((it.reward||!seasonOpen(it))&&!own?' rw':'')+'" data-dcz="tile" data-id="'+esc(it.id)+'" aria-pressed="'+sel+'"><span class="dcz-th">'+th+(sel?'<i class="dcz-ck">✓</i>':'')+(own?'':it.reward?'<i class="dcz-pr dcz-rq">🔒 '+esc(reqText(it))+'</i>':!seasonOpen(it)?'<i class="dcz-pr dcz-rq">'+(it.season==='eid'?'🎉 ':'🌙 ')+esc(t.sl[it.season])+'</i>':'<i class="dcz-pr">◇ '+Number(it.cost)+'</i>')+(it.season?'<i class="dcz-sz" aria-hidden="true">'+(it.season==='eid'?'🎉':'🌙')+'</i>':'')+'</span><b>'+esc(itemName(it))+'</b></button>';
  }
  function animalTile(id,t,cur){
   const ok=unlocked(id),on=cur===id;
@@ -324,9 +364,10 @@
    html=(nx?'<p class="dcz-next">'+esc(t.next(N(nx),LEVELS[nx],Math.max(0,xpFor(LEVELS[nx])-(Number(st.xp)||0))))+'</p>':'<p class="dcz-next">'+esc(t.all)+'</p>')+ORDER.map(id=>animalTile(id,t,a)).join('');
   }else{
    let list=catItems(cat,a);if(tab==='closet')list=list.filter(i=>has(i.id));
-   html=list.length?list.map(i=>tileHtml(i,a,m,t)).join('')+'<p class="dcz-hint">'+esc(t.hint)+'</p>':'<p class="dcz-empty">'+esc(t.emptyCloset)+'</p>';
+   const sz=tab==='shop'?season():null;
+   html=(sz?'<p class="dcz-banner">'+esc(t.sg[sz.id])+' · '+esc(t.sleft(sz.left))+'<small>'+esc(t.sopen)+'</small></p>':'')+(list.length?list.map(i=>tileHtml(i,a,m,t)).join('')+'<p class="dcz-hint">'+esc(t.hint)+'</p>':'<p class="dcz-empty">'+esc(t.emptyCloset)+'</p>');
   }
-  if(setHtml(grid,gk+'|'+JSON.stringify(draft)+'|'+JSON.stringify(m.combos||{})+'|'+bal+'|'+freshShown.join()+'|'+OUT.list.length+'|'+admin()+'|'+lang(),html)){grid.dataset.gk=gk;grid.scrollTop=keep}
+  if(setHtml(grid,gk+'|'+JSON.stringify(draft)+'|'+JSON.stringify(m.combos||{})+'|'+(season()?season().id:'')+'|'+bal+'|'+freshShown.join()+'|'+OUT.list.length+'|'+admin()+'|'+lang(),html)){grid.dataset.gk=gk;grid.scrollTop=keep}
  }
  const refresh=paint;
  const admin=adminAll;
@@ -358,6 +399,7 @@
  function tapTile(id){
   const it=item(id),a=curAnimal(),m=meta();if(!it||!m||!(!it.slot||(it.art&&it.art[a])))return;
   if(it.reward&&!has(id)){try{toast(T().reqToast(reqText(it)))}catch(_){}return}
+  if(!has(id)&&!seasonOpen(it)){try{toast(T().sltoast[it.season])}catch(_){}return}
   const key=slotKey(it),eff=effId(key,a,m);
   if(eff===id){const d=defaultId(key,a);if(d===id)return;setDraft(key,d,a,m)} // tap the chosen one again = take it off (the default robe stays)
   else setDraft(key,id,a,m);
@@ -581,6 +623,11 @@
 .dcz-sbtn.pri{background:#8cebd0;color:#06232a;border-color:#8cebd0}
 .dcz-sdel{position:absolute;top:6px;right:6px;width:30px;height:30px;border-radius:50%;border:0;background:rgba(0,0,0,.45);color:#fff;cursor:pointer;font-size:13px}
 [dir=rtl] .dcz-sdel{right:auto;left:6px}
+
+.dcz-banner{grid-column:1/-1;margin:0;padding:10px 12px;border-radius:14px;background:linear-gradient(135deg,rgba(232,176,74,.22),rgba(31,143,120,.22));border:1px solid rgba(232,176,74,.45);font:700 13.5px/1.3 inherit}
+.dcz-banner small{display:block;font-weight:500;font-size:11.5px;opacity:.85;margin-top:2px}
+.dcz-sz{position:absolute;top:8px;left:8px;z-index:2;font-style:normal;font-size:14px;line-height:1;filter:drop-shadow(0 1px 2px rgba(0,0,0,.5))}
+[dir=rtl] .dcz-sz{left:auto;right:8px}
 @media(max-height:700px){.dcz-panel{flex-basis:clamp(260px,44%,340px)}.dcz-char{inset:56px 0 4px}.dcz-tab{padding:9px 4px 7px}.dcz-cat{height:42px}.dcz-tile b{font-size:11px}}
 @media(prefers-reduced-motion:reduce){.dcz-room,.dcz-room.in,.dcz-room.out,.dcz-panel,.dcz-room.in .dcz-panel,.dcz-char,.dcz-room.in .dcz-char{transition:none!important;transform:none!important}.dcz-char .dcz-base,.dcz-char .dcz-layer,.dcz-tile.sel{animation:none!important}.dcz-room.out{opacity:0}}
 `;
@@ -591,7 +638,7 @@
  const stageRules=ITEMS.filter(i=>i.kind==='fr').map(i=>'.dcz .dcz-st[data-dcz-fr="'+i.id+'"]{box-shadow:'+insetShadow(i.css)+'!important}').join('\n');
  css.textContent+=rules+'\n'+stageRules;
  document.head.appendChild(css);
- window.DEEN_COMPANIONS=Object.freeze({version:'companions-v11',order:ORDER.slice(),levels:Object.assign({},LEVELS),items:ITEMS.map(i=>i.id),bodyArt:BODY.slice(),outfits:()=>OUT.list.map(o=>o.id),unlocked,select,open,close:()=>closeRoom(true),isOpen:()=>!!room,save:saveDraft,buyItem,toggleItem,isUnlocked:unlocked});
+ window.DEEN_COMPANIONS=Object.freeze({version:'companions-v12',order:ORDER.slice(),levels:Object.assign({},LEVELS),items:ITEMS.map(i=>i.id),bodyArt:BODY.slice(),outfits:()=>OUT.list.map(o=>o.id),unlocked,select,open,season,seasonFor,close:()=>closeRoom(true),isOpen:()=>!!room,save:saveDraft,buyItem,toggleItem,isUnlocked:unlocked});
  // Wrap the engine's own chooser so a locked animal can never be selected programmatically.
  function wrap(){
   const c=window.DEEN_COMPANION;
