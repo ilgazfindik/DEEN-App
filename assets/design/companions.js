@@ -353,6 +353,57 @@
    try{toast(T().lockedToast(N(id),LEVELS[id]))}catch(_){}
   }
  },true);
+ /* ---- Dressed avatar ----
+    Where the game shows the player's own animal as a standing avatar (profile, review, path, home), show it wearing what the
+    player chose: the outfit layers are composed on a canvas and cropped to head and shoulders. Only when the player has
+    customised the outfit (a non-default one is worn): otherwise the original avatar stays. Pose pictures (lesson, correct,
+    wrong, celebrate) are different poses and stay as they are. */
+ const AV={cache:new Map(),busy:new Set()};
+ const customised=a=>Object.values(wornOutfit(a)).some(id=>{const o=outItem(id);return !!o&&o.default!==true});
+ const avKey=a=>{const w=wornOutfit(a);return a+'|'+Object.keys(w).sort().map(k=>w[k]).join(',')};
+ const loadImg=src=>new Promise((ok,no)=>{const i=new Image();i.onload=()=>ok(i);i.onerror=no;i.src=src});
+ async function buildAvatar(a,key){
+  const worn=Object.values(wornOutfit(a)).map(outItem).filter(o=>o&&o.art&&o.art[a]);
+  const fullO=worn.find(o=>o.slot==='body'&&o.full===true);
+  const layers=worn.filter(o=>o!==fullO).sort((x,y)=>(Number(x.z)||0)-(Number(y.z)||0));
+  const imgs=await Promise.all([fullO?fullO.art[a]:bodySrc(a)].concat(layers.map(o=>o.art[a])).map(loadImg));
+  const W=512,H=768,c=document.createElement('canvas');c.width=W;c.height=H;
+  const x=c.getContext('2d');imgs.forEach(i=>x.drawImage(i,0,0,W,H));
+  const d=x.getImageData(0,0,W,H).data;let top=H,bot=0;
+  for(let y=0;y<H;y+=2)for(let u=0;u<W;u+=2)if(d[(y*W+u)*4+3]>40){if(y<top)top=y;if(y>bot)bot=y}
+  if(bot<=top){top=0;bot=H-1}
+  const bh=bot-top,S=Math.round(bh*.56);let left=W,right=0;
+  for(let y=top;y<top+S&&y<H;y+=2)for(let u=0;u<W;u+=2)if(d[(y*W+u)*4+3]>40){if(u<left)left=u;if(u>right)right=u}
+  if(right<=left){left=0;right=W-1}
+  const cx=(left+right)/2,sx=Math.max(0,Math.min(W-S,Math.round(cx-S/2))),sy=Math.max(0,top-Math.round(S*.04));
+  const o=document.createElement('canvas');o.width=o.height=256;
+  o.getContext('2d').drawImage(c,sx,sy,S,S,0,0,256,256);
+  let url;try{url=o.toDataURL('image/webp',.9);if(!/^data:image\/webp/.test(url))url=o.toDataURL('image/png')}catch(_){url=''}
+  if(url)AV.cache.set(key,url);
+  return url;
+ }
+ function swapAvatars(){
+  const st=app();
+  document.querySelectorAll('img[data-dcz-av]').forEach(img=>{ // put the original back when nothing is customised any more
+   const a=String(st?.profile?.companion||'');
+   if(!st||!BODY.includes(a)||!OUT.list.length||!customised(a)){const o=img.dataset.dczOrig;if(o)img.setAttribute('src',o);delete img.dataset.dczAv;delete img.dataset.dczOrig}
+  });
+  if(!st||!st.onboarded)return;
+  const a=String(st.profile?.companion||'');
+  if(!BODY.includes(a)||!OUT.list.length||!customised(a))return;
+  const key=avKey(a),url=AV.cache.get(key);
+  if(!url){
+   if(!AV.busy.has(key)&&document.querySelector('img[src*="/'+a+'_avatar.png"],img[data-dcz-av]')){AV.busy.add(key);buildAvatar(a,key).catch(()=>{}).then(()=>{AV.busy.delete(key);try{swapAvatars()}catch(_){}})}
+   return;
+  }
+  document.querySelectorAll('img[src*="/'+a+'_avatar.png"],img[data-dcz-av]').forEach(img=>{
+   if(img.getAttribute('src')===url)return;
+   const cur=img.getAttribute('src')||'';
+   if(!img.dataset.dczOrig&&/_avatar\.png/.test(cur))img.dataset.dczOrig=cur;
+   img.setAttribute('src',url);img.dataset.dczAv=key;
+   img.style.objectFit='cover';img.style.objectPosition='50% 0';
+  });
+ }
  function decorate(){
   document.querySelectorAll('.v998-animal,.v994-animal-card').forEach(card=>{
    let id=card.dataset.animal;
@@ -364,6 +415,7 @@
    if(lock){if(!tag){tag=document.createElement('em');tag.className='dcz-tag';card.appendChild(tag)}const tt='🔒 '+T().lv(LEVELS[id]);if(tag.textContent!==tt)tag.textContent=tt}
    else tag?.remove();
   });
+  try{swapAvatars()}catch(_){}
   // Entry button in the profile header.
   const top=document.querySelector('#profileScreenBody .dsp-id');
   if(top&&!document.getElementById('dczEntry')){
@@ -463,7 +515,7 @@
  const stageRules=ITEMS.filter(i=>i.kind==='fr').map(i=>'.dcz .dcz-st[data-dcz-fr="'+i.id+'"]{box-shadow:'+insetShadow(i.css)+'!important}').join('\n');
  css.textContent+=rules+'\n'+stageRules;
  document.head.appendChild(css);
- window.DEEN_COMPANIONS=Object.freeze({version:'companions-v9',order:ORDER.slice(),levels:Object.assign({},LEVELS),items:ITEMS.map(i=>i.id),bodyArt:BODY.slice(),outfits:()=>OUT.list.map(o=>o.id),unlocked,select,open,close:()=>closeRoom(true),isOpen:()=>!!room,save:saveDraft,buyItem,toggleItem,isUnlocked:unlocked});
+ window.DEEN_COMPANIONS=Object.freeze({version:'companions-v10',order:ORDER.slice(),levels:Object.assign({},LEVELS),items:ITEMS.map(i=>i.id),bodyArt:BODY.slice(),outfits:()=>OUT.list.map(o=>o.id),unlocked,select,open,close:()=>closeRoom(true),isOpen:()=>!!room,save:saveDraft,buyItem,toggleItem,isUnlocked:unlocked});
  // Wrap the engine's own chooser so a locked animal can never be selected programmatically.
  function wrap(){
   const c=window.DEEN_COMPANION;
@@ -471,7 +523,7 @@
   const o=window.DEEN_PREMIUM_ONBOARDING;
   if(o&&!o.__dcz&&typeof o.animal==='function'){const orig=o.animal;o.animal=function(id){if(LEVELS[id]&&!unlocked(id))return false;return orig.apply(this,arguments)};o.__dcz=1}
  }
- function tick(){try{wrap();announce();decorate()}catch(_){}}
+ function tick(){try{wrap();announce();loadOutfits();decorate()}catch(_){}}
  const start=()=>{setInterval(tick,1000);new MutationObserver(()=>{try{decorate()}catch(_){}}).observe(document.body,{childList:true,subtree:true})};
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
 })();
