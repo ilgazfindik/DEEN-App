@@ -29,11 +29,11 @@ const server=http.createServer((req,res)=>{
  await page.locator('#deenAdminWardrobe').waitFor();
  // Baseline: locked
  assert.equal(await ev(()=>DEEN_COMPANIONS.unlocked('eagle')),false);
- assert.equal(await ev(()=>DEEN_COMPANIONS.buyItem('bg_gold')),false,'not enough Sparkles');
+ assert.equal(await ev(()=>DEEN_COMPANIONS.buyItem('ac_lamp')),false,'not enough Sparkles');
  // 1. unlimited Sparkles
  await page.locator('[data-adm2=sparkles]').click();
  await page.waitForFunction(()=>state.currency===999999);
- assert.equal(await ev(()=>DEEN_COMPANIONS.buyItem('bg_gold')),true);
+ assert.equal(await ev(()=>DEEN_COMPANIONS.buyItem('bg_dawn')),true);
  await page.waitForFunction(()=>state.currency===999999,null,{timeout:4000}); // topped up again after spending
  await page.locator('[data-adm2=sparkles]').click();
  assert.equal(await ev(()=>state.currency),42,'the real balance comes back when switched off');
