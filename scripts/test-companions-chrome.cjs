@@ -70,7 +70,7 @@ const server=http.createServer((req,res)=>{
  await page.locator('.dcz-room.in').waitFor();
  assert.equal(await page.locator('#v5Sheet[open]').count(),0,'the room is its own page, not the bottom sheet');
  await page.waitForFunction(()=>getComputedStyle(document.querySelector('.dcz-panel')).transform==='none',null,{timeout:4000});
- assert.equal(await page.locator('.dcz-tab').count(),3,'Shop / My closet / Animals');
+ assert.equal(await page.locator('.dcz-tab').count(),4,'Shop / My closet / Outfits / Animals');
  const tabk=k=>page.locator('[data-dcz=tab][data-id='+k+']').click();
  const cat=k=>page.locator('[data-dcz=cat][data-id='+k+']').click();
  const tile=id=>page.locator('[data-dcz=tile][data-id='+id+']').click();
@@ -181,6 +181,48 @@ const server=http.createServer((req,res)=>{
  await page.locator('[data-dcz=close]').click();
  await page.waitForFunction(()=>document.querySelector('.dcz-room')?.classList.contains('out')||!document.querySelector('.dcz-room'));
  await closed();
+ // 5d. reward items open at a goal and can never be bought; outfit slots save and re-apply a look
+ await ev(()=>{state.profile.companion='cat';state.currency=900;state.streakMeta={longestStreak:0,currentStreak:0};state.companionMeta.items=['bg_dune','ac_star'];state.companionMeta.eq={bg:'bg_dune',ac:'ac_star'};state.companionMeta.outfit={}});
+ await page.waitForFunction(()=>Array.isArray(state.companionMeta.rewardSeen),null,{timeout:6000});
+ await openRoom('wardrobe');await cat('bg');
+ assert.equal(await page.locator('[data-dcz=tile][data-id=bg_gold].rw.lock').count(),1,'a reward item is locked until the goal');
+ assert.match(await page.locator('[data-dcz=tile][data-id=bg_gold] .dcz-rq').textContent(),/14 günlük seri/,'the goal is shown on the tile');
+ await tile('bg_gold');
+ assert.ok((await ev(()=>window.toasts)).some(m=>/Açmak için: 14 günlük seri/.test(m)),'tapping a locked reward explains the goal');
+ assert.equal(await page.locator('[data-dcz=save]').isDisabled(),true,'a locked reward is never added to the draft');
+ assert.equal(await ev(()=>DEEN_COMPANIONS.buyItem('bg_gold')),false,'rewards cannot be bought');
+ await ev(()=>{state.streakMeta.longestStreak=14});
+ await page.waitForFunction(()=>window.toasts.some(m=>/Yeni ödül/.test(m)),null,{timeout:6000});
+ await ev(()=>DEEN_COMPANIONS.close());await closed();
+ await openRoom('wardrobe');await cat('bg');
+ assert.equal(await page.locator('[data-dcz=tile][data-id=bg_gold].lock').count(),0,'earned: the lock is gone');
+ await tile('bg_gold');
+ assert.doesNotMatch(await page.locator('[data-dcz=save]').textContent(),/◇/,'an earned reward costs nothing');
+ await save();await closed();
+ assert.equal(await ev(()=>state.companionMeta.eq.bg),'bg_gold');
+ assert.equal(await ev(()=>state.currency),900,'nothing was charged for the reward');
+ // outfit slots
+ await ev(()=>{state.companionMeta.eq={bg:'bg_dune',ac:'ac_star'}});
+ await openRoom('wardrobe');await tabk('combos');
+ assert.equal(await page.locator('.dcz-slot').count(),3,'three slots');
+ await page.locator('[data-dcz=csave][data-id="0"]').click();
+ assert.deepEqual(await ev(()=>state.companionMeta.combos.cat[0].k),{bg:'bg_dune',ac:'ac_star'},'the current look is stored per animal');
+ await ev(()=>DEEN_COMPANIONS.close());await closed();
+ await ev(()=>{state.companionMeta.eq={}});
+ await openRoom('wardrobe');await tabk('combos');
+ await page.locator('[data-dcz=capply][data-id="0"]').click();
+ assert.equal(await page.locator('.dcz-tab.on[data-id=shop]').count(),1,'applying a look goes back to the stage');
+ await save();await closed();
+ assert.deepEqual(await ev(()=>({bg:state.companionMeta.eq.bg,ac:state.companionMeta.eq.ac})),{bg:'bg_dune',ac:'ac_star'},'one tap wears the whole look');
+ // a look that contains something not owned yet cannot be saved
+ await openRoom('wardrobe');await cat('bg');await tile('bg_night');await tabk('combos');
+ await page.locator('[data-dcz=csave][data-id="1"]').click();
+ assert.equal(await ev(()=>state.companionMeta.combos.cat[1]),null,'an unowned item blocks saving the look');
+ assert.ok((await ev(()=>window.toasts)).some(m=>/Önce eşyaları/.test(m)));
+ await page.locator('[data-dcz=cdel][data-id="0"]').click();
+ assert.equal(await ev(()=>state.companionMeta.combos.cat[0]),null,'a slot can be emptied');
+ await ev(()=>DEEN_COMPANIONS.close());await closed();
+ await ev(()=>{state.companionMeta.eq={};state.companionMeta.outfit={}});
  // 5c. the player's own animal is shown dressed wherever the plain avatar appears
  await ev(()=>{
   const m=state.companionMeta;if(!m.items.includes('ot_robe_blue'))m.items.push('ot_robe_blue');

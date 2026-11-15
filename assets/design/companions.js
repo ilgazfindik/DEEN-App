@@ -26,16 +26,16 @@
   {id:'bg_sea',kind:'bg',cost:40,css:'linear-gradient(180deg,#8fe3f0,#1b78a8 58%,#0b3358)'},
   {id:'bg_rose',kind:'bg',cost:40,css:'radial-gradient(circle at 70% 28%,#ffc2d1,#d6587b 55%,#5b1f3f)'},
   {id:'bg_geo',kind:'bg',cost:60,css:'radial-gradient(circle,#f2cf75 0 1.6px,transparent 2.2px) 0 0/16px 16px,repeating-conic-gradient(#0f6a57 0 25%,#137d68 0 50%) 0 0/16px 16px'},
-  {id:'bg_gold',kind:'bg',cost:80,css:'radial-gradient(circle at 30% 24%,#fff3b8,#e2b04a 46%,#8a5a14)'},
+  {id:'bg_gold',kind:'bg',cost:80,reward:{type:'streak',n:14},css:'radial-gradient(circle at 30% 24%,#fff3b8,#e2b04a 46%,#8a5a14)'},
   {id:'fr_gold',kind:'fr',cost:50,css:'0 0 0 3px #f4c95d,0 0 14px rgba(244,201,93,.55)'},
   {id:'fr_emerald',kind:'fr',cost:50,css:'0 0 0 3px #37d6a3,0 0 14px rgba(55,214,163,.5)'},
   {id:'fr_amethyst',kind:'fr',cost:60,css:'0 0 0 3px #a78bfa,0 0 14px rgba(167,139,250,.55)'},
-  {id:'fr_nur',kind:'fr',cost:80,css:'0 0 0 3px #fff,0 0 0 6px #8cebd0,0 0 18px rgba(140,235,208,.6)'},
+  {id:'fr_nur',kind:'fr',cost:80,reward:{type:'level',n:10},css:'0 0 0 3px #fff,0 0 0 6px #8cebd0,0 0 18px rgba(140,235,208,.6)'},
   {id:'ac_star',kind:'ac',cost:45,svg:'star'},
   {id:'ac_moon',kind:'ac',cost:45,svg:'moon'},
   {id:'ac_leaf',kind:'ac',cost:45,svg:'leaf'},
   {id:'ac_lamp',kind:'ac',cost:55,svg:'lamp'},
-  {id:'ac_book',kind:'ac',cost:55,svg:'book'},
+  {id:'ac_book',kind:'ac',cost:55,reward:{type:'stages',n:10},svg:'book'},
   {id:'ac_heart',kind:'ac',cost:55,svg:'heart'}
  ];
  const IT2={
@@ -72,31 +72,32 @@
    if(!j||!Array.isArray(j.items))return;
    OUT.groups=j.groups&&typeof j.groups==='object'?j.groups:{};
    OUT.list=j.items.filter(o=>o&&/^ot_[a-z0-9_]+$/.test(o.id||'')&&['head','neck','body','hand'].includes(o.slot)&&o.art&&typeof o.art==='object'&&Number.isFinite(Number(o.cost)));
+   OUT.list.forEach(o=>{if(!(o.reward&&['streak','level','stages'].includes(o.reward.type)&&Number(o.reward.n)>0))delete o.reward});
    try{refresh()}catch(_){}
   }).catch(()=>{})}catch(_){}
  }
  const S={
-  tr:{tabShop:'Mağaza',tabCloset:'Gardırobum',save:'Kaydet',saved:'Kaydedildi',unsaved:'Kaydetmeden çıkmak için tekrar dokun',emptyCloset:'Henüz bir şeyin yok. Mağazadan alabilirsin.',undoL:'Geri al',redoL:'İleri al',closeL:'Kapat',pickHint:'Bir eşya seç; satın almadan önce üstünde dene.',ownedL:'Sende',tryOn:'Önizleme',fresh:'Yeni',next:(a,n,x)=>'Sıradaki: '+a+' · Seviye '+n+' (' + x + ' XP kaldı)',all:'Tüm hayvanlar açık!',cele:'Yeni yol arkadaşı!',keep:'Şimdilik kalsın',room:'Hayvan Odası',animals:'Hayvanlar',wardrobe:'Gardırop',lv:n=>'Seviye '+n,locked:n=>'Seviye '+n+' ile açılır',use:'Seç',active:'Seçili',
+  tr:{tabCombos:'Kombin',saveLook:'Bunu kaydet',slotEmpty:'Boş yuva',slotN:n=>'Kombin '+n,applyL:'Giy',delL:'Sil',comboSaved:'Kombin kaydedildi',comboNeedOwn:'Önce eşyaları satın al ya da kaydet',comboHint:'Giydiğin görünümü bir yuvaya kaydet; sonra tek dokunuşla giy.',reqToast:r=>'Açmak için: '+r,rewardNew:n=>'Yeni ödül: '+n,rs:{streak:n=>n+' günlük seri',level:n=>'Seviye '+n,stages:n=>n+' ders'},tabShop:'Mağaza',tabCloset:'Gardırobum',save:'Kaydet',saved:'Kaydedildi',unsaved:'Kaydetmeden çıkmak için tekrar dokun',emptyCloset:'Henüz bir şeyin yok. Mağazadan alabilirsin.',undoL:'Geri al',redoL:'İleri al',closeL:'Kapat',pickHint:'Bir eşya seç; satın almadan önce üstünde dene.',ownedL:'Sende',tryOn:'Önizleme',fresh:'Yeni',next:(a,n,x)=>'Sıradaki: '+a+' · Seviye '+n+' (' + x + ' XP kaldı)',all:'Tüm hayvanlar açık!',cele:'Yeni yol arkadaşı!',keep:'Şimdilik kalsın',room:'Hayvan Odası',animals:'Hayvanlar',wardrobe:'Gardırop',lv:n=>'Seviye '+n,locked:n=>'Seviye '+n+' ile açılır',use:'Seç',active:'Seçili',
    unlock:(a,n)=>a+' açıldı! Hayvan Odası’ndan seçebilirsin.',lockedToast:(a,n)=>a+' için seviye '+n+' gerekiyor.',bg:'Arka plan',ac:'Rozet',none:'Yok',
    buy:c=>c+' ◇ ile al',equip:'Tak',off:'Çıkar',on:'Takılı',need:'Yeterli Pırıltı yok',bought:'Gardıroba eklendi',
    hint:'Pırıltıyı günlük ve haftalık sandıklardan, serilerden ve derslerden kazanırsın.',
    it:{bg_dune:'Çöl',bg_night:'Gece',bg_garden:'Bahçe',ac_star:'Yıldız',ac_moon:'Hilal',ac_leaf:'Yaprak'}},
-  en:{tabShop:'Shop',tabCloset:'My closet',save:'Save',saved:'Saved',unsaved:'Tap again to leave without saving',emptyCloset:'Nothing here yet. Get items from the shop.',undoL:'Undo',redoL:'Redo',closeL:'Close',pickHint:'Pick an item to try it on before you buy.',ownedL:'Owned',tryOn:'Preview',fresh:'New',next:(a,n,x)=>'Next: '+a+' · Level '+n+' ('+x+' XP to go)',all:'All animals unlocked!',cele:'New companion!',keep:'Maybe later',room:'Animal Room',animals:'Animals',wardrobe:'Wardrobe',lv:n=>'Level '+n,locked:n=>'Unlocks at level '+n,use:'Choose',active:'Chosen',
+  en:{tabCombos:'Outfits',saveLook:'Save look',slotEmpty:'Empty slot',slotN:n=>'Outfit '+n,applyL:'Wear',delL:'Delete',comboSaved:'Outfit saved',comboNeedOwn:'Buy or save the items first',comboHint:'Save your current look in a slot, then wear it with one tap.',reqToast:r=>'Unlock with: '+r,rewardNew:n=>'New reward: '+n,rs:{streak:n=>n+'-day streak',level:n=>'Level '+n,stages:n=>n+' lessons'},tabShop:'Shop',tabCloset:'My closet',save:'Save',saved:'Saved',unsaved:'Tap again to leave without saving',emptyCloset:'Nothing here yet. Get items from the shop.',undoL:'Undo',redoL:'Redo',closeL:'Close',pickHint:'Pick an item to try it on before you buy.',ownedL:'Owned',tryOn:'Preview',fresh:'New',next:(a,n,x)=>'Next: '+a+' · Level '+n+' ('+x+' XP to go)',all:'All animals unlocked!',cele:'New companion!',keep:'Maybe later',room:'Animal Room',animals:'Animals',wardrobe:'Wardrobe',lv:n=>'Level '+n,locked:n=>'Unlocks at level '+n,use:'Choose',active:'Chosen',
    unlock:a=>a+' unlocked! You can choose it in the Animal Room.',lockedToast:(a,n)=>a+' unlocks at level '+n+'.',bg:'Backdrop',ac:'Badge',none:'None',
    buy:c=>'Get for '+c+' ◇',equip:'Wear',off:'Remove',on:'Worn',need:'Not enough Sparkles',bought:'Added to your wardrobe',
    hint:'You earn Sparkles from daily and weekly chests, streaks and lessons.',
    it:{bg_dune:'Desert',bg_night:'Night',bg_garden:'Garden',ac_star:'Star',ac_moon:'Crescent',ac_leaf:'Leaf'}},
-  de:{tabShop:'Shop',tabCloset:'Mein Schrank',save:'Speichern',saved:'Gespeichert',unsaved:'Erneut tippen, um ohne Speichern zu verlassen',emptyCloset:'Noch nichts da. Hol dir Teile im Shop.',undoL:'Rückgängig',redoL:'Wiederholen',closeL:'Schließen',pickHint:'Wähle ein Teil und probiere es vor dem Kauf an.',ownedL:'Im Besitz',tryOn:'Vorschau',fresh:'Neu',next:(a,n,x)=>'Als Nächstes: '+a+' · Stufe '+n+' (noch '+x+' XP)',all:'Alle Tiere freigeschaltet!',cele:'Neuer Begleiter!',keep:'Vielleicht später',room:'Tierzimmer',animals:'Tiere',wardrobe:'Garderobe',lv:n=>'Stufe '+n,locked:n=>'Ab Stufe '+n,use:'Wählen',active:'Gewählt',
+  de:{tabCombos:'Outfits',saveLook:'Speichern',slotEmpty:'Leerer Platz',slotN:n=>'Outfit '+n,applyL:'Anziehen',delL:'Löschen',comboSaved:'Outfit gespeichert',comboNeedOwn:'Hol oder speichere die Teile zuerst',comboHint:'Speichere deinen Look in einem Platz und zieh ihn mit einem Tipp an.',reqToast:r=>'Freischalten mit: '+r,rewardNew:n=>'Neue Belohnung: '+n,rs:{streak:n=>n+'-Tage-Serie',level:n=>'Stufe '+n,stages:n=>n+' Lektionen'},tabShop:'Shop',tabCloset:'Mein Schrank',save:'Speichern',saved:'Gespeichert',unsaved:'Erneut tippen, um ohne Speichern zu verlassen',emptyCloset:'Noch nichts da. Hol dir Teile im Shop.',undoL:'Rückgängig',redoL:'Wiederholen',closeL:'Schließen',pickHint:'Wähle ein Teil und probiere es vor dem Kauf an.',ownedL:'Im Besitz',tryOn:'Vorschau',fresh:'Neu',next:(a,n,x)=>'Als Nächstes: '+a+' · Stufe '+n+' (noch '+x+' XP)',all:'Alle Tiere freigeschaltet!',cele:'Neuer Begleiter!',keep:'Vielleicht später',room:'Tierzimmer',animals:'Tiere',wardrobe:'Garderobe',lv:n=>'Stufe '+n,locked:n=>'Ab Stufe '+n,use:'Wählen',active:'Gewählt',
    unlock:a=>a+' freigeschaltet! Du kannst es im Tierzimmer wählen.',lockedToast:(a,n)=>a+' wird auf Stufe '+n+' freigeschaltet.',bg:'Hintergrund',ac:'Abzeichen',none:'Keins',
    buy:c=>'Für '+c+' ◇ holen',equip:'Anlegen',off:'Ablegen',on:'Getragen',need:'Nicht genug Funken',bought:'Zur Garderobe hinzugefügt',
    hint:'Funken verdienst du mit täglichen und wöchentlichen Truhen, Serien und Lektionen.',
    it:{bg_dune:'Wüste',bg_night:'Nacht',bg_garden:'Garten',ac_star:'Stern',ac_moon:'Halbmond',ac_leaf:'Blatt'}},
-  fr:{tabShop:'Boutique',tabCloset:'Ma garde-robe',save:'Enregistrer',saved:'Enregistré',unsaved:'Touche à nouveau pour quitter sans enregistrer',emptyCloset:'Rien ici pour l’instant. Prends des articles à la boutique.',undoL:'Annuler',redoL:'Rétablir',closeL:'Fermer',pickHint:'Choisis un article et essaie-le avant de l’acheter.',ownedL:'Possédé',tryOn:'Aperçu',fresh:'Nouveau',next:(a,n,x)=>'Prochain : '+a+' · niveau '+n+' ('+x+' XP restants)',all:'Tous les animaux sont débloqués !',cele:'Nouveau compagnon !',keep:'Plus tard',room:'Salle des animaux',animals:'Animaux',wardrobe:'Garde-robe',lv:n=>'Niveau '+n,locked:n=>'Se débloque au niveau '+n,use:'Choisir',active:'Choisi',
+  fr:{tabCombos:'Tenues',saveLook:'Enregistrer',slotEmpty:'Emplacement vide',slotN:n=>'Tenue '+n,applyL:'Porter',delL:'Supprimer',comboSaved:'Tenue enregistrée',comboNeedOwn:'Prends ou enregistre d’abord les articles',comboHint:'Enregistre ton look dans un emplacement, puis porte-le d’un seul toucher.',reqToast:r=>'Pour débloquer : '+r,rewardNew:n=>'Nouvelle récompense : '+n,rs:{streak:n=>'série de '+n+' jours',level:n=>'niveau '+n,stages:n=>n+' leçons'},tabShop:'Boutique',tabCloset:'Ma garde-robe',save:'Enregistrer',saved:'Enregistré',unsaved:'Touche à nouveau pour quitter sans enregistrer',emptyCloset:'Rien ici pour l’instant. Prends des articles à la boutique.',undoL:'Annuler',redoL:'Rétablir',closeL:'Fermer',pickHint:'Choisis un article et essaie-le avant de l’acheter.',ownedL:'Possédé',tryOn:'Aperçu',fresh:'Nouveau',next:(a,n,x)=>'Prochain : '+a+' · niveau '+n+' ('+x+' XP restants)',all:'Tous les animaux sont débloqués !',cele:'Nouveau compagnon !',keep:'Plus tard',room:'Salle des animaux',animals:'Animaux',wardrobe:'Garde-robe',lv:n=>'Niveau '+n,locked:n=>'Se débloque au niveau '+n,use:'Choisir',active:'Choisi',
    unlock:a=>a+' débloqué ! Tu peux le choisir dans la salle des animaux.',lockedToast:(a,n)=>a+' se débloque au niveau '+n+'.',bg:'Décor',ac:'Badge',none:'Aucun',
    buy:c=>'Obtenir pour '+c+' ◇',equip:'Porter',off:'Retirer',on:'Porté',need:'Pas assez d’étincelles',bought:'Ajouté à la garde-robe',
    hint:'Tu gagnes des étincelles avec les coffres quotidiens et hebdomadaires, les séries et les leçons.',
    it:{bg_dune:'Désert',bg_night:'Nuit',bg_garden:'Jardin',ac_star:'Étoile',ac_moon:'Croissant',ac_leaf:'Feuille'}},
-  ar:{tabShop:'المتجر',tabCloset:'خزانتي',save:'حفظ',saved:'تم الحفظ',unsaved:'اضغط مرة أخرى للخروج دون حفظ',emptyCloset:'لا شيء هنا بعد. احصل على قطع من المتجر.',undoL:'تراجع',redoL:'إعادة',closeL:'إغلاق',pickHint:'اختر قطعة وجرّبها قبل الشراء.',ownedL:'مملوك',tryOn:'معاينة',fresh:'جديد',next:(a,n,x)=>'التالي: '+a+' · المستوى '+n+' (باقي '+x+' نقطة خبرة)',all:'تم فتح جميع الحيوانات!',cele:'رفيق جديد!',keep:'لاحقًا',room:'غرفة الحيوانات',animals:'الحيوانات',wardrobe:'خزانة الملابس',lv:n=>'المستوى '+n,locked:n=>'يُفتح عند المستوى '+n,use:'اختيار',active:'مختار',
+  ar:{tabCombos:'إطلالات',saveLook:'احفظ',slotEmpty:'خانة فارغة',slotN:n=>'إطلالة '+n,applyL:'ارتداء',delL:'حذف',comboSaved:'تم حفظ الإطلالة',comboNeedOwn:'احصل على القطع أو احفظها أولاً',comboHint:'احفظ إطلالتك في خانة ثم ارتدها بلمسة واحدة.',reqToast:r=>'للفتح: '+r,rewardNew:n=>'مكافأة جديدة: '+n,rs:{streak:n=>'سلسلة من '+n+' يومًا',level:n=>'المستوى '+n,stages:n=>n+' درسًا'},tabShop:'المتجر',tabCloset:'خزانتي',save:'حفظ',saved:'تم الحفظ',unsaved:'اضغط مرة أخرى للخروج دون حفظ',emptyCloset:'لا شيء هنا بعد. احصل على قطع من المتجر.',undoL:'تراجع',redoL:'إعادة',closeL:'إغلاق',pickHint:'اختر قطعة وجرّبها قبل الشراء.',ownedL:'مملوك',tryOn:'معاينة',fresh:'جديد',next:(a,n,x)=>'التالي: '+a+' · المستوى '+n+' (باقي '+x+' نقطة خبرة)',all:'تم فتح جميع الحيوانات!',cele:'رفيق جديد!',keep:'لاحقًا',room:'غرفة الحيوانات',animals:'الحيوانات',wardrobe:'خزانة الملابس',lv:n=>'المستوى '+n,locked:n=>'يُفتح عند المستوى '+n,use:'اختيار',active:'مختار',
    unlock:a=>'تم فتح '+a+'! يمكنك اختياره من غرفة الحيوانات.',lockedToast:(a,n)=>a+' يُفتح عند المستوى '+n+'.',bg:'الخلفية',ac:'شارة',none:'بدون',
    buy:c=>'احصل عليه بـ '+c+' ◇',equip:'ارتداء',off:'إزالة',on:'مرتدى',need:'لا تكفي الشرارات',bought:'أُضيف إلى الخزانة',
    hint:'تكسب الشرارات من الصناديق اليومية والأسبوعية والسلاسل والدروس.',
@@ -135,7 +136,17 @@
  }
  function unlocked(id){return !!LEVELS[id]&&(adminAll()||unlockedReal(id))}
  // Owned = bought, a free default outfit, or admin test mode. Worn items that are not owned (admin mode switched off) are ignored.
- function has(id){const m=meta(),it=item(id);return !!it&&(adminAll()||it.default===true||!!(m&&m.items.includes(id)))}
+ /* Rewards: an item with reward:{type,n} cannot be bought; it opens when the player reaches the goal (best streak, level or lessons done). */
+ function rewardValue(r){
+  const st=app();if(!st||!r)return 0;
+  if(r.type==='level')return lvl();
+  if(r.type==='stages')return Array.isArray(st.completed)?st.completed.length:0;
+  const sm=st.streakMeta||{},m=meta();
+  return Math.max(Number(sm.longestStreak)||0,Number(sm.currentStreak)||0,Number(st.streak)||0,Number(m&&m.bestStreak)||0);
+ }
+ const earned=it=>!!(it&&it.reward&&rewardValue(it.reward)>=Number(it.reward.n));
+ const reqText=it=>{const f=T().rs[it.reward.type];return f?f(Number(it.reward.n)):''};
+ function has(id){const m=meta(),it=item(id);return !!it&&(adminAll()||it.default===true||!!(m&&m.items.includes(id))||earned(it))}
  const eqItem=(m,kind)=>{const it=item(m?.eq?.[kind]);return it&&has(it.id)?it:null};
  function save(){try{saveState()}catch(_){}}
  function announce(){
@@ -150,6 +161,17 @@
   m.fresh=(Array.isArray(m.fresh)?m.fresh:[]).concat(fresh).filter((x,i,arr)=>arr.indexOf(x)===i);save(); // shown as "new" in the Animal Room; never pops a modal over other screens
   try{toast(T().unlock(N(last)))}catch(_){}
  }
+ function announceRewards(){
+  const st=app(),m=meta();if(!st||!m||!st.onboarded||!OUT.loaded)return;
+  const sm=st.streakMeta||{},cur=Math.max(Number(sm.longestStreak)||0,Number(sm.currentStreak)||0,Number(st.streak)||0);
+  if(cur>(Number(m.bestStreak)||0)){m.bestStreak=cur;save()}
+  if(!OUT.list.length)return;
+  const all=ITEMS.concat(OUT.list).filter(i=>i.reward&&earned(i)).map(i=>i.id);
+  if(!Array.isArray(m.rewardSeen)){m.rewardSeen=all.slice();save();return} // first run: what is already earned is recorded without a toast
+  const fresh=all.filter(id=>!m.rewardSeen.includes(id));if(!fresh.length)return;
+  fresh.forEach(id=>m.rewardSeen.push(id));save();
+  const it=item(fresh[fresh.length-1]);try{toast(T().rewardNew(it.slot?outName(it):itName(it.id)))}catch(_){}
+ }
  function select(id){
   const st=app();if(!st||!unlocked(id))return false;
   st.profile=st.profile||{};st.profile.companion=id;
@@ -160,7 +182,7 @@
  /* Wardrobe */
  function item(id){return ITEMS.find(i=>i.id===id)||outItem(id)}
  function buyItem(id){
-  const st=app(),m=meta(),it=item(id);if(!st||!m||!it||m.items.includes(id)||it.default===true)return false;
+  const st=app(),m=meta(),it=item(id);if(!st||!m||!it||m.items.includes(id)||it.default===true||(it.reward&&!earned(it)&&!adminAll()))return false;
   if(adminAll()){if(it.slot)toggleItem(id);else m.eq[it.kind]=id;save();return true} // admin test: free; worn but never saved as bought, so it disappears when the switch is turned off
   if((Number(st.currency)||0)<it.cost)return false;
   st.currency-=it.cost;m.items.push(id);
@@ -216,24 +238,56 @@
  function itemName(it){return it.slot?outName(it):itName(it.id)}
  function insetShadow(css){const parts=[];let d=0,cur='';for(const ch of css){if(ch==='(')d++;if(ch===')')d--;if(ch===','&&d===0){parts.push(cur);cur=''}else cur+=ch}parts.push(cur);return parts.map(x=>'inset '+x.trim()).join(',')}
  /* the animal on the stage: what is saved, with the draft laid over it */
- function charHtml(a,m){
-  const full=fullBody(a),get=k=>{const id=effId(k,a,m);return id?item(id):null};
+ function charHtml(a,m,eff,cls){
+  eff=eff||(k=>effId(k,a,m));
+  const full=fullBody(a),get=k=>{const id=eff(k);return id?item(id):null};
   const ac=get('ac');let inner;
   if(full){
-   const ov={};['head','neck','body','hand'].forEach(sl=>{const o=outItem(effId('o:'+sl,a,m));if(o&&o.art&&o.art[a]&&o.slot===sl)ov[sl]=o});
+   const ov={};['head','neck','body','hand'].forEach(sl=>{const o=outItem(eff('o:'+sl));if(o&&o.art&&o.art[a]&&o.slot===sl)ov[sl]=o});
    const fullO=ov.body&&ov.body.full===true?ov.body:null,layers=Object.values(ov).filter(o=>o!==fullO).sort((x,y)=>(Number(x.z)||0)-(Number(y.z)||0));
    inner='<img class="dcz-base" src="'+esc(fullO?fullO.art[a]:bodySrc(a))+'" alt="">'+layers.map(o=>'<img class="dcz-layer" data-slot="'+o.slot+'" style="z-index:'+(Number(o.z)||10)+'" src="'+esc(o.art[a])+'" alt="">').join('');
   }else inner='<img class="dcz-base dcz-av" src="'+avatarSrc(a)+'" alt="">';
-  return '<div class="dcz-char">'+inner+(ac?'<i class="dcz-badge dcz-bdg" aria-hidden="true">'+ICON[ac.svg]+'</i>':'')+'</div>';
+  return '<div class="'+(cls||'dcz-char')+'">'+inner+(ac?'<i class="dcz-badge dcz-bdg" aria-hidden="true">'+ICON[ac.svg]+'</i>':'')+'</div>';
  }
  function tileHtml(it,a,m,t){
   const key=slotKey(it),sel=effId(key,a,m)===it.id,saved=wornId(key,a,m)===it.id,own=has(it.id);
   const th=it.slot?'<img src="'+esc(it.art[a])+'" alt="">':it.kind==='ac'?'<span class="dcz-ico">'+ICON[it.svg]+'</span>':it.kind==='bg'?'<span class="dcz-sw" data-dcz-bg="'+it.id+'"></span>':'<span class="dcz-ring" data-dcz-fr="'+it.id+'"></span>';
-  return '<button type="button" class="dcz-tile'+(sel?' sel':'')+(saved?' saved':'')+(own?'':' lock')+'" data-dcz="tile" data-id="'+esc(it.id)+'" aria-pressed="'+sel+'"><span class="dcz-th">'+th+(sel?'<i class="dcz-ck">✓</i>':'')+(own?'':'<i class="dcz-pr">◇ '+Number(it.cost)+'</i>')+'</span><b>'+esc(itemName(it))+'</b></button>';
+  return '<button type="button" class="dcz-tile'+(sel?' sel':'')+(saved?' saved':'')+(own?'':' lock')+(it.reward&&!own?' rw':'')+'" data-dcz="tile" data-id="'+esc(it.id)+'" aria-pressed="'+sel+'"><span class="dcz-th">'+th+(sel?'<i class="dcz-ck">✓</i>':'')+(own?'':it.reward?'<i class="dcz-pr dcz-rq">🔒 '+esc(reqText(it))+'</i>':'<i class="dcz-pr">◇ '+Number(it.cost)+'</i>')+'</span><b>'+esc(itemName(it))+'</b></button>';
  }
  function animalTile(id,t,cur){
   const ok=unlocked(id),on=cur===id;
   return '<button type="button" class="dcz-tile an'+(on?' sel':'')+(ok?'':' lock')+'" data-dcz="'+(ok?'pick':'lock')+'" data-id="'+id+'" aria-disabled="'+(ok?'false':'true')+'"><span class="dcz-th dcz-ath"><img src="'+avatarSrc(id)+'" alt=""'+(ok?'':' class="dcz-dim"')+'>'+(ok?'':'<b class="dcz-lk">🔒</b>')+'</span><b>'+esc(N(id))+'</b><small>'+esc(ok?(on?t.active:t.use):t.locked(LEVELS[id]))+'</small>'+(ok&&freshShown.includes(id)?'<em class="dcz-new">'+esc(t.fresh)+'</em>':'')+'</button>';
+ }
+ /* ---- Outfit slots: save the current look (per animal) and wear it again with one tap ---- */
+ const COMBO_KEYS=['bg','fr','ac','o:body','o:head','o:neck','o:hand'],COMBO_SLOTS=3;
+ const combosOf=a=>{const m=meta();m.combos=m.combos&&typeof m.combos==='object'?m.combos:{};const l=m.combos[a]=Array.isArray(m.combos[a])?m.combos[a]:[];while(l.length<COMBO_SLOTS)l.push(null);return l};
+ function comboPick(c){return k=>c?(c.k&&c.k[k])||(k==='o:body'?defaultId(k,curAnimal()):''):''}
+ function saveCombo(i){
+  const a=curAnimal(),m=meta(),k={};let bad=false;
+  COMBO_KEYS.forEach(key=>{const id=effId(key,a,m);if(id&&id!==defaultId(key,a)){if(!has(id))bad=true;k[key]=id}});
+  if(bad){try{toast(T().comboNeedOwn)}catch(_){}return}
+  combosOf(a)[i]={k};save();try{toast(T().comboSaved)}catch(_){}paint();
+ }
+ function applyCombo(i){
+  const a=curAnimal(),m=meta(),c=combosOf(a)[i];if(!c)return;
+  const nd={};
+  COMBO_KEYS.forEach(key=>{
+   let id=(c.k&&c.k[key])||(key==='o:body'?defaultId(key,a):'');
+   if(id&&(!has(id)||!selOkFor(id,a)))id=key==='o:body'?defaultId(key,a):'';
+   if(id!==wornId(key,a,m))nd[key]=id;
+  });
+  const before=JSON.stringify(draft);
+  if(JSON.stringify(nd)!==before){hist.push(before);fut=[];draft=nd}
+  warned=false;tab='shop';paint();
+ }
+ function selOkFor(id,a){const it=item(id);return !!it&&(!it.slot||!!(it.art&&it.art[a]))}
+ function delCombo(i){const a=curAnimal();combosOf(a)[i]=null;save();paint()}
+ function combosHtml(a,m,t){
+  const list=combosOf(a);
+  return '<p class="dcz-next">'+esc(t.comboHint)+'</p>'+list.map((c,i)=>{
+   if(!c)return '<div class="dcz-slot empty"><div class="dcz-sm">+</div><b>'+esc(t.slotN(i+1))+'</b><button type="button" class="dcz-sbtn" data-dcz="csave" data-id="'+i+'">'+esc(t.saveLook)+'</button></div>';
+   return '<div class="dcz-slot"><div class="dcz-sm">'+charHtml(a,m,comboPick(c),'dcz-char dcz-mini')+'</div><b>'+esc(t.slotN(i+1))+'</b><button type="button" class="dcz-sbtn pri" data-dcz="capply" data-id="'+i+'">'+esc(t.applyL)+'</button><button type="button" class="dcz-sbtn" data-dcz="csave" data-id="'+i+'">'+esc(t.saveLook)+'</button><button type="button" class="dcz-sdel" data-dcz="cdel" data-id="'+i+'" aria-label="'+esc(t.delL)+'">✕</button></div>';
+  }).join('');
  }
  function setHtml(el,sig,html){if(!el||el.dataset.sig===sig)return false;el.dataset.sig=sig;el.innerHTML=html;return true}
  function paint(){
@@ -255,22 +309,24 @@
    if(fr&&item(fr))stEl.dataset.dczFr=fr;else delete stEl.dataset.dczFr;
   }
   // tabs + categories
-  const tabs=[['shop',IC.bag,t.tabShop],['closet',IC.heart,t.tabCloset],['animals',IC.paw,t.animals]];
+  const tabs=[['shop',IC.bag,t.tabShop],['closet',IC.heart,t.tabCloset],['combos',IC.hanger,t.tabCombos],['animals',IC.paw,t.animals]];
   setHtml($('.dcz-tabs3'),tab+'|'+lang(),tabs.map(([k,ic,l])=>'<button type="button" role="tab" class="dcz-tab'+(tab===k?' on':'')+'" data-dcz="tab" data-id="'+k+'" aria-selected="'+(tab===k)+'">'+ic+'<span>'+esc(l)+'</span></button>').join(''));
   const labels={ot:OUTFIT_LABEL[lang()],bg:t.bg,fr:FR[lang()],ac:t.ac};
-  setHtml($('.dcz-cats'),tab+'|'+cat+'|'+cats.join(),tab==='animals'?'':cats.map(k=>'<button type="button" role="tab" class="dcz-cat'+(cat===k?' on':'')+'" data-dcz="cat" data-id="'+k+'" aria-label="'+esc(labels[k])+'" aria-selected="'+(cat===k)+'">'+IC[CAT_ICON[k]]+'</button>').join(''));
-  $('.dcz-cats').hidden=tab==='animals';
+  setHtml($('.dcz-cats'),tab+'|'+cat+'|'+cats.join(),(tab==='animals'||tab==='combos')?'':cats.map(k=>'<button type="button" role="tab" class="dcz-cat'+(cat===k?' on':'')+'" data-dcz="cat" data-id="'+k+'" aria-label="'+esc(labels[k])+'" aria-selected="'+(cat===k)+'">'+IC[CAT_ICON[k]]+'</button>').join(''));
+  $('.dcz-cats').hidden=tab==='animals'||tab==='combos';
   // grid
   const grid=$('.dcz-grid3'),gk=tab+'|'+cat+'|'+a,keep=grid.dataset.gk===gk?grid.scrollTop:0;
   let html;
-  if(tab==='animals'){
+  if(tab==='combos'){
+   html=combosHtml(a,m,t);
+  }else if(tab==='animals'){
    const nx=nextLock();
    html=(nx?'<p class="dcz-next">'+esc(t.next(N(nx),LEVELS[nx],Math.max(0,xpFor(LEVELS[nx])-(Number(st.xp)||0))))+'</p>':'<p class="dcz-next">'+esc(t.all)+'</p>')+ORDER.map(id=>animalTile(id,t,a)).join('');
   }else{
    let list=catItems(cat,a);if(tab==='closet')list=list.filter(i=>has(i.id));
    html=list.length?list.map(i=>tileHtml(i,a,m,t)).join('')+'<p class="dcz-hint">'+esc(t.hint)+'</p>':'<p class="dcz-empty">'+esc(t.emptyCloset)+'</p>';
   }
-  if(setHtml(grid,gk+'|'+JSON.stringify(draft)+'|'+bal+'|'+freshShown.join()+'|'+OUT.list.length+'|'+admin()+'|'+lang(),html)){grid.dataset.gk=gk;grid.scrollTop=keep}
+  if(setHtml(grid,gk+'|'+JSON.stringify(draft)+'|'+JSON.stringify(m.combos||{})+'|'+bal+'|'+freshShown.join()+'|'+OUT.list.length+'|'+admin()+'|'+lang(),html)){grid.dataset.gk=gk;grid.scrollTop=keep}
  }
  const refresh=paint;
  const admin=adminAll;
@@ -301,6 +357,7 @@
  }
  function tapTile(id){
   const it=item(id),a=curAnimal(),m=meta();if(!it||!m||!(!it.slot||(it.art&&it.art[a])))return;
+  if(it.reward&&!has(id)){try{toast(T().reqToast(reqText(it)))}catch(_){}return}
   const key=slotKey(it),eff=effId(key,a,m);
   if(eff===id){const d=defaultId(key,a);if(d===id)return;setDraft(key,d,a,m)} // tap the chosen one again = take it off (the default robe stays)
   else setDraft(key,id,a,m);
@@ -335,6 +392,9 @@
    if(a==='tab'){tab=id;paint()}
    else if(a==='cat'){cat=id;catUser=true;paint()}
    else if(a==='tile')tapTile(id);
+   else if(a==='csave')saveCombo(Number(id));
+   else if(a==='capply')applyCombo(Number(id));
+   else if(a==='cdel')delCombo(Number(id));
    else if(a==='undo')undo();
    else if(a==='redo')redo();
    else if(a==='save')saveDraft();
@@ -505,6 +565,22 @@
 .dcz-new{position:absolute;top:8px;right:8px;padding:2px 8px;border-radius:999px;background:#8cebd0;color:#06232a;font:700 11px/1.4 inherit;font-style:normal}
 .dcz-tile.lock.an{opacity:.8}
 .dcz-hint{font-size:12px;opacity:.65;margin:6px 2px 0}
+
+.dcz-tabs3{grid-template-columns:repeat(4,1fr)}
+.dcz-tab{font-size:11.5px;padding:11px 2px 8px}
+.dcz-pr.dcz-rq{left:6px;right:6px;bottom:6px;text-align:center;white-space:normal;font-size:10.5px;line-height:1.15;padding:4px 4px;border-color:rgba(255,255,255,.3);color:#e7eef0}
+[dir=rtl] .dcz-pr.dcz-rq{left:6px;right:6px}
+.dcz-tile.rw.lock .dcz-th img,.dcz-tile.rw.lock .dcz-sw,.dcz-tile.rw.lock .dcz-ring,.dcz-tile.rw.lock .dcz-ico{filter:grayscale(.85) brightness(.7)}
+.dcz-slot{position:relative;display:flex;flex-direction:column;align-items:center;gap:6px;padding:8px 6px 10px;border-radius:16px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.06)}
+.dcz-slot.empty{border-style:dashed}
+.dcz-sm{position:relative;width:100%;aspect-ratio:3/4;border-radius:12px;overflow:hidden;background:rgba(255,255,255,.05);display:grid;place-items:center;font-size:30px;opacity:.9}
+.dcz-sm .dcz-mini{position:absolute;inset:0;display:block;opacity:1;transform:none}
+.dcz-sm .dcz-mini .dcz-base,.dcz-sm .dcz-mini .dcz-layer{animation:none;filter:none}
+.dcz-sm .dcz-mini .dcz-bdg{width:26%;height:auto;aspect-ratio:1/1;right:4%;bottom:4%}
+.dcz-sbtn{min-height:36px;width:100%;border-radius:10px;border:1px solid rgba(140,235,208,.4);background:transparent;color:inherit;font:600 11.5px/1.1 inherit;cursor:pointer;padding:0 4px}
+.dcz-sbtn.pri{background:#8cebd0;color:#06232a;border-color:#8cebd0}
+.dcz-sdel{position:absolute;top:6px;right:6px;width:30px;height:30px;border-radius:50%;border:0;background:rgba(0,0,0,.45);color:#fff;cursor:pointer;font-size:13px}
+[dir=rtl] .dcz-sdel{right:auto;left:6px}
 @media(max-height:700px){.dcz-panel{flex-basis:clamp(260px,44%,340px)}.dcz-char{inset:56px 0 4px}.dcz-tab{padding:9px 4px 7px}.dcz-cat{height:42px}.dcz-tile b{font-size:11px}}
 @media(prefers-reduced-motion:reduce){.dcz-room,.dcz-room.in,.dcz-room.out,.dcz-panel,.dcz-room.in .dcz-panel,.dcz-char,.dcz-room.in .dcz-char{transition:none!important;transform:none!important}.dcz-char .dcz-base,.dcz-char .dcz-layer,.dcz-tile.sel{animation:none!important}.dcz-room.out{opacity:0}}
 `;
@@ -515,7 +591,7 @@
  const stageRules=ITEMS.filter(i=>i.kind==='fr').map(i=>'.dcz .dcz-st[data-dcz-fr="'+i.id+'"]{box-shadow:'+insetShadow(i.css)+'!important}').join('\n');
  css.textContent+=rules+'\n'+stageRules;
  document.head.appendChild(css);
- window.DEEN_COMPANIONS=Object.freeze({version:'companions-v10',order:ORDER.slice(),levels:Object.assign({},LEVELS),items:ITEMS.map(i=>i.id),bodyArt:BODY.slice(),outfits:()=>OUT.list.map(o=>o.id),unlocked,select,open,close:()=>closeRoom(true),isOpen:()=>!!room,save:saveDraft,buyItem,toggleItem,isUnlocked:unlocked});
+ window.DEEN_COMPANIONS=Object.freeze({version:'companions-v11',order:ORDER.slice(),levels:Object.assign({},LEVELS),items:ITEMS.map(i=>i.id),bodyArt:BODY.slice(),outfits:()=>OUT.list.map(o=>o.id),unlocked,select,open,close:()=>closeRoom(true),isOpen:()=>!!room,save:saveDraft,buyItem,toggleItem,isUnlocked:unlocked});
  // Wrap the engine's own chooser so a locked animal can never be selected programmatically.
  function wrap(){
   const c=window.DEEN_COMPANION;
@@ -523,7 +599,7 @@
   const o=window.DEEN_PREMIUM_ONBOARDING;
   if(o&&!o.__dcz&&typeof o.animal==='function'){const orig=o.animal;o.animal=function(id){if(LEVELS[id]&&!unlocked(id))return false;return orig.apply(this,arguments)};o.__dcz=1}
  }
- function tick(){try{wrap();announce();loadOutfits();decorate()}catch(_){}}
+ function tick(){try{wrap();announce();loadOutfits();announceRewards();decorate()}catch(_){}}
  const start=()=>{setInterval(tick,1000);new MutationObserver(()=>{try{decorate()}catch(_){}}).observe(document.body,{childList:true,subtree:true})};
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
 })();
