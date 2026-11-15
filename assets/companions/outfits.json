@@ -370,6 +370,154 @@
     "type": "streak",
     "n": 7
    }
+  },
+  {
+   "id": "ot_thobe_kufi_glasses",
+   "slot": "body",
+   "z": 10,
+   "cost": 110,
+   "full": true,
+   "name": {
+    "tr": "Takkeli cübbe ve gözlük",
+    "en": "Thobe with cap and glasses",
+    "de": "Thobe mit Kappe und Brille",
+    "fr": "Thobe avec calotte et lunettes",
+    "ar": "ثوب مع طاقية ونظارة"
+   },
+   "art": {
+    "wolf": "assets/companions/outfits/wolf/ot_thobe_kufi_glasses.webp",
+    "owl": "assets/companions/outfits/owl/ot_thobe_kufi_glasses.webp",
+    "turtle": "assets/companions/outfits/turtle/ot_thobe_kufi_glasses.webp",
+    "eagle": "assets/companions/outfits/eagle/ot_thobe_kufi_glasses.webp",
+    "cat": "assets/companions/outfits/cat/ot_thobe_kufi_glasses.webp",
+    "lion": "assets/companions/outfits/lion/ot_thobe_kufi_glasses.webp"
+   }
+  },
+  {
+   "id": "ot_thobe_kufi_bow",
+   "slot": "body",
+   "z": 10,
+   "cost": 100,
+   "full": true,
+   "name": {
+    "tr": "Takkeli cübbe ve papyon",
+    "en": "Thobe with cap and bow tie",
+    "de": "Thobe mit Kappe und Fliege",
+    "fr": "Thobe avec calotte et nœud papillon",
+    "ar": "ثوب مع طاقية وربطة عنق فراشة"
+   },
+   "art": {
+    "wolf": "assets/companions/outfits/wolf/ot_thobe_kufi_bow.webp",
+    "owl": "assets/companions/outfits/owl/ot_thobe_kufi_bow.webp",
+    "turtle": "assets/companions/outfits/turtle/ot_thobe_kufi_bow.webp",
+    "eagle": "assets/companions/outfits/eagle/ot_thobe_kufi_bow.webp",
+    "cat": "assets/companions/outfits/cat/ot_thobe_kufi_bow.webp",
+    "lion": "assets/companions/outfits/lion/ot_thobe_kufi_bow.webp"
+   }
+  },
+  {
+   "id": "ot_jacket_1",
+   "slot": "body",
+   "z": 10,
+   "cost": 120,
+   "full": true,
+   "name": {
+    "tr": "Basit ceket",
+    "en": "Simple jacket",
+    "de": "Einfache Jacke",
+    "fr": "Veste simple",
+    "ar": "جاكيت بسيط"
+   },
+   "art": {
+    "wolf": "assets/companions/outfits/wolf/ot_jacket_1.webp",
+    "owl": "assets/companions/outfits/owl/ot_jacket_1.webp",
+    "turtle": "assets/companions/outfits/turtle/ot_jacket_1.webp",
+    "eagle": "assets/companions/outfits/eagle/ot_jacket_1.webp",
+    "cat": "assets/companions/outfits/cat/ot_jacket_1.webp",
+    "lion": "assets/companions/outfits/lion/ot_jacket_1.webp"
+   },
+   "group": "jacket",
+   "swatch": "#cbbfa8"
+  },
+  {
+   "id": "ot_jacket_2",
+   "slot": "body",
+   "z": 10,
+   "cost": 160,
+   "full": true,
+   "name": {
+    "tr": "Orta ceket",
+    "en": "Fine jacket",
+    "de": "Feine Jacke",
+    "fr": "Veste soignée",
+    "ar": "جاكيت أنيق"
+   },
+   "art": {
+    "wolf": "assets/companions/outfits/wolf/ot_jacket_2.webp",
+    "owl": "assets/companions/outfits/owl/ot_jacket_2.webp",
+    "turtle": "assets/companions/outfits/turtle/ot_jacket_2.webp",
+    "eagle": "assets/companions/outfits/eagle/ot_jacket_2.webp",
+    "cat": "assets/companions/outfits/cat/ot_jacket_2.webp",
+    "lion": "assets/companions/outfits/lion/ot_jacket_2.webp"
+   },
+   "group": "jacket",
+   "swatch": "#b99f7c"
+  },
+  {
+   "id": "ot_jacket_3",
+   "slot": "body",
+   "z": 10,
+   "cost": 170,
+   "full": true,
+   "name": {
+    "tr": "Nakışlı ceket",
+    "en": "Embroidered jacket",
+    "de": "Bestickte Jacke",
+    "fr": "Veste brodée",
+    "ar": "جاكيت مطرز"
+   },
+   "art": {
+    "wolf": "assets/companions/outfits/wolf/ot_jacket_3.webp",
+    "owl": "assets/companions/outfits/owl/ot_jacket_3.webp",
+    "turtle": "assets/companions/outfits/turtle/ot_jacket_3.webp",
+    "eagle": "assets/companions/outfits/eagle/ot_jacket_3.webp",
+    "cat": "assets/companions/outfits/cat/ot_jacket_3.webp",
+    "lion": "assets/companions/outfits/lion/ot_jacket_3.webp"
+   },
+   "group": "jacket",
+   "swatch": "#7d6a56",
+   "reward": {
+    "type": "level",
+    "n": 10
+   }
+  },
+  {
+   "id": "ot_jacket_4",
+   "slot": "body",
+   "z": 10,
+   "cost": 220,
+   "full": true,
+   "name": {
+    "tr": "Lüks ceket",
+    "en": "Luxury jacket",
+    "de": "Luxusjacke",
+    "fr": "Veste de luxe",
+    "ar": "جاكيت فاخر"
+   },
+   "art": {
+    "wolf": "assets/companions/outfits/wolf/ot_jacket_4.webp",
+    "owl": "assets/companions/outfits/owl/ot_jacket_4.webp",
+    "turtle": "assets/companions/outfits/turtle/ot_jacket_4.webp",
+    "eagle": "assets/companions/outfits/eagle/ot_jacket_4.webp",
+    "cat": "assets/companions/outfits/cat/ot_jacket_4.webp",
+    "lion": "assets/companions/outfits/lion/ot_jacket_4.webp"
+   },
+   "group": "jacket",
+   "swatch": "#a45f2f",
+   "reward": {
+    "type": "streak",
+    "n": 30
+   }
   }
  ],
  "groups": {
@@ -389,6 +537,15 @@
     "de": "Thobe mit Kappe",
     "fr": "Thobe avec calotte",
     "ar": "ثوب مع طاقية"
+   }
+  },
+  "jacket": {
+   "name": {
+    "tr": "Ceket",
+    "en": "Jacket",
+    "de": "Jacke",
+    "fr": "Veste",
+    "ar": "جاكيت"
    }
   }
  }
