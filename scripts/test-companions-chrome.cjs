@@ -78,9 +78,14 @@ const server=http.createServer((req,res)=>{
  assert.match(tagCss.bg,/rgb\(255, 74, 61\)/,'the tag is red');
  assert.equal(tagCss.an,'dczSoonTag','the tag is animated');
  await page.locator('.dcz-sc-out').waitFor({state:'attached'});
- assert.equal(await page.locator('.dcz-sc-base').evaluate(e=>getComputedStyle(e).animationName),'dczScBase','dress-up animation: bare animal');
- assert.equal(await page.locator('.dcz-sc-out').evaluate(e=>getComputedStyle(e).animationName),'dczScOut','dress-up animation: outfit lands on the animal');
- assert.match(await page.locator('.dcz-sc-out').getAttribute('src'),/outfits\/[a-z]+\/ot_/,'an outfit is shown');
+ assert.equal(await page.locator('.dcz-sc-base').count(),1,'dress-up animation: the animal in its default robe');
+ assert.ok(await page.locator('.dcz-actor').evaluate(e=>e.getAnimations().length>0),'the animal walks in (running animation)');
+ assert.equal(await page.locator('.dcz-rays').evaluate(e=>getComputedStyle(e).animationName),'dczRays','background light rays turn');
+ assert.ok(await page.locator('.dcz-tw').count()>=8,'twinkling stars');
+ await page.waitForFunction(()=>{const o=document.querySelector('.dcz-sc-out');return o&&/outfits\/[a-z]+\/ot_/.test(o.getAttribute('src'))&&o.style.opacity==='1'},null,{timeout:5000});
+ await page.waitForSelector('.dcz-bubble.on',{timeout:6000});
+ assert.match(await page.locator('.dcz-bubble').textContent(),/Yakında!/,'the speech bubble says coming soon');
+ assert.equal(await page.locator('.dcz-bubble').evaluate(e=>getComputedStyle(e).color),'rgb(211, 23, 30)','the bubble text is red');
  assert.ok(await page.locator('.dcz-soon-txt').innerText().then(t=>/yakında geliyor/i.test(t)),'caption');
  await page.locator('.dcz-soon-x').click();
  await page.waitForFunction(()=>!document.querySelector('.dcz-soon'),null,{timeout:3000});

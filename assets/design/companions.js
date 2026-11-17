@@ -386,26 +386,49 @@
  const adminRoom=()=>{try{return !!window.DEEN_ADMIN_ROOM?.()}catch(_){return false}};
  const soonOn=()=>WARDROBE_SOON&&!adminRoom();
  const SOON_ANIMALS=['lion','cat','wolf','owl','turtle','eagle'];
- let soonEl=null,soonTimer=null,soonKey=null,soonIdx=0;
+ let soonEl=null,soonTimers=[],soonKey=null,soonIdx=0;
  const reducedMotion=()=>!!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches);
- function soonPick(){
-  const a=SOON_ANIMALS[soonIdx++%SOON_ANIMALS.length];
-  const list=OUT.list.filter(o=>o.slot==='body'&&o.full===true&&o.default!==true&&o.art&&o.art[a]);
-  const o=list.length?list[Math.floor(Math.random()*list.length)]:null;
-  return {a,out:o?o.art[a]:'assets/companions/outfits/'+a+'/ot_thobe_kufi.webp'};
+ const shuffle=l=>{const r=l.slice();for(let i=r.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[r[i],r[j]]=[r[j],r[i]]}return r};
+ const soonLater=(fn,ms)=>{const id=setTimeout(()=>{soonTimers=soonTimers.filter(x=>x!==id);if(soonEl)fn()},ms);soonTimers.push(id);return id};
+ function soonOutfits(a){
+  const fb=['ot_thobe_kufi','ot_jacket_4','ot_robe_green_vest'].map(id=>'assets/companions/outfits/'+a+'/'+id+'.webp');
+  const list=shuffle(OUT.list.filter(o=>o.slot==='body'&&o.full===true&&o.default!==true&&o.art&&o.art[a])).slice(0,3).map(o=>o.art[a]);
+  while(list.length<3)list.push(fb[list.length]);
+  return list;
  }
- function soonStep(){
+ /* One "act": the animal (in its default robe) walks in, magically changes into three outfits (flash, ring, sparkles, hop, one twirl),
+    a red speech bubble says "coming soon", then it walks out and the next animal comes. Timers are cleared on close. */
+ function soonAct(){
   const box=soonEl&&soonEl.querySelector('.dcz-sc');if(!box)return;
-  const p=soonPick();let n=0;
-  const done=()=>{if(++n<2||!soonEl||!box.isConnected)return;
-   box.innerHTML='<img class="dcz-sc-base" src="'+esc(bodySrc(p.a))+'" alt=""><img class="dcz-sc-out" src="'+esc(p.out)+'" alt="">'+[1,2,3,4,5].map(i=>'<i class="dcz-sp s'+i+'" aria-hidden="true">✦</i>').join('');
-   box.dataset.animal=p.a;
+  const a=SOON_ANIMALS[soonIdx++%SOON_ANIMALS.length],outs=soonOutfits(a),still=reducedMotion();
+  let n=0;const srcs=['assets/companions/outfits/'+a+'/ot_thobe.webp'].concat(outs),need=srcs.length; // starts in the default robe, never bare
+  const go=()=>{if(++n<need||!soonEl||!box.isConnected)return;
+   const sp=[0,1,2,3,4,5,6,7].map(i=>'<i class="dcz-sp" data-i="'+i+'" aria-hidden="true">✦</i>').join('');
+   box.innerHTML='<div class="dcz-actor"><div class="dcz-bob"><div class="dcz-hop"><img class="dcz-sc-base" src="'+esc(srcs[0])+'" alt=""><img class="dcz-sc-out" src="'+esc(srcs[1])+'" alt="" style="opacity:'+(still?1:0)+'"></div></div></div><i class="dcz-flash"></i><i class="dcz-ring"></i>'+sp+'<b class="dcz-bubble" aria-hidden="true">'+esc(soonTx().tag)+'!</b>';
+   box.dataset.animal=a;
+   const actor=box.querySelector('.dcz-actor'),hop=box.querySelector('.dcz-hop'),out=box.querySelector('.dcz-sc-out'),base=box.querySelector('.dcz-sc-base'),flash=box.querySelector('.dcz-flash'),ring=box.querySelector('.dcz-ring'),bub=box.querySelector('.dcz-bubble'),sps=[...box.querySelectorAll('.dcz-sp')];
+   if(still){bub.classList.add('on');return}
+   const can=typeof actor.animate==='function';if(!can){out.style.opacity=1;bub.classList.add('on');return}
+   actor.animate([{transform:'translateX(-85%) scale(.92)',opacity:0},{transform:'translateX(5%) scale(1.02)',opacity:1,offset:.72},{transform:'translateX(0) scale(1)',opacity:1}],{duration:950,easing:'cubic-bezier(.2,.9,.3,1)',fill:'both'});
+   const poof=(src,twirl)=>{
+    flash.animate([{opacity:0,transform:'translate(-50%,-50%) scale(.4)'},{opacity:.95,transform:'translate(-50%,-50%) scale(1.1)',offset:.35},{opacity:0,transform:'translate(-50%,-50%) scale(1.5)'}],{duration:520,easing:'ease-out'});
+    ring.animate([{opacity:.9,transform:'translate(-50%,-50%) scale(.2)'},{opacity:0,transform:'translate(-50%,-50%) scale(1.9)'}],{duration:760,easing:'ease-out'});
+    sps.forEach((e,i)=>{const ang=i/sps.length*Math.PI*2+(Math.random()*.5),d=70+Math.random()*60;e.animate([{opacity:0,transform:'translate(-50%,-50%) scale(.2) rotate(0deg)'},{opacity:1,transform:'translate(calc(-50% + '+Math.cos(ang)*d*.6+'px),calc(-50% + '+Math.sin(ang)*d*.6+'px)) scale(1.2) rotate(70deg)',offset:.4},{opacity:0,transform:'translate(calc(-50% + '+Math.cos(ang)*d+'px),calc(-50% + '+Math.sin(ang)*d+'px)) scale(.4) rotate(160deg)'}],{duration:900,easing:'ease-out',delay:i*18})});
+    soonLater(()=>{out.src=src;out.style.opacity=1;if(base)base.style.opacity=0},150);
+    hop.animate(twirl?[{transform:'perspective(700px) rotateY(0deg) translateY(0)'},{transform:'perspective(700px) rotateY(180deg) translateY(-8%)',offset:.5},{transform:'perspective(700px) rotateY(360deg) translateY(0)'}]:[{transform:'translateY(0) scale(1,1)'},{transform:'translateY(-7%) scale(.96,1.05)',offset:.35},{transform:'translateY(0) scale(1.05,.94)',offset:.7},{transform:'translateY(0) scale(1,1)'}],{duration:twirl?820:560,easing:'ease-in-out'});
+   };
+   soonLater(()=>poof(outs[0]),1350);
+   soonLater(()=>bub.classList.add('on'),1900);
+   soonLater(()=>poof(outs[1]),3800);
+   soonLater(()=>poof(outs[2],true),6200);
+   soonLater(()=>{bub.classList.remove('on');actor.animate([{transform:'translateX(0) scale(1)',opacity:1},{transform:'translateX(80%) scale(.95)',opacity:0}],{duration:650,easing:'ease-in',fill:'both'})},8900);
+   soonLater(soonAct,9700);
   };
-  [bodySrc(p.a),p.out].forEach(u=>{const i=new Image();i.onload=i.onerror=done;i.src=u});
+  srcs.forEach(u=>{const i=new Image();i.onload=i.onerror=go;i.src=u});
  }
  function closeSoon(fast){
   const el=soonEl;if(!el)return false;
-  soonEl=null;if(soonTimer){clearInterval(soonTimer);soonTimer=null}
+  soonEl=null;soonTimers.forEach(clearTimeout);soonTimers=[]
   if(soonKey){document.removeEventListener('keydown',soonKey);soonKey=null}
   el.classList.remove('in');
   setTimeout(()=>el.remove(),fast||reducedMotion()?0:320);
@@ -416,11 +439,11 @@
   loadOutfits();closeSoon(true);
   const t=soonTx();
   const el=document.createElement('div');el.className='dcz dcz-soon';el.setAttribute('role','dialog');el.setAttribute('aria-modal','true');el.setAttribute('aria-label',t.t);el.dir=lang()==='ar'?'rtl':'ltr';
-  el.innerHTML='<button type="button" class="dcz-soon-x" data-dcz-soon="close" aria-label="'+esc(T().closeL)+'">✕</button><div class="dcz-soon-st"><span class="dcz-soon-tag">'+esc(t.tag)+'</span><div class="dcz-soon-floor"></div><div class="dcz-sc"></div></div><div class="dcz-soon-txt"><b>'+esc(t.t)+'</b><span>'+esc(t.s)+'</span><button type="button" class="dcz-soon-ok" data-dcz-soon="close">'+esc(T().closeL)+'</button></div>';
+  el.innerHTML='<button type="button" class="dcz-soon-x" data-dcz-soon="close" aria-label="'+esc(T().closeL)+'">✕</button><div class="dcz-soon-st"><i class="dcz-rays"></i>'+[1,2,3,4,5,6,7,8,9,10].map(i=>'<i class="dcz-tw t'+i+'"></i>').join('')+'<span class="dcz-soon-tag">'+esc(t.tag)+'</span><div class="dcz-soon-floor"></div><div class="dcz-sc"></div></div><div class="dcz-soon-txt"><b>'+esc(t.t)+'</b><span>'+esc(t.s)+'</span><button type="button" class="dcz-soon-ok" data-dcz-soon="close">'+esc(T().closeL)+'</button></div>';
   (document.getElementById('phone')||document.body).appendChild(el);soonEl=el;
   el.addEventListener('click',e=>{if(e.target.closest('[data-dcz-soon="close"]'))closeSoon()});
   soonKey=e=>{if(e.key==='Escape'){e.preventDefault();closeSoon()}};document.addEventListener('keydown',soonKey);
-  soonStep();if(!reducedMotion())soonTimer=setInterval(soonStep,5200);
+  soonAct();
   requestAnimationFrame(()=>requestAnimationFrame(()=>{if(soonEl===el)el.classList.add('in')}));
   return true;
  }
@@ -603,23 +626,34 @@
 .dcz-soon-floor{position:absolute;left:0;right:0;bottom:0;height:34%;background:radial-gradient(ellipse at 50% 100%,rgba(140,235,208,.22),rgba(140,235,208,0) 62%);pointer-events:none}
 .dcz-soon-tag{position:absolute;top:18px;left:50%;transform:translateX(-50%);z-index:3;padding:10px 24px;border-radius:999px;background:linear-gradient(180deg,#ff4a3d,#c3141b);color:#fff;font:800 19px/1 inherit;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;overflow:hidden;box-shadow:0 0 0 2px rgba(255,255,255,.88),0 6px 20px rgba(230,40,40,.55);animation:dczSoonTag 1.7s ease-in-out infinite}
 .dcz-soon-tag::after{content:'';position:absolute;top:0;left:-70%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.7),transparent);transform:skewX(-20deg);animation:dczShine 2.6s ease-in-out infinite}
+.dcz-rays{position:absolute;left:-40%;top:-10%;width:180%;height:120%;background:repeating-conic-gradient(from 0deg at 50% 46%,rgba(255,232,170,.13) 0 9deg,rgba(255,232,170,0) 9deg 22deg);-webkit-mask-image:radial-gradient(circle at 50% 46%,#000 0,rgba(0,0,0,.55) 38%,transparent 70%);mask-image:radial-gradient(circle at 50% 46%,#000 0,rgba(0,0,0,.55) 38%,transparent 70%);animation:dczRays 40s linear infinite;pointer-events:none}
+.dcz-tw{position:absolute;width:5px;height:5px;border-radius:50%;background:#fff6d2;box-shadow:0 0 8px 2px rgba(255,236,170,.8);opacity:0;animation:dczTw 3.2s ease-in-out infinite;pointer-events:none}
+.dcz-tw.t1{left:12%;top:24%;animation-delay:.1s}.dcz-tw.t2{left:82%;top:30%;animation-delay:.9s}.dcz-tw.t3{left:24%;top:68%;animation-delay:1.7s}.dcz-tw.t4{left:74%;top:62%;animation-delay:.5s}.dcz-tw.t5{left:50%;top:16%;animation-delay:2.2s}.dcz-tw.t6{left:8%;top:48%;animation-delay:1.3s}.dcz-tw.t7{left:90%;top:50%;animation-delay:2.6s}.dcz-tw.t8{left:38%;top:80%;animation-delay:.3s}.dcz-tw.t9{left:64%;top:78%;animation-delay:1.9s}.dcz-tw.t10{left:30%;top:36%;animation-delay:2.9s}
 .dcz-sc{position:absolute;inset:72px 0 4%}
+.dcz-sc::before{content:'';position:absolute;left:50%;bottom:-1%;width:46%;height:5%;transform:translateX(-50%);border-radius:50%;background:radial-gradient(ellipse,rgba(0,0,0,.4),rgba(0,0,0,0) 70%);animation:dczShadow 2.6s ease-in-out infinite}
+.dcz-actor,.dcz-bob,.dcz-hop{position:absolute;inset:0}
+.dcz-bob{animation:dczBob 2.6s ease-in-out infinite;transform-origin:50% 100%}
+.dcz-hop{transform-origin:50% 100%}
 .dcz-sc img{position:absolute;left:50%;top:0;height:100%;width:auto;max-width:92%;object-fit:contain;transform:translateX(-50%);filter:drop-shadow(0 10px 14px rgba(0,0,0,.35))}
-.dcz-sc-base{animation:dczScBase 5.2s ease both}
-.dcz-sc-out{animation:dczScOut 5.2s cubic-bezier(.3,.9,.3,1) both}
-.dcz-sp{position:absolute;color:#ffe9a8;font-style:normal;font-size:24px;opacity:0;text-shadow:0 0 10px rgba(255,220,120,.9);animation:dczScSp 5.2s ease-out both}
-.dcz-sp.s1{left:18%;top:26%}.dcz-sp.s2{right:16%;top:20%;animation-delay:.08s}.dcz-sp.s3{left:22%;top:56%;animation-delay:.16s}.dcz-sp.s4{right:20%;top:50%;animation-delay:.05s}.dcz-sp.s5{left:46%;top:6%;animation-delay:.12s}
+.dcz-flash{position:absolute;left:50%;top:42%;width:78%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#fff 0,rgba(255,244,200,.85) 32%,rgba(255,230,150,0) 70%);opacity:0;pointer-events:none;mix-blend-mode:screen}
+.dcz-ring{position:absolute;left:50%;top:42%;width:70%;aspect-ratio:1;border-radius:50%;border:4px solid rgba(255,236,170,.9);box-shadow:0 0 18px rgba(255,220,120,.8);opacity:0;pointer-events:none}
+.dcz-sp{position:absolute;left:50%;top:42%;color:#ffe9a8;font-style:normal;font-size:26px;opacity:0;text-shadow:0 0 10px rgba(255,220,120,.9);pointer-events:none}
+.dcz-bubble{position:absolute;top:6%;inset-inline-end:5%;max-width:46%;padding:9px 16px;border-radius:18px;background:#fff;color:#d3171e;font:800 17px/1.1 inherit;text-align:center;box-shadow:0 6px 18px rgba(0,0,0,.35);transform:scale(0) rotate(-8deg);transform-origin:20% 100%;opacity:0;transition:transform .45s cubic-bezier(.3,1.6,.4,1),opacity .2s ease;pointer-events:none}
+.dcz-bubble::after{content:'';position:absolute;bottom:-9px;inset-inline-start:16px;border:9px solid transparent;border-top-color:#fff;border-bottom:0}
+.dcz-bubble.on{opacity:1;transform:scale(1) rotate(-4deg);animation:dczBub 2.4s ease-in-out .5s infinite}
 .dcz-soon-txt{display:flex;flex-direction:column;align-items:center;gap:6px;padding:16px 20px 20px;text-align:center;background:#0a232b}
 .dcz-soon-txt b{font-size:19px}
 .dcz-soon-txt span{font-size:14px;opacity:.85}
 .dcz-soon-ok{margin-top:10px;min-height:44px;min-width:140px;padding:0 22px;border-radius:14px;border:1px solid rgba(140,235,208,.4);background:rgba(140,235,208,.14);color:inherit;font:600 15px/1 inherit;cursor:pointer}
 @keyframes dczSoonPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
 @keyframes dczSoonTag{0%,100%{transform:translateX(-50%) scale(1);box-shadow:0 0 0 2px rgba(255,255,255,.88),0 6px 20px rgba(230,40,40,.5)}50%{transform:translateX(-50%) scale(1.07);box-shadow:0 0 0 2px rgba(255,255,255,.95),0 8px 28px rgba(255,60,50,.8)}}
+@keyframes dczRays{to{transform:rotate(360deg)}}
+@keyframes dczTw{0%,100%{opacity:0;transform:scale(.4)}50%{opacity:1;transform:scale(1.2)}}
+@keyframes dczBob{0%,100%{transform:translateY(0) scaleY(1)}50%{transform:translateY(-1.2%) scaleY(1.012)}}
+@keyframes dczShadow{0%,100%{transform:translateX(-50%) scale(1);opacity:1}50%{transform:translateX(-50%) scale(.92);opacity:.8}}
+@keyframes dczBub{0%,100%{transform:scale(1) rotate(-4deg)}50%{transform:scale(1.06) rotate(-2deg)}}
 @keyframes dczShine{0%,55%{left:-70%}100%{left:130%}}
-@keyframes dczScBase{0%{opacity:0;transform:translateX(-50%) scale(.94)}10%,88%{opacity:1;transform:translateX(-50%) scale(1)}100%{opacity:0;transform:translateX(-50%) scale(1)}}
-@keyframes dczScOut{0%,9%{opacity:0;transform:translate(-50%,-18%) scale(1.06)}24%{opacity:1;transform:translate(-50%,3%) scale(.99)}30%{opacity:1;transform:translate(-50%,-1%) scale(1.015)}35%,86%{opacity:1;transform:translate(-50%,0) scale(1)}100%{opacity:0;transform:translate(-50%,0) scale(1)}}
-@keyframes dczScSp{0%,22%{opacity:0;transform:scale(.2) rotate(0)}30%{opacity:1;transform:scale(1.25) rotate(40deg)}48%{opacity:0;transform:scale(.6) rotate(100deg)}100%{opacity:0}}
-@media(prefers-reduced-motion:reduce){.dcz-soon,.dcz-soon.in{transition:none!important;transform:none!important}.dcz-soon-tag,.dcz-soon-tag::after,.dcz-soonpill,.dcz-sc img,.dcz-sp{animation:none!important}.dcz-sc-out{opacity:1}.dcz-sp{display:none}.dcz-soon-tag{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.dcz-soon,.dcz-soon.in{transition:none!important;transform:none!important}.dcz-soon-tag,.dcz-soon-tag::after,.dcz-soonpill,.dcz-sc img,.dcz-sp,.dcz-rays,.dcz-tw,.dcz-bob,.dcz-sc::before,.dcz-bubble{animation:none!important}.dcz-sc-out{opacity:1}.dcz-sp,.dcz-flash,.dcz-ring,.dcz-tw{display:none}.dcz-bubble{transition:none}.dcz-soon-tag{transform:translateX(-50%)}}
 
 .dcz-locked{opacity:.55;filter:grayscale(.8)}
 .dcz-locked small{display:none}
@@ -720,7 +754,7 @@
  const stageRules=ITEMS.filter(i=>i.kind==='fr').map(i=>'.dcz .dcz-st[data-dcz-fr="'+i.id+'"]{box-shadow:'+insetShadow(i.css)+'!important}').join('\n');
  css.textContent+=rules+'\n'+stageRules;
  document.head.appendChild(css);
- window.DEEN_COMPANIONS=Object.freeze({version:'companions-v14',order:ORDER.slice(),levels:Object.assign({},LEVELS),items:ITEMS.map(i=>i.id),bodyArt:BODY.slice(),outfits:()=>OUT.list.map(o=>o.id),unlocked,select,open,soon:soonOn,closeSoon:()=>closeSoon(true),isSoonOpen:()=>!!soonEl,season,seasonFor,close:()=>closeRoom(true),isOpen:()=>!!room,save:saveDraft,buyItem,toggleItem,isUnlocked:unlocked});
+ window.DEEN_COMPANIONS=Object.freeze({version:'companions-v15',order:ORDER.slice(),levels:Object.assign({},LEVELS),items:ITEMS.map(i=>i.id),bodyArt:BODY.slice(),outfits:()=>OUT.list.map(o=>o.id),unlocked,select,open,soon:soonOn,closeSoon:()=>closeSoon(true),isSoonOpen:()=>!!soonEl,season,seasonFor,close:()=>closeRoom(true),isOpen:()=>!!room,save:saveDraft,buyItem,toggleItem,isUnlocked:unlocked});
  // Wrap the engine's own chooser so a locked animal can never be selected programmatically.
  function wrap(){
   const c=window.DEEN_COMPANION;
