@@ -371,7 +371,62 @@
  }
  const refresh=paint;
  const admin=adminAll;
- function open(which){
+
+ /* "Coming soon": until the wardrobe is ready, regular users see a red animated notice and a looping dress-up animation.
+    The admin test switch (wardrobe on) and open(x,{force:true}) still reach the real room. */
+ const WARDROBE_SOON=true;
+ const SOON={
+  tr:{tag:'Yakında',t:'Hayvan Odası yakında geliyor',s:'Kıyafetler, arka planlar ve çok daha fazlası çok yakında!'},
+  en:{tag:'Coming soon',t:'The Animal Room is coming soon',s:'Outfits, backdrops and much more are on the way!'},
+  de:{tag:'Bald da',t:'Das Tierzimmer kommt bald',s:'Outfits, Hintergründe und vieles mehr sind bald da!'},
+  fr:{tag:'Bientôt',t:'La salle des animaux arrive bientôt',s:'Tenues, fonds et bien plus arrivent bientôt !'},
+  ar:{tag:'قريبًا',t:'غرفة الحيوانات قادمة قريبًا',s:'ملابس وخلفيات والمزيد في الطريق!'}
+ };
+ const soonTx=()=>SOON[lang()]||SOON.en;
+ const soonOn=()=>WARDROBE_SOON&&!adminAll();
+ const SOON_ANIMALS=['lion','cat','wolf','owl','turtle','eagle'];
+ let soonEl=null,soonTimer=null,soonKey=null,soonIdx=0;
+ const reducedMotion=()=>!!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+ function soonPick(){
+  const a=SOON_ANIMALS[soonIdx++%SOON_ANIMALS.length];
+  const list=OUT.list.filter(o=>o.slot==='body'&&o.full===true&&o.default!==true&&o.art&&o.art[a]);
+  const o=list.length?list[Math.floor(Math.random()*list.length)]:null;
+  return {a,out:o?o.art[a]:'assets/companions/outfits/'+a+'/ot_thobe_kufi.webp'};
+ }
+ function soonStep(){
+  const box=soonEl&&soonEl.querySelector('.dcz-sc');if(!box)return;
+  const p=soonPick();let n=0;
+  const done=()=>{if(++n<2||!soonEl||!box.isConnected)return;
+   box.innerHTML='<img class="dcz-sc-base" src="'+esc(bodySrc(p.a))+'" alt=""><img class="dcz-sc-out" src="'+esc(p.out)+'" alt="">'+[1,2,3,4,5].map(i=>'<i class="dcz-sp s'+i+'" aria-hidden="true">✦</i>').join('');
+   box.dataset.animal=p.a;
+  };
+  [bodySrc(p.a),p.out].forEach(u=>{const i=new Image();i.onload=i.onerror=done;i.src=u});
+ }
+ function closeSoon(fast){
+  const el=soonEl;if(!el)return false;
+  soonEl=null;if(soonTimer){clearInterval(soonTimer);soonTimer=null}
+  if(soonKey){document.removeEventListener('keydown',soonKey);soonKey=null}
+  el.classList.remove('in');
+  setTimeout(()=>el.remove(),fast||reducedMotion()?0:320);
+  return true;
+ }
+ function openSoon(){
+  if(typeof document==='undefined')return false;
+  loadOutfits();closeSoon(true);
+  const t=soonTx();
+  const el=document.createElement('div');el.className='dcz dcz-soon';el.setAttribute('role','dialog');el.setAttribute('aria-modal','true');el.setAttribute('aria-label',t.t);el.dir=lang()==='ar'?'rtl':'ltr';
+  el.innerHTML='<button type="button" class="dcz-soon-x" data-dcz-soon="close" aria-label="'+esc(T().closeL)+'">✕</button><div class="dcz-soon-st"><span class="dcz-soon-tag">'+esc(t.tag)+'</span><div class="dcz-soon-floor"></div><div class="dcz-sc"></div></div><div class="dcz-soon-txt"><b>'+esc(t.t)+'</b><span>'+esc(t.s)+'</span><button type="button" class="dcz-soon-ok" data-dcz-soon="close">'+esc(T().closeL)+'</button></div>';
+  (document.getElementById('phone')||document.body).appendChild(el);soonEl=el;
+  el.addEventListener('click',e=>{if(e.target.closest('[data-dcz-soon="close"]'))closeSoon()});
+  soonKey=e=>{if(e.key==='Escape'){e.preventDefault();closeSoon()}};document.addEventListener('keydown',soonKey);
+  soonStep();if(!reducedMotion())soonTimer=setInterval(soonStep,5200);
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{if(soonEl===el)el.classList.add('in')}));
+  return true;
+ }
+ const entryKey=()=>(soonOn()?'s':((meta()?.fresh||[]).length?'f':'n'))+'|'+lang();
+ const entryHtml=()=>'🐾 '+esc(T().room)+(soonOn()?'<i class="dcz-soonpill">'+esc(soonTx().tag)+'</i>':((meta()?.fresh||[]).length?' •':''));
+ function open(which,opts){
+  if(soonOn()&&!(opts&&opts.force===true))return openSoon();
   loadOutfits();
   if(!app()||typeof document==='undefined')return false;
   try{const m=meta();if(m&&Array.isArray(m.fresh)&&m.fresh.length){freshShown=m.fresh.slice();m.fresh=[];save()}else freshShown=[]}catch(_){freshShown=[]}
@@ -522,8 +577,8 @@
   const top=document.querySelector('#profileScreenBody .dsp-id');
   if(top&&!document.getElementById('dczEntry')){
    const b=document.createElement('button');b.type='button';b.id='dczEntry';b.className='dcz-entry';b.dataset.dczOpen='1';
-   b.textContent='🐾 '+T().room+((meta()?.fresh||[]).length?' •':'');top.after(b);
-  }else{const e=document.getElementById('dczEntry'),tx='🐾 '+T().room+((meta()?.fresh||[]).length?' •':'');if(e&&e.textContent!==tx)e.textContent=tx}
+   b.innerHTML=entryHtml();b.dataset.k=entryKey();top.after(b);
+  }else{const e=document.getElementById('dczEntry');if(e&&e.dataset.k!==entryKey()){e.innerHTML=entryHtml();e.dataset.k=entryKey()}}
   // Wardrobe on the profile avatar.
   const slot=document.querySelector('#profileScreenBody .dsp-avatar-slot'),m=meta();
   if(slot&&m){
@@ -539,6 +594,32 @@
 .dcz-badge{position:absolute;right:14%;bottom:10%;width:28%;height:28%;min-width:16px;min-height:16px;display:block;filter:drop-shadow(0 1px 2px rgba(0,0,0,.55))}
 .dcz-badge svg{display:block;width:100%;height:100%}
 .dcz-entry{display:block;width:100%;min-height:44px;margin:10px 0;border-radius:14px;border:1px solid rgba(140,235,208,.4);background:rgba(140,235,208,.12);color:inherit;font:600 15px/1 inherit;cursor:pointer}
+.dcz-soonpill{display:inline-block;margin-inline-start:8px;padding:4px 9px;border-radius:999px;background:linear-gradient(180deg,#ff4a3d,#c3141b);color:#fff;font:800 11px/1 inherit;font-style:normal;letter-spacing:.05em;text-transform:uppercase;vertical-align:middle;box-shadow:0 0 0 1.5px rgba(255,255,255,.8),0 3px 10px rgba(230,40,40,.5);animation:dczSoonPulse 1.6s ease-in-out infinite}
+.dcz-soon{position:absolute;inset:0;z-index:520;display:flex;flex-direction:column;overflow:hidden;color:#eff6f4;background:#081b22;opacity:0;transform:scale(.97);transition:opacity .3s ease,transform .4s cubic-bezier(.2,.8,.2,1)}
+.dcz-soon.in{opacity:1;transform:none}
+.dcz-soon-x{position:absolute;top:12px;inset-inline-start:12px;z-index:4;width:44px;height:44px;border-radius:50%;border:0;background:rgba(0,0,0,.38);color:#fff;font-size:18px;cursor:pointer}
+.dcz-soon-st{position:relative;flex:1 1 0;min-height:0;background:radial-gradient(ellipse at 50% 34%,#2d6d69 0,#15434a 52%,#0a232b 100%)}
+.dcz-soon-floor{position:absolute;left:0;right:0;bottom:0;height:34%;background:radial-gradient(ellipse at 50% 100%,rgba(140,235,208,.22),rgba(140,235,208,0) 62%);pointer-events:none}
+.dcz-soon-tag{position:absolute;top:18px;left:50%;transform:translateX(-50%);z-index:3;padding:10px 24px;border-radius:999px;background:linear-gradient(180deg,#ff4a3d,#c3141b);color:#fff;font:800 19px/1 inherit;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;overflow:hidden;box-shadow:0 0 0 2px rgba(255,255,255,.88),0 6px 20px rgba(230,40,40,.55);animation:dczSoonTag 1.7s ease-in-out infinite}
+.dcz-soon-tag::after{content:'';position:absolute;top:0;left:-70%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.7),transparent);transform:skewX(-20deg);animation:dczShine 2.6s ease-in-out infinite}
+.dcz-sc{position:absolute;inset:72px 0 4%}
+.dcz-sc img{position:absolute;left:50%;top:0;height:100%;width:auto;max-width:92%;object-fit:contain;transform:translateX(-50%);filter:drop-shadow(0 10px 14px rgba(0,0,0,.35))}
+.dcz-sc-base{animation:dczScBase 5.2s ease both}
+.dcz-sc-out{animation:dczScOut 5.2s cubic-bezier(.3,.9,.3,1) both}
+.dcz-sp{position:absolute;color:#ffe9a8;font-style:normal;font-size:24px;opacity:0;text-shadow:0 0 10px rgba(255,220,120,.9);animation:dczScSp 5.2s ease-out both}
+.dcz-sp.s1{left:18%;top:26%}.dcz-sp.s2{right:16%;top:20%;animation-delay:.08s}.dcz-sp.s3{left:22%;top:56%;animation-delay:.16s}.dcz-sp.s4{right:20%;top:50%;animation-delay:.05s}.dcz-sp.s5{left:46%;top:6%;animation-delay:.12s}
+.dcz-soon-txt{display:flex;flex-direction:column;align-items:center;gap:6px;padding:16px 20px 20px;text-align:center;background:#0a232b}
+.dcz-soon-txt b{font-size:19px}
+.dcz-soon-txt span{font-size:14px;opacity:.85}
+.dcz-soon-ok{margin-top:10px;min-height:44px;min-width:140px;padding:0 22px;border-radius:14px;border:1px solid rgba(140,235,208,.4);background:rgba(140,235,208,.14);color:inherit;font:600 15px/1 inherit;cursor:pointer}
+@keyframes dczSoonPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@keyframes dczSoonTag{0%,100%{transform:translateX(-50%) scale(1);box-shadow:0 0 0 2px rgba(255,255,255,.88),0 6px 20px rgba(230,40,40,.5)}50%{transform:translateX(-50%) scale(1.07);box-shadow:0 0 0 2px rgba(255,255,255,.95),0 8px 28px rgba(255,60,50,.8)}}
+@keyframes dczShine{0%,55%{left:-70%}100%{left:130%}}
+@keyframes dczScBase{0%{opacity:0;transform:translateX(-50%) scale(.94)}10%,88%{opacity:1;transform:translateX(-50%) scale(1)}100%{opacity:0;transform:translateX(-50%) scale(1)}}
+@keyframes dczScOut{0%,9%{opacity:0;transform:translate(-50%,-18%) scale(1.06)}24%{opacity:1;transform:translate(-50%,3%) scale(.99)}30%{opacity:1;transform:translate(-50%,-1%) scale(1.015)}35%,86%{opacity:1;transform:translate(-50%,0) scale(1)}100%{opacity:0;transform:translate(-50%,0) scale(1)}}
+@keyframes dczScSp{0%,22%{opacity:0;transform:scale(.2) rotate(0)}30%{opacity:1;transform:scale(1.25) rotate(40deg)}48%{opacity:0;transform:scale(.6) rotate(100deg)}100%{opacity:0}}
+@media(prefers-reduced-motion:reduce){.dcz-soon,.dcz-soon.in{transition:none!important;transform:none!important}.dcz-soon-tag,.dcz-soon-tag::after,.dcz-soonpill,.dcz-sc img,.dcz-sp{animation:none!important}.dcz-sc-out{opacity:1}.dcz-sp{display:none}.dcz-soon-tag{transform:translateX(-50%)}}
+
 .dcz-locked{opacity:.55;filter:grayscale(.8)}
 .dcz-locked small{display:none}
 .dcz-tag{position:static;display:block;margin-top:6px;font-style:normal;font-size:12px;font-weight:700;text-align:center;color:#fff}
@@ -638,7 +719,7 @@
  const stageRules=ITEMS.filter(i=>i.kind==='fr').map(i=>'.dcz .dcz-st[data-dcz-fr="'+i.id+'"]{box-shadow:'+insetShadow(i.css)+'!important}').join('\n');
  css.textContent+=rules+'\n'+stageRules;
  document.head.appendChild(css);
- window.DEEN_COMPANIONS=Object.freeze({version:'companions-v12',order:ORDER.slice(),levels:Object.assign({},LEVELS),items:ITEMS.map(i=>i.id),bodyArt:BODY.slice(),outfits:()=>OUT.list.map(o=>o.id),unlocked,select,open,season,seasonFor,close:()=>closeRoom(true),isOpen:()=>!!room,save:saveDraft,buyItem,toggleItem,isUnlocked:unlocked});
+ window.DEEN_COMPANIONS=Object.freeze({version:'companions-v13',order:ORDER.slice(),levels:Object.assign({},LEVELS),items:ITEMS.map(i=>i.id),bodyArt:BODY.slice(),outfits:()=>OUT.list.map(o=>o.id),unlocked,select,open,soon:soonOn,closeSoon:()=>closeSoon(true),isSoonOpen:()=>!!soonEl,season,seasonFor,close:()=>closeRoom(true),isOpen:()=>!!room,save:saveDraft,buyItem,toggleItem,isUnlocked:unlocked});
  // Wrap the engine's own chooser so a locked animal can never be selected programmatically.
  function wrap(){
   const c=window.DEEN_COMPANION;
