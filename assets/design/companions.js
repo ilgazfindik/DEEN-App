@@ -373,7 +373,7 @@
  const admin=adminAll;
 
  /* "Coming soon": until the wardrobe is ready, regular users see a red animated notice and a looping dress-up animation.
-    The admin test switch (wardrobe on) and open(x,{force:true}) still reach the real room. */
+    The admin panel's own "Hayvan Odası" switch (DEEN_ADMIN_ROOM) and open(x,{force:true}) still reach the real room; the item-unlock switch does not. */
  const WARDROBE_SOON=true;
  const SOON={
   tr:{tag:'Yakında',t:'Hayvan Odası yakında geliyor',s:'Kıyafetler, arka planlar ve çok daha fazlası çok yakında!'},
@@ -383,7 +383,8 @@
   ar:{tag:'قريبًا',t:'غرفة الحيوانات قادمة قريبًا',s:'ملابس وخلفيات والمزيد في الطريق!'}
  };
  const soonTx=()=>SOON[lang()]||SOON.en;
- const soonOn=()=>WARDROBE_SOON&&!adminAll();
+ const adminRoom=()=>{try{return !!window.DEEN_ADMIN_ROOM?.()}catch(_){return false}};
+ const soonOn=()=>WARDROBE_SOON&&!adminRoom();
  const SOON_ANIMALS=['lion','cat','wolf','owl','turtle','eagle'];
  let soonEl=null,soonTimer=null,soonKey=null,soonIdx=0;
  const reducedMotion=()=>!!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches);
@@ -719,7 +720,7 @@
  const stageRules=ITEMS.filter(i=>i.kind==='fr').map(i=>'.dcz .dcz-st[data-dcz-fr="'+i.id+'"]{box-shadow:'+insetShadow(i.css)+'!important}').join('\n');
  css.textContent+=rules+'\n'+stageRules;
  document.head.appendChild(css);
- window.DEEN_COMPANIONS=Object.freeze({version:'companions-v13',order:ORDER.slice(),levels:Object.assign({},LEVELS),items:ITEMS.map(i=>i.id),bodyArt:BODY.slice(),outfits:()=>OUT.list.map(o=>o.id),unlocked,select,open,soon:soonOn,closeSoon:()=>closeSoon(true),isSoonOpen:()=>!!soonEl,season,seasonFor,close:()=>closeRoom(true),isOpen:()=>!!room,save:saveDraft,buyItem,toggleItem,isUnlocked:unlocked});
+ window.DEEN_COMPANIONS=Object.freeze({version:'companions-v14',order:ORDER.slice(),levels:Object.assign({},LEVELS),items:ITEMS.map(i=>i.id),bodyArt:BODY.slice(),outfits:()=>OUT.list.map(o=>o.id),unlocked,select,open,soon:soonOn,closeSoon:()=>closeSoon(true),isSoonOpen:()=>!!soonEl,season,seasonFor,close:()=>closeRoom(true),isOpen:()=>!!room,save:saveDraft,buyItem,toggleItem,isUnlocked:unlocked});
  // Wrap the engine's own chooser so a locked animal can never be selected programmatically.
  function wrap(){
   const c=window.DEEN_COMPANION;
