@@ -48,12 +48,12 @@ const server=http.createServer((req,res)=>{
  assert.equal(await ev(()=>DEEN_COMPANIONS.unlocked('wolf')),true);
  await page.waitForFunction(()=>window.toasts.some(t=>/Kurt/.test(t)&&/açıldı/.test(t)),null,{timeout:4000});
  assert.equal(await page.locator('#v5Sheet[open]').count(),0,'unlocking never pops a modal over other screens');
- await ev(()=>DEEN_COMPANIONS.open());
+ await ev(()=>DEEN_COMPANIONS.open(undefined,{force:true}));
  assert.equal(await page.locator('.dcz-tab.on[data-id=animals]').count(),1,'a new animal opens the Animals tab');
  assert.equal(await page.locator('.dcz-tile .dcz-new').count(),1,'new animal is tagged in the Animal Room');
  await ev(()=>DEEN_COMPANIONS.close());
  await page.waitForFunction(()=>!document.querySelector('.dcz-room'));
- await ev(()=>DEEN_COMPANIONS.open('animals'));
+ await ev(()=>DEEN_COMPANIONS.open('animals',{force:true}));
  assert.equal(await page.locator('.dcz-tile .dcz-new').count(),0,'the tag disappears after it was seen');
  assert.match(await page.locator('.dcz-next').innerText(),/Baykuş · Seviye 3/,'next unlock line');
  assert.equal(await ev(()=>DEEN_COMPANIONS.levels.eagle),7);
@@ -66,7 +66,25 @@ const server=http.createServer((req,res)=>{
  await page.waitForFunction(()=>!document.querySelector('.dcz-room'));
  await page.waitForSelector('#dczEntry');
  await ev(()=>closeSheet());
+ // 5a. coming soon: regular users only see the red animated notice, never the wardrobe
+ assert.equal(await ev(()=>DEEN_COMPANIONS.soon()),true,'soon mode is on for regular users');
+ assert.equal(await page.locator('#dczEntry .dcz-soonpill').textContent(),'Yakında','entry button carries the red pill');
+ assert.equal(await page.locator('#dczEntry .dcz-soonpill').evaluate(e=>getComputedStyle(e).animationName),'dczSoonPulse');
  await page.locator('#dczEntry').click();
+ await page.locator('.dcz-soon.in').waitFor();
+ assert.equal(await page.locator('.dcz-room').count(),0,'regular users do not reach the wardrobe');
+ assert.equal(await page.locator('.dcz-soon-tag').textContent(),'Yakında');
+ const tagCss=await page.locator('.dcz-soon-tag').evaluate(e=>{const c=getComputedStyle(e);return {bg:c.backgroundImage,an:c.animationName}});
+ assert.match(tagCss.bg,/rgb\(255, 74, 61\)/,'the tag is red');
+ assert.equal(tagCss.an,'dczSoonTag','the tag is animated');
+ await page.locator('.dcz-sc-out').waitFor({state:'attached'});
+ assert.equal(await page.locator('.dcz-sc-base').evaluate(e=>getComputedStyle(e).animationName),'dczScBase','dress-up animation: bare animal');
+ assert.equal(await page.locator('.dcz-sc-out').evaluate(e=>getComputedStyle(e).animationName),'dczScOut','dress-up animation: outfit lands on the animal');
+ assert.match(await page.locator('.dcz-sc-out').getAttribute('src'),/outfits\/[a-z]+\/ot_/,'an outfit is shown');
+ assert.ok(await page.locator('.dcz-soon-txt').innerText().then(t=>/yakında geliyor/i.test(t)),'caption');
+ await page.locator('.dcz-soon-x').click();
+ await page.waitForFunction(()=>!document.querySelector('.dcz-soon'),null,{timeout:3000});
+ await ev(()=>DEEN_COMPANIONS.open(undefined,{force:true}));
  await page.locator('.dcz-room.in').waitFor();
  assert.equal(await page.locator('#v5Sheet[open]').count(),0,'the room is its own page, not the bottom sheet');
  await page.waitForFunction(()=>getComputedStyle(document.querySelector('.dcz-panel')).transform==='none',null,{timeout:4000});
@@ -76,7 +94,7 @@ const server=http.createServer((req,res)=>{
  const tile=id=>page.locator('[data-dcz=tile][data-id='+id+']').click();
  const save=()=>page.locator('[data-dcz=save]').click();
  const closed=()=>page.waitForFunction(()=>!document.querySelector('.dcz-room'));
- const openRoom=async(which)=>{await ev(w=>DEEN_COMPANIONS.open(w),which);await page.locator('.dcz-room.in').waitFor()};
+ const openRoom=async(which)=>{await ev(w=>DEEN_COMPANIONS.open(w,{force:true}),which);await page.locator('.dcz-room.in').waitFor()};
  await tabk('animals');
  assert.equal(await page.locator('.dcz-tile.an').count(),6);
  assert.equal(await page.locator('.dcz-tile.an.lock').count(),3,'wolf is open (level 2), 3 remain locked');
@@ -262,7 +280,7 @@ const server=http.createServer((req,res)=>{
  await ev(()=>{document.getElementById('avMine').remove();document.getElementById('avOther').remove()});
  // 6. every language renders without throwing
  for(const l of ['tr','en','de','fr','ar']){
-  await ev(l=>{window.__lang=l;DEEN_COMPANIONS.open('animals')},l);
+  await ev(l=>{window.__lang=l;DEEN_COMPANIONS.open('animals',{force:true})},l);
   assert.equal(await page.locator('.dcz-tile.an').count(),6,l);
   assert.equal(await page.locator('.dcz-room').getAttribute('dir'),l==='ar'?'rtl':'ltr');
   await ev(()=>DEEN_COMPANIONS.close());

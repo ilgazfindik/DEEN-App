@@ -41,6 +41,7 @@ const server=http.createServer((req,res)=>{
  await ev(()=>{state.companionMeta.items=[];state.companionMeta.eq={}});
  await page.locator('[data-adm2=wardrobe]').click();
  assert.equal(await ev(()=>['lion','cat','wolf','owl','turtle','eagle'].every(i=>DEEN_COMPANIONS.unlocked(i))),true,'every animal opens');
+ assert.equal(await ev(()=>DEEN_COMPANIONS.soon()),false,'the wardrobe switch bypasses the coming-soon screen');
  assert.equal(await ev(()=>DEEN_COMPANIONS.buyItem('fr_nur')),true,'items are free while the switch is on');
  assert.equal(await ev(()=>state.currency),42,'nothing is charged');
  const closed=()=>page.waitForFunction(()=>!document.querySelector('.dcz-room'));
@@ -69,7 +70,12 @@ const server=http.createServer((req,res)=>{
  // 3. switching off restores the locks and ignores what was only worn through the switch
  await page.locator('[data-adm2=wardrobe]').click();
  assert.equal(await ev(()=>DEEN_COMPANIONS.unlocked('eagle')),false);
+ assert.equal(await ev(()=>DEEN_COMPANIONS.soon()),true,'switching the wardrobe off brings the coming-soon screen back');
  await ev(()=>DEEN_COMPANIONS.open('wardrobe'));
+ await page.locator('.dcz-soon.in').waitFor();
+ assert.equal(await page.locator('.dcz-room').count(),0);
+ await ev(()=>DEEN_COMPANIONS.closeSoon());
+ await ev(()=>DEEN_COMPANIONS.open('wardrobe',{force:true}));
  await page.locator('.dcz-room.in').waitFor();
  await page.locator('[data-dcz=cat][data-id=ot]').click();
  assert.match(await page.locator('.dcz-char .dcz-base').getAttribute('src'),/ot_robe\.png/,'the default robe is back');
