@@ -18,9 +18,10 @@
  /* Wardrobe test switches (same non-destructive idea as the test mode): "all wardrobe" makes every animal, backdrop, frame,
     badge and outfit usable without buying (nothing is saved as bought); "unlimited Sparkles" keeps the balance topped up
     and puts the real balance back when it is turned off. Own storage names, so the production guard does not purge them. */
- const WKEY='deen_admin_all_wardrobe',SKEY='deen_admin_inf_sparkles',SPREV='deen_admin_inf_sparkles_prev',BIG=999999;
+ const RKEY='deen_admin_room_open',WKEY='deen_admin_all_wardrobe',SKEY='deen_admin_inf_sparkles',SPREV='deen_admin_inf_sparkles_prev',BIG=999999;
  const flag=k=>{try{return localStorage.getItem(k)==='1'}catch(_){return false}};
- const wardrobeOn=()=>flag(WKEY),sparklesOn=()=>flag(SKEY);
+ const wardrobeOn=()=>flag(WKEY),sparklesOn=()=>flag(SKEY),roomOn=()=>flag(RKEY);
+ window.DEEN_ADMIN_ROOM=roomOn;
  window.DEEN_ADMIN_WARDROBE=wardrobeOn;
  const SEAS='deen_admin_season';
  const seasonNow=()=>{try{const v=localStorage.getItem(SEAS);return v==='ramadan'||v==='eid'?v:''}catch(_){return ''}};
@@ -43,6 +44,12 @@
   }catch(_){}
   try{window.DEEN_ADMIN?.render?.()}catch(_){}
   note(v?'Sınırsız Pırıltı açık.':'Sınırsız Pırıltı kapalı: gerçek bakiyen geri geldi.');
+ }
+ function setRoom(v){
+  try{v?localStorage.setItem(RKEY,'1'):localStorage.removeItem(RKEY)}catch(_){}
+  try{window.DEEN_COMPANIONS?.closeSoon?.()}catch(_){}
+  try{window.DEEN_ADMIN?.render?.()}catch(_){}
+  note(v?'Hayvan Odası açık: sadece sen gerçek odaya girersin.':'Hayvan Odası herkes gibi Yakında ekranını gösterir.');
  }
  function setWardrobe(v){
   try{v?localStorage.setItem(WKEY,'1'):localStorage.removeItem(WKEY)}catch(_){}
@@ -113,11 +120,12 @@
   return sec;
  }
  function buildWardrobe(){
-  const w=wardrobeOn(),sp=sparklesOn(),sec=document.createElement('section');
-  sec.id='deenAdminWardrobe';sec.className='deen-admin-section';sec.dataset.on=(w?'1':'0')+(sp?'1':'0')+seasonNow();
+  const w=wardrobeOn(),sp=sparklesOn(),ro=roomOn(),sec=document.createElement('section');
+  sec.id='deenAdminWardrobe';sec.className='deen-admin-section';sec.dataset.on=(w?'1':'0')+(sp?'1':'0')+(ro?'1':'0')+seasonNow();
   sec.innerHTML='<h3>GARDIROP · PIRILTI</h3><div class="deen-admin-grid">'+
    '<button class="deen-admin-btn '+(sp?'gold':'primary')+'" data-adm2="sparkles">'+(sp?'SINIRSIZ PIRILTI AÇIK':'SINIRSIZ PIRILTI')+'</button>'+
    '<button class="deen-admin-btn '+(w?'gold':'primary')+'" data-adm2="wardrobe">'+(w?'TÜM GARDIROP AÇIK':'TÜM GARDIROBU AÇ')+'</button>'+
+   '<button class="deen-admin-btn '+(ro?'gold':'primary')+'" data-adm2="room" style="grid-column:1/-1">'+(ro?'HAYVAN ODASI: AÇIK (SADECE SEN)':'HAYVAN ODASI: YAKINDA (HERKES GİBİ)')+'</button>'+
    '<button class="deen-admin-btn '+(seasonNow()?'gold':'primary')+'" data-adm2="season" style="grid-column:1/-1">'+(seasonNow()==='ramadan'?'ÖZEL GÜN: RAMAZAN (DENEME)':seasonNow()==='eid'?'ÖZEL GÜN: BAYRAM (DENEME)':'ÖZEL GÜN TEMASI: GERÇEK TAKVİM')+'</button></div>'+
    '<p class="deen-admin-note">Sınırsız Pırıltı bakiyeyi 999.999’da tutar; kapatınca gerçek bakiyen geri gelir (bu sırada satın aldıkların kalır). Tüm gardırop açıkken bütün hayvanlar, arka planlar, çerçeveler, rozetler ve kıyafetler ücretsiz denenebilir; hiçbiri satın alınmış sayılmaz, kapatınca kilitler geri gelir.</p>';
   return sec;
@@ -133,7 +141,7 @@
  }
  function injectWardrobe(){
   const body=document.getElementById('deenAdminBody');if(!body)return;
-  const key=(wardrobeOn()?'1':'0')+(sparklesOn()?'1':'0')+seasonNow(),old=document.getElementById('deenAdminWardrobe');
+  const key=(wardrobeOn()?'1':'0')+(sparklesOn()?'1':'0')+(roomOn()?'1':'0')+seasonNow(),old=document.getElementById('deenAdminWardrobe');
   if(old&&old.dataset.on===key)return;
   old?.remove();
   const test=document.getElementById('deenAdminTestMode'),sec=buildWardrobe();
@@ -146,6 +154,7 @@
   else if(b.dataset.adm2==='go')go(b.dataset.arg);
   else if(b.dataset.adm2==='sparkles')setSparkles(!sparklesOn());
   else if(b.dataset.adm2==='wardrobe')setWardrobe(!wardrobeOn());
+  else if(b.dataset.adm2==='room')setRoom(!roomOn());
   else if(b.dataset.adm2==='season')cycleSeason();
  },true);
  // The panel draws itself again after most actions; put the section back each time.
@@ -154,5 +163,5 @@
  if(on())[1800,3800,5300,6800,8000].forEach(ms=>setTimeout(()=>{if(on()){legacy(true);refresh()}},ms));
  // Keep the unlimited balance topped up (spending in the store or wardrobe lowers it).
  if(typeof setInterval!=='undefined')setInterval(topUp,1200);
- window.DEEN_ADMIN_TEST=Object.freeze({on,set,go,inject,wardrobeOn,sparklesOn,setWardrobe,setSparkles});
+ window.DEEN_ADMIN_TEST=Object.freeze({on,set,go,inject,wardrobeOn,sparklesOn,roomOn,setWardrobe,setSparkles,setRoom});
 })();
