@@ -25,6 +25,9 @@ Depo → Settings → Secrets and variables → Actions → **New repository sec
 | `APPSTORE_API_KEY_P8` | `.p8` dosyasının **tüm içeriği** (`-----BEGIN PRIVATE KEY-----` satırları dahil) |
 | `APPLE_TEAM_ID` | Team ID |
 
+## İmzalama nasıl çalışıyor (cihaz kaydı gerekmez)
+İş akışı, aynı API anahtarıyla Apple'dan **kısa ömürlü bir "Apple Distribution" sertifikası** ve bir **"App Store" dağıtım profili** ister (`scripts/ios-signing.mjs`). Bu profil için **kayıtlı iPhone ya da Development profili gerekmez**. Release yapılandırması bunlarla elle imzalanır, TestFlight'a yüklenir, sonra sertifika ve profil iptal edilir, böylece Apple'ın "en fazla 3 dağıtım sertifikası" sınırı dolmaz. API anahtarının erişimi **Admin** olmalı. "Takımda zaten 3 Apple Distribution sertifikası var" hatası alırsan kullanmadığın birini developer.apple.com → Certificates bölümünden iptal et.
+
 ## Derlemeyi gönderme
 
 GitHub → **Actions → iOS App → Run workflow** → `upload` kutusunu işaretle → Çalıştır. Bulutta macOS makinesi uygulamayı derler, imzalar ve App Store Connect'e yükler (yaklaşık 15–25 dakika). Her çalıştırma yeni bir derleme numarası alır.
