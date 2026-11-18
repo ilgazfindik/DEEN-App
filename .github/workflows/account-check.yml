@@ -8,6 +8,7 @@ on:
       - 'assets/vendor/**'
       - 'index.html'
       - 'scripts/test-account.cjs'
+      - 'scripts/test-native-reminder.cjs'
       - 'scripts/test-firstrun.cjs'
       - '.github/workflows/account-check.yml'
 
@@ -30,4 +31,5 @@ jobs:
           npm i --no-save playwright@1.49.1
           npx playwright install --with-deps chromium
           node scripts/test-account.cjs
+          node scripts/test-native-reminder.cjs
           node scripts/test-firstrun.cjs
