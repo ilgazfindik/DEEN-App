@@ -1,0 +1,18 @@
+{
+  "name": "ilnura",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Ilnura mobile app shell (Capacitor). The game itself is the web app in this repository.",
+  "scripts": {
+    "build:www": "node scripts/build-www.mjs",
+    "cap:sync": "npm run build:www && cap sync ios",
+    "cap:open:ios": "cap open ios"
+  },
+  "dependencies": {
+    "@capacitor/cli": "8.6.2",
+    "@capacitor/core": "8.6.2",
+    "@capacitor/ios": "8.6.2",
+    "@capacitor/splash-screen": "8.0.2",
+    "@capacitor/status-bar": "8.0.4"
+  }
+}

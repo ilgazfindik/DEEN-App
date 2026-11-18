@@ -66,3 +66,11 @@ htmlcov/
 # Never commit pending or unreviewed user-provided Arabic audio exports
 /qa/audio-intake/
 /qa/audio-intake-report.json
+
+# Mobile shell
+www/
+ios/App/Pods/
+ios/App/build/
+ios/DerivedData/
+ios/.build/
+*.xcarchive
