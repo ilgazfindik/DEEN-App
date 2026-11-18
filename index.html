@@ -54,6 +54,20 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
 #ilnura-splash.go .sp-hi{animation:spRise .6s ease 1.5s forwards}
 #ilnura-splash.go .sp-sub{animation:spRise .6s ease 1.8s forwards}
 #ilnura-splash.go .sp-skip{opacity:1;transition-delay:1.2s}
+#ilnura-splash.fast.go .sp-line{animation:spDraw .5s cubic-bezier(.4,0,.2,1) .05s forwards}
+#ilnura-splash.fast.go .sp-door{animation:spFade .35s ease .3s forwards}
+#ilnura-splash.fast.go .sp-seam{animation:spFade .35s ease .45s forwards}
+#ilnura-splash.fast.go .sp-light{animation:spFade .01s linear .55s forwards}
+#ilnura-splash.fast.go .sp-moon{animation:spMoon .45s cubic-bezier(.2,.9,.3,1.2) .33s forwards}
+#ilnura-splash.fast.go .sp-word span{animation:spLetter .3s cubic-bezier(.2,.9,.3,1) calc(.38s + var(--i)*.045s) forwards}
+#ilnura-splash.fast.go .sp-pet{animation:spPet .5s cubic-bezier(.3,1.3,.5,1) .63s forwards}
+#ilnura-splash.fast.go .sp-hi{animation:spRise .35s ease .82s forwards}
+#ilnura-splash.fast.go .sp-sub{animation:spRise .35s ease .99s forwards}
+#ilnura-splash.fast.go .sp-skip{opacity:1;transition-delay:.7s}
+#ilnura-splash.fast.out .sp-dl{animation:spDl .42s cubic-bezier(.6,0,.3,1) forwards}
+#ilnura-splash.fast.out .sp-dr{animation:spDr .42s cubic-bezier(.6,0,.3,1) forwards}
+#ilnura-splash.fast.out .sp-light{animation:spLight .42s ease forwards}
+#ilnura-splash.fast.out .sp-stage,#ilnura-splash.fast.out .sp-sky{animation:spLeave .35s ease .25s forwards}
 #ilnura-splash.out .sp-dl{animation:spDl .6s cubic-bezier(.6,0,.3,1) forwards}
 #ilnura-splash.out .sp-dr{animation:spDr .6s cubic-bezier(.6,0,.3,1) forwards}
 #ilnura-splash.out .sp-seam{animation:spFadeOut .2s ease forwards}
@@ -128,6 +142,8 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
  const reduce=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
  if(off)root.classList.add('off');
  if(reduce)root.classList.add('rm');
+ // Returning players get the same story at about half the length (first launch keeps the full one).
+ const fast=!first&&!reduce&&!off;if(fast)root.classList.add('fast');
  const L={
   tr:{am:'Günaydın',pm:'Merhaba',eve:'İyi akşamlar',back:'Tekrar hoş geldin',salam:'Selamün aleyküm',welcome:'Ilnura’ya hoş geldin',streak:n=>n+' gün üst üste',skip:'Geçmek için dokun'},
   en:{am:'Good morning',pm:'Hello',eve:'Good evening',back:'Welcome back',salam:'Salamun alaykum',welcome:'Welcome to Ilnura',streak:n=>n+'-day streak',skip:'Tap to skip'},
@@ -136,7 +152,7 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
   ar:{am:'صباح الخير',pm:'مرحبًا',eve:'مساء الخير',back:'أهلًا بعودتك',salam:'السلام عليكم',welcome:'مرحبًا بك في Ilnura',streak:n=>n+' أيام متتالية',skip:'المس للتخطي'}
  };
  const lang=()=>{let l='tr';try{l=(window.DEEN_APP_LOCALE&&DEEN_APP_LOCALE.get())||document.documentElement.lang||'tr'}catch(_){}l=String(l).slice(0,2).toLowerCase();return L[l]?l:'en'};
- let started=false,skipped=false,t0=0,minMs=reduce?1500:2700,leaving=null,failed=false;
+ let started=false,skipped=false,t0=0,minMs=reduce?1500:(fast?1450:2700),leaving=null,failed=false;
  const sleep=ms=>new Promise(r=>setTimeout(r,ms));
  function stars(){
   const box=$('sp-stars');if(!box||reduce&&0)return;
@@ -211,7 +227,7 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
   stars();fill();
   requestAnimationFrame(()=>requestAnimationFrame(()=>root.classList.add('go')));
   audio();
-  [['arch',200],['moon',700],['pet',1250],['greet',1650]].forEach(([n,ms])=>setTimeout(()=>cue(n),ms));
+  [['arch',200],['moon',700],['pet',1250],['greet',1650]].forEach(([n,ms])=>setTimeout(()=>cue(n),fast?Math.round(ms*.55):ms));
   root.addEventListener('pointerdown',()=>{skipped=true;unlock()},{once:true});
  }
  function finish(){
@@ -220,9 +236,9 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
   leaving=(async()=>{
    // Hold until the minimum play time has passed; a tap shortens it but never below the arch drawing in.
    while(!skipped&&Date.now()-t0<minMs)await sleep(60);
-   if(skipped&&Date.now()-t0<900)await sleep(900-(Date.now()-t0));
+   const floor=fast?600:900;if(skipped&&Date.now()-t0<floor)await sleep(floor-(Date.now()-t0));
    root.classList.add('out');cue('open');
-   await sleep(reduce?420:950);
+   await sleep(reduce?420:(fast?620:950));
   })();
   return leaving;
  }
