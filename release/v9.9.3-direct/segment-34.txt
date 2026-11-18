@@ -3153,7 +3153,10 @@ window.DEEN_REWARD_BADGE_ART={
       '</div><pre class="deen-admin-json" id="deenAdminJson"></pre></section>';
     return d;
   }
+  // The panel is a developer tool: it only opens when developer mode is on (see index.html: ?dev=1, ten quick taps in the top-left corner, or localhost).
+  const devOk=()=>{try{return !!window.__DEEN_DEV_MODE__}catch(_){return false}};
   function open(){
+    if(!devOk())return;
     retireLegacyAdmin();
     try{document.getElementById('v5Sheet')?.open&&document.getElementById('v5Sheet').close()}catch(_){}
     const d=render();
@@ -3163,7 +3166,7 @@ window.DEEN_REWARD_BADGE_ART={
     const d=document.getElementById('deenAdminPanelV2');
     if(d?.open)d.close();
   }
-  function toggle(){document.getElementById('deenAdminPanelV2')?.open?close():open()}
+  function toggle(){if(!devOk())return;document.getElementById('deenAdminPanelV2')?.open?close():open()}
 
   const actions={
     passAll,
