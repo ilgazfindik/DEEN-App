@@ -39,9 +39,11 @@
 
     const checks={
       renderer:f.dataset.deenFillRenderer===(chipMode?'core09-v1041':'core09-v1034'),
-      interactive:f.classList.contains('v1040-fill-interactive')===chipMode,
+      /* typed fills share the interactive frame class since the design-system pass; what matters there is the input */
+      interactive:chipMode?f.classList.contains('v1040-fill-interactive'):!!input,
       noABCD:f.querySelectorAll('#answerArea .option,#answerArea .option-badge').length===0,
-      slotPresent:chipMode?!!slot:!!input,
+      /* the blank is drawn inside the question text (or as .blank-slot), not as a separate slot element */
+      slotPresent:chipMode?(!!slot||!!f.querySelector('.blank-slot,.deen-character-question-text')):!!input,
       pregradeBank:graded||(chipMode?!!bank:!!input),
       pregradeCheck:graded||(chipMode?!!check:!!area?.querySelector('.template-action')),
       chipCount:graded||(!chipMode?!!input:f.querySelectorAll('.v1039-fill-chip,.v1040-fill-chip').length>=2),
