@@ -49,7 +49,8 @@
       chipCount:graded||(!chipMode?!!input:f.querySelectorAll('.v1039-fill-chip,.v1040-fill-chip').length>=2),
       dragCapable:graded||(!chipMode||[...f.querySelectorAll('.v1040-fill-chip')].every(el=>el.draggable===true)),
       feedbackVisible:!graded||feedbackVisible,
-      answerHidden:!graded||!area||getComputedStyle(area).display==='none',
+      /* graded: the answer area is either gone or kept on screen but locked (v9.9.59 keeps the word bank visible) */
+      answerLocked:!graded||!area||getComputedStyle(area).display==='none'||getComputedStyle(area).pointerEvents==='none',
       continueReady:!graded||(
         !!continueBtn &&
         continueBtn.disabled===false &&
