@@ -9,7 +9,7 @@ const server=http.createServer((_,res)=>{res.setHeader('Content-Type','text/html
  const errors=[];page.on('pageerror',error=>errors.push(error.message));
  await page.goto('http://127.0.0.1:'+server.address().port);
  await page.evaluate(()=>{
-  window.state={onboarded:true,premium:false,completed:[],sectionFinal:{completed:false}};
+  window.__DEEN_DEV_MODE__=true;window.state={onboarded:true,premium:false,completed:[],sectionFinal:{completed:false}};
   window.STAGES=Array.from({length:7},(_,i)=>({id:'U01-S'+String(i+1).padStart(2,'0'),unit:'U01'}));
   window.saveState=()=>{};window.updateUI=()=>{};
   window.DEEN_BOOT={isReady:()=>true};

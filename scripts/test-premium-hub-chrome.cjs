@@ -10,7 +10,7 @@ const server=http.createServer((req,res)=>{res.setHeader('Content-Type','text/ht
  page.on('pageerror',e=>errors.push(e.message));
  await page.goto('http://127.0.0.1:'+server.address().port);
  await page.evaluate(()=>{
-  window.state={premium:false,onboarded:true};
+  window.__DEEN_DEV_MODE__=true;window.state={premium:false,onboarded:true};
   window.DEEN_APP_LOCALE={get:()=>document.documentElement.lang};
   window.DEEN_PREMIUM_OFFER={open:()=>{window.opened=(window.opened||0)+1;return true},isTrialActive:()=>false,isTrialUsed:()=>false};
   window.sheet=(title,body)=>{
