@@ -1714,7 +1714,8 @@
      lesson after grading; scaling made long explanations tiny and triggered
      another round of geometry changes.
    */
-   if(frame.classList.contains('v9945-feedback-mode')){
+   if(frame.classList.contains('v9945-feedback-mode')||frame.classList.contains('v730-correct')||frame.classList.contains('v730-wrong')||frame.querySelector('#feedback.show')){
+     /* v9.9.57: a graded screen stays exactly as it was (no transient scaling while the result sheet opens) */
      fitCount++;
      return true;
    }
