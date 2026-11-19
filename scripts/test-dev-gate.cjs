@@ -44,7 +44,18 @@ const server=http.createServer((req,res)=>{let p=path.join(root,decodeURICompone
  assert.equal(await page.locator('#deenMobileAdminButton').count(),1,'?dev=1 turns it on');
  await boot('http://127.0.0.1:'+port+'/index.html');
  assert.equal(await page.evaluate(()=>window.__DEEN_DEV_MODE__),true,'localhost is always a developer (tests rely on this)');
+ // 5. the store app (Capacitor serves it from capacitor://localhost, so the hostname looks like localhost): never a developer,
+ // not through ?dev=1, a stale switch left in storage, or the tap switch
+ const ctxN=await browser.newContext({viewport:{width:393,height:852},serviceWorkers:'block'});
+ await ctxN.addInitScript(()=>{window.Capacitor={isNativePlatform:()=>true,getPlatform:()=>'ios'};if(!sessionStorage.getItem('seeded')){sessionStorage.setItem('seeded','1');localStorage.setItem('deen_dev_mode','1');localStorage.setItem('deen_app_language_v1','tr');localStorage.setItem('deen_v4_1_state',JSON.stringify({onboarded:true,energy:30,xp:420,streak:3,learningProfile:'adult',profile:{name:'QA',companion:'owl'},settings:{language:'tr',onboardingLanguageConfirmed:true},completed:[],mistakes:[]}))}});
+ const pn=await ctxN.newPage();await pn.goto('http://127.0.0.1:'+port+'/index.html?dev=1');await pn.waitForSelector('.navbtn',{timeout:90000});await pn.waitForTimeout(2500);
+ assert.equal(await pn.evaluate(()=>window.__DEEN_DEV_MODE__),false,'the store app is never in developer mode');
+ assert.equal(await pn.locator('#deenMobileAdminButton').count(),0,'no P button in the store app');
+ assert.equal(await pn.evaluate(()=>localStorage.getItem('deen_dev_mode')),null,'a stale developer switch is cleared');
+ for(let i=0;i<10;i++)await pn.mouse.click(40,50);await pn.waitForTimeout(500);
+ assert.equal(await pn.evaluate(()=>localStorage.getItem('deen_dev_mode')),null,'the tap switch does nothing in the store app');
+ await ctxN.close();
  assert.deepEqual(errors.filter(e=>!/Supabase|fetch|Failed to load|NetworkError/i.test(e)),[]);
  await browser.close();server.close();
- console.log('PASS: developer gate (admin panel hidden from regular visitors)');
+ console.log('PASS: developer gate (admin panel hidden from regular visitors and from the store app)');
 })().catch(e=>{console.error(e);process.exit(1)});
