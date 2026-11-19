@@ -40,7 +40,7 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
    const out=new Set(),walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
    let n;while(n=walker.nextNode()){
     const el=n.parentElement,s=n.nodeValue.trim();
-    if(!s||!el?.getClientRects().length||el.closest('script,style,noscript,code,.deen-ikhlas-arabic,.deen-mem-arabic,[data-deen-no-translate]')||__qaContentTexts.has(s))continue;
+    if(!s||!el?.getClientRects().length||el.closest('script,style,noscript,code,.deen-ikhlas-arabic,.deen-mem-arabic,[data-deen-no-translate],#deenAdminPanelV2,#deenMobileAdminButton,.v5-source')||__qaContentTexts.has(s))continue;
     out.add(s);
    }
    for(const el of document.querySelectorAll('[aria-label],[placeholder],[alt],[title]'))if(el.getClientRects().length)for(const k of ['aria-label','placeholder','alt','title']){const s=el.getAttribute(k);if(s&&!__qaContentTexts.has(s))out.add(s);}

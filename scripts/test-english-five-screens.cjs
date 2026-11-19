@@ -44,13 +44,14 @@ const server=http.createServer((req,res)=>{const n=decodeURIComponent((req.url||
   ['Choose Your Learning Pace','Light','Intensive','1 mini lesson · about 5 minutes','2 mini lessons · about 10 minutes','3 mini lessons · about 15 minutes','Changing your goal will not erase your progress'],
   ['Kendi ritmini','Hedef yalnız','Hafif','Yoğun','yaklaşık','Hedefi değiştirmek']);
  await page.evaluate(()=>closeSheet());
+ // The Premium sheet is the plan hub now (draft USD prices, local 3-day trial; real billing comes later)
  await show('03-premium',"premiumPanel()",'#v5Sheet',
-  ['KNOWLEDGE IS FOR EVERYONE','Premium is about comfort,','not exclusive content.','15 units and all core lessons','Section finals','FEATURE','Enable Premium preview','This prototype has no real payments'],
-  ['BİLGİ HERKESE','Premium içerik','konfor katmanıdır','Dinî öğrenme','ÖZELLİK','simülasyonunu','gerçek ödeme','Gelişmiş soru']);
+  ['Premium benefits','Choose your Premium plan','Full Plan','Premium with Ads','Unlimited learning energy','Try 3 days free','Prices are draft USD amounts'],
+  ['Kendi ritmini','Premium ayrıcalıkları','Tam Paket','Reklamlı Premium','Fiyatlar USD']);
  await page.evaluate(()=>closeSheet());
  await page.evaluate(()=>{state.premium=true});
  await show('04-premium-active',"premiumPanel()",'#v5Sheet',
-  ['Disable Premium preview','Detailed learning records'],['simülasyonunu kapat','Detaylı öğrenme kayıtları']);
+  ['Premium benefits'],['Premium ayrıcalıkları']);
  await page.evaluate(()=>{state.premium=false;closeSheet()});
  await show('05-home',"navigate('learnScreen')",'#learnScreen',[],[]);
  const samples={

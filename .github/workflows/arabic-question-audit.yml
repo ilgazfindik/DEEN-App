@@ -65,6 +65,7 @@ jobs:
           node scripts/test-stable-correct.cjs
           node scripts/test-premium-hidden.cjs
           node scripts/test-fill-freeze.cjs
+          node scripts/test-source-note.cjs
           node scripts/test-arabic-v2-question-engine-chrome.cjs
           node scripts/test-arabic-pack-a-chrome.cjs
           node scripts/test-arabic-pack-b-chrome.cjs
