@@ -328,7 +328,7 @@
    });
 
    // Kelime butonları karıştır
-   const shuffledWords=[...q.pairs].sort(()=>Math.random()-0.5);
+   const shuffledWords=shuffle(q.pairs);
    shuffledWords.forEach((pair,idx)=>{
     const wordBtn=document.createElement('button');
     wordBtn.textContent=pair.word;
@@ -427,7 +427,7 @@
    for(let i=0;i<(q.gridSize||3)*(q.gridSize||3);i++){
     pieces.push(i);
    }
-   pieces.sort(()=>Math.random()-0.5);
+   pieces.splice(0,pieces.length,...shuffle(pieces));
 
    pieces.forEach((pieceIdx,posIdx)=>{
     const piece=document.createElement('div');
