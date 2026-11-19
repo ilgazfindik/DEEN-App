@@ -709,3 +709,9 @@ html body #lesson #quizView .question-frame #feedback.show #feedbackBox.bad::bef
 html body #lesson #quizView .question-frame #feedback.show #feedbackText{padding-inline-end:36px!important}
 /* no listen button in the result sheet */
 html body #lesson .v960-feedback-speak{display:none!important}
+/* ---------- Fill in the blank: nothing moves or disappears when the answer is graded ----------
+   The word bank stays (dimmed, not clickable), the check key keeps its space, and the character row keeps its margins. */
+html body #lesson #quizView .question-frame.deen-premium-fill.v9945-feedback-mode #answerArea{display:block!important;visibility:visible!important;pointer-events:none!important}
+html body #lesson #quizView .question-frame.deen-premium-fill.v9945-feedback-mode :is(.v1039-fill-bank,.v1040-fill-bank){display:flex!important;visibility:visible!important;opacity:.6!important;pointer-events:none!important;transition:opacity .25s ease!important}
+html body #lesson #quizView .question-frame.deen-premium-fill.v9945-feedback-mode :is(.v1039-fill-check,.v1040-fill-check){display:inline-block!important;visibility:hidden!important;pointer-events:none!important}
+html body #lesson #quizView .question-frame.deen-premium-fill.v9945-feedback-mode .deen-character-question-row{margin-top:var(--v9957-row-mt,auto)!important;margin-bottom:var(--v9957-row-mb,18px)!important}

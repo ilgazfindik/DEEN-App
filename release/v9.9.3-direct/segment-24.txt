@@ -3092,16 +3092,18 @@
    if(!f)return;
    const isFill=String(q?.activity_type||'')==='fill_blank';
    f.classList.toggle('deen-premium-fill',isFill);
-   f.querySelector('.v9920-lesson-scene')?.remove();
-   if(!isFill)return;
+   /* v9.9.59: decorate runs again when the answer is graded; it must not rebuild the scene or wipe the character then */
+   if(!isFill){f.querySelector('.v9920-lesson-scene')?.remove();return}
 
-   const scene=document.createElement('div');
-   scene.className='v9920-lesson-scene v998-hero';
-   scene.setAttribute('aria-hidden','true');
-   f.prepend(scene);
+   if(!f.querySelector('.v9920-lesson-scene')){
+     const scene=document.createElement('div');
+     scene.className='v9920-lesson-scene v998-hero';
+     scene.setAttribute('aria-hidden','true');
+     f.prepend(scene);
+   }
 
    const avatar=f.querySelector('.deen-character-question-avatar');
-   if(avatar && !window.__DEEN_COMPANION_ASSET_MODE && !avatar.classList.contains('deen-companion-runtime-ready')){
+   if(avatar && !window.__DEEN_COMPANION_ASSET_MODE && !avatar.classList.contains('deen-companion-runtime-ready') && !avatar.querySelector('img,canvas')){
      avatar.classList.add('v998-companion-hero');
      avatar.dataset.animal=animalId();
      avatar.textContent='';
