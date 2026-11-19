@@ -497,10 +497,10 @@
   return true;
  }
  function mountFeedback(correct,q=currentQuestion()){
-  document.querySelector('.v960-feedback-speak')?.remove();const s=ensure();if(!q||isMediaQuestion(q))return false;
-  const box=document.getElementById('feedbackBox');if(!box)return false;const b=makeButton('Açıklamayı dinle','feedback',feedbackText,'v960-feedback-speak');b.hidden=!s.settings.narration;box.append(b);feedbackButtons++;
-  if(s.settings.narrationAutoFeedback&&s.settings.narration&&supported())setTimeout(()=>{if(document.getElementById('feedback')?.classList.contains('show'))speak(feedbackText(),{kind:'feedback',button:b})},180);
-  return true;
+  /* The result sheet has no listen button and its text is never read aloud (asked for: the sheet stays quiet).
+     Any button left over from an earlier render is removed. */
+  document.querySelector('.v960-feedback-speak')?.remove();
+  return false;
  }
  function setSetting(key,value){const s=ensure();if(!s)return false;s.settings[key]=value;if(key==='narration'&&!value)stop('disabled');try{saveState()}catch(_){}try{refresh()}catch(_){}return true}
  function setRate(value){if(!rateMap[value])return false;setSetting('narrationRate',value);try{settingsPanel?.()}catch(_){}return true}
