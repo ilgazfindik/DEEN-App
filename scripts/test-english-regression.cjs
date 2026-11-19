@@ -77,14 +77,14 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
  console.log('PASS ENGLISH RESULT FLOW',JSON.stringify({liveToast:report.resultToast,translations:Object.keys(expectedResultCopy).length}));
  await page.waitForTimeout(1400);report.result=await page.locator('#resultView').innerText();report.rewards=await page.evaluate(()=>({xp:state.xp,currency:state.currency,completed:[...state.completed]}));report.answered=answered;assert(answered>0);assert(report.rewards.xp>rewardBefore.xp);assert(report.rewards.completed.includes('U01-S01'));
  assert(!/[ÇĞİÖŞÜçğıöşü]|\b(?:Ders|Soru|Devam|Doğru|Ödül|DENE)\b/.test(report.result),report.result);
- assert(/Daily tasks 0\/3 · Weekly rhythm 1\/5 days/.test(report.result),'English daily-summary spacing regression: '+report.result.slice(-850));
+ assert(/Daily goal\s*\n?\s*\d\/\d/.test(report.result)&&/LEARNING RHYTHM/.test(report.result)&&/day streak/.test(report.result)&&!/Daily tasks 0\/3/.test(report.result),'English result screen: the daily goal and the rhythm line stay, the long task line is gone: '+report.result.slice(-850));
  assert(/Next stage/i.test(report.result),'Result next-stage CTA missing');
  assert(!/SIRADAKİ EN İYİ ADIM|Bu aşamadaki/.test(report.result),'Turkish bottom result copy');
 
  report.visibleNextCards=await page.locator('#resultView .v624-next-card:visible, #resultView .v680-result-next:visible').count();
- assert.equal(report.visibleNextCards,1,'Duplicate visible next-step cards in English result');
- assert.equal((report.result.match(/YOUR BEST NEXT STEP/g)||[]).length,1,'Repeated next-step heading in English result');
- await page.locator('#resultView .v680-result-next').screenshot({path:path.join(out,'english-result-next-step.png')});
+ assert.ok(report.visibleNextCards<=1,'Duplicate visible next-step cards in English result (the calm result screen hides the card: 0 is fine)');
+ assert.ok((report.result.match(/YOUR BEST NEXT STEP/g)||[]).length<=1,'Repeated next-step heading in English result');
+ if(report.visibleNextCards)await page.locator('#resultView .v680-result-next').screenshot({path:path.join(out,'english-result-next-step.png')});
  for(const [source,expected] of Object.entries({
    'Ders öğrenildi':'Lesson completed',
    'Tekrarlarla tamamlanan':'Correct by lesson end',

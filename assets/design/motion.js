@@ -54,8 +54,10 @@
   let img=view.querySelector('.ds-end-mascot');
   if(!img){
    img=new Image();img.className='ds-end-mascot';img.alt='';img.decoding='async';img.setAttribute('aria-hidden','true');
-   const animal=companion();img.onerror=()=>{img.onerror=null;img.src='assets/companions/owl/owl_celebrate.png'};
-   img.src='assets/companions/'+animal+'/'+animal+'_celebrate.png';
+   const animal=companion();
+   /* the sharp celebration picture first (300 px wide, in its outfit); the old 128-160 px one and the owl are the fallbacks */
+   img.onerror=()=>{img.onerror=()=>{img.onerror=null;img.src='assets/companions/owl/owl_celebrate.png'};img.src='assets/companions/'+animal+'/'+animal+'_celebrate.png'};
+   img.src='assets/companions/'+animal+'/'+animal+'_combo_5.webp';
   }
   if(img.parentElement!==host){host.prepend(img);restart(img,'ds-end-mascot')}
  }
