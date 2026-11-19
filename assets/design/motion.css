@@ -707,3 +707,5 @@ html body #lesson #quizView .question-frame #feedback.show #feedbackBox:not(.bad
 html body #lesson #quizView .question-frame #feedback.show #feedbackBox.bad::before{background-color:#f39b8f}
 /* the speaker button floats over the right end of the text: keep the words clear of it */
 html body #lesson #quizView .question-frame #feedback.show #feedbackText{padding-inline-end:36px!important}
+/* no listen button in the result sheet */
+html body #lesson .v960-feedback-speak{display:none!important}
