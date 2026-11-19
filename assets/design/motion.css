@@ -78,6 +78,23 @@ html body #lesson #answerArea .ds-choice[data-ds-layout] .ds-opt:not(.selected):
 html body #lesson #answerArea .ds-choice[data-ds-layout] .ds-opt:not(.selected):not(.v859-picked):not(.v857-picked):not(.v852-tap):not([aria-pressed="true"]):not(.correct):not(.found):not(.is-correct):not(.right-pick):not(.wrong):not(.wrong-pick):not(.is-wrong) .option-badge{
  background:linear-gradient(180deg,rgb(var(--oc)),var(--oc2))!important;border-color:rgba(255,255,255,.55)!important;color:#0b1430!important}
 
+/* ---------- The same palette on the other question screens (fill in the blank, matching, the teaching card) ---------- */
+html body #lesson #quizView .question-frame:is(.deen-template-fill,.deen-template-match,.v1017-match-screen,.deen-premium-fill){background:radial-gradient(70% 38% at 85% 0%,rgba(255,196,92,.10),transparent 70%),radial-gradient(80% 45% at 8% 100%,rgba(122,108,255,.16),transparent 70%),linear-gradient(180deg,#14213f 0%,#0c1a33 55%,#091426 100%)!important;border-color:rgba(130,150,255,.28)!important}
+html body #lesson #quizView .question-frame .deen-character-question-bubble{background:linear-gradient(160deg,#25386a,#1a2a52)!important;border-color:rgba(150,175,255,.5)!important;box-shadow:0 8px 22px rgba(5,10,30,.35)!important}
+html body #lesson #quizView .question-frame:is(.deen-template-fill,.deen-template-match,.v1017-match-screen,.deen-premium-fill)::after{background:linear-gradient(180deg,rgba(9,14,36,.04),rgba(9,14,36,.28) 60%,rgba(9,14,36,.45))!important}
+/* word-bank chips: blue / violet / amber / rose, like the A-B-C-D answers */
+html body #lesson .v1040-fill-bank .v1040-fill-chip{--oc:90,169,255}
+html body #lesson .v1040-fill-bank .v1040-fill-chip:nth-child(4n+2){--oc:180,140,255}
+html body #lesson .v1040-fill-bank .v1040-fill-chip:nth-child(4n+3){--oc:255,184,77}
+html body #lesson .v1040-fill-bank .v1040-fill-chip:nth-child(4n+4){--oc:255,122,168}
+html body #lesson .v1040-fill-bank .v1040-fill-chip:not(.selected):not(.correct):not(.wrong):not(.dragging){background:radial-gradient(120% 90% at 100% 100%,rgba(var(--oc),.18),transparent 60%),linear-gradient(170deg,#1b2c52,#13203f 80%)!important;border:2px solid rgba(var(--oc),.6)!important;color:#eef4ff!important;box-shadow:0 4px 0 rgba(var(--oc),.3),0 8px 18px rgba(4,8,24,.3)!important}
+/* matching cards: blue on the left, violet on the right (matched / picked / wrong keep their own look) */
+html body #lesson .v1017-shell .v1017-card{--oc:90,169,255}
+html body #lesson .v1017-shell .v1017-card[data-side="right"]{--oc:180,140,255}
+html body #lesson .v1017-shell .v1017-card:not(.matched):not(.selected):not(.wrong){background:radial-gradient(120% 90% at 100% 100%,rgba(var(--oc),.16),transparent 60%),linear-gradient(170deg,#1b2c52,#13203f 80%)!important;border:2px solid rgba(var(--oc),.55)!important;color:#eef4ff!important;box-shadow:0 4px 0 rgba(var(--oc),.28),0 8px 18px rgba(4,8,24,.3)!important}
+/* the teaching card that opens before a question */
+html body .v910-overlay .v910-card{background:radial-gradient(70% 40% at 85% 0%,rgba(255,196,92,.12),transparent 70%),linear-gradient(170deg,#1d2f5c,#101d3d 70%)!important;border-color:rgba(150,175,255,.5)!important;box-shadow:0 22px 50px rgba(3,6,20,.55)!important}
+
 /* Check button: a 3D key that comes alive when an answer is chosen */
 html body #lesson #answerArea .template-action{min-height:56px!important;border:0!important;border-radius:16px!important;font:900 16px/1 var(--ds-font)!important;letter-spacing:.05em!important;text-transform:uppercase!important;
  color:#6b8689!important;background:#1b3a40!important;box-shadow:0 5px 0 #0f2529!important;transition:transform var(--ds-m-tap) var(--ds-out),box-shadow var(--ds-m-tap) var(--ds-out),background var(--ds-m-fast),color var(--ds-m-fast)!important}
