@@ -694,3 +694,16 @@ html body .deen-qchapter:has(.deen-qchapter-play.playing)::before{content:"";pos
 
 /* No combo, no chip: its flame icon kept an empty chip visible over the phase caption. */
 html body #lesson #gfCombo:empty{display:none!important}
+
+/* ---------- Result sheet in the lesson's indigo family: green (right) or coral (wrong) is only the accent ---------- */
+html body #lesson #quizView .question-frame>#feedback.show{background:radial-gradient(90% 60% at 10% 0%,rgba(95,224,187,.16),transparent 65%),linear-gradient(180deg,#1f3262,#101d3d)!important;border-top:2px solid #5fe0bb!important;box-shadow:0 -18px 40px rgba(3,6,20,.5),0 -4px 30px rgba(95,224,187,.26)!important}
+html body #lesson #quizView .question-frame>#feedback.show:has(.feedback-box.bad){background:radial-gradient(90% 60% at 10% 0%,rgba(243,155,143,.18),transparent 65%),linear-gradient(180deg,#3b2352,#1d1638)!important;border-top-color:#f39b8f!important;box-shadow:0 -18px 40px rgba(3,6,20,.5),0 -4px 30px rgba(243,155,143,.24)!important}
+html body #lesson #quizView .question-frame #feedback.show #feedbackTitle{font-size:24px!important;letter-spacing:.2px!important;color:#9bf5da!important;text-shadow:0 0 18px rgba(95,224,187,.35)!important}
+html body #lesson #quizView .question-frame #feedback.show #feedbackBox.bad #feedbackTitle{color:#ffb4a9!important;text-shadow:0 0 18px rgba(243,155,143,.3)!important}
+html body #lesson #quizView .question-frame #feedback.show #feedbackText{color:#dde4fb!important}
+html body #lesson #quizView .question-frame #feedback.show #feedbackBox:not(.bad) #feedbackTitle::after{content:" ✦";display:inline-block;color:#f2cf84;text-shadow:0 0 12px rgba(242,207,132,.6);animation:deenResultTwinkle 1.2s ease-in-out 3}
+@keyframes deenResultTwinkle{0%,100%{transform:scale(1) rotate(0);opacity:.7}50%{transform:scale(1.35) rotate(18deg);opacity:1}}
+@media (prefers-reduced-motion:reduce){html body #lesson #quizView .question-frame #feedback.show #feedbackBox:not(.bad) #feedbackTitle::after{animation:none}}
+html body #lesson #quizView .question-frame #feedback.show #feedbackBox.bad::before{background-color:#f39b8f}
+/* the speaker button floats over the right end of the text: keep the words clear of it */
+html body #lesson #quizView .question-frame #feedback.show #feedbackText{padding-inline-end:36px!important}
