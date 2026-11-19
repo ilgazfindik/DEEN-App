@@ -674,3 +674,16 @@
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',installScreens,{once:true});else installScreens();
  window.DEEN_DS_MOTION=Object.freeze({version:'ds-motion-m11',celebrate,confetti,reduced,streakMoment});
 })();
+
+// ---- The character must stay painted after an answer ----
+// iOS WebKit can stop painting an animated, filtered image for a moment. After grading, nudge the holder into a fresh layer a few
+// times (no visual change) and put the picture back if it somehow lost its source.
+(()=>{
+ const nudge=()=>{
+  const a=document.querySelector('#lesson .question-frame .deen-character-question-avatar');if(!a)return;
+  const img=a.querySelector('img');
+  if(img&&img.getAttribute('src')&&img.naturalWidth===0&&img.complete){const s=img.getAttribute('src');img.removeAttribute('src');img.setAttribute('src',s)}
+  a.style.transform='translateZ(0)';requestAnimationFrame(()=>{a.style.transform=''});
+ };
+ document.addEventListener('deen:question-graded',()=>{[90,350,900].forEach(ms=>setTimeout(nudge,ms))});
+})();

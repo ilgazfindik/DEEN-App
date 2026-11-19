@@ -742,3 +742,11 @@ html body #lesson #resultView.show #v994ResultCompanion small,html body #lesson 
 html body #lesson #resultView.show>#resultContinueBtn{color:#16122f!important;background:linear-gradient(180deg,#f9e7b4,#e2b95f)!important;border:0!important;box-shadow:0 5px 0 #a8823a,0 10px 28px rgba(242,207,132,.28)!important;font:900 17px/1 var(--ds-font)!important;letter-spacing:.06em!important;text-shadow:none!important}
 html body #lesson #resultView.show>#resultContinueBtn:active{transform:translateY(4px)!important;box-shadow:0 1px 0 #a8823a!important}
 html body #lesson #resultView.show>#resultContinueBtn:focus-visible{outline:3px solid #ffffff!important;outline-offset:3px!important}
+/* ---------- Nothing vanishes when an answer is graded ----------
+   1. The heading and the "tap to answer" line stay on screen (they were hidden, which looked like objects disappearing).
+   2. The character image: no filter on it (or on its holder) while the answer is graded. A drop-shadow filter on an element with
+      running transform animations can stop painting on iOS WebKit, which made the character disappear for a moment. */
+html body #lesson .question-frame.v9945-feedback-mode.ds-choice-frame :is(.v859-speed-tag,.ds-mc-head){visibility:visible!important}
+html body #lesson .question-frame:is(.v730-correct,.v730-wrong,.v9945-feedback-mode) .deen-character-question-avatar,
+html body #lesson .question-frame:is(.v730-correct,.v730-wrong,.v9945-feedback-mode) .deen-character-question-avatar :is(img,canvas),
+html body #lesson .question-frame .deen-character-question-avatar:is(.v9944-reaction-correct,.v9944-reaction-wrong,.v9944-reaction-celebrate){filter:none!important}
