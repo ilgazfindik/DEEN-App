@@ -738,3 +738,7 @@ html body #lesson #resultView.show #resultContinueBtn{position:sticky!important;
 html body #lesson #resultView.show .ds-end-mascot{width:210px!important;height:176px!important;margin:0 auto -4px!important;object-fit:contain!important}
 html body #lesson #resultView.show .v994-result-companion{flex-direction:column!important;align-items:center!important;gap:2px!important;text-align:center!important}
 html body #lesson #resultView.show #v994ResultCompanion small,html body #lesson #resultView.show #v994ResultCompanion div small{display:none!important}
+/* result screen button: gold on indigo (same family as the title and the teaching-card button), Nunito, 3D key */
+html body #lesson #resultView.show>#resultContinueBtn{color:#16122f!important;background:linear-gradient(180deg,#f9e7b4,#e2b95f)!important;border:0!important;box-shadow:0 5px 0 #a8823a,0 10px 28px rgba(242,207,132,.28)!important;font:900 17px/1 var(--ds-font)!important;letter-spacing:.06em!important;text-shadow:none!important}
+html body #lesson #resultView.show>#resultContinueBtn:active{transform:translateY(4px)!important;box-shadow:0 1px 0 #a8823a!important}
+html body #lesson #resultView.show>#resultContinueBtn:focus-visible{outline:3px solid #ffffff!important;outline-offset:3px!important}
