@@ -1727,6 +1727,13 @@
      return true;
    }
 
+   /* v9.9.58: choice screens (design-system layout) never shrink: they scroll inside the full-screen frame instead.
+      Scaling from the top-left corner left a gap on the right and at the bottom whenever the browser bars made the screen short (Safari). */
+   if(frame.classList.contains('ds-choice-frame')){
+     fitCount++;
+     return true;
+   }
+
    const available=Math.max(1,area.clientHeight-2);
    const needed=Math.max(1,frame.scrollHeight);
    let scale=Math.min(1,available/needed);
