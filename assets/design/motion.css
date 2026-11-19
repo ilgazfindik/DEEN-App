@@ -65,6 +65,19 @@ html body #lesson .question-frame.ds-choice-frame #feedback.show #continueBtn{mi
 /* The frame must not scroll for a frame or two while the sheet is being inserted (it nudged the row by 3px) */
 html body #lesson #quizView .question-frame.ds-choice-frame:is(.v730-correct,.v730-wrong,.v9945-feedback-mode){overflow:hidden!important;overflow:clip!important}
 
+/* ---------- Palette: the lesson is no longer one flat teal. Deep indigo-navy ground, a warm glow, and a colour per answer
+   (blue / violet / amber / rose). Picked = gold, correct = green, wrong = coral keep their own rules below. ---------- */
+html body #lesson .question-frame{background:radial-gradient(70% 38% at 85% 0%,rgba(255,196,92,.10),transparent 70%),radial-gradient(80% 45% at 8% 100%,rgba(122,108,255,.16),transparent 70%),linear-gradient(180deg,#14213f 0%,#0c1a33 55%,#091426 100%)!important;border-color:rgba(130,150,255,.28)!important}
+html body #lesson .deen-character-question-bubble{background:linear-gradient(160deg,#25386a,#1a2a52)!important;border-color:rgba(150,175,255,.5)!important;box-shadow:0 8px 22px rgba(5,10,30,.35)!important}
+html body #lesson #answerArea .ds-choice[data-ds-layout] .ds-opt{--oc:90,169,255;--oc2:#2f7fe0}
+html body #lesson #answerArea .ds-choice[data-ds-layout] .ds-opt:nth-child(2){--oc:180,140,255;--oc2:#8a5be0}
+html body #lesson #answerArea .ds-choice[data-ds-layout] .ds-opt:nth-child(3){--oc:255,184,77;--oc2:#e08a1f}
+html body #lesson #answerArea .ds-choice[data-ds-layout] .ds-opt:nth-child(4){--oc:255,122,168;--oc2:#e0487f}
+html body #lesson #answerArea .ds-choice[data-ds-layout] .ds-opt:not(.selected):not(.v859-picked):not(.v857-picked):not(.v852-tap):not([aria-pressed="true"]):not(.correct):not(.found):not(.is-correct):not(.right-pick):not(.wrong):not(.wrong-pick):not(.is-wrong){
+ background:radial-gradient(120% 80% at 100% 100%,rgba(var(--oc),.16),transparent 60%),linear-gradient(170deg,#1b2c52,#13203f 75%)!important;border-color:rgba(var(--oc),.55)!important;box-shadow:0 5px 0 rgba(var(--oc),.28),0 10px 22px rgba(4,8,24,.3)!important}
+html body #lesson #answerArea .ds-choice[data-ds-layout] .ds-opt:not(.selected):not(.v859-picked):not(.v857-picked):not(.v852-tap):not([aria-pressed="true"]):not(.correct):not(.found):not(.is-correct):not(.right-pick):not(.wrong):not(.wrong-pick):not(.is-wrong) .option-badge{
+ background:linear-gradient(180deg,rgb(var(--oc)),var(--oc2))!important;border-color:rgba(255,255,255,.55)!important;color:#0b1430!important}
+
 /* Check button: a 3D key that comes alive when an answer is chosen */
 html body #lesson #answerArea .template-action{min-height:56px!important;border:0!important;border-radius:16px!important;font:900 16px/1 var(--ds-font)!important;letter-spacing:.05em!important;text-transform:uppercase!important;
  color:#6b8689!important;background:#1b3a40!important;box-shadow:0 5px 0 #0f2529!important;transition:transform var(--ds-m-tap) var(--ds-out),box-shadow var(--ds-m-tap) var(--ds-out),background var(--ds-m-fast),color var(--ds-m-fast)!important}
