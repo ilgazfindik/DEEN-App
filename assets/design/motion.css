@@ -53,7 +53,7 @@ html body #lesson .question-frame.v9945-feedback-mode.ds-choice-frame .ds-choice
 html body #lesson .question-frame.v9945-feedback-mode.ds-choice-frame :is(.v960-narration-bar,.v859-speed-tag,.ds-mc-head,.v9916-listen-question){visibility:hidden!important;pointer-events:none!important}
 
 /* Nothing around the answers may move when a choice is graded: the character row keeps its margins (the generic feedback rule pushed it down 15px) */
-@media(max-width:499px){html body #lesson .question-frame.v9945-feedback-mode.ds-choice-frame:not(.deen-premium-fill):not(.deen-premium-boolean) .deen-character-question-row{margin-top:4px!important;margin-bottom:18px!important}}
+@media(max-width:499px){html body #lesson .question-frame.v9945-feedback-mode.ds-choice-frame:not(.deen-premium-fill):not(.deen-premium-boolean) .deen-character-question-row{margin-top:var(--v9957-row-mt,4px)!important;margin-bottom:var(--v9957-row-mb,18px)!important}}
 
 /* The sheet is compact on phones so the picked answer stays visible above it; a long explanation scrolls inside it */
 @media(max-width:499px){html body #lesson #quizView .question-frame.ds-choice-frame>#feedback.show{gap:8px!important;padding:12px 16px calc(14px + env(safe-area-inset-bottom,0px))!important}
@@ -61,6 +61,9 @@ html body #lesson .question-frame.ds-choice-frame #feedback.show #feedbackBox{ma
 html body #lesson .question-frame.ds-choice-frame #feedback.show #feedbackTitle{font-size:19px!important;margin:0 0 2px!important}
 html body #lesson .question-frame.ds-choice-frame #feedback.show #feedbackText{font-size:13px!important;line-height:1.35!important}
 html body #lesson .question-frame.ds-choice-frame #feedback.show #continueBtn{min-height:50px!important}}
+
+/* The frame must not scroll for a frame or two while the sheet is being inserted (it nudged the row by 3px) */
+html body #lesson #quizView .question-frame.ds-choice-frame:is(.v730-correct,.v730-wrong,.v9945-feedback-mode){overflow:hidden!important;overflow:clip!important}
 
 /* Check button: a 3D key that comes alive when an answer is chosen */
 html body #lesson #answerArea .template-action{min-height:56px!important;border:0!important;border-radius:16px!important;font:900 16px/1 var(--ds-font)!important;letter-spacing:.05em!important;text-transform:uppercase!important;
