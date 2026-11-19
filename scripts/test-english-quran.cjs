@@ -26,20 +26,18 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
  await capture('home');
  for(const tab of ['review','profile','league']){await page.evaluate(tab=>navigate(tab+'Screen'),tab);await capture(tab)}
  // Quran home screen audit: ASCII-only Turkish words must be detected, not just Turkish diacritics.
- await page.waitForSelector('#leagueScreenBody [data-qia-root] [data-qia-section]',{timeout:15000});
- await page.waitForFunction(()=>[...document.querySelectorAll('#leagueScreenBody [data-qia-nav] button')].map(x=>x.textContent.trim()).join('|')==='Today|Learn|Play|Memorize|Progress',null,{timeout:15000});
+ // The Quran landing screen is the design-system shell now (the old five-tab hub stays in the DOM, hidden)
+ await page.waitForFunction(()=>(document.querySelector('#leagueScreenBody')?.innerText||'').includes('Your Quran journey'),null,{timeout:15000});
  const hub=await page.evaluate(()=>{
-  const root=document.querySelector('#leagueScreenBody [data-qia-root]'),nav=document.querySelector('#leagueScreenBody [data-qia-nav]');
+  const root=document.querySelector('#leagueScreenBody');
   const visible=el=>el?.getClientRects().length&&getComputedStyle(el).visibility!=='hidden';
-  const attrs=[...document.querySelectorAll('#leagueScreenBody [aria-label],#leagueScreenBody [title]')].filter(visible).flatMap(el=>['aria-label','title'].map(k=>el.getAttribute(k)).filter(Boolean));
-  return {lang:DEEN_APP_LOCALE.get(),nav:[...nav.querySelectorAll('button')].map(x=>x.textContent.trim()),sections:root.querySelectorAll('[data-qia-section]').length,copy:root.innerText,attrs};
+  const attrs=[...root.querySelectorAll('[aria-label],[title]')].filter(visible).flatMap(el=>['aria-label','title'].map(k=>el.getAttribute(k)).filter(Boolean));
+  return {lang:DEEN_APP_LOCALE.get(),nav:[],sections:root.querySelectorAll('[data-qia-section]').length,copy:root.innerText,attrs};
  });
- assert.equal(hub.lang,'en');assert.equal(hub.sections,5);
- assert.deepEqual(hub.nav,['Today','Learn','Play','Memorize','Progress']);
- for(const phrase of ['Surahs','Surah Game','Surah Tests','Common Words','Continuous Memorization','Start Memorizing','Progress Center','16 SURAHS · 90 AYAHS']){
-  assert(hub.copy.includes(phrase),'Quran hub missing English phrase: '+phrase);
+ assert.equal(hub.lang,'en');
+ for(const phrase of ['QURAN LEARNING CENTER','Your Quran journey','Learn Arabic','Start Learning Arabic','Learn & Memorize Surahs','Explore Surahs']){
+  assert(hub.copy.includes(phrase),'Quran home missing English phrase: '+phrase);
  }
- assert(hub.attrs.some(x=>x.includes('Quran sections')),'Quran tabs accessibility text must be English');
  const asciiTurkish=/\b(?:Oyna|Ezber|Sureler|Oyunu|Testleri|Ezbere|Kesintisiz|Merkezi|kütüphanesi|görev|ayet|hafıza|zayıf|hazır|İlerleme|kavram|sıralaması|tamamla|suretler|Surah Oyunu)\b/i;
  const allHub=hub.copy+' '+hub.attrs.join(' ');
  assert(!asciiTurkish.test(allHub)&&!/[ÇĞİÖŞÜçğıöşü]/.test(allHub),'Turkish Quran hub UI: '+allHub.match(asciiTurkish)?.[0]);

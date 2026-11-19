@@ -26,7 +26,7 @@ const server=http.createServer((req,res)=>{
  await page.locator('#v998Onboarding .v998-primary').click();
  await page.locator("[onclick=\"DEEN_PREMIUM_ONBOARDING.age(\\'adult\\')\"]").click();
  await page.locator('#v998Onboarding .v998-primary').click();
- await page.locator('#v998Onboarding [data-animal="owl"]').click();
+ await page.locator('#v998Onboarding [data-animal="cat"]').click();
  await page.locator('#v998Onboarding .v998-primary').click();
  await page.locator('[onclick="DEEN_PREMIUM_ONBOARDING.minutes(15)"]').click();
  await page.locator('#v998Onboarding .v998-primary').click();
