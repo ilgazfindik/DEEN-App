@@ -27,6 +27,8 @@ function loadState(){
  const primary=storageGet('deen_v4_1_state'),backup=storageGet('deen_v57_last_good_state');
  let s=null,recovered=false;
  try{s=JSON.parse(primary||'null')}catch(e){
+  /* keep the unreadable text: the next save would overwrite it, and it may still be repairable by hand or by support */
+  try{if(primary&&primary.length<2000000)storageSet('deen_corrupt_state_backup',primary)}catch(_){}
   try{s=JSON.parse(backup||'null');recovered=!!s}catch(_){s=null}
  }
  try{
