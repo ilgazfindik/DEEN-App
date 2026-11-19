@@ -9,7 +9,7 @@
   linear-gradient(145deg,#102d38 5%,#0a222d 53%,#061821 100%);
  color:#faf8ee;
  box-shadow:0 15px 38px rgba(0,0,0,.25),inset 0 1px rgba(255,239,196,.13);
- font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+ font-family:Inter,"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
 }
 #profileScreenBody .deen-hub-profile *{box-sizing:border-box}
 #profileScreenBody .deen-hub-profile .dh-halo{position:absolute;top:-40px;right:-6px;color:rgba(233,210,153,.17);font-size:170px;line-height:1;pointer-events:none;z-index:-1}
@@ -35,7 +35,7 @@
 #v5Sheet .deen-hub-compare{
  --dh-gold:#f3dbac;--dh-mint:#80e8cd;
  margin:0 auto;max-width:470px;padding:0 1px 5px;
- color:#edf7f1;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+ color:#edf7f1;font-family:Inter,"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
  box-sizing:border-box;
 }
 #v5Sheet .deen-hub-compare *{box-sizing:border-box}

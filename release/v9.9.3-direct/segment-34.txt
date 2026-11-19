@@ -485,7 +485,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800;900&family=Noto+Sans:wght@400;500;600;700;800;900&family=Noto+Sans+Arabic:wght@400;500;600;700;800;900&display=swap');
 
 :root{
-  --deen-font-ui:"Nunito Sans","Noto Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  --deen-font-ui:"Nunito Sans","Noto Sans","Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
   --deen-font-ar:"Noto Sans Arabic","Noto Sans",Tahoma,Arial,sans-serif;
   --deen-font-cjk:"Noto Sans CJK SC","Noto Sans SC","Noto Sans JP","Noto Sans KR","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
   --deen-font-weight-body:500;
@@ -1089,7 +1089,7 @@ html:lang(ur) .qtype{
 <!-- DEEN v10.9.1 — Typography Freeze -->
 <style id="deen-v1091-typography-freeze-css">
 :root{
-  --deen-font-ui:"Nunito Sans","Noto Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif!important;
+  --deen-font-ui:"Nunito Sans","Noto Sans","Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif!important;
   --deen-font-ar:"Noto Sans Arabic","Noto Sans",Tahoma,Arial,sans-serif!important;
 }
 
