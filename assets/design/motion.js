@@ -395,8 +395,12 @@
  function poseOn(kind){
   const img=document.querySelector('#lesson .deen-character-question-avatar img');if(!img)return;
   const src=img.getAttribute('src')||'';if(!/_lesson_idle\./.test(src))return;
-  img.src=src.replace('_lesson_idle.',kind==='right'?'_correct.':'_try_again.');
-  restart(img,kind==='right'?'ds-pose-joy':'ds-pose-sad');
+  const next=src.replace('_lesson_idle.',kind==='right'?'_correct.':'_try_again.');
+  /* swap only once the new picture has really loaded and decoded: a missing or broken file must never blank the character */
+  const probe=new Image();
+  probe.onload=()=>{if(img.isConnected&&img.getAttribute('src')===src){img.src=next;restart(img,kind==='right'?'ds-pose-joy':'ds-pose-sad')}};
+  probe.onerror=()=>{};
+  probe.src=next;
  }
  function onPoseFeedback(){
   const s=lessonSession();if(!s)return;
