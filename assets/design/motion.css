@@ -715,3 +715,26 @@ html body #lesson #quizView .question-frame.deen-premium-fill.v9945-feedback-mod
 html body #lesson #quizView .question-frame.deen-premium-fill.v9945-feedback-mode :is(.v1039-fill-bank,.v1040-fill-bank){display:flex!important;visibility:visible!important;opacity:.6!important;pointer-events:none!important;transition:opacity .25s ease!important}
 html body #lesson #quizView .question-frame.deen-premium-fill.v9945-feedback-mode :is(.v1039-fill-check,.v1040-fill-check){display:inline-block!important;visibility:hidden!important;pointer-events:none!important}
 html body #lesson #quizView .question-frame.deen-premium-fill.v9945-feedback-mode .deen-character-question-row{margin-top:var(--v9957-row-mt,auto)!important;margin-bottom:var(--v9957-row-mb,18px)!important}
+/* ---------- Lesson result screen: one calm screen in the game's palette ----------
+   Mascot, title, big percentage, three stat cards, one progress card, the rhythm line and a single button.
+   The long stack of extra cards (task counts, learning summary, journey, reward notes, next-step text) is hidden. */
+html body #lesson #resultView.show{background:radial-gradient(70% 38% at 85% 0%,rgba(255,196,92,.12),transparent 70%),radial-gradient(80% 45% at 8% 100%,rgba(122,108,255,.18),transparent 70%),linear-gradient(180deg,#14213f 0%,#0c1a33 55%,#091426 100%)!important;gap:14px!important;padding:calc(18px + env(safe-area-inset-top,0px)) 20px calc(20px + env(safe-area-inset-bottom,0px))!important}
+body:has(#lesson #resultView.show) #gfCombo{display:none!important}
+html body #lesson #resultView.show #resultMedal,html body #lesson #resultView.show #resultSubtitle,html body #lesson #resultView.show .gf520-perfect-label,html body #lesson #resultView.show .v680-result-next,
+html body #lesson #resultView.show .v54-result-loop,html body #lesson #resultView.show .v633-debrief,html body #lesson #resultView.show .v650-result-loop,html body #lesson #resultView.show .v622-chest,html body #lesson #resultView.show .v623-result-banner,
+html body #lesson #resultView.show .v5-muted,html body #lesson #resultView.show .v994-result-companion small{display:none!important}
+html body #lesson #resultView.show #resultTitle{color:#f2cf84!important;font-size:26px!important;letter-spacing:.4px!important;text-align:center!important;margin:0!important}
+html body #lesson #resultView.show #resultPct{color:#f2cf84!important;font-size:76px!important;line-height:1!important;text-shadow:0 6px 30px rgba(242,207,132,.3)!important;margin:0!important}
+html body #lesson #resultView.show .v994-result-companion{margin:0 auto!important}
+html body #lesson #resultView.show .v994-result-companion b{color:#eef4ff!important;font-size:17px!important}
+html body #lesson #resultView.show .result-grid{gap:10px!important}
+html body #lesson #resultView.show .result-grid>div{background:linear-gradient(170deg,#1f3262,#13203f)!important;border:2px solid rgba(150,175,255,.4)!important;box-shadow:0 5px 0 rgba(8,14,40,.55)!important}
+html body #lesson #resultView.show .result-grid>div strong{color:#eef4ff!important}
+html body #lesson #resultView.show .v630-result-card,html body #lesson #resultView.show .v622-result-strip{background:linear-gradient(170deg,#1b2c52,#13203f)!important;border:1px solid rgba(150,175,255,.32)!important;border-radius:18px!important;color:#eef4ff!important}
+html body #lesson #resultView.show .v630-result-card .eyebrow,html body #lesson #resultView.show .v622-result-strip .k{color:#9db4ff!important}
+html body #lesson #resultView.show .v630-result-card .bar,html body #lesson #resultView.show .v5-bar{background:rgba(18,28,66,.85)!important}
+html body #lesson #resultView.show .v630-result-card .bar i,html body #lesson #resultView.show .v5-bar i{background:linear-gradient(90deg,#5aa9ff,#b48cff)!important}
+html body #lesson #resultView.show #resultContinueBtn{position:sticky!important;bottom:0!important;margin-top:auto!important;min-height:56px!important;border-radius:18px!important}
+html body #lesson #resultView.show .ds-end-mascot{width:210px!important;height:176px!important;margin:0 auto -4px!important;object-fit:contain!important}
+html body #lesson #resultView.show .v994-result-companion{flex-direction:column!important;align-items:center!important;gap:2px!important;text-align:center!important}
+html body #lesson #resultView.show #v994ResultCompanion small,html body #lesson #resultView.show #v994ResultCompanion div small{display:none!important}
