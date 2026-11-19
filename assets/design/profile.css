@@ -218,3 +218,31 @@ html body #profileScreenBody .dsp-anim .dsp-section:nth-child(3){animation-delay
 @media (prefers-reduced-motion:reduce){html body #profileScreenBody .dsp *{animation:none!important;transition:none!important}}
 
 html body #profileScreenBody.dsp-host>.dsp-prem .dh-status.dsp-dup{display:none!important}
+
+/* ---------- Profile in the game's palette: indigo ground and cards, a colour per statistic, gold call to action ---------- */
+html body:has(#profileScreen.active){--ds-primary:#9db4ff;--ds-primary-strong:#7e9bff;--ds-primary-soft:rgba(157,180,255,.16);--ds-border:rgba(150,175,255,.3);--ds-border-strong:rgba(150,175,255,.5);--ds-surface:#16264d;--ds-surface-2:#1b2c52;--ds-surface-3:#223665;--ds-bg:#0c1a33}
+html body:has(#profileScreen.active) #phone{background:radial-gradient(70% 38% at 85% 0%,rgba(255,196,92,.10),transparent 70%),radial-gradient(80% 45% at 8% 100%,rgba(122,108,255,.16),transparent 70%),linear-gradient(180deg,#14213f 0%,#0c1a33 55%,#091426 100%)!important}
+html body #profileScreen #profileScreenBody:not(#a):not(#b){background:none!important}
+html body #profileScreen #profileScreenBody .dsp-id:not(#a):not(#b){background:radial-gradient(120% 90% at 0% 0%,rgba(255,196,92,.14),transparent 60%),linear-gradient(170deg,#1f3262,#13203f)!important;border-color:rgba(150,175,255,.4)!important;box-shadow:0 14px 34px rgba(3,6,20,.45)!important}
+html body #profileScreen #profileScreenBody .dsp-gear:not(#a):not(#b){background:rgba(18,28,66,.7)!important;border-color:rgba(150,175,255,.35)!important}
+html body #profileScreen #profileScreenBody .dcz-entry:not(#a):not(#b){background:rgba(157,180,255,.12)!important;border-color:rgba(157,180,255,.4)!important}
+/* statistics: one colour each */
+html body #profileScreen #profileScreenBody .dsp-stat{--oc:90,169,255}
+html body #profileScreen #profileScreenBody .dsp-stat.amber{--oc:255,150,60}
+html body #profileScreen #profileScreenBody .dsp-stat.gold{--oc:242,207,132}
+html body #profileScreen #profileScreenBody .dsp-stat.mint{--oc:90,169,255}
+html body #profileScreen #profileScreenBody .dsp-stat.sky{--oc:110,214,240}
+html body #profileScreen #profileScreenBody .dsp-stat.coral{--oc:255,122,168}
+html body #profileScreen #profileScreenBody .dsp-stat.mint:last-child{--oc:180,140,255}
+html body #profileScreen #profileScreenBody .dsp-stat:not(#a):not(#b){background:radial-gradient(120% 90% at 100% 0%,rgba(var(--oc),.22),transparent 60%),linear-gradient(170deg,#1b2c52,#13203f)!important;border-color:rgba(var(--oc),.5)!important}
+html body #profileScreen #profileScreenBody .dsp-stat:not(#a):not(#b) :is(svg,i,.dsp-stat-ico,.ico){color:rgb(var(--oc))!important}
+/* cards */
+html body #profileScreen #profileScreenBody .dsp-card:not(#a):not(#b){background:linear-gradient(170deg,#1b2c52,#13203f)!important;border-color:rgba(150,175,255,.3)!important}
+html body #profileScreen #profileScreenBody .dsp-badge-card:not(.earned):not(#a):not(#b){background:#172447!important;border-color:rgba(150,175,255,.25)!important}
+html body #profileScreen #profileScreenBody .dsp-badge-card.next:not(#a):not(#b){border-color:rgba(180,140,255,.6)!important}
+html body #profileScreen #profileScreenBody .dsp-link:not(#a):not(#b){border-color:rgba(157,180,255,.45)!important;color:#c9d6ff!important}
+html body #profileScreen #profileScreenBody .dsp-pref:not(#a):not(#b){border-color:rgba(150,175,255,.28)!important}
+/* the premium card (developer mode only) and its gold button */
+html body #profileScreen #profileScreenBody .dsp-prem:not(#a):not(#b){background:radial-gradient(70% 50% at 82% 26%,rgba(255,196,92,.16),transparent 60%),linear-gradient(170deg,#1f3262,#101d3d)!important;border-color:rgba(150,175,255,.42)!important}
+html body #profileScreen #profileScreenBody .dh-main:not(#a):not(#b){background:linear-gradient(180deg,#f9e7b4,#e2b95f)!important;border:0!important;color:#16122f!important;box-shadow:0 5px 0 #a8823a!important}
+html body #profileScreen #profileScreenBody .dh-main:not(#a):not(#b) *{color:#16122f!important}
