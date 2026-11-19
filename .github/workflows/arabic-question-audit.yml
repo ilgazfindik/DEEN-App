@@ -71,6 +71,7 @@ jobs:
           node scripts/test-quiet-result-sheet.cjs
           node scripts/test-fill-stable.cjs
           node scripts/test-result-screen.cjs
+          node scripts/test-home-palette.cjs
           node scripts/test-nothing-vanishes.cjs
           node scripts/test-pose-swap.cjs
           node scripts/test-companion-images.mjs

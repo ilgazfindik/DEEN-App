@@ -164,3 +164,43 @@ html body nav.bottomnav .navbtn span{font-weight:var(--ds-fw-semibold)!important
 
 /* Quieter daily plan: steps sit on a fill; only the current one is outlined. */
 html body #learnScreen #learnScroll #v5Return .ds-nba .v680-step:not(.current){border-color:transparent!important;background:rgba(255,255,255,.04)!important}
+
+/* ---------- Home in the game's palette: indigo ground, gold call to action, a colour per kind of stage ---------- */
+html body:has(#learnScreen.active){--ds-primary:#9db4ff;--ds-primary-strong:#7e9bff;--ds-primary-soft:rgba(157,180,255,.16);--ds-border:rgba(150,175,255,.3);--ds-border-strong:rgba(150,175,255,.5);--ds-surface:#16264d;--ds-surface-2:#1b2c52;--ds-surface-3:#223665;--ds-bg:#0c1a33;
+ background:radial-gradient(70% 38% at 85% 0%,rgba(255,196,92,.10),transparent 70%),radial-gradient(80% 45% at 8% 100%,rgba(122,108,255,.16),transparent 70%),linear-gradient(180deg,#14213f 0%,#0c1a33 55%,#091426 100%)!important}
+html body #learnScreen #learnScroll{background:none!important}
+html body #learnScreen .app-header{background:linear-gradient(rgba(12,22,48,.98),rgba(12,22,48,0))!important}
+html body #learnScreen .app-header .stat{background:#1a2b52!important;border-color:rgba(150,175,255,.35)!important}
+/* streak guard */
+html body #learnScreen #dsStreakGuard{background:rgba(242,207,132,.10)!important;border-color:rgba(242,207,132,.4)!important}
+html body #learnScreen .dsg-mini{background:linear-gradient(180deg,#f9e7b4,#e2b95f)!important;color:#16122f!important;border:0!important;box-shadow:0 3px 0 #a8823a!important}
+/* the next-best-step card */
+html body #learnScreen #v5Return section.lp-return.v680-nba.ds-nba:not(#a):not(#b):not(#c){background:radial-gradient(90% 55% at 88% 22%,rgba(255,196,92,.16),transparent 60%),linear-gradient(170deg,#1f3262,#101d3d)!important;border-color:rgba(150,175,255,.42)!important;box-shadow:0 14px 34px rgba(3,6,20,.45)!important}
+html body #learnScreen #v5Return section.lp-return .v680-step.current:not(#a):not(#b):not(#c){background:linear-gradient(180deg,#3a6ee0,#2a49a8)!important;border-color:#a9c4ff!important;color:#fff!important}
+html body #learnScreen #v5Return section.lp-return .v680-step:not(.current):not(#a):not(#b):not(#c){border-color:rgba(150,175,255,.35)!important}
+html body #learnScreen #v5Return section.lp-return button#v680HomeAction:not(#a):not(#b):not(#c){background:linear-gradient(180deg,#f9e7b4,#e2b95f)!important;border:0!important;box-shadow:0 5px 0 #a8823a,0 12px 30px rgba(242,207,132,.26)!important;color:#16122f!important}
+html body #learnScreen #v5Return section.lp-return button#v680HomeAction:not(#a):not(#b):not(#c) *{color:#16122f!important}
+html body #learnScreen #v5Return section.lp-return button#v680HomeAction:not(#a):not(#b):not(#c) .ds-cta-play{background:#16122f!important}
+html body #learnScreen #v5Return section.lp-return button#v680HomeAction:not(#a):not(#b):not(#c) .ds-cta-play *{color:#f2cf84!important;fill:#f2cf84!important}
+html body #learnScreen #v5Return section.lp-return button#v680HomeAction:not(#a):not(#b):not(#c):active{transform:translateY(4px)!important;box-shadow:0 1px 0 #a8823a!important}
+/* unit headers */
+html body #learnScreen #v5Paths section.restored-unit>.hero:not(#a):not(#b):not(#c){background:linear-gradient(170deg,#1f3262,#13203f)!important;border-color:rgba(150,175,255,.42)!important}
+html body #learnScreen #v5Paths section.restored-unit.ds-collapsed>.hero{background:#172447!important;border-color:rgba(150,175,255,.25)!important}
+/* stage rows: a colour per kind (learn blue, understand violet, apply amber, remember cyan, master rose) */
+html body #learnScreen #v5Paths .lp-stop{--oc:90,169,255}
+html body #learnScreen #v5Paths .lp-stop.matching{--oc:180,140,255}
+html body #learnScreen #v5Paths .lp-stop.application{--oc:255,184,77}
+html body #learnScreen #v5Paths .lp-stop.review{--oc:110,214,240}
+html body #learnScreen #v5Paths .lp-stop.challenge{--oc:255,122,168}
+html body #learnScreen #v5Paths .lp-stop button.deen-stage-card.v630-stage-card{background:linear-gradient(170deg,#1b2c52,#13203f)!important;border-color:rgba(var(--oc),.5)!important}
+html body #learnScreen #v5Paths .lp-stop.current button.deen-stage-card.v630-stage-card{background:radial-gradient(100% 90% at 100% 100%,rgba(var(--oc),.2),transparent 60%),linear-gradient(170deg,#1f3262,#13203f)!important;border:2px solid rgba(var(--oc),.85)!important;box-shadow:0 0 22px rgba(var(--oc),.25)!important}
+html body #learnScreen #v5Paths .lp-stop .v630-macro-role:not(#a):not(#b):not(#c){color:rgb(var(--oc))!important}
+html body #learnScreen #v5Paths .lp-stop.locked button.deen-stage-card.v630-stage-card{opacity:.8}
+html body #learnScreen #v5Paths .lp-stop.current button.lp-node.v630-macro-node{background:linear-gradient(145deg,rgb(var(--oc)),rgba(var(--oc),.55))!important;border-color:rgba(255,255,255,.55)!important}
+html body #learnScreen #v5Paths .lp-stop.completed button.lp-node.v630-macro-node{background:linear-gradient(145deg,rgba(var(--oc),.35),rgba(var(--oc),.15))!important;border-color:rgb(var(--oc))!important}
+html body #learnScreen #v5Paths .lp-stop.locked button.lp-node.v630-macro-node{background:linear-gradient(145deg,#1b2c52,#13203f)!important;border-color:rgba(150,175,255,.22)!important}
+/* bottom navigation */
+html body nav.bottomnav:not(#a):not(#b):not(#c){background:rgba(12,22,48,.97)!important;border-color:rgba(150,175,255,.22)!important}
+html body nav.bottomnav button.navbtn.active:not(#a):not(#b):not(#c),html body nav.bottomnav button.navbtn.active *:not(#a):not(#b):not(#c){color:#f2cf84!important}
+html body nav.bottomnav button.navbtn.active:not(#a):not(#b):not(#c){background:rgba(242,207,132,.08)!important}
+html body:has(#learnScreen.active) #phone{background:radial-gradient(70% 38% at 85% 0%,rgba(255,196,92,.10),transparent 70%),radial-gradient(80% 45% at 8% 100%,rgba(122,108,255,.16),transparent 70%),linear-gradient(180deg,#14213f 0%,#0c1a33 55%,#091426 100%)!important}
