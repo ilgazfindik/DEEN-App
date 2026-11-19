@@ -62,6 +62,7 @@ jobs:
           node scripts/test-admin-wardrobe-chrome.cjs
           node scripts/test-dev-gate.cjs
           node scripts/test-splash-speed.cjs
+          node scripts/test-stable-correct.cjs
           node scripts/test-arabic-v2-question-engine-chrome.cjs
           node scripts/test-arabic-pack-a-chrome.cjs
           node scripts/test-arabic-pack-b-chrome.cjs
