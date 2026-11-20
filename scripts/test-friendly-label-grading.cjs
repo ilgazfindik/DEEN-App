@@ -8,9 +8,9 @@ const ctx=await b.newContext({viewport:{width:393,height:852},serviceWorkers:'bl
 await ctx.addInitScript(()=>{if(!sessionStorage.getItem('s')){sessionStorage.setItem('s','1');localStorage.setItem('deen_app_language_v1','tr');localStorage.setItem('deen_v4_1_state',JSON.stringify({onboarded:true,energy:30,xp:420,learningProfile:'youth',profile:{name:'QA',companion:'cat'},settings:{language:'tr',onboardingLanguageConfirmed:true},completed:[],mistakes:[]}))}});
 const page=await ctx.newPage();await page.goto(url);await page.waitForSelector('.navbtn',{timeout:90000});await page.waitForTimeout(3000);
 // start a session containing the question
-await page.evaluate(()=>{const q=QUESTIONS.find(x=>x.id==='DEEN-U01-S03-004');const st=STAGES.find(s=>s.id==='U01-S03');startStage('U01-S03');});
+let present=false;for(let n=0;n<15&&!present;n++){present=await page.evaluate(()=>{state.completed=[];state.energy=30;session=null;startStage('U01-S03');return !!session&&session.questions.some(q=>q.id==='DEEN-U01-S03-P01'||q.id==='DEEN-U01-S03-004')});if(!present)await page.waitForTimeout(300)}assert.ok(present,'the lesson contains the question (the lesson samples its questions)');
 await page.waitForTimeout(1500);
-assert.ok(true);for(let i=0;i<14;i++){const id=await page.evaluate(()=>session?.questions[session.index]?.id);if(id==='DEEN-U01-S03-004')break;await page.evaluate(()=>{const q=session.questions[session.index];try{completeQuestion(true,q)}catch(e){}try{nextQuestion()}catch(e){}});await page.waitForTimeout(500)}
+for(let i=0;i<16;i++){const id=await page.evaluate(()=>session?.questions[session.index]?.id);if(id==='DEEN-U01-S03-P01'||id==='DEEN-U01-S03-004')break;await page.evaluate(()=>{const q=session.questions[session.index];try{completeQuestion(true,q)}catch(e){}try{nextQuestion()}catch(e){}});await page.waitForTimeout(500)}
 console.log('at',await page.evaluate(()=>session?.questions[session.index]?.id));
 await page.waitForSelector('#answerArea .option',{timeout:8000}).catch(()=>{});
 await page.locator('#answerArea .option',{hasText:'= inanç'}).first().click();await page.waitForTimeout(300);

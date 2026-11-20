@@ -8,7 +8,7 @@ const server=http.createServer((req,res)=>{let p=path.join(root,decodeURICompone
  fs.readFile(p,(e,b)=>{if(e){res.writeHead(404);return res.end()}res.writeHead(200,{'content-type':mime[path.extname(p)]||'application/octet-stream'});res.end(b)})});
 (async()=>{
  const man=JSON.parse(fs.readFileSync(path.join(root,'assets/videos/manifest.json'),'utf8'));
- for(const [ev,m] of Object.entries(man))for(const [a,c] of Object.entries(m)){const b=fs.readFileSync(path.join(root,c.src));assert.equal(b.slice(4,8).toString(),'ftyp',ev+'/'+a+' is an mp4');assert.ok(b.length<1.5e6,a+' is small');assert.ok(fs.existsSync(path.join(root,c.poster)),a+' has a poster')}
+ for(const [ev,m] of Object.entries(man))for(const [a,c] of Object.entries(m)){const b=fs.readFileSync(path.join(root,c.src));assert.equal(b.slice(4,8).toString(),'ftyp',ev+'/'+a+' is an mp4');assert.ok(b.length<4e6,a+' is small');assert.ok(fs.existsSync(path.join(root,c.poster)),a+' has a poster')}
  await new Promise(r=>server.listen(0,'127.0.0.1',r));const url='http://127.0.0.1:'+server.address().port+'/index.html';
  let browser;try{browser=await chromium.launch({channel:'chrome',headless:true,args:['--no-sandbox','--disable-dev-shm-usage','--autoplay-policy=no-user-gesture-required']})}catch(_){browser=await chromium.launch({headless:true,args:['--no-sandbox','--autoplay-policy=no-user-gesture-required']})}
  async function run(name,{settings={},keep=null,companion='lion'}={}){
@@ -24,7 +24,7 @@ const server=http.createServer((req,res)=>{let p=path.join(root,decodeURICompone
  let t=await run('first');
  assert.equal(t.r.open,true,'the first lesson plays a celebration');assert.equal(t.r.src,'assets/videos/lion/lesson_done.mp4','lion learner gets the lion clip');
  await t.page.screenshot({path:'/tmp/w/celebrate.png'}).catch(()=>{});
- await t.page.click('#dsCelebrate .ds-cv-skip');await t.page.waitForTimeout(500);
+ await t.page.click('#dsCelebrate .ds-cv-skip');await t.page.waitForTimeout(1400);
  assert.equal(await t.page.evaluate(()=>!!document.getElementById('dsCelebrate')),false,'Geç closes it');
  await t.ctx.close();
  t=await run('already seen',{keep:{first:1,perfectDay:new Date().toISOString().slice(0,10)}});

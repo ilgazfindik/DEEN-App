@@ -752,8 +752,8 @@ html body #lesson .question-frame:is(.v730-correct,.v730-wrong,.v9945-feedback-m
 html body #lesson .question-frame .deen-character-question-avatar:is(.v9944-reaction-correct,.v9944-reaction-wrong,.v9944-reaction-celebrate){filter:none!important}
 
 /* Celebration video overlay */
-#dsCelebrate{position:fixed;inset:0;z-index:2147483000;display:flex;align-items:center;justify-content:center;background:#050b18;opacity:0;transition:opacity .22s ease}
-#dsCelebrate.in{opacity:1}#dsCelebrate.out{opacity:0}
+#dsCelebrate{position:fixed;inset:0;z-index:2147483000;display:flex;align-items:center;justify-content:center;background:#050b18;opacity:0;transition:opacity .7s ease}
+#dsCelebrate.in{opacity:1}#dsCelebrate.out{opacity:0;transition-duration:.9s;pointer-events:none}
 #dsCelebrate video{width:100%;height:100%;object-fit:contain;background:#050b18}
 #dsCelebrate .ds-cv-skip{position:absolute;top:calc(env(safe-area-inset-top,0px) + 14px);right:14px;min-height:40px;padding:0 18px;border-radius:999px;border:1px solid rgba(150,175,255,.4);background:rgba(12,26,51,.72);color:#eef2ff;font:800 14px/1 Nunito,system-ui,sans-serif;cursor:pointer}
 .ds-celebrate-settings small{display:block}
