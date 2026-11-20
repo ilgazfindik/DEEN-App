@@ -29,6 +29,11 @@ const server=http.createServer((req,res)=>{let p=path.join(root,decodeURICompone
  await t.ctx.close();
  t=await run('already seen',{keep:{first:1,perfectDay:new Date().toISOString().slice(0,10)}});
  assert.equal(t.r.open,false,'a moment that was already celebrated does not repeat');await t.ctx.close();
+ t=await run('stage',{keep:{first:1,perfectDay:new Date().toISOString().slice(0,10)}});assert.equal(t.r.open,false,'no result-moment video here');
+ // the learner is back on the path and the engine runs the stage celebration (the one with the "Animasyonu atla" button)
+ await t.page.evaluate(()=>{session=null;celebrate({type:'stage_complete',id:'U01-M01',next:'U01-M02'});runCelebrations()});
+ await t.page.waitForSelector('#dsCelebrate',{timeout:12000});
+ assert.equal(await t.page.evaluate(()=>/stage_complete|unit_complete|section_complete/.test(localStorage.getItem('deen_celebrate_seen_v1')||'')),true,'the stage celebration is recorded');await t.ctx.close();
  t=await run('off',{settings:{celebrateVideo:false}});assert.equal(t.r.open,false,'setting off: no video');await t.ctx.close();
  t=await run('reduced',{settings:{reducedMotion:true}});assert.equal(t.r.open,false,'reduced motion: no video');await t.ctx.close();
  t=await run('cat',{companion:'cat'});assert.equal(t.r.src,'assets/videos/cat/lesson_done.mp4','cat learner gets the cat clip');
