@@ -50,7 +50,7 @@
     e.preventDefault();e.stopPropagation();
     if(locked||document.getElementById('feedback')?.classList.contains('show'))return;
     locked=true;answered++;
-    const value=(card.querySelector('.option-label')||card).textContent.trim();
+    const value=String(card.dataset.value||(card.querySelector('.option-label')||card).textContent).trim();
     const correct=norm(value)===norm(q.correct_answer);
     grid.querySelectorAll('.option').forEach(x=>x.classList.remove('selected','v852-tap'));
     card.classList.add('selected','v852-tap');
@@ -462,8 +462,8 @@
     if(correct)advanceTimer=setTimeout(()=>{const b=document.getElementById('continueBtn');if(b&&!b.disabled&&document.getElementById('feedback')?.classList.contains('show')){autoAdvanced++;b.click()}},980);
    },210);
   }
-  yesBtn.onclick=()=>answer((trueBtn.querySelector('.option-label')||trueBtn).textContent.trim(),'tap');
-  noBtn.onclick=()=>answer((falseBtn.querySelector('.option-label')||falseBtn).textContent.trim(),'tap');
+  yesBtn.onclick=()=>answer(String(trueBtn.dataset.value||(trueBtn.querySelector('.option-label')||trueBtn).textContent).trim(),'tap');
+  noBtn.onclick=()=>answer(String(falseBtn.dataset.value||(falseBtn.querySelector('.option-label')||falseBtn).textContent).trim(),'tap');
   card.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();yesBtn.click()}else if(e.key==='ArrowLeft'){e.preventDefault();noBtn.click()}});
   card.addEventListener('pointerdown',e=>{if(locked)return;pointerId=e.pointerId;startX=currentX=e.clientX;card.style.transition='none';try{card.setPointerCapture(pointerId)}catch(_){};e.preventDefault()});
   card.addEventListener('pointermove',e=>{if(pointerId!==e.pointerId||locked)return;currentX=e.clientX;const dx=Math.max(-125,Math.min(125,currentX-startX)),rot=dx/18;card.style.transform='translateX('+dx+'px) rotate('+rot+'deg)';card.classList.toggle('toward-yes',dx>24);card.classList.toggle('toward-no',dx<-24);e.preventDefault()});
@@ -734,7 +734,7 @@
    b.onclick=e=>{
     e.preventDefault();e.stopPropagation();if(locked||document.getElementById('feedback')?.classList.contains('show'))return;
     locked=true;answers++;
-    const label=b.querySelector('.option-label');const value=String(label?.textContent||q.options_tr[idx]||'').trim();
+    const label=b.querySelector('.option-label');const value=String(b.dataset.value||label?.textContent||q.options_tr[idx]||'').trim();
     const correct=norm(value)===norm(q.correct_answer);if(correct)correctAnswers++;
     optionsHost.querySelectorAll('.option').forEach(x=>x.classList.remove('selected','v859-picked'));b.classList.add('selected','v859-picked');haptic(correct);
     setTimeout(()=>{
