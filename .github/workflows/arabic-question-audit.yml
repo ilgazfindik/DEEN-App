@@ -74,6 +74,7 @@ jobs:
           node scripts/test-home-palette.cjs
           node scripts/test-profile-palette.cjs
           node scripts/test-review-palette.cjs
+          node scripts/test-quran-palette.cjs
           node scripts/test-nothing-vanishes.cjs
           node scripts/test-pose-swap.cjs
           node scripts/test-companion-images.mjs
