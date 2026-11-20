@@ -19,6 +19,6 @@ const server=http.createServer((req,res)=>{let p=path.join(root,decodeURICompone
  assert.ok(new Set(r.stats).size>=4,'each number has its own colour');assert.ok(new Set(r.modes).size>=4,'each mode has its own colour');
  const ring=(r.ring.match(/\d+/g)||[]).map(Number);assert.ok(ring[0]>200&&ring[1]>180,'the progress ring is gold ('+r.ring+')');
  await page.locator('.navbtn').nth(2).click();await page.waitForTimeout(1800);
- const q=await page.evaluate(()=>getComputedStyle(document.querySelector('#phone')).backgroundImage);assert.equal(q,'none','the Quran tab keeps its own ground for now');
+ const q=await page.evaluate(()=>getComputedStyle(document.querySelector('#phone')).backgroundImage);assert.match(q,/linear-gradient/,'the Quran tab has the indigo ground too');
  await browser.close();server.close();console.log('PASS: review palette');
 })().catch(e=>{console.error(e);process.exit(1)});

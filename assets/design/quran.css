@@ -710,3 +710,30 @@ html body #leagueScreenBody .dsr-sources{display:block;margin:18px auto 8px;padd
 .dsn-src{display:grid;gap:3px;padding:12px 0;border-top:1px solid rgba(255,255,255,.08)}
 .dsn-src b{font-size:14px;font-weight:900;color:#eaf6f2}
 .dsn-src span{font-size:13px;font-weight:600;line-height:1.5;color:#b8d0ca}
+
+/* ---------- Quran tab in the game's palette: indigo ground; blue for learning Arabic, gold for the surahs ---------- */
+html body:has(#leagueScreen.active){--ds-primary:#9db4ff;--ds-primary-strong:#7e9bff;--ds-primary-soft:rgba(157,180,255,.16);--ds-border:rgba(150,175,255,.3);--ds-border-strong:rgba(150,175,255,.5);--ds-surface:#16264d;--ds-surface-2:#1b2c52;--ds-surface-3:#223665;--ds-bg:#0c1a33}
+html body:has(#leagueScreen.active) #leagueScreenBody{--dsq-mint:#6aa5ff;--dsq-sky:#b48cff}
+html body:has(#leagueScreen.active) #phone{background:radial-gradient(70% 38% at 85% 0%,rgba(255,196,92,.10),transparent 70%),radial-gradient(80% 45% at 8% 100%,rgba(122,108,255,.16),transparent 70%),linear-gradient(180deg,#14213f 0%,#0c1a33 55%,#091426 100%)!important}
+html body #leagueScreen #leagueScreenBody:not(#a):not(#b){background:none!important}
+html body #leagueScreen #leagueScreenBody .deen-path-home .deen-path-arabic:not(#a):not(#b){background:radial-gradient(120% 90% at 100% 0%,rgba(90,169,255,.24),transparent 60%),linear-gradient(170deg,#1f3262,#13203f)!important;border-color:rgba(90,169,255,.55)!important;box-shadow:0 12px 30px rgba(3,6,20,.4)!important}
+html body #leagueScreen #leagueScreenBody .deen-path-home .deen-path-surah:not(#a):not(#b){background:radial-gradient(120% 90% at 100% 0%,rgba(242,207,132,.22),transparent 60%),linear-gradient(170deg,#2a2d58,#15204a)!important;border-color:rgba(242,207,132,.5)!important;box-shadow:0 12px 30px rgba(3,6,20,.4)!important}
+html body #leagueScreen #leagueScreenBody .deen-path-home .deen-path-symbol:not(#a):not(#b){background:rgba(12,22,48,.7)!important}
+html body #leagueScreen #leagueScreenBody .deen-path-home .deen-path-arabic .deen-path-link:not(#a):not(#b){background:linear-gradient(180deg,#8fbcff,#4f8df0)!important;color:#0b1430!important}
+html body #leagueScreen #leagueScreenBody .deen-path-home .deen-path-surah .deen-path-link:not(#a):not(#b){background:linear-gradient(180deg,#f9e7b4,#e2b95f)!important;color:#16122f!important}
+html body #leagueScreen #leagueScreenBody .dsq-bar i:not(#a):not(#b){background:linear-gradient(90deg,#5aa9ff,#b48cff)!important}
+/* inside the Quran tab (surah path and the Arabic course): blue for learning, gold for the next step */
+html body #leagueScreen #leagueScreenBody :is(.dsr-unit,.dsq-unit):not(.is-locked):not(#a):not(#b){background:linear-gradient(135deg,#4a86e8,#2f55b8)!important;border-color:rgba(255,255,255,.35)!important}
+html body #leagueScreen #leagueScreenBody :is(.dsr-unit,.dsq-unit).is-locked:not(#a):not(#b){background:linear-gradient(135deg,#1b2c52,#13203f)!important}
+html body #leagueScreen #leagueScreenBody .dsq-unit-go:not(#a):not(#b){color:#2f55b8!important}
+html body #leagueScreen #leagueScreenBody :is(.dsr-prog,.dsr-level,.dsr-badge,.dsq-prog):not(#a):not(#b){background:rgba(18,28,66,.82)!important;border-color:rgba(150,175,255,.28)!important}
+html body #leagueScreen #leagueScreenBody .dsr-today:not(#a):not(#b){background:linear-gradient(135deg,rgba(242,207,132,.18),rgba(18,28,66,.92))!important}
+html body #leagueScreen #leagueScreenBody .deen-path-course-glyphs:not(#a):not(#b){background:linear-gradient(180deg,#8fbcff,#4f8df0)!important;color:#0b1430!important;border-color:rgba(255,255,255,.4)!important}
+html body #leagueScreen #leagueScreenBody :is(.dsr-bubble,.dsq-bubble):not(#a):not(#b){background:#f2cf84!important;color:#16122f!important}
+html body #leagueScreen #leagueScreenBody .deen-path-back:not(#a):not(#b){background:rgba(18,28,66,.72)!important;border-color:rgba(150,175,255,.4)!important;color:#dfe7ff!important}
+html body #leagueScreen #leagueScreenBody :is(.dsr-bar i,.dsq-bar i,.dsq-prog .dsq-bar i):not(#a):not(#b){background:linear-gradient(90deg,#5aa9ff,#b48cff)!important}
+html body #leagueScreen #leagueScreenBody .dsq-pathed>.deen-path-course-progress span:not(#a):not(#b){background:linear-gradient(90deg,#5aa9ff,#b48cff)!important}
+html body #leagueScreen #leagueScreenBody :is(.dsr-node.is-done .dsr-line,.dsq-pathed .dsq-done .dsq-line):not(#a):not(#b){background:rgba(90,169,255,.5)!important}
+html body #leagueScreen #leagueScreenBody .dsr-node:not(.is-locked) .dsr-dot:not(#a):not(#b){background:linear-gradient(180deg,#8fbcff,#4f8df0)!important;color:#0b1430!important}
+html body #leagueScreen #leagueScreenBody .dsr-node.is-locked .dsr-dot:not(#a):not(#b){background:#172447!important}
+html body #leagueScreen #leagueScreenBody .deen-path-primary:not(#a):not(#b){background:linear-gradient(180deg,#f9e7b4,#e2b95f)!important;color:#16122f!important;border:0!important;box-shadow:0 4px 0 #a8823a!important}

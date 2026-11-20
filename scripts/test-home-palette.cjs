@@ -22,6 +22,6 @@ const server=http.createServer((req,res)=>{let p=path.join(root,decodeURICompone
  const roles=await page.evaluate(()=>[...document.querySelectorAll('#v5Paths .lp-stop .v630-macro-role')].slice(0,5).map(e=>getComputedStyle(e).color));assert.ok(new Set(roles).size>=4,'each kind of stage has its own colour ('+[...new Set(roles)].length+' colours)');
  // the other tabs are untouched for now
  await page.locator('.navbtn').nth(2).click();await page.waitForTimeout(1500);
- const prof=await css('#phone','backgroundImage');assert.equal(prof,'none','the Quran tab keeps its own ground for now');
+ const prof=await css('#phone','backgroundImage');assert.match(prof,/linear-gradient/,'the Quran tab has the indigo ground too');
  await browser.close();server.close();console.log('PASS: home screen palette');
 })().catch(e=>{console.error(e);process.exit(1)});
