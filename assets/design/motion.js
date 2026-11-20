@@ -701,7 +701,7 @@
 (()=>{
  'use strict';
  if(window.DEEN_CELEBRATE)return;
- const KEY='deen_celebrate_seen_v1';
+ const KEY='deen_celebrate_seen_v1',FADE_IN=.7,FADE_OUT=.9;
  const T={
   tr:{skip:'Geç',vid:'Kutlama videoları',snd:'Kutlama sesi',head:'KUTLAMA'},
   en:{skip:'Skip',vid:'Celebration videos',snd:'Celebration sound',head:'CELEBRATION'},
@@ -739,7 +739,7 @@
  }
 
  let overlay=null,lastPlayed=0;
- function close(){if(!overlay)return;const o=overlay;overlay=null;try{o.querySelector('video').pause()}catch(_){}o.classList.add('out');setTimeout(()=>o.remove(),240)}
+ function close(){if(!overlay)return;const o=overlay;overlay=null;try{o.querySelector('video').pause()}catch(_){}o.classList.add('out');setTimeout(()=>o.remove(),FADE_OUT*1000+60)}
  function play(event){
   if(overlay)return Promise.resolve(false);
   return load().then(()=>{
@@ -761,6 +761,8 @@
     };
     v.addEventListener('canplay',go,{once:true});
     v.addEventListener('error',()=>{clearTimeout(giveUp);if(!started)res(false);else close()});
+    // soft start and soft end: the picture fades with the clip's last 0.9 s (and the sound ramps in and out)
+    v.addEventListener('timeupdate',()=>{const d=v.duration,t=v.currentTime;if(!(d>0))return;try{v.volume=Math.max(0,Math.min(1,t/.6,(d-t)/FADE_OUT))}catch(_){}if(d-t<=FADE_OUT&&overlay===o&&!o.classList.contains('out'))close()});
     v.addEventListener('ended',close);
     o.addEventListener('click',close);b.addEventListener('click',e=>{e.stopPropagation();close()});
     v.load();
