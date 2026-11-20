@@ -219,3 +219,38 @@ html body #reviewScreenBody .dsr-empty .dsr-cta{max-width:360px}
 @media (prefers-reduced-motion:reduce){
  html body #reviewScreenBody .dsr *,html body #reviewScreenBody .dsr{animation:none!important;transition:none!important}
 }
+
+/* ---------- Review tab in the game's palette: indigo ground and cards, a colour per mode and per number ---------- */
+html body:has(#reviewScreen.active){--ds-primary:#9db4ff;--ds-primary-strong:#7e9bff;--ds-primary-soft:rgba(157,180,255,.16);--ds-border:rgba(150,175,255,.3);--ds-border-strong:rgba(150,175,255,.5);--ds-surface:#16264d;--ds-surface-2:#1b2c52;--ds-surface-3:#223665;--ds-bg:#0c1a33}
+html body:has(#reviewScreen.active) #phone{background:radial-gradient(70% 38% at 85% 0%,rgba(255,196,92,.10),transparent 70%),radial-gradient(80% 45% at 8% 100%,rgba(122,108,255,.16),transparent 70%),linear-gradient(180deg,#14213f 0%,#0c1a33 55%,#091426 100%)!important}
+html body #reviewScreen #reviewScreenBody:not(#a):not(#b){background:none!important}
+html body #reviewScreen #reviewScreenBody .dsr-plan:not(#a):not(#b){background:radial-gradient(70% 45% at 70% 18%,rgba(255,196,92,.16),transparent 62%),linear-gradient(170deg,#1f3262,#101d3d)!important;border-color:rgba(150,175,255,.42)!important;box-shadow:0 14px 34px rgba(3,6,20,.45)!important}
+html body #reviewScreen #reviewScreenBody .dsr-live:not(#a):not(#b){background:rgba(18,28,66,.7)!important;border-color:rgba(157,180,255,.5)!important}
+/* the four numbers of the plan */
+html body #reviewScreen #reviewScreenBody .dsr-stat{--oc:90,169,255}
+html body #reviewScreen #reviewScreenBody .dsr-stat.sky{--oc:110,214,240}
+html body #reviewScreen #reviewScreenBody .dsr-stat.coral{--oc:255,122,168}
+html body #reviewScreen #reviewScreenBody .dsr-stat.amber{--oc:255,184,77}
+html body #reviewScreen #reviewScreenBody .dsr-stat.mint{--oc:180,140,255}
+html body #reviewScreen #reviewScreenBody .dsr-stat:not(#a):not(#b){background:radial-gradient(120% 90% at 100% 0%,rgba(var(--oc),.2),transparent 60%),linear-gradient(170deg,#1b2c52,#13203f)!important;border-color:rgba(var(--oc),.5)!important}
+html body #reviewScreen #reviewScreenBody .dsr-chip:not(#a):not(#b){background:rgba(255,122,168,.1)!important;border-color:rgba(255,122,168,.4)!important}
+html body #reviewScreen #reviewScreenBody .dsr-cta-play:not(#a):not(#b){background:#16122f!important;border-color:rgba(255,236,184,.9)!important}
+html body #reviewScreen #reviewScreenBody .dsr-cta-play:not(#a):not(#b) *{color:#f2cf84!important;fill:#f2cf84!important}
+/* the four review modes */
+html body #reviewScreen #reviewScreenBody .dsr-mode{--oc:90,169,255}
+html body #reviewScreen #reviewScreenBody .dsr-mode.coral{--oc:255,122,168}
+html body #reviewScreen #reviewScreenBody .dsr-mode.amber{--oc:255,184,77}
+html body #reviewScreen #reviewScreenBody .dsr-mode.mint{--oc:90,169,255}
+html body #reviewScreen #reviewScreenBody .dsr-mode.sky{--oc:110,214,240}
+html body #reviewScreen #reviewScreenBody .dsr-mode:not(#a):not(#b){background:radial-gradient(120% 90% at 100% 0%,rgba(var(--oc),.2),transparent 60%),linear-gradient(170deg,#1b2c52,#13203f)!important;border-color:rgba(var(--oc),.5)!important}
+html body #reviewScreen #reviewScreenBody .dsr-mode.is-empty:not(#a):not(#b){opacity:.7}
+/* spaced review, memory map and units */
+html body #reviewScreen #reviewScreenBody .dsr-spaced:not(#a):not(#b){background:linear-gradient(170deg,#1b2c52,#13203f)!important;border-color:rgba(150,175,255,.3)!important}
+html body #reviewScreen #reviewScreenBody .dsr-sp-row:not(#a):not(#b){background:rgba(18,28,66,.55)!important}
+html body #reviewScreen #reviewScreenBody .dsr-row:not(#a):not(#b),html body #reviewScreen #reviewScreenBody .dsr-unit:not(#a):not(#b){background:#172447!important;border-color:rgba(150,175,255,.28)!important}
+html body #reviewScreen #reviewScreenBody .dsr-unit-no:not(#a):not(#b){background:rgba(90,169,255,.18)!important;border-color:#5aa9ff!important;color:#cfe0ff!important}
+/* the progress ring and a few teal leftovers */
+html body #reviewScreen #reviewScreenBody .dsr-ring-fill:not(#a):not(#b){stroke:#f2cf84!important;filter:drop-shadow(0 0 6px rgba(242,207,132,.45))!important}
+html body #reviewScreen #reviewScreenBody .dsr-ring-track:not(#a):not(#b){fill:rgba(12,22,48,.7)!important;stroke:rgba(150,175,255,.2)!important}
+html body #reviewScreen #reviewScreenBody .dsr-ring b:not(#a):not(#b){color:#f2cf84!important}
+html body #reviewScreen #reviewScreenBody .dsr-section-row :is(button,a):not(#a):not(#b){color:#9db4ff!important}
