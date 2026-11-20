@@ -691,3 +691,109 @@
  };
  document.addEventListener('deen:question-graded',()=>{[90,350,900].forEach(ms=>setTimeout(nudge,ms))});
 })();
+
+/* Celebration videos — a short full-screen clip of the learner's own companion on special moments
+   (first lesson, perfect lesson, finished stage, 3/7/30-day streak). Videos live in
+   assets/videos/<animal>/<event>.mp4 and are listed in assets/videos/manifest.json; an event with
+   no clip of its own uses "lesson_done". Sound is on unless the learner turns it off in Settings;
+   if the browser refuses sound the clip plays muted. If a clip is not ready in ~2.5 s it is
+   skipped: the normal result screen and confetti are always there underneath. */
+(()=>{
+ 'use strict';
+ if(window.DEEN_CELEBRATE)return;
+ const KEY='deen_celebrate_seen_v1';
+ const T={
+  tr:{skip:'Geç',vid:'Kutlama videoları',snd:'Kutlama sesi',head:'KUTLAMA'},
+  en:{skip:'Skip',vid:'Celebration videos',snd:'Celebration sound',head:'CELEBRATION'},
+  de:{skip:'Überspringen',vid:'Feier-Videos',snd:'Feier-Ton',head:'FEIER'},
+  fr:{skip:'Passer',vid:'Vidéos de célébration',snd:'Son de célébration',head:'CÉLÉBRATION'},
+  ar:{skip:'تخطي',vid:'فيديوهات الاحتفال',snd:'صوت الاحتفال',head:'احتفال'}
+ };
+ const lang=()=>{try{const l=localStorage.getItem('deen_app_language_v1');return T[l]?l:'tr'}catch(_){return'tr'}};
+ const tx=k=>T[lang()][k];
+ const st=()=>{try{return state||{}}catch(_){return{}}};
+ const ses=()=>{try{return session||null}catch(_){return null}};
+ const settings=()=>st().settings||{};
+ const reduced=()=>document.documentElement.classList.contains('v5-reduce')||matchMedia('(prefers-reduced-motion: reduce)').matches;
+ const enabled=()=>settings().celebrateVideo!==false&&!reduced();
+ const seen=()=>{try{return JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(_){return{}}};
+ const mark=(k,v=1)=>{try{const s=seen();s[k]=v;localStorage.setItem(KEY,JSON.stringify(s))}catch(_){}};
+ const animal=()=>String(st().profile?.companion||'owl').replace(/[^a-z]/g,'')||'owl';
+ const today=()=>new Date().toISOString().slice(0,10);
+
+ let manifest=null,loading=null;
+ const load=()=>loading||(loading=fetch('assets/videos/manifest.json',{cache:'no-cache'}).then(r=>r.ok?r.json():{}).then(m=>manifest=m).catch(()=>manifest={}));
+ const clipFor=(event,a)=>{const m=manifest||{};return (m[event]?.[a]||m[event]?.owl||m.lesson_done?.[a]||m.lesson_done?.owl)||null};
+
+ // Which special moment is this result? null = an ordinary lesson (no video).
+ function moment(){
+  const s=ses(),S=st(),sm=seen();
+  if(!s||!s.questions?.length)return null;
+  const total=s.questions.length,pct=Math.round(s.correct/total*100);
+  if(!(S.history?.length>=1))return null;
+  if(!sm.first&&S.history.length===1&&pct>=50)return{key:'first',once:true};
+  const streak=Number(S.streakMeta?.currentStreak)||0;
+  if([3,7,30].includes(streak)&&!sm['streak'+streak])return{key:'streak'+streak,once:true};
+  const sid=s.stage?.id;
+  if(sid&&sid!=='SMART'&&!s.wasCompleted&&pct>=70&&S.completed?.includes(sid)&&total>=12&&!sm['stage:'+sid])return{key:'stage:'+sid,once:true};
+  if(pct===100&&sm.perfectDay!==today())return{key:'perfectDay',value:today()};
+  return null;
+ }
+
+ let overlay=null;
+ function close(){if(!overlay)return;const o=overlay;overlay=null;try{o.querySelector('video').pause()}catch(_){}o.classList.add('out');setTimeout(()=>o.remove(),240)}
+ function play(event){
+  if(overlay)return Promise.resolve(false);
+  return load().then(()=>{
+   const clip=clipFor(event,animal());if(!clip)return false;
+   return new Promise(res=>{
+    const o=document.createElement('div');o.id='dsCelebrate';o.setAttribute('role','dialog');o.setAttribute('aria-label',tx('head'));
+    const v=document.createElement('video');v.playsInline=true;v.setAttribute('playsinline','');v.setAttribute('webkit-playsinline','');v.preload='auto';v.poster=clip.poster;v.src=clip.src;
+    v.muted=settings().celebrateSound===false;
+    const b=document.createElement('button');b.type='button';b.className='ds-cv-skip';b.textContent=tx('skip');
+    o.append(v,b);
+    let started=false;
+    const giveUp=setTimeout(()=>{if(!started){o.remove();res(false)}},2500);
+    const go=()=>{
+     if(started)return;started=true;clearTimeout(giveUp);
+     document.body.appendChild(o);overlay=o;requestAnimationFrame(()=>o.classList.add('in'));
+     const p=v.play();
+     if(p&&p.catch)p.catch(()=>{v.muted=true;const q=v.play();if(q&&q.catch)q.catch(()=>close())});
+     res(true);
+    };
+    v.addEventListener('canplay',go,{once:true});
+    v.addEventListener('error',()=>{clearTimeout(giveUp);if(!started)res(false);else close()});
+    v.addEventListener('ended',close);
+    o.addEventListener('click',close);b.addEventListener('click',e=>{e.stopPropagation();close()});
+    v.load();
+   });
+  });
+ }
+
+ // Hook: the result view opens. Wait a beat so the sheet and confetti land first.
+ let last=null;
+ function check(){
+  const view=document.getElementById('resultView');
+  if(!view?.classList.contains('show')){last=null;return}
+  const run=view.dataset.dsRun;if(!run||run===last)return;last=run;
+  if(!enabled())return;
+  const m=moment();if(!m)return;
+  mark(m.key,m.value||1);
+  setTimeout(()=>{if(document.getElementById('resultView')?.classList.contains('show')&&enabled())play(m.key.replace(/[:\d].*$/,'')||'lesson_done')},900);
+ }
+ new MutationObserver(check).observe(document.documentElement,{subtree:true,attributes:true,attributeFilter:['class','data-ds-run']});
+
+ // Settings toggles (default on), injected whenever the settings sheet is drawn.
+ function setting(key,val){const S=st();if(!S.settings)return;S.settings[key]=val;try{saveState()}catch(_){}}
+ document.addEventListener('deen:settings-rendered',()=>{
+  try{
+   const body=document.getElementById('v5SheetBody');if(!body||body.querySelector('.ds-celebrate-settings'))return;
+   const g=document.createElement('div');g.className='v690-setting-group ds-celebrate-settings';
+   const s=settings();
+   g.innerHTML=`<small>${tx('head')}</small><label class="v5-toggle"><span>${tx('vid')}</span><input type="checkbox" data-k="celebrateVideo" ${s.celebrateVideo!==false?'checked':''}></label><label class="v5-toggle"><span>${tx('snd')}</span><input type="checkbox" data-k="celebrateSound" ${s.celebrateSound!==false?'checked':''}></label>`;
+   g.querySelectorAll('input').forEach(i=>i.onchange=()=>setting(i.dataset.k,i.checked));
+   const first=body.querySelector('.v690-setting-group');first?first.after(g):body.prepend(g);
+  }catch(e){console.warn('celebrate settings',e)}
+ });
+ window.DEEN_CELEBRATE=Object.freeze({play,close,moment,enabled,load});
+})();
