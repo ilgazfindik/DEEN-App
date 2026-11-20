@@ -16,8 +16,7 @@ const server=http.createServer((req,res)=>{let p=path.join(root,decodeURICompone
  assert.match(r.ground,/linear-gradient/,'the ground behind the profile is the indigo gradient');
  assert.doesNotMatch(r.id,/63, 215, 173/,'the identity card has no teal glow left');assert.match(r.card,/linear-gradient/);
  assert.ok(r.stats.length>=6);assert.ok(new Set(r.stats).size>=5,'each statistic has its own colour ('+new Set(r.stats).size+' colours)');
- await page.locator('.navbtn').nth(0).click();await page.waitForTimeout(1500);
- await page.locator('.navbtn').nth(1).click();await page.waitForTimeout(1500);
- const review=await page.evaluate(()=>getComputedStyle(document.querySelector('#phone')).backgroundImage);assert.equal(review,'none','the review tab keeps its own ground for now');
+ await page.locator('.navbtn').nth(2).click();await page.waitForTimeout(1800);
+ const review=await page.evaluate(()=>getComputedStyle(document.querySelector('#phone')).backgroundImage);assert.equal(review,'none','the Quran tab keeps its own ground for now');
  await browser.close();server.close();console.log('PASS: profile palette');
 })().catch(e=>{console.error(e);process.exit(1)});

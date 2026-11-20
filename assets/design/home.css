@@ -204,3 +204,6 @@ html body nav.bottomnav:not(#a):not(#b):not(#c){background:rgba(12,22,48,.97)!im
 html body nav.bottomnav button.navbtn.active:not(#a):not(#b):not(#c),html body nav.bottomnav button.navbtn.active *:not(#a):not(#b):not(#c){color:#f2cf84!important}
 html body nav.bottomnav button.navbtn.active:not(#a):not(#b):not(#c){background:rgba(242,207,132,.08)!important}
 html body:has(#learnScreen.active) #phone{background:radial-gradient(70% 38% at 85% 0%,rgba(255,196,92,.10),transparent 70%),radial-gradient(80% 45% at 8% 100%,rgba(122,108,255,.16),transparent 70%),linear-gradient(180deg,#14213f 0%,#0c1a33 55%,#091426 100%)!important}
+/* the little 1-2-3 bubbles of today's plan */
+html body #learnScreen #v5Return section.lp-return .v680-step.current>span:not(#a):not(#b):not(#c){background:linear-gradient(180deg,#f9e7b4,#e2b95f)!important;border-color:#fff3cf!important;color:#16122f!important}
+html body #learnScreen #v5Return section.lp-return .v680-step:not(.current)>span:not(#a):not(#b):not(#c){background:#16264d!important;border-color:rgba(150,175,255,.4)!important;color:#dfe7ff!important}
