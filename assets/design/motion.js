@@ -734,13 +734,11 @@
   if(!sm.first&&S.history.length===1&&pct>=50)return{key:'first',once:true};
   const streak=Number(S.streakMeta?.currentStreak)||0;
   if([3,7,30].includes(streak)&&!sm['streak'+streak])return{key:'streak'+streak,once:true};
-  const sid=s.stage?.id;
-  if(sid&&sid!=='SMART'&&!s.wasCompleted&&pct>=70&&S.completed?.includes(sid)&&total>=12&&!sm['stage:'+sid])return{key:'stage:'+sid,once:true};
   if(pct===100&&sm.perfectDay!==today())return{key:'perfectDay',value:today()};
   return null;
  }
 
- let overlay=null;
+ let overlay=null,lastPlayed=0;
  function close(){if(!overlay)return;const o=overlay;overlay=null;try{o.querySelector('video').pause()}catch(_){}o.classList.add('out');setTimeout(()=>o.remove(),240)}
  function play(event){
   if(overlay)return Promise.resolve(false);
@@ -756,7 +754,7 @@
     const giveUp=setTimeout(()=>{if(!started){o.remove();res(false)}},2500);
     const go=()=>{
      if(started)return;started=true;clearTimeout(giveUp);
-     document.body.appendChild(o);overlay=o;requestAnimationFrame(()=>o.classList.add('in'));
+     document.body.appendChild(o);overlay=o;lastPlayed=Date.now();requestAnimationFrame(()=>o.classList.add('in'));
      const p=v.play();
      if(p&&p.catch)p.catch(()=>{v.muted=true;const q=v.play();if(q&&q.catch)q.catch(()=>close())});
      res(true);
@@ -783,6 +781,26 @@
  }
  new MutationObserver(check).observe(document.documentElement,{subtree:true,attributes:true,attributeFilter:['class','data-ds-run']});
 
+ // Finished stage / unit / section: the engine queues a celebration and, once the learner is back on
+ // the path, runs it (with its "Animasyonu atla" button). The clip plays as that celebration starts.
+ // A clip that already played for this lesson's result moment is not repeated right after it.
+ const STAGE_EVENTS=new Set(['stage_complete','unit_complete','section_complete']);
+ let pendingStage=null;
+ function watchStage(){
+  const base=window.celebrate;if(typeof base!=='function'){setTimeout(watchStage,300);return}
+  if(base.__dsVideoWatched)return;
+  const w=function(e){try{if(e&&STAGE_EVENTS.has(e.type)){pendingStage={key:e.type+':'+(e.id||e.unit||e.section||''),at:Date.now()}}}catch(_){}return base.apply(this,arguments)};
+  w.__dsVideoWatched=true;window.celebrate=w;
+ }
+ watchStage();
+ function checkStage(){
+  if(!pendingStage||!document.querySelector('.lp-skip'))return;
+  const p=pendingStage;pendingStage=null;
+  if(Date.now()-p.at>120000||!enabled()||seen()[p.key]||Date.now()-lastPlayed<60000||overlay)return;
+  mark(p.key);setTimeout(()=>{if(enabled())play('stage')},350);
+ }
+ new MutationObserver(checkStage).observe(document.body||document.documentElement,{subtree:true,childList:true});
+
  // Settings toggles (default on), injected whenever the settings sheet is drawn.
  function setting(key,val){const S=st();if(!S.settings)return;S.settings[key]=val;try{saveState()}catch(_){}}
  document.addEventListener('deen:settings-rendered',()=>{
@@ -795,5 +813,5 @@
    const first=body.querySelector('.v690-setting-group');first?first.after(g):body.prepend(g);
   }catch(e){console.warn('celebrate settings',e)}
  });
- window.DEEN_CELEBRATE=Object.freeze({play,close,moment,enabled,load});
+ window.DEEN_CELEBRATE=Object.freeze({play,close,moment,enabled,load,checkStage});
 })();
