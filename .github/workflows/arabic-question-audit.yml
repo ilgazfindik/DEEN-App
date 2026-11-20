@@ -69,6 +69,7 @@ jobs:
           node scripts/test-corrupt-state.cjs
           node scripts/test-short-screen-fit.cjs
           node scripts/test-quiet-result-sheet.cjs
+          node scripts/test-celebration-video.cjs
           node scripts/test-fill-stable.cjs
           node scripts/test-result-screen.cjs
           node scripts/test-home-palette.cjs
