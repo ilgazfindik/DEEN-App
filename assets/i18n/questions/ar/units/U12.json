@@ -89,7 +89,7 @@
       "question_ar": "أي عبارة صحيحة عند تعذر استعمال الماء؟",
       "correct_answer_ar": "رخصة التيمم",
       "explanation_ar": "تشمل رخصة التيمم حالة تعذر استعمال الماء وفق الشروط المعتبرة.",
-      "source_question_tr": "Temel kavram: su kullanamama konusunda doğru ifade hangisidir?",
+      "source_question_tr": "Temel kavram: Su kullanılamadığında hangi yol gündeme gelir?",
       "source_correct_answer_tr": "Teyemmüm ruhsatı",
       "source_options_tr": [
         "Namazı tamamen terk etmek",
@@ -116,7 +116,7 @@
       "question_ar": "ماذا تذكر آية الوضوء (المائدة 5:6) في شأن الرأس؟",
       "correct_answer_ar": "مسح الرأس",
       "explanation_ar": "تذكر المائدة 5:6 مسح الرأس في الوضوء.",
-      "source_question_tr": "Temel kavram: başı mesh hakkında aşağıdaki ifadelerden hangisi doğrudur?",
+      "source_question_tr": "Temel kavram: Abdest ayeti (Mâide 5:6) baş için ne emreder?",
       "source_correct_answer_tr": "Başı mesh etmek",
       "source_options_tr": [
         "Başı tamamen suya sokmak",
@@ -551,7 +551,7 @@
       "question_ar": "يسألك صديق عن الغسل. أي معلومة صحيحة تقولها له؟",
       "correct_answer_ar": "غسل جميع البدن عند الحالات التي توجب الغسل",
       "explanation_ar": "الغسل طهارة حكمية كبرى تتم بغسل البدن كله عند موجباتها.",
-      "source_question_tr": "Bir arkadaşın Gusül hakkında doğru bilgiyi soruyor. Hangisini söylersin?",
+      "source_question_tr": "Bir arkadaşın gusül hakkında doğru bilgiyi soruyor. Hangisini söylersin?",
       "source_correct_answer_tr": "Boy abdesti gerektiren hâllerde bütün bedenin yıkanması",
       "source_options_tr": [
         "Sadece ellerin mesh edilmesi",
@@ -740,13 +740,13 @@
       "question_ar": "صِل المفاهيم بتعريفاتها: القدر المشترك، الغسل، مقدار مسح الرأس، المنهج الفقهي.",
       "correct_answer_ar": null,
       "explanation_ar": "الوضوء طهارة حكمية تُعدّ من الاستعداد لبعض العبادات.",
-      "source_question_tr": "Şu kavramları doğru açıklamalarıyla eşleştir: Ortak temel, Gusül, Başı mesh etmenin miktarı ve Bu dersteki fıkıh yaklaşımı.",
+      "source_question_tr": "Şu kavramları doğru açıklamalarıyla eşleştir: Ortak temel, Gusül, Başı mesh etmenin miktarı ve bu dersteki fıkıh yaklaşımı.",
       "source_correct_answer_tr": null,
       "source_options_tr": null,
       "source_pairs_tr": [
         {
           "left": "Ortak temel",
-          "right": "Yüzü ve kolları yıkamak başı mesh etmek ayakları yıkamak"
+          "right": "Yüzü ve kolları yıkamak, başı mesh etmek, ayakları yıkamak"
         },
         {
           "left": "Gusül",
@@ -809,7 +809,7 @@
         },
         {
           "left": "Abdestte yüz",
-          "right": "Yüz"
+          "right": "Abdest ayetinde ilk sayılan yıkanacak organ"
         }
       ],
       "source_items_tr": null,
@@ -860,7 +860,7 @@
         },
         {
           "left": "Başı mesh",
-          "right": "Başı mesh etmek"
+          "right": "Mâide 5:6'da emredilen abdest farzı"
         }
       ],
       "source_items_tr": null,
@@ -911,7 +911,7 @@
         },
         {
           "left": "Ortak temel",
-          "right": "Yüzü ve kolları yıkamak başı mesh etmek ayakları yıkamak"
+          "right": "Yüzü ve kolları yıkamak, başı mesh etmek, ayakları yıkamak"
         }
       ],
       "source_items_tr": null,
@@ -954,7 +954,7 @@
         },
         {
           "left": "Abdestte yüz",
-          "right": "Yüz"
+          "right": "Abdest ayetinde ilk sayılan yıkanacak organ"
         },
         {
           "left": "Abdestte ayaklar",
@@ -1005,7 +1005,7 @@
         },
         {
           "left": "Başı mesh",
-          "right": "Başı mesh etmek"
+          "right": "Mâide 5:6'da emredilen abdest farzı"
         },
         {
           "left": "Teyemmüm",
@@ -1289,7 +1289,7 @@
       "question_ar": "يسألك صديق عن الرخصة عند فقد الماء. ماذا تقول له؟",
       "correct_answer_ar": "التيمم",
       "explanation_ar": "يقرر القرآن رخصة التيمم عند فقد الماء.",
-      "source_question_tr": "Bir arkadaşın Teyemmüm hakkında doğru bilgiyi soruyor. Hangisini söylersin?",
+      "source_question_tr": "Bir arkadaşın, su bulunmadığında namaz için hangi temizliğin yapılacağını soruyor. Ne söylersin?",
       "source_correct_answer_tr": "Teyemmüm",
       "source_options_tr": [
         "Zekât",
@@ -1316,7 +1316,7 @@
       "question_ar": "أي مبدأ صحيح عند تعذر استعمال الماء؟",
       "correct_answer_ar": "رخصة التيمم",
       "explanation_ar": "تشمل الرخصة تعذر استعمال الماء وفق الشروط المعتبرة.",
-      "source_question_tr": "Su kullanamama konusunda hangi ilke doğrudur?",
+      "source_question_tr": "Su kullanılamadığında hangi ilke geçerlidir?",
       "source_correct_answer_tr": "Teyemmüm ruhsatı",
       "source_options_tr": [
         "Namazı tamamen terk etmek",
@@ -1397,7 +1397,7 @@
       "question_ar": "يسألك صديق عن الوضوء. أي معلومة صحيحة تقولها له؟",
       "correct_answer_ar": "طهارة حكمية تُفعل لبعض العبادات",
       "explanation_ar": "الوضوء طهارة حكمية خاصة.",
-      "source_question_tr": "Bir arkadaşın Abdest hakkında doğru bilgiyi soruyor. Hangisini söylersin?",
+      "source_question_tr": "Bir arkadaşın abdest hakkında doğru bilgiyi soruyor. Hangisini söylersin?",
       "source_correct_answer_tr": "Bazı ibadetler için yapılan hükmî temizlik",
       "source_options_tr": [
         "Sadece günlük duş",
@@ -1424,7 +1424,7 @@
       "question_ar": "ما الرخصة التي تقوم مقام الوضوء عند فقد الماء أو تعذر استعماله وفق شروطها؟",
       "correct_answer_ar": "التيمم",
       "explanation_ar": "التيمم رخصة للطهارة الحكمية عند فقد الماء أو تعذر استعماله وفق الشروط.",
-      "source_question_tr": "Teyemmüm konusunda hangi ilke doğrudur?",
+      "source_question_tr": "Su bulunmadığında hükmî temizlik için hangi ruhsat vardır?",
       "source_correct_answer_tr": "Teyemmüm",
       "source_options_tr": [
         "Zekât",
@@ -1586,7 +1586,7 @@
       "question_ar": "تطبيق: أي عبارة صحيحة عند تعذر استعمال الماء؟",
       "correct_answer_ar": "رخصة التيمم",
       "explanation_ar": "تشمل رخصة التيمم تعذر استعمال الماء وفق الشروط.",
-      "source_question_tr": "Uygulama: su kullanamama konusunda doğru ifade hangisidir?",
+      "source_question_tr": "Uygulama: Su kullanılamadığında hangi yol gündeme gelir?",
       "source_correct_answer_tr": "Teyemmüm ruhsatı",
       "source_options_tr": [
         "Namazı tamamen terk etmek",
@@ -1613,7 +1613,7 @@
       "question_ar": "تطبيق: ماذا تذكر آية الوضوء (المائدة 5:6) في شأن الرأس؟",
       "correct_answer_ar": "مسح الرأس",
       "explanation_ar": "تذكر المائدة 5:6 مسح الرأس.",
-      "source_question_tr": "Uygulama: başı mesh hakkında aşağıdaki ifadelerden hangisi doğrudur?",
+      "source_question_tr": "Uygulama: Abdest ayeti (Mâide 5:6) baş için ne emreder?",
       "source_correct_answer_tr": "Başı mesh etmek",
       "source_options_tr": [
         "Başı tamamen suya sokmak",
@@ -1820,7 +1820,7 @@
       "question_ar": "أي عضو يُغسل في الوضوء باتفاق المذاهب كما في المائدة 5:6؟",
       "correct_answer_ar": "الوجه",
       "explanation_ar": "تذكر المائدة 5:6 غسل الوجه ضمن الأعضاء الأساسية للوضوء.",
-      "source_question_tr": "Abdestte yüz konusunda aşağıdaki ifadelerden hangisi ortak temeli doğru yansıtır?",
+      "source_question_tr": "Abdest ayetine (Mâide 5:6) göre aşağıdakilerden hangisi yıkanır?",
       "source_correct_answer_tr": "Yüz",
       "source_options_tr": [
         "Sadece saç",
@@ -1847,7 +1847,7 @@
       "question_ar": "يسألك صديق عن المادة الصحيحة للتيمم. ماذا تقول له؟",
       "correct_answer_ar": "تراب طاهر أو سطح من جنس الأرض",
       "explanation_ar": "توضح المصادر الفقهية المعتمدة أن التيمم طهارة حكمية تُفعل بتراب طاهر أو بما كان من جنس الأرض.",
-      "source_question_tr": "Bir arkadaşın Teyemmüm malzemesi hakkında doğru bilgiyi soruyor. Hangisini söylersin?",
+      "source_question_tr": "Bir arkadaşın teyemmüm malzemesi hakkında doğru bilgiyi soruyor. Hangisini söylersin?",
       "source_correct_answer_tr": "Temiz toprak veya toprak cinsinden bir yüzey",
       "source_options_tr": [
         "Yiyecek",
@@ -2335,7 +2335,7 @@
         },
         {
           "left": "Abdestte yüz",
-          "right": "Yüz"
+          "right": "Abdest ayetinde ilk sayılan yıkanacak organ"
         },
         {
           "left": "Abdestte ayaklar",
@@ -2386,7 +2386,7 @@
         },
         {
           "left": "Başı mesh",
-          "right": "Başı mesh etmek"
+          "right": "Mâide 5:6'da emredilen abdest farzı"
         },
         {
           "left": "Teyemmüm",
@@ -2589,7 +2589,7 @@
       "question_ar": "تحدٍّ: يسألك صديق عن المنهج الفقهي الصحيح في هذا الدرس. ماذا تقول له؟",
       "correct_answer_ar": "يعلّم القدر المشترك ولا يعدّ الفروق المذهبية المعتبرة خطأً",
       "explanation_ar": "يعلّم هذا التطبيق القدر المشترك ولا يختزل الفروق المذهبية المعتبرة الواردة في المصادر الموثوقة إلى ثنائية واحدة من صحيح وخطأ.",
-      "source_question_tr": "Challenge: bir arkadaşın Bu dersteki fıkıh yaklaşımı hakkında doğru bilgiyi soruyor. Hangisini söylersin?",
+      "source_question_tr": "Challenge: bir arkadaşın bu dersteki fıkıh yaklaşımı hakkında doğru bilgiyi soruyor. Hangisini söylersin?",
       "source_correct_answer_tr": "Ortak temeli öğretir geçerli mezhep farklılıklarını yanlış diye puanlamaz",
       "source_options_tr": [
         "Tek bir mezhebi bütün Müslümanlar için tek geçerli görüş sayar",
@@ -2708,7 +2708,7 @@
       "source_pairs_tr": [
         {
           "left": "Abdestte yüz",
-          "right": "Yüz"
+          "right": "Abdest ayetinde ilk sayılan yıkanacak organ"
         },
         {
           "left": "Abdestte ayaklar",

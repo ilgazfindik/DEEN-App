@@ -93,10 +93,10 @@
         "options_tr": [
           "İmsak",
           "Teyemmüm",
-          "Ka'de-i ahire veya son oturuş",
+          "Namazın sonunda yapılan ve ka'de-i ahire denen oturuş",
           "İftitah"
         ],
-        "correct_answer": "Ka'de-i ahire veya son oturuş",
+        "correct_answer": "Namazın sonunda yapılan ve ka'de-i ahire denen oturuş",
         "pairs": null,
         "items": null,
         "correct_order": null
@@ -235,7 +235,7 @@
     },
     "DEEN-U14-S07-007": {
       "source": {
-        "question_tr": "Kısa kontrol: challenge: bir arkadaşın Bu dersteki fıkıh yaklaşımı hakkında doğru bilgiyi soruyor. Hangisini söylersin?",
+        "question_tr": "Kısa kontrol: challenge: bir arkadaşın bu dersteki fıkıh yaklaşımı hakkında doğru bilgiyi soruyor. Hangisini söylersin?",
         "explanation_tr": "Bu sürüm namazın ortak yapısını öğretir teknik farklılıkları tek doğru mezhep varmış gibi puanlamaz.",
         "activity_type": "scenario",
         "options_tr": [
@@ -278,10 +278,10 @@
         "options_tr": [
           "İmsak",
           "Teyemmüm",
-          "Ka'de-i ahire veya son oturuş",
+          "Namazın sonunda yapılan ve ka'de-i ahire denen oturuş",
           "İftitah"
         ],
-        "correct_answer": "Ka'de-i ahire veya son oturuş",
+        "correct_answer": "Namazın sonunda yapılan ve ka'de-i ahire denen oturuş",
         "pairs": null,
         "items": null,
         "correct_order": null
@@ -401,14 +401,14 @@
     "DEEN-U14-S07-012": {
       "source": {
         "question_tr": "Şu kavramları doğru açıklamalarıyla eşleştir: Kıyam, Secde, İki secde ve Secdeler arası oturuş.",
-        "explanation_tr": "Bu sürüm namazın ortak yapısını öğretir teknik farklılıkları tek doğru mezhep varmış gibi puanlamaz.",
+        "explanation_tr": "Bu eşleştirme Kıyam, Secde, İki secde ve Secdeler arası oturuş kavramlarını temel anlamlarıyla ilişkilendirir.",
         "activity_type": "matching",
         "options_tr": null,
         "correct_answer": null,
         "pairs": [
           {
             "left": "Kıyam",
-            "right": "Namazda ayakta durmayı"
+            "right": "Namazda gücü yetenin ayakta durması"
           },
           {
             "left": "Secde",
@@ -416,7 +416,7 @@
           },
           {
             "left": "İki secde",
-            "right": "İki secde yapılır"
+            "right": "Her rekâtta iki kez yere kapanmak"
           },
           {
             "left": "Secdeler arası oturuş",
@@ -466,11 +466,11 @@
         "activity_type": "fill_blank",
         "options_tr": [
           "iftitah",
-          "ayakta",
-          "son oturuş",
-          "okumayı"
+          "kıyam",
+          "ka'de-i ahire",
+          "kıraat"
         ],
-        "correct_answer": "son oturuş",
+        "correct_answer": "ka'de-i ahire",
         "pairs": null,
         "items": null,
         "correct_order": null

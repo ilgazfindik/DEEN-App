@@ -17,12 +17,12 @@
         "explanation_tr": "Din İşleri Yüksek Kurulu iftitah tekbirini namazın rükünleri arasında zikreder.",
         "activity_type": "scenario",
         "options_tr": [
-          "İftar duası",
-          "Teyemmüm",
-          "İftitah tekbiri",
-          "Zekât verme"
+          "Selamdan sonra söylenen tekbir",
+          "Yalnız bayram namazına özgü tekbir",
+          "Namaza başlarken alınan tekbir",
+          "Yalnız secdede söylenen tekbir"
         ],
-        "correct_answer": "İftitah tekbiri",
+        "correct_answer": "Namaza başlarken alınan tekbir",
         "pairs": null,
         "items": null,
         "correct_order": null
@@ -50,7 +50,7 @@
     },
     "DEEN-U14-S04-002": {
       "source": {
-        "question_tr": "Bir arkadaşın Rekât hakkında doğru bilgiyi soruyor. Hangisini söylersin?",
+        "question_tr": "Bir arkadaşın rekât hakkında doğru bilgiyi soruyor. Hangisini söylersin?",
         "explanation_tr": "Rekât namazın tekrarlanan temel bölümünü ifade eder.",
         "activity_type": "scenario",
         "options_tr": [
@@ -198,16 +198,16 @@
     },
     "DEEN-U14-S04-006": {
       "source": {
-        "question_tr": "Bir arkadaşın İftitah tekbiri hakkında doğru bilgiyi soruyor. Hangisini söylersin?",
+        "question_tr": "Bir arkadaşın iftitah tekbiri hakkında doğru bilgiyi soruyor. Hangisini söylersin?",
         "explanation_tr": "Din İşleri Yüksek Kurulu iftitah tekbirini namazın rükünleri arasında zikreder.",
         "activity_type": "scenario",
         "options_tr": [
-          "İftar duası",
-          "Teyemmüm",
-          "İftitah tekbiri",
-          "Zekât verme"
+          "Selamdan sonra söylenen tekbir",
+          "Yalnız bayram namazına özgü tekbir",
+          "Namaza başlarken alınan tekbir",
+          "Yalnız secdede söylenen tekbir"
         ],
-        "correct_answer": "İftitah tekbiri",
+        "correct_answer": "Namaza başlarken alınan tekbir",
         "pairs": null,
         "items": null,
         "correct_order": null
@@ -387,12 +387,12 @@
         "explanation_tr": "Din İşleri Yüksek Kurulu iftitah tekbirini namazın rükünleri arasında zikreder.",
         "activity_type": "error_spotting",
         "options_tr": [
-          "İftar duası",
-          "Teyemmüm",
-          "İftitah tekbiri",
-          "Zekât verme"
+          "Namaz iftitah tekbiriyle bitirilir",
+          "İftitah tekbiri yalnız bayram namazına özgüdür",
+          "Namaza iftitah tekbiriyle başlanır",
+          "İftitah tekbiri yalnız secdede söylenir"
         ],
-        "correct_answer": "İftitah tekbiri",
+        "correct_answer": "Namaza iftitah tekbiriyle başlanır",
         "pairs": null,
         "items": null,
         "correct_order": null
