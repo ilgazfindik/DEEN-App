@@ -124,7 +124,7 @@
     },
     "DEEN-U11-S06-004": {
       "source": {
-        "question_tr": "Hızlı tekrar: düzen hakkında aşağıdaki ifadelerden hangisi doğrudur?",
+        "question_tr": "Hızlı tekrar: Düzenli ibadet neyi destekleyebilir?",
         "explanation_tr": "İbadetlerin eğitici yönleri sorumluluk ve düzen bilincini destekleyebilir.",
         "activity_type": "multiple_choice",
         "options_tr": [
@@ -305,10 +305,10 @@
         "explanation_tr": "İbadetlerin eğitici yönleri sorumluluk ve düzen bilincini destekleyebilir.",
         "activity_type": "fill_blank",
         "options_tr": [
-          "kulluk",
-          "ihlas",
+          "kayıtsızlık",
+          "tembellik",
           "düzen",
-          "yöneliş"
+          "gaflet"
         ],
         "correct_answer": "düzen",
         "pairs": null,
@@ -342,10 +342,10 @@
         "explanation_tr": "Niyet kulluk davranışının bilinç ve yöneliş boyutunu güçlendirir.",
         "activity_type": "fill_blank",
         "options_tr": [
-          "kulluk",
-          "ihlas",
+          "gaflet",
+          "alışkanlık",
           "yöneliş",
-          "ibadet"
+          "gösteriş"
         ],
         "correct_answer": "yöneliş",
         "pairs": null,
@@ -376,7 +376,7 @@
     "DEEN-U11-S06-011": {
       "source": {
         "question_tr": "Hızlı tekrar: şu kavramları doğru açıklamalarıyla eşleştir: Doğru bilgi, İhlas, Oruç ve Dua.",
-        "explanation_tr": "Temizlik özellikle namaz gibi ibadetlerin hazırlığıyla bağlantılıdır.",
+        "explanation_tr": "Bu eşleştirme Doğru bilgi, İhlas, Oruç ve Dua kavramlarını temel anlamlarıyla ilişkilendirir.",
         "activity_type": "matching",
         "options_tr": null,
         "correct_answer": null,
@@ -391,7 +391,7 @@
           },
           {
             "left": "Oruç",
-            "right": "Kulluk takva sabır ve sorumluluk"
+            "right": "Kulluk, takva, sabır ve sorumluluk"
           },
           {
             "left": "Dua",
@@ -437,7 +437,7 @@
     "DEEN-U11-S06-012": {
       "source": {
         "question_tr": "Hızlı tekrar: şu kavramları doğru açıklamalarıyla eşleştir: İbadetin anlamı, Namaz, Hac ve İbadetin kaynağı.",
-        "explanation_tr": "Diyanet tefsiri ibadette şeklin vazgeçilmez niyet ve ihlasın ise öz ve ruh olduğunu belirtir.",
+        "explanation_tr": "Bu eşleştirme İbadetin anlamı, Namaz, Hac ve İbadetin kaynağı kavramlarını temel anlamlarıyla ilişkilendirir.",
         "activity_type": "matching",
         "options_tr": null,
         "correct_answer": null,
@@ -456,7 +456,7 @@
           },
           {
             "left": "İbadetin kaynağı",
-            "right": "Kur'an ve Hz. Peygamber'in sünneti temel alınarak"
+            "right": "Kur'an ve Hz. Peygamber'in sünneti"
           }
         ],
         "items": null,

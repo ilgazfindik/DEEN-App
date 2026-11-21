@@ -36,12 +36,12 @@
       "correct_answer_ar": "التكبير الذي تُفتتح به الصلاة",
       "explanation_ar": "تُذكر تكبيرة الإحرام في كتب الفقه ضمن فرائض الصلاة.",
       "source_question_tr": "İftitah tekbiri hakkında aşağıdaki ifadelerden hangisi doğrudur?",
-      "source_correct_answer_tr": "İftitah tekbiri",
+      "source_correct_answer_tr": "Namaza başlarken alınan tekbir",
       "source_options_tr": [
-        "İftar duası",
-        "Teyemmüm",
-        "İftitah tekbiri",
-        "Zekât verme"
+        "Selamdan sonra söylenen tekbir",
+        "Yalnız bayram namazına özgü tekbir",
+        "Namaza başlarken alınan tekbir",
+        "Yalnız secdede söylenen tekbir"
       ],
       "source_pairs_tr": null,
       "source_items_tr": null,
@@ -551,7 +551,7 @@
       "question_ar": "يسألك صديق عن كيفية تعلّم الصلاة. ما المعلومة الصحيحة التي تقولها له؟",
       "correct_answer_ar": "يبيّن كيفية تطبيق الأمر العام الوارد في القرآن",
       "explanation_ar": "تفاصيل الصلاة بُيّنت بتطبيق النبي ﷺ، كما في حديث: «صلّوا كما رأيتموني أصلّي».",
-      "source_question_tr": "Bir arkadaşın Namazın öğrenilmesi hakkında doğru bilgiyi soruyor. Hangisini söylersin?",
+      "source_question_tr": "Bir arkadaşın namazın öğrenilmesi hakkında doğru bilgiyi soruyor. Hangisini söylersin?",
       "source_correct_answer_tr": "Kur'an'daki genel emrin nasıl uygulanacağını gösterir",
       "source_options_tr": [
         "Namazın Kur'an'la ilgisini kaldırır",
@@ -606,11 +606,11 @@
       "correct_answer_ar": "جلوس في آخر الصلاة يُسمّى القعدة الأخيرة",
       "explanation_ar": "يُعدّ الجلوس الأخير في كتب الفقه ضمن فرائض الصلاة.",
       "source_question_tr": "Bir öğrenci “Namazın sonunda oturuş diye bir bölüm yoktur.” diyor. Bu düşünceyi hangi ifade en doğru biçimde düzeltir?",
-      "source_correct_answer_tr": "Ka'de-i ahire veya son oturuş",
+      "source_correct_answer_tr": "Namazın sonunda yapılan ve ka'de-i ahire denen oturuş",
       "source_options_tr": [
         "İmsak",
         "Teyemmüm",
-        "Ka'de-i ahire veya son oturuş",
+        "Namazın sonunda yapılan ve ka'de-i ahire denen oturuş",
         "İftitah"
       ],
       "source_pairs_tr": null,
@@ -740,13 +740,13 @@
       "question_ar": "صِل المفاهيم بتعريفاتها الصحيحة: الجلوس الأخير، تعلّم الصلاة، القيام عند العذر، والمنهج الفقهي في هذا الدرس.",
       "correct_answer_ar": null,
       "explanation_ar": "تربط هذه المطابقة بين: الجلوس الأخير، تعلّم الصلاة، القيام عند العذر، المنهج الفقهي، وما يقابلها من أركان الصلاة وأحكامها الأساسية.",
-      "source_question_tr": "Şu kavramları doğru açıklamalarıyla eşleştir: Son oturuş, Namazın öğrenilmesi, Mazerette kıyam ve Bu dersteki fıkıh yaklaşımı.",
+      "source_question_tr": "Şu kavramları doğru açıklamalarıyla eşleştir: Son oturuş, Namazın öğrenilmesi, Mazerette kıyam ve bu dersteki fıkıh yaklaşımı.",
       "source_correct_answer_tr": null,
       "source_options_tr": null,
       "source_pairs_tr": [
         {
           "left": "Son oturuş",
-          "right": "Ka'de-i ahire veya son oturuş"
+          "right": "Namazın sonunda yapılan ve ka'de-i ahire denen oturuş"
         },
         {
           "left": "Namazın öğrenilmesi",
@@ -758,7 +758,7 @@
         },
         {
           "left": "Fıkıh yaklaşımı",
-          "right": "Ortak rükünleri öğretir geçerli teknik farklılıkları yanlış diye puanlamaz"
+          "right": "Ortak rükünleri öğretir; geçerli teknik farklılıkları yanlış diye puanlamaz"
         }
       ],
       "source_items_tr": null,
@@ -797,7 +797,7 @@
       "source_pairs_tr": [
         {
           "left": "İki secde",
-          "right": "İki secde yapılır"
+          "right": "Her rekâtta iki kez yere kapanmak"
         },
         {
           "left": "Secdeler arası oturuş",
@@ -809,7 +809,7 @@
         },
         {
           "left": "Kıyam",
-          "right": "Namazda ayakta durmayı"
+          "right": "Namazda gücü yetenin ayakta durması"
         }
       ],
       "source_items_tr": null,
@@ -903,15 +903,15 @@
         },
         {
           "left": "Fıkıh yaklaşımı",
-          "right": "Ortak rükünleri öğretir geçerli teknik farklılıkları yanlış diye puanlamaz"
+          "right": "Ortak rükünleri öğretir; geçerli teknik farklılıkları yanlış diye puanlamaz"
         },
         {
           "left": "Kıraat",
-          "right": "Kur'an'dan okumayı"
+          "right": "Kıyamda Kur'an'dan okumak"
         },
         {
           "left": "Son oturuş",
-          "right": "Ka'de-i ahire veya son oturuş"
+          "right": "Namazın sonunda yapılan ve ka'de-i ahire denen oturuş"
         }
       ],
       "source_items_tr": null,
@@ -954,7 +954,7 @@
         },
         {
           "left": "Kıyam",
-          "right": "Namazda ayakta durmayı"
+          "right": "Namazda gücü yetenin ayakta durması"
         },
         {
           "left": "Secde",
@@ -962,7 +962,7 @@
         },
         {
           "left": "İki secde",
-          "right": "İki secde yapılır"
+          "right": "Her rekâtta iki kez yere kapanmak"
         }
       ],
       "source_items_tr": null,
@@ -1263,12 +1263,12 @@
       "correct_answer_ar": "التكبير الذي تُفتتح به الصلاة",
       "explanation_ar": "تُذكر تكبيرة الإحرام في كتب الفقه ضمن فرائض الصلاة.",
       "source_question_tr": "İftitah tekbiri konusunda aşağıdaki ifadelerden hangisi ortak temeli doğru yansıtır?",
-      "source_correct_answer_tr": "İftitah tekbiri",
+      "source_correct_answer_tr": "Namaza başlarken alınan tekbir",
       "source_options_tr": [
-        "İftar duası",
-        "Teyemmüm",
-        "İftitah tekbiri",
-        "Zekât verme"
+        "Selamdan sonra söylenen tekbir",
+        "Yalnız bayram namazına özgü tekbir",
+        "Namaza başlarken alınan tekbir",
+        "Yalnız secdede söylenen tekbir"
       ],
       "source_pairs_tr": null,
       "source_items_tr": null,
@@ -1289,7 +1289,7 @@
       "question_ar": "يسألك صديق عن الركعة. ما المعلومة الصحيحة التي تقولها له؟",
       "correct_answer_ar": "الوحدة الأساسية في الصلاة التي تشتمل على القيام والقراءة والركوع والسجود",
       "explanation_ar": "الركعة هي الوحدة الأساسية المتكررة في الصلاة.",
-      "source_question_tr": "Bir arkadaşın Rekât hakkında doğru bilgiyi soruyor. Hangisini söylersin?",
+      "source_question_tr": "Bir arkadaşın rekât hakkında doğru bilgiyi soruyor. Hangisini söylersin?",
       "source_correct_answer_tr": "Namaz içinde kıyam, kıraat, rükû ve secdeleri içeren temel bölüm",
       "source_options_tr": [
         "Namaz vaktinin adı",
@@ -1397,13 +1397,13 @@
       "question_ar": "يسألك صديق عن تكبيرة الإحرام. ما المعلومة الصحيحة التي تقولها له؟",
       "correct_answer_ar": "التكبير الذي تُفتتح به الصلاة",
       "explanation_ar": "تُذكر تكبيرة الإحرام في كتب الفقه ضمن فرائض الصلاة.",
-      "source_question_tr": "Bir arkadaşın İftitah tekbiri hakkında doğru bilgiyi soruyor. Hangisini söylersin?",
-      "source_correct_answer_tr": "İftitah tekbiri",
+      "source_question_tr": "Bir arkadaşın iftitah tekbiri hakkında doğru bilgiyi soruyor. Hangisini söylersin?",
+      "source_correct_answer_tr": "Namaza başlarken alınan tekbir",
       "source_options_tr": [
-        "İftar duası",
-        "Teyemmüm",
-        "İftitah tekbiri",
-        "Zekât verme"
+        "Selamdan sonra söylenen tekbir",
+        "Yalnız bayram namazına özgü tekbir",
+        "Namaza başlarken alınan tekbir",
+        "Yalnız secdede söylenen tekbir"
       ],
       "source_pairs_tr": null,
       "source_items_tr": null,
@@ -1533,12 +1533,12 @@
       "correct_answer_ar": "تُفتتح الصلاة بتكبيرة الإحرام",
       "explanation_ar": "تُذكر تكبيرة الإحرام في كتب الفقه ضمن فرائض الصلاة.",
       "source_question_tr": "“Namazın başlangıcında iftitah tekbirinin hiçbir yeri yoktur.” ifadesindeki hatayı hangi seçenek düzeltir?",
-      "source_correct_answer_tr": "İftitah tekbiri",
+      "source_correct_answer_tr": "Namaza iftitah tekbiriyle başlanır",
       "source_options_tr": [
-        "İftar duası",
-        "Teyemmüm",
-        "İftitah tekbiri",
-        "Zekât verme"
+        "Namaz iftitah tekbiriyle bitirilir",
+        "İftitah tekbiri yalnız bayram namazına özgüdür",
+        "Namaza iftitah tekbiriyle başlanır",
+        "İftitah tekbiri yalnız secdede söylenir"
       ],
       "source_pairs_tr": null,
       "source_items_tr": null,
@@ -1820,7 +1820,7 @@
       "question_ar": "أي عبارة تعكس القدر المشترك الصحيح بشأن القيام؟",
       "correct_answer_ar": "الوقوف في الصلاة للقادر عليه",
       "explanation_ar": "القيام ركن يتعلق بوقوف القادر في الصلاة المفروضة.",
-      "source_question_tr": "Kıyam konusunda aşağıdaki ifadelerden hangisi ortak temeli doğru yansıtır?",
+      "source_question_tr": "Kıyam namazda neyi ifade eder?",
       "source_correct_answer_tr": "Namazda ayakta durmayı",
       "source_options_tr": [
         "Secdeyi",
@@ -1847,7 +1847,7 @@
       "question_ar": "يسألك صديق عن السجدتين في الركعة. ما المعلومة الصحيحة التي تقولها له؟",
       "correct_answer_ar": "تُؤدَّى سجدتان",
       "explanation_ar": "في السنة العملية المستقرة للصلاة سجدتان في كل ركعة.",
-      "source_question_tr": "Bir arkadaşın İki secde hakkında doğru bilgiyi soruyor. Hangisini söylersin?",
+      "source_question_tr": "Bir arkadaşın iki secde hakkında doğru bilgiyi soruyor. Hangisini söylersin?",
       "source_correct_answer_tr": "İki secde yapılır",
       "source_options_tr": [
         "Hiç secde yapılmaz",
@@ -2118,11 +2118,11 @@
       "correct_answer_ar": "جلوس في آخر الصلاة يُسمّى القعدة الأخيرة",
       "explanation_ar": "يُعدّ الجلوس الأخير في كتب الفقه ضمن فرائض الصلاة.",
       "source_question_tr": "Hızlı tekrar: Son oturuş konusunda doğru ifade hangisidir?",
-      "source_correct_answer_tr": "Ka'de-i ahire veya son oturuş",
+      "source_correct_answer_tr": "Namazın sonunda yapılan ve ka'de-i ahire denen oturuş",
       "source_options_tr": [
         "İmsak",
         "Teyemmüm",
-        "Ka'de-i ahire veya son oturuş",
+        "Namazın sonunda yapılan ve ka'de-i ahire denen oturuş",
         "İftitah"
       ],
       "source_pairs_tr": null,
@@ -2171,7 +2171,7 @@
       "question_ar": "أي عبارة صحيحة عن القراءة في الصلاة؟",
       "correct_answer_ar": "تلاوة شيء من القرآن في القيام",
       "explanation_ar": "القراءة في الصلاة هي ركن تلاوة شيء من القرآن في القيام.",
-      "source_question_tr": "Kıraat hakkında aşağıdaki ifadelerden hangisi doğrudur?",
+      "source_question_tr": "Kıraat namazda neyi ifade eder?",
       "source_correct_answer_tr": "Kur'an'dan okumayı",
       "source_options_tr": [
         "Sadece sessiz durmayı",
@@ -2335,7 +2335,7 @@
         },
         {
           "left": "Kıyam",
-          "right": "Namazda ayakta durmayı"
+          "right": "Namazda gücü yetenin ayakta durması"
         },
         {
           "left": "Secde",
@@ -2343,7 +2343,7 @@
         },
         {
           "left": "İki secde",
-          "right": "İki secde yapılır"
+          "right": "Her rekâtta iki kez yere kapanmak"
         }
       ],
       "source_items_tr": null,
@@ -2482,11 +2482,11 @@
       "correct_answer_ar": "جلوس في آخر الصلاة يُسمّى القعدة الأخيرة",
       "explanation_ar": "يُعدّ الجلوس الأخير في كتب الفقه ضمن فرائض الصلاة.",
       "source_question_tr": "Son oturuş hakkında aşağıdaki ifadelerden hangisi doğrudur?",
-      "source_correct_answer_tr": "Ka'de-i ahire veya son oturuş",
+      "source_correct_answer_tr": "Namazın sonunda yapılan ve ka'de-i ahire denen oturuş",
       "source_options_tr": [
         "İmsak",
         "Teyemmüm",
-        "Ka'de-i ahire veya son oturuş",
+        "Namazın sonunda yapılan ve ka'de-i ahire denen oturuş",
         "İftitah"
       ],
       "source_pairs_tr": null,
@@ -2589,7 +2589,7 @@
       "question_ar": "مراجعة قصيرة - تحدٍّ: يسألك صديق عن المنهج الفقهي الصحيح في هذا الدرس. ماذا تقول له؟",
       "correct_answer_ar": "يعلّم الأركان المشتركة ولا يعدّ الفروق الفنية المذهبية المعتبرة إجابات خاطئة",
       "explanation_ar": "يعلّم هذا التطبيق البنية المشتركة للصلاة ولا يعامل الفروق الفنية المذهبية المعتبرة كأن هناك مذهبًا واحدًا صحيحًا فقط.",
-      "source_question_tr": "Kısa kontrol: challenge: bir arkadaşın Bu dersteki fıkıh yaklaşımı hakkında doğru bilgiyi soruyor. Hangisini söylersin?",
+      "source_question_tr": "Kısa kontrol: challenge: bir arkadaşın bu dersteki fıkıh yaklaşımı hakkında doğru bilgiyi soruyor. Hangisini söylersin?",
       "source_correct_answer_tr": "Ortak rükünleri öğretir geçerli teknik farklılıkları yanlış diye puanlamaz",
       "source_options_tr": [
         "Tek bir mezhebi bütün Müslümanlar için tek doğru ilan eder",
@@ -2617,11 +2617,11 @@
       "correct_answer_ar": "جلوس في آخر الصلاة يُسمّى القعدة الأخيرة",
       "explanation_ar": "يُعدّ الجلوس الأخير في كتب الفقه ضمن فرائض الصلاة.",
       "source_question_tr": "“Namazın sonunda oturuş diye bir bölüm yoktur.” ifadesindeki hatayı hangi seçenek düzeltir?",
-      "source_correct_answer_tr": "Ka'de-i ahire veya son oturuş",
+      "source_correct_answer_tr": "Namazın sonunda yapılan ve ka'de-i ahire denen oturuş",
       "source_options_tr": [
         "İmsak",
         "Teyemmüm",
-        "Ka'de-i ahire veya son oturuş",
+        "Namazın sonunda yapılan ve ka'de-i ahire denen oturuş",
         "İftitah"
       ],
       "source_pairs_tr": null,
@@ -2708,7 +2708,7 @@
       "source_pairs_tr": [
         {
           "left": "Kıyam",
-          "right": "Namazda ayakta durmayı"
+          "right": "Namazda gücü yetenin ayakta durması"
         },
         {
           "left": "Secde",
@@ -2716,7 +2716,7 @@
         },
         {
           "left": "İki secde",
-          "right": "İki secde yapılır"
+          "right": "Her rekâtta iki kez yere kapanmak"
         },
         {
           "left": "Secdeler arası oturuş",
@@ -2754,12 +2754,12 @@
       "correct_answer_ar": "القعدة الأخيرة",
       "explanation_ar": "يُعدّ الجلوس الأخير في كتب الفقه ضمن فرائض الصلاة.",
       "source_question_tr": "Boşluğu tamamla: Namazın sonundaki oturuşa ___ denir.",
-      "source_correct_answer_tr": "son oturuş",
+      "source_correct_answer_tr": "ka'de-i ahire",
       "source_options_tr": [
         "iftitah",
-        "ayakta",
-        "son oturuş",
-        "okumayı"
+        "kıyam",
+        "ka'de-i ahire",
+        "kıraat"
       ],
       "source_pairs_tr": null,
       "source_items_tr": null,
