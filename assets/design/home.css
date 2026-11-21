@@ -207,3 +207,20 @@ html body:has(#learnScreen.active) #phone{background:radial-gradient(70% 38% at 
 /* the little 1-2-3 bubbles of today's plan */
 html body #learnScreen #v5Return section.lp-return .v680-step.current>span:not(#a):not(#b):not(#c){background:linear-gradient(180deg,#f9e7b4,#e2b95f)!important;border-color:#fff3cf!important;color:#16122f!important}
 html body #learnScreen #v5Return section.lp-return .v680-step:not(.current)>span:not(#a):not(#b):not(#c){background:#16264d!important;border-color:rgba(150,175,255,.4)!important;color:#dfe7ff!important}
+
+/* Home, the last teal leftovers: top-bar energy bolt, kicker + swoosh of the best-next-step card, today's-plan glow,
+   the path nodes / rings / numbers and the current stage card now use the indigo + gold palette. */
+html body .stat-icon.energy:not(#a):not(#b){color:#8fbcff!important}
+html body #learnScreen :is(.v680-kicker,.ds-nba-ico):not(#a):not(#b):not(#c){color:#f2cf84!important}
+html body #learnScreen .ds-swoosh:not(#a):not(#b):not(#c){color:#f2cf84!important;background:linear-gradient(90deg,transparent,#f2cf84,transparent)!important}
+html body #learnScreen #v5Return section.lp-return .v680-step.current:not(#a):not(#b){box-shadow:0 0 0 1px rgba(242,207,132,.3),0 8px 22px rgba(242,207,132,.2)!important}
+html body #learnScreen .lp-node.v630-macro-node:not(#a):not(#b):not(#c){color:#dfe7ff!important;box-shadow:0 5px 0 #23387d,0 0 0 1px rgba(150,175,255,.2)!important}
+html body #learnScreen .lp-node.v630-macro-node.current:not(#a):not(#b):not(#c){box-shadow:0 5px 0 #a8823a,0 0 22px rgba(242,207,132,.32)!important}
+html body #learnScreen :is(.lp-ring,.v625-orbit):not(#a):not(#b):not(#c){color:#f2cf84!important;border-color:rgba(242,207,132,.75)!important}
+html body #learnScreen .deen-stage-icon:not(#a):not(#b):not(#c){color:#dfe7ff!important}
+html body #learnScreen .v630-num:not(#a):not(#b):not(#c){background:#16264d!important;color:#dfe7ff!important;border-color:rgba(150,175,255,.4)!important}
+html body #learnScreen .deen-stage-card.v630-stage-card.current:not(#a):not(#b):not(#c){border-color:rgba(242,207,132,.6)!important;box-shadow:0 0 0 1px rgba(242,207,132,.16),0 14px 30px rgba(4,10,28,.4)!important}
+html body #learnScreen :is(.hero-count,.v630-progress,.v630-dots,.chev):not(#a):not(#b):not(#c){color:#aab8e0!important}
+html body #learnScreen .deen-stage-card.v630-stage-card:not(.current):not(#a):not(#b):not(#c){background:linear-gradient(170deg,#1b2c52,#13203f)!important;border-color:rgba(150,175,255,.3)!important}
+html body #learnScreen .v630-macro-role:not(#a):not(#b)::before{background:currentColor!important;box-shadow:none!important}
+html body #learnScreen .lp-node.v630-macro-node.current .lp-ring:not(#a):not(#b),html body #learnScreen .lp-node.v630-macro-node.current:not(#a):not(#b)::after{box-shadow:0 0 22px rgba(242,207,132,.35)!important}
