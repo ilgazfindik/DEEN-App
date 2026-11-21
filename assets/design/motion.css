@@ -757,3 +757,13 @@ html body #lesson .question-frame .deen-character-question-avatar:is(.v9944-reac
 #dsCelebrate video{width:100%;height:100%;object-fit:contain;background:#050b18}
 #dsCelebrate .ds-cv-skip{position:absolute;top:calc(env(safe-area-inset-top,0px) + 14px);right:14px;min-height:40px;padding:0 18px;border-radius:999px;border:1px solid rgba(150,175,255,.4);background:rgba(12,26,51,.72);color:#eef2ff;font:800 14px/1 Nunito,system-ui,sans-serif;cursor:pointer}
 .ds-celebrate-settings small{display:block}
+
+/* Result screen: the percentage is a plain gold number (the old 106 px ring was too small for "100%" and sat off to the side),
+   and the long extra stats block of the stage-complete screen stays hidden like the other extras. */
+html body #lesson #resultView.show #resultPct{display:block!important;width:auto!important;height:auto!important;min-width:0!important;max-width:100%!important;padding:0!important;border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important;-webkit-mask:none!important;mask:none!important;text-align:center!important;white-space:nowrap!important;font-size:72px!important}
+html body #lesson #resultView.show #resultPct::before,html body #lesson #resultView.show #resultPct::after{content:none!important;display:none!important}
+html body #lesson #resultView.show #v5ResultExtra,html body #lesson #resultView.show .v5-result-extra,html body #lesson #resultView.show .final-result-extra{display:none!important}
+
+/* The action button of a question ("Hatayı işaretle", "Kontrol Et") stays on screen at the bottom of the frame,
+   so a long question never hides it below the fold. */
+html body #lesson #quizView .question-frame:not(.v730-correct):not(.v730-wrong):not(.v9945-feedback-mode) #answerArea>.template-action{position:sticky!important;bottom:10px!important;z-index:6!important;box-shadow:0 0 0 10px rgba(9,20,38,.92),0 -18px 22px 8px rgba(9,20,38,.92)!important}
