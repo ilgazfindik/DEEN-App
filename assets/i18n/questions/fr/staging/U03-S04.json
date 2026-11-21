@@ -30,18 +30,18 @@
       },
       "display": {
         "question_tr": "Remets le texte de la chahada dans le bon ordre.",
-        "explanation_tr": "La chahada commence par « Eşhedü en lâ ilâhe illallah » et se poursuit par « ve eşhedü enne Muhammeden abdühû ve resûlüh ».",
+        "explanation_tr": "La chahada commence par « Ashhadu an la ilaha illallah » et se poursuit par « wa ashhadu anna Muhammadan abduhu wa rasuluh ».",
         "activity_type": "build_sequence",
         "options_tr": null,
         "correct_answer": null,
         "pairs": null,
         "items": [
-          "ve eşhedü enne Muhammeden abdühû ve resûlüh",
-          "Eşhedü en lâ ilâhe illallah"
+          "wa ashhadu anna Muhammadan abduhu wa rasuluh",
+          "Ashhadu an la ilaha illallah"
         ],
         "correct_order": [
-          "Eşhedü en lâ ilâhe illallah",
-          "ve eşhedü enne Muhammeden abdühû ve resûlüh"
+          "Ashhadu an la ilaha illallah",
+          "wa ashhadu anna Muhammadan abduhu wa rasuluh"
         ],
         "stage_title": "Reconstituer la chahada",
         "topic": "Ordre des mots et sens"
@@ -67,16 +67,16 @@
         "correct_order": null
       },
       "display": {
-        "question_tr": "Complète : « ...ve eşhedü enne Muhammeden _________ ve resûlüh »",
-        "explanation_tr": "Dans le texte standard, le mot qui suit « Muhammeden » est « abdühû ».",
+        "question_tr": "Complète : « ...wa ashhadu anna Muhammadan _________ wa rasuluh »",
+        "explanation_tr": "Dans le texte standard, le mot qui suit « Muhammadan » est « abduhu ».",
         "activity_type": "next_word",
         "options_tr": [
-          "abdühû",
+          "abduhu",
           "illallah",
-          "eşhedü",
-          "Muhammeden"
+          "ashhadu",
+          "Muhammadan"
         ],
-        "correct_answer": "abdühû",
+        "correct_answer": "abduhu",
         "pairs": null,
         "items": null,
         "correct_order": null,
@@ -104,14 +104,14 @@
         "correct_order": null
       },
       "display": {
-        "question_tr": "Complète la partie manquante : « Eşhedü en lâ ilâhe _____ »",
-        "explanation_tr": "La première partie du texte standard est « Eşhedü en lâ ilâhe illallah ».",
+        "question_tr": "Complète la partie manquante : « Ashhadu an la ilaha _____ »",
+        "explanation_tr": "La première partie du texte standard est « Ashhadu an la ilaha illallah ».",
         "activity_type": "missing_item",
         "options_tr": [
           "illallah",
-          "resûlüh",
-          "Muhammeden",
-          "eşhedü"
+          "rasuluh",
+          "Muhammadan",
+          "ashhadu"
         ],
         "correct_answer": "illallah",
         "pairs": null,
@@ -145,19 +145,19 @@
       },
       "display": {
         "question_tr": "Remets dans l’ordre les mots de la première partie de la chahada (le tawhid).",
-        "explanation_tr": "Cette partie commence par « Eşhedü » (« j’atteste »), puis « en lâ ilâhe », et se termine par « illallah ».",
+        "explanation_tr": "Cette partie commence par « Ashhadu » (« j’atteste »), puis « an la ilaha », et se termine par « illallah ».",
         "activity_type": "build_sequence",
         "options_tr": null,
         "correct_answer": null,
         "pairs": null,
         "items": [
           "illallah",
-          "Eşhedü",
-          "en lâ ilâhe"
+          "Ashhadu",
+          "an la ilaha"
         ],
         "correct_order": [
-          "Eşhedü",
-          "en lâ ilâhe",
+          "Ashhadu",
+          "an la ilaha",
           "illallah"
         ],
         "stage_title": "Reconstituer la chahada",
@@ -184,16 +184,16 @@
         "correct_order": null
       },
       "display": {
-        "question_tr": "Complète : « Eşhedü en lâ ilâhe illallah _________ eşhedü enne Muhammeden abdühû ve resûlüh »",
+        "question_tr": "Complète : « Ashhadu an la ilaha illallah _________ ashhadu anna Muhammadan abduhu wa rasuluh »",
         "explanation_tr": "La conjonction « ve » (« et ») relie les deux témoignages.",
         "activity_type": "next_word",
         "options_tr": [
-          "ve",
-          "lâ",
-          "en",
-          "enne"
+          "wa",
+          "la",
+          "an",
+          "anna"
         ],
-        "correct_answer": "ve",
+        "correct_answer": "wa",
         "pairs": null,
         "items": null,
         "correct_order": null,
@@ -264,16 +264,16 @@
         "correct_order": null
       },
       "display": {
-        "question_tr": "Complète : « _____ en lâ ilâhe illallah »",
-        "explanation_tr": "Le texte standard commence par « Eşhedü ».",
+        "question_tr": "Complète : « _____ an la ilaha illallah »",
+        "explanation_tr": "Le texte standard commence par « Ashhadu ».",
         "activity_type": "missing_item",
         "options_tr": [
-          "Eşhedü",
+          "Ashhadu",
           "Resûlüh",
-          "Muhammeden",
-          "Enne"
+          "Muhammadan",
+          "Anna"
         ],
-        "correct_answer": "Eşhedü",
+        "correct_answer": "Ashhadu",
         "pairs": null,
         "items": null,
         "correct_order": null,
@@ -307,22 +307,22 @@
       },
       "display": {
         "question_tr": "Remets dans l’ordre les éléments de la seconde partie de la chahada.",
-        "explanation_tr": "La seconde partie se compose dans l’ordre de « ve eşhedü », « enne Muhammeden », « abdühû ve », puis « resûlüh ».",
+        "explanation_tr": "La seconde partie se compose dans l’ordre de « wa ashhadu », « anna Muhammadan », « abduhu wa », puis « rasuluh ».",
         "activity_type": "build_sequence",
         "options_tr": null,
         "correct_answer": null,
         "pairs": null,
         "items": [
-          "resûlüh",
-          "ve eşhedü",
-          "abdühû ve",
-          "enne Muhammeden"
+          "rasuluh",
+          "wa ashhadu",
+          "abduhu wa",
+          "anna Muhammadan"
         ],
         "correct_order": [
-          "ve eşhedü",
-          "enne Muhammeden",
-          "abdühû ve",
-          "resûlüh"
+          "wa ashhadu",
+          "anna Muhammadan",
+          "abduhu wa",
+          "rasuluh"
         ],
         "stage_title": "Reconstituer la chahada",
         "topic": "Ordre des mots et sens"
@@ -348,16 +348,16 @@
         "correct_order": null
       },
       "display": {
-        "question_tr": "Complète : « ve eşhedü enne _________ abdühû ve resûlüh »",
+        "question_tr": "Complète : « wa ashhadu anna _________ abduhu wa rasuluh »",
         "explanation_tr": "La seconde partie déclare que Muhammad est le serviteur et le messager d’Allah.",
         "activity_type": "next_word",
         "options_tr": [
-          "Muhammeden",
+          "Muhammadan",
           "illallah",
-          "eşhedü",
-          "abdühû"
+          "ashhadu",
+          "abduhu"
         ],
-        "correct_answer": "Muhammeden",
+        "correct_answer": "Muhammadan",
         "pairs": null,
         "items": null,
         "correct_order": null,
@@ -424,16 +424,16 @@
         "correct_answer": null,
         "pairs": null,
         "items": [
-          "abdühû ve resûlüh",
-          "Eşhedü en lâ ilâhe",
-          "ve eşhedü enne Muhammeden",
+          "abduhu wa rasuluh",
+          "Ashhadu an la ilaha",
+          "wa ashhadu anna Muhammadan",
           "illallah"
         ],
         "correct_order": [
-          "Eşhedü en lâ ilâhe",
+          "Ashhadu an la ilaha",
           "illallah",
-          "ve eşhedü enne Muhammeden",
-          "abdühû ve resûlüh"
+          "wa ashhadu anna Muhammadan",
+          "abduhu wa rasuluh"
         ],
         "stage_title": "Reconstituer la chahada",
         "topic": "Ordre des mots et sens"
@@ -459,16 +459,16 @@
         "correct_order": null
       },
       "display": {
-        "question_tr": "Complète : « Eşhedü en _________ ilâhe illallah »",
+        "question_tr": "Complète : « Ashhadu en _________ ilaha illallah »",
         "explanation_tr": "« Lâ » marque la négation et indique ici qu’il n’y a pas d’autre divinité qu’Allah.",
         "activity_type": "next_word",
         "options_tr": [
-          "lâ",
-          "ve",
-          "enne",
-          "resul"
+          "la",
+          "wa",
+          "anna",
+          "rasul"
         ],
-        "correct_answer": "lâ",
+        "correct_answer": "la",
         "pairs": null,
         "items": null,
         "correct_order": null,
@@ -497,15 +497,15 @@
       },
       "display": {
         "question_tr": "Révision rapide : quelle formule introduit le second témoignage dans la chahada ?",
-        "explanation_tr": "« Ve eşhedü » introduit le témoignage que Muhammad est le serviteur et le messager d’Allah.",
+        "explanation_tr": "« Wa ashhadu » introduit le témoignage que Muhammad est le serviteur et le messager d’Allah.",
         "activity_type": "speed_review",
         "options_tr": [
-          "ve eşhedü",
+          "wa ashhadu",
           "illallah",
-          "Muhammeden",
-          "resûlüh"
+          "Muhammadan",
+          "rasuluh"
         ],
-        "correct_answer": "ve eşhedü",
+        "correct_answer": "wa ashhadu",
         "pairs": null,
         "items": null,
         "correct_order": null,
@@ -579,22 +579,22 @@
       },
       "display": {
         "question_tr": "Associe les expressions arabes translittérées à leur signification française.",
-        "explanation_tr": "« Eşhedü » signifie « j’atteste » ; « lâ ilâhe illallah » signifie « il n’y a de divinité qu’Allah » ; la dernière expression concerne Muhammad, serviteur et messager d’Allah.",
+        "explanation_tr": "« Ashhadu » signifie « j’atteste » ; « la ilaha illallah » signifie « il n’y a de divinité qu’Allah » ; la dernière expression concerne Muhammad, serviteur et messager d’Allah.",
         "activity_type": "matching",
         "options_tr": null,
         "correct_answer": null,
         "pairs": [
           {
-            "left": "Eşhedü",
+            "left": "Ashhadu",
             "right": "J’atteste"
           },
           {
-            "left": "Lâ ilâhe illallah",
+            "left": "La ilaha illallah",
             "right": "Il n’y a de divinité qu’Allah"
           },
           {
-            "left": "Muhammeden abdühû ve resûlüh",
-            "right": "Muhammad est le messager d’Allah"
+            "left": "Muhammadan abduhu wa rasuluh",
+            "right": "Muhammad est Son serviteur et Son messager"
           }
         ],
         "items": null,
@@ -628,9 +628,9 @@
         "activity_type": "error_spotting",
         "options_tr": [
           "« illallah » → Muhammad, serviteur et messager d’Allah",
-          "« Lâ ilâhe illallah » → tawhid",
-          "« Muhammeden abdühû ve resûlüh » → Muhammad, serviteur et messager d’Allah",
-          "« Eşhedü » → j’atteste"
+          "« La ilaha illallah » → tawhid",
+          "« Muhammadan abduhu wa rasuluh » → Muhammad, serviteur et messager d’Allah",
+          "« Ashhadu » → j’atteste"
         ],
         "correct_answer": "« illallah » → Muhammad, serviteur et messager d’Allah",
         "pairs": null,
