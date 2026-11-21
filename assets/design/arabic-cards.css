@@ -186,3 +186,50 @@ html:has(#deenMobileAdminButton) .dac-top{padding-right:74px}
 .dac-slots.is-seq,.dac-tiles.is-seq{flex-direction:column;align-items:stretch}
 .dac-tile.is-ayah{width:100%;font-size:22px!important;line-height:1.9!important;padding:6px 12px!important}
 .dac-hear.is-playing{background:#ffd978!important;color:#3d2c08!important}
+
+/* === indigo + gold palette overrides (generated from the rules above) === */
+html body .dac{background:radial-gradient(120% 60% at 50% 0%,#1a1f3a 0%,#0c0c1d 62%)!important}
+html body .dac-bar{background:#21233e!important}
+html body .dac-bar i{background:linear-gradient(90deg,#6597d7,#9bc2f0)!important}
+html body .dac-tag.is-rule{background:rgba(155,194,240,.12)!important;color:#9bc2f0!important}
+html body .dac-card{background:linear-gradient(180deg,#1c1d39,#15162c)!important;box-shadow:0 8px 0 #0d0e20!important}
+html body .dac-hear{background:rgba(101,151,215,.13)!important;color:#9bc2f0!important}
+html body .dac-vs b.is-hi{color:#9bc2f0!important}
+html body .dac-listen{background:linear-gradient(180deg,#77a7e5,#5484c3)!important;color:#101e33!important;box-shadow:0 7px 0 #375b8a!important}
+html body .dac-listen:active{box-shadow:0 2px 0 #375b8a!important}
+html body .dac-opt{background:#15162c!important;border:2px solid #2e2f4a!important;box-shadow:0 5px 0 #1e2035!important}
+html body .dac-opt:active{box-shadow:0 2px 0 #1e2035!important}
+html body .dac-cta{background:linear-gradient(180deg,#7eace8,#598ac9)!important;color:#101e33!important;box-shadow:0 5px 0 #375b8a!important}
+html body .dac-cta:active{box-shadow:0 1px 0 #375b8a!important}
+html body .dac-cta:disabled{background:#25273d!important;color:#646c7b!important;box-shadow:0 5px 0 #1a1a2d!important}
+html body .dac-learned button{background:#15162c!important}
+html body .dac-stat small{color:#0f182a!important}
+html body .dac-stat span{background:#0c0c1d!important}
+html body .dac-quit{background:rgba(5,5,14,.7)!important}
+html body .dac-quit-card{background:#15162c!important}
+html body .dac-parts{color:#9bc2f0!important}
+html body .dac-slots{border-bottom:2px solid #2e2f4a!important}
+html body .dac-intro-pet{background:radial-gradient(circle at 50% 45%,rgba(155,194,240,.28),rgba(101,151,215,.08) 55%,transparent 70%)!important}
+html body .dac-intro-pet::before{border:2px dashed rgba(155,194,240,.25)!important}
+html body .dac-intro-chip{background:linear-gradient(180deg,#1f2141,#161730)!important;box-shadow:0 5px 0 #0d0e20!important}
+html body .dac-intro-meta svg{color:#9bc2f0!important}
+html body .dac.is-launch::after,html body .dac.is-enter::after{background:radial-gradient(circle,#9bc2f0,#6597d7 60%,#3f669d)!important}
+html body .dac-blank{border-bottom:3px dashed #6597d7!important}
+/* hand-tuned surfaces: the same navy / gold the rest of the game uses */
+html body .dac{background:radial-gradient(70% 30% at 90% 0%,rgba(242,207,132,.1),transparent 70%),radial-gradient(80% 40% at 10% 100%,rgba(122,108,255,.14),transparent 70%),linear-gradient(180deg,#14213f,#0c1a33 55%,#091426)!important}
+html body .dac-bar{background:rgba(150,175,255,.16)!important}
+html body .dac-bar i{background:linear-gradient(90deg,#5aa9ff,#b48cff)!important}
+html body .dac-x{color:#aab8e0!important}
+html body .dac-card,html body .dac-learned button,html body .dac-intro-chip,html body .dac-quit-card{background:linear-gradient(170deg,#1b2c52,#13203f)!important;border:1px solid rgba(150,175,255,.3)!important;box-shadow:0 8px 0 #0d1735!important}
+html body .dac-opt{background:linear-gradient(170deg,#1b2c52,#13203f)!important;border:2px solid rgba(150,175,255,.3)!important;box-shadow:0 5px 0 #0d1735!important}
+html body .dac-opt:active{box-shadow:0 2px 0 #0d1735!important}
+html body .dac-opt.is-sel{border-color:#f2cf84!important;background:linear-gradient(170deg,#2a3560,#1b2750)!important;box-shadow:0 5px 0 #a8823a!important}
+html body .dac-cta{background:linear-gradient(180deg,#f9e7b4,#e2b95f)!important;color:#16122f!important;box-shadow:0 5px 0 #a8823a!important}
+html body .dac-cta:disabled{background:rgba(150,175,255,.14)!important;color:#7d8bb8!important;box-shadow:0 5px 0 #0d1735!important}
+html body .dac-listen{background:linear-gradient(180deg,#f9e7b4,#e2b95f)!important;color:#16122f!important;box-shadow:0 7px 0 #a8823a!important}
+html body .dac-hear{background:rgba(242,207,132,.14)!important;color:#f2cf84!important}
+html body .dac-foot{border-top:1px solid rgba(150,175,255,.18)!important}
+html body .dac-tip,html body .dac-verse p{color:#c8d4f5!important}
+html body .dac :is(.dac-hint,.dac-sub,.dac-vs div,.dac-rows em,.dac-arrow,.dac-ne,.dac-verse small,.dac-quit-card p){color:#9db0e0!important}
+html body .dac-tag.is-rule,html body .dac-parts,html body .dac-vs b.is-hi{color:#9db4ff!important}
+html body .dac-cta.is-bad{background:linear-gradient(180deg,#f7ada2,#ee8a7d)!important;color:#3a0f0a!important;box-shadow:0 5px 0 #a6564c!important}
