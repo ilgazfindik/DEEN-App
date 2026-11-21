@@ -545,7 +545,7 @@ html:lang(ar) #lesson .v960-narration-bar{position:relative!important;z-index:3!
  async function preload(){
   pilot.loading=true;pilot.failure='';pilot.ready=false;pilot.loadedFiles=0;
   try{
-   const token='9390cssarabic1';
+   const token='9601xarq2';
    const unitJobs=[];
    for(let u=1;u<=15;u++){
     unitJobs.push(fetchJson('./assets/i18n/questions/ar/units/U'+pad(u)+'.json?v='+token));
