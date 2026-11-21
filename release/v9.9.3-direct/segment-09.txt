@@ -635,7 +635,9 @@ function renderFillBlank(q,area){
  cta.onclick=()=>{
    if(document.getElementById('feedback').classList.contains('show'))return;
    const value=inp.value.trim();
-   const correct=normalize(value)===normalize(q.correct_answer);
+   /* typed Arabic answers: harakat, tatweel, alef/hamza forms, ta marbuta, alef maqsura and a case-ending alif do not decide the answer */
+   const arFold=x=>normalize(x).normalize('NFKD').replace(/[\u064B-\u065F\u0670\u06D6-\u06ED\u0640]/g,'').replace(/[إأآٱ]/g,'ا').replace(/ى/g,'ي').replace(/ة/g,'ه').replace(/[«»،؛؟]/g,'').replace(/\s+/g,' ').trim().split(' ').map(w=>w.length>3&&w.endsWith('ا')?w.slice(0,-1):w).join(' ');
+   const correct=normalize(value)===normalize(q.correct_answer)||(/[\u0600-\u06FF]/.test(String(q.correct_answer||''))&&arFold(value)===arFold(q.correct_answer));
    inp.disabled=true;
    inp.classList.add(correct?'correct-input':'wrong-input');
    status.textContent=correct?'✓':'!';
