@@ -767,3 +767,17 @@ html body #lesson #resultView.show #v5ResultExtra,html body #lesson #resultView.
 /* The action button of a question ("Hatayı işaretle", "Kontrol Et") stays on screen at the bottom of the frame,
    so a long question never hides it below the fold. */
 html body #lesson #quizView .question-frame:not(.v730-correct):not(.v730-wrong):not(.v9945-feedback-mode) #answerArea>.template-action{position:sticky!important;bottom:10px!important;z-index:6!important;box-shadow:0 0 0 10px rgba(9,20,38,.92),0 -18px 22px 8px rgba(9,20,38,.92)!important}
+
+/* Result screen: the stage-loop card, the next-step card, the kicker and the secondary button use the same indigo + gold palette
+   (they were still the old teal). */
+html body #lesson #resultView.show .ml-result-kicker{background:rgba(242,207,132,.12)!important;border:1px solid rgba(242,207,132,.42)!important;color:#f2cf84!important;box-shadow:none!important}
+html body #lesson #resultView.show .v624-loop,html body #lesson #resultView.show .v624-next-card{background:linear-gradient(170deg,#1b2c52,#13203f)!important;border:1px solid rgba(150,175,255,.3)!important;box-shadow:0 10px 26px rgba(4,10,28,.35)!important;color:#e8edff!important}
+html body #lesson #resultView.show .v624-loop-title,html body #lesson #resultView.show .v624-loop-title span,html body #lesson #resultView.show .v624-next-kicker{color:#9fb0dc!important}
+html body #lesson #resultView.show .v624-loop-title b,html body #lesson #resultView.show .v624-next-title{color:#fff!important}
+html body #lesson #resultView.show .v624-next-copy{color:#aab8e0!important}
+html body #lesson #resultView.show .v624-loop-step{background:rgba(150,175,255,.1)!important;border:1px solid rgba(150,175,255,.24)!important;color:#9fb0dc!important;box-shadow:none!important}
+html body #lesson #resultView.show .v624-loop-step.done,html body #lesson #resultView.show .v624-loop-step.complete{background:rgba(242,207,132,.1)!important;border-color:rgba(242,207,132,.35)!important;color:#e9cf93!important}
+html body #lesson #resultView.show .v624-loop-step.active{background:rgba(242,207,132,.16)!important;border-color:rgba(242,207,132,.7)!important;color:#f2cf84!important}
+html body #lesson #resultView.show .v624-progress-line{background:rgba(150,175,255,.18)!important}
+html body #lesson #resultView.show .v624-progress-line>i{background:linear-gradient(90deg,#f9e7b4,#e2b95f)!important;box-shadow:none!important}
+html body #lesson #resultView.show .v624-secondary-result{background:transparent!important;border:1px solid rgba(150,175,255,.34)!important;color:#dbe4ff!important;box-shadow:none!important}
