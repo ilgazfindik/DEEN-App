@@ -20,5 +20,16 @@ const server=http.createServer((req,res)=>{let p=path.join(root,decodeURICompone
  await page.locator('.deen-path-arabic').first().click();await page.waitForSelector('.dsq-unit',{timeout:20000});await page.waitForTimeout(1200);
  const unit=await css('.dsq-unit:not(.is-locked)','backgroundImage');assert.ok(/74, 134, 232|47, 85, 184/.test(unit),'the Arabic unit card is blue ('+unit.slice(0,80)+')');
  const orb=await css('.deen-path-course-glyphs','backgroundImage');assert.ok(/143, 188, 255|79, 141, 240/.test(orb),'the letter orbs are blue ('+orb.slice(0,80)+')');
+ // the question arena and its quiz screens are indigo too (they were teal)
+ await page.locator('.navbtn').nth(0).click();await page.waitForTimeout(500);await page.locator('.navbtn').nth(2).click();await page.waitForTimeout(800);
+ if(!(await page.locator('.deen-path-surah').count())){await page.evaluate(()=>{document.querySelector('.deen-path-back')?.click()});await page.waitForTimeout(800)}
+ await page.locator('.deen-path-surah').first().click();await page.waitForSelector('.dsr-tool.is-wide',{timeout:20000});
+ const tool=await css('.dsr-tool:not(.is-wide)','backgroundImage');assert.doesNotMatch(tool,/13, 40, 44|63, 215, 173/,'the practice tool cards are not teal ('+tool.slice(0,60)+')');
+ await page.locator('.dsr-tool.is-wide').first().click();await page.waitForSelector('.dsa-level',{timeout:15000});await page.waitForTimeout(700);
+ assert.doesNotMatch(await css('.dsa','backgroundImage'),/23, 80, 76|7, 41, 51/,'the arena ground is indigo, not teal');
+ const lv1=await css('.dsa-level','backgroundImage');assert.match(lv1,/143, 188, 255|74, 134, 232/,'Kolay is blue ('+lv1.slice(0,60)+')');
+ await page.locator('.dsa-level').first().click();await page.waitForSelector('.dac-opt',{timeout:15000});await page.waitForTimeout(600);
+ const dac=await css('.dac','backgroundImage');assert.match(dac,/20, 33, 63|12, 26, 51/,'the quiz ground is the game navy ('+dac.slice(0,80)+')');
+ const opt=await css('.dac-opt','backgroundImage');assert.match(opt,/27, 44, 82/,'quiz options use the card gradient');
  await browser.close();server.close();console.log('PASS: Quran palette');
 })().catch(e=>{console.error(e);process.exit(1)});
