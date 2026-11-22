@@ -47,12 +47,31 @@ const server=http.createServer((req,res)=>{let p=path.join(root,decodeURICompone
   const midShown=await page.locator('.ds-env-overlay').count();
   assert.equal(midShown,mid.has?1:0,lang+': mid-lesson envelope after a wrong answer iff a same-concept note exists ('+JSON.stringify(mid)+')');
   if(midShown){await page.mouse.click(196,760);await page.waitForTimeout(1500);await page.mouse.click(196,760);await page.waitForTimeout(700);assert.equal(await page.locator('.ds-env-overlay').count(),0,lang+': one-note envelope closes on the next tap')}
-  // The same stage does not show its envelope again.
+  // A middle stage does not open with an envelope again right after a lesson that had one.
   await page.evaluate(()=>{try{closeLesson&&closeLesson()}catch(_){}});await page.waitForTimeout(800);
-  assert.equal(await startAndWait(page,'U01-S02'),false,lang+': not shown twice for a stage');
+  assert.equal(await startAndWait(page,'U01-S02'),false,lang+': no start envelope right after a lesson that had one');
   console.log('  ok',lang,JSON.stringify({notes:info.notes.length,mid}));
   await ctx.close();
  }
+ // Frequency: the first/last stage of a unit gets an envelope every lesson (three notes); in a normal stage a lesson
+ // without any envelope makes the next one start with one, so there are never two lessons in a row without one.
+ {const {ctx,page}=await open('tr',true);
+  const startOnly=async id=>{const shown=await startAndWait(page,id);let notes=0;
+   if(shown){notes=await page.locator('.ds-env-page').count();await page.locator('.ds-env-skip').click();await page.waitForTimeout(600)}
+   await page.evaluate(()=>{try{closeLesson&&closeLesson()}catch(_){}});await page.waitForTimeout(700);return {shown,notes}};
+  assert.equal(await page.evaluate(()=>DEEN_DS_ENVELOPE.important('U01-S01')&&!DEEN_DS_ENVELOPE.important('U01-S03')),true,'first stage of a unit is important, a middle one is not');
+  const imp=[await startOnly('U01-S01'),await startOnly('U01-S01')];
+  assert.deepEqual(imp.map(x=>x.shown),[true,true],'important stage: an envelope every lesson');assert.ok(imp.every(x=>x.notes>=2),'important stage: several notes '+JSON.stringify(imp));
+  const seq=[await startOnly('U01-S03'),await startOnly('U01-S03'),await startOnly('U01-S03'),await startOnly('U01-S03')].map(x=>x.shown);
+  assert.equal(seq[0],true,'first lesson of a stage starts with an envelope');
+  for(let k=1;k<seq.length;k++)assert.ok(seq[k]||seq[k-1],'never two lessons in a row without an envelope: '+JSON.stringify(seq));
+  // Important stage: up to two envelopes in the middle of a lesson.
+  await startAndWait(page,'U01-S01');if(await page.locator('.ds-env-overlay').count()){await page.locator('.ds-env-skip').click();await page.waitForTimeout(600)}
+  let mids=0;for(let k=0;k<6;k++){await page.evaluate(()=>{session.combo=0;session.index=Math.min(session.index+1,session.questions.length-1);renderQuestion()});await page.waitForTimeout(700);
+   const card=page.locator('.v910-overlay .v910-card-button');if(await card.count()&&await card.first().isVisible()){await card.first().click()}await page.waitForTimeout(1100);
+   if(await page.locator('.ds-env-overlay').count()){mids++;await page.locator('.ds-env-skip').click();await page.waitForTimeout(600)}}
+  assert.ok(mids>=1&&mids<=2,'important stage: one or two mid-lesson envelopes, got '+mids);
+  console.log('  ok frequency',JSON.stringify({imp,seq,mids}));await ctx.close();}
  // Automated browsers without the opt-in: never shown.
  const {ctx,page}=await open('tr',false);assert.equal(await startAndWait(page,'U01-S02'),false,'no envelope without opt-in under automation');await ctx.close();
  await browser.close();server.close();console.log('PASS: info envelope at stage start and mid-lesson');

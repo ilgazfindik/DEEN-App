@@ -346,23 +346,38 @@
  }
  const bank=stageId=>{try{return (typeof QUESTIONS!=='undefined'?QUESTIONS:[]).filter(q=>q&&q.stage_id===stageId&&!q.retired)}catch(_){return []}};
  const stageOf=s=>String(s&&(s.stage&&(s.stage.id||s.stage))||'');
- function stageNotes(s){
-  const id=stageOf(s);if(!/^U\d\d-S\d\d$/.test(id))return [];
-  const inSession=new Set((s.questions||[]).map(q=>q&&q.id));const done=seen();const out=[],concepts=new Set();
-  const pool=bank(id).filter(q=>!inSession.has(q.id)&&!done.has('n:'+q.id));
-  for(const q of pool){const n=note(q);if(!n||concepts.has(n.concept))continue;concepts.add(n.concept);out.push(n);if(out.length>=3)break}
+ // Notes the learner has not seen come first; once a stage's notes have all been seen they come round again (as a
+ // review), so envelopes do not dry up. A note is never repeated within one lesson, and stage-start notes never come
+ // from questions drawn into this lesson (no answers are given away).
+ function ranked(qs,used){const done=seen();return qs.filter(q=>!used.has(q.id)).sort((x,y)=>(done.has('n:'+x.id)?1:0)-(done.has('n:'+y.id)?1:0))}
+ // A stage whose own bank has too few notes (the pilot stages run on their own question set) is topped up from the other
+ // stages of the same unit: earlier stages first (a review), then later ones.
+ function unitStages(id){try{const u=String(id).slice(0,3);const list=STAGES.filter(x=>String(x.id).slice(0,3)===u).map(x=>x.id);const k=list.indexOf(id);
+  return [id,...list.slice(0,Math.max(0,k)).reverse(),...list.slice(k+1)]}catch(_){return [id]}}
+ function stageNotes(s,max,used){
+  const id=stageOf(s);if(!/^U\d\d-S\d\d$/.test(id))return [];used=used||new Set();max=max||3;
+  const inSession=new Set((s.questions||[]).map(q=>q&&q.id));const out=[],concepts=new Set();
+  for(const sid of unitStages(id)){
+   for(const q of ranked(bank(sid).filter(q=>!inSession.has(q.id)),used)){const n=note(q);if(!n||concepts.has(n.concept))continue;concepts.add(n.concept);out.push(n);if(out.length>=max)return out}
+  }
   return out;
  }
- function conceptNote(s,prev){
-  const id=stageOf(s);const inSession=new Set((s.questions||[]).map(q=>q&&q.id));const done=seen();
-  const same=bank(id).filter(q=>q.id!==prev.id&&q.concept_id&&q.concept_id===prev.concept_id&&!done.has('n:'+q.id));
+ function conceptNote(s,prev,used){
+  const id=stageOf(s);used=used||new Set();const inSession=new Set((s.questions||[]).map(q=>q&&q.id));
+  const same=ranked(bank(id).filter(q=>q.id!==prev.id&&q.concept_id&&q.concept_id===prev.concept_id),used);
   same.sort((a,b)=>(inSession.has(a.id)?1:0)-(inSession.has(b.id)?1:0));
   for(const q of same){const n=note(q);if(n)return n}return null;
  }
- function anyNote(s){
-  const id=stageOf(s);const inSession=new Set((s.questions||[]).map(q=>q&&q.id));const done=seen();
-  for(const q of bank(id)){if(inSession.has(q.id)||done.has('n:'+q.id))continue;const n=note(q);if(n)return n}return null;
+ function anyNote(s,used){
+  const id=stageOf(s);used=used||new Set();const inSession=new Set((s.questions||[]).map(q=>q&&q.id));
+  for(const sid of unitStages(id))for(const q of ranked(bank(sid).filter(q=>!inSession.has(q.id)),used)){const n=note(q);if(n)return n}return null;
  }
+ // The first and the last stage of a unit are the important ones: they get an envelope every lesson, three notes, and up
+ // to two envelopes in the middle of the lesson.
+ function important(id){try{const u=String(id).slice(0,3);const list=STAGES.filter(x=>String(x.id).slice(0,3)===u).map(x=>x.id);return list.length>1&&(list[0]===id||list[list.length-1]===id)}catch(_){return false}}
+ const GAP='ilnura_envelope_gap';
+ const gap=()=>{try{return +localStorage.getItem(GAP)||0}catch(_){return 0}};
+ const setGap=v=>{try{localStorage.setItem(GAP,String(v))}catch(_){}};
 
  let open=null;
  function show(kind,title,notes){
@@ -411,26 +426,38 @@
   return true;
  }
 
- // Lesson watcher: a new session gets the stage envelope (after the stage's own intro card), and the next question after
- // the first wrong answer (or a 3 streak) gets the mid-lesson one.
+ // Lesson watcher. How often (about one or two envelopes every two lessons, more in important stages):
+ // - lesson start: the first lesson of a stage, every lesson of an important stage, and any lesson after one that had no
+ //   envelope at all — so there is never more than one lesson in a row without one;
+ // - in the lesson: up to one envelope (two in an important stage) on the next question after the first wrong answer
+ //   ("another look at this idea"), at a 3 streak, or at the half-way question ("did you know?"; in a normal stage only
+ //   when the lesson has had no envelope yet, and then in about half of the lessons).
  const done=new WeakMap();
  function tick(){
   if(!allowed()||open)return;
   const lesson=document.getElementById('lesson');if(!lesson||!lesson.classList.contains('active'))return;
   const s=S();if(!s||!Array.isArray(s.questions)||!s.questions.length)return;
-  if(document.querySelector('.v910-overlay, dialog[open]'))return;
-  const st=done.get(s)||{stage:false,mid:false,last:-1,wrong:null};done.set(s,st);
-  const i=s.index|0;
-  if(!st.stage){st.stage=true;const id=stageOf(s);
-   if(i===0&&/^U\d\d-S\d\d$/.test(id)&&!seen().has('s:'+id)){const notes=stageNotes(s);
-    if(notes.length){mark(['s:'+id]);st.last=i;show('stage',t().stage,notes);return}}}
+  // Wait while the stage's own intro card or a dialog is actually on screen (a hidden intro layer can stay in the DOM).
+  const onScreen=e=>{if(!e)return false;const r=e.getBoundingClientRect(),c=getComputedStyle(e);return r.width>2&&r.height>2&&c.display!=='none'&&c.visibility!=='hidden'&&+c.opacity>0.05};
+  if([...document.querySelectorAll('.v910-overlay, dialog[open]')].some(onScreen))return;
+  const id=stageOf(s);if(!/^U\d\d-S\d\d$/.test(id))return;
+  let st=done.get(s);
+  if(!st){st={start:false,mid:0,last:-1,used:new Set(),shown:0,wrong:false,half:false,imp:important(id),coin:Math.random()<.5};done.set(s,st);
+   // A lesson that ends without any envelope makes the next one start with one.
+   setGap(gap()+1);}
+  const i=s.index|0,n=s.questions.length;
+  if(!st.start){st.start=true;
+   const first=!seen().has('s:'+id);
+   if(i===0&&(first||st.imp||gap()>=2)){const notes=stageNotes(s,st.imp?3:2,st.used);
+    if(notes.length){mark(['s:'+id]);notes.forEach(x=>st.used.add(x.id));st.shown++;setGap(0);st.last=i;show('stage',t().stage,notes);return}}}
   if(i!==st.last){
-   if(st.last>=0&&!st.mid&&i>st.last){
-    const prev=s.questions[st.last];const wrong=(s.combo|0)===0;
-    let n=null,title='';
-    if(wrong&&prev){n=conceptNote(s,prev);title=t().again}
-    else if((s.combo|0)>=3){n=anyNote(s);title=t().dyk}
-    if(n){st.mid=true;show('mid',title,[n])}
+   const max=st.imp?2:1;
+   if(st.last>=0&&st.mid<max&&i>st.last&&i<n){
+    const prev=s.questions[st.last];const wrong=(s.combo|0)===0;let note1=null,title='';
+    if(wrong&&prev&&!st.wrong){st.wrong=true;note1=conceptNote(s,prev,st.used);title=t().again}
+    if(!note1&&(s.combo|0)>=3&&!st.streak){st.streak=true;note1=anyNote(s,st.used);title=t().dyk}
+    if(!note1&&!st.half&&i>=Math.floor(n/2)&&(st.imp||(st.shown===0&&st.coin))){st.half=true;note1=anyNote(s,st.used);title=t().dyk}
+    if(note1){st.mid++;st.used.add(note1.id);st.shown++;setGap(0);st.last=i;show('mid',title,[note1]);return}
    }
    st.last=i;
   }
@@ -440,5 +467,5 @@
   let q=0;new MutationObserver(()=>{if(q)return;q=setTimeout(()=>{q=0;tick()},450)}).observe(lesson,{subtree:true,childList:true,attributes:true,attributeFilter:['class']});
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});else install();
- window.DEEN_DS_ENVELOPE=Object.freeze({show,stageNotes,conceptNote,note,isOpen:()=>!!open,version:'ds-envelope-1'});
+ window.DEEN_DS_ENVELOPE=Object.freeze({show,stageNotes,conceptNote,anyNote,important,note,isOpen:()=>!!open,version:'ds-envelope-2'});
 })();
