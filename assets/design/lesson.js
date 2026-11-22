@@ -304,3 +304,130 @@
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});else install();
  window.DEEN_DS_LESSON=Object.freeze({decorate,version:'ds-lesson-choice-v2',strings:L});
 })();
+
+/* Info envelope ("bilgi zarfı"). A sealed envelope appears at the start of a stage and once in the middle of a lesson;
+   a tap breaks the seal, the flap opens, the letter rises and becomes a card the learner can swipe left/right through
+   and close with "Got it" or a swipe down. Content is only existing, translated text: explanations of questions from the
+   same stage (stage start: questions not drawn into this session, so no answers are given away; mid-lesson: after the
+   first wrong answer another question of the same concept — "another look at this idea" — or, if nothing goes wrong, a
+   "did you know?" note at a 3 streak). A note without a translation in the learner's language is never shown, and a note
+   is not shown twice. Automated browsers do not get it (it would sit on top of the questions) unless
+   localStorage ilnura_envelope=1 asks for it; ilnura_envelope=0 turns it off. */
+(()=>{
+ 'use strict';
+ if(window.DEEN_DS_ENVELOPE)return;
+ const T={
+  tr:{stage:'Bu aşamanın bilgi zarfı',tap:'Açmak için dokun',skip:'Geç',ok:'Anladım',dyk:'Biliyor muydun?',again:'Bu kavrama bir de böyle bak',kicker:'BİLGİ ZARFI',of:(a,b)=>a+' / '+b},
+  en:{stage:'This stage’s envelope',tap:'Tap to open',skip:'Skip',ok:'Got it',dyk:'Did you know?',again:'Another look at this idea',kicker:'INFO ENVELOPE',of:(a,b)=>a+' / '+b},
+  de:{stage:'Der Umschlag dieser Etappe',tap:'Zum Öffnen tippen',skip:'Überspringen',ok:'Verstanden',dyk:'Wusstest du schon?',again:'Noch ein Blick auf diesen Begriff',kicker:'INFO-UMSCHLAG',of:(a,b)=>a+' / '+b},
+  fr:{stage:'L’enveloppe de cette étape',tap:'Touche pour ouvrir',skip:'Passer',ok:'Compris',dyk:'Le savais-tu ?',again:'Un autre regard sur cette notion',kicker:'ENVELOPPE',of:(a,b)=>a+' / '+b},
+  ar:{stage:'رسالة هذه المرحلة',tap:'المس للفتح',skip:'تخطَّ',ok:'فهمت',dyk:'هل تعلم؟',again:'نظرة أخرى إلى هذا المفهوم',kicker:'رسالة معرفية',of:(a,b)=>a+' / '+b}
+ };
+ const lang=()=>{const l=String(document.documentElement.lang||'tr').slice(0,2).toLowerCase();return T[l]?l:'tr'};
+ const t=()=>T[lang()];
+ const S=()=>{try{return typeof session==='object'&&session?session:null}catch(_){return null}};
+ const pref=()=>{try{return localStorage.getItem('ilnura_envelope')}catch(_){return null}};
+ const allowed=()=>{const p=pref();if(p==='0')return false;if(p==='1')return true;return !navigator.webdriver};
+ const SEEN='ilnura_envelope_seen';
+ const seen=()=>{try{return new Set(JSON.parse(localStorage.getItem(SEEN)||'[]'))}catch(_){return new Set()}};
+ const mark=keys=>{try{const s=seen();keys.forEach(k=>s.add(k));localStorage.setItem(SEEN,JSON.stringify([...s].slice(-1500)))}catch(_){}};
+ const reduced=()=>document.documentElement.classList.contains('v5-reduce')||matchMedia('(prefers-reduced-motion: reduce)').matches;
+ const haptic=k=>{try{window.DEEN_DS_HAPTIC&&DEEN_DS_HAPTIC[k]&&DEEN_DS_HAPTIC[k]()}catch(_){}};
+
+ // The learner's-language explanation of a bank question, or null when there is none to show.
+ function note(q){
+  if(!q||!q.explanation_tr)return null;
+  let e=q.explanation_tr;const l=lang();
+  if(l!=='tr'){let tq=null;try{tq=window.DEEN_CONTENT_LOCALE&&DEEN_CONTENT_LOCALE.translateQuestion(q)}catch(_){tq=null}
+   if(!tq||!tq.explanation_tr||tq.explanation_tr===q.explanation_tr)return null;e=tq.explanation_tr}
+  e=String(e).trim();if(e.length<30||e.length>320)return null;
+  if(l!=='tr'&&/[ğışĞİŞ]/.test(e))return null;
+  return {id:q.id,concept:q.concept_id||'',text:e};
+ }
+ const bank=stageId=>{try{return (typeof QUESTIONS!=='undefined'?QUESTIONS:[]).filter(q=>q&&q.stage_id===stageId&&!q.retired)}catch(_){return []}};
+ const stageOf=s=>String(s&&(s.stage&&(s.stage.id||s.stage))||'');
+ function stageNotes(s){
+  const id=stageOf(s);if(!/^U\d\d-S\d\d$/.test(id))return [];
+  const inSession=new Set((s.questions||[]).map(q=>q&&q.id));const done=seen();const out=[],concepts=new Set();
+  const pool=bank(id).filter(q=>!inSession.has(q.id)&&!done.has('n:'+q.id));
+  for(const q of pool){const n=note(q);if(!n||concepts.has(n.concept))continue;concepts.add(n.concept);out.push(n);if(out.length>=3)break}
+  return out;
+ }
+ function conceptNote(s,prev){
+  const id=stageOf(s);const inSession=new Set((s.questions||[]).map(q=>q&&q.id));const done=seen();
+  const same=bank(id).filter(q=>q.id!==prev.id&&q.concept_id&&q.concept_id===prev.concept_id&&!done.has('n:'+q.id));
+  same.sort((a,b)=>(inSession.has(a.id)?1:0)-(inSession.has(b.id)?1:0));
+  for(const q of same){const n=note(q);if(n)return n}return null;
+ }
+ function anyNote(s){
+  const id=stageOf(s);const inSession=new Set((s.questions||[]).map(q=>q&&q.id));const done=seen();
+  for(const q of bank(id)){if(inSession.has(q.id)||done.has('n:'+q.id))continue;const n=note(q);if(n)return n}return null;
+ }
+
+ let open=null;
+ function show(kind,title,notes){
+  if(open||!notes.length)return false;
+  const L=t(),rtl=lang()==='ar';
+  const ov=document.createElement('div');ov.className='ds-env-overlay';ov.setAttribute('role','dialog');ov.setAttribute('aria-modal','true');ov.setAttribute('aria-label',title);if(rtl)ov.dir='rtl';
+  ov.innerHTML='<div class="ds-env-backdrop"></div>'+
+   '<div class="ds-env-stage"><button type="button" class="ds-env-envelope" aria-label="'+L.tap+'">'+
+    '<span class="ds-env-back"></span><span class="ds-env-letter"><i></i><i></i><i></i></span><span class="ds-env-front"></span>'+
+    '<span class="ds-env-flap"></span><span class="ds-env-seal">✦</span></button>'+
+    '<p class="ds-env-title"></p><p class="ds-env-hint"></p><button type="button" class="ds-env-skip"></button></div>'+
+   '<div class="ds-env-card" aria-live="polite"><div class="ds-env-grip"></div><div class="ds-env-kicker"></div><h3 class="ds-env-h"></h3>'+
+    '<div class="ds-env-pages"></div><div class="ds-env-dots"></div><button type="button" class="ds-env-ok"></button></div>';
+  ov.querySelector('.ds-env-title').textContent=title;ov.querySelector('.ds-env-hint').textContent=L.tap;
+  ov.querySelector('.ds-env-skip').textContent=L.skip;ov.querySelector('.ds-env-kicker').textContent=L.kicker;
+  ov.querySelector('.ds-env-h').textContent=title;ov.querySelector('.ds-env-ok').textContent=L.ok;
+  const pages=ov.querySelector('.ds-env-pages'),dots=ov.querySelector('.ds-env-dots');
+  notes.forEach((n,i)=>{const p=document.createElement('article');p.className='ds-env-page';const tx=document.createElement('p');tx.textContent=n.text;p.append(tx);pages.append(p);
+   if(notes.length>1){const d=document.createElement('i');if(!i)d.className='on';dots.append(d)}});
+  if(notes.length<2)dots.remove();
+  (document.getElementById('phone')||document.body).append(ov);open={ov,kind,notes};
+  requestAnimationFrame(()=>requestAnimationFrame(()=>ov.classList.add('in')));
+  let page=0;
+  pages.addEventListener('scroll',()=>{const w=pages.clientWidth||1;const i=Math.round(Math.abs(pages.scrollLeft)/w);if(i!==page){page=i;haptic('select');[...dots.children].forEach((d,k)=>d.classList.toggle('on',k===i))}},{passive:true});
+  const env=ov.querySelector('.ds-env-envelope');
+  env.addEventListener('click',()=>{if(ov.classList.contains('opening'))return;ov.classList.add('opening');haptic('tap');mark(notes.map(n=>'n:'+n.id));
+   setTimeout(()=>ov.classList.add('opened'),reduced()?0:820)});
+  const close=()=>{if(!open||open.ov!==ov)return;ov.classList.add('out');setTimeout(()=>{ov.remove();if(open&&open.ov===ov)open=null;setTimeout(tick,50)},reduced()?0:360)};
+  ov.querySelector('.ds-env-skip').addEventListener('click',close);ov.querySelector('.ds-env-ok').addEventListener('click',close);
+  // Swipe the open card down to close it.
+  const card=ov.querySelector('.ds-env-card');let y0=null,x0=0,dy=0;
+  card.addEventListener('pointerdown',e=>{y0=e.clientY;x0=e.clientX;dy=0},{passive:true});
+  card.addEventListener('pointermove',e=>{if(y0==null)return;const d=e.clientY-y0;if(Math.abs(e.clientX-x0)>Math.abs(d)){if(dy===0){y0=null}return}dy=Math.max(0,d);if(dy>6)card.style.transform='translateY('+dy+'px)'},{passive:true});
+  const up=()=>{if(y0==null)return;y0=null;card.style.transform='';if(dy>90)close()};card.addEventListener('pointerup',up);card.addEventListener('pointercancel',up);
+  return true;
+ }
+
+ // Lesson watcher: a new session gets the stage envelope (after the stage's own intro card), and the next question after
+ // the first wrong answer (or a 3 streak) gets the mid-lesson one.
+ const done=new WeakMap();
+ function tick(){
+  if(!allowed()||open)return;
+  const lesson=document.getElementById('lesson');if(!lesson||!lesson.classList.contains('active'))return;
+  const s=S();if(!s||!Array.isArray(s.questions)||!s.questions.length)return;
+  if(document.querySelector('.v910-overlay, dialog[open]'))return;
+  const st=done.get(s)||{stage:false,mid:false,last:-1,wrong:null};done.set(s,st);
+  const i=s.index|0;
+  if(!st.stage){st.stage=true;const id=stageOf(s);
+   if(i===0&&/^U\d\d-S\d\d$/.test(id)&&!seen().has('s:'+id)){const notes=stageNotes(s);
+    if(notes.length){mark(['s:'+id]);st.last=i;show('stage',t().stage,notes);return}}}
+  if(i!==st.last){
+   if(st.last>=0&&!st.mid&&i>st.last){
+    const prev=s.questions[st.last];const wrong=(s.combo|0)===0;
+    let n=null,title='';
+    if(wrong&&prev){n=conceptNote(s,prev);title=t().again}
+    else if((s.combo|0)>=3){n=anyNote(s);title=t().dyk}
+    if(n){st.mid=true;show('mid',title,[n])}
+   }
+   st.last=i;
+  }
+ }
+ function install(){
+  const lesson=document.getElementById('lesson');if(!lesson){setTimeout(install,400);return}
+  let q=0;new MutationObserver(()=>{if(q)return;q=setTimeout(()=>{q=0;tick()},450)}).observe(lesson,{subtree:true,childList:true,attributes:true,attributeFilter:['class']});
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});else install();
+ window.DEEN_DS_ENVELOPE=Object.freeze({show,stageNotes,conceptNote,note,isOpen:()=>!!open,version:'ds-envelope-1'});
+})();
