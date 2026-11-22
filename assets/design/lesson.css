@@ -110,3 +110,8 @@ html body #lesson #quizView .question-frame::-webkit-scrollbar{display:none}
 html body #lesson #quizView .v960-narration-bar,
 html body #lesson #quizView .v857-scene,
 html body #lesson #quizView .v857-decision-tag{display:none!important}
+
+/* The instruction moved out of the question bubble ("Boşluğu tamamla", "Quick review" …) sits above it as a small heading. */
+html body #quizView .question-frame>.ds-q-lead{display:flex;align-items:center;gap:8px;align-self:flex-start;max-width:100%;margin:2px 2px 10px;padding:7px 12px 7px 10px;border-radius:12px;background:rgba(242,207,132,.08);border:1px solid rgba(242,207,132,.3);color:#f2cf84;font:700 13px/1.35 var(--ds-font);letter-spacing:.01em;text-align:start;box-sizing:border-box}
+html body #quizView .question-frame>.ds-q-lead::before{content:"";flex:0 0 7px;width:7px;height:7px;transform:rotate(45deg);border-radius:1px;background:#f2cf84}
+html[dir="rtl"] body #quizView .question-frame>.ds-q-lead{align-self:flex-end}

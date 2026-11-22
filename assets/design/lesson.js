@@ -171,17 +171,49 @@
   }
  }
 
- // Generated question labels ("Kısa kontrol: temel kavram: …") are noise: show only the question.
- const LABEL=/^(?:(?:Kısa kontrol|Temel kavram|Kavram kontrolü|Challenge|Uygulama|Hızlı tekrar|Quick check|Contrôle rapide|Kurzer Check|فحص سريع)\s*:\s*)+/i;
- function stripLabel(){
-  const q=document.querySelector('#quizView #questionText');if(!q)return;
-  const n=[...q.childNodes].find(c=>c.nodeType===3&&c.data.trim());
-  if(!n||!LABEL.test(n.data.trim()))return;
-  const rest=n.data.trim().replace(LABEL,'');
-  if(rest)n.data=rest.charAt(0).toLocaleUpperCase(lang()==='tr'?'tr':undefined)+rest.slice(1);
+ // Instructions at the start of a question ("Boşluğu tamamla: …", "Cevabı görmeden önce … tamamla: …", "Quick review: …",
+ // "Vrai ou faux ? …") are moved out of the speech bubble into a small heading above it, so the bubble holds only the question.
+ // Display only: the question data, grading and narration source are untouched.
+ const LEAD_START=/^(?:boşluğu|ipucu|hızlı|kısa kontrol|temel kavram|kavram kontrolü|kavramları|eşleştirme|uygulama|challenge|aktif|akıllı|eksik|cevabı (?:görmeden|açmadan)|cümleyi|hatırla|tamamla|aşağıdaki kavramları|şu kavramları|complete|fill|remember|recall|choose|select|match|quick|review|concept|basic concept|key concept|practice|apply|challenge|active|smart|before|without|check|ergänze|vervollständige|fülle|erinnere|wähle|ordne|verbinde|kurzer|kurze|schnell|wiederholung|begriff|grundbegriff|anwendung|herausforderung|aktives|bevor|ohne|zuordnung|complète|complete|remplis|rappelle|choisis|associe|relie|révision|vérification|vérifie|contrôle|notion|mise en pratique|défi|rappel|avant|sans|association|أكمل|اكمل|املأ|تذكّر|تذكر|اختر|طابق|صِل|صل|مراجعة|فحص|مفهوم|تطبيق|تحدٍّ|تحد|قبل|بدون|توصيل|تدريب|مطابقة|استرجاع)/i;
+ const LEAD_END=/(?:tamamla|doldur|hatırla|seç|eşleştir|tekrar|kontrolü|hatırlama|boşluğu yaz)$/i;
+ const LEAD_TF=/^((?:Doğru mu,? yanlış mı|True or false|Richtig oder falsch|Vrai ou faux|صواب أم خطأ|صح أم خطأ)\s*[?؟])\s*/i;
+ function splitLead(text){
+  let t=String(text||'').trim();const leads=[];
+  for(let k=0;k<3;k++){
+   let m=t.match(/^\(([^()]{2,40})\)\s*/);
+   if(m&&LEAD_START.test(m[1].trim())){leads.push(m[1].trim());t=t.slice(m[0].length);continue}
+   m=t.match(LEAD_TF);if(m){leads.push(m[1].trim());t=t.slice(m[0].length);continue}
+   m=t.match(/^([^:：«»"“”„\n]{2,90}?)\s*[:：]\s+(?=\S)/);
+   if(m){const p=m[1].trim();if(LEAD_START.test(p)||LEAD_END.test(p)){leads.push(p);t=t.slice(m[0].length);continue}}
+   break;
+  }
+  if(!leads.length||t.length<6)return null;
+  return {lead:leads.join(' · '),rest:t.charAt(0).toLocaleUpperCase(lang()==='tr'?'tr':undefined)+t.slice(1)};
+ }
+ function leadQuestion(){
+  const frame=document.querySelector('#quizView .question-frame');if(!frame)return;
+  const nodes=[document.querySelector('#quizView #questionText'),frame.querySelector('.deen-character-question-text')].filter(Boolean);
+  let lead=frame.querySelector(':scope > .ds-q-lead'),found=null;
+  for(const q of nodes){
+   const n=[...q.childNodes].find(c=>c.nodeType===3&&c.data.trim());if(!n)continue;
+   const sp=splitLead(n.data);if(!sp)continue;
+   const raw=n.data,lead0=raw.match(/^\s*/)[0];
+   // Keep any blank-marker elements that follow the text node; only the leading instruction is removed.
+   const rebuilt=lead0+sp.rest+(raw.trim().length<raw.length-lead0.length?raw.slice(lead0.length+raw.trim().length):'');
+   if(n.data!==rebuilt)n.data=rebuilt;
+   found=found||sp;
+  }
+  const current=nodes.map(q=>q.textContent.trim()).find(Boolean)||'';
+  if(found){
+   if(!lead){lead=document.createElement('div');lead.className='ds-q-lead';lead.setAttribute('role','note')}
+   if(lead.textContent!==found.lead)lead.textContent=found.lead;
+   lead.dataset.rest=found.rest.slice(0,60);
+   const anchor=frame.querySelector(':scope > .deen-character-question-row')||frame.querySelector(':scope > #questionText');
+   if(anchor&&lead.nextElementSibling!==anchor)anchor.before(lead);
+  }else if(lead&&!current.startsWith(lead.dataset.rest||'\u0000')){lead.remove()}
  }
  function decorate(){
-  stripLabel();
+  leadQuestion();
   // The matching screen writes its heading as three separate nodes, which the word-level locale layers
   // turn into "Matching pairs Find". Write the whole phrase in the learner's language instead.
   {const T0=L[lang()],mt=T0&&T0.title&&T0.title.match,mh=document.querySelector('#quizView .v9916-task-title');
