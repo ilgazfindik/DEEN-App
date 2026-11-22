@@ -554,6 +554,7 @@
   'Kapat':['Close','إغلاق','Schließen','Fermer'],
   // Lines of the unit / section ceremony that the language layers leave in Turkish.
   'Kısım 2 · İman':['Section 2 · Faith','القسم 2 · الإيمان','Abschnitt 2 · Glaube','Partie 2 · Foi'],
+  'SORULUK HAVUZ':['QUESTION POOL','بنك الأسئلة','FRAGENPOOL','QUESTIONS'],
   'Öğren · Anla · Hatırla · Uygula':['Learn · Understand · Remember · Apply','تعلّم · افهم · تذكّر · طبّق','Lernen · Verstehen · Erinnern · Anwenden','Apprendre · Comprendre · Retenir · Appliquer']
  };
  const CHEST_PATTERNS=[
@@ -598,7 +599,7 @@
  // A chest that opens bursts into confetti as its loot appears, with the reward sound.
  function onChest(records){
   for(const r of records){
-   if(r.type==='childList'){for(const n of r.addedNodes){if(n.matches?.('.gf-reward-toast,dialog.gf-reward-modal'))dressReward(n);const c=n.matches?.('dialog.v670-reward,dialog.v623-ceremony')&&n.querySelector('.v670-card,.v623-card');if(c){dressChest(c);localizeChest(n);new MutationObserver(()=>localizeChest(n)).observe(n,{subtree:true,childList:true,characterData:true});chestWatch.observe(c,{attributes:true,attributeFilter:['class'],attributeOldValue:true})}}continue}
+   if(r.type==='childList'){for(const n of r.addedNodes){if(n.matches?.('.gf-reward-toast,dialog.gf-reward-modal'))dressReward(n);if(n.matches?.('dialog.lp-ceremony')){localizeChest(n);new MutationObserver(()=>localizeChest(n)).observe(n,{subtree:true,childList:true,characterData:true})}const c=n.matches?.('dialog.v670-reward,dialog.v623-ceremony')&&n.querySelector('.v670-card,.v623-card');if(c){dressChest(c);localizeChest(n);new MutationObserver(()=>localizeChest(n)).observe(n,{subtree:true,childList:true,characterData:true});chestWatch.observe(c,{attributes:true,attributeFilter:['class'],attributeOldValue:true})}}continue}
    const c=r.target,kind=chestKind(c);if(!kind||!c.classList.contains(kind.opened)||String(r.oldValue||'').split(/\s+/).includes(kind.opened))continue;
    c.querySelectorAll('.ds-chest-pips i').forEach(p=>p.classList.add('on'));
    // The ceremony plays its own unit / section fanfare; the small chests get the reward sound.
