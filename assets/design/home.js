@@ -303,3 +303,56 @@
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});else install();
 })();
+
+/* Native iOS tab bar (iOS 26+). When the app runs in the iOS shell and the NativeTabBar plugin (ios/App/App/
+   NativeTabBar.swift) reports it is available, the real UITabBar is shown over the web view: the system draws it in
+   Liquid Glass, with its own lens, drag-to-switch gesture and feedback. The web tab bar stays in the DOM as the router
+   (transparent, under the native bar):
+   - a native tab selection clicks the matching web tab, so every screen change goes through the existing code, and gives
+     the same light haptic tap as the web bar (Settings switch respected);
+   - a web-side screen change (from a card, a link…) selects the matching native tab;
+   - the native bar hides whenever the web tab bar is not the top element at its spot (lesson, sheets, dialogs, start-up),
+     and the titles follow the web tab labels (language changes). */
+(()=>{
+ 'use strict';
+ const C=window.Capacitor;
+ let native=false;try{native=!!(C&&(C.isNativePlatform?C.isNativePlatform():C.getPlatform&&C.getPlatform()!=='web'))}catch(_){}
+ if(!native)return;
+ let NT=null;try{NT=(C.Plugins&&C.Plugins.NativeTabBar)||(C.registerPlugin&&C.registerPlugin('NativeTabBar'))||null}catch(_){NT=null}
+ if(!NT||typeof NT.isAvailable!=='function')return;
+ const ICONS={learnScreen:['book','book.fill'],reviewScreen:['arrow.clockwise.circle','arrow.clockwise.circle.fill'],leagueScreen:['text.book.closed','text.book.closed.fill'],profileScreen:['person','person.fill']};
+ const safe=p=>{try{const r=p&&p.then?p:Promise.resolve(p);return r.catch(()=>null)}catch(_){return Promise.resolve(null)}};
+ let nav=null,lastTabs='',lastSel='',hidden=null,ready=false;
+ const tabsOf=()=>[...nav.querySelectorAll('button.navbtn')].map(b=>({id:b.dataset.screen,title:(b.querySelector('span')?.textContent||'').trim(),label:b.getAttribute('aria-label')||'',icon:(ICONS[b.dataset.screen]||['circle'])[0],selectedIcon:(ICONS[b.dataset.screen]||['circle','circle'])[1]}));
+ const activeId=()=>nav.querySelector('button.navbtn.active')?.dataset.screen||'learnScreen';
+ function push(){
+  if(!ready||!nav)return;
+  const tabs=tabsOf(),key=JSON.stringify(tabs),sel=activeId();
+  if(key!==lastTabs){lastTabs=key;lastSel=sel;safe(NT.show({tabs,selected:sel,tint:'#f2cf84'})).then(r=>{if(r&&r.height)document.documentElement.style.setProperty('--native-tabbar-h',Math.round(r.height)+'px')});hidden=false}
+  else if(sel!==lastSel){lastSel=sel;safe(NT.select({id:sel}))}
+  visibility();
+ }
+ function covered(){
+  const d=document.documentElement;
+  if(d.dataset.deenDesign!=='ready'||document.getElementById('ilnura-veil'))return true;
+  const prep=document.getElementById('deenPreparation');if(prep&&getComputedStyle(prep).display!=='none'&&getComputedStyle(prep).visibility!=='hidden')return true;
+  const r=nav.getBoundingClientRect();if(r.width<10||r.height<10)return true;
+  const cs=getComputedStyle(nav);if(cs.display==='none'||cs.visibility==='hidden')return true;
+  const pts=[[r.left+r.width*.25,r.top+r.height/2],[r.left+r.width*.75,r.top+r.height/2]];
+  return pts.some(([x,y])=>{const el=document.elementFromPoint(x,y);return !el||!nav.contains(el)});
+ }
+ function visibility(){if(!ready||!nav)return;const h=covered();if(h!==hidden){hidden=h;safe(NT.setHidden({hidden:h}))}}
+ function install(){
+  nav=document.querySelector('nav.bottomnav');if(!nav){setTimeout(install,400);return}
+  safe(NT.isAvailable()).then(r=>{
+   if(!r||!r.available)return;
+   ready=true;document.documentElement.classList.add('native-tabbar');
+   safe(NT.addListener&&NT.addListener('tabSelected',e=>{const b=nav.querySelector('button.navbtn[data-screen="'+String(e&&e.id||'')+'"]');if(b&&!b.classList.contains('active')){try{window.DEEN_DS_HAPTIC&&DEEN_DS_HAPTIC.tap()}catch(_){}b.click()}lastSel=e&&e.id||lastSel}));
+   new MutationObserver(push).observe(nav,{subtree:true,attributes:true,attributeFilter:['class','aria-label'],childList:true,characterData:true});
+   let t=0;new MutationObserver(()=>{if(t)return;t=setTimeout(()=>{t=0;visibility()},80)}).observe(document.body,{subtree:true,childList:true,attributes:true,attributeFilter:['class','open','style','hidden']});
+   new MutationObserver(visibility).observe(document.documentElement,{attributes:true,attributeFilter:['data-deen-design','class']});
+   setInterval(visibility,400);push();
+  });
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});else install();
+})();
