@@ -353,30 +353,26 @@
  // stages of the same unit: earlier stages first (a review), then later ones.
  function unitStages(id){try{const u=String(id).slice(0,3);const list=STAGES.filter(x=>String(x.id).slice(0,3)===u).map(x=>x.id);const k=list.indexOf(id);
   return [id,...list.slice(0,Math.max(0,k)).reverse(),...list.slice(k+1)]}catch(_){return [id]}}
+ // Notes for a lesson are hints for its own questions: notes on the concepts this lesson asks about (the concept asked
+ // most often first), taken from other questions of the stage or unit — so they point towards the answers without giving
+ // a question of this lesson away. Only when the lesson's concepts have no such note does a general note of the stage fill
+ // in. One note per concept.
  function stageNotes(s,max,used){
-  const id=stageOf(s);if(!/^U\d\d-S\d\d$/.test(id))return [];used=used||new Set();max=max||3;
-  const inSession=new Set((s.questions||[]).map(q=>q&&q.id));const out=[],concepts=new Set();
-  for(const sid of unitStages(id)){
-   for(const q of ranked(bank(sid).filter(q=>!inSession.has(q.id)),used)){const n=note(q);if(!n||concepts.has(n.concept))continue;concepts.add(n.concept);out.push(n);if(out.length>=max)return out}
+  const id=stageOf(s);if(!/^U\d\d-S\d\d$/.test(id))return [];used=used||new Set();max=max||2;
+  const qs=(s.questions||[]).filter(Boolean),inSession=new Set(qs.map(q=>q.id));
+  const freq=new Map();qs.forEach(q=>{if(q.concept_id)freq.set(q.concept_id,(freq.get(q.concept_id)||0)+1)});
+  const order=[...freq.keys()].sort((a,b)=>freq.get(b)-freq.get(a));
+  const pool=[];for(const sid of unitStages(id))for(const q of bank(sid))if(!inSession.has(q.id))pool.push(q);
+  const out=[],concepts=new Set();
+  for(const c of order){
+   for(const q of ranked(pool.filter(q=>q.concept_id===c),used)){const n=note(q);if(!n)continue;concepts.add(c);out.push(n);break}
+   if(out.length>=max)return out;
   }
+  for(const q of ranked(pool,used)){const n=note(q);if(!n||concepts.has(n.concept)||out.some(o=>o.id===n.id))continue;concepts.add(n.concept);out.push(n);if(out.length>=max)break}
   return out;
  }
- function conceptNote(s,prev,used){
-  const id=stageOf(s);used=used||new Set();const inSession=new Set((s.questions||[]).map(q=>q&&q.id));
-  const same=ranked(bank(id).filter(q=>q.id!==prev.id&&q.concept_id&&q.concept_id===prev.concept_id),used);
-  same.sort((a,b)=>(inSession.has(a.id)?1:0)-(inSession.has(b.id)?1:0));
-  for(const q of same){const n=note(q);if(n)return n}return null;
- }
- function anyNote(s,used){
-  const id=stageOf(s);used=used||new Set();const inSession=new Set((s.questions||[]).map(q=>q&&q.id));
-  for(const sid of unitStages(id))for(const q of ranked(bank(sid).filter(q=>!inSession.has(q.id)),used)){const n=note(q);if(n)return n}return null;
- }
- // The first and the last stage of a unit are the important ones: they get an envelope every lesson, three notes, and up
- // to two envelopes in the middle of the lesson.
+ // The first and the last stage of a unit (kept for the stage-kind checks; every stage now gets an envelope).
  function important(id){try{const u=String(id).slice(0,3);const list=STAGES.filter(x=>String(x.id).slice(0,3)===u).map(x=>x.id);return list.length>1&&(list[0]===id||list[list.length-1]===id)}catch(_){return false}}
- const GAP='ilnura_envelope_gap';
- const gap=()=>{try{return +localStorage.getItem(GAP)||0}catch(_){return 0}};
- const setGap=v=>{try{localStorage.setItem(GAP,String(v))}catch(_){}};
 
  let open=null;
  function show(kind,title,notes){
@@ -425,17 +421,14 @@
   return true;
  }
 
- // Concept stages teach the unit's ideas: the first five stages of a unit (S01–S05) and any stage named after concepts
- // ("Kavram…"). The review and challenge stages (S06, S07) test what was taught.
+ // Concept stages teach the unit's ideas: S01–S05 and any "Kavram…" stage; S06/S07 review and test them (kept for the
+ // stage-kind checks; every stage now gets an envelope).
  function conceptStage(id){
   const k=+String(id).slice(5,7);if(k>=1&&k<=5)return true;
   try{const st=STAGES.find(x=>x.id===id);return /kavram/i.test(String(st&&st.title||''))}catch(_){return false}
  }
- // Lesson watcher. Every envelope comes as soon as the learner enters, on the first question (after the stage's own intro
- // card); there are none in the middle of a lesson:
- // - concept stages and the important stages (first and last of a unit): every lesson, three notes;
- // - the other (review) stages: the first lesson, and any lesson after one that had no envelope (never two in a row
- //   without), two notes.
+ // Lesson watcher: every lesson of every stage on the learning path opens with an envelope, as soon as the learner enters
+ // (on the first question, after the stage's own intro card), with one or two hint notes; none in the middle of a lesson.
  const done=new WeakMap();
  function tick(){
   if(!allowed()||open)return;
@@ -446,20 +439,15 @@
   if([...document.querySelectorAll('.v910-overlay, dialog[open]')].some(onScreen))return;
   const id=stageOf(s);if(!/^U\d\d-S\d\d$/.test(id))return;
   if(done.has(s))return;
-  const always=conceptStage(id)||important(id);
-  // A lesson that ends without any envelope makes the next one start with one.
-  setGap(gap()+1);
-  const st={used:new Set()};done.set(s,st);
+  done.set(s,{});
   if((s.index|0)!==0)return;
-  const first=!seen().has('s:'+id);
-  if(!(always||first||gap()>=2))return;
-  const notes=stageNotes(s,always?3:2,st.used);
-  if(notes.length){mark(['s:'+id]);setGap(0);show('stage',t().stage,notes)}
+  const notes=stageNotes(s,2,new Set());
+  if(notes.length){mark(['s:'+id]);show('stage',t().stage,notes)}
  }
  function install(){
   const lesson=document.getElementById('lesson');if(!lesson){setTimeout(install,400);return}
   let q=0;new MutationObserver(()=>{if(q)return;q=setTimeout(()=>{q=0;tick()},450)}).observe(lesson,{subtree:true,childList:true,attributes:true,attributeFilter:['class']});
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});else install();
- window.DEEN_DS_ENVELOPE=Object.freeze({show,stageNotes,conceptNote,anyNote,important,conceptStage,note,isOpen:()=>!!open,version:'ds-envelope-3'});
+ window.DEEN_DS_ENVELOPE=Object.freeze({show,stageNotes,important,conceptStage,note,isOpen:()=>!!open,version:'ds-envelope-4'});
 })();
