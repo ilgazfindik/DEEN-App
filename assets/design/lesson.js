@@ -369,14 +369,20 @@
   if(open||!notes.length)return false;
   const L=t(),rtl=lang()==='ar';
   const ov=document.createElement('div');ov.className='ds-env-overlay';ov.setAttribute('role','dialog');ov.setAttribute('aria-modal','true');ov.setAttribute('aria-label',title);if(rtl)ov.dir='rtl';
+  const SEAL='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.1 6.4 6.4 2.1-6.4 2.1L12 19.5l-2.1-6.4L3.5 11l6.4-2.1z"/></svg>';
+  const BULB='<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.6 10.8c.6.5 1.1 1.3 1.1 2.2h5c0-.9.5-1.7 1.1-2.2A6 6 0 0 0 12 3z"/></svg>';
+  const TAP='<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V10m0-1.5a1.5 1.5 0 0 1 3 0V11m0-1a1.5 1.5 0 0 1 3 0v4.5A6.5 6.5 0 0 1 11.5 21h-.3a6 6 0 0 1-4.6-2.2L4 15.5a1.6 1.6 0 0 1 2.4-2.1L9 15"/></svg>';
   ov.innerHTML='<div class="ds-env-backdrop"></div>'+
-   '<div class="ds-env-stage"><button type="button" class="ds-env-envelope" aria-label="'+L.tap+'">'+
+   '<div class="ds-env-stage"><div class="ds-env-aura" aria-hidden="true"><i></i><i></i><i></i></div>'+
+    '<div class="ds-env-sparks" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>'+
+    '<button type="button" class="ds-env-envelope" aria-label="'+L.tap+'">'+
     '<span class="ds-env-back"></span><span class="ds-env-letter"><i></i><i></i><i></i></span><span class="ds-env-front"></span>'+
-    '<span class="ds-env-flap"></span><span class="ds-env-seal">✦</span></button>'+
-    '<p class="ds-env-title"></p><p class="ds-env-hint"></p><button type="button" class="ds-env-skip"></button></div>'+
-   '<div class="ds-env-card" aria-live="polite"><div class="ds-env-kicker"></div><h3 class="ds-env-h"></h3>'+
-    '<div class="ds-env-pages"></div><div class="ds-env-dots"></div><p class="ds-env-next"></p></div>';
-  ov.querySelector('.ds-env-title').textContent=title;ov.querySelector('.ds-env-hint').textContent=L.tap;
+    '<span class="ds-env-flap"></span><span class="ds-env-seal">'+SEAL+'</span></button>'+
+    '<span class="ds-env-pill"></span><p class="ds-env-title"></p><p class="ds-env-hint">'+TAP+'<span></span></p><button type="button" class="ds-env-skip"></button></div>'+
+   '<div class="ds-env-card" aria-live="polite"><div class="ds-env-dots"></div>'+
+    '<div class="ds-env-head"><span class="ds-env-icon">'+BULB+'</span><div class="ds-env-headtext"><div class="ds-env-kicker"></div><h3 class="ds-env-h"></h3></div></div>'+
+    '<div class="ds-env-pages"></div><p class="ds-env-next"></p></div>';
+  ov.querySelector('.ds-env-title').textContent=title;ov.querySelector('.ds-env-hint span').textContent=L.tap;ov.querySelector('.ds-env-pill').textContent=L.kicker;
   ov.querySelector('.ds-env-skip').textContent=L.skip;ov.querySelector('.ds-env-kicker').textContent=L.kicker;
   ov.querySelector('.ds-env-h').textContent=title;ov.querySelector('.ds-env-next').textContent=L.next;
   const pages=ov.querySelector('.ds-env-pages'),dots=ov.querySelector('.ds-env-dots');
@@ -386,7 +392,7 @@
   (document.getElementById('phone')||document.body).append(ov);open={ov,kind,notes};
   requestAnimationFrame(()=>requestAnimationFrame(()=>ov.classList.add('in')));
   let page=0;
-  pages.addEventListener('scroll',()=>{const w=pages.clientWidth||1;const i=Math.round(Math.abs(pages.scrollLeft)/w);if(i!==page){page=i;haptic('select');[...dots.children].forEach((d,k)=>d.classList.toggle('on',k===i))}},{passive:true});
+  pages.addEventListener('scroll',()=>{const w=pages.clientWidth||1;const i=Math.round(Math.abs(pages.scrollLeft)/w);if(i!==page){page=i;haptic('select');[...dots.children].forEach((d,k)=>d.classList.toggle('on',k<=i))}},{passive:true});
   const env=ov.querySelector('.ds-env-envelope'),skip=ov.querySelector('.ds-env-skip');
   const openIt=()=>{if(ov.classList.contains('opening'))return;ov.classList.add('opening');haptic('tap');mark(notes.map(n=>'n:'+n.id));
    setTimeout(()=>ov.classList.add('opened'),reduced()?0:820)};
@@ -398,7 +404,7 @@
    if(!ov.classList.contains('opening')){openIt();return}
    if(!ov.classList.contains('opened'))return;
    const w=pages.clientWidth||1,dir=rtl?-1:1;
-   if(page<notes.length-1){page++;pages.scrollTo({left:dir*w*page,behavior:reduced()?'auto':'smooth'});haptic('select');[...dots.children].forEach((d,k)=>d.classList.toggle('on',k===page))}
+   if(page<notes.length-1){page++;pages.scrollTo({left:dir*w*page,behavior:reduced()?'auto':'smooth'});haptic('select');[...dots.children].forEach((d,k)=>d.classList.toggle('on',k<=page))}
    else close();
   });
   ov.addEventListener('keydown',e=>{if(e.key==='Escape')close()});

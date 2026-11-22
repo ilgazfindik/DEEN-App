@@ -35,7 +35,7 @@ const server=http.createServer((req,res)=>{let p=path.join(root,decodeURICompone
   assert.ok(Math.abs(centre-426)<=40,lang+': the card sits in the middle of the screen ('+centre+')');
   // Each tap anywhere shows the next note; the tap after the last one closes the envelope.
   for(let k=1;k<info.notes.length;k++){await page.mouse.click(40,120);await page.waitForTimeout(600);
-   assert.equal(await page.evaluate(()=>[...document.querySelectorAll('.ds-env-dots i')].findIndex(d=>d.classList.contains('on'))),k,lang+': tap → note '+(k+1));
+   assert.equal(await page.evaluate(()=>document.querySelectorAll('.ds-env-dots i.on').length),k+1,lang+': tap → note '+(k+1)+' (story bars fill up)');
    assert.equal(await page.locator('.ds-env-overlay').count(),1,lang+': still open before the last note')}
   await page.mouse.click(40,120);await page.waitForTimeout(700);assert.equal(await page.locator('.ds-env-overlay').count(),0,lang+': the tap after the last note closes it');
   // Session questions never feed the stage envelope.
