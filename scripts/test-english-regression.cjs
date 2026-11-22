@@ -77,7 +77,7 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
  console.log('PASS ENGLISH RESULT FLOW',JSON.stringify({liveToast:report.resultToast,translations:Object.keys(expectedResultCopy).length}));
  await page.waitForTimeout(1400);report.result=await page.locator('#resultView').innerText();report.rewards=await page.evaluate(()=>({xp:state.xp,currency:state.currency,completed:[...state.completed]}));report.answered=answered;assert(answered>0);assert(report.rewards.xp>rewardBefore.xp);assert(report.rewards.completed.includes('U01-S01'));
  assert(!/[ÇĞİÖŞÜçğıöşü]|\b(?:Ders|Soru|Devam|Doğru|Ödül|DENE)\b/.test(report.result),report.result);
- assert(/Daily goal\s*\n?\s*\d\/\d/.test(report.result)&&/LEARNING RHYTHM/.test(report.result)&&/day streak/.test(report.result)&&!/Daily tasks 0\/3/.test(report.result),'English result screen: the daily goal and the rhythm line stay, the long task line is gone: '+report.result.slice(-850));
+ assert(/Lesson completed/.test(report.result)&&/Correct without hints/.test(report.result)&&!/Daily tasks 0\/3/.test(report.result),'English stage-complete result screen: English summary is shown and the long extras (daily goal/rhythm/task lines) stay hidden: '+report.result.slice(-850));
  assert(/Next stage/i.test(report.result),'Result next-stage CTA missing');
  assert(!/SIRADAKİ EN İYİ ADIM|Bu aşamadaki/.test(report.result),'Turkish bottom result copy');
 
