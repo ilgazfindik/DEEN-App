@@ -36,7 +36,7 @@ permissions:
 jobs:
   isolated-chromium:
     name: French QA real browser + original game engine
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 18
     steps:
       - uses: actions/checkout@v4
