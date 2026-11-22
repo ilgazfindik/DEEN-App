@@ -236,3 +236,70 @@
  setInterval(()=>{try{fixNavLabels()}catch(_){}},1500);
  window.DEEN_DS_HOME=Object.freeze({decorate,version:'ds-home-v1'});
 })();
+
+/* Haptics + swipeable glass tab bar.
+   - Haptics go through the native Capacitor Haptics plugin on iOS (navigator.vibrate does nothing there); elsewhere
+     navigator.vibrate is used. The Settings switch "Dokunsal geri bildirim" (state.settings.haptic) turns every haptic
+     off; it is switched on once for existing players, since it never worked on iPhone before.
+   - The game's own answer vibrations stay off (motion.js switched them off on purpose); only the tab bar uses haptics.
+   - The tab bar: a tap gives a light tap; in Liquid Glass mode a glass lens sits under the active tab and can be dragged
+     left and right like the iOS 26 tab bars (WhatsApp, Music…). Each tab the lens passes ticks; letting go opens it. */
+(()=>{
+ 'use strict';
+ const C=window.Capacitor;
+ let native=false;try{native=!!(C&&(C.isNativePlatform?C.isNativePlatform():C.getPlatform&&C.getPlatform()!=='web'))}catch(_){}
+ let H=null;try{H=native?((C.Plugins&&C.Plugins.Haptics)||(C.registerPlugin&&C.registerPlugin('Haptics'))||null):null}catch(_){H=null}
+ const webVibrate=typeof navigator.vibrate==='function'?navigator.vibrate.bind(navigator):null;
+ // The game keeps its state in a global `let` (not a window property), so it is read by name.
+ const S=()=>{try{return typeof state==='object'&&state?state:null}catch(_){return null}};
+ function defaultOn(){try{const st=S();if(!st||!st.settings)return false;if(localStorage.getItem('ilnura_haptic_default_v2')!=='1'){st.settings.haptic=true;localStorage.setItem('ilnura_haptic_default_v2','1');try{saveState()}catch(_){}}return true}catch(_){return true}}
+ (function retry(n){if(!defaultOn()&&n<40)setTimeout(()=>retry(n+1),250)})(0);
+ const enabled=()=>{const st=S();return !st||!st.settings||st.settings.haptic!==false};
+ const call=(fn,arg)=>{try{const p=H&&H[fn]&&H[fn](arg);if(p&&p.catch)p.catch(()=>{})}catch(_){}};
+ function tap(){if(!enabled())return;if(H)call('impact',{style:'LIGHT'});else if(webVibrate)try{webVibrate(8)}catch(_){}}
+ function select(){if(!enabled())return;if(H)call('selectionChanged');else if(webVibrate)try{webVibrate(5)}catch(_){}}
+ function selectStart(){if(H&&enabled())call('selectionStart')}
+ function selectEnd(){if(H)call('selectionEnd')}
+ window.DEEN_DS_HAPTIC=Object.freeze({tap,select,enabled,native:!!H});
+
+ const glass=()=>document.documentElement.classList.contains('ilnura-glass');
+ let suppressClick=0;
+ function install(){
+  const nav=document.querySelector('nav.bottomnav');if(!nav){setTimeout(install,400);return}
+  const tabs=()=>[...nav.querySelectorAll('button.navbtn')];
+  let lens=null;
+  function ensureLens(){if(!glass())return null;if(!lens||!lens.isConnected){lens=document.createElement('i');lens.className='ilnura-glass-lens';lens.setAttribute('aria-hidden','true');nav.prepend(lens);nav.classList.add('has-lens')}return lens}
+  function place(i,dragX){const l=ensureLens();if(!l)return;const t=tabs();const b=t[i];if(!b)return;const nr=nav.getBoundingClientRect(),br=b.getBoundingClientRect();
+   const w=br.width,x=dragX==null?br.left-nr.left:Math.max(6,Math.min(nr.width-6-w,dragX-nr.left-w/2));
+   l.style.width=w+'px';l.style.transform='translateX('+x+'px)'}
+  const activeIndex=()=>Math.max(0,tabs().findIndex(b=>b.classList.contains('active')));
+  const sync=()=>{if(!drag)place(activeIndex())};
+  new MutationObserver(sync).observe(nav,{subtree:true,attributes:true,attributeFilter:['class']});
+  new MutationObserver(()=>{if(glass())sync()}).observe(document.documentElement,{attributes:true,attributeFilter:['class']});
+  window.addEventListener('resize',sync);setTimeout(sync,60);setTimeout(sync,600);
+
+  let drag=null;
+  const indexAt=x=>{const t=tabs();let best=0,bd=1e9;t.forEach((b,i)=>{const r=b.getBoundingClientRect(),d=Math.abs(r.left+r.width/2-x);if(d<bd){bd=d;best=i}});return best};
+  nav.addEventListener('pointerdown',e=>{if(!glass()||e.button>0)return;drag={id:e.pointerId,x0:e.clientX,y0:e.clientY,moved:false,idx:indexAt(e.clientX),start:activeIndex()}},{passive:true});
+  nav.addEventListener('pointermove',e=>{
+   if(!drag||e.pointerId!==drag.id)return;
+   const dx=e.clientX-drag.x0,dy=e.clientY-drag.y0;
+   if(!drag.moved){if(Math.abs(dx)<8||Math.abs(dx)<Math.abs(dy))return;drag.moved=true;try{nav.setPointerCapture(e.pointerId)}catch(_){}nav.classList.add('is-dragging');selectStart()}
+   place(drag.idx,e.clientX);const i=indexAt(e.clientX);
+   if(i!==drag.idx){drag.idx=i;select();tabs().forEach((b,k)=>b.classList.toggle('lens-over',k===i))}
+  });
+  const end=e=>{
+   if(!drag||(e&&e.pointerId!==drag.id))return;const d=drag;drag=null;
+   nav.classList.remove('is-dragging');tabs().forEach(b=>b.classList.remove('lens-over'));
+   if(d.moved){selectEnd();suppressClick=Date.now();const b=tabs()[d.idx];
+    if(b&&!b.classList.contains('active'))b.click();else place(activeIndex())}
+  };
+  nav.addEventListener('pointerup',end);nav.addEventListener('pointercancel',e=>{if(drag&&e.pointerId===drag.id){drag=null;nav.classList.remove('is-dragging');tabs().forEach(b=>b.classList.remove('lens-over'));place(activeIndex())}});
+  // A drag ends with a synthetic click on the tab it started from: swallow that one. Real taps give a light tap.
+  nav.addEventListener('click',e=>{
+   if(Date.now()-suppressClick<350&&e.isTrusted){e.stopImmediatePropagation();e.preventDefault();return}
+   if(e.isTrusted&&e.target.closest('button.navbtn'))tap();
+  },true);
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});else install();
+})();

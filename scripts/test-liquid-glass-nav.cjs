@@ -1,6 +1,6 @@
 /* Liquid Glass tab bar: on an iPhone whose WebKit has the iOS 26 features (anchor positioning / scroll-driven animations)
    the bottom bar becomes a floating translucent capsule with a blurred backdrop, content scrolls underneath it, and the
-   active tab gets a glass lens; on other platforms nothing changes. Headless Chrome has both features, so an iPhone user
+   active tab gets a sliding glass lens; on other platforms nothing changes. Headless Chrome has both features, so an iPhone user
    agent stands in for iOS 26+ and a desktop user agent for everything else. */
 const {chromium}=require('playwright'),http=require('node:http'),fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
 const root=path.resolve(__dirname,'..');
@@ -18,13 +18,14 @@ const IPHONE='Mozilla/5.0 (iPhone; CPU iPhone OS 18_6 like Mac OS X) AppleWebKit
   const r=await page.evaluate(()=>{const n=document.querySelector('nav.bottomnav'),c=getComputedStyle(n),b=n.getBoundingClientRect(),a=n.querySelector('.navbtn.active');
    const sc=document.querySelector('#learnScreen>.scroll').getBoundingClientRect();
    return {glass:document.documentElement.classList.contains('ilnura-glass'),left:b.left,radius:parseFloat(c.borderTopLeftRadius),blur:(c.backdropFilter||c.webkitBackdropFilter||''),
-    scrollBottom:sc.bottom,phoneBottom:document.querySelector('.phone').getBoundingClientRect().bottom,navBottom:b.bottom,activeBg:getComputedStyle(a).backgroundImage}});
+    scrollBottom:sc.bottom,phoneBottom:document.querySelector('.phone').getBoundingClientRect().bottom,navBottom:b.bottom,
+    lens:(()=>{const l=n.querySelector('.ilnura-glass-lens');if(!l)return null;const lr=l.getBoundingClientRect(),ar=a.getBoundingClientRect();return {bg:getComputedStyle(l).backgroundImage.slice(0,15),offset:Math.round(Math.abs(lr.left+lr.width/2-(ar.left+ar.width/2)))}})()}});
   assert.equal(r.glass,want,name+': glass mode '+(want?'on':'off'));
   if(want){
    assert.ok(r.left>=10,'floating capsule inset from the edge: '+r.left);assert.ok(r.radius>=28,'capsule radius '+r.radius);
    assert.match(r.blur,/blur\(/,'blurred backdrop');assert.ok(r.scrollBottom>=r.navBottom,'content scrolls under the bar');
-   assert.ok(r.navBottom<r.phoneBottom,'the bar floats above the bottom edge');assert.match(r.activeBg,/gradient/,'active tab has a glass lens');
-  }else{assert.ok(r.left<2,'the regular bar stays full width')}
+   assert.ok(r.navBottom<r.phoneBottom,'the bar floats above the bottom edge');assert.ok(r.lens&&/gradient/.test(r.lens.bg),'a glass lens is drawn');assert.ok(r.lens.offset<=3,'the lens sits under the active tab: '+r.lens.offset);
+  }else{assert.ok(r.left<2,'the regular bar stays full width');assert.equal(r.lens,null,'no lens outside glass mode')}
   console.log('  ok',name,JSON.stringify(r));await ctx.close();
  }
  await browser.close();server.close();console.log('PASS: Liquid Glass tab bar on iOS 26+, unchanged elsewhere');

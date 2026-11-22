@@ -82,6 +82,7 @@ jobs:
           node scripts/test-nothing-vanishes.cjs
           node scripts/test-boot-no-legacy-header.cjs
           node scripts/test-liquid-glass-nav.cjs
+          node scripts/test-glass-nav-swipe-haptics.cjs
           node scripts/test-pose-swap.cjs
           node scripts/test-companion-images.mjs
           node scripts/test-no-biased-shuffle.mjs
