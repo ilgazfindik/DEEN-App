@@ -305,14 +305,13 @@
  window.DEEN_DS_LESSON=Object.freeze({decorate,version:'ds-lesson-choice-v2',strings:L});
 })();
 
-/* Info envelope ("bilgi zarfı"). A sealed envelope appears at the start of a stage and once in the middle of a lesson;
-   a tap breaks the seal, the flap opens, the letter rises and becomes a card in the middle of the screen; a tap anywhere
-   shows the next note, or closes the envelope when there is none (swiping left/right works too). Content is only existing, translated text: explanations of questions from the
-   same stage (stage start: questions not drawn into this session, so no answers are given away; mid-lesson: after the
-   first wrong answer another question of the same concept — "another look at this idea" — or, if nothing goes wrong, a
-   "did you know?" note at a 3 streak). A note without a translation in the learner's language is never shown, and a note
-   is not shown twice. Automated browsers do not get it (it would sit on top of the questions) unless
-   localStorage ilnura_envelope=1 asks for it; ilnura_envelope=0 turns it off. */
+/* Info envelope ("bilgi zarfı"). A sealed envelope appears as soon as a lesson starts, on its first question (after the
+   stage's own intro card). A tap breaks the seal, the flap opens, the letter rises and becomes a card in the middle of the
+   screen; a tap anywhere shows the next note, or closes the envelope when there is none (swiping works too). When it comes
+   and how many notes: see the lesson watcher below. Content is only existing, translated text — explanations of bank
+   questions of the same stage (topped up from the same unit), never from questions drawn into this lesson, so no answers
+   are given away; a note without a translation in the learner's language is never shown. Automated browsers do not get it
+   (it would sit on top of the questions) unless localStorage ilnura_envelope=1 asks for it; ilnura_envelope=0 turns it off. */
 (()=>{
  'use strict';
  if(window.DEEN_DS_ENVELOPE)return;
@@ -426,12 +425,17 @@
   return true;
  }
 
- // Lesson watcher. How often (about one or two envelopes every two lessons, more in important stages):
- // - lesson start: the first lesson of a stage, every lesson of an important stage, and any lesson after one that had no
- //   envelope at all — so there is never more than one lesson in a row without one;
- // - in the lesson: up to one envelope (two in an important stage) on the next question after the first wrong answer
- //   ("another look at this idea"), at a 3 streak, or at the half-way question ("did you know?"; in a normal stage only
- //   when the lesson has had no envelope yet, and then in about half of the lessons).
+ // Concept stages teach the unit's ideas: the first five stages of a unit (S01–S05) and any stage named after concepts
+ // ("Kavram…"). The review and challenge stages (S06, S07) test what was taught.
+ function conceptStage(id){
+  const k=+String(id).slice(5,7);if(k>=1&&k<=5)return true;
+  try{const st=STAGES.find(x=>x.id===id);return /kavram/i.test(String(st&&st.title||''))}catch(_){return false}
+ }
+ // Lesson watcher. Every envelope comes as soon as the learner enters, on the first question (after the stage's own intro
+ // card); there are none in the middle of a lesson:
+ // - concept stages and the important stages (first and last of a unit): every lesson, three notes;
+ // - the other (review) stages: the first lesson, and any lesson after one that had no envelope (never two in a row
+ //   without), two notes.
  const done=new WeakMap();
  function tick(){
   if(!allowed()||open)return;
@@ -441,31 +445,21 @@
   const onScreen=e=>{if(!e)return false;const r=e.getBoundingClientRect(),c=getComputedStyle(e);return r.width>2&&r.height>2&&c.display!=='none'&&c.visibility!=='hidden'&&+c.opacity>0.05};
   if([...document.querySelectorAll('.v910-overlay, dialog[open]')].some(onScreen))return;
   const id=stageOf(s);if(!/^U\d\d-S\d\d$/.test(id))return;
-  let st=done.get(s);
-  if(!st){st={start:false,mid:0,last:-1,used:new Set(),shown:0,wrong:false,half:false,imp:important(id),coin:Math.random()<.5};done.set(s,st);
-   // A lesson that ends without any envelope makes the next one start with one.
-   setGap(gap()+1);}
-  const i=s.index|0,n=s.questions.length;
-  if(!st.start){st.start=true;
-   const first=!seen().has('s:'+id);
-   if(i===0&&(first||st.imp||gap()>=2)){const notes=stageNotes(s,st.imp?3:2,st.used);
-    if(notes.length){mark(['s:'+id]);notes.forEach(x=>st.used.add(x.id));st.shown++;setGap(0);st.last=i;show('stage',t().stage,notes);return}}}
-  if(i!==st.last){
-   const max=st.imp?2:1;
-   if(st.last>=0&&st.mid<max&&i>st.last&&i<n){
-    const prev=s.questions[st.last];const wrong=(s.combo|0)===0;let note1=null,title='';
-    if(wrong&&prev&&!st.wrong){st.wrong=true;note1=conceptNote(s,prev,st.used);title=t().again}
-    if(!note1&&(s.combo|0)>=3&&!st.streak){st.streak=true;note1=anyNote(s,st.used);title=t().dyk}
-    if(!note1&&!st.half&&i>=Math.floor(n/2)&&(st.imp||(st.shown===0&&st.coin))){st.half=true;note1=anyNote(s,st.used);title=t().dyk}
-    if(note1){st.mid++;st.used.add(note1.id);st.shown++;setGap(0);st.last=i;show('mid',title,[note1]);return}
-   }
-   st.last=i;
-  }
+  if(done.has(s))return;
+  const always=conceptStage(id)||important(id);
+  // A lesson that ends without any envelope makes the next one start with one.
+  setGap(gap()+1);
+  const st={used:new Set()};done.set(s,st);
+  if((s.index|0)!==0)return;
+  const first=!seen().has('s:'+id);
+  if(!(always||first||gap()>=2))return;
+  const notes=stageNotes(s,always?3:2,st.used);
+  if(notes.length){mark(['s:'+id]);setGap(0);show('stage',t().stage,notes)}
  }
  function install(){
   const lesson=document.getElementById('lesson');if(!lesson){setTimeout(install,400);return}
   let q=0;new MutationObserver(()=>{if(q)return;q=setTimeout(()=>{q=0;tick()},450)}).observe(lesson,{subtree:true,childList:true,attributes:true,attributeFilter:['class']});
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});else install();
- window.DEEN_DS_ENVELOPE=Object.freeze({show,stageNotes,conceptNote,anyNote,important,note,isOpen:()=>!!open,version:'ds-envelope-2'});
+ window.DEEN_DS_ENVELOPE=Object.freeze({show,stageNotes,conceptNote,anyNote,important,conceptStage,note,isOpen:()=>!!open,version:'ds-envelope-3'});
 })();
