@@ -84,6 +84,7 @@ jobs:
           node scripts/test-liquid-glass-nav.cjs
           node scripts/test-glass-nav-swipe-haptics.cjs
           node scripts/test-native-tabbar-bridge.cjs
+          node scripts/test-info-envelope.cjs
           node scripts/test-pose-swap.cjs
           node scripts/test-companion-images.mjs
           node scripts/test-no-biased-shuffle.mjs
