@@ -1,3 +1,22 @@
+/* Liquid Glass tab bar for iPhones on iOS 26 and later (iOS 27 included). The web view's user agent freezes the OS
+   version at 18.x, so the version is detected by a WebKit feature that first shipped with iOS 26 (CSS anchor positioning,
+   or scroll-driven animations). ?glass=1 / ?glass=0 or localStorage ilnura_glass=1/0 force it on or off for testing. */
+(()=>{
+ 'use strict';
+ try{
+  const ua=navigator.userAgent||'';
+  let force=null;
+  try{const q=new URLSearchParams(location.search).get('glass');if(q==='1'||q==='0'){force=q==='1';localStorage.setItem('ilnura_glass',q)}
+   else{const v=localStorage.getItem('ilnura_glass');if(v==='1'||v==='0')force=v==='1'}}catch(_){}
+  let native='';try{native=window.Capacitor&&window.Capacitor.getPlatform?window.Capacitor.getPlatform():''}catch(_){}
+  const ios=/iP(hone|ad|od)/.test(ua)||(/Macintosh/.test(ua)&&navigator.maxTouchPoints>1)||native==='ios';
+  const webkit26=!!(window.CSS&&CSS.supports&&(CSS.supports('anchor-name','--ilnura')||CSS.supports('animation-timeline','scroll()')));
+  const on=force===null?(ios&&webkit26):force;
+  if(on)document.documentElement.classList.add('ilnura-glass');
+  window.DEEN_DS_GLASS=Object.freeze({on,ios,webkit26});
+ }catch(_){}
+})();
+
 /* Home (Learn tab) behaviour on the design system — Phase 2.
    Only adds state attributes/classes to the legacy DOM, so every re-render by the old
    renderers is re-decorated idempotently:
