@@ -249,7 +249,7 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
 <script>
 (async()=>{
  const status=document.getElementById('status');
- const BUILD='9606xcpud';
+ const BUILD='9607xbhfx';
  // Keep both locales available for safe in-app language changes.
  let SEGMENT_COUNT=67;
  const CONCURRENCY=6;
@@ -656,9 +656,10 @@ html,body{margin:0;height:100%;background:#03131b;color:#eef7f4;font-family:-app
 
    html=html.replace('<head>','<head><link rel="preload" href="./assets/fonts/AmiriQuran-Regular.woff2" as="font" type="font/woff2" crossorigin>');
    await window.__ILNURA_SPLASH__.finish();
-   // The app opens behind a veil in the splash's last colour that fades away, so the swap is not a flash.
+   // The app opens behind a veil in the splash's last colour that fades away, so the swap is not a flash. The veil stays until
+   // the app reports its start-up state (data-deen-startup), so the bare pre-start header never shows; 20 s at most.
    const veilCss='#ilnura-veil{position:fixed;inset:0;z-index:2147483647;background:#03131b;pointer-events:none;opacity:1;transition:opacity .55s ease}#ilnura-veil.gone{opacity:0}';
-   html=html.replace('<head>','<head><style id="ilnura-veil-style">'+veilCss+'</style><script id="ilnura-veil-script">(function(){var v=document.createElement("div");v.id="ilnura-veil";document.documentElement.appendChild(v);var go=function(){requestAnimationFrame(function(){requestAnimationFrame(function(){v.className="gone";setTimeout(function(){v.remove()},700)})})};if(document.readyState!=="loading")go();else document.addEventListener("DOMContentLoaded",go,{once:true});setTimeout(function(){if(v.parentNode&&v.className!=="gone")go()},1500)})();<\/script>');
+   html=html.replace('<head>','<head><style id="ilnura-veil-style">'+veilCss+'</style><script id="ilnura-veil-script">(function(){var v=document.createElement("div");v.id="ilnura-veil";document.documentElement.appendChild(v);var go=function(){requestAnimationFrame(function(){requestAnimationFrame(function(){v.className="gone";setTimeout(function(){v.remove()},700)})})};var done=false,fire=function(){if(done)return;done=true;go()},seen=function(){return !!document.documentElement.getAttribute("data-deen-startup")};if(seen())fire();else new MutationObserver(function(m,o){if(seen()){o.disconnect();fire()}}).observe(document.documentElement,{attributes:true,attributeFilter:["data-deen-startup"]});setTimeout(fire,20000)})();<\/script>');
    window.__DEEN_DEPLOY_ID__=BUILD;
    document.open();
    document.write(html);
