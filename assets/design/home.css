@@ -258,3 +258,8 @@ html.ilnura-glass body nav.bottomnav.has-lens.is-dragging button.navbtn.lens-ove
 html.ilnura-glass body nav.bottomnav.has-lens.is-dragging button.navbtn.lens-over:not(#a):not(#b):not(#c){transform:scale(1.06)!important}
 html.ilnura-glass body nav.bottomnav.has-lens{touch-action:pan-y}
 @media (prefers-reduced-motion:reduce){html.ilnura-glass body nav.bottomnav.has-lens>.ilnura-glass-lens{transition:none}}
+
+/* Native iOS tab bar shown (home.js + NativeTabBar.swift): the web tab bar stays in place as the router and hit-test
+   target but is not drawn; content keeps scrolling under the native glass bar. */
+html.native-tabbar body nav.bottomnav:not(#a):not(#b):not(#c){opacity:0!important}
+html.native-tabbar body .phone>.screen>.scroll:not(#a){bottom:0!important;padding-bottom:calc(var(--native-tabbar-h,84px) + 28px)!important}
