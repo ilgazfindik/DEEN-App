@@ -306,8 +306,8 @@
 })();
 
 /* Info envelope ("bilgi zarfı"). A sealed envelope appears at the start of a stage and once in the middle of a lesson;
-   a tap breaks the seal, the flap opens, the letter rises and becomes a card the learner can swipe left/right through
-   and close with "Got it" or a swipe down. Content is only existing, translated text: explanations of questions from the
+   a tap breaks the seal, the flap opens, the letter rises and becomes a card in the middle of the screen; a tap anywhere
+   shows the next note, or closes the envelope when there is none (swiping left/right works too). Content is only existing, translated text: explanations of questions from the
    same stage (stage start: questions not drawn into this session, so no answers are given away; mid-lesson: after the
    first wrong answer another question of the same concept — "another look at this idea" — or, if nothing goes wrong, a
    "did you know?" note at a 3 streak). A note without a translation in the learner's language is never shown, and a note
@@ -317,11 +317,11 @@
  'use strict';
  if(window.DEEN_DS_ENVELOPE)return;
  const T={
-  tr:{stage:'Bu aşamanın bilgi zarfı',tap:'Açmak için dokun',skip:'Geç',ok:'Anladım',dyk:'Biliyor muydun?',again:'Bu kavrama bir de böyle bak',kicker:'BİLGİ ZARFI',of:(a,b)=>a+' / '+b},
-  en:{stage:'This stage’s envelope',tap:'Tap to open',skip:'Skip',ok:'Got it',dyk:'Did you know?',again:'Another look at this idea',kicker:'INFO ENVELOPE',of:(a,b)=>a+' / '+b},
-  de:{stage:'Der Umschlag dieser Etappe',tap:'Zum Öffnen tippen',skip:'Überspringen',ok:'Verstanden',dyk:'Wusstest du schon?',again:'Noch ein Blick auf diesen Begriff',kicker:'INFO-UMSCHLAG',of:(a,b)=>a+' / '+b},
-  fr:{stage:'L’enveloppe de cette étape',tap:'Touche pour ouvrir',skip:'Passer',ok:'Compris',dyk:'Le savais-tu ?',again:'Un autre regard sur cette notion',kicker:'ENVELOPPE',of:(a,b)=>a+' / '+b},
-  ar:{stage:'رسالة هذه المرحلة',tap:'المس للفتح',skip:'تخطَّ',ok:'فهمت',dyk:'هل تعلم؟',again:'نظرة أخرى إلى هذا المفهوم',kicker:'رسالة معرفية',of:(a,b)=>a+' / '+b}
+  tr:{stage:'Bu aşamanın bilgi zarfı',tap:'Açmak için dokun',skip:'Geç',ok:'Anladım',next:'Devam etmek için ekrana dokun',dyk:'Biliyor muydun?',again:'Bu kavrama bir de böyle bak',kicker:'BİLGİ ZARFI',of:(a,b)=>a+' / '+b},
+  en:{stage:'This stage’s envelope',tap:'Tap to open',skip:'Skip',ok:'Got it',next:'Tap anywhere to continue',dyk:'Did you know?',again:'Another look at this idea',kicker:'INFO ENVELOPE',of:(a,b)=>a+' / '+b},
+  de:{stage:'Der Umschlag dieser Etappe',tap:'Zum Öffnen tippen',skip:'Überspringen',ok:'Verstanden',next:'Tippe irgendwo, um weiterzumachen',dyk:'Wusstest du schon?',again:'Noch ein Blick auf diesen Begriff',kicker:'INFO-UMSCHLAG',of:(a,b)=>a+' / '+b},
+  fr:{stage:'L’enveloppe de cette étape',tap:'Touche pour ouvrir',skip:'Passer',ok:'Compris',next:'Touche l’écran pour continuer',dyk:'Le savais-tu ?',again:'Un autre regard sur cette notion',kicker:'ENVELOPPE',of:(a,b)=>a+' / '+b},
+  ar:{stage:'رسالة هذه المرحلة',tap:'المس للفتح',skip:'تخطَّ',ok:'فهمت',next:'المس الشاشة للمتابعة',dyk:'هل تعلم؟',again:'نظرة أخرى إلى هذا المفهوم',kicker:'رسالة معرفية',of:(a,b)=>a+' / '+b}
  };
  const lang=()=>{const l=String(document.documentElement.lang||'tr').slice(0,2).toLowerCase();return T[l]?l:'tr'};
  const t=()=>T[lang()];
@@ -374,11 +374,11 @@
     '<span class="ds-env-back"></span><span class="ds-env-letter"><i></i><i></i><i></i></span><span class="ds-env-front"></span>'+
     '<span class="ds-env-flap"></span><span class="ds-env-seal">✦</span></button>'+
     '<p class="ds-env-title"></p><p class="ds-env-hint"></p><button type="button" class="ds-env-skip"></button></div>'+
-   '<div class="ds-env-card" aria-live="polite"><div class="ds-env-grip"></div><div class="ds-env-kicker"></div><h3 class="ds-env-h"></h3>'+
-    '<div class="ds-env-pages"></div><div class="ds-env-dots"></div><button type="button" class="ds-env-ok"></button></div>';
+   '<div class="ds-env-card" aria-live="polite"><div class="ds-env-kicker"></div><h3 class="ds-env-h"></h3>'+
+    '<div class="ds-env-pages"></div><div class="ds-env-dots"></div><p class="ds-env-next"></p></div>';
   ov.querySelector('.ds-env-title').textContent=title;ov.querySelector('.ds-env-hint').textContent=L.tap;
   ov.querySelector('.ds-env-skip').textContent=L.skip;ov.querySelector('.ds-env-kicker').textContent=L.kicker;
-  ov.querySelector('.ds-env-h').textContent=title;ov.querySelector('.ds-env-ok').textContent=L.ok;
+  ov.querySelector('.ds-env-h').textContent=title;ov.querySelector('.ds-env-next').textContent=L.next;
   const pages=ov.querySelector('.ds-env-pages'),dots=ov.querySelector('.ds-env-dots');
   notes.forEach((n,i)=>{const p=document.createElement('article');p.className='ds-env-page';const tx=document.createElement('p');tx.textContent=n.text;p.append(tx);pages.append(p);
    if(notes.length>1){const d=document.createElement('i');if(!i)d.className='on';dots.append(d)}});
@@ -387,16 +387,21 @@
   requestAnimationFrame(()=>requestAnimationFrame(()=>ov.classList.add('in')));
   let page=0;
   pages.addEventListener('scroll',()=>{const w=pages.clientWidth||1;const i=Math.round(Math.abs(pages.scrollLeft)/w);if(i!==page){page=i;haptic('select');[...dots.children].forEach((d,k)=>d.classList.toggle('on',k===i))}},{passive:true});
-  const env=ov.querySelector('.ds-env-envelope');
-  env.addEventListener('click',()=>{if(ov.classList.contains('opening'))return;ov.classList.add('opening');haptic('tap');mark(notes.map(n=>'n:'+n.id));
-   setTimeout(()=>ov.classList.add('opened'),reduced()?0:820)});
-  const close=()=>{if(!open||open.ov!==ov)return;ov.classList.add('out');setTimeout(()=>{ov.remove();if(open&&open.ov===ov)open=null;setTimeout(tick,50)},reduced()?0:360)};
-  ov.querySelector('.ds-env-skip').addEventListener('click',close);ov.querySelector('.ds-env-ok').addEventListener('click',close);
-  // Swipe the open card down to close it.
-  const card=ov.querySelector('.ds-env-card');let y0=null,x0=0,dy=0;
-  card.addEventListener('pointerdown',e=>{y0=e.clientY;x0=e.clientX;dy=0},{passive:true});
-  card.addEventListener('pointermove',e=>{if(y0==null)return;const d=e.clientY-y0;if(Math.abs(e.clientX-x0)>Math.abs(d)){if(dy===0){y0=null}return}dy=Math.max(0,d);if(dy>6)card.style.transform='translateY('+dy+'px)'},{passive:true});
-  const up=()=>{if(y0==null)return;y0=null;card.style.transform='';if(dy>90)close()};card.addEventListener('pointerup',up);card.addEventListener('pointercancel',up);
+  const env=ov.querySelector('.ds-env-envelope'),skip=ov.querySelector('.ds-env-skip');
+  const openIt=()=>{if(ov.classList.contains('opening'))return;ov.classList.add('opening');haptic('tap');mark(notes.map(n=>'n:'+n.id));
+   setTimeout(()=>ov.classList.add('opened'),reduced()?0:820)};
+  const close=()=>{if(!open||open.ov!==ov||ov.classList.contains('out'))return;ov.classList.add('out');setTimeout(()=>{ov.remove();if(open&&open.ov===ov)open=null;setTimeout(tick,50)},reduced()?0:360)};
+  skip.addEventListener('click',e=>{e.stopPropagation();close()});
+  // A tap anywhere: on the sealed envelope screen it opens it; on the open card it shows the next note, or closes the
+  // envelope after the last one.
+  ov.addEventListener('click',e=>{
+   if(!ov.classList.contains('opening')){openIt();return}
+   if(!ov.classList.contains('opened'))return;
+   const w=pages.clientWidth||1,dir=rtl?-1:1;
+   if(page<notes.length-1){page++;pages.scrollTo({left:dir*w*page,behavior:reduced()?'auto':'smooth'});haptic('select');[...dots.children].forEach((d,k)=>d.classList.toggle('on',k===page))}
+   else close();
+  });
+  ov.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
   return true;
  }
 

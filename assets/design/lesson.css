@@ -117,7 +117,7 @@ html body #quizView .question-frame>.ds-q-lead::before{content:"";flex:0 0 7px;w
 html[dir="rtl"] body #quizView .question-frame>.ds-q-lead{align-self:flex-end}
 
 /* Info envelope (lesson.js): sealed envelope → seal breaks, flap opens, letter rises → swipeable note card. */
-.ds-env-overlay{position:absolute;inset:0;z-index:2147482000;display:flex;align-items:center;justify-content:center;font-family:var(--ds-font);color:#e8edff;pointer-events:auto}
+.ds-env-overlay{position:absolute;inset:0;cursor:pointer;-webkit-tap-highlight-color:transparent;z-index:2147482000;display:flex;align-items:center;justify-content:center;font-family:var(--ds-font);color:#e8edff;pointer-events:auto}
 .ds-env-backdrop{position:absolute;inset:0;background:rgba(5,10,30,.62);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);opacity:0;transition:opacity .3s ease}
 .ds-env-overlay.in .ds-env-backdrop{opacity:1}
 .ds-env-overlay.out .ds-env-backdrop{opacity:0}
@@ -141,12 +141,11 @@ html[dir="rtl"] body #quizView .question-frame>.ds-q-lead{align-self:flex-end}
 .ds-env-title{margin:14px 0 0;font:800 18px/1.3 var(--ds-font);color:#fff;text-align:center;max-width:300px}
 .ds-env-hint{margin:0;font:700 12px/1 var(--ds-font);letter-spacing:.12em;text-transform:uppercase;color:#f2cf84}
 .ds-env-skip{margin-top:6px;padding:8px 18px;border-radius:999px;border:1px solid rgba(150,175,255,.3);background:rgba(150,175,255,.08);color:#c3cdee;font:700 13px/1 var(--ds-font)}
-.ds-env-card{position:absolute;left:14px;right:14px;bottom:calc(16px + env(safe-area-inset-bottom,0px));max-height:72%;display:flex;flex-direction:column;padding:10px 0 18px;border-radius:26px;background:linear-gradient(175deg,#1d2d58,#121d3d);border:1px solid rgba(242,207,132,.35);box-shadow:0 -10px 40px rgba(2,6,22,.5);transform:translateY(115%);transition:transform .5s cubic-bezier(.3,1.25,.45,1);touch-action:pan-x}
-.ds-env-overlay.opened .ds-env-card{transform:translateY(0)}
-.ds-env-overlay.out .ds-env-card{transform:translateY(115%);transition-duration:.32s;transition-timing-function:ease-in}
-.ds-env-grip{width:40px;height:5px;border-radius:3px;background:rgba(150,175,255,.35);margin:2px auto 12px}
-.ds-env-kicker{padding:0 22px;font:800 11px/1 var(--ds-font);letter-spacing:.2em;color:#f2cf84}
-.ds-env-h{margin:8px 22px 12px;font:800 20px/1.25 var(--ds-font);color:#fff}
+.ds-env-card{position:absolute;left:18px;right:18px;top:50%;display:flex;flex-direction:column;padding:22px 0 20px;border-radius:28px;background:linear-gradient(175deg,#1d2d58,#121d3d);border:1px solid rgba(242,207,132,.38);box-shadow:0 24px 60px rgba(2,6,22,.6),0 0 0 1px rgba(255,255,255,.03) inset;transform:translateY(-38%) scale(.55);opacity:0;pointer-events:none;transition:transform .5s cubic-bezier(.3,1.3,.45,1),opacity .28s ease}
+.ds-env-overlay.opened .ds-env-card{transform:translateY(-50%) scale(1);opacity:1;pointer-events:auto}
+.ds-env-overlay.out .ds-env-card{transform:translateY(-50%) scale(.92);opacity:0;transition-duration:.3s;transition-timing-function:ease-in}
+.ds-env-kicker{padding:0 22px;text-align:center;font:800 11px/1 var(--ds-font);letter-spacing:.2em;color:#f2cf84}
+.ds-env-h{text-align:center;margin:8px 22px 14px;font:800 20px/1.25 var(--ds-font);color:#fff}
 .ds-env-pages{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
 .ds-env-pages::-webkit-scrollbar{display:none}
 .ds-env-page{flex:0 0 100%;scroll-snap-align:center;padding:0 22px;box-sizing:border-box}
@@ -154,5 +153,6 @@ html[dir="rtl"] body #quizView .question-frame>.ds-q-lead{align-self:flex-end}
 .ds-env-dots{display:flex;justify-content:center;gap:7px;margin-top:14px}
 .ds-env-dots i{width:7px;height:7px;border-radius:50%;background:rgba(150,175,255,.35);transition:background .2s,transform .2s}
 .ds-env-dots i.on{background:#f2cf84;transform:scale(1.25)}
-.ds-env-ok{margin:16px 22px 0;min-height:52px;border:0;border-radius:16px;background:linear-gradient(180deg,#f9e7b4,#e2b95f);box-shadow:0 4px 0 #a8823a;color:#16122f;font:900 15px/1 var(--ds-font);letter-spacing:.06em}
-@media (prefers-reduced-motion:reduce){.ds-env-envelope,.ds-env-seal{animation:none}.ds-env-stage,.ds-env-card,.ds-env-flap,.ds-env-letter,.ds-env-backdrop{transition:none}}
+.ds-env-next{margin:18px 22px 0;text-align:center;font:700 12px/1.3 var(--ds-font);letter-spacing:.08em;text-transform:uppercase;color:#9fb0dc;animation:dsEnvHint 1.8s ease-in-out infinite}
+@keyframes dsEnvHint{0%,100%{opacity:.55}50%{opacity:1}}
+@media (prefers-reduced-motion:reduce){.ds-env-envelope,.ds-env-seal,.ds-env-next{animation:none}.ds-env-stage,.ds-env-card,.ds-env-flap,.ds-env-letter,.ds-env-backdrop{transition:none}}

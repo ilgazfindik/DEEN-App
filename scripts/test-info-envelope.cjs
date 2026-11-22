@@ -1,6 +1,7 @@
 /* Info envelope (assets/design/lesson.js). Stage start: a sealed envelope with up to three notes taken from the stage's
-   bank questions that are not in this session (no answers given away); tapping opens it into a swipeable card, "got it"
-   closes it, and the same stage does not show it again. Mid-lesson: after the first wrong answer the next question gets
+   bank questions that are not in this session (no answers given away); a tap anywhere opens it into a card in the middle
+   of the screen, each further tap shows the next note and the tap after the last one closes it; the same stage does not
+   show it again. Mid-lesson: after the first wrong answer the next question gets
    one envelope with another question's note on the same concept. Notes are in the learner's language only (no Turkish
    leaks in English). Automated browsers without the opt-in never get it, so other lesson tests are not covered. */
 const {chromium}=require('playwright'),http=require('node:http'),fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
@@ -28,11 +29,15 @@ const server=http.createServer((req,res)=>{let p=path.join(root,decodeURICompone
    ids:(DEEN_DS_ENVELOPE.stageNotes({stage:session.stage,questions:[]})||[]).map(n=>n.id)}));
   assert.ok(info.notes.length>=1&&info.notes.length<=3,lang+': one to three notes');
   if(lang==='en')assert.ok(info.notes.every(n=>!/[ğışĞİŞ]/.test(n)),'English notes carry no Turkish');
-  await page.locator('.ds-env-envelope').click({force:true});await page.waitForTimeout(1500);
+  await page.mouse.click(196,760);await page.waitForTimeout(1500);
   assert.equal(await page.evaluate(()=>document.querySelector('.ds-env-overlay').classList.contains('opened')),true,lang+': opens into a card');
-  if(info.notes.length>1){await page.evaluate(()=>{const p=document.querySelector('.ds-env-pages');p.scrollTo({left:p.clientWidth,behavior:'instant'})});await page.waitForTimeout(400);
-   assert.equal(await page.evaluate(()=>[...document.querySelectorAll('.ds-env-dots i')].findIndex(d=>d.classList.contains('on'))),1,lang+': swipe moves to the second note')}
-  await page.locator('.ds-env-ok').click();await page.waitForTimeout(700);assert.equal(await page.locator('.ds-env-overlay').count(),0,lang+': got it closes it');
+  const centre=await page.evaluate(()=>{const r=document.querySelector('.ds-env-card').getBoundingClientRect();return Math.round(r.top+r.height/2)});
+  assert.ok(Math.abs(centre-426)<=40,lang+': the card sits in the middle of the screen ('+centre+')');
+  // Each tap anywhere shows the next note; the tap after the last one closes the envelope.
+  for(let k=1;k<info.notes.length;k++){await page.mouse.click(40,120);await page.waitForTimeout(600);
+   assert.equal(await page.evaluate(()=>[...document.querySelectorAll('.ds-env-dots i')].findIndex(d=>d.classList.contains('on'))),k,lang+': tap → note '+(k+1));
+   assert.equal(await page.locator('.ds-env-overlay').count(),1,lang+': still open before the last note')}
+  await page.mouse.click(40,120);await page.waitForTimeout(700);assert.equal(await page.locator('.ds-env-overlay').count(),0,lang+': the tap after the last note closes it');
   // Session questions never feed the stage envelope.
   const stageNotesNow=await page.evaluate(()=>DEEN_DS_ENVELOPE.stageNotes(session).map(n=>n.id));
   assert.ok(stageNotesNow.every(id=>!info.inSession.includes(id)),lang+': stage notes come from questions outside the session');
@@ -41,7 +46,7 @@ const server=http.createServer((req,res)=>{let p=path.join(root,decodeURICompone
   await page.evaluate(()=>{session.combo=0;session.index=session.index+1;renderQuestion()});await page.waitForTimeout(1600);
   const midShown=await page.locator('.ds-env-overlay').count();
   assert.equal(midShown,mid.has?1:0,lang+': mid-lesson envelope after a wrong answer iff a same-concept note exists ('+JSON.stringify(mid)+')');
-  if(midShown){await page.locator('.ds-env-skip').click();await page.waitForTimeout(600)}
+  if(midShown){await page.mouse.click(196,760);await page.waitForTimeout(1500);await page.mouse.click(196,760);await page.waitForTimeout(700);assert.equal(await page.locator('.ds-env-overlay').count(),0,lang+': one-note envelope closes on the next tap')}
   // The same stage does not show its envelope again.
   await page.evaluate(()=>{try{closeLesson&&closeLesson()}catch(_){}});await page.waitForTimeout(800);
   assert.equal(await startAndWait(page,'U01-S02'),false,lang+': not shown twice for a stage');
