@@ -244,3 +244,17 @@ html.ilnura-glass body nav.bottomnav button.navbtn.active:not(#a):not(#b):not(#c
 html.ilnura-glass body nav.bottomnav button.navbtn.active:not(#a):not(#b):not(#c) *{color:#f6d78f!important}
 html.ilnura-glass body .screen.active ~ nav.bottomnav .navbtn.active::after,html.ilnura-glass body nav.bottomnav .navbtn::after{display:none!important}
 @media (prefers-reduced-transparency:reduce){html.ilnura-glass body nav.bottomnav:not(#a):not(#b):not(#c){background:rgba(18,28,58,.94)!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}}
+
+/* Swipeable glass lens under the active tab (home.js). The buttons keep their own active colour; the lens replaces their
+   background and slides between tabs, following the finger while dragging. */
+html.ilnura-glass body nav.bottomnav.has-lens>.ilnura-glass-lens{position:absolute;left:0;top:7px;height:54px;border-radius:27px;pointer-events:none;z-index:0;
+ background:linear-gradient(180deg,rgba(255,255,255,.26),rgba(255,255,255,.09));
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.6),inset 0 -1px 0 rgba(255,255,255,.14),inset 0 0 12px rgba(255,255,255,.08),0 6px 16px rgba(3,8,26,.24);
+ transition:transform .42s cubic-bezier(.3,1.35,.45,1),width .3s ease,height .2s ease,top .2s ease;will-change:transform}
+html.ilnura-glass body nav.bottomnav.has-lens.is-dragging>.ilnura-glass-lens{transition:width .2s ease,height .18s ease,top .18s ease;height:60px;top:4px;background:linear-gradient(180deg,rgba(255,255,255,.32),rgba(255,255,255,.12))}
+html.ilnura-glass body nav.bottomnav.has-lens button.navbtn:not(#a):not(#b):not(#c){position:relative;z-index:1;background:transparent!important;box-shadow:none!important;touch-action:pan-y}
+html.ilnura-glass body nav.bottomnav.has-lens.is-dragging button.navbtn.active:not(.lens-over):not(#a):not(#b):not(#c),html.ilnura-glass body nav.bottomnav.has-lens.is-dragging button.navbtn.active:not(.lens-over):not(#a):not(#b):not(#c) *{color:rgba(236,241,255,.84)!important}
+html.ilnura-glass body nav.bottomnav.has-lens.is-dragging button.navbtn.lens-over:not(#a):not(#b):not(#c),html.ilnura-glass body nav.bottomnav.has-lens.is-dragging button.navbtn.lens-over:not(#a):not(#b):not(#c) *{color:#f6d78f!important}
+html.ilnura-glass body nav.bottomnav.has-lens.is-dragging button.navbtn.lens-over:not(#a):not(#b):not(#c){transform:scale(1.06)!important}
+html.ilnura-glass body nav.bottomnav.has-lens{touch-action:pan-y}
+@media (prefers-reduced-motion:reduce){html.ilnura-glass body nav.bottomnav.has-lens>.ilnura-glass-lens{transition:none}}
