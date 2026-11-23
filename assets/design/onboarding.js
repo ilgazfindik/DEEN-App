@@ -33,6 +33,12 @@
   // The narration choices used emoji; they get line icons in the app's own style.
   for(const ico of root.querySelectorAll('.choice-ico')){const svg=CHOICE_ICONS[ico.textContent.trim()];if(svg){ico.innerHTML=svg;ico.classList.add('ds-ob-ico')}}
   const copy=root.querySelector('.v998-copy');
+  // The welcome step greets with the whole crew of companions over a gold arch.
+  if(copy&&step===0&&!root.querySelector('.ds-ob-crew')){
+   const crew=document.createElement('div');crew.className='ds-ob-crew';crew.setAttribute('aria-hidden','true');
+   for(const [i,pet] of ['lion','cat','owl','eagle','turtle'].entries()){const s=document.createElement('span');s.className='ds-ob-crew-pet ds-ob-crew-'+i;const im=new Image();im.alt='';im.decoding='async';im.src='assets/companions/'+pet+'/'+pet+'_avatar.png';s.append(im);crew.append(s)}
+   copy.before(crew);
+  }
   if(copy&&step>0){
    const pet=companion(root),src='assets/companions/'+pet+'/'+pet+'_avatar.png';
    let img=copy.querySelector('.ds-ob-pet');

@@ -1,4 +1,4 @@
-#deenLanguageGate{position:fixed;inset:0;z-index:2147483646;overflow:auto;display:grid;place-items:center;padding:24px 20px;box-sizing:border-box;background:radial-gradient(ellipse at 50% 0,#164c49 0,transparent 55%),linear-gradient(180deg,#072933,#03131b);color:#effff7;font-family:system-ui,Arial,sans-serif}
+#deenLanguageGate{position:fixed;inset:0;z-index:2147483646;overflow:auto;display:grid;place-items:center;padding:24px 20px;box-sizing:border-box;background:radial-gradient(ellipse at 50% 0,rgba(84,116,226,.38) 0,transparent 55%),radial-gradient(80% 40% at 50% 108%,rgba(242,207,132,.12),transparent 70%),linear-gradient(180deg,#17264f,#0f1a3a 55%,#0b1430);color:#eef1ff;font-family:system-ui,Arial,sans-serif}
 .deen-language-shell{width:min(100%,430px);text-align:center}.deen-language-brand{font:800 23px/1.2 Georgia,serif;letter-spacing:5px;color:#edd5a8}.deen-language-symbol{width:58px;height:58px;margin:24px auto 18px;display:grid;place-items:center;border:1px solid #64998a;border-radius:18px;background:#123f3e;color:#bdf5df;font-size:25px}
 .deen-language-shell h1{margin:0;font:750 clamp(25px,6vw,32px)/1.28 system-ui,Arial,sans-serif;text-wrap:balance}.deen-language-shell p{color:#b7d0cd;font-size:14px;line-height:1.65;margin:14px 0 24px;text-wrap:balance}
 .deen-language-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;direction:ltr}.deen-language-cards button{position:relative;min-width:0;min-height:82px;padding:16px 26px;border:1px solid #3e696c;border-radius:18px;background:linear-gradient(145deg,#123a42,#09272f);color:#f6fffa;font:750 17px/1.4 system-ui,Arial,sans-serif;cursor:pointer;overflow-wrap:anywhere}.deen-language-cards button[aria-pressed=true]{border-color:#9cf1d3;background:#174e45;box-shadow:0 0 0 2px #95eac820}.deen-language-cards i{position:absolute;right:10px;top:8px;color:#a8f0d6;font-style:normal}
@@ -15,10 +15,10 @@ html:lang(ar) #v998Onboarding .v998-copy,html:lang(ar) #v998Onboarding .v998-hel
 @keyframes dwRise{from{transform:translateY(14px);opacity:0}}
 @keyframes dwPick{0%{transform:scale(1)}30%{transform:scale(.94)}65%{transform:scale(1.05)}100%{transform:scale(1)}}
 @keyframes dwRing{from{transform:scale(1);opacity:.75}to{transform:scale(1.05,1.35);opacity:0}}
-#deenLanguageGate::before{content:"";position:absolute;left:50%;top:5%;width:min(78%,300px);aspect-ratio:4/5;transform:translateX(-50%);border:2px solid rgba(236,201,138,.12);border-bottom:0;border-radius:50% 50% 0 0/38% 38% 0 0;box-shadow:inset 0 30px 80px rgba(63,215,173,.06);pointer-events:none;-webkit-mask-image:linear-gradient(#000 55%,transparent 92%);mask-image:linear-gradient(#000 55%,transparent 92%)}
+#deenLanguageGate::before{content:"";position:absolute;left:50%;top:5%;width:min(78%,300px);aspect-ratio:4/5;transform:translateX(-50%);border:2px solid rgba(236,201,138,.12);border-bottom:0;border-radius:50% 50% 0 0/38% 38% 0 0;box-shadow:inset 0 30px 80px rgba(120,150,255,.08);pointer-events:none;-webkit-mask-image:linear-gradient(#000 55%,transparent 92%);mask-image:linear-gradient(#000 55%,transparent 92%)}
 #deenLanguageGate .dw-welcome{position:relative;display:flex;flex-direction:column;align-items:center;gap:12px;width:100%;max-width:380px;text-align:center}
 #deenLanguageGate .dw-crew{position:relative;width:280px;height:140px;flex:none}
-#deenLanguageGate .dw-pet{position:absolute;width:70px;height:70px;border-radius:50%;overflow:hidden;background:#0f3139;box-shadow:0 0 0 3px rgba(236,201,138,.35),0 12px 24px rgba(0,0,0,.4);animation:dwFloat 3.6s ease-in-out infinite}
+#deenLanguageGate .dw-pet{position:absolute;width:70px;height:70px;border-radius:50%;overflow:hidden;background:#1d2c5a;box-shadow:0 0 0 3px rgba(236,201,138,.35),0 12px 24px rgba(0,0,0,.4);animation:dwFloat 3.6s ease-in-out infinite}
 #deenLanguageGate .dw-pet img{display:block;width:100%;height:100%}
 #deenLanguageGate .dw-pet-0{left:3px;top:52px;animation-delay:1s}
 #deenLanguageGate .dw-pet-1{left:54px;top:16px;animation-delay:1.4s}
@@ -31,17 +31,17 @@ html:lang(ar) #v998Onboarding .v998-copy,html:lang(ar) #v998Onboarding .v998-hel
 #deenLanguageGate[data-dw-enter] .dw-pet-3{animation-delay:.27s,2.2s}
 #deenLanguageGate[data-dw-enter] .dw-pet-4{animation-delay:.36s,2.6s}
 #deenLanguageGate .dw-welcome .deen-language-brand{margin:4px 0 0;font:400 46px/1 Georgia,"Times New Roman",serif;letter-spacing:.14em;color:#ecc98a}
-#deenLanguageGate .dw-tagline{margin:0;max-width:26ch;font:800 19px/1.35 system-ui,Arial,sans-serif;color:#effff7;text-wrap:balance}
-#deenLanguageGate .dw-tagline small{display:block;margin-top:6px;font:600 14px/1.5 system-ui,Arial,sans-serif;color:#9bb6b3}
-#deenLanguageGate .dw-welcome h1{margin:14px 0 0;font:750 14px/1.4 system-ui,Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#9bb6b3}
+#deenLanguageGate .dw-tagline{margin:0;max-width:26ch;font:800 19px/1.35 system-ui,Arial,sans-serif;color:#fff;text-wrap:balance}
+#deenLanguageGate .dw-tagline small{display:block;margin-top:6px;font:600 14px/1.5 system-ui,Arial,sans-serif;color:#b9c6ee}
+#deenLanguageGate .dw-welcome h1{margin:14px 0 0;font:750 14px/1.4 system-ui,Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#9fb0dc}
 #deenLanguageGate .dw-welcome .deen-language-cards{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;width:100%;direction:inherit}
-#deenLanguageGate .dw-welcome .deen-language-cards button{min-height:46px;padding:10px 18px;border-radius:999px;border:2px solid rgba(170,230,215,.18);background:rgba(255,255,255,.04);font:750 16px/1.2 system-ui,Arial,sans-serif;color:#f6fffa}
-#deenLanguageGate .dw-welcome .deen-language-cards button[aria-pressed=true]{border-color:#3fd7ad;background:rgba(63,215,173,.14);box-shadow:none;animation:dwPick .36s cubic-bezier(.34,1.56,.64,1)}
+#deenLanguageGate .dw-welcome .deen-language-cards button{min-height:46px;padding:10px 18px;border-radius:999px;border:2px solid rgba(150,175,255,.24);background:rgba(150,175,255,.08);font:750 16px/1.2 system-ui,Arial,sans-serif;color:#eef1ff}
+#deenLanguageGate .dw-welcome .deen-language-cards button[aria-pressed=true]{border-color:#f2cf84;background:rgba(242,207,132,.14);color:#fff4d2;box-shadow:0 0 0 4px rgba(242,207,132,.1);animation:dwPick .36s cubic-bezier(.34,1.56,.64,1)}
 #deenLanguageGate .dw-welcome .deen-language-cards i{display:none}
-#deenLanguageGate .dw-welcome .deen-language-continue{position:relative;margin-top:14px;min-height:58px;border-radius:16px;background:linear-gradient(180deg,#6af2cd,#3fd7ad);box-shadow:0 5px 0 #1f9e7d;font:900 17px/1.2 system-ui,Arial,sans-serif;letter-spacing:.04em;text-transform:uppercase;color:#052a22;transition:transform .12s,box-shadow .12s}
-#deenLanguageGate .dw-welcome .deen-language-continue:not(:disabled):active{transform:translateY(4px);box-shadow:0 1px 0 #1f9e7d}
+#deenLanguageGate .dw-welcome .deen-language-continue{position:relative;margin-top:14px;min-height:58px;border-radius:16px;background:linear-gradient(180deg,#f9e7b4,#e2b95f);box-shadow:0 5px 0 #a8823a;font:900 17px/1.2 system-ui,Arial,sans-serif;letter-spacing:.04em;text-transform:uppercase;color:#16122f;transition:transform .12s,box-shadow .12s}
+#deenLanguageGate .dw-welcome .deen-language-continue:not(:disabled):active{transform:translateY(4px);box-shadow:0 1px 0 #a8823a}
 #deenLanguageGate .dw-welcome .deen-language-continue:disabled{box-shadow:none}
-#deenLanguageGate .dw-welcome .deen-language-continue:not(:disabled)::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:0 0 0 3px rgba(63,215,173,.6);animation:dwRing 1.8s ease-out .6s infinite;pointer-events:none}
+#deenLanguageGate .dw-welcome .deen-language-continue:not(:disabled)::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:0 0 0 3px rgba(242,207,132,.6);animation:dwRing 1.8s ease-out .6s infinite;pointer-events:none}
 #deenLanguageGate .dw-welcome button:focus-visible{outline:3px solid #ecc98a;outline-offset:3px}
 #deenLanguageGate[data-dw-enter] .dw-welcome>:not(.dw-crew){animation:dwRise .6s cubic-bezier(.2,.8,.2,1) both}
 #deenLanguageGate[data-dw-enter] .dw-welcome>.deen-language-brand{animation-delay:.3s}
@@ -50,3 +50,4 @@ html:lang(ar) #v998Onboarding .v998-copy,html:lang(ar) #v998Onboarding .v998-hel
 #deenLanguageGate[data-dw-enter] .dw-welcome>.deen-language-continue{animation-delay:.6s}
 @media(max-height:700px){#deenLanguageGate .dw-crew{transform:scale(.82);margin:-12px 0}#deenLanguageGate .dw-welcome .deen-language-brand{font-size:38px}#deenLanguageGate .dw-welcome h1{margin-top:6px}}
 @media (prefers-reduced-motion:reduce){#deenLanguageGate *{animation:none!important}}
+#deenLanguageGate .dw-welcome .deen-language-continue:disabled{background:rgba(150,175,255,.14);color:#8f9cc6;opacity:1;box-shadow:none}
