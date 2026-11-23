@@ -14,6 +14,8 @@ const server=http.createServer((req,res)=>{let p=path.join(root,decodeURICompone
   const ctx=await browser.newContext({viewport:{width:393,height:852},serviceWorkers:'block',isMobile:true,hasTouch:true});
   await ctx.addInitScript(([c,l])=>{if(sessionStorage.getItem('x'))return;sessionStorage.setItem('x','1');localStorage.setItem('deen_app_language_v1',l);localStorage.setItem('deen_v4_1_state',JSON.stringify({onboarded:true,energy:30,xp:0,currency:c,profile:{name:'QA',companion:'cat'},settings:{language:l,onboardingLanguageConfirmed:true},completed:[]}))},[currency,lang||'tr']);
   const page=await ctx.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
+  // THROTTLE=n slows the CPU n times, like a slow CI machine.
+  if(process.env.THROTTLE){const c=await ctx.newCDPSession(page);await c.send('Emulation.setCPUThrottlingRate',{rate:+process.env.THROTTLE})}
   await page.goto(url);await page.waitForSelector('.navbtn',{timeout:90000});await page.waitForTimeout(2500);
   await page.locator('nav.bottomnav .navbtn[data-screen="marketScreen"]').click();await page.waitForTimeout(1500);
   return {ctx,page,errors};
@@ -32,12 +34,20 @@ const server=http.createServer((req,res)=>{let p=path.join(root,decodeURICompone
   const ov=page.locator('.mko');
   await ov.click({position:{x:196,y:300}});await page.waitForTimeout(650);assert.match(await page.locator('.mko-chest').getAttribute('class'),/\btr\b/,'first tap: right');
   await ov.click({position:{x:196,y:300}});await page.waitForTimeout(650);assert.match(await page.locator('.mko-chest').getAttribute('class'),/\btl\b/,'second tap: left');
-  await ov.click({position:{x:196,y:300}});await page.waitForTimeout(1900);
-  assert.equal(await page.evaluate(()=>document.querySelector('.mko').classList.contains('opened')),true,'third tap: it breaks open');
+  await ov.click({position:{x:196,y:300}});
+  // Waits for the states rather than fixed times (CI machines are slower): taps while a card is still flying in are
+  // ignored by design, so each tap waits for the card on show to change.
+  await page.waitForFunction(()=>document.querySelector('.mko')?.classList.contains('opened'),null,{timeout:10000});
+  await page.waitForFunction(()=>document.querySelector('.mko.reveal .mko-show .mko-card'),null,{timeout:10000});
   const first=await page.evaluate(()=>document.querySelector('.mko-show .mko-card').classList.contains('sp'));assert.equal(first,true,'first reward shown: Sparkles');
-  for(let k=1;k<4;k++){await ov.click({position:{x:196,y:500}});await page.waitForTimeout(700)}
-  const names=await page.evaluate(()=>document.querySelector('.mko-show .mko-card-name').textContent);assert.ok(names.length>2,'an outfit card');
-  await ov.click({position:{x:196,y:500}});await page.waitForTimeout(700);
+  const seen=[];
+  for(let k=0;k<20&&!(await page.locator('.mko.summary').count());k++){
+   const cur=await page.evaluate(()=>document.querySelector('.mko-show .mko-card')?.outerHTML||'');if(cur&&seen[seen.length-1]!==cur)seen.push(cur);
+   await ov.click({position:{x:196,y:500}});await page.waitForTimeout(650);
+  }
+  assert.equal(seen.length,4,'one card per reward, one at a time ('+seen.length+')');
+  assert.ok(seen.slice(1).every(h=>/mko-card-name/.test(h)&&!/ sp"/.test(h)),'then the outfit cards');
+  await page.waitForSelector('.mko-grid .mko-card',{timeout:5000});
   assert.equal(await page.locator('.mko-grid .mko-card').count(),4,'summary of all four rewards');
   await page.locator('.mko-done').click();await page.waitForTimeout(600);assert.equal(await page.locator('.mko').count(),0,'closes');
   assert.equal(await page.evaluate(()=>document.querySelector('#marketScreen .mk-bal b').textContent),String(s.cur),'balance updated');
