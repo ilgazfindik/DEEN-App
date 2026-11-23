@@ -25,11 +25,11 @@ const server=http.createServer((req,res)=>{let p=path.join(root,decodeURICompone
  {const {ctx,page,errors}=await open(1000);
   await buy(page,'#marketScreen .mk-chest[data-r="rare"]');
   const s=await page.evaluate(()=>({cur:state.currency,last:state.marketMeta.history.slice(-1)[0],items:state.companionMeta.items.slice(),saved:JSON.parse(localStorage.getItem('deen_v4_1_state')).currency,overlay:!!document.querySelector('.mko[data-r="rare"]')}));
-  assert.equal(s.overlay,true,'the opening screen in the chest colour');assert.equal(s.last.chest,'rare');assert.equal(s.last.price,150);
+  assert.equal(s.overlay,true,'the opening screen in the chest colour');assert.equal(s.last.chest,'rare');assert.equal(s.last.price,100);
   assert.equal(s.last.got.length,4,'Sparkles + 3 items');assert.match(s.last.got[0],/^sp:\d+$/,'Sparkles come first');
-  const sp=+s.last.got[0].slice(3);assert.ok(sp>=25&&sp<=45,'Sparkles in range '+sp);
+  const sp=+s.last.got[0].slice(3);assert.ok(sp>=15&&sp<=30,'Sparkles in range '+sp);
   const dupes=s.last.got.filter(g=>/:dupe$/.test(g)).length;assert.equal(dupes,0,'a new learner gets new outfits');
-  assert.equal(s.cur,1000-150+sp,'paid and Sparkles added at once');assert.equal(s.saved,s.cur,'saved before the animation');
+  assert.equal(s.cur,1000-100+sp,'paid and Sparkles added at once');assert.equal(s.saved,s.cur,'saved before the animation');
   assert.deepEqual(s.items,s.last.got.slice(1).map(g=>g.split(':')[1]),'the outfits are owned');
   const ov=page.locator('.mko');
   await ov.click({position:{x:196,y:300}});await page.waitForTimeout(650);assert.match(await page.locator('.mko-chest').getAttribute('class'),/\btr\b/,'first tap: right');
@@ -68,7 +68,7 @@ const server=http.createServer((req,res)=>{let p=path.join(root,decodeURICompone
   assert.deepEqual(errors,[],'no page errors');console.log('  ok rare chest, not enough Sparkles, daily gift',JSON.stringify(s.last.got));await ctx.close();}
  // 2. Legendary chest with a companion (the roll is steered so the companion slot comes up), and duplicates.
  {const {ctx,page,errors}=await open(5000);
-  await page.evaluate(()=>{const r=Math.random;let n=0;Math.random=()=>n++<2?0:r()});
+  await page.evaluate(()=>{const r=Math.random;let n=0;Math.random=()=>n++<8?0:r()});
   await buy(page,'#marketScreen .mk-chest[data-r="legendary"]');
   const s=await page.evaluate(()=>({last:state.marketMeta.history.slice(-1)[0],owned:state.companionMeta.owned.slice()}));
   const pet=s.last.got.find(g=>g.startsWith('animal:'));assert.ok(pet,'a companion comes out: '+JSON.stringify(s.last.got));
@@ -81,7 +81,7 @@ const server=http.createServer((req,res)=>{let p=path.join(root,decodeURICompone
   await buy(page,'#marketScreen .mk-chest[data-r="common"]');
   const d=await page.evaluate(()=>({last:state.marketMeta.history.slice(-1)[0],cur:state.currency}));
   assert.ok(d.last.got.slice(1).every(g=>/:dupe$/.test(g)),'owned outfits come out as duplicates: '+JSON.stringify(d.last.got));
-  assert.ok(d.cur>c0-60+(+d.last.got[0].slice(3)),'duplicates turn into Sparkles');
+  assert.ok(d.cur>c0-40+(+d.last.got[0].slice(3)),'duplicates turn into Sparkles');
   assert.deepEqual(errors,[],'no page errors');console.log('  ok companion and duplicates',JSON.stringify({pet,dupes:d.last.got}));await ctx.close();}
  await browser.close();server.close();console.log('PASS: market chests — pay, roll and save first, open (right, left, break), Sparkles then items, companions, duplicates, daily gift');
 })().catch(e=>{console.error(e);process.exit(1)});
