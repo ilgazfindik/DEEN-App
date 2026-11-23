@@ -1,5 +1,6 @@
 import UIKit
 import WebKit
+import StoreKit
 import Capacitor
 
 /// Hosts the web app and registers the app's own native plugins.
@@ -49,7 +50,8 @@ public class NativeTabBarPlugin: CAPPlugin, CAPBridgedPlugin, UITabBarDelegate {
         CAPPluginMethod(name: "isAvailable", returnType: CAPPluginReturnPromise),
         CAPPluginMethod(name: "show", returnType: CAPPluginReturnPromise),
         CAPPluginMethod(name: "select", returnType: CAPPluginReturnPromise),
-        CAPPluginMethod(name: "setHidden", returnType: CAPPluginReturnPromise)
+        CAPPluginMethod(name: "setHidden", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "buildInfo", returnType: CAPPluginReturnPromise)
     ]
 
     private var tabBar: UITabBar?
@@ -63,6 +65,34 @@ public class NativeTabBarPlugin: CAPPlugin, CAPBridgedPlugin, UITabBarDelegate {
 
     @objc func isAvailable(_ call: CAPPluginCall) {
         call.resolve(["available": supported])
+    }
+
+    /// Whether this is a TestFlight or debug build (the web app then turns its developer tools on). Asked by the page as a
+    /// second check next to the document-start flag: the sandbox App Store receipt, and on iOS 16+ the app transaction's
+    /// environment (Sandbox for TestFlight, Xcode for a debug install).
+    @objc func buildInfo(_ call: CAPPluginCall) {
+        if MainViewController.isTestBuild {
+            call.resolve(["testBuild": true, "source": "receipt"])
+            return
+        }
+        if #available(iOS 16.0, *) {
+            Task {
+                var testBuild = false
+                var source = "appTransaction:none"
+                if let result = try? await AppTransaction.shared {
+                    let transaction: AppTransaction
+                    switch result {
+                    case .verified(let value): transaction = value
+                    case .unverified(let value, _): transaction = value
+                    }
+                    testBuild = transaction.environment == .sandbox || transaction.environment == .xcode
+                    source = "appTransaction:" + transaction.environment.rawValue
+                }
+                call.resolve(["testBuild": testBuild, "source": source])
+            }
+        } else {
+            call.resolve(["testBuild": false, "source": "receipt"])
+        }
     }
 
     @objc func show(_ call: CAPPluginCall) {

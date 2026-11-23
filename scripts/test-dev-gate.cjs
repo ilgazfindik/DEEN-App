@@ -76,6 +76,17 @@ const server=http.createServer((req,res)=>{let p=path.join(root,decodeURICompone
  assert.equal(await pt.evaluate(()=>window.__DEEN_DEV_MODE__),true,'and ten more taps switch it back on');
  assert.equal(await pt.locator('#deenMobileAdminButton').count(),1,'P button back');
  await ctxT.close();
+ // 7. TestFlight recognised only by asking the native side (NativeTabBar.buildInfo through Capacitor.nativePromise), with
+ // no document-start flag: the P button still appears.
+ const ctxB=await browser.newContext({viewport:{width:393,height:852},serviceWorkers:'block'});
+ await ctxB.addInitScript(()=>{window.Capacitor={isNativePlatform:()=>true,getPlatform:()=>'ios',nativePromise:(p,m)=>p==='NativeTabBar'&&m==='buildInfo'?Promise.resolve({testBuild:true,source:'appTransaction:Sandbox'}):Promise.reject(new Error('no '+p+'.'+m)),addListener:()=>({remove:async()=>{}})};
+  if(!sessionStorage.getItem('seeded')){sessionStorage.setItem('seeded','1');localStorage.setItem('deen_app_language_v1','tr');localStorage.setItem('deen_v4_1_state',JSON.stringify({onboarded:true,energy:30,xp:777,profile:{name:'QA',companion:'cat'},settings:{language:'tr',onboardingLanguageConfirmed:true},completed:[]}))}});
+ const pb=await ctxB.newPage();await pb.goto('http://127.0.0.1:'+port+'/index.html');await pb.waitForSelector('.navbtn',{timeout:90000});await pb.waitForFunction(()=>document.documentElement.dataset.deenStartup==='ready',null,{timeout:90000}).catch(()=>{});await pb.waitForTimeout(2000);
+ assert.equal(await pb.evaluate(()=>window.__DEEN_DEV_MODE__),true,'TestFlight confirmed by the native side: developer mode on');
+ assert.equal(await pb.locator('#deenMobileAdminButton').count(),1,'TestFlight confirmed by the native side: P button');
+ await pb.locator('#deenMobileAdminButton').click();await pb.waitForTimeout(500);
+ assert.equal(await pb.evaluate(()=>!!document.querySelector('#deenAdminPanelV2[open]')),true,'and the panel opens');
+ await ctxB.close();
  assert.deepEqual(errors.filter(e=>!/Supabase|fetch|Failed to load|NetworkError/i.test(e)),[]);
  await browser.close();server.close();
  console.log('PASS: developer gate (admin panel hidden from regular visitors and the App Store app, on in TestFlight builds)');

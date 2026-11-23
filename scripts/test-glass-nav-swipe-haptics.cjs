@@ -14,8 +14,9 @@ const IPHONE='Mozilla/5.0 (iPhone; CPU iPhone OS 18_6 like Mac OS X) AppleWebKit
  let browser;try{browser=await chromium.launch({channel:'chrome',headless:true,args:['--no-sandbox','--disable-dev-shm-usage']})}catch(_){browser=await chromium.launch({headless:true,args:['--no-sandbox']})}
  const ctx=await browser.newContext({viewport:{width:393,height:852},serviceWorkers:'block',userAgent:IPHONE});
  await ctx.addInitScript(()=>{localStorage.setItem('deen_app_language_v1','tr');localStorage.setItem('deen_v4_1_state',JSON.stringify({onboarded:true,energy:30,xp:420,profile:{name:'QA',companion:'cat'},settings:{language:'tr',onboardingLanguageConfirmed:true,haptic:false},completed:[],mistakes:[]}));
-  window.__hap=[];const rec=n=>a=>{window.__hap.push(n+(a&&a.style?':'+a.style:''));return Promise.resolve()};
-  window.Capacitor={isNativePlatform:()=>true,getPlatform:()=>'ios',Plugins:{Haptics:{impact:rec('impact'),selectionStart:rec('selStart'),selectionChanged:rec('sel'),selectionEnd:rec('selEnd')}}}});
+  // Like Capacitor's injected native bridge: no Capacitor.Plugins, only nativePromise by plugin name.
+  window.__hap=[];const names={impact:'impact',selectionStart:'selStart',selectionChanged:'sel',selectionEnd:'selEnd'};
+  window.Capacitor={isNativePlatform:()=>true,getPlatform:()=>'ios',nativePromise:(plugin,method,a)=>{if(plugin==='Haptics'&&names[method]){window.__hap.push(names[method]+(a&&a.style?':'+a.style:''));return Promise.resolve()}return Promise.reject(new Error('no '+plugin+'.'+method))},addListener:()=>({remove:async()=>{}})}});
  const page=await ctx.newPage();await page.goto(url);await page.waitForSelector('.navbtn',{timeout:90000});await page.waitForTimeout(3000);
  const info=await page.evaluate(()=>({glass:document.documentElement.classList.contains('ilnura-glass'),haptic:state.settings.haptic,native:window.DEEN_DS_HAPTIC&&DEEN_DS_HAPTIC.native,lens:!!document.querySelector('.ilnura-glass-lens')}));
  assert.deepEqual(info,{glass:true,haptic:true,native:true,lens:true},'glass mode, haptics switched on once, native plugin, lens: '+JSON.stringify(info));
