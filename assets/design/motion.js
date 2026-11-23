@@ -502,6 +502,7 @@
   {card:'dialog.v623-ceremony .v623-card',chest:'.v623-chest',stage:'.v623-chest-wrap',btn:'#v623Open',opened:'v623-opened',art:()=>'chest-closed.webp',sound:null}
  ];
  const chestKind=card=>CHEST_KINDS.find(k=>card.matches(k.card));
+ const CHEST_HINT={tr:'Açmak için ekrana dokun',en:'Tap anywhere to open',de:'Tippe irgendwo, um sie zu öffnen',fr:'Touche l’écran pour l’ouvrir',ar:'اضغط في أي مكان لفتحه'};
  function dressChest(card){
   const kind=chestKind(card),chest=kind&&card.querySelector(kind.chest);if(!chest||chest.classList.contains('ds-art'))return;
   chest.classList.add('ds-art');
@@ -511,6 +512,13 @@
   const pips=document.createElement('span');pips.className='ds-chest-pips';pips.setAttribute('aria-hidden','true');pips.append(document.createElement('i'),document.createElement('i'),document.createElement('i'));
   chest.prepend(closed,open);chest.append(pips);
   const stage=card.querySelector(kind.stage)||chest;stage.append(burst);
+  // Opening is by tapping anywhere (no button): a hint under the chest says so, and the reward comes with turning rays
+  // and a flash of light.
+  card.classList.add('ds-tapopen');
+  const rays=document.createElement('span');rays.className='ds-chest-rays';rays.setAttribute('aria-hidden','true');stage.prepend(rays);
+  const flash=document.createElement('span');flash.className='ds-chest-flash';flash.setAttribute('aria-hidden','true');card.append(flash);
+  const hint=document.createElement('p');hint.className='ds-chest-hint';hint.setAttribute('aria-hidden','true');hint.textContent=CHEST_HINT[uiLang()]||CHEST_HINT.tr;
+  stage.after(hint);
   for(let k=0;k<10;k++){const sp=document.createElement('span');sp.className='ds-chest-spark'+(k%3===2?' mint':'');const a=-Math.PI/2+(k-4.5)*.33,d=90+(k%4)*22;
    sp.style.setProperty('--dx',Math.round(Math.cos(a)*d)+'px');sp.style.setProperty('--dy',Math.round(Math.sin(a)*d)+'px');sp.style.setProperty('--d',(440+k*28)+'ms');stage.append(sp)}
   [closed,open].forEach(i=>i.setAttribute('aria-hidden','true'));
@@ -582,19 +590,33 @@
   for(const el of d.querySelectorAll('[aria-label]')){const to=chestLine(el.getAttribute('aria-label').trim(),i);if(to!=null&&to!==el.getAttribute('aria-label'))el.setAttribute('aria-label',to)}
  }
  const chestTaps=new WeakMap();let chestPass=false;
+ const chestHaptic=k=>{try{window.DEEN_DS_HAPTIC&&DEEN_DS_HAPTIC[k]&&DEEN_DS_HAPTIC[k]()}catch(_){}};
+ // A ready chest opens by tapping anywhere on its dialog (its open button is hidden; the close button and other
+ // controls keep their own job). Each tap swings it in 3D to one side and then the other, letting more light out; the
+ // third brings it back to the middle, and only then does the engine's open button run.
  document.addEventListener('click',e=>{
   if(chestPass)return;
-  const card=e.target.closest?.(CHEST_KINDS.map(k=>k.card).join(','));const kind=card&&chestKind(card);
+  const d=e.target.closest?.('dialog.v670-reward,dialog.v623-ceremony');if(!d)return;
+  const card=d.querySelector(CHEST_KINDS.map(k=>k.card).join(','));const kind=card&&chestKind(card);
   if(!kind||card.classList.contains(kind.opened))return;
-  const btn=card.querySelector(kind.btn),onChestArt=e.target.closest(kind.stage),onBtn=e.target.closest(kind.btn);
-  if(!btn||btn.disabled||(!onChestArt&&!onBtn))return;
-  const n=(chestTaps.get(card)||0)+1;
-  if(n>=3){chestTaps.set(card,0);if(onChestArt){chestPass=true;try{btn.click()}finally{chestPass=false}}return}
-  chestTaps.set(card,n);if(onBtn){e.preventDefault();e.stopImmediatePropagation()}
-  const chest=card.querySelector(kind.chest);chest?.style.setProperty('--ds-charge',String(n));
+  const btn=card.querySelector(kind.btn);if(!btn||btn.disabled)return;
+  const onBtn=e.target.closest(kind.btn);
+  if(!onBtn&&e.target.closest('button,a,input,select,textarea,label,[role="button"]'))return;
+  e.preventDefault();e.stopImmediatePropagation();
+  if(card.classList.contains('ds-opening'))return;
+  const chest=card.querySelector(kind.chest),n=(chestTaps.get(card)||0)+1;
+  chest?.style.setProperty('--ds-charge',String(Math.min(n,3)));
   card.querySelectorAll('.ds-chest-pips i').forEach((p,i)=>p.classList.toggle('on',i<n));
-  if(chest&&scale()){chest.classList.remove('ds-tap1','ds-tap2');void chest.offsetWidth;chest.classList.add('ds-tap'+n)}
-  sfx('chestTap'+n);
+  if(n>=3){
+   chestTaps.set(card,0);card.classList.add('ds-opening');
+   if(chest){chest.classList.remove('ds-tilt-l','ds-tilt-r');restart(chest,'ds-center')}
+   sfx('chestTap3');chestHaptic('tap');
+   setTimeout(()=>{card.classList.remove('ds-opening');chestPass=true;try{btn.click()}finally{chestPass=false}},scale()?380:0);
+   return;
+  }
+  chestTaps.set(card,n);
+  if(chest){chest.classList.remove('ds-tilt-l','ds-tilt-r');chest.classList.add(n%2?'ds-tilt-l':'ds-tilt-r');if(scale())restart(chest,'ds-hop')}
+  sfx('chestTap'+n);chestHaptic('select');
  },{capture:true});
  // A chest that opens bursts into confetti as its loot appears, with the reward sound.
  function onChest(records){

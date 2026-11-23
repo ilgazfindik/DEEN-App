@@ -839,3 +839,70 @@ html body dialog.gf-reward-modal.ds-level:not(#a):not(#b) small.ds-level-reward{
 html body dialog.gf-reward-modal.ds-level:not(#a):not(#b) small.ds-level-reward::before{content:"✦";font-size:14px;color:#f2cf84}
 html body dialog.gf-reward-modal.ds-level:not(#a):not(#b) .gf-reward-close{width:100%!important;min-height:54px!important;margin:22px 0 0!important;border:0!important;outline:0!important;border-radius:18px!important;
  background:linear-gradient(180deg,#f9e7b4,#e2b95f)!important;box-shadow:0 5px 0 #a8823a,0 12px 30px rgba(242,207,132,.24)!important;color:#16122f!important;font:900 16px/1 var(--ds-font)!important;letter-spacing:.04em!important}
+
+/* ---------- Tap-anywhere chest, 3D swings and the reward reveal ----------
+   A ready chest has no button: "tap anywhere" sits under it. Each tap swings it in 3D to one side and
+   then the other (it stays leaning there, glowing a little more); the third brings it back to the
+   middle, it rumbles, and opens under turning rays and a flash of light. The reward cards then flip in
+   one after another with a shine. The dialog itself is in the app's indigo and gold. */
+html body :is(dialog.v670-reward .v670-card,dialog.v623-ceremony .v623-card).ds-tapopen:not(.opened):not(.v623-opened) :is(.v670-open,#v623Open):not(:disabled){display:none!important}
+html body dialog :is(.v670-card,.v623-card) .ds-chest-hint{display:none;margin:4px auto 10px;padding:8px 16px;width:max-content;max-width:90%;border-radius:999px;border:1px solid rgba(242,207,132,.45);background:rgba(242,207,132,.1);color:#f6d78f;font:800 13px/1.2 var(--ds-font,inherit);letter-spacing:.02em;text-align:center;animation:dsHintPulse calc(1.6s*var(--ds-m-s)) ease-in-out infinite}
+html body dialog.v670-reward .v670-card.ds-tapopen:not(.opened):has(.v670-open:not(:disabled)) .ds-chest-hint,
+html body dialog.v623-ceremony .v623-card.ds-tapopen:not(.v623-opened):has(#v623Open:not(:disabled)) .ds-chest-hint{display:block}
+@keyframes dsHintPulse{0%,100%{opacity:.75;transform:scale(1)}50%{opacity:1;transform:scale(1.04)}}
+html body dialog:is(.v670-reward,.v623-ceremony):has(.ds-tapopen:not(.opened):not(.v623-opened)){cursor:pointer}
+/* 3D swings */
+html body dialog :is(.v670-chest,.v623-chest).ds-art{--tx:0px;--ry:0deg;--rz:0deg;--sc:1;transform-style:preserve-3d;transform:perspective(760px) translateX(var(--tx)) rotateY(var(--ry)) rotateZ(var(--rz)) scale(var(--sc));transition:transform calc(560ms*var(--ds-m-s)) cubic-bezier(.34,1.56,.64,1)}
+html body dialog :is(.v670-chest,.v623-chest).ds-art.ds-tilt-l{--tx:-44px;--ry:34deg;--rz:-7deg;--sc:1.05;animation:none!important}
+html body dialog :is(.v670-chest,.v623-chest).ds-art.ds-tilt-r{--tx:44px;--ry:-34deg;--rz:7deg;--sc:1.08;animation:none!important}
+html body dialog :is(.v670-chest,.v623-chest).ds-art.ds-center{--tx:0px;--ry:0deg;--rz:0deg;--sc:1.12;animation:none!important}
+html body dialog :is(.v670-chest,.v623-chest).ds-art.ds-hop .ds-chest-img.closed{animation:dsChestHop calc(460ms*var(--ds-m-s)) cubic-bezier(.3,1.4,.5,1)}
+html body dialog :is(.v670-chest,.v623-chest).ds-art.ds-center .ds-chest-img.closed{animation:dsChestRumble calc(380ms*var(--ds-m-s)) linear}
+@keyframes dsChestHop{0%{transform:none}35%{transform:translateY(-22px) scale(.96,1.05)}70%{transform:translateY(0) scale(1.06,.94)}100%{transform:none}}
+@keyframes dsChestRumble{0%,100%{transform:none}12%{transform:translate(-4px,1px) rotate(-3deg)}25%{transform:translate(4px,-1px) rotate(3deg)}37%{transform:translate(-4px,0) rotate(-3deg)}50%{transform:translate(4px,1px) rotate(3deg)}62%{transform:translate(-3px,0) rotate(-2deg)}75%{transform:translate(3px,0) rotate(2deg) scale(1.04,.96)}}
+/* Opening: the chest stays in the middle and hops up as the lid flies open (no side shake). */
+html body dialog.v670-reward .v670-card.opened:not(.claimed) .v670-chest.ds-art,
+html body dialog.v623-ceremony .v623-card.v623-opened .v623-chest.ds-art{--sc:1;transform:perspective(760px)!important;animation:dsChestPopOpen calc(700ms*var(--ds-m-s)) cubic-bezier(.34,1.56,.64,1) calc(200ms*var(--ds-m-s)) both!important}
+@keyframes dsChestPopOpen{0%{transform:scale(1.12)}35%{transform:translateY(-18px) scale(1.18)}70%{transform:translateY(2px) scale(.98)}100%{transform:none}}
+/* Rays and flash */
+html body dialog :is(.v670-chest-stage,.v623-chest-wrap) .ds-chest-rays{position:absolute;left:50%;top:50%;width:420px;height:420px;margin:-210px 0 0 -210px;border-radius:50%;pointer-events:none;opacity:0;
+ background:repeating-conic-gradient(from 0deg,rgba(255,222,140,.34) 0deg 9deg,rgba(255,222,140,0) 9deg 24deg);-webkit-mask-image:radial-gradient(circle,#000 18%,transparent 66%);mask-image:radial-gradient(circle,#000 18%,transparent 66%);z-index:-1}
+html body dialog.v670-reward .v670-card.opened .ds-chest-rays,html body dialog.v623-ceremony .v623-card.v623-opened .ds-chest-rays{animation:dsRaysIn calc(700ms*var(--ds-m-s)) var(--ds-out) calc(420ms*var(--ds-m-s)) both,dsRaysSpin 14s linear infinite}
+@keyframes dsRaysIn{from{opacity:0;transform:scale(.3)}to{opacity:1;transform:none}}
+@keyframes dsRaysSpin{to{rotate:360deg}}
+html body dialog :is(.v670-chest-stage,.v623-chest-wrap){isolation:isolate}
+html body dialog :is(.v670-card,.v623-card) .ds-chest-flash{position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;z-index:5;background:radial-gradient(circle at 50% 38%,rgba(255,248,220,.95),rgba(255,214,120,.55) 30%,rgba(255,214,120,0) 70%)}
+html body dialog.v670-reward .v670-card.opened:not(.claimed) .ds-chest-flash,html body dialog.v623-ceremony .v623-card.v623-opened .ds-chest-flash{animation:dsFlash calc(700ms*var(--ds-m-s)) ease-out calc(400ms*var(--ds-m-s)) both}
+@keyframes dsFlash{0%{opacity:0}25%{opacity:1}100%{opacity:0}}
+/* Reward cards flip in, one after another, with a shine; their numbers glow. */
+html body dialog.v670-reward .v670-card.opened:not(.claimed) .v670-loot-item,html body dialog.v623-ceremony .v623-card.v623-opened .v623-loot-item{position:relative;overflow:hidden;animation:dsLootIn calc(760ms*var(--ds-m-s)) cubic-bezier(.34,1.56,.64,1) calc(var(--delay,0ms)*1.6 + 760ms*var(--ds-m-s)) both!important}
+html body dialog.v623-ceremony .v623-card.v623-opened .v623-loot-item:nth-child(2){--delay:110ms}
+html body dialog.v623-ceremony .v623-card.v623-opened .v623-loot-item:nth-child(3){--delay:220ms}
+@keyframes dsLootIn{0%{opacity:0;transform:perspective(600px) translateY(80px) rotateX(-80deg) scale(.35)}55%{opacity:1;transform:perspective(600px) translateY(-10px) rotateX(12deg) scale(1.1)}80%{transform:perspective(600px) rotateX(-4deg) scale(.98)}100%{opacity:1;transform:none}}
+html body dialog.v670-reward .v670-card.opened:not(.claimed) .v670-loot-item::after,html body dialog.v623-ceremony .v623-card.v623-opened .v623-loot-item::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:45%;pointer-events:none;background:linear-gradient(100deg,transparent,rgba(255,244,210,.55),transparent);transform:skewX(-18deg);animation:dsShine calc(900ms*var(--ds-m-s)) ease-in-out calc(var(--delay,0ms)*1.6 + 1300ms*var(--ds-m-s)) both}
+@keyframes dsShine{from{left:-60%}to{left:130%}}
+html body dialog.v670-reward .v670-card.opened:not(.claimed) .v670-loot-icon{animation:dsLootSpin calc(900ms*var(--ds-m-s)) cubic-bezier(.34,1.56,.64,1) calc(var(--delay,0ms)*1.6 + 900ms*var(--ds-m-s)) both}
+@keyframes dsLootSpin{from{transform:perspective(400px) rotateY(-540deg) scale(.4)}to{transform:none}}
+html body dialog.v670-reward .v670-loot-item strong{color:#ffe6a6!important;text-shadow:0 0 14px rgba(255,205,100,.65)}
+/* Indigo + gold dialog */
+html body dialog.v670-reward .v670-card{background:radial-gradient(120% 60% at 50% 0%,rgba(84,116,226,.36),rgba(84,116,226,0) 60%),linear-gradient(180deg,#1b2a57,#111b3b 60%,#0d1531)!important;border:1px solid rgba(242,207,132,.3)!important;box-shadow:0 30px 70px rgba(4,10,28,.6),inset 0 1px 0 rgba(255,255,255,.06)!important;color:#eef1ff}
+html body dialog.v670-reward .v670-sub,html body dialog.v670-reward .v670-safety,html body dialog.v670-reward .v670-progress-row span{color:#a9b6de!important}
+html body dialog.v670-reward .v670-close{background:rgba(150,175,255,.1)!important;border:1px solid rgba(150,175,255,.3)!important;color:#e8edff!important}
+html body dialog.v670-reward .v670-track{background:rgba(150,175,255,.16)!important}
+html body dialog.v670-reward .v670-track i{background:linear-gradient(90deg,#f9e7b4,#e2b95f)!important}
+html body dialog.v670-reward :is(.v670-loot-item,.v670-next){background:linear-gradient(170deg,rgba(150,175,255,.13),rgba(150,175,255,.04))!important;border:1px solid rgba(150,175,255,.26)!important}
+html body dialog.v670-reward .v670-loot-item{border-color:rgba(242,207,132,.4)!important;box-shadow:0 0 24px rgba(242,207,132,.12)!important}
+html body dialog.v670-reward .v670-loot-icon{color:#f2cf84!important}
+html body dialog.v670-reward .v670-next-icon{color:#f2cf84!important;border-color:rgba(242,207,132,.4)!important;background:rgba(242,207,132,.1)!important}
+html body dialog.v670-reward .v670-loot-item small{color:#c9d3f2!important}
+html body dialog.v670-reward .v670-next small{color:#b9c6ee!important}
+html body dialog.v670-reward :is(.v670-continue,.v670-open:not(:disabled)){background:linear-gradient(180deg,#f9e7b4,#e2b95f)!important;color:#16122f!important;border:0!important;box-shadow:0 5px 0 #a8823a,0 12px 28px rgba(242,207,132,.22)!important}
+html body dialog.v670-reward .v670-open:disabled{background:rgba(150,175,255,.14)!important;color:#8f9cc6!important;box-shadow:none!important}
+@media (prefers-reduced-motion:reduce){html body dialog :is(.v670-chest,.v623-chest).ds-art,html body dialog :is(.v670-card,.v623-card) :is(.ds-chest-img,.ds-chest-rays,.ds-chest-flash,.ds-chest-hint,.v670-loot-item,.v670-loot-item::after,.v670-loot-icon,.v623-loot-item,.v623-loot-item::after){animation:none!important;transition:none!important}}
+:root.v5-reduce body dialog :is(.v670-chest,.v623-chest).ds-art,:root.v5-reduce body dialog :is(.v670-card,.v623-card) :is(.ds-chest-img,.ds-chest-rays,.ds-chest-flash,.ds-chest-hint,.v670-loot-item,.v670-loot-item::after,.v670-loot-icon,.v623-loot-item,.v623-loot-item::after){animation:none!important;transition:none!important}
+html body dialog.v623-ceremony .v623-card{background:radial-gradient(120% 55% at 50% 0%,rgba(84,116,226,.36),rgba(84,116,226,0) 60%),linear-gradient(180deg,#1b2a57,#111b3b 60%,#0d1531)!important;border:1px solid rgba(242,207,132,.3)!important;box-shadow:0 30px 70px rgba(4,10,28,.6),inset 0 1px 0 rgba(255,255,255,.06)!important}
+html body dialog.v623-ceremony :is(.v623-metric,.v623-stage-note,.v623-loot,.v623-loot-item){background:linear-gradient(170deg,rgba(150,175,255,.13),rgba(150,175,255,.04))!important;border:1px solid rgba(150,175,255,.26)!important;box-shadow:none!important}
+html body dialog.v623-ceremony .v623-loot-item{border-color:rgba(242,207,132,.4)!important}
+html body dialog.v623-ceremony .v623-loot-item strong{color:#ffe6a6!important;text-shadow:0 0 14px rgba(255,205,100,.6)}
+html body dialog.v623-ceremony :is(.v623-copy,.v623-subcta,.v623-metric span,.v623-loot-item span){color:#b9c6ee!important}
+html body dialog.v623-ceremony .v623-cta:not(.alt){background:linear-gradient(180deg,#f9e7b4,#e2b95f)!important;color:#16122f!important;border:0!important;box-shadow:0 5px 0 #a8823a,0 12px 28px rgba(242,207,132,.22)!important}
