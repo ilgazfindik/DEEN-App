@@ -632,6 +632,25 @@
   if(i<0)i=rewardQueue.findIndex(x=>node.matches('dialog')?['achievement','level_up','league_promotion'].includes(x.type):!['achievement','level_up','league_promotion'].includes(x.type));
   return i<0?'':rewardQueue.splice(i,1)[0].type;
  }
+ // Level up: the new level as a big gold medal, a "level up" kicker over the title, and the Sparkles reward as a chip.
+ const LEVEL_KICKER={tr:'SEVİYE ATLADIN',en:'LEVEL UP',ar:'ارتقيت مستوى',de:'NEUES LEVEL',fr:'NIVEAU SUPÉRIEUR'};
+ function dressLevel(node,medal){
+  if(node.classList.contains('ds-level'))return;node.classList.add('ds-level');
+  const label=node.getAttribute('aria-label')||node.querySelector('b')?.textContent||'';
+  const m=label.match(/(\d+)\s*(?:→|->|‹|›|←)\s*(\d+)/)||label.match(/(\d+)\D*$/);
+  const to=m?(m[2]||m[1]):'';
+  if(medal&&to){medal.textContent='';const n=document.createElement('span');n.className='ds-level-num';n.textContent=to;medal.append(n)}
+  const box=node.querySelector(':scope>div');
+  // The engine writes the title in Turkish ("Seviye 2 → 3"); other languages get their own word for "level".
+  const LEVEL_WORD={en:'Level',ar:'المستوى',de:'Level',fr:'Niveau'}[uiLang()];
+  const title=box&&box.querySelector('b');if(title&&LEVEL_WORD&&/^\s*Seviye\b/.test(title.textContent||''))title.textContent=title.textContent.replace(/^\s*Seviye\b/,LEVEL_WORD);
+  if(box&&!box.querySelector('.ds-level-kicker')){const k=document.createElement('span');k.className='ds-level-kicker';k.textContent=LEVEL_KICKER[uiLang()]||LEVEL_KICKER.tr;box.prepend(k)}
+  // The reward line ("+5 Pırıltı") becomes a chip; a copy of it at the end of the detail text is dropped.
+  const smalls=[...(box?box.querySelectorAll(':scope>small'):[])];
+  const reward=smalls.find(x=>/^\s*\+\s*\d+/.test(x.textContent||''));
+  if(reward){reward.classList.add('ds-level-reward');const r=reward.textContent.trim();
+   for(const x of smalls)if(x!==reward){const t=x.textContent||'';if(t.trim().endsWith(r)&&t.trim()!==r)x.textContent=t.trim().slice(0,-r.length).replace(/[\s·•\-–—|]+$/,'').trim()}}
+ }
  function dressReward(node){
   const kind=rewardKind(node);node.dataset.dsKind=kind||'other';
   if(node.matches('.gf-reward-toast')){
@@ -644,6 +663,7 @@
   node.classList.add('ds-badge');
   const medal=node.querySelector('.gf-reward-medal');
   if(medal&&!node.querySelector('.ds-badge-rays')){const rays=document.createElement('span');rays.className='ds-badge-rays';rays.setAttribute('aria-hidden','true');medal.before(rays)}
+  if(kind==='level_up')dressLevel(node,medal);
   if(scale())setTimeout(()=>{if(!node.open)return;sfx('level');confetti(node)},460);
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',watchCelebrate,{once:true});else watchCelebrate();

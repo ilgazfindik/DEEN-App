@@ -816,3 +816,26 @@ html body dialog.lp-ceremony:not(#a):not(#b) .v5-metricrow small:not(#a){display
 html body dialog.lp-ceremony .v5-primary{background:linear-gradient(180deg,#f9e7b4,#e2b95f)!important;border:0!important;outline:0!important;box-shadow:0 5px 0 #a8823a,0 12px 30px rgba(242,207,132,.24)!important;color:#16122f!important;font:900 14px/1 var(--ds-font)!important;letter-spacing:.08em!important;min-height:56px!important;border-radius:18px!important}
 html body dialog.lp-ceremony small{color:#8f9cc6!important}
 html body dialog.lp-ceremony .section3-scope-note{background:rgba(150,175,255,.08)!important;border:1px solid rgba(150,175,255,.22)!important;color:#c3cdee!important}
+
+/* Level up (motion.js dressLevel): indigo glass card, turning gold rays, the new level as a big gold medal, a "level up"
+   kicker, the Sparkles reward as a gold chip and a gold continue button — the same look as the info envelope. */
+html body dialog.gf-reward-modal.ds-level:not(#a):not(#b){width:min(340px,calc(100vw - 36px))!important;max-width:none!important;padding:30px 22px 22px!important;box-sizing:border-box!important;border-radius:30px!important;
+ background:radial-gradient(120% 70% at 50% 22%,#2f4a92 0%,#1a2a58 48%,#0f1838 100%)!important;border:1px solid rgba(242,207,132,.45)!important;
+ box-shadow:0 30px 70px rgba(2,6,22,.65),inset 0 1px 0 rgba(255,255,255,.16)!important;color:#eef2ff!important;text-align:center!important;display:flex!important;flex-direction:column!important;align-items:center!important;gap:0!important}
+html body dialog.gf-reward-modal.ds-level:not(#a)::backdrop{background:rgba(5,10,30,.68);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+html body dialog.gf-reward-modal.ds-level:not(#a):not(#b) .ds-badge-rays{top:96px;width:340px;height:340px;background:repeating-conic-gradient(from 0deg,rgba(242,207,132,.28) 0 7deg,transparent 7deg 18deg)}
+html body dialog.gf-reward-modal.ds-level:not(#a):not(#b) .gf-reward-medal{width:120px!important;height:120px!important;margin:6px auto 18px!important;border-radius:50%!important;border:0!important;display:grid!important;place-items:center!important;
+ background:radial-gradient(circle at 34% 28%,#fff6d8 0%,#f6d88f 38%,#e2b95f 66%,#b8862f 100%)!important;color:#2a1a05!important;
+ box-shadow:0 0 0 6px rgba(242,207,132,.18),0 0 0 14px rgba(242,207,132,.08),0 14px 40px rgba(226,185,95,.45),inset 0 -6px 12px rgba(120,80,20,.35),inset 0 4px 8px rgba(255,255,255,.6)!important;font-size:0!important}
+html body dialog.gf-reward-modal.ds-level:not(#a):not(#b) .gf-reward-medal::before{content:"";position:absolute;inset:10px;border-radius:50%;border:2px solid rgba(120,80,20,.35);pointer-events:none}
+html body dialog.gf-reward-modal.ds-level .ds-level-num{font:900 54px/1 var(--ds-font);letter-spacing:-.02em;color:#3a2506;text-shadow:0 2px 0 rgba(255,255,255,.55)}
+html body dialog.gf-reward-modal.ds-level:not(#a):not(#b)>div{display:flex!important;flex-direction:column!important;align-items:center!important;gap:8px!important;margin:0!important}
+html body dialog.gf-reward-modal.ds-level .ds-level-kicker{padding:6px 12px;border-radius:999px;border:1px solid rgba(242,207,132,.5);background:rgba(242,207,132,.1);color:#f6d78f;font:800 11px/1 var(--ds-font);letter-spacing:.22em}
+html body dialog.gf-reward-modal.ds-level:not(#a):not(#b) b{display:block!important;margin:4px 0 0!important;font:800 26px/1.2 var(--ds-font)!important;color:#fff!important;letter-spacing:-.01em!important}
+html body dialog.gf-reward-modal.ds-level:not(#a):not(#b) small{display:block!important;margin:0!important;font:600 15px/1.45 var(--ds-font)!important;color:#c3cdee!important;white-space:pre-line!important}
+html body dialog.gf-reward-modal.ds-level:not(#a):not(#b) small:empty{display:none!important}
+html body dialog.gf-reward-modal.ds-level:not(#a):not(#b) small.ds-level-reward{display:inline-flex!important;align-items:center!important;gap:6px!important;margin-top:6px!important;padding:8px 14px!important;border-radius:999px!important;
+ background:rgba(242,207,132,.14)!important;border:1px solid rgba(242,207,132,.45)!important;color:#f6d78f!important;font:800 15px/1 var(--ds-font)!important}
+html body dialog.gf-reward-modal.ds-level:not(#a):not(#b) small.ds-level-reward::before{content:"✦";font-size:14px;color:#f2cf84}
+html body dialog.gf-reward-modal.ds-level:not(#a):not(#b) .gf-reward-close{width:100%!important;min-height:54px!important;margin:22px 0 0!important;border:0!important;outline:0!important;border-radius:18px!important;
+ background:linear-gradient(180deg,#f9e7b4,#e2b95f)!important;box-shadow:0 5px 0 #a8823a,0 12px 30px rgba(242,207,132,.24)!important;color:#16122f!important;font:900 16px/1 var(--ds-font)!important;letter-spacing:.04em!important}
