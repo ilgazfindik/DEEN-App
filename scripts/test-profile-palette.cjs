@@ -11,7 +11,7 @@ const server=http.createServer((req,res)=>{let p=path.join(root,decodeURICompone
  const ctx=await browser.newContext({viewport:{width:393,height:852},serviceWorkers:'block',isMobile:true,hasTouch:true});
  await ctx.addInitScript(()=>{localStorage.setItem('deen_app_language_v1','tr');localStorage.setItem('deen_v4_1_state',JSON.stringify({onboarded:true,energy:30,xp:420,streak:3,learningProfile:'adult',profile:{name:'QA',companion:'lion'},settings:{language:'tr',onboardingLanguageConfirmed:true},completed:['U01-S01','U01-S02'],mistakes:[]}))});
  const page=await ctx.newPage();await page.goto(url);await page.waitForSelector('.navbtn',{timeout:90000});await page.waitForTimeout(3500);
- await page.locator('.navbtn').nth(3).click();await page.waitForSelector('#profileScreenBody .dsp-stat',{timeout:20000});await page.waitForTimeout(1200);
+ await page.locator('.navbtn[data-screen="profileScreen"]').click();await page.waitForSelector('#profileScreenBody .dsp-stat',{timeout:20000});await page.waitForTimeout(1200);
  const r=await page.evaluate(()=>{const g=(s,p)=>{const e=document.querySelector(s);return e?getComputedStyle(e)[p]:null};return {ground:g('#phone','backgroundImage'),id:g('.dsp-id','backgroundImage'),idBorder:g('.dsp-id','borderTopColor'),card:g('.dsp-card','backgroundImage'),stats:[...document.querySelectorAll('.dsp-stat')].map(e=>getComputedStyle(e).borderTopColor),bg:g('#profileScreenBody','backgroundImage')}});
  assert.match(r.ground,/linear-gradient/,'the ground behind the profile is the indigo gradient');
  assert.doesNotMatch(r.id,/63, 215, 173/,'the identity card has no teal glow left');assert.match(r.card,/linear-gradient/);

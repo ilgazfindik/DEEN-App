@@ -337,7 +337,7 @@ window.DEEN_NATIVE_PLUGIN=window.DEEN_NATIVE_PLUGIN||function(name){
  if(!native)return;
  let NT=null;try{NT=window.DEEN_NATIVE_PLUGIN('NativeTabBar')}catch(_){NT=null}
  if(!NT||typeof NT.isAvailable!=='function')return;
- const ICONS={learnScreen:['book','book.fill'],reviewScreen:['arrow.clockwise.circle','arrow.clockwise.circle.fill'],leagueScreen:['text.book.closed','text.book.closed.fill'],profileScreen:['person','person.fill']};
+ const ICONS={learnScreen:['book','book.fill'],reviewScreen:['arrow.clockwise.circle','arrow.clockwise.circle.fill'],leagueScreen:['text.book.closed','text.book.closed.fill'],marketScreen:['bag','bag.fill'],profileScreen:['person','person.fill']};
  const safe=p=>{try{const r=p&&p.then?p:Promise.resolve(p);return r.catch(()=>null)}catch(_){return Promise.resolve(null)}};
  let nav=null,lastTabs='',lastSel='',hidden=null,ready=false;
  const tabsOf=()=>[...nav.querySelectorAll('button.navbtn')].map(b=>({id:b.dataset.screen,title:(b.querySelector('span')?.textContent||'').trim(),label:b.getAttribute('aria-label')||'',icon:(ICONS[b.dataset.screen]||['circle'])[0],selectedIcon:(ICONS[b.dataset.screen]||['circle','circle'])[1]}));
