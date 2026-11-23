@@ -839,3 +839,158 @@ html body dialog.gf-reward-modal.ds-level:not(#a):not(#b) small.ds-level-reward{
 html body dialog.gf-reward-modal.ds-level:not(#a):not(#b) small.ds-level-reward::before{content:"✦";font-size:14px;color:#f2cf84}
 html body dialog.gf-reward-modal.ds-level:not(#a):not(#b) .gf-reward-close{width:100%!important;min-height:54px!important;margin:22px 0 0!important;border:0!important;outline:0!important;border-radius:18px!important;
  background:linear-gradient(180deg,#f9e7b4,#e2b95f)!important;box-shadow:0 5px 0 #a8823a,0 12px 30px rgba(242,207,132,.24)!important;color:#16122f!important;font:900 16px/1 var(--ds-font)!important;letter-spacing:.04em!important}
+
+/* ---------- Tap-anywhere chest, 3D swings and the reward reveal ----------
+   A ready chest has no button: "tap anywhere" sits under it. Each tap swings it in 3D to one side and
+   then the other (it stays leaning there, glowing a little more); the third brings it back to the
+   middle, it rumbles, and opens under turning rays and a flash of light. The reward cards then flip in
+   one after another with a shine. The dialog itself is in the app's indigo and gold. */
+html body :is(dialog.v670-reward .v670-card,dialog.v623-ceremony .v623-card).ds-tapopen:not(.opened):not(.v623-opened) :is(.v670-open,#v623Open):not(:disabled){display:none!important}
+html body dialog :is(.v670-card,.v623-card) .ds-chest-hint{display:none;margin:4px auto 10px;padding:8px 16px;width:max-content;max-width:90%;border-radius:999px;border:1px solid rgba(242,207,132,.45);background:rgba(242,207,132,.1);color:#f6d78f;font:800 13px/1.2 var(--ds-font,inherit);letter-spacing:.02em;text-align:center;animation:dsHintPulse calc(1.6s*var(--ds-m-s)) ease-in-out infinite}
+html body dialog.v670-reward .v670-card.ds-tapopen:not(.opened):has(.v670-open:not(:disabled)) .ds-chest-hint,
+html body dialog.v623-ceremony .v623-card.ds-tapopen:not(.v623-opened):has(#v623Open:not(:disabled)) .ds-chest-hint{display:block}
+@keyframes dsHintPulse{0%,100%{opacity:.75;transform:scale(1)}50%{opacity:1;transform:scale(1.04)}}
+html body dialog:is(.v670-reward,.v623-ceremony):has(.ds-tapopen:not(.opened):not(.v623-opened)){cursor:pointer}
+/* 3D swings */
+html body dialog :is(.v670-chest,.v623-chest).ds-art{--tx:0px;--ry:0deg;--rz:0deg;--sc:1;transform-style:preserve-3d;transform:perspective(760px) translateX(var(--tx)) rotateY(var(--ry)) rotateZ(var(--rz)) scale(var(--sc));transition:transform calc(560ms*var(--ds-m-s)) cubic-bezier(.34,1.56,.64,1)}
+html body dialog :is(.v670-chest,.v623-chest).ds-art.ds-tilt-l{--tx:-44px;--ry:34deg;--rz:-7deg;--sc:1.05;animation:none!important}
+html body dialog :is(.v670-chest,.v623-chest).ds-art.ds-tilt-r{--tx:44px;--ry:-34deg;--rz:7deg;--sc:1.08;animation:none!important}
+html body dialog :is(.v670-chest,.v623-chest).ds-art.ds-center{--tx:0px;--ry:0deg;--rz:0deg;--sc:1.12;animation:none!important}
+html body dialog :is(.v670-chest,.v623-chest).ds-art.ds-hop .ds-chest-img.closed{animation:dsChestHop calc(460ms*var(--ds-m-s)) cubic-bezier(.3,1.4,.5,1)}
+html body dialog :is(.v670-chest,.v623-chest).ds-art.ds-center .ds-chest-img.closed{animation:dsChestRumble calc(380ms*var(--ds-m-s)) linear}
+@keyframes dsChestHop{0%{transform:none}35%{transform:translateY(-22px) scale(.96,1.05)}70%{transform:translateY(0) scale(1.06,.94)}100%{transform:none}}
+@keyframes dsChestRumble{0%,100%{transform:none}12%{transform:translate(-4px,1px) rotate(-3deg)}25%{transform:translate(4px,-1px) rotate(3deg)}37%{transform:translate(-4px,0) rotate(-3deg)}50%{transform:translate(4px,1px) rotate(3deg)}62%{transform:translate(-3px,0) rotate(-2deg)}75%{transform:translate(3px,0) rotate(2deg) scale(1.04,.96)}}
+/* Opening: the chest stays in the middle and hops up as the lid flies open (no side shake). */
+html body dialog.v670-reward .v670-card.opened:not(.claimed) .v670-chest.ds-art,
+html body dialog.v623-ceremony .v623-card.v623-opened .v623-chest.ds-art{--sc:1;transform:perspective(760px)!important;animation:dsChestPopOpen calc(700ms*var(--ds-m-s)) cubic-bezier(.34,1.56,.64,1) calc(200ms*var(--ds-m-s)) both!important}
+@keyframes dsChestPopOpen{0%{transform:scale(1.12)}35%{transform:translateY(-18px) scale(1.18)}70%{transform:translateY(2px) scale(.98)}100%{transform:none}}
+/* Rays and flash */
+html body dialog :is(.v670-chest-stage,.v623-chest-wrap) .ds-chest-rays{position:absolute;left:50%;top:50%;width:420px;height:420px;margin:-210px 0 0 -210px;border-radius:50%;pointer-events:none;opacity:0;
+ background:repeating-conic-gradient(from 0deg,rgba(255,222,140,.34) 0deg 9deg,rgba(255,222,140,0) 9deg 24deg);-webkit-mask-image:radial-gradient(circle,#000 18%,transparent 66%);mask-image:radial-gradient(circle,#000 18%,transparent 66%);z-index:-1}
+html body dialog.v670-reward .v670-card.opened .ds-chest-rays,html body dialog.v623-ceremony .v623-card.v623-opened .ds-chest-rays{animation:dsRaysIn calc(700ms*var(--ds-m-s)) var(--ds-out) calc(420ms*var(--ds-m-s)) both,dsRaysSpin 14s linear infinite}
+@keyframes dsRaysIn{from{opacity:0;transform:scale(.3)}to{opacity:1;transform:none}}
+@keyframes dsRaysSpin{to{rotate:360deg}}
+html body dialog :is(.v670-chest-stage,.v623-chest-wrap){isolation:isolate}
+html body dialog :is(.v670-card,.v623-card) .ds-chest-flash{position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;z-index:5;background:radial-gradient(circle at 50% 38%,rgba(255,248,220,.95),rgba(255,214,120,.55) 30%,rgba(255,214,120,0) 70%)}
+html body dialog.v670-reward .v670-card.opened:not(.claimed) .ds-chest-flash,html body dialog.v623-ceremony .v623-card.v623-opened .ds-chest-flash{animation:dsFlash calc(700ms*var(--ds-m-s)) ease-out calc(400ms*var(--ds-m-s)) both}
+@keyframes dsFlash{0%{opacity:0}25%{opacity:1}100%{opacity:0}}
+/* Reward cards flip in, one after another, with a shine; their numbers glow. */
+html body dialog.v670-reward .v670-card.opened:not(.claimed) .v670-loot-item,html body dialog.v623-ceremony .v623-card.v623-opened .v623-loot-item{position:relative;overflow:hidden;animation:dsLootIn calc(760ms*var(--ds-m-s)) cubic-bezier(.34,1.56,.64,1) calc(var(--delay,0ms)*1.6 + 760ms*var(--ds-m-s)) both!important}
+html body dialog.v623-ceremony .v623-card.v623-opened .v623-loot-item:nth-child(2){--delay:110ms}
+html body dialog.v623-ceremony .v623-card.v623-opened .v623-loot-item:nth-child(3){--delay:220ms}
+@keyframes dsLootIn{0%{opacity:0;transform:perspective(600px) translateY(80px) rotateX(-80deg) scale(.35)}55%{opacity:1;transform:perspective(600px) translateY(-10px) rotateX(12deg) scale(1.1)}80%{transform:perspective(600px) rotateX(-4deg) scale(.98)}100%{opacity:1;transform:none}}
+html body dialog.v670-reward .v670-card.opened:not(.claimed) .v670-loot-item::after,html body dialog.v623-ceremony .v623-card.v623-opened .v623-loot-item::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:45%;pointer-events:none;background:linear-gradient(100deg,transparent,rgba(255,244,210,.55),transparent);transform:skewX(-18deg);animation:dsShine calc(900ms*var(--ds-m-s)) ease-in-out calc(var(--delay,0ms)*1.6 + 1300ms*var(--ds-m-s)) both}
+@keyframes dsShine{from{left:-60%}to{left:130%}}
+html body dialog.v670-reward .v670-card.opened:not(.claimed) .v670-loot-icon{animation:dsLootSpin calc(900ms*var(--ds-m-s)) cubic-bezier(.34,1.56,.64,1) calc(var(--delay,0ms)*1.6 + 900ms*var(--ds-m-s)) both}
+@keyframes dsLootSpin{from{transform:perspective(400px) rotateY(-540deg) scale(.4)}to{transform:none}}
+html body dialog.v670-reward .v670-loot-item strong{color:#ffe6a6!important;text-shadow:0 0 14px rgba(255,205,100,.65)}
+/* Indigo + gold dialog */
+html body dialog.v670-reward .v670-card{background:radial-gradient(120% 60% at 50% 0%,rgba(84,116,226,.36),rgba(84,116,226,0) 60%),linear-gradient(180deg,#1b2a57,#111b3b 60%,#0d1531)!important;border:1px solid rgba(242,207,132,.3)!important;box-shadow:0 30px 70px rgba(4,10,28,.6),inset 0 1px 0 rgba(255,255,255,.06)!important;color:#eef1ff}
+html body dialog.v670-reward .v670-sub,html body dialog.v670-reward .v670-safety,html body dialog.v670-reward .v670-progress-row span{color:#a9b6de!important}
+html body dialog.v670-reward .v670-close{background:rgba(150,175,255,.1)!important;border:1px solid rgba(150,175,255,.3)!important;color:#e8edff!important}
+html body dialog.v670-reward .v670-track{background:rgba(150,175,255,.16)!important}
+html body dialog.v670-reward .v670-track i{background:linear-gradient(90deg,#f9e7b4,#e2b95f)!important}
+html body dialog.v670-reward :is(.v670-loot-item,.v670-next){background:linear-gradient(170deg,rgba(150,175,255,.13),rgba(150,175,255,.04))!important;border:1px solid rgba(150,175,255,.26)!important}
+html body dialog.v670-reward .v670-loot-item{border-color:rgba(242,207,132,.4)!important;box-shadow:0 0 24px rgba(242,207,132,.12)!important}
+html body dialog.v670-reward .v670-loot-icon{color:#f2cf84!important}
+html body dialog.v670-reward .v670-next-icon{color:#f2cf84!important;border-color:rgba(242,207,132,.4)!important;background:rgba(242,207,132,.1)!important}
+html body dialog.v670-reward .v670-loot-item small{color:#c9d3f2!important}
+html body dialog.v670-reward .v670-next small{color:#b9c6ee!important}
+html body dialog.v670-reward :is(.v670-continue,.v670-open:not(:disabled)){background:linear-gradient(180deg,#f9e7b4,#e2b95f)!important;color:#16122f!important;border:0!important;box-shadow:0 5px 0 #a8823a,0 12px 28px rgba(242,207,132,.22)!important}
+html body dialog.v670-reward .v670-open:disabled{background:rgba(150,175,255,.14)!important;color:#8f9cc6!important;box-shadow:none!important}
+@media (prefers-reduced-motion:reduce){html body dialog :is(.v670-chest,.v623-chest).ds-art,html body dialog :is(.v670-card,.v623-card) :is(.ds-chest-img,.ds-chest-rays,.ds-chest-flash,.ds-chest-hint,.v670-loot-item,.v670-loot-item::after,.v670-loot-icon,.v623-loot-item,.v623-loot-item::after){animation:none!important;transition:none!important}}
+:root.v5-reduce body dialog :is(.v670-chest,.v623-chest).ds-art,:root.v5-reduce body dialog :is(.v670-card,.v623-card) :is(.ds-chest-img,.ds-chest-rays,.ds-chest-flash,.ds-chest-hint,.v670-loot-item,.v670-loot-item::after,.v670-loot-icon,.v623-loot-item,.v623-loot-item::after){animation:none!important;transition:none!important}
+html body dialog.v623-ceremony .v623-card{background:radial-gradient(120% 55% at 50% 0%,rgba(84,116,226,.36),rgba(84,116,226,0) 60%),linear-gradient(180deg,#1b2a57,#111b3b 60%,#0d1531)!important;border:1px solid rgba(242,207,132,.3)!important;box-shadow:0 30px 70px rgba(4,10,28,.6),inset 0 1px 0 rgba(255,255,255,.06)!important}
+html body dialog.v623-ceremony :is(.v623-metric,.v623-stage-note,.v623-loot,.v623-loot-item){background:linear-gradient(170deg,rgba(150,175,255,.13),rgba(150,175,255,.04))!important;border:1px solid rgba(150,175,255,.26)!important;box-shadow:none!important}
+html body dialog.v623-ceremony .v623-loot-item{border-color:rgba(242,207,132,.4)!important}
+html body dialog.v623-ceremony .v623-loot-item strong{color:#ffe6a6!important;text-shadow:0 0 14px rgba(255,205,100,.6)}
+html body dialog.v623-ceremony :is(.v623-copy,.v623-subcta,.v623-metric span,.v623-loot-item span){color:#b9c6ee!important}
+html body dialog.v623-ceremony .v623-cta:not(.alt){background:linear-gradient(180deg,#f9e7b4,#e2b95f)!important;color:#16122f!important;border:0!important;box-shadow:0 5px 0 #a8823a,0 12px 28px rgba(242,207,132,.22)!important}
+
+/* ---------- Full-screen chest (a ready chest) ----------
+   The dialog covers the whole screen in one solid colour close to the chest's own teal; before it opens only the chest
+   shows. Taps: right, left, then the chest centres, shakes harder and harder with light leaking out, and breaks open —
+   the lid flies off in 3D, shards scatter, a beam of light rises and a shock wave spreads; the rewards then fly out of
+   the chest one after another, flipping in 3D. */
+html body dialog.ds-full:is(.v670-reward,.v623-ceremony){position:fixed!important;inset:0!important;width:100vw!important;height:100vh!important;height:100dvh!important;max-width:none!important;max-height:none!important;margin:0!important;padding:0!important;border:0!important;border-radius:0!important;background:#0d3a40!important;overflow-x:hidden!important;overflow-y:auto!important;box-shadow:none!important}
+html body dialog.ds-full:is(.v670-reward,.v623-ceremony)::backdrop{background:#0d3a40!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+html body dialog.ds-full :is(.v670-card,.v623-card){position:relative;width:100%!important;max-width:440px!important;min-height:100vh;min-height:100dvh;margin:0 auto!important;box-sizing:border-box;display:flex!important;flex-direction:column;justify-content:center;gap:14px;padding:max(28px,env(safe-area-inset-top)) 20px max(28px,env(safe-area-inset-bottom))!important;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;overflow:visible!important;transform:none!important;animation:none!important}
+/* Before opening: the chest alone. */
+html body dialog.ds-full .v670-card:not(.opened)>:not(.v670-chest-stage),
+html body dialog.ds-full .v623-card:not(.v623-opened)>:not(.v623-chest-wrap){display:none!important}
+html body dialog.ds-full .ds-chest-pips{display:none!important}
+/* After opening (daily / weekly): the open chest, the rewards and the way on. */
+html body dialog.ds-full .v670-card.opened>:is(.v670-tier,h2,.v670-sub,.v670-progress,.v670-safety,.v670-glow,.v670-rings,.v670-close,.v670-open,.ds-chest-hint){display:none!important}
+html body dialog.ds-full :is(.v670-chest-stage,.v623-chest-wrap){height:330px!important;padding:0!important;margin:0!important;overflow:visible!important;display:flex;align-items:center;justify-content:center}
+html body dialog.ds-full .v670-card.opened .v670-chest-stage{height:280px!important}
+html body dialog.ds-full :is(.v670-chest,.v623-chest).ds-art{width:290px!important;height:246px!important;position:relative!important;left:auto!important;top:auto!important;margin:0 auto!important}
+html body dialog.ds-full :is(.v670-rays,.v623-rays,.v623-aura,.v670-sparks,.v623-spark-burst){display:none!important}
+html body dialog.ds-full .ds-chest-img.closed{filter:drop-shadow(0 22px 26px rgba(0,0,0,.45)) drop-shadow(0 0 calc(var(--ds-charge,0)*18px) rgba(255,214,110,calc(var(--ds-charge,0)*.4)))!important}
+html body dialog.ds-full .ds-chest-rays{width:640px;height:640px;margin:-320px 0 0 -320px}
+/* The build-up on the third tap: harder and harder shaking, light leaking out. */
+html body dialog.ds-full :is(.v670-card,.v623-card).ds-opening .ds-chest-img.closed{animation:dsChestBuild calc(620ms*var(--ds-m-s)) linear both!important}
+@keyframes dsChestBuild{0%{transform:none;filter:drop-shadow(0 22px 26px rgba(0,0,0,.45)) brightness(1)}
+ 10%{transform:translate(-3px,0) rotate(-2deg)}20%{transform:translate(3px,-1px) rotate(2deg)}30%{transform:translate(-5px,1px) rotate(-3deg) scale(1.02)}40%{transform:translate(5px,-1px) rotate(3deg) scale(1.03)}
+ 50%{transform:translate(-7px,0) rotate(-4deg) scale(1.04,.97)}60%{transform:translate(7px,-2px) rotate(4deg) scale(1.05)}70%{transform:translate(-8px,1px) rotate(-5deg) scale(1.06,.95)}80%{transform:translate(8px,-2px) rotate(5deg) scale(1.08)}
+ 90%{transform:translate(-6px,0) rotate(-3deg) scale(1.12,.92)}100%{transform:scale(1.16,.9);filter:drop-shadow(0 0 40px rgba(255,226,150,.95)) brightness(1.7)}}
+/* The break: the closed chest is gone at once, its lid flies off, the open chest springs up. */
+html body dialog :is(.v670-chest,.v623-chest) .ds-chest-img.lid{opacity:0;clip-path:inset(0 0 52% 0)}
+html body dialog.ds-full .v670-card.opened:not(.claimed) .ds-chest-img.closed,html body dialog.ds-full .v623-card.v623-opened .ds-chest-img.closed{animation:none!important;opacity:0!important}
+html body dialog.ds-full .v670-card.opened:not(.claimed) .ds-chest-img.lid,html body dialog.ds-full .v623-card.v623-opened .ds-chest-img.lid{animation:dsLidFly calc(950ms*var(--ds-m-s)) cubic-bezier(.2,.7,.3,1) both}
+@keyframes dsLidFly{0%{opacity:1;transform:none}15%{opacity:1;transform:translate3d(0,-30px,0) rotateX(20deg) scale(1.05)}100%{opacity:0;transform:perspective(600px) translate3d(90px,-320px,120px) rotateX(75deg) rotateZ(48deg) scale(.7)}}
+html body dialog.ds-full .v670-card.opened:not(.claimed) .ds-chest-img.open,html body dialog.ds-full .v623-card.v623-opened .ds-chest-img.open{animation:dsOpenUp calc(650ms*var(--ds-m-s)) cubic-bezier(.34,1.56,.64,1) calc(90ms*var(--ds-m-s)) both!important}
+html body dialog.ds-full .v670-card.opened:not(.claimed) .v670-chest.ds-art,html body dialog.ds-full .v623-card.v623-opened .v623-chest.ds-art{animation:dsChestPopOpen calc(700ms*var(--ds-m-s)) cubic-bezier(.34,1.56,.64,1) both!important}
+/* Shards, beam and shock wave. */
+html body dialog :is(.v670-chest-stage,.v623-chest-wrap) .ds-shard{position:absolute;left:50%;top:56%;width:var(--sz);height:var(--sz);background:var(--c);pointer-events:none;opacity:0;z-index:3;clip-path:polygon(50% 0,100% 38%,78% 100%,14% 86%,0 30%);box-shadow:0 0 8px rgba(255,220,140,.5)}
+html body dialog.ds-full .v670-card.opened:not(.claimed) .ds-shard,html body dialog.ds-full .v623-card.v623-opened .ds-shard{animation:dsShard calc(1100ms*var(--ds-m-s)) cubic-bezier(.12,.75,.3,1) var(--d,0ms) both}
+@keyframes dsShard{0%{opacity:1;transform:translate(-50%,-50%) scale(.6)}
+ 55%{opacity:1;transform:translate(-50%,-50%) perspective(500px) translate3d(calc(var(--dx)*.8),var(--dy),80px) rotateX(calc(var(--rx)*.6)) rotateY(calc(var(--ry)*.6)) scale(1.1)}
+ 100%{opacity:0;transform:translate(-50%,-50%) perspective(500px) translate3d(var(--dx),calc(var(--dy) + 160px),0) rotateX(var(--rx)) rotateY(var(--ry)) scale(.8)}}
+html body dialog :is(.v670-chest-stage,.v623-chest-wrap) .ds-chest-beam{position:absolute;left:50%;bottom:42%;width:150px;height:620px;margin-left:-75px;pointer-events:none;opacity:0;z-index:-1;transform-origin:50% 100%;
+ background:linear-gradient(to top,rgba(255,246,214,.95),rgba(255,222,140,.55) 35%,rgba(255,222,140,0));filter:blur(8px);-webkit-mask-image:linear-gradient(90deg,transparent,#000 30%,#000 70%,transparent);mask-image:linear-gradient(90deg,transparent,#000 30%,#000 70%,transparent)}
+html body dialog.ds-full .v670-card.opened:not(.claimed) .ds-chest-beam,html body dialog.ds-full .v623-card.v623-opened .ds-chest-beam{animation:dsBeam calc(1500ms*var(--ds-m-s)) cubic-bezier(.2,.8,.2,1) calc(60ms*var(--ds-m-s)) both}
+@keyframes dsBeam{0%{opacity:0;transform:scaleY(0) scaleX(.4)}25%{opacity:1;transform:scaleY(1) scaleX(1.15)}100%{opacity:.35;transform:scaleY(1) scaleX(.8)}}
+html body dialog :is(.v670-chest-stage,.v623-chest-wrap) .ds-chest-shock{position:absolute;left:50%;top:56%;width:160px;height:160px;margin:-80px 0 0 -80px;border-radius:50%;pointer-events:none;opacity:0;border:4px solid rgba(255,232,170,.9);box-shadow:0 0 30px rgba(255,214,110,.7),inset 0 0 20px rgba(255,214,110,.5)}
+html body dialog.ds-full .v670-card.opened:not(.claimed) .ds-chest-shock,html body dialog.ds-full .v623-card.v623-opened .ds-chest-shock{animation:dsShock calc(800ms*var(--ds-m-s)) cubic-bezier(.1,.7,.3,1) both}
+@keyframes dsShock{0%{opacity:1;transform:scale(.2)}100%{opacity:0;transform:scale(3.6)}}
+html body dialog.ds-full .ds-chest-flash{position:fixed;inset:0;border-radius:0}
+html body dialog.ds-full .v670-card.opened:not(.claimed) .ds-chest-flash,html body dialog.ds-full .v623-card.v623-opened .ds-chest-flash{animation:dsFlash calc(650ms*var(--ds-m-s)) ease-out both}
+html body dialog.ds-full .v670-card.opened:not(.claimed) .ds-chest-rays,html body dialog.ds-full .v623-card.v623-opened .ds-chest-rays{animation:dsRaysIn calc(700ms*var(--ds-m-s)) var(--ds-out) calc(150ms*var(--ds-m-s)) both,dsRaysSpin 14s linear infinite}
+/* Rewards fly out of the chest one by one, flipping in 3D. */
+html body dialog.ds-full .v670-reveal{margin-top:6px}
+html body dialog.ds-full .v670-loot-item{padding:16px 10px!important}
+html body dialog.ds-full .v670-loot-item strong{font-size:30px!important}
+html body dialog.ds-full .v670-card.opened:not(.claimed) .v670-loot-item,html body dialog.ds-full .v623-card.v623-opened .v623-loot-item{animation:dsLootFly calc(820ms*var(--ds-m-s)) cubic-bezier(.34,1.56,.64,1) calc(var(--delay,0ms)*2.5 + 900ms*var(--ds-m-s)) both!important}
+@keyframes dsLootFly{0%{opacity:0;transform:perspective(700px) translate3d(0,-240px,-200px) rotateY(-200deg) rotateX(30deg) scale(.2)}
+ 60%{opacity:1;transform:perspective(700px) translate3d(0,-14px,40px) rotateY(12deg) scale(1.12)}80%{transform:perspective(700px) rotateY(-4deg) scale(.97)}100%{opacity:1;transform:none}}
+html body dialog.ds-full .v670-card.opened:not(.claimed) .v670-loot-item::after,html body dialog.ds-full .v623-card.v623-opened .v623-loot-item::after{animation-delay:calc(var(--delay,0ms)*2.5 + 1500ms*var(--ds-m-s))}
+html body dialog.ds-full .v670-card.opened:not(.claimed) .v670-loot-icon{animation-delay:calc(var(--delay,0ms)*2.5 + 1000ms*var(--ds-m-s))}
+html body dialog.ds-full .v670-card.opened :is(.v670-loot-item,.v670-next){background:rgba(255,255,255,.07)!important;border-color:rgba(242,207,132,.35)!important}
+html body dialog.ds-full .v623-card :is(.v623-metric,.v623-stage-note,.v623-loot,.v623-loot-item){background:rgba(255,255,255,.07)!important}
+@media (prefers-reduced-motion:reduce){html body dialog.ds-full :is(.ds-shard,.ds-chest-beam,.ds-chest-shock,.ds-chest-img,.v670-loot-item,.v623-loot-item,.v670-chest,.v623-chest){animation:none!important}html body dialog.ds-full :is(.ds-shard,.ds-chest-beam,.ds-chest-shock,.ds-chest-img.lid){display:none!important}}
+:root.v5-reduce body dialog.ds-full :is(.ds-shard,.ds-chest-beam,.ds-chest-shock,.ds-chest-img.lid){display:none!important}
+:root.v5-reduce body dialog.ds-full :is(.ds-chest-img,.v670-loot-item,.v623-loot-item,.v670-chest,.v623-chest){animation:none!important}
+/* The chest keeps one place before and after it opens (no jump when the rewards appear below it). */
+html body dialog.ds-full :is(.v670-card,.v623-card){justify-content:flex-start!important;padding-top:max(28px,env(safe-area-inset-top),calc(50vh - 250px))!important;padding-top:max(28px,env(safe-area-inset-top),calc(50dvh - 250px))!important}
+html body dialog.ds-full :is(.v670-chest-stage,.v623-chest-wrap),html body dialog.ds-full .v670-card.opened .v670-chest-stage{height:300px!important;flex:none}
+html body dialog :is(.v670-chest,.v623-chest) .ds-chest-img.lid{filter:none!important}
+html body dialog.ds-full .v623-card.v623-opened>:is(.v623-stars,.v623-word,.v623-kicker,.v623-title,.v623-copy){display:none!important}
+html body dialog.ds-full #v623Open{display:none!important}
+/* A smaller, sharper full-screen chest: drawn at about the art's own resolution, and never scaled up past it while it
+   swings (a 3D layer is drawn once and then stretched, which blurs it). */
+html body dialog.ds-full :is(.v670-chest,.v623-chest).ds-art{width:224px!important;height:183px!important}
+html body dialog.ds-full :is(.v670-chest-stage,.v623-chest-wrap),html body dialog.ds-full .v670-card.opened .v670-chest-stage{height:260px!important}
+html body dialog.ds-full :is(.v670-card,.v623-card){padding-top:max(28px,env(safe-area-inset-top),calc(50vh - 210px))!important;padding-top:max(28px,env(safe-area-inset-top),calc(50dvh - 210px))!important}
+html body dialog :is(.v670-chest,.v623-chest).ds-art.ds-tilt-l{--sc:1}
+html body dialog :is(.v670-chest,.v623-chest).ds-art.ds-tilt-r{--sc:1}
+html body dialog :is(.v670-chest,.v623-chest).ds-art.ds-center{--sc:1.02}
+html body dialog.ds-full .ds-chest-rays{width:520px;height:520px;margin:-260px 0 0 -260px}
+html body dialog.ds-full .ds-chest-beam{width:120px;margin-left:-60px}
+html body dialog.ds-full .ds-chest-img{image-rendering:auto;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+html body dialog.ds-full :is(.v670-card,.v623-card).ds-opening .ds-chest-img.closed{animation-name:dsChestBuildS!important}
+@keyframes dsChestBuildS{0%{transform:none;filter:drop-shadow(0 22px 26px rgba(0,0,0,.45)) brightness(1)}
+ 10%{transform:translate(-3px,0) rotate(-2deg)}20%{transform:translate(3px,-1px) rotate(2deg)}30%{transform:translate(-4px,1px) rotate(-3deg)}40%{transform:translate(4px,-1px) rotate(3deg)}
+ 50%{transform:translate(-6px,0) rotate(-4deg) scale(1.02,.98)}60%{transform:translate(6px,-2px) rotate(4deg)}70%{transform:translate(-7px,1px) rotate(-5deg) scale(1.03,.97)}80%{transform:translate(7px,-2px) rotate(5deg)}
+ 90%{transform:translate(-5px,0) rotate(-3deg) scale(1.05,.95)}100%{transform:scale(1.06,.94);filter:drop-shadow(0 0 34px rgba(255,226,150,.95)) brightness(1.7)}}
+html body dialog.ds-full .v670-card.opened:not(.claimed) .v670-chest.ds-art,html body dialog.ds-full .v623-card.v623-opened .v623-chest.ds-art{animation-name:dsChestPopOpenS!important}
+@keyframes dsChestPopOpenS{0%{transform:scale(1.02)}35%{transform:translateY(-16px) scale(1.05)}70%{transform:translateY(2px) scale(.99)}100%{transform:none}}

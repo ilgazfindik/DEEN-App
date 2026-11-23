@@ -13,7 +13,7 @@ jobs:
   audit:
     runs-on: ubuntu-24.04
     # Chromium installation on hosted runners occasionally takes 10+ minutes.
-    timeout-minutes: 30
+    timeout-minutes: 45
     permissions:
       contents: read
     steps:
@@ -85,6 +85,7 @@ jobs:
           node scripts/test-glass-nav-swipe-haptics.cjs
           node scripts/test-native-tabbar-bridge.cjs
           node scripts/test-info-envelope.cjs
+          node scripts/test-chest-tap-open.cjs
           node scripts/test-level-up-design.cjs
           node scripts/test-pose-swap.cjs
           node scripts/test-companion-images.mjs
