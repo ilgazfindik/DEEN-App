@@ -1,5 +1,5 @@
-/* Native iOS tab bar bridge (assets/design/home.js ↔ ios/App/App/NativeTabBar.swift), with a stand-in for the native
-   plugin: on iOS 26+ the web asks for the native bar with the four tabs, hides its own bar (kept as the router), opens
+/* Native iOS tab bar bridge (assets/design/home.js ↔ ios/App/App/NativeTabBar.swift), with a stand-in for Capacitor's
+   injected native bridge (no Capacitor.Plugins, only nativePromise/addListener, as in the real app): on iOS 26+ the web asks for the native bar with the four tabs, hides its own bar (kept as the router), opens
    the screen of a native selection (with the light haptic tap), mirrors web-side screen changes to the native bar, and
    hides the native bar while something covers the tab bar (a sheet, a lesson). Without the shell nothing changes. */
 const {chromium}=require('playwright'),http=require('node:http'),fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
@@ -14,10 +14,12 @@ const IPHONE='Mozilla/5.0 (iPhone; CPU iPhone OS 18_6 like Mac OS X) AppleWebKit
  const ctx=await browser.newContext({viewport:{width:393,height:852},serviceWorkers:'block',userAgent:IPHONE});
  await ctx.addInitScript(()=>{localStorage.setItem('deen_app_language_v1','tr');localStorage.setItem('deen_v4_1_state',JSON.stringify({onboarded:true,energy:30,xp:420,profile:{name:'QA',companion:'cat'},settings:{language:'tr',onboardingLanguageConfirmed:true},completed:[],mistakes:[]}));
   window.__nt={calls:[],listeners:{}};window.__hap=[];const log=(n,a)=>{__nt.calls.push([n,a]);};
-  window.Capacitor={isNativePlatform:()=>true,getPlatform:()=>'ios',Plugins:{
-   Haptics:{impact:a=>{__hap.push('impact:'+(a&&a.style));return Promise.resolve()},selectionStart:()=>Promise.resolve(),selectionChanged:()=>Promise.resolve(),selectionEnd:()=>Promise.resolve()},
-   NativeTabBar:{isAvailable:()=>Promise.resolve({available:true}),show:a=>{log('show',a);return Promise.resolve({shown:true,height:83})},select:a=>{log('select',a);return Promise.resolve()},
-    setHidden:a=>{log('hidden',a.hidden);return Promise.resolve()},addListener:(n,cb)=>{__nt.listeners[n]=cb;return Promise.resolve({remove(){}})}}}}});
+  // Like Capacitor's injected native bridge: no Capacitor.Plugins, only nativePromise / addListener by plugin name.
+  const impl={Haptics:{impact:a=>{__hap.push('impact:'+(a&&a.style))},selectionStart:()=>{},selectionChanged:()=>{},selectionEnd:()=>{}},
+   NativeTabBar:{isAvailable:()=>({available:true}),show:a=>{log('show',a);return {shown:true,height:83}},select:a=>{log('select',a)},setHidden:a=>{log('hidden',a.hidden)}}};
+  window.Capacitor={isNativePlatform:()=>true,getPlatform:()=>'ios',
+   nativePromise:(plugin,method,args)=>{const f=impl[plugin]&&impl[plugin][method];return f?Promise.resolve(f(args)):Promise.reject(new Error('not implemented '+plugin+'.'+method))},
+   addListener:(plugin,event,cb)=>{if(plugin==='NativeTabBar')__nt.listeners[event]=cb;return {remove:async()=>{}}}};});
  const page=await ctx.newPage();await page.goto(url);await page.waitForSelector('.navbtn',{timeout:90000});
  await page.waitForFunction(()=>!document.getElementById('ilnura-veil'),null,{timeout:30000});await page.waitForTimeout(1500);
  const lastHidden=()=>page.evaluate(()=>{const h=__nt.calls.filter(c=>c[0]==='hidden');return h.length?h[h.length-1][1]:null});

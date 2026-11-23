@@ -237,6 +237,23 @@
  window.DEEN_DS_HOME=Object.freeze({decorate,version:'ds-home-v1'});
 })();
 
+/* Native plugin access. The app does not bundle @capacitor/core, and Capacitor's injected native bridge does not fill
+   Capacitor.Plugins; it does provide Capacitor.nativePromise(plugin, method, options) and Capacitor.addListener(plugin,
+   event, callback). DEEN_NATIVE_PLUGIN(name) returns an object whose methods call the native plugin through them (or the
+   Capacitor.Plugins entry when one exists), or null outside the iOS app. */
+window.DEEN_NATIVE_PLUGIN=window.DEEN_NATIVE_PLUGIN||function(name){
+ const C=window.Capacitor;if(!C)return null;
+ let native=false;try{native=!!(C.isNativePlatform?C.isNativePlatform():C.getPlatform&&C.getPlatform()!=='web')}catch(_){}
+ if(!native)return null;
+ try{if(C.Plugins&&C.Plugins[name])return C.Plugins[name]}catch(_){}
+ if(typeof C.nativePromise!=='function')return null;
+ return new Proxy({},{get:(_,m)=>{
+  if(m==='then'||typeof m!=='string')return undefined;
+  if(m==='addListener')return (event,cb)=>Promise.resolve(typeof C.addListener==='function'?C.addListener(name,event,cb):null);
+  return (args)=>C.nativePromise(name,m,args||{});
+ }});
+};
+
 /* Haptics + swipeable glass tab bar.
    - Haptics go through the native Capacitor Haptics plugin on iOS (navigator.vibrate does nothing there); elsewhere
      navigator.vibrate is used. The Settings switch "Dokunsal geri bildirim" (state.settings.haptic) turns every haptic
@@ -248,7 +265,7 @@
  'use strict';
  const C=window.Capacitor;
  let native=false;try{native=!!(C&&(C.isNativePlatform?C.isNativePlatform():C.getPlatform&&C.getPlatform()!=='web'))}catch(_){}
- let H=null;try{H=native?((C.Plugins&&C.Plugins.Haptics)||(C.registerPlugin&&C.registerPlugin('Haptics'))||null):null}catch(_){H=null}
+ let H=null;try{H=native?window.DEEN_NATIVE_PLUGIN('Haptics'):null}catch(_){H=null}
  const webVibrate=typeof navigator.vibrate==='function'?navigator.vibrate.bind(navigator):null;
  // The game keeps its state in a global `let` (not a window property), so it is read by name.
  const S=()=>{try{return typeof state==='object'&&state?state:null}catch(_){return null}};
@@ -318,7 +335,7 @@
  const C=window.Capacitor;
  let native=false;try{native=!!(C&&(C.isNativePlatform?C.isNativePlatform():C.getPlatform&&C.getPlatform()!=='web'))}catch(_){}
  if(!native)return;
- let NT=null;try{NT=(C.Plugins&&C.Plugins.NativeTabBar)||(C.registerPlugin&&C.registerPlugin('NativeTabBar'))||null}catch(_){NT=null}
+ let NT=null;try{NT=window.DEEN_NATIVE_PLUGIN('NativeTabBar')}catch(_){NT=null}
  if(!NT||typeof NT.isAvailable!=='function')return;
  const ICONS={learnScreen:['book','book.fill'],reviewScreen:['arrow.clockwise.circle','arrow.clockwise.circle.fill'],leagueScreen:['text.book.closed','text.book.closed.fill'],profileScreen:['person','person.fill']};
  const safe=p=>{try{const r=p&&p.then?p:Promise.resolve(p);return r.catch(()=>null)}catch(_){return Promise.resolve(null)}};
