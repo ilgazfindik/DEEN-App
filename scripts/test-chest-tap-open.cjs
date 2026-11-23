@@ -1,7 +1,7 @@
-/* Chest opening (assets/design/motion.js + motion.css). A ready chest has no open button: a "tap anywhere" hint sits
-   under it, and a tap anywhere on its dialog counts — the first swings it in 3D to the left, the second to the right,
-   the third brings it back to the middle and opens it (the reward is claimed once). The close button keeps its own job
-   and is not counted. */
+/* Chest opening (assets/design/motion.js + motion.css). A ready chest takes the whole screen on one solid colour and
+   nothing but the chest shows (no button, no title, no app behind it). A tap anywhere counts: the first swings it in 3D
+   to the right, the second to the left, the third brings it back to the middle and breaks it open (the reward is
+   claimed once), and the rewards and the way on then appear. */
 const {chromium}=require('playwright'),http=require('node:http'),fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
 const root=path.resolve(__dirname,'..');
 const mime={'.html':'text/html','.js':'text/javascript','.json':'application/json','.webp':'image/webp','.png':'image/png','.css':'text/css','.svg':'image/svg+xml','.woff2':'font/woff2','.txt':'text/plain','.mp3':'audio/mpeg'};
@@ -23,19 +23,23 @@ const server=http.createServer((req,res)=>{let p=path.join(root,decodeURICompone
    return {cls:c.className,chest:ch.className,btnShown:getComputedStyle(b).display!=='none'&&!b.hidden,hint:h&&getComputedStyle(h).display!=='none'?h.textContent:'',sparkles:Number(state.sparkles??state.retentionEconomy?.ledger?.length??0),claimed:DEEN_ECONOMY.status().dailyChest.claimed}});
   let s=await look();
   assert.equal(s.btnShown,false,lang+': a ready chest shows no open button');
-  assert.equal(s.hint,lang==='tr'?'Açmak için ekrana dokun':'Tap anywhere to open',lang+': tap-anywhere hint');
-  // The close button is not a tap on the chest... (checked by count: it would close the dialog, so it is only looked at)
-  assert.ok(await page.locator('dialog.v670-reward .v670-close').isVisible(),lang+': close button stays');
+  const full=await page.evaluate(()=>{const d=document.querySelector('dialog.v670-reward'),r=d.getBoundingClientRect(),c=d.querySelector('.v670-card');
+   const shown=[...c.children].filter(e=>getComputedStyle(e).display!=='none'&&e.getBoundingClientRect().height>0).map(e=>e.className);
+   return {full:d.classList.contains('ds-full'),w:Math.round(r.width),h:Math.round(r.height),bg:getComputedStyle(d).backgroundColor,shown}});
+  assert.equal(full.full,true,lang+': full-screen chest');assert.equal(full.w,393,lang+': covers the width');assert.equal(full.h,852,lang+': covers the height');
+  assert.equal(full.bg,'rgb(13, 58, 64)',lang+': one solid colour behind it');
+  assert.deepEqual(full.shown,['v670-chest-stage'],lang+': only the chest shows ('+full.shown.join(', ')+')');
   await page.mouse.click(196,140);await page.waitForTimeout(650);s=await look();
-  assert.match(s.chest,/ds-tilt-l/,lang+': first tap (on the title) swings it left');assert.doesNotMatch(s.cls,/\bopened\b/);
+  assert.match(s.chest,/ds-tilt-r/,lang+': first tap swings it right');assert.doesNotMatch(s.cls,/\bopened\b/);
   const t1=await page.evaluate(()=>getComputedStyle(document.querySelector('dialog.v670-reward .v670-chest')).transform);
   assert.notEqual(t1,'none',lang+': the swing is a 3D transform');
   await page.mouse.click(40,800);await page.waitForTimeout(650);s=await look();
-  assert.match(s.chest,/ds-tilt-r/,lang+': second tap (on the backdrop) swings it right');assert.doesNotMatch(s.cls,/\bopened\b/);assert.equal(s.claimed,false);
+  assert.match(s.chest,/ds-tilt-l/,lang+': second tap swings it left');assert.doesNotMatch(s.cls,/\bopened\b/);assert.equal(s.claimed,false);
   await page.mouse.click(300,520);await page.waitForTimeout(150);s=await look();
   assert.match(s.chest,/ds-center/,lang+': third tap brings it to the middle first');
-  await page.waitForTimeout(900);s=await look();
-  assert.match(s.cls,/\bopened\b/,lang+': then it opens');assert.equal(s.claimed,true,lang+': the reward is claimed');
+  await page.waitForTimeout(1000);s=await look();
+  assert.match(s.cls,/\bopened\b/,lang+': then it breaks open');
+  assert.ok(await page.locator('dialog.v670-reward .v670-continue').isVisible(),lang+': the way on shows after opening');assert.equal(s.claimed,true,lang+': the reward is claimed');
   const loot=await page.evaluate(()=>document.querySelector('dialog.v670-reward .v670-loot').textContent);
   assert.match(loot,/\+\d/,lang+': the reward shows ('+loot+')');
   await page.waitForTimeout(800);
@@ -44,5 +48,5 @@ const server=http.createServer((req,res)=>{let p=path.join(root,decodeURICompone
   console.log('  ok',lang,JSON.stringify({loot}));
   await ctx.close();
  }
- await browser.close();server.close();console.log('PASS: chest opens by tapping anywhere (left, right, middle → open), no button');
+ await browser.close();server.close();console.log('PASS: full-screen chest, only the chest; opens by tapping anywhere (right, left, middle → breaks open)');
 })().catch(e=>{console.error(e);process.exit(1)});

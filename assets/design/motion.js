@@ -515,6 +515,16 @@
   // Opening is by tapping anywhere (no button): a hint under the chest says so, and the reward comes with turning rays
   // and a flash of light.
   card.classList.add('ds-tapopen');
+  // A ready chest takes the whole screen on a single colour close to its own (nothing else of the app shows), and
+  // breaks open on the third tap: the lid flies off, shards scatter in 3D, a beam of light rises and a shock wave spreads.
+  const btn0=card.querySelector(kind.btn),dlg=card.closest('dialog');
+  if(dlg&&btn0&&!btn0.disabled&&!card.classList.contains(kind.opened))dlg.classList.add('ds-full');
+  const lid=new Image();lid.className='ds-chest-img lid';lid.alt='';lid.decoding='async';lid.src=closed.src;lid.setAttribute('aria-hidden','true');chest.append(lid);
+  for(const c of ['ds-chest-beam','ds-chest-shock'])stage.append(Object.assign(document.createElement('span'),{className:c}));
+  const SHARD_COLORS=['#f3cf7a','#e2b04f','#1f7c78','#2aa39c','#fff1c2','#b8862f'];
+  for(let k=0;k<18;k++){const sh=document.createElement('span');sh.className='ds-shard';const a=(k/18)*Math.PI*2+(k%3)*.2,d=150+(k%5)*38;
+   sh.style.cssText='--dx:'+Math.round(Math.cos(a)*d)+'px;--dy:'+Math.round(Math.sin(a)*d*.85-60)+'px;--rx:'+(200+k*37)%540+'deg;--ry:'+(120+k*53)%540+'deg;--sz:'+(9+(k*7)%16)+'px;--c:'+SHARD_COLORS[k%SHARD_COLORS.length]+';--d:'+(k%4)*25+'ms';
+   sh.setAttribute('aria-hidden','true');stage.append(sh)}
   const rays=document.createElement('span');rays.className='ds-chest-rays';rays.setAttribute('aria-hidden','true');stage.prepend(rays);
   const flash=document.createElement('span');flash.className='ds-chest-flash';flash.setAttribute('aria-hidden','true');card.append(flash);
   const hint=document.createElement('p');hint.className='ds-chest-hint';hint.setAttribute('aria-hidden','true');hint.textContent=CHEST_HINT[uiLang()]||CHEST_HINT.tr;
@@ -593,7 +603,7 @@
  const chestHaptic=k=>{try{window.DEEN_DS_HAPTIC&&DEEN_DS_HAPTIC[k]&&DEEN_DS_HAPTIC[k]()}catch(_){}};
  // A ready chest opens by tapping anywhere on its dialog (its open button is hidden; the close button and other
  // controls keep their own job). Each tap swings it in 3D to one side and then the other, letting more light out; the
- // third brings it back to the middle, and only then does the engine's open button run.
+ // third brings it back to the middle, and only then does the engine's open button run. (First right, then left.)
  document.addEventListener('click',e=>{
   if(chestPass)return;
   const d=e.target.closest?.('dialog.v670-reward,dialog.v623-ceremony');if(!d)return;
@@ -611,11 +621,11 @@
    chestTaps.set(card,0);card.classList.add('ds-opening');
    if(chest){chest.classList.remove('ds-tilt-l','ds-tilt-r');restart(chest,'ds-center')}
    sfx('chestTap3');chestHaptic('tap');
-   setTimeout(()=>{card.classList.remove('ds-opening');chestPass=true;try{btn.click()}finally{chestPass=false}},scale()?380:0);
+   setTimeout(()=>{card.classList.remove('ds-opening');chestPass=true;try{btn.click()}finally{chestPass=false}},scale()?(d.classList.contains('ds-full')?620:380):0);
    return;
   }
   chestTaps.set(card,n);
-  if(chest){chest.classList.remove('ds-tilt-l','ds-tilt-r');chest.classList.add(n%2?'ds-tilt-l':'ds-tilt-r');if(scale())restart(chest,'ds-hop')}
+  if(chest){chest.classList.remove('ds-tilt-l','ds-tilt-r');chest.classList.add(n%2?'ds-tilt-r':'ds-tilt-l');if(scale())restart(chest,'ds-hop')}
   sfx('chestTap'+n);chestHaptic('select');
  },{capture:true});
  // A chest that opens bursts into confetti as its loot appears, with the reward sound.
