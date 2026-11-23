@@ -369,10 +369,22 @@
  // most often first), taken from other questions of the stage or unit — so they point towards the answers without giving
  // a question of this lesson away. Only when the lesson's concepts have no such note does a general note of the stage fill
  // in. One note per concept.
+ // A question asks for concept knowledge when it is a recall or recognition question (what a term means, true/false,
+ // matching, filling in a term). Application questions (a scenario to read and judge, a statement whose mistake is to be
+ // corrected, steps to put in order) are reading comprehension: the answer is worked out from the text in front of the
+ // learner, so they get no envelope.
+ const READING=/^(scenario|error_spotting|build_sequence|odd_one_out)$/;
+ function conceptQuestion(q){
+  if(!q)return false;const c=String(q.cognitive_level||'');
+  if(c)return c==='recall'||c==='recognition';
+  return !READING.test(String(q.activity_type||q.type||''));
+ }
+ // A lesson gets an envelope only when at least half of its questions ask for concept knowledge.
+ function conceptLesson(s){const qs=((s&&s.questions)||[]).filter(Boolean);if(!qs.length)return false;return qs.filter(conceptQuestion).length*2>=qs.length}
  function stageNotes(s,max,used){
   const id=stageOf(s);if(!/^U\d\d-S\d\d$/.test(id))return [];used=used||new Set();max=max||2;
   const qs=(s.questions||[]).filter(Boolean),inSession=new Set(qs.map(q=>q.id));
-  const freq=new Map();qs.forEach(q=>{if(q.concept_id)freq.set(q.concept_id,(freq.get(q.concept_id)||0)+1)});
+  const freq=new Map();qs.filter(conceptQuestion).forEach(q=>{if(q.concept_id)freq.set(q.concept_id,(freq.get(q.concept_id)||0)+1)});
   const order=[...freq.keys()].sort((a,b)=>freq.get(b)-freq.get(a));
   const pool=[];for(const sid of unitStages(id))for(const q of bank(sid))if(!inSession.has(q.id))pool.push(q);
   const out=[],concepts=new Set();
@@ -439,8 +451,9 @@
   const k=+String(id).slice(5,7);if(k>=1&&k<=5)return true;
   try{const st=STAGES.find(x=>x.id===id);return /kavram/i.test(String(st&&st.title||''))}catch(_){return false}
  }
- // Lesson watcher: every lesson of every stage on the learning path opens with an envelope, as soon as the learner enters
- // (on the first question, after the stage's own intro card), with one or two hint notes; none in the middle of a lesson.
+ // Lesson watcher: every lesson on the learning path whose questions mostly ask for concept knowledge opens with an
+ // envelope as soon as the learner enters (on the first question, after the stage's own intro card), with one or two hint
+ // notes; none in the middle of a lesson, and none in reading-comprehension lessons.
  const done=new WeakMap();
  function tick(){
   if(!allowed()||open)return;
@@ -453,6 +466,7 @@
   if(done.has(s))return;
   done.set(s,{});
   if((s.index|0)!==0)return;
+  if(!conceptLesson(s))return;
   const notes=stageNotes(s,2,new Set());
   if(notes.length){mark(['s:'+id]);show('stage',t().stage,notes)}
  }
@@ -461,5 +475,5 @@
   let q=0;new MutationObserver(()=>{if(q)return;q=setTimeout(()=>{q=0;tick()},450)}).observe(lesson,{subtree:true,childList:true,attributes:true,attributeFilter:['class']});
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});else install();
- window.DEEN_DS_ENVELOPE=Object.freeze({show,stageNotes,important,conceptStage,note,isOpen:()=>!!open,version:'ds-envelope-4'});
+ window.DEEN_DS_ENVELOPE=Object.freeze({show,stageNotes,important,conceptStage,conceptQuestion,conceptLesson,note,isOpen:()=>!!open,version:'ds-envelope-5'});
 })();

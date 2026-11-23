@@ -1,7 +1,8 @@
 /* Info envelope (assets/design/lesson.js). Every envelope comes as soon as the learner enters a lesson, on its first
    question, and none in the middle of a lesson. A tap anywhere opens it into a card in the middle of the screen, each
-   further tap shows the next note and the tap after the last one closes it. Every lesson of every stage gets one, with one
-   or two hint notes on the concepts this lesson asks about (from other questions, never from the lesson's own questions);
+   further tap shows the next note and the tap after the last one closes it. Every lesson whose questions mostly ask for
+   concept knowledge gets one, with one or two hint notes on the concepts this lesson asks about (from other questions,
+   never from the lesson's own questions); reading-comprehension lessons (scenarios, spot the mistake) get none;
    notes are in the learner's language only. Automated browsers without the opt-in never get it, so other lesson tests are not covered. */
 const {chromium}=require('playwright'),http=require('node:http'),fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
 const root=path.resolve(__dirname,'..');
@@ -50,9 +51,20 @@ const server=http.createServer((req,res)=>{let p=path.join(root,decodeURICompone
  // Every stage of a unit, every lesson: one or two notes.
  {const {ctx,page}=await open('tr',true);
   const startOnly=async id=>{const shown=await startAndWait(page,id);let notes=0;if(shown){notes=await page.locator('.ds-env-page').count();await page.locator('.ds-env-skip').click();await page.waitForTimeout(600)}await endLesson(page);return {shown,notes}};
-  const all=[];for(const id of ['U01-S01','U01-S03','U01-S05','U01-S06','U01-S07','U02-S06'])for(let k=0;k<2;k++){const r=await startOnly(id);all.push([id,r.shown,r.notes]);
+  const all=[];for(const id of ['U01-S01','U01-S03','U01-S05','U01-S07','U02-S01','U04-S04'])for(let k=0;k<2;k++){const r=await startOnly(id);all.push([id,r.shown,r.notes]);
    assert.equal(r.shown,true,id+' lesson '+(k+1)+': envelope');assert.ok(r.notes>=1&&r.notes<=2,id+': one or two notes ('+r.notes+')')}
-  console.log('  ok every stage',JSON.stringify(all));await ctx.close();}
+  console.log('  ok concept stages',JSON.stringify(all));
+  // Reading-comprehension lessons (scenarios to read and judge, statements to correct): no envelope.
+  const none=[];for(const id of ['U01-S04','U02-S05','U04-S05','U05-S05'])for(let k=0;k<2;k++){
+ const r=await startOnly(id);none.push([id,r.shown]);
+   assert.equal(r.shown,false,id+' lesson '+(k+1)+': reading-comprehension lesson gets no envelope')}
+  const kinds=await page.evaluate(()=>{const Q=QUESTIONS.filter(q=>!q.retired);const pick=id=>Q.find(q=>q.id===id);
+   return {scenario:DEEN_DS_ENVELOPE.conceptQuestion(Q.find(q=>q.activity_type==='scenario'&&q.cognitive_level==='application')),
+    mistake:DEEN_DS_ENVELOPE.conceptQuestion(Q.find(q=>q.activity_type==='error_spotting'&&q.cognitive_level==='application')),
+    term:DEEN_DS_ENVELOPE.conceptQuestion(Q.find(q=>q.activity_type==='multiple_choice'&&q.cognitive_level==='recognition')),
+    blank:DEEN_DS_ENVELOPE.conceptQuestion(Q.find(q=>q.activity_type==='fill_blank'&&q.cognitive_level==='recall'))}});
+  assert.deepEqual(kinds,{scenario:false,mistake:false,term:true,blank:true},'question kinds: '+JSON.stringify(kinds));
+  console.log('  ok no envelope in reading lessons',JSON.stringify(none));await ctx.close();}
  // The way learners really start lessons: the home screen's "next mini lesson" button and a path card both open a mini
  // lesson (U01-M0x, questions from several stages) — the envelope must come there too.
  {const {ctx,page}=await open('tr',true);
@@ -69,5 +81,5 @@ const server=http.createServer((req,res)=>{let p=path.join(root,decodeURICompone
   console.log('  ok real entry',JSON.stringify({homeStage,cardStage}));await ctx.close();}
  // Automated browsers without the opt-in: never shown.
  const {ctx,page}=await open('tr',false);assert.equal(await startAndWait(page,'U01-S02'),false,'no envelope without opt-in under automation');await ctx.close();
- await browser.close();server.close();console.log('PASS: info envelope on entry in every lesson, one or two concept hints, none mid-lesson');
+ await browser.close();server.close();console.log('PASS: info envelope on entry in concept lessons only, one or two concept hints, none mid-lesson or in reading lessons');
 })().catch(e=>{console.error(e);process.exit(1)});
