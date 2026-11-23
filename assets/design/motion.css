@@ -976,3 +976,21 @@ html body dialog.ds-full :is(.v670-chest-stage,.v623-chest-wrap),html body dialo
 html body dialog :is(.v670-chest,.v623-chest) .ds-chest-img.lid{filter:none!important}
 html body dialog.ds-full .v623-card.v623-opened>:is(.v623-stars,.v623-word,.v623-kicker,.v623-title,.v623-copy){display:none!important}
 html body dialog.ds-full #v623Open{display:none!important}
+/* A smaller, sharper full-screen chest: drawn at about the art's own resolution, and never scaled up past it while it
+   swings (a 3D layer is drawn once and then stretched, which blurs it). */
+html body dialog.ds-full :is(.v670-chest,.v623-chest).ds-art{width:224px!important;height:183px!important}
+html body dialog.ds-full :is(.v670-chest-stage,.v623-chest-wrap),html body dialog.ds-full .v670-card.opened .v670-chest-stage{height:260px!important}
+html body dialog.ds-full :is(.v670-card,.v623-card){padding-top:max(28px,env(safe-area-inset-top),calc(50vh - 210px))!important;padding-top:max(28px,env(safe-area-inset-top),calc(50dvh - 210px))!important}
+html body dialog :is(.v670-chest,.v623-chest).ds-art.ds-tilt-l{--sc:1}
+html body dialog :is(.v670-chest,.v623-chest).ds-art.ds-tilt-r{--sc:1}
+html body dialog :is(.v670-chest,.v623-chest).ds-art.ds-center{--sc:1.02}
+html body dialog.ds-full .ds-chest-rays{width:520px;height:520px;margin:-260px 0 0 -260px}
+html body dialog.ds-full .ds-chest-beam{width:120px;margin-left:-60px}
+html body dialog.ds-full .ds-chest-img{image-rendering:auto;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+html body dialog.ds-full :is(.v670-card,.v623-card).ds-opening .ds-chest-img.closed{animation-name:dsChestBuildS!important}
+@keyframes dsChestBuildS{0%{transform:none;filter:drop-shadow(0 22px 26px rgba(0,0,0,.45)) brightness(1)}
+ 10%{transform:translate(-3px,0) rotate(-2deg)}20%{transform:translate(3px,-1px) rotate(2deg)}30%{transform:translate(-4px,1px) rotate(-3deg)}40%{transform:translate(4px,-1px) rotate(3deg)}
+ 50%{transform:translate(-6px,0) rotate(-4deg) scale(1.02,.98)}60%{transform:translate(6px,-2px) rotate(4deg)}70%{transform:translate(-7px,1px) rotate(-5deg) scale(1.03,.97)}80%{transform:translate(7px,-2px) rotate(5deg)}
+ 90%{transform:translate(-5px,0) rotate(-3deg) scale(1.05,.95)}100%{transform:scale(1.06,.94);filter:drop-shadow(0 0 34px rgba(255,226,150,.95)) brightness(1.7)}}
+html body dialog.ds-full .v670-card.opened:not(.claimed) .v670-chest.ds-art,html body dialog.ds-full .v623-card.v623-opened .v623-chest.ds-art{animation-name:dsChestPopOpenS!important}
+@keyframes dsChestPopOpenS{0%{transform:scale(1.02)}35%{transform:translateY(-16px) scale(1.05)}70%{transform:translateY(2px) scale(.99)}100%{transform:none}}
