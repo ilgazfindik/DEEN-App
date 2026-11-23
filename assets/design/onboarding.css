@@ -16,3 +16,36 @@ html body #v998Onboarding .v998-copy:has(.ds-ob-pet) p{grid-column:1/-1;grid-row
 @media (prefers-reduced-motion:reduce){html body #v998Onboarding .ds-ob-pet{animation:none}html body #v998Onboarding .ds-ob-bar i{transition:none}}
 html body #v998Onboarding .v998-top:has(.v998-back) .ds-ob-bar{margin-left:58px}
 html body #v998Onboarding .choice-ico.ds-ob-ico svg{width:26px;height:26px;color:#5fe8c4}
+
+/* Indigo + gold onboarding (like the rest of the app): night-indigo background, gold progress bar and primary button,
+   glass speech bubble and choice cards; the companion cards get a scene that fades into the card, a gold rim and check
+   on the chosen one, and a gold "level" chip on the locked ones. */
+html body #v998Onboarding:not(#a){background:#0b1430!important}
+html body #v998Onboarding:not(#a) .v998-shell{background:radial-gradient(120% 55% at 50% -6%,rgba(84,116,226,.34),rgba(84,116,226,0) 60%),radial-gradient(80% 40% at 50% 108%,rgba(242,207,132,.12),rgba(242,207,132,0) 70%),linear-gradient(180deg,#17264f 0%,#0f1a3a 55%,#0b1430 100%)!important}
+html body #v998Onboarding:not(#a) .v998-back{background:rgba(150,175,255,.1)!important;border:1px solid rgba(150,175,255,.3)!important;color:#e8edff!important;box-shadow:none!important}
+html body #v998Onboarding:not(#a) .ds-ob-bar{background:rgba(150,175,255,.16)!important}
+html body #v998Onboarding:not(#a) .ds-ob-bar i{background:linear-gradient(90deg,#f9e7b4,#e2b95f)!important;box-shadow:0 0 12px rgba(242,207,132,.45)!important}
+html body #v998Onboarding:not(#a) .v998-copy h1{background:linear-gradient(170deg,rgba(150,175,255,.14),rgba(150,175,255,.05))!important;border:1px solid rgba(150,175,255,.28)!important;color:#fff!important;box-shadow:0 10px 26px rgba(4,10,28,.3)!important}
+html body #v998Onboarding:not(#a) .v998-copy p{color:#b9c6ee!important}
+html body #v998Onboarding:not(#a) .ds-ob-pet{border-color:rgba(242,207,132,.55)!important;box-shadow:0 0 0 4px rgba(242,207,132,.12),0 8px 20px rgba(4,10,28,.4)!important}
+html body #v998Onboarding:not(#a) .v998-primary{background:linear-gradient(180deg,#f9e7b4,#e2b95f)!important;color:#16122f!important;border:0!important;box-shadow:0 5px 0 #a8823a,0 12px 30px rgba(242,207,132,.24)!important}
+html body #v998Onboarding:not(#a) .v998-primary *{color:#16122f!important}
+html body #v998Onboarding:not(#a) .v998-choice{background:linear-gradient(170deg,rgba(150,175,255,.11),rgba(150,175,255,.04))!important;border:1px solid rgba(150,175,255,.24)!important;box-shadow:none!important;color:#eef2ff!important}
+html body #v998Onboarding:not(#a) .v998-choice.selected,html body #v998Onboarding:not(#a) .v998-choice[aria-pressed="true"]{background:linear-gradient(170deg,rgba(242,207,132,.18),rgba(242,207,132,.05))!important;border:2px solid #f2cf84!important;box-shadow:0 0 0 4px rgba(242,207,132,.1)!important}
+html body #v998Onboarding:not(#a) .v998-choice .choice-ico{background:rgba(150,175,255,.12)!important;border-color:rgba(150,175,255,.28)!important;color:#f2cf84!important}
+/* Companion cards. */
+html body #v998Onboarding:not(#a) .v998-animal{background:linear-gradient(180deg,#1d2c5a,#121c3d)!important;border:1px solid rgba(150,175,255,.24)!important;border-radius:22px!important;overflow:hidden!important;box-shadow:0 10px 24px rgba(4,10,28,.32)!important;color:#eef2ff!important;transition:transform .16s ease,border-color .16s ease,box-shadow .16s ease!important}
+html body #v998Onboarding:not(#a) .v998-animal::before{-webkit-mask-image:linear-gradient(180deg,#000 62%,transparent 100%)!important;mask-image:linear-gradient(180deg,#000 62%,transparent 100%)!important}
+html body #v998Onboarding:not(#a) .v998-animal::after{background:linear-gradient(180deg,rgba(29,44,90,0),#1d2c5a)!important}
+html body #v998Onboarding:not(#a) .v998-animal b{color:#fff!important;font-weight:800!important;letter-spacing:-.01em!important}
+html body #v998Onboarding:not(#a) .v998-animal small{color:#9fb0dc!important}
+html body #v998Onboarding:not(#a) .v998-animal:active{transform:scale(.97)!important}
+html body #v998Onboarding:not(#a) .v998-animal .check{background:rgba(10,18,44,.55)!important;border:1.5px solid rgba(255,255,255,.55)!important;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+html body #v998Onboarding:not(#a) .v998-animal.selected{border:2px solid #f2cf84!important;box-shadow:0 0 0 4px rgba(242,207,132,.14),0 14px 32px rgba(242,207,132,.2)!important}
+html body #v998Onboarding:not(#a) .v998-animal.selected .check{background:linear-gradient(180deg,#f9e7b4,#e2b95f)!important;border-color:#fff4d2!important}
+html body #v998Onboarding:not(#a) .v998-animal.selected .check::after{content:"✓";position:absolute;inset:0;display:grid;place-items:center;color:#16122f;font:900 14px/1 var(--ds-font)}
+html body #v998Onboarding:not(#a) .v998-animal.selected small{color:#f2cf84!important}
+html body #v998Onboarding:not(#a) .v998-animal.dcz-locked{background:linear-gradient(180deg,#18223f,#10172f)!important;border:1px dashed rgba(150,175,255,.26)!important;box-shadow:none!important}
+html body #v998Onboarding:not(#a) .v998-animal.dcz-locked b{color:#c7cfe8!important}
+html body #v998Onboarding:not(#a) .v998-animal.dcz-locked::after{background:linear-gradient(180deg,rgba(24,34,63,0),#18223f)!important}
+html body #v998Onboarding:not(#a) .v998-animal .dcz-tag{display:inline-flex!important;align-items:center!important;gap:4px!important;margin-top:6px!important;padding:5px 10px!important;border-radius:999px!important;border:1px solid rgba(242,207,132,.45)!important;background:rgba(242,207,132,.1)!important;color:#f6d78f!important;font:800 12px/1 var(--ds-font)!important;font-style:normal!important}
