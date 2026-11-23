@@ -344,7 +344,19 @@
   return {id:q.id,concept:q.concept_id||'',text:e};
  }
  const bank=stageId=>{try{return (typeof QUESTIONS!=='undefined'?QUESTIONS:[]).filter(q=>q&&q.stage_id===stageId&&!q.retired)}catch(_){return []}};
- const stageOf=s=>String(s&&(s.stage&&(s.stage.id||s.stage))||'');
+ // The lesson's stage. A lesson started from a stage carries its id (U01-S02); the mini lessons that the home screen's
+ // "next mini lesson" button and the path cards open carry a mini-lesson id (U01-M02) and mix questions of several stages,
+ // so their stage is the one most of their questions come from.
+ const STAGE_ID=/^U\d\d-S\d\d$/;
+ const stageOf=s=>{
+  const own=String(s&&(s.stage&&(s.stage.id||s.stage))||'');if(STAGE_ID.test(own))return own;
+  if(!/^U\d\d-M\d\d$/.test(own))return ''; // review sessions and other courses get no envelope
+  const count=new Map();
+  for(const q of (s&&s.questions)||[]){if(!q)continue;const m=String(q.stage_id||'').match(/^U\d\d-S\d\d$/)||String(q.id||'').match(/U\d\d-S\d\d/);
+   if(m){const k=m[0];count.set(k,(count.get(k)||0)+1)}}
+  let best='',n=0;for(const [k,v] of count)if(v>n||(v===n&&k<best)){best=k;n=v}
+  return best;
+ };
  // Notes the learner has not seen come first; once a stage's notes have all been seen they come round again (as a
  // review), so envelopes do not dry up. A note is never repeated within one lesson, and stage-start notes never come
  // from questions drawn into this lesson (no answers are given away).

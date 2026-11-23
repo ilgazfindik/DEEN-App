@@ -53,6 +53,20 @@ const server=http.createServer((req,res)=>{let p=path.join(root,decodeURICompone
   const all=[];for(const id of ['U01-S01','U01-S03','U01-S05','U01-S06','U01-S07','U02-S06'])for(let k=0;k<2;k++){const r=await startOnly(id);all.push([id,r.shown,r.notes]);
    assert.equal(r.shown,true,id+' lesson '+(k+1)+': envelope');assert.ok(r.notes>=1&&r.notes<=2,id+': one or two notes ('+r.notes+')')}
   console.log('  ok every stage',JSON.stringify(all));await ctx.close();}
+ // The way learners really start lessons: the home screen's "next mini lesson" button and a path card both open a mini
+ // lesson (U01-M0x, questions from several stages) — the envelope must come there too.
+ {const {ctx,page}=await open('tr',true);
+  const waitEnv=async()=>{for(let k=0;k<20;k++){await page.waitForTimeout(500);await closeCard(page);if(await page.locator('.ds-env-overlay').count())return true}return false};
+  await page.locator('.v680-main').first().click();
+  const home=await waitEnv();const homeStage=await page.evaluate(()=>String(session.stage&&(session.stage.id||session.stage)));
+  assert.equal(home,true,'home "next mini lesson" button: envelope ('+homeStage+')');
+  await page.locator('.ds-env-skip').click();await page.waitForTimeout(600);await endLesson(page);
+  await page.evaluate(()=>{navigate('learnScreen');previewMacro('U01-M01')});await page.waitForTimeout(1000);
+  await page.locator('#v5SheetBody .v5-primary').first().click();
+  const card=await waitEnv();const cardStage=await page.evaluate(()=>String(session.stage&&(session.stage.id||session.stage)));
+  assert.equal(card,true,'path card → start: envelope ('+cardStage+')');
+  assert.match(homeStage+' '+cardStage,/U01-M0\d U01-M0\d/,'both are mini-lesson sessions');
+  console.log('  ok real entry',JSON.stringify({homeStage,cardStage}));await ctx.close();}
  // Automated browsers without the opt-in: never shown.
  const {ctx,page}=await open('tr',false);assert.equal(await startAndWait(page,'U01-S02'),false,'no envelope without opt-in under automation');await ctx.close();
  await browser.close();server.close();console.log('PASS: info envelope on entry in every lesson, one or two concept hints, none mid-lesson');
