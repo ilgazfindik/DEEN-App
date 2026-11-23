@@ -49,3 +49,45 @@ html body #v998Onboarding:not(#a) .v998-animal.dcz-locked{background:linear-grad
 html body #v998Onboarding:not(#a) .v998-animal.dcz-locked b{color:#c7cfe8!important}
 html body #v998Onboarding:not(#a) .v998-animal.dcz-locked::after{background:linear-gradient(180deg,rgba(24,34,63,0),#18223f)!important}
 html body #v998Onboarding:not(#a) .v998-animal .dcz-tag{display:inline-flex!important;align-items:center!important;gap:4px!important;margin-top:6px!important;padding:5px 10px!important;border-radius:999px!important;border:1px solid rgba(242,207,132,.45)!important;background:rgba(242,207,132,.1)!important;color:#f6d78f!important;font:800 12px/1 var(--ds-font)!important;font-style:normal!important}
+/* The rest of the onboarding in the same indigo + gold: name field, choice ticks, summary card, tags and dots. */
+html body #v998Onboarding:not(#a) .v998-field{background:rgba(150,175,255,.08)!important;border:1px solid rgba(150,175,255,.3)!important;box-shadow:none!important}
+html body #v998Onboarding:not(#a) .v998-field:focus-within{border-color:#f2cf84!important;box-shadow:0 0 0 4px rgba(242,207,132,.14)!important}
+html body #v998Onboarding:not(#a) .v998-field .ico{color:#f2cf84!important}
+html body #v998Onboarding:not(#a) .v998-field input{color:#fff!important;caret-color:#f2cf84}
+html body #v998Onboarding:not(#a) .v998-field input::placeholder{color:#8f9cc6!important}
+html body #v998Onboarding:not(#a) .v998-helper,html body #v998Onboarding:not(#a) .deen-guest-note{color:#9fb0dc!important}
+html body #v998Onboarding:not(#a) .v998-radio{border-color:rgba(150,175,255,.4)!important;background:transparent!important}
+html body #v998Onboarding:not(#a) .v998-choice.selected .v998-radio{background:linear-gradient(180deg,#f9e7b4,#e2b95f)!important;border-color:#fff4d2!important;color:#16122f!important}
+html body #v998Onboarding:not(#a) .v998-choice.selected .v998-radio::after{color:#16122f!important}
+html body #v998Onboarding:not(#a) .v998-choice small{color:#a9b6de!important}
+html body #v998Onboarding:not(#a) .v998-tag{background:rgba(242,207,132,.12)!important;border:1px solid rgba(242,207,132,.45)!important;color:#f6d78f!important}
+html body #v998Onboarding:not(#a) .v998-summary{background:linear-gradient(170deg,rgba(150,175,255,.12),rgba(150,175,255,.04))!important;border:1px solid rgba(150,175,255,.26)!important;box-shadow:0 14px 30px rgba(4,10,28,.3)!important}
+html body #v998Onboarding:not(#a) .v998-summary-row{border-color:rgba(150,175,255,.14)!important}
+html body #v998Onboarding:not(#a) .v998-summary-row .ico{color:#f2cf84!important}
+html body #v998Onboarding:not(#a) .v998-summary-row span:not(.ico){color:#a9b6de!important}
+html body #v998Onboarding:not(#a) .v998-secondary{color:#c9d3f2!important}
+html body #v998Onboarding:not(#a) .v998-dots i{background:rgba(150,175,255,.24)!important}
+html body #v998Onboarding:not(#a) .v998-dots i.on{background:#f2cf84!important;box-shadow:0 0 8px rgba(242,207,132,.5)!important}
+html body #v998Onboarding:not(#a) .choice-ico.ds-ob-ico svg{color:#f2cf84!important}
+/* Welcome step: the companions over a gold arch, then a plain centred greeting (no speech bubble). */
+html body #v998Onboarding.ds-ob-intro:not(#a) .v998-screen{justify-content:center}
+html body #v998Onboarding .ds-ob-crew{position:relative;width:280px;height:150px;margin:8px auto 18px;flex:none}
+html body #v998Onboarding .ds-ob-crew::before{content:"";position:absolute;left:50%;top:-34px;width:230px;height:220px;transform:translateX(-50%);border:2px solid rgba(242,207,132,.22);border-bottom:0;border-radius:115px 115px 0 0;background:radial-gradient(60% 50% at 50% 40%,rgba(242,207,132,.14),transparent 70%);-webkit-mask-image:linear-gradient(#000 50%,transparent 95%);mask-image:linear-gradient(#000 50%,transparent 95%);pointer-events:none}
+html body #v998Onboarding .ds-ob-crew-pet{position:absolute;width:70px;height:70px;border-radius:50%;overflow:hidden;background:#1d2c5a;box-shadow:0 0 0 3px rgba(242,207,132,.4),0 12px 24px rgba(4,10,28,.45);animation:dsObCrewIn calc(600ms*var(--ds-m-s,1)) cubic-bezier(.34,1.56,.64,1) both,dsObFloat 3.6s ease-in-out 1s infinite}
+html body #v998Onboarding .ds-ob-crew-pet img{display:block;width:100%;height:100%;object-fit:cover}
+html body #v998Onboarding .ds-ob-crew-0{left:3px;top:58px}
+html body #v998Onboarding .ds-ob-crew-1{left:54px;top:20px;animation-delay:.08s,1.4s}
+html body #v998Onboarding .ds-ob-crew-2{left:90px;top:2px;width:100px;height:100px;box-shadow:0 0 0 4px #f2cf84,0 0 32px rgba(242,207,132,.5),0 14px 28px rgba(4,10,28,.5);animation-delay:.16s,1.8s;z-index:1}
+html body #v998Onboarding .ds-ob-crew-3{left:156px;top:20px;animation-delay:.24s,2.2s}
+html body #v998Onboarding .ds-ob-crew-4{left:207px;top:58px;animation-delay:.32s,2.6s}
+@keyframes dsObCrewIn{from{opacity:0;transform:translateY(16px) scale(.6)}}
+@keyframes dsObFloat{50%{transform:translateY(-5px)}}
+html body #v998Onboarding.ds-ob-intro:not(#a) .v998-copy{text-align:center!important}
+html body #v998Onboarding.ds-ob-intro:not(#a) .v998-copy h1{background:none!important;border:0!important;box-shadow:none!important;padding:0!important;margin:0 0 10px!important;font-family:var(--ds-font,inherit)!important;font-weight:900!important;font-size:clamp(28px,8vw,34px)!important;line-height:1.15!important;letter-spacing:-.02em!important;color:#fff!important;text-wrap:balance}
+html body #v998Onboarding.ds-ob-intro:not(#a) .v998-copy p{font-size:16px!important;line-height:1.5!important;color:#c3cdf0!important}
+html body #v998Onboarding.ds-ob-intro:not(#a) .deen-guest-note{text-align:center;margin-top:14px}
+@media (prefers-reduced-motion:reduce){html body #v998Onboarding .ds-ob-crew-pet{animation:none}}
+html body #v998Onboarding.ds-ob-intro:not(#a) .ds-ob-crew{margin-top:auto!important;margin-bottom:26px!important}
+html body #v998Onboarding.ds-ob-intro:not(#a) .ds-ob-crew + .v998-copy{margin-top:0!important}
+html body #v998Onboarding:not(#a) .v998-tag{white-space:nowrap;width:max-content;max-width:100%}
+html body #v998Onboarding:not(#a) .v998-copy:has(.ds-ob-pet) .v998-tag{grid-column:1/-1;grid-row:3;justify-self:start;margin:12px 0 0!important;padding:6px 12px!important;border-radius:999px!important;font:800 12px/1.2 var(--ds-font,inherit)!important;height:auto!important;min-width:0!important}

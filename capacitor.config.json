@@ -2,22 +2,22 @@
   "appId": "com.ilgazfindik.ilnura",
   "appName": "Ilnura",
   "webDir": "www",
-  "backgroundColor": "#03131b",
+  "backgroundColor": "#0b1430",
   "ios": {
     "contentInset": "always",
-    "backgroundColor": "#03131b",
+    "backgroundColor": "#0b1430",
     "limitsNavigationsToAppBoundDomains": false
   },
   "plugins": {
     "SplashScreen": {
       "launchShowDuration": 0,
       "launchAutoHide": true,
-      "backgroundColor": "#03131b",
+      "backgroundColor": "#0b1430",
       "showSpinner": false
     },
     "StatusBar": {
       "style": "DARK",
-      "backgroundColor": "#03131b"
+      "backgroundColor": "#0b1430"
     }
   }
 }
