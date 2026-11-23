@@ -1,7 +1,7 @@
 /* Market tab (assets/design/market.js + market.css). A fifth bottom tab, before Profile, opens a shop: daily deals (a free
    gift and five outfits for the current companion), four chests by rarity (common, rare, epic, legendary) with their
-   chances, the six companions, the outfits per companion and a rarity guide. A tap opens a large preview; buying is not
-   open yet ("soon") and never spends Sparkles. Labels follow the app language; Arabic is right to left. */
+   chances, the six companions, the outfits per companion and a rarity guide. A tap opens a large preview (chests are bought
+   there, see test-market-chests; other items are "soon"). Labels follow the app language; Arabic is right to left. */
 const {chromium}=require('playwright'),http=require('node:http'),fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
 const root=path.resolve(__dirname,'..');
 const mime={'.html':'text/html','.js':'text/javascript','.json':'application/json','.webp':'image/webp','.png':'image/png','.css':'text/css','.svg':'image/svg+xml','.woff2':'font/woff2','.txt':'text/plain','.mp3':'audio/mpeg'};
@@ -37,9 +37,9 @@ const LABEL={tr:'Market',en:'Shop',ar:'المتجر'};
   // Preview of the legendary chest with its chances; buying is "soon" and spends nothing.
   await page.locator('#marketScreen .mk-chest[data-r="legendary"]').click();await page.waitForTimeout(700);
   const odds=await page.evaluate(()=>[...document.querySelectorAll('.mk-sheet .mk-odd b')].map(b=>b.textContent));
-  assert.deepEqual(odds,lang==='tr'?['%0','%30','%50','%20']:['0%','30%','50%','20%'],lang+': legendary chest chances');
+  assert.deepEqual(odds,lang==='tr'?['%0','%30','%50','%20','%30']:['0%','30%','50%','20%','30%'],lang+': legendary chest chances (four rarities and the companion chance)');
   await page.locator('.mk-sheet .mk-buy').click();await page.waitForTimeout(400);
-  assert.equal(await page.evaluate(()=>state.currency),245,lang+': buying is not open yet and spends nothing');
+  assert.equal(await page.evaluate(()=>state.currency),245,lang+': 245 Sparkles cannot pay for a 600 chest: nothing is spent');assert.equal(await page.locator('.mko').count(),0,lang+': nothing opens');
   await page.locator('.mk-sheet-x').click();await page.waitForTimeout(500);assert.equal(await page.locator('.mk-sheet').count(),0,lang+': the preview closes');
   // Another companion's outfits.
   await page.locator('#marketScreen .mk-pet[data-pet="wolf"]').click();await page.waitForTimeout(500);
