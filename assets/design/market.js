@@ -16,70 +16,78 @@
  // Companion rarities are a draft until the companions move into chests.
  const ANIMAL_RARITY={lion:'common',cat:'common',wolf:'rare',owl:'rare',turtle:'epic',eagle:'legendary'};
  const outfitRarity=cost=>cost<=60?'common':cost<=110?'rare':cost<=160?'epic':'legendary';
- // Chests: price in Sparkles, number of items, and the chance (%) of each rarity per item.
- // Every chest gives Sparkles first (sp: min–max), then its items; epic and legendary chests can hold a new companion
- // (animal: the chance that one of their items is a companion the learner does not have yet).
+ // ---- Drop rules (one place) ----
+ // Chests: price in Sparkles, number of items, the chance (%) of each rarity per item, Sparkles first (sp: min–max),
+ // the chance per chest that one item is a companion the learner does not have yet, and a guarantee (at least one item
+ // of that rarity or better). Tuned so that a learner doing 3–4 lessons a day opens a common chest about every 2 days,
+ // a rare one about every 5, an epic one about every 10 and a legendary one about every 3 weeks.
  const CHESTS=[
-  {r:'common',price:60,items:2,odds:[80,18,2,0],sp:[10,20],animal:0},
-  {r:'rare',price:150,items:3,odds:[45,45,9,1],sp:[25,45],animal:0},
-  {r:'epic',price:300,items:4,odds:[15,45,35,5],sp:[60,100],animal:.12},
-  {r:'legendary',price:600,items:5,odds:[0,30,50,20],sp:[150,250],animal:.3}
+  {r:'common',price:40,items:2,odds:[85,13.4,1.5,0.1],sp:[6,12],animal:0},
+  {r:'rare',price:100,items:3,odds:[60,34,5.5,0.5],sp:[15,30],animal:.01},
+  {r:'epic',price:220,items:4,odds:[30,48,20,2],sp:[35,60],animal:.05,guarantee:'epic'},
+  {r:'legendary',price:450,items:5,odds:[0,40,45,15],sp:[80,140],animal:.15,guarantee:'legendary'}
  ];
  // The daily gift is a small free chest, once a day.
- const GIFT={r:'common',price:0,items:1,odds:[85,15,0,0],sp:[5,10],animal:0,gift:true};
- // A reward the learner already has turns into Sparkles: a quarter of an outfit's price, 100 for a companion.
- const DUPE_OUTFIT=.25,DUPE_ANIMAL=100;
+ const GIFT={r:'common',price:0,items:1,odds:[90,9.5,0.5,0],sp:[3,6],animal:0,gift:true};
+ // Bad-luck protection (shown in the shop): after PITY.epic chests in a row without an epic-or-better item the next one
+ // has one; after PITY.legendary chests without a legendary item the next one has one. The daily gift counts too.
+ const PITY={epic:8,legendary:40};
+ // A reward the learner already has turns into Sparkles by its rarity (it stays that rarity on the card).
+ const DUPE={common:10,rare:20,epic:40,legendary:80},DUPE_ANIMAL=100;
+ // Sparkles for learning: each finished lesson (5+ questions) gives LESSON_SP, a lesson without mistakes PERFECT_SP more,
+ // up to DAILY_SP_CAP a day.
+ const LESSON_SP=3,PERFECT_SP=2,DAILY_SP_CAP=30;
  const ANIMALS=['lion','cat','wolf','owl','turtle','eagle'];
 
  const T={
-  tr:{open:'AÇ',need:'Yeterli Pırıltı yok',newL:'YENİ!',dupe:n=>'Zaten sende · +'+n+' Pırıltı',left:n=>n+' kaldı',spName:'Pırıltı',done:'Tamam',got:'Kazandıkların',wardrobeSoon:'Kıyafetler Hayvan Odası’na eklendi; oda açılınca giyebilirsin.',wardrobeAdded:'Kıyafetler gardırobuna eklendi.',newAnimal:'Yeni yol arkadaşı!',animalChance:'Yol arkadaşı şansı',giftDone:'Bugünkü hediyeni aldın. Yarın yine gel!',tomorrow:'YARIN',tapNext:'Devam etmek için dokun',tab:'Market',title:'Market',deals:'Günün Teklifleri',refresh:'Yenilenme',chests:'Sandıklar',animals:'Yol Arkadaşları',outfits:'Kıyafetler',guide:'Nadirlik',
+  tr:{pityTitle:'Şanssızlık koruması',pityNote:'Şansın yaver gitmezse garanti ödül gelir. Günlük hediye de sayılır.',pityEpic:'Nadir garantisi',pityLeg:'Efsanevi garantisi',pityLeft:n=>n===1?'Sonraki sandıkta!':n+' sandık kaldı',guaranteeL:r=>'En az 1 '+({epic:'Nadir',legendary:'Efsanevi'}[r])+' eşya garanti',earnL:n=>'+'+n+' Pırıltı',earnWhy:'Dersi bitirdin',earnPerfect:'Hatasız!',earnCap:'Bugünkü ders Pırıltı’sının hepsini topladın.',open:'AÇ',need:'Yeterli Pırıltı yok',newL:'YENİ!',dupe:n=>'Zaten sende · +'+n+' Pırıltı',left:n=>n+' kaldı',spName:'Pırıltı',done:'Tamam',got:'Kazandıkların',wardrobeSoon:'Kıyafetler Hayvan Odası’na eklendi; oda açılınca giyebilirsin.',wardrobeAdded:'Kıyafetler gardırobuna eklendi.',newAnimal:'Yeni yol arkadaşı!',animalChance:'Yol arkadaşı şansı',giftDone:'Bugünkü hediyeni aldın. Yarın yine gel!',tomorrow:'YARIN',tapNext:'Devam etmek için dokun',tab:'Market',title:'Market',deals:'Günün Teklifleri',refresh:'Yenilenme',chests:'Sandıklar',animals:'Yol Arkadaşları',outfits:'Kıyafetler',guide:'Nadirlik',
    free:'ÜCRETSİZ',gift:'Günlük hediye',chest:r=>({common:'Sıradan',rare:'Ender',epic:'Nadir',legendary:'Efsanevi'}[r])+' Sandık',
    rar:{common:'Sıradan',rare:'Ender',epic:'Nadir',legendary:'Efsanevi'},items:n=>n+' eşya',fromChest:'Sandıktan',soon:'Yakında',
    soonToast:'Market çok yakında açılıyor. Pırıltılarını biriktirmeye devam et!',owned:'Sende',
-   animalsNote:'Yol arkadaşları yakında sandıklardan çıkacak.',chances:'Bir eşyanın nadirlik olasılığı',inside:'İçinden: kıyafetler ve Pırıltı; Nadir ve üstünde yol arkadaşı da çıkabilir.',
+   animalsNote:'Yol arkadaşları Ender, Nadir ve Efsanevi sandıklardan çıkabilir.',chances:'Bir eşyanın nadirlik olasılığı',inside:'İçinden önce Pırıltı, sonra kıyafetler çıkar; Ender ve üstü sandıklarda yol arkadaşı da çıkabilir.',
    outfitFor:'Kimin için?',outfitDesc:'Yol arkadaşının giyebileceği kıyafet.',animalDesc:'Yeni bir yol arkadaşı.',giftDesc:'Her gün bir küçük hediye.',
    guideTx:{common:'Kolayca bulunur.',rare:'Daha az çıkar.',epic:'Az bulunur, özel parçalar.',legendary:'En değerli ve en zor bulunan.'},
    honest:'Pırıltı yalnızca öğrenerek kazanılır; gerçek parayla satılmaz. Sandıkların olasılıkları açıkça gösterilir.',
    balance:'Pırıltın',close:'Kapat',buy:'Satın al',discount:'İNDİRİM',animal:{lion:'Aslan',cat:'Kedi',wolf:'Kurt',owl:'Baykuş',turtle:'Kaplumbağa',eagle:'Kartal'}},
-  en:{open:'OPEN',need:'Not enough Sparkles',newL:'NEW!',dupe:n=>'Already yours · +'+n+' Sparkles',left:n=>n+' left',spName:'Sparkles',done:'Done',got:'Your rewards',wardrobeSoon:'Outfits were added to the Animal Room; wear them once it opens.',wardrobeAdded:'Outfits were added to your wardrobe.',newAnimal:'New companion!',animalChance:'Companion chance',giftDone:'You took today’s gift. Come back tomorrow!',tomorrow:'TOMORROW',tapNext:'Tap to continue',tab:'Shop',title:'Shop',deals:'Daily Deals',refresh:'Refreshes in',chests:'Chests',animals:'Companions',outfits:'Outfits',guide:'Rarity',
+  en:{pityTitle:'Bad-luck protection',pityNote:'If luck is not on your side, a reward is guaranteed. The daily gift counts too.',pityEpic:'Epic guarantee',pityLeg:'Legendary guarantee',pityLeft:n=>n===1?'Next chest!':n+' chests to go',guaranteeL:r=>'At least 1 '+({epic:'Epic',legendary:'Legendary'}[r])+' item guaranteed',earnL:n=>'+'+n+' Sparkles',earnWhy:'Lesson finished',earnPerfect:'No mistakes!',earnCap:'You collected all of today’s lesson Sparkles.',open:'OPEN',need:'Not enough Sparkles',newL:'NEW!',dupe:n=>'Already yours · +'+n+' Sparkles',left:n=>n+' left',spName:'Sparkles',done:'Done',got:'Your rewards',wardrobeSoon:'Outfits were added to the Animal Room; wear them once it opens.',wardrobeAdded:'Outfits were added to your wardrobe.',newAnimal:'New companion!',animalChance:'Companion chance',giftDone:'You took today’s gift. Come back tomorrow!',tomorrow:'TOMORROW',tapNext:'Tap to continue',tab:'Shop',title:'Shop',deals:'Daily Deals',refresh:'Refreshes in',chests:'Chests',animals:'Companions',outfits:'Outfits',guide:'Rarity',
    free:'FREE',gift:'Daily gift',chest:r=>({common:'Common',rare:'Rare',epic:'Epic',legendary:'Legendary'}[r])+' Chest',
    rar:{common:'Common',rare:'Rare',epic:'Epic',legendary:'Legendary'},items:n=>n+' items',fromChest:'From chests',soon:'Soon',
    soonToast:'The shop opens very soon. Keep collecting Sparkles!',owned:'Owned',
-   animalsNote:'Companions will soon come from chests.',chances:'Rarity chance per item',inside:'Inside: outfits and Sparkles; from Epic up, a companion too.',
+   animalsNote:'Companions can come out of Rare, Epic and Legendary chests.',chances:'Rarity chance per item',inside:'Sparkles come first, then outfits; from Rare chests up, a companion can come out too.',
    outfitFor:'For whom?',outfitDesc:'An outfit your companion can wear.',animalDesc:'A new companion.',giftDesc:'A small gift every day.',
    guideTx:{common:'Easy to find.',rare:'Turns up less often.',epic:'Hard to find, special pieces.',legendary:'The rarest and most precious.'},
    honest:'Sparkles are earned by learning only and are never sold for real money. Chest chances are shown openly.',
    balance:'Your Sparkles',close:'Close',buy:'Buy',discount:'SALE',animal:{lion:'Lion',cat:'Cat',wolf:'Wolf',owl:'Owl',turtle:'Turtle',eagle:'Eagle'}},
-  de:{open:'ÖFFNEN',need:'Nicht genug Funkeln',newL:'NEU!',dupe:n=>'Schon deins · +'+n+' Funkeln',left:n=>'noch '+n,spName:'Funkeln',done:'Fertig',got:'Deine Belohnungen',wardrobeSoon:'Die Outfits liegen im Tierzimmer; sobald es öffnet, kannst du sie tragen.',wardrobeAdded:'Die Outfits sind in deiner Garderobe.',newAnimal:'Neuer Begleiter!',animalChance:'Begleiter-Chance',giftDone:'Dein Geschenk für heute hast du. Komm morgen wieder!',tomorrow:'MORGEN',tapNext:'Tippen zum Weitermachen',tab:'Shop',title:'Shop',deals:'Tagesangebote',refresh:'Neu in',chests:'Truhen',animals:'Begleiter',outfits:'Outfits',guide:'Seltenheit',
+  de:{pityTitle:'Pech-Schutz',pityNote:'Wenn das Glück fehlt, ist eine Belohnung garantiert. Das Tagesgeschenk zählt mit.',pityEpic:'Episch-Garantie',pityLeg:'Legendär-Garantie',pityLeft:n=>n===1?'Nächste Truhe!':'noch '+n+' Truhen',guaranteeL:r=>'Mindestens 1 '+({epic:'episches',legendary:'legendäres'}[r])+' Teil garantiert',earnL:n=>'+'+n+' Funkeln',earnWhy:'Lektion geschafft',earnPerfect:'Fehlerfrei!',earnCap:'Du hast alle Lektions-Funkeln für heute.',open:'ÖFFNEN',need:'Nicht genug Funkeln',newL:'NEU!',dupe:n=>'Schon deins · +'+n+' Funkeln',left:n=>'noch '+n,spName:'Funkeln',done:'Fertig',got:'Deine Belohnungen',wardrobeSoon:'Die Outfits liegen im Tierzimmer; sobald es öffnet, kannst du sie tragen.',wardrobeAdded:'Die Outfits sind in deiner Garderobe.',newAnimal:'Neuer Begleiter!',animalChance:'Begleiter-Chance',giftDone:'Dein Geschenk für heute hast du. Komm morgen wieder!',tomorrow:'MORGEN',tapNext:'Tippen zum Weitermachen',tab:'Shop',title:'Shop',deals:'Tagesangebote',refresh:'Neu in',chests:'Truhen',animals:'Begleiter',outfits:'Outfits',guide:'Seltenheit',
    free:'GRATIS',gift:'Tagesgeschenk',chest:r=>({common:'Gewöhnliche',rare:'Seltene',epic:'Epische',legendary:'Legendäre'}[r])+' Truhe',
    rar:{common:'Gewöhnlich',rare:'Selten',epic:'Episch',legendary:'Legendär'},items:n=>n+' Teile',fromChest:'Aus Truhen',soon:'Bald',
    soonToast:'Der Shop öffnet sehr bald. Sammle weiter Funkeln!',owned:'Im Besitz',
-   animalsNote:'Begleiter kommen bald aus Truhen.',chances:'Seltenheit pro Teil',inside:'Inhalt: Outfits und Funkeln; ab Episch auch ein Begleiter.',
+   animalsNote:'Begleiter können aus seltenen, epischen und legendären Truhen kommen.',chances:'Seltenheit pro Teil',inside:'Zuerst Funkeln, dann Outfits; ab seltenen Truhen kann auch ein Begleiter kommen.',
    outfitFor:'Für wen?',outfitDesc:'Ein Outfit für deinen Begleiter.',animalDesc:'Ein neuer Begleiter.',giftDesc:'Jeden Tag ein kleines Geschenk.',
    guideTx:{common:'Leicht zu finden.',rare:'Seltener zu finden.',epic:'Schwer zu finden, besondere Teile.',legendary:'Das Seltenste und Wertvollste.'},
    honest:'Funkeln gibt es nur fürs Lernen, nie für echtes Geld. Die Chancen der Truhen werden offen gezeigt.',
    balance:'Deine Funkeln',close:'Schließen',buy:'Kaufen',discount:'RABATT',animal:{lion:'Löwe',cat:'Katze',wolf:'Wolf',owl:'Eule',turtle:'Schildkröte',eagle:'Adler'}},
-  fr:{open:'OUVRIR',need:'Pas assez d’Éclats',newL:'NOUVEAU !',dupe:n=>'Déjà à toi · +'+n+' Éclats',left:n=>'encore '+n,spName:'Éclats',done:'OK',got:'Tes récompenses',wardrobeSoon:'Les tenues sont dans la salle des animaux ; tu pourras les porter à son ouverture.',wardrobeAdded:'Les tenues sont dans ta garde-robe.',newAnimal:'Nouveau compagnon !',animalChance:'Chance de compagnon',giftDone:'Tu as pris le cadeau du jour. Reviens demain !',tomorrow:'DEMAIN',tapNext:'Touche pour continuer',tab:'Boutique',title:'Boutique',deals:'Offres du jour',refresh:'Nouveau dans',chests:'Coffres',animals:'Compagnons',outfits:'Tenues',guide:'Rareté',
+  fr:{pityTitle:'Protection malchance',pityNote:'Si la chance n’est pas là, une récompense est garantie. Le cadeau du jour compte aussi.',pityEpic:'Garantie épique',pityLeg:'Garantie légendaire',pityLeft:n=>n===1?'Au prochain coffre !':'encore '+n+' coffres',guaranteeL:r=>'Au moins 1 objet '+({epic:'épique',legendary:'légendaire'}[r])+' garanti',earnL:n=>'+'+n+' Éclats',earnWhy:'Leçon terminée',earnPerfect:'Sans faute !',earnCap:'Tu as pris tous les Éclats de leçon du jour.',open:'OUVRIR',need:'Pas assez d’Éclats',newL:'NOUVEAU !',dupe:n=>'Déjà à toi · +'+n+' Éclats',left:n=>'encore '+n,spName:'Éclats',done:'OK',got:'Tes récompenses',wardrobeSoon:'Les tenues sont dans la salle des animaux ; tu pourras les porter à son ouverture.',wardrobeAdded:'Les tenues sont dans ta garde-robe.',newAnimal:'Nouveau compagnon !',animalChance:'Chance de compagnon',giftDone:'Tu as pris le cadeau du jour. Reviens demain !',tomorrow:'DEMAIN',tapNext:'Touche pour continuer',tab:'Boutique',title:'Boutique',deals:'Offres du jour',refresh:'Nouveau dans',chests:'Coffres',animals:'Compagnons',outfits:'Tenues',guide:'Rareté',
    free:'GRATUIT',gift:'Cadeau du jour',chest:r=>'Coffre '+({common:'commun',rare:'rare',epic:'épique',legendary:'légendaire'}[r]),
    rar:{common:'Commun',rare:'Rare',epic:'Épique',legendary:'Légendaire'},items:n=>n+' objets',fromChest:'Dans les coffres',soon:'Bientôt',
    soonToast:'La boutique ouvre très bientôt. Continue à gagner des Éclats !',owned:'Possédé',
-   animalsNote:'Les compagnons viendront bientôt des coffres.',chances:'Chance de rareté par objet',inside:'Contenu : tenues et Éclats ; à partir d’Épique, un compagnon aussi.',
+   animalsNote:'Les compagnons peuvent sortir des coffres rares, épiques et légendaires.',chances:'Chance de rareté par objet',inside:'D’abord des Éclats, puis des tenues ; dès les coffres rares, un compagnon peut aussi sortir.',
    outfitFor:'Pour qui ?',outfitDesc:'Une tenue pour ton compagnon.',animalDesc:'Un nouveau compagnon.',giftDesc:'Un petit cadeau chaque jour.',
    guideTx:{common:'Facile à trouver.',rare:'Plus rare.',epic:'Difficile à trouver, pièces spéciales.',legendary:'Le plus rare et le plus précieux.'},
    honest:'Les Éclats se gagnent uniquement en apprenant et ne sont jamais vendus contre de l’argent. Les chances des coffres sont affichées.',
    balance:'Tes Éclats',close:'Fermer',buy:'Acheter',discount:'PROMO',animal:{lion:'Lion',cat:'Chat',wolf:'Loup',owl:'Hibou',turtle:'Tortue',eagle:'Aigle'}},
-  ar:{open:'افتح',need:'لا تكفي اللمعات',newL:'جديد!',dupe:n=>'لديك بالفعل · +'+n+' لمعة',left:n=>'باقٍ '+n,spName:'لمعات',done:'تم',got:'مكافآتك',wardrobeSoon:'أُضيفت الملابس إلى غرفة الحيوانات؛ يمكنك ارتداؤها عند افتتاحها.',wardrobeAdded:'أُضيفت الملابس إلى خزانتك.',newAnimal:'رفيق جديد!',animalChance:'فرصة الرفيق',giftDone:'أخذت هدية اليوم. عد غدًا!',tomorrow:'غدًا',tapNext:'اضغط للمتابعة',tab:'المتجر',title:'المتجر',deals:'عروض اليوم',refresh:'يتجدد بعد',chests:'الصناديق',animals:'الرفاق',outfits:'الملابس',guide:'الندرة',
+  ar:{pityTitle:'حماية سوء الحظ',pityNote:'إن لم يحالفك الحظ تأتيك مكافأة مضمونة. وتُحتسب هدية اليوم أيضًا.',pityEpic:'ضمان الملحمي',pityLeg:'ضمان الأسطوري',pityLeft:n=>n===1?'في الصندوق التالي!':'باقٍ '+n+' صناديق',guaranteeL:r=>'قطعة '+({epic:'ملحمية',legendary:'أسطورية'}[r])+' واحدة على الأقل مضمونة',earnL:n=>'+'+n+' لمعة',earnWhy:'أنهيت الدرس',earnPerfect:'بلا أخطاء!',earnCap:'جمعت كل لمعات الدروس لهذا اليوم.',open:'افتح',need:'لا تكفي اللمعات',newL:'جديد!',dupe:n=>'لديك بالفعل · +'+n+' لمعة',left:n=>'باقٍ '+n,spName:'لمعات',done:'تم',got:'مكافآتك',wardrobeSoon:'أُضيفت الملابس إلى غرفة الحيوانات؛ يمكنك ارتداؤها عند افتتاحها.',wardrobeAdded:'أُضيفت الملابس إلى خزانتك.',newAnimal:'رفيق جديد!',animalChance:'فرصة الرفيق',giftDone:'أخذت هدية اليوم. عد غدًا!',tomorrow:'غدًا',tapNext:'اضغط للمتابعة',tab:'المتجر',title:'المتجر',deals:'عروض اليوم',refresh:'يتجدد بعد',chests:'الصناديق',animals:'الرفاق',outfits:'الملابس',guide:'الندرة',
    free:'مجاني',gift:'هدية اليوم',chest:r=>'صندوق '+({common:'عادي',rare:'نادر',epic:'ملحمي',legendary:'أسطوري'}[r]),
    rar:{common:'عادي',rare:'نادر',epic:'ملحمي',legendary:'أسطوري'},items:n=>n+' قطع',fromChest:'من الصناديق',soon:'قريبًا',
    soonToast:'المتجر يفتح قريبًا جدًا. واصل جمع اللمعات!',owned:'لديك',
-   animalsNote:'سيخرج الرفاق قريبًا من الصناديق.',chances:'احتمال الندرة لكل قطعة',inside:'بداخله: ملابس ولمعات؛ ومن الملحمي فأعلى قد يخرج رفيق.',
+   animalsNote:'قد يخرج الرفاق من الصناديق النادرة والملحمية والأسطورية.',chances:'احتمال الندرة لكل قطعة',inside:'أولًا لمعات ثم ملابس؛ ومن الصناديق النادرة فأعلى قد يخرج رفيق أيضًا.',
    outfitFor:'لمن؟',outfitDesc:'ملابس يرتديها رفيقك.',animalDesc:'رفيق جديد.',giftDesc:'هدية صغيرة كل يوم.',
    guideTx:{common:'سهل الإيجاد.',rare:'يظهر أقل.',epic:'صعب الإيجاد، قطع مميزة.',legendary:'الأندر والأثمن.'},
    honest:'تُكسب اللمعات بالتعلّم فقط ولا تُباع بمال حقيقي. احتمالات الصناديق معروضة بوضوح.',
    balance:'لمعاتك',close:'إغلاق',buy:'شراء',discount:'خصم',animal:{lion:'أسد',cat:'قطة',wolf:'ذئب',owl:'بومة',turtle:'سلحفاة',eagle:'نسر'}}
  };
  const t=()=>T[lang()];
- const pct=n=>lang()==='tr'?'%'+n:n+'%';
+ const pct=n=>{const l=lang(),v=new Intl.NumberFormat(l==='ar'?'ar-u-nu-latn':l,{maximumFractionDigits:1}).format(n);return l==='tr'?'%'+v:v+'%'};
 
  const GEM='<svg class="mk-gem" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l7.5 6-7.5 13-7.5-13z" fill="#ffd978"/><path d="M12 2.5l7.5 6H4.5z" fill="#fff1bf"/><path d="M12 21.5l-3-13h6z" fill="#f1b844"/><path d="M12 2.5l7.5 6-7.5 13-7.5-13z" fill="none" stroke="#a8711c" stroke-width="1.2" stroke-linejoin="round"/></svg>';
  const BAG='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1.1 11.6a1.6 1.6 0 0 1-1.6 1.4H7.7a1.6 1.6 0 0 1-1.6-1.4z"/><path d="M9 8V6.6a3 3 0 0 1 6 0V8"/></svg>';
@@ -134,6 +142,11 @@
    '<span class="mk-name">'+esc(nameOf(it))+'</span>'+priceBtn(it)+'</button>'};
  const banner=(title,side)=>'<div class="mk-banner"><h2>'+esc(title)+'</h2>'+(side||'')+'</div>';
 
+ function pityHtml(){
+  const L=t();let p={epic:0,legendary:0};try{p=pity()}catch(_){}
+  const row=(k,label)=>{const n=Math.min(PITY[k],p[k]+1),left=PITY[k]-p[k];return '<div class="mk-pity-row" data-r="'+k+'"><span class="mk-dia"></span><b>'+esc(label)+'</b><i><em style="width:'+Math.round(n/PITY[k]*100)+'%"></em></i><small>'+esc(L.pityLeft(Math.max(1,left)))+'</small></div>'};
+  return '<div class="mk-pity"><div class="mk-pity-head"><b>'+esc(L.pityTitle)+'</b><small>'+esc(L.pityNote)+'</small></div>'+row('epic',L.pityEpic)+row('legendary',L.pityLeg)+'</div>';
+ }
  function render(){
   const host=document.getElementById('marketScreen');if(!host)return;
   const L=t(),l=lang();ITEMS=[];
@@ -150,7 +163,7 @@
   h+='<section class="mk-sec">'+banner(L.chests)+'<div class="mk-chests">'+CHESTS.map(c=>{const it={kind:'chest',...c};const i=ITEMS.push(it)-1;
    return '<button type="button" class="mk-chest" data-r="'+c.r+'" data-i="'+i+'" aria-label="'+esc(L.chest(c.r))+'"><span class="mk-chest-glow"></span>'+
     '<img src="assets/design/market/chest-'+c.r+'.webp" alt="" loading="lazy" decoding="async"><span class="mk-chest-name">'+esc(L.chest(c.r))+'</span>'+
-    '<span class="mk-chest-items">'+esc(L.items(c.items))+'</span><span class="mk-price">'+GEM+'<b>'+c.price+'</b></span></button>'}).join('')+'</div></section>';
+    '<span class="mk-chest-items">'+esc(L.items(c.items))+'</span><span class="mk-price">'+GEM+'<b>'+c.price+'</b></span></button>'}).join('')+'</div>'+pityHtml()+'</section>';
   // Companions
   h+='<section class="mk-sec">'+banner(L.animals)+'<p class="mk-note">'+esc(L.animalsNote)+'</p><div class="mk-row">'+ANIMALS.map(a=>card({kind:'animal',a},' mk-tall')).join('')+'</div></section>';
   // Outfits
@@ -172,14 +185,15 @@
   const s=document.createElement('div');s.className='mk-sheet';s.setAttribute('role','dialog');s.setAttribute('aria-modal','true');s.setAttribute('aria-label',nameOf(it));if(lang()==='ar')s.dir='rtl';
   const big=it.kind==='chest'||it.kind==='gift'?'<img class="mk-sheet-chest" src="assets/design/market/chest-'+(it.r||'common')+'.webp" alt="">':art(it);
   const desc=it.kind==='outfit'?L.outfitDesc:it.kind==='animal'?L.animalDesc:it.kind==='gift'?L.giftDesc:L.inside;
-  const odds=it.kind==='chest'?'<div class="mk-odds"><small>'+esc(L.chances)+'</small>'+RARITY.map((k,i)=>'<div class="mk-odd" data-r="'+k+'"><span>'+esc(L.rar[k])+'</span><i><em style="width:'+it.odds[i]+'%"></em></i><b>'+pct(it.odds[i])+'</b></div>').join('')+'@@PET@@</div>':'';
+  const odds=it.kind==='chest'?'<div class="mk-odds"><small>'+esc(L.chances)+'</small>'+RARITY.map((k,i)=>'<div class="mk-odd" data-r="'+k+'"><span>'+esc(L.rar[k])+'</span><i><em style="width:'+it.odds[i]+'%"></em></i><b>'+pct(it.odds[i])+'</b></div>').join('')+'@@PET@@</div>'+'@@GUAR@@':'';
   const opens=it.kind==='chest'||it.kind==='gift',giftTaken=it.kind==='gift'&&giftClaimed();
   const price=it.kind==='gift'?esc(giftTaken?L.tomorrow:L.free):it.kind==='animal'?esc(L.fromChest):GEM+'<b>'+priceOf(it)+'</b>';
+  const guar=it.kind==='chest'&&it.guarantee?'<div class="mk-guar" data-r="'+it.guarantee+'">★ '+esc(L.guaranteeL(it.guarantee))+'</div>':'';
   const animalOdds=it.kind==='chest'&&it.animal?'<div class="mk-odd mk-odd-pet"><span>'+esc(L.animalChance)+'</span><i><em style="width:'+Math.round(it.animal*100)+'%"></em></i><b>'+pct(Math.round(it.animal*100))+'</b></div>':'';
   s.innerHTML=('<div class="mk-sheet-back"></div><div class="mk-sheet-card" data-r="'+r+'"><button type="button" class="mk-sheet-x" aria-label="'+esc(L.close)+'">×</button>'+
    '<div class="mk-sheet-art" data-r="'+r+'"><span class="mk-sheet-rays"></span>'+big+'</div><span class="mk-rar big" data-r="'+r+'">'+esc(L.rar[r])+'</span>'+
    '<h3>'+esc(nameOf(it))+'</h3><p>'+esc(desc)+'</p>'+odds+
-   '<button type="button" class="mk-buy'+(opens?' live':'')+(giftTaken?' done':'')+'"><span class="mk-buy-in">'+price+'</span>'+(opens?'':'<span class="mk-soon">'+esc(L.soon)+'</span>')+'</button></div>').replace('@@PET@@',animalOdds);
+   '<button type="button" class="mk-buy'+(opens?' live':'')+(giftTaken?' done':'')+'"><span class="mk-buy-in">'+price+'</span>'+(opens?'':'<span class="mk-soon">'+esc(L.soon)+'</span>')+'</button></div>').replace('@@PET@@',animalOdds).replace('@@GUAR@@',guar);
   (document.getElementById('phone')||document.body).append(s);sheet=s;
   requestAnimationFrame(()=>requestAnimationFrame(()=>s.classList.add('in')));
   s.querySelector('.mk-sheet-back').addEventListener('click',closeSheet);s.querySelector('.mk-sheet-x').addEventListener('click',closeSheet);
@@ -201,19 +215,26 @@
  function pickRarity(odds){let x=Math.random()*odds.reduce((a,b)=>a+b,0);for(let i=0;i<RARITY.length;i++){x-=odds[i];if(x<0)return RARITY[i]}return RARITY[0]}
  // The animal shown wearing an outfit: the learner's companion when the outfit is drawn for it, else the first one it is.
  const artAnimal=o=>o.art[curAnimal()]?curAnimal():ANIMALS.find(a=>o.art[a])||'lion';
+ function pity(){const p=mmeta().pity=mmeta().pity&&typeof mmeta().pity==='object'?mmeta().pity:{};p.epic=Number(p.epic)||0;p.legendary=Number(p.legendary)||0;return p}
+ const tierOf=r=>RARITY.indexOf(r);
  function roll(c){
-  const owned=new Set(cmeta().items),out=[{kind:'sp',n:rand(c.sp[0],c.sp[1]),r:c.r}];
+  const owned=new Set(cmeta().items),out=[{kind:'sp',n:rand(c.sp[0],c.sp[1]),r:c.r}],p=pity();
+  // Rarities first, then the guarantees: the chest's own, and bad-luck protection. A guarantee lifts the lowest item.
+  const rs=Array.from({length:c.items},()=>pickRarity(c.odds));
+  const need=[];
+  if(c.guarantee)need.push(c.guarantee);
+  if(p.legendary>=PITY.legendary-1)need.push('legendary');else if(p.epic>=PITY.epic-1)need.push('epic');
+  for(const g of need){if(rs.some(r=>tierOf(r)>=tierOf(g)))continue;let lo=0;rs.forEach((r,k)=>{if(tierOf(r)<tierOf(rs[lo]))lo=k});rs[lo]=g}
   const petSlot=Math.random()<(c.animal||0)?Math.floor(Math.random()*c.items):-1;
-  for(let k=0;k<c.items;k++){
-   const r=pickRarity(c.odds);
+  rs.forEach((r,k)=>{
    if(k===petSlot){const locked=ANIMALS.filter(a=>!unlocked(a)&&!out.some(x=>x.a===a&&x.kind==='animal'));
-    if(locked.length){const same=locked.filter(a=>ANIMAL_RARITY[a]===r);const a=pick(same.length?same:locked);out.push({kind:'animal',a,r:ANIMAL_RARITY[a],fresh:true});continue}}
-   let tier=RARITY.indexOf(r),pool=[];
-   // A new outfit of the rolled rarity; when there is none left, the nearest rarity below, then above.
-   for(const i of [tier,...[1,2,3].flatMap(d=>[tier-d,tier+d])]){if(i<0||i>3)continue;pool=OUTFITS.filter(o=>outfitRarity(Number(o.cost))===RARITY[i]&&!owned.has(o.id)&&!out.some(x=>x.o&&x.o.id===o.id));if(pool.length)break}
-   if(pool.length){const o=pick(pool);out.push({kind:'outfit',o,a:artAnimal(o),r:outfitRarity(Number(o.cost)),fresh:true})}
-   else{const any=OUTFITS.filter(o=>outfitRarity(Number(o.cost))===r);const o=pick(any.length?any:OUTFITS);out.push({kind:'outfit',o,a:artAnimal(o),r:outfitRarity(Number(o.cost)),fresh:false,dupe:Math.max(5,Math.round(Number(o.cost)*DUPE_OUTFIT))})}
-  }
+    if(locked.length){const same=locked.filter(a=>ANIMAL_RARITY[a]===r);const a=pick(same.length?same:locked);out.push({kind:'animal',a,r:ANIMAL_RARITY[a],fresh:true});return}}
+   // A new outfit of that rarity; when the learner has them all, one of them again, turned into Sparkles.
+   const ofR=OUTFITS.filter(o=>outfitRarity(Number(o.cost))===r);
+   const pool=ofR.filter(o=>!owned.has(o.id)&&!out.some(x=>x.o&&x.o.id===o.id));
+   if(pool.length){const o=pick(pool);out.push({kind:'outfit',o,a:artAnimal(o),r,fresh:true})}
+   else{const o=pick(ofR.length?ofR:OUTFITS);out.push({kind:'outfit',o,a:artAnimal(o),r,fresh:false,dupe:DUPE[r]})}
+  });
   return out;
  }
  // Pays, rolls and saves at once (before any animation), so leaving or reloading during the opening loses nothing.
@@ -230,6 +251,8 @@
   }
   st.currency=Math.max(0,Math.round((Number(st.currency)||0)-(c.gift?0:c.price)+gain));
   const mm=mmeta();if(c.gift)mm.gift=today();
+  const best=Math.max(...rewards.filter(x=>x.kind!=='sp').map(x=>tierOf(x.r)));const p=pity();
+  p.epic=best>=tierOf('epic')?0:p.epic+1;p.legendary=best>=tierOf('legendary')?0:p.legendary+1;
   mm.history.push({at:Date.now(),chest:c.gift?'gift':c.r,price:c.gift?0:c.price,got:rewards.map(x=>x.kind==='sp'?'sp:'+x.n:x.kind==='animal'?'animal:'+x.a+(x.fresh?'':':dupe'):'outfit:'+x.o.id+(x.fresh?'':':dupe'))});mm.history=mm.history.slice(-60);
   try{saveState()}catch(_){}try{updateUI()}catch(_){}
   return {chest:c,rewards};
@@ -289,6 +312,37 @@
   });
   o.addEventListener('keydown',e=>{if(e.key==='Escape'&&phase==='summary')close()});
  }
+ // ---- Sparkles for learning ----
+ // When a lesson's result screen appears, each new finished lesson (5+ questions) in the history pays LESSON_SP, plus
+ // PERFECT_SP without mistakes, up to DAILY_SP_CAP a day; a small chip on the result screen shows it.
+ function payLessons(){
+  const st=app();const hist=Array.isArray(st.history)?st.history:[];if(!hist.length)return;
+  const mm=mmeta();
+  if(!mm.paidAt){mm.paidAt=Number(hist[hist.length-1].at)||Date.now();return} // first run: older lessons are not paid
+  const fresh=hist.filter(h=>Number(h.at)>mm.paidAt);if(!fresh.length)return;
+  mm.paidAt=Math.max(...fresh.map(h=>Number(h.at)||0));
+  const e=mm.earn=mm.earn&&mm.earn.date===today()?mm.earn:{date:today(),n:0};
+  let gain=0,perfect=false;
+  for(const h of fresh){if((Number(h.total)||0)<5)continue;let g=LESSON_SP;if(h.perfect){g+=PERFECT_SP;perfect=true}g=Math.min(g,DAILY_SP_CAP-e.n-gain);if(g>0)gain+=g}
+  const capped=e.n+gain>=DAILY_SP_CAP;
+  if(gain>0){e.n+=gain;st.currency=Math.max(0,(Number(st.currency)||0)+gain)}
+  try{saveState()}catch(_){}try{updateUI()}catch(_){}
+  if(gain>0||fresh.some(h=>(Number(h.total)||0)>=5))earnChip(gain,perfect,capped&&gain===0);
+ }
+ function earnChip(n,perfect,capped){
+  const L=t(),host=document.getElementById('resultView')||document.getElementById('lesson');if(!host)return;
+  host.querySelector('.mk-earn')?.remove();
+  const el=document.createElement('div');el.className='mk-earn'+(capped?' capped':'');el.setAttribute('role','status');if(lang()==='ar')el.dir='rtl';
+  el.innerHTML=capped?'<span>'+esc(L.earnCap)+'</span>':GEM+'<b>'+esc(L.earnL(n))+'</b><small>'+esc(perfect?L.earnPerfect:L.earnWhy)+'</small>';
+  // Under the result's numbers (in the page flow); it stays on the result screen.
+  const grid=host.querySelector('.result-grid');if(grid)grid.after(el);else host.append(el);
+ }
+ function watchResults(){
+  const rv=document.getElementById('resultView');if(!rv){setTimeout(watchResults,800);return}
+  let was=rv.classList.contains('show');
+  new MutationObserver(()=>{const on=rv.classList.contains('show');if(on&&!was)setTimeout(payLessons,250);was=on}).observe(rv,{attributes:true,attributeFilter:['class']});
+  try{const mm=mmeta();const h=app().history;if(!mm.paidAt&&Array.isArray(h)&&h.length)mm.paidAt=Number(h[h.length-1].at)||0}catch(_){}
+ }
  function toast(msg){try{if(typeof window.toast==='function'){window.toast(msg);return}}catch(_){}
   const el=document.createElement('div');el.className='mk-toast';el.textContent=msg;(document.getElementById('phone')||document.body).append(el);setTimeout(()=>el.remove(),2600)}
 
@@ -320,7 +374,7 @@
  }
  function install(){
   if(!document.body){setTimeout(install,50);return}
-  tick();loadOutfits();
+  tick();loadOutfits();watchResults();
   new MutationObserver(()=>tick()).observe(document.body,{subtree:true,attributes:true,attributeFilter:['class','lang'],childList:true});
   setInterval(()=>{ensure()},1500);
  }
@@ -328,5 +382,5 @@
  // bar is first drawn, so it is drawn once with all five tabs.
  try{ensure()}catch(_){}
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});else install();
- window.DEEN_MARKET=Object.freeze({version:'market-2',gift:Object.assign({},GIFT),roll:c=>roll(c),buyChest,openChest,isOpening:()=>!!opening,rarities:RARITY.slice(),animalRarity:Object.assign({},ANIMAL_RARITY),chests:CHESTS.map(c=>({...c,odds:c.odds.slice()})),outfitRarity,render,open:()=>{try{navigate('marketScreen')}catch(_){}}});
+ window.DEEN_MARKET=Object.freeze({version:'market-3',pity:()=>({...pity()}),pityRule:{...PITY},payLessons,earning:{lesson:LESSON_SP,perfect:PERFECT_SP,cap:DAILY_SP_CAP},gift:Object.assign({},GIFT),roll:c=>roll(c),buyChest,openChest,isOpening:()=>!!opening,rarities:RARITY.slice(),animalRarity:Object.assign({},ANIMAL_RARITY),chests:CHESTS.map(c=>({...c,odds:c.odds.slice()})),outfitRarity,render,open:()=>{try{navigate('marketScreen')}catch(_){}}});
 })();

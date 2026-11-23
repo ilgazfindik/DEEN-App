@@ -199,3 +199,27 @@ html body .mko-done{min-width:200px;min-height:54px;border-radius:14px;cursor:po
 @media (prefers-reduced-motion:reduce){html body .mko *,html body .mko{animation:none!important;transition:none!important}html body .mko :is(.mko-shard,.mko-beam,.mko-shock,.mko-img.lid){display:none}}
 :root.v5-reduce body .mko *{animation:none!important;transition:none!important}
 html body .mko-count[hidden]{display:none}
+
+/* ---------- Drop rules on show: bad-luck protection, guarantees, Sparkles for lessons ---------- */
+html body #marketScreen .mk-pity{margin-top:12px;padding:12px;border-radius:14px;background:linear-gradient(180deg,#22489f,#183882);border:2px solid #0b1f5c;box-shadow:0 4px 0 #08174a,inset 0 2px 0 rgba(255,255,255,.15);display:grid;gap:8px}
+html body #marketScreen .mk-pity-head{display:grid;gap:2px}
+html body #marketScreen .mk-pity-head b{font:900 14px/1.2 var(--ds-font,inherit);color:#ffe07a;text-shadow:0 1px 0 #0b1f5c}
+html body #marketScreen .mk-pity-head small{font:600 11.5px/1.35 var(--ds-font,inherit);color:#c3d4ff}
+html body #marketScreen .mk-pity-row{display:grid;grid-template-columns:16px auto 1fr auto;align-items:center;gap:8px}
+html body #marketScreen .mk-pity-row .mk-dia{width:12px;height:12px}
+html body #marketScreen .mk-pity-row b{font:800 12px/1 var(--ds-font,inherit);color:var(--rc)}
+html body #marketScreen .mk-pity-row i{height:10px;border-radius:999px;background:rgba(5,16,52,.55);overflow:hidden;box-shadow:inset 0 1px 2px rgba(0,0,0,.4)}
+html body #marketScreen .mk-pity-row em{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--rc2),var(--rc));box-shadow:0 0 8px var(--rc)}
+html body #marketScreen .mk-pity-row small{font:800 11px/1 var(--ds-font,inherit);color:#fff;white-space:nowrap}
+html body .mk-sheet .mk-guar{margin:-6px 0 12px;padding:8px 12px;border-radius:10px;background:color-mix(in srgb,var(--rc) 18%,rgba(5,16,52,.45));border:1px solid color-mix(in srgb,var(--rc) 55%,transparent);font:800 13px/1.3 var(--ds-font,inherit);color:var(--rc)}
+html body .mk-sheet .mk-guar[data-r="epic"]{--rc:#c47bff}html body .mk-sheet .mk-guar[data-r="legendary"]{--rc:#ffd36b}
+html body .mk-odd em{min-width:3px}
+html body .mk-earn{position:relative;z-index:2;display:flex;align-items:center;gap:8px;width:max-content;max-width:90%;margin:14px auto 0;padding:9px 16px 9px 10px;border-radius:999px;box-sizing:border-box;white-space:nowrap;
+ background:linear-gradient(180deg,#2a4fae,#173178);border:2px solid #ffd978;box-shadow:0 6px 18px rgba(0,0,0,.35),0 0 18px rgba(255,217,120,.35);color:#fff;animation:mkEarnIn .5s cubic-bezier(.34,1.56,.64,1) both;pointer-events:none}
+html body .mk-earn .mk-gem{width:24px;height:24px;animation:mkEarnGem .8s cubic-bezier(.34,1.56,.64,1) .15s both}
+html body .mk-earn b{font:900 17px/1 var(--ds-font,inherit);color:#ffe6a6}
+html body .mk-earn small{font:700 12px/1 var(--ds-font,inherit);color:#c3d4ff}
+html body .mk-earn.capped{border-color:rgba(255,255,255,.3);padding-inline:14px;font:700 12px/1.3 var(--ds-font,inherit);white-space:normal;max-width:86vw;text-align:center}
+@keyframes mkEarnIn{from{opacity:0;transform:translateY(10px) scale(.7)}}
+@keyframes mkEarnGem{from{transform:rotate(-200deg) scale(.2)}}
+@media (prefers-reduced-motion:reduce){html body .mk-earn,html body .mk-earn .mk-gem{animation:none}}
