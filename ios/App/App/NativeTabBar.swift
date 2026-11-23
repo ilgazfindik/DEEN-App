@@ -1,10 +1,35 @@
 import UIKit
+import WebKit
 import Capacitor
 
 /// Hosts the web app and registers the app's own native plugins.
 class MainViewController: CAPBridgeViewController {
     override open func capacitorDidLoad() {
         bridge?.registerPluginInstance(NativeTabBarPlugin())
+    }
+
+    /// TestFlight and debug builds get the developer tools (the admin panel); the App Store build never does. The flag goes
+    /// into the web view's configuration, so it is set before the page's own scripts run (developer mode is decided while
+    /// the page loads).
+    override open func webViewConfiguration(for instanceConfiguration: InstanceConfiguration) -> WKWebViewConfiguration {
+        let configuration = super.webViewConfiguration(for: instanceConfiguration)
+        if MainViewController.isTestBuild {
+            configuration.userContentController.addUserScript(WKUserScript(
+                source: "window.__ILNURA_TESTFLIGHT__=true;",
+                injectionTime: .atDocumentStart,
+                forMainFrameOnly: true
+            ))
+        }
+        return configuration
+    }
+
+    /// True for a debug build or a build installed from TestFlight (its App Store receipt is a sandbox receipt).
+    static var isTestBuild: Bool {
+        #if DEBUG
+        return true
+        #else
+        return Bundle.main.appStoreReceiptURL?.lastPathComponent == "sandboxReceipt"
+        #endif
     }
 }
 
