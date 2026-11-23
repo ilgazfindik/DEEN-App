@@ -21,8 +21,8 @@ const IPHONE='Mozilla/5.0 (iPhone; CPU iPhone OS 18_6 like Mac OS X) AppleWebKit
  const info=await page.evaluate(()=>({glass:document.documentElement.classList.contains('ilnura-glass'),haptic:state.settings.haptic,native:window.DEEN_DS_HAPTIC&&DEEN_DS_HAPTIC.native,lens:!!document.querySelector('.ilnura-glass-lens')}));
  assert.deepEqual(info,{glass:true,haptic:true,native:true,lens:true},'glass mode, haptics switched on once, native plugin, lens: '+JSON.stringify(info));
  const box=async i=>page.evaluate(i=>{const b=document.querySelectorAll('nav.bottomnav .navbtn')[i].getBoundingClientRect();return {x:b.left+b.width/2,y:b.top+b.height/2}},i);
- // Drag the lens from Öğren (0) to Profil (3).
- const a=await box(0),z=await box(3);await page.evaluate(()=>{window.__hap.length=0});
+ // Drag the lens from Öğren (0) to Profil (4, the last tab).
+ const a=await box(0),z=await box(4);await page.evaluate(()=>{window.__hap.length=0});
  await page.mouse.move(a.x,a.y);await page.mouse.down();for(let k=1;k<=12;k++){await page.mouse.move(a.x+(z.x-a.x)*k/12,a.y+(k%2));await page.waitForTimeout(30)}
  const mid=await page.evaluate(()=>({drag:document.querySelector('nav.bottomnav').classList.contains('is-dragging'),over:document.querySelector('nav.bottomnav .navbtn.lens-over')?.dataset.screen}));
  await page.mouse.up();await page.waitForTimeout(900);
@@ -31,7 +31,7 @@ const IPHONE='Mozilla/5.0 (iPhone; CPU iPhone OS 18_6 like Mac OS X) AppleWebKit
  assert.equal(mid.drag,true,'dragging state while the finger moves');assert.equal(mid.over,'profileScreen','the lens is over Profil before release');
  assert.equal(after.active,'profileScreen','release opens the tab under the lens');assert.equal(after.screen,'profileScreen','profile screen shown');
  assert.ok(Math.abs(after.lensCentre-after.activeCentre)<=3,'lens settles under the active tab');
- assert.equal(after.hap.filter(h=>h==='sel').length,3,'one selection tick per tab passed: '+after.hap);assert.ok(after.hap.includes('selStart')&&after.hap.includes('selEnd'),'selection haptics start/end');
+ assert.equal(after.hap.filter(h=>h==='sel').length,4,'one selection tick per tab passed: '+after.hap);assert.ok(after.hap.includes('selStart')&&after.hap.includes('selEnd'),'selection haptics start/end');
  // Tap Tekrar: one light impact.
  await page.evaluate(()=>{window.__hap.length=0});const t=await box(1);await page.mouse.click(t.x,t.y);await page.waitForTimeout(500);
  const tapH=await page.evaluate(()=>[...window.__hap]);assert.deepEqual(tapH,['impact:LIGHT'],'a tap gives one light impact');

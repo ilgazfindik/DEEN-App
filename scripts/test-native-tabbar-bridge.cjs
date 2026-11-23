@@ -1,5 +1,5 @@
 /* Native iOS tab bar bridge (assets/design/home.js ↔ ios/App/App/NativeTabBar.swift), with a stand-in for Capacitor's
-   injected native bridge (no Capacitor.Plugins, only nativePromise/addListener, as in the real app): on iOS 26+ the web asks for the native bar with the four tabs, hides its own bar (kept as the router), opens
+   injected native bridge (no Capacitor.Plugins, only nativePromise/addListener, as in the real app): on iOS 26+ the web asks for the native bar with the five tabs, hides its own bar (kept as the router), opens
    the screen of a native selection (with the light haptic tap), mirrors web-side screen changes to the native bar, and
    hides the native bar while something covers the tab bar (a sheet, a lesson). Without the shell nothing changes. */
 const {chromium}=require('playwright'),http=require('node:http'),fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
@@ -26,7 +26,7 @@ const IPHONE='Mozilla/5.0 (iPhone; CPU iPhone OS 18_6 like Mac OS X) AppleWebKit
  const s1=await page.evaluate(()=>{const show=__nt.calls.filter(c=>c[0]==='show');const a=show[show.length-1]&&show[show.length-1][1];
   return {cls:document.documentElement.classList.contains('native-tabbar'),shows:show.length,tabs:a&&a.tabs.map(t=>t.id+':'+t.title+':'+t.icon),selected:a&&a.selected,tint:a&&a.tint,webNavOpacity:getComputedStyle(document.querySelector('nav.bottomnav')).opacity,h:getComputedStyle(document.documentElement).getPropertyValue('--native-tabbar-h').trim()}});
  assert.equal(s1.cls,true,'native tab bar mode');assert.equal(s1.shows,1,'shown once');
- assert.deepEqual(s1.tabs,['learnScreen:Öğren:book','reviewScreen:Tekrar:arrow.clockwise.circle','leagueScreen:Kur’an:text.book.closed','profileScreen:Profil:person'],'four tabs with titles and SF Symbols');
+ assert.deepEqual(s1.tabs,['learnScreen:Öğren:book','reviewScreen:Tekrar:arrow.clockwise.circle','leagueScreen:Kur’an:text.book.closed','marketScreen:Market:bag','profileScreen:Profil:person'],'five tabs with titles and SF Symbols');
  assert.equal(s1.selected,'learnScreen');assert.equal(s1.tint,'#f2cf84');assert.equal(s1.webNavOpacity,'0','web bar not drawn');assert.equal(s1.h,'83px','native bar height passed to CSS');
  assert.equal(await lastHidden(),false,'native bar visible on the home screen');
  // Native selection → web screen + haptic.
