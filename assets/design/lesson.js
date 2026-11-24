@@ -477,3 +477,59 @@
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});else install();
  window.DEEN_DS_ENVELOPE=Object.freeze({show,stageNotes,important,conceptStage,conceptQuestion,conceptLesson,note,isOpen:()=>!!open,version:'ds-envelope-5'});
 })();
+
+/* Listening questions (Unit 3, "Dinle ve Tanı": the Kelime-i Şehadet recording). They were tied to a remote DiyanetTV
+   video embed, which the lesson screens never showed (only a silent wave) and which an app page cannot reliably play.
+   Only an approved recording the app carries itself counts now (LOCAL_AUDIO below; no device voice is ever used for
+   it). Until one is added, the listening questions are not asked and the stage is passed over so the unit does not
+   stall — marked as skipped, with no XP — and the skip is undone by itself once the recording is there. With a
+   recording, every listening question gets a real play / pause control in place of the wave. */
+(()=>{
+ 'use strict';
+ const KEY='audio_shahada_verified',STAGE='U03-S03';
+ // The approved recording, carried in the app (e.g. 'assets/audio/kelime-i-sehadet.mp3'). Empty until it is added.
+ const LOCAL_AUDIO={[KEY]:''};
+ const localSrc=()=>String((window.DEEN_LOCAL_AUDIO&&window.DEEN_LOCAL_AUDIO[KEY])||LOCAL_AUDIO[KEY]||'');
+ const app=()=>{try{return state||null}catch(_){return null}};
+ function guard(){
+  const store=window.DEEN_AUDIO_ASSETS;if(!store||typeof store!=='object')return;
+  let held=store[KEY];
+  const view=()=>{const src=localSrc();if(src)return {...(held||{}),id:KEY,kind:'local_audio',verified:true,remote:false,src,online:true};return held?{...held,src:'',verified:false,blockedReason:'no_local_recording'}:held};
+  try{Object.defineProperty(store,KEY,{configurable:true,enumerable:true,get:view,set:v=>{held=v}})}catch(_){}
+ }
+ guard();
+ // Skip (or un-skip) the listening stage depending on whether the recording is there.
+ function syncSkip(){
+  const st=app();if(!st||!Array.isArray(st.completed))return;
+  const skip=st.audioStageSkip=st.audioStageSkip&&typeof st.audioStageSkip==='object'?st.audioStageSkip:{};
+  const has=!!localSrc();let changed=false;
+  if(!has&&!st.completed.includes(STAGE)&&st.completed.includes('U03-S02')){st.completed.push(STAGE);skip[STAGE]=Date.now();changed=true}
+  if(has&&skip[STAGE]){st.completed=st.completed.filter(x=>x!==STAGE);delete skip[STAGE];try{const m=st.macroStageMeta&&st.macroStageMeta['U03-M03'];if(m)m.completedLessons=0}catch(_){}changed=true}
+  if(changed){try{saveState()}catch(_){}try{updateUI()}catch(_){}}
+ }
+ // A real play / pause control for listening questions, in place of the wave.
+ let audio=null;
+ function stopAudio(){if(audio){try{audio.pause()}catch(_){}audio=null}}
+ function decorate(){
+  stopAudio();const src=localSrc();if(!src)return;
+  const shell=document.querySelector('#lesson .question-frame .v710-listen-shell');if(!shell||shell.querySelector('.ds-listen-play'))return;
+  const wave=shell.querySelector('.v710-wave');
+  const b=document.createElement('button');b.type='button';b.className='ds-listen-play';b.setAttribute('aria-label','Kaydı dinle');
+  b.innerHTML='<span class="ds-listen-icon" aria-hidden="true"></span><span class="ds-listen-label">Kaydı dinle</span>';
+  const a=new Audio();a.preload='auto';a.src=src;audio=a;
+  const set=on=>{b.classList.toggle('playing',on);wave&&wave.classList.toggle('playing',on)};
+  a.addEventListener('playing',()=>set(true));a.addEventListener('pause',()=>set(false));a.addEventListener('ended',()=>{set(false);b.classList.add('heard')});
+  a.addEventListener('error',()=>{set(false);b.classList.add('error')});
+  b.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();if(!a.paused){a.pause();return}try{a.currentTime=a.ended?0:a.currentTime}catch(_){}const p=a.play();if(p&&p.catch)p.catch(()=>b.classList.add('error'))});
+  shell.prepend(b);
+  // Keep the heading where it is on every question: above the companion's speech bubble.
+  const fix=()=>{const head=document.querySelector('#quizView .ds-mc-head'),row=document.querySelector('#lesson .question-frame .deen-character-question-row');
+   if(head&&row&&(head.compareDocumentPosition(row)&Node.DOCUMENT_POSITION_PRECEDING))row.before(head)};
+  fix();[120,400].forEach(ms=>setTimeout(fix,ms));
+ }
+ document.addEventListener('deen:question-rendering',stopAudio);
+ document.addEventListener('deen:question-rendered',()=>setTimeout(decorate,160));
+ function install(){syncSkip();[400,1500,4000].forEach(ms=>setTimeout(syncSkip,ms))}
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});else install();
+ window.DEEN_LISTENING=Object.freeze({version:'listening-2',source:localSrc,syncSkip,decorate});
+})();
