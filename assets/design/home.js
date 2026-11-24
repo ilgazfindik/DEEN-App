@@ -373,3 +373,71 @@ window.DEEN_NATIVE_PLUGIN=window.DEEN_NATIVE_PLUGIN||function(name){
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});else install();
 })();
+
+/* Energy sheet (the header's energy chip, or a lesson that needs more energy). Its buttons did nothing: the energy modal
+   opens with its own "show" class, but its close and reward helpers had been pointed at the general sheet. It is drawn
+   again here in the app's indigo and gold, with its own close: the energy now (hearts, a bar and a live countdown to the
+   next point), +10 energy (the rewarded ad is not connected yet: it says so), the real Premium offer (it never turns
+   Premium on by itself) and Got it; a tap outside closes it too. Premium learners see unlimited energy. */
+(()=>{
+ 'use strict';
+ if(window.DEEN_DS_ENERGY)return;
+ const LANGS=['tr','en','de','fr','ar'];
+ const lang=()=>{try{const l=localStorage.getItem('deen_app_language_v1');return LANGS.includes(l)?l:'tr'}catch(_){return 'tr'}};
+ const T={
+  tr:{title:'Enerjin',low:'Biraz daha enerji gerekiyor',empty:'Enerjin bitti',premium:'Sınırsız enerji',need:(t,n)=>t+' için '+n+' enerji gerekiyor.',next:m=>'+1 enerji · '+m,full:'Enerjin dolu',every:'Enerji her 5 dakikada 1 dolar. Yanlış cevap enerji düşürmez.',faith:'Dinî içerik hiçbir zaman kilitlenmez.',premiumOn:'Premium açık: enerjin hiç bitmez.',ad:'+10 enerji al',adNote:'Ödüllü reklam henüz bağlı değil; bu deneme sürümünde ücretsiz.',prem:'Premium · sınırsız enerji',ok:'Tamam',got:'+10 enerji eklendi',close:'Kapat'},
+  en:{title:'Your energy',low:'You need a bit more energy',empty:'You are out of energy',premium:'Unlimited energy',need:(t,n)=>t+' needs '+n+' energy.',next:m=>'+1 energy · '+m,full:'Your energy is full',every:'Energy refills by 1 every 5 minutes. Wrong answers don’t cost energy.',faith:'Religious content is never locked.',premiumOn:'Premium is on: your energy never runs out.',ad:'Get +10 energy',adNote:'Rewarded ads aren’t connected yet; it’s free in this test version.',prem:'Premium · unlimited energy',ok:'Got it',got:'+10 energy added',close:'Close'},
+  de:{title:'Deine Energie',low:'Du brauchst etwas mehr Energie',empty:'Deine Energie ist leer',premium:'Unbegrenzte Energie',need:(t,n)=>t+' braucht '+n+' Energie.',next:m=>'+1 Energie · '+m,full:'Deine Energie ist voll',every:'Alle 5 Minuten kommt 1 Energie dazu. Falsche Antworten kosten keine Energie.',faith:'Religiöse Inhalte werden nie gesperrt.',premiumOn:'Premium ist an: Deine Energie geht nie aus.',ad:'+10 Energie holen',adNote:'Belohnte Werbung ist noch nicht verbunden; in dieser Testversion kostenlos.',prem:'Premium · unbegrenzte Energie',ok:'Alles klar',got:'+10 Energie hinzugefügt',close:'Schließen'},
+  fr:{title:'Ton énergie',low:'Il te faut un peu plus d’énergie',empty:'Tu n’as plus d’énergie',premium:'Énergie illimitée',need:(t,n)=>t+' demande '+n+' d’énergie.',next:m=>'+1 énergie · '+m,full:'Ton énergie est pleine',every:'L’énergie remonte de 1 toutes les 5 minutes. Une mauvaise réponse ne coûte pas d’énergie.',faith:'Le contenu religieux n’est jamais verrouillé.',premiumOn:'Premium est actif : ton énergie ne s’épuise jamais.',ad:'Obtenir +10 d’énergie',adNote:'Les pubs récompensées ne sont pas encore reliées ; c’est gratuit dans cette version de test.',prem:'Premium · énergie illimitée',ok:'Compris',got:'+10 d’énergie ajoutés',close:'Fermer'},
+  ar:{title:'طاقتك',low:'تحتاج إلى طاقة أكثر قليلًا',empty:'نفدت طاقتك',premium:'طاقة غير محدودة',need:(t,n)=>t+' يحتاج '+n+' طاقة.',next:m=>'+1 طاقة · '+m,full:'طاقتك ممتلئة',every:'تزداد الطاقة 1 كل 5 دقائق. الإجابة الخاطئة لا تستهلك طاقة.',faith:'المحتوى الديني لا يُقفل أبدًا.',premiumOn:'بريميوم مفعّل: طاقتك لا تنفد أبدًا.',ad:'احصل على +10 طاقة',adNote:'الإعلانات بمكافأة غير موصولة بعد؛ مجانًا في هذه النسخة التجريبية.',prem:'بريميوم · طاقة غير محدودة',ok:'حسنًا',got:'تمت إضافة +10 طاقة',close:'إغلاق'}
+ };
+ const t=()=>T[lang()];
+ const app=()=>{try{return state||{}}catch(_){return {}}};
+ const MAX=30,STEP=300000;
+ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const BOLT='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 2 4.5 13.5h6L9.5 22l9-11.5h-6z" fill="currentColor"/></svg>';
+ let timer=0;
+ const modal=()=>document.getElementById('energyModal');
+ function close(){const m=modal();if(!m)return;m.classList.remove('show');clearInterval(timer);timer=0}
+ function countdown(){const st=app();if(st.premium||(Number(st.energy)||0)>=MAX)return '';const last=Number.isFinite(st.lastEnergyAt)?st.lastEnergyAt:Date.now();const left=Math.max(0,STEP-((Date.now()-last)%STEP));const s=Math.ceil(left/1000);return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')}
+ function retry(){const x=window.__v624EnergyIntent;if(!x||!x.stageId||Date.now()-(x.at||0)>120000)return;setTimeout(()=>{try{startStage(x.stageId)}catch(_){}},200)}
+ function paint(){
+  const m=modal(),sheet=m&&m.querySelector('.sheet');if(!sheet)return;
+  const L=t(),st=app(),prem=!!st.premium,e=Math.max(0,Math.min(MAX,Number(st.energy)||0));
+  const intent=window.__v624EnergyIntent&&Date.now()-(window.__v624EnergyIntent.at||0)<120000?window.__v624EnergyIntent:null;
+  const need=intent&&!prem&&e<(intent.cost||0);
+  const title=prem?L.premium:e<=0?L.empty:need?L.low:L.title;
+  const stage=intent&&(()=>{try{return (STAGES.find(s=>s.id===intent.stageId)||{}).title||''}catch(_){return ''}})();
+  const hearts=prem?5:Math.ceil(e/6);
+  sheet.className='sheet ds-energy';sheet.setAttribute('role','dialog');sheet.setAttribute('aria-modal','true');sheet.setAttribute('aria-label',title);
+  sheet.dir=lang()==='ar'?'rtl':'ltr';
+  sheet.innerHTML='<button type="button" class="ds-en-x" aria-label="'+esc(L.close)+'">×</button>'+
+   '<div class="ds-en-orb'+(prem?' prem':'')+'">'+BOLT+'</div><h3>'+esc(title)+'</h3>'+
+   (need&&stage?'<p class="ds-en-need">'+esc(L.need(stage,intent.cost))+'</p>':'')+
+   '<div class="ds-en-hearts" aria-hidden="true">'+Array.from({length:5},(_,i)=>'<i class="'+(i<hearts?'on':'')+'">♥</i>').join('')+'</div>'+
+   (prem?'<div class="ds-en-count"><b>∞</b></div><p class="ds-en-note">'+esc(L.premiumOn)+'</p>':
+    '<div class="ds-en-count"><b>'+e+'</b><span>/ '+MAX+'</span></div><div class="ds-en-bar"><i style="width:'+Math.round(e/MAX*100)+'%"></i></div>'+
+    '<p class="ds-en-next" id="dsEnNext">'+esc(e>=MAX?L.full:L.next(countdown()))+'</p>'+
+    '<p class="ds-en-note">'+esc(L.every)+' '+esc(L.faith)+'</p>')+
+   '<div class="ds-en-actions">'+(prem?'':(e<MAX?'<button type="button" class="ds-en-btn ad" data-act="ad">'+BOLT+'<span>'+esc(L.ad)+'</span></button><small class="ds-en-adnote">'+esc(L.adNote)+'</small>':'')+
+    '<button type="button" class="ds-en-btn prem" data-act="prem">'+esc(L.prem)+'</button>')+'<button type="button" class="ds-en-btn ok" data-act="ok">'+esc(L.ok)+'</button></div>';
+  sheet.querySelector('.ds-en-x').onclick=close;
+  sheet.querySelectorAll('[data-act]').forEach(b=>b.onclick=ev=>{
+   ev.stopPropagation();const a=b.dataset.act;try{window.DEEN_DS_HAPTIC&&DEEN_DS_HAPTIC.tap()}catch(_){}
+   if(a==='ok')return close();
+   if(a==='ad'){const s=app();s.energy=Math.min(MAX,(Number(s.energy)||0)+10);s.lastEnergyAt=Date.now();try{saveState()}catch(_){}try{updateUI()}catch(_){}close();try{toast(L.got)}catch(_){}retry();return}
+   if(a==='prem'){close();setTimeout(()=>{try{if(window.DEEN_PREMIUM_OFFER&&DEEN_PREMIUM_OFFER.open)DEEN_PREMIUM_OFFER.open();else premiumPanel()}catch(_){try{premiumPanel()}catch(__){}}},150)}
+  });
+  clearInterval(timer);timer=setInterval(()=>{const n=document.getElementById('dsEnNext');if(!n||!m.classList.contains('show')){clearInterval(timer);timer=0;return}const s=app(),v=Math.max(0,Math.min(MAX,Number(s.energy)||0));n.textContent=v>=MAX?L.full:L.next(countdown())},1000);
+ }
+ function install(){
+  const prev=window.showEnergy;if(typeof prev!=='function'){setTimeout(install,300);return}
+  const mine=function(...args){let out;try{out=prev.apply(this,args)}catch(_){}paint();modal()?.classList.add('show');return out};
+  // Keeps the marks of the boundary it wraps, which the runtime regression guard checks (energyOwner).
+  for(const k of Object.keys(prev))if(k.startsWith('__deen'))mine[k]=prev[k];
+  window.showEnergy=mine;try{showEnergy=mine}catch(_){}
+  const m=modal();if(m&&!m.__dsEnergy){m.__dsEnergy=true;m.addEventListener('click',e=>{if(e.target===m)close()})}
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});else install();
+ window.DEEN_DS_ENERGY=Object.freeze({version:'ds-energy-1',close,paint});
+})();
