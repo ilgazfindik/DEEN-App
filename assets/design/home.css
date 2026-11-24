@@ -263,3 +263,36 @@ html.ilnura-glass body nav.bottomnav.has-lens{touch-action:pan-y}
    target but is not drawn; content keeps scrolling under the native glass bar. */
 html.native-tabbar body nav.bottomnav:not(#a):not(#b):not(#c){opacity:0!important}
 html.native-tabbar body .phone>.screen>.scroll:not(#a){bottom:0!important;padding-bottom:calc(var(--native-tabbar-h,84px) + 28px)!important}
+
+/* Energy sheet (home.js "Energy sheet"): indigo and gold, a glowing bolt, hearts, the count with a bar and the countdown,
+   a gold main action, Premium and Got it. */
+html body #energyModal.show:not(#a){background:rgba(5,10,28,.62)!important;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+html body #energyModal .sheet.ds-energy{position:relative;box-sizing:border-box;width:100%;max-width:460px;margin:auto auto 0;padding:26px 20px calc(20px + env(safe-area-inset-bottom))!important;border-radius:28px 28px 0 0!important;text-align:center;color:#eef1ff;
+ background:radial-gradient(120% 55% at 50% 0%,rgba(84,116,226,.38),rgba(84,116,226,0) 62%),linear-gradient(180deg,#1b2a57,#111b3b 62%,#0d1531)!important;border:1px solid rgba(242,207,132,.28)!important;border-bottom:0!important;box-shadow:0 -18px 50px rgba(0,0,0,.5)!important;animation:dsEnUp .34s cubic-bezier(.2,.9,.3,1.08) both}
+@keyframes dsEnUp{from{transform:translateY(40%);opacity:.4}}
+html body #energyModal .ds-en-x{position:absolute;top:14px;inset-inline-end:14px;width:34px;height:34px;border-radius:50%;border:1px solid rgba(150,175,255,.3);background:rgba(150,175,255,.1);color:#e8edff;font:700 20px/1 var(--ds-font,inherit);cursor:pointer}
+html body #energyModal .ds-en-orb{width:76px;height:76px;margin:0 auto 12px;border-radius:24px;display:grid;place-items:center;color:#16122f;background:linear-gradient(180deg,#f9e7b4,#e2b95f);box-shadow:0 6px 0 #a8823a,0 0 34px rgba(242,207,132,.45);animation:dsEnGlow 2.4s ease-in-out infinite}
+html body #energyModal .ds-en-orb svg{width:40px;height:40px}
+html body #energyModal .ds-en-orb.prem{background:linear-gradient(135deg,#ffe28a,#f2b13c 45%,#c47bff)}
+@keyframes dsEnGlow{50%{box-shadow:0 6px 0 #a8823a,0 0 48px rgba(242,207,132,.7)}}
+html body #energyModal .ds-energy h3{margin:0 0 6px;font:900 24px/1.2 var(--ds-font,inherit);color:#fff}
+html body #energyModal .ds-en-need{margin:0 0 8px;font:600 14px/1.45 var(--ds-font,inherit);color:#c3cdf0}
+html body #energyModal .ds-en-hearts{display:flex;justify-content:center;gap:8px;margin:8px 0 6px}
+html body #energyModal .ds-en-hearts i{font-style:normal;font-size:26px;line-height:1;color:rgba(150,175,255,.25)}
+html body #energyModal .ds-en-hearts i.on{color:#ff7a8f;text-shadow:0 0 12px rgba(255,122,143,.55)}
+html body #energyModal .ds-en-count{display:flex;align-items:baseline;justify-content:center;gap:6px;margin:6px 0}
+html body #energyModal .ds-en-count b{font:900 40px/1 var(--ds-font,inherit);color:#ffe6a6;text-shadow:0 0 18px rgba(255,205,100,.45)}
+html body #energyModal .ds-en-count span{font:800 18px/1 var(--ds-font,inherit);color:#9fb0dc}
+html body #energyModal .ds-en-bar{height:12px;margin:4px 12px 8px;border-radius:999px;background:rgba(150,175,255,.16);overflow:hidden}
+html body #energyModal .ds-en-bar i{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#f9e7b4,#e2b95f);box-shadow:0 0 12px rgba(242,207,132,.5);transition:width .4s ease}
+html body #energyModal .ds-en-next{margin:0 0 10px;font:800 14px/1.2 var(--ds-font,inherit);color:#f2cf84;font-variant-numeric:tabular-nums}
+html body #energyModal .ds-en-note{margin:0 0 16px;padding:10px 12px;border-radius:14px;background:rgba(150,175,255,.08);border:1px solid rgba(150,175,255,.2);font:600 12.5px/1.5 var(--ds-font,inherit);color:#b9c6ee}
+html body #energyModal .ds-en-actions{display:grid;gap:10px}
+html body #energyModal .ds-en-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:54px;border-radius:16px;cursor:pointer;font:900 16px/1.1 var(--ds-font,inherit);letter-spacing:.01em}
+html body #energyModal .ds-en-btn svg{width:20px;height:20px}
+html body #energyModal .ds-en-btn.ad{border:0;color:#16122f;background:linear-gradient(180deg,#f9e7b4,#e2b95f);box-shadow:0 5px 0 #a8823a,0 12px 26px rgba(242,207,132,.22)}
+html body #energyModal .ds-en-btn.ad:active{transform:translateY(3px);box-shadow:0 2px 0 #a8823a}
+html body #energyModal .ds-en-adnote{margin:-4px 4px 2px;font:600 11px/1.35 var(--ds-font,inherit);color:#8f9cc6}
+html body #energyModal .ds-en-btn.prem{border:1px solid rgba(196,123,255,.55);color:#f1e4ff;background:linear-gradient(180deg,rgba(196,123,255,.24),rgba(107,43,192,.2))}
+html body #energyModal .ds-en-btn.ok{border:1px solid rgba(150,175,255,.3);color:#e8edff;background:rgba(150,175,255,.08)}
+@media (prefers-reduced-motion:reduce){html body #energyModal .ds-energy,html body #energyModal .ds-en-orb{animation:none}}
