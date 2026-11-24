@@ -116,46 +116,30 @@
   render();
  }
 
- /* ---------- Daily reminder, native app (local notifications: no account and no server) ----------
-    Schedules one notification per day for the next days at the chosen hour. Today is skipped when the hour has passed or
-    the player already studied; the schedule is refreshed when the app opens and whenever it goes to the background. */
+ /* ---------- Daily reminder, native app ----------
+    The native reminders (daily, streak rescue, gift, energy, weekly) are planned by notify.js (DEEN_NOTIFY); this block
+    only shows its main switch and hour in the account sheet. */
  const nat=()=>{try{return !!(window.Capacitor&&window.Capacitor.isNativePlatform&&window.Capacitor.isNativePlatform())}catch(_){return false}};
- const LN=()=>{try{return window.Capacitor.Plugins.LocalNotifications||null}catch(_){return null}};
- const NKEY='deen_native_reminder';
- const NTX={tr:{title:'Ilnura',body:'Bugünkü mini dersin seni bekliyor.'},en:{title:'Ilnura',body:'Your mini lesson for today is waiting.'},de:{title:'Ilnura',body:'Deine Mini-Lektion für heute wartet auf dich.'},fr:{title:'Ilnura',body:'Ta mini-leçon du jour t’attend.'},ar:{title:'Ilnura',body:'درسك القصير لليوم في انتظارك.'}};
- const todayKey=()=>{const d=new Date(),p=n=>String(n).padStart(2,'0');return d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate())};
- const studiedToday=()=>{try{const st=typeof state!=='undefined'?state:null;return !!st&&st.streakMeta&&st.streakMeta.lastStudyDate===todayKey()}catch(_){return false}};
+ const NT=()=>window.DEEN_NOTIFY||null;
  let nrem={on:false,hour:19};
- try{if(nat()){const j=JSON.parse(ls.get(NKEY)||'{}');nrem={on:j.on===true,hour:Number.isInteger(j.hour)&&j.hour>=0&&j.hour<24?j.hour:19}}}catch(_){}
- const nsave=()=>ls.set(NKEY,JSON.stringify(nrem));
- const NIDS=[0,1,2,3,4,5,6,7].map(i=>({id:3100+i}));
- async function nativeSchedule(){
-  const p=LN();if(!p||!nrem.on)return;
-  try{await p.cancel({notifications:NIDS})}catch(_){}
-  const tx=NTX[lang()]||NTX.en,now=new Date(),list=[];
-  for(let i=0;i<8&&list.length<7;i++){
-   const at=new Date(now.getFullYear(),now.getMonth(),now.getDate()+i,nrem.hour,0,0,0);
-   if(at<=now)continue;if(i===0&&studiedToday())continue;
-   list.push({id:3100+i,title:tx.title,body:tx.body,schedule:{at,allowWhileIdle:true}});
-  }
-  if(list.length)try{await p.schedule({notifications:list})}catch(_){}
- }
+ try{if(nat()){const j=JSON.parse(ls.get('deen_native_reminder')||'{}');nrem={on:j.on===true,hour:Number.isInteger(j.hour)&&j.hour>=0&&j.hour<24?j.hour:19}}}catch(_){}
+ async function nativeSchedule(){const n=NT();if(n)await n.reschedule()}
  async function nativeEnable(){
-  const t=T(),p=LN();rem.busy=true;rem.msg='';render();
+  const t=T();rem.busy=true;rem.msg='';render();
   try{
-   if(!p)throw Error('no plugin');
-   const r=await p.requestPermissions();
-   if(!r||r.display!=='granted'){rem.msg=t.remDeniedApp||t.remDenied;return}
-   nrem.on=true;nrem.hour=rem.hour;nsave();await nativeSchedule();rem.on=true;rem.msg=t.remDone;
+   const n=NT();if(!n)throw Error('no notifications');
+   const r=await n.enable(rem.hour);
+   if(!r.ok){rem.msg=t.remDeniedApp||t.remDenied;return}
+   nrem.on=true;nrem.hour=rem.hour;rem.on=true;rem.msg=t.remDone;
   }catch(_){rem.msg=t.err}
   finally{rem.busy=false;render()}
  }
  async function nativeDisable(){
   rem.busy=true;render();
-  try{nrem.on=false;nsave();const p=LN();if(p)await p.cancel({notifications:NIDS});rem.on=false;rem.msg=''}catch(_){rem.msg=T().err}
+  try{const n=NT();if(n)await n.disable();nrem.on=false;rem.on=false;rem.msg=''}catch(_){rem.msg=T().err}
   finally{rem.busy=false;render()}
  }
- async function nativeHour(h){rem.hour=h;nrem.hour=h;nsave();if(nrem.on)await nativeSchedule()}
+ async function nativeHour(h){rem.hour=h;nrem.hour=h;const n=NT();if(n)await n.setHour(h)}
 
  /* ---------- Daily reminder (Web Push) ---------- */
  const pushSupported=()=>'serviceWorker' in navigator&&'PushManager' in window&&'Notification' in window;
@@ -204,8 +188,9 @@
  }
  function pushBlock(){
   const t=T();
+  if(nat()&&NT()&&!rem.busy){const c=NT().cfg();rem.on=c.on;rem.hour=c.hour}
   if(!nat()&&!pushSupported())return '<hr class="dacc-hr"><h4 class="dacc-h">'+esc(t.remind)+'</h4><p class="dacc-small">'+esc(t.remUnsup)+'</p>';
-  const opts=Array.from({length:24},(_,h)=>'<option value="'+h+'"'+(h===rem.hour?' selected':'')+'>'+pad2(h)+':00</option>').join('');
+  const opts=(nat()?Array.from({length:14},(_,i)=>i+8):Array.from({length:24},(_,h)=>h)).map(h=>'<option value="'+h+'"'+(h===rem.hour?' selected':'')+'>'+pad2(h)+':00</option>').join('');
   return '<hr class="dacc-hr"><h4 class="dacc-h">'+esc(t.remind)+'</h4><p class="dacc-small">'+esc(t.remindSub)+'</p>'+
    '<label class="dacc-row">'+esc(t.remAt)+' <select data-acc-hour dir="ltr"'+(rem.busy?' disabled':'')+'>'+opts+'</select></label>'+
    (rem.msg?'<p class="dacc-status" role="status" aria-live="polite">'+esc(rem.msg)+'</p>':'')+
@@ -276,9 +261,9 @@
   else if(a==='useLocal')chooseLocal();
  });
  document.addEventListener('change',ev=>{const sel=ev.target.closest?.('[data-acc-hour]');if(sel)(nat()?nativeHour:pushHour)(Number(sel.value))});
- document.addEventListener('visibilitychange',()=>{if(document.hidden){push().catch(()=>{});nativeSchedule()}});
- window.addEventListener('pagehide',()=>{push().catch(()=>{});nativeSchedule()});
- if(nat()){rem.on=nrem.on;rem.hour=nrem.hour;setTimeout(nativeSchedule,1500)}
+ document.addEventListener('visibilitychange',()=>{if(document.hidden)push().catch(()=>{})});
+ window.addEventListener('pagehide',()=>{push().catch(()=>{})});
+ if(nat()){rem.on=nrem.on;rem.hour=nrem.hour}
 
  // Returning learner with a stored sign-in (or coming back from Google/Apple): resume quietly.
  function boot(){if(window.DEEN_AUTH_GATE?.configured?.()&&hasStoredSession())ensureClient().then(()=>client.auth.getSession()).then(({data})=>{user=data?.session?.user||null;if(user)reconcile()}).catch(()=>{})}

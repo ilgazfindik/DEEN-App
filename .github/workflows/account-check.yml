@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - 'assets/design/account.js'
+      - 'assets/design/notify.js'
       - 'assets/i18n/auth.js'
       - 'assets/vendor/**'
       - 'index.html'
