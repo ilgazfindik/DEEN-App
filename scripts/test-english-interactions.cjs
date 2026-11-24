@@ -25,7 +25,9 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
  const types=await page.evaluate(()=>[...new Set(QUESTIONS.map(q=>q.activity_type))]);const interactions=[],residual=new Set();
  async function checkGeneratedContent(type){const leaks=await page.locator('#lesson').evaluate(root=>[root,...root.querySelectorAll('*')].filter(el=>el.getClientRects().length&&getComputedStyle(el).visibility!=='hidden').flatMap(el=>['::before','::after'].map(pseudo=>({class:el.className,pseudo,text:getComputedStyle(el,pseudo).content}))).filter(x=>x.text&&!['none','normal'].includes(x.text)&&/[ÇĞİÖŞÜçğıöşü\u0600-\u06ff]/.test(x.text.replace(/DEEN|XP|^"i"$/g,''))));assert.deepEqual(leaks,[],type+' generated content');}
  for(const type of types){
- const id=await page.evaluate(type=>QUESTIONS.find(q=>q.activity_type===type)?.id,type);
+ // Questions that need the approved recording are never asked while it is missing (assets/design/lesson.js): an askable one of the type is used, and a type with none is left out.
+ const id=await page.evaluate(type=>QUESTIONS.find(q=>q.activity_type===type&&!(typeof audioBlocked==='function'&&audioBlocked(q)))?.id,type);
+ if(!id){console.log('NOT ASKED (needs the recording)',type);continue}
  const q=await page.evaluate(id=>{closeSheet();closeLesson();const q=QUESTIONS.find(x=>x.id===id);session={stage:STAGES.find(s=>s.id===q.stage_id),questions:[q],index:0,correct:0,combo:0,bestCombo:0,startedAt:Date.now(),v5responses:[]};document.getElementById('lesson').classList.add('active');document.getElementById('quizView').style.display='flex';resetResultView(false);renderQuestion();return session.questions[0]},id);
  await page.waitForTimeout(180);if(await page.locator('.v910-overlay .v910-card-button').count()){await page.locator('.v910-overlay .v910-card-button').click();await page.waitForTimeout(100)}
  const accessibilityLeaks=await page.locator('#lesson [aria-label],#lesson [title],#lesson img[alt]').evaluateAll(els=>els.flatMap(el=>['aria-label','title','alt'].filter(k=>el.hasAttribute(k)).map(k=>({tag:el.tagName,id:el.id,text:el.getAttribute(k)}))).filter(t=>/[ÇĞİÖŞÜçğıöşü\u0600-\u06ff]/.test(t.text.replace(/DEEN|XP/g,''))));
