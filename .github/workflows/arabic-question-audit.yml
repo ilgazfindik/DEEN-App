@@ -91,6 +91,7 @@ jobs:
           node scripts/test-market-odds.cjs
           node scripts/test-listening-audio.cjs
           node scripts/test-energy-sheet.cjs
+          node scripts/test-xp-streak-sheets.cjs
           node scripts/test-level-up-design.cjs
           node scripts/test-pose-swap.cjs
           node scripts/test-companion-images.mjs

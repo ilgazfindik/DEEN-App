@@ -441,3 +441,48 @@ window.DEEN_NATIVE_PLUGIN=window.DEEN_NATIVE_PLUGIN||function(name){
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});else install();
  window.DEEN_DS_ENERGY=Object.freeze({version:'ds-energy-1',close,paint});
 })();
+
+/* XP and streak sheets (the header's XP and streak chips) in the app's indigo and gold. The engine draws both in the
+   shared sheet; they are recognised by their content and given a class, an XP level ring, and a streak hero (flame and
+   count) with the companion's own picture in place of its emoji. Their numbers, texts and buttons stay the engine's. */
+(()=>{
+ 'use strict';
+ if(window.DEEN_DS_PANELS)return;
+ const FLAME='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5c.6 3.2 3.6 4.6 3.6 8.4a3.6 3.6 0 0 1-1.1 2.6c.2-1.7-.7-3-2-3.8.3 2.1-1.3 3-2.3 4.1-.8.9-1.2 1.9-1.2 3A3.6 3.6 0 0 0 12 20.4a6.6 6.6 0 0 1-6.6-6.6c0-4.9 5.3-6.6 6.6-11.3z" fill="url(#dsFlameG)"/><defs><linearGradient id="dsFlameG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe28a"/><stop offset=".55" stop-color="#ff9d4a"/><stop offset="1" stop-color="#e0485a"/></linearGradient></defs></svg>';
+ const num=s=>{const m=String(s||'').match(/\d+/);return m?Number(m[0]):0};
+ function decorate(){
+  const d=document.getElementById('v5Sheet');if(!d||!d.open)return;
+  const body=d.querySelector('#v5SheetBody');if(!body)return;
+  const isXp=!!body.querySelector(':scope>.v5-big')&&!!body.querySelector(':scope>.v5-bar');
+  const isStreak=!!body.querySelector(':scope>.v5-calendar')&&!!body.querySelector(':scope>.v5-metricrow');
+  if(d.classList.contains('ds-xpsheet')!==isXp)d.classList.toggle('ds-xpsheet',isXp);
+  if(d.classList.contains('ds-streaksheet')!==isStreak)d.classList.toggle('ds-streaksheet',isStreak);
+  if(isXp&&!body.querySelector('.ds-xp-hero')){
+   const title=d.querySelector('#v5SheetTitle')?.textContent||'',lvl=num(title),pct=Math.max(0,Math.min(100,Number(body.querySelector(':scope>.v5-bar')?.getAttribute('aria-valuenow'))||0));
+   const C=2*Math.PI*54,hero=document.createElement('div');hero.className='ds-xp-hero';hero.setAttribute('aria-hidden','true');
+   hero.innerHTML='<svg viewBox="0 0 128 128"><defs><linearGradient id="dsXpRing" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff1bf"/><stop offset="1" stop-color="#e2b95f"/></linearGradient></defs><circle cx="64" cy="64" r="54" class="trk"/><circle cx="64" cy="64" r="54" class="val" stroke-dasharray="'+C.toFixed(1)+'" stroke-dashoffset="'+(C*(1-pct/100)).toFixed(1)+'"/></svg><b>'+lvl+'</b><small>'+String(title).replace(/\d+/g,'').trim()+'</small>';
+   body.prepend(hero);
+  }
+  // The engine adds the companion card at the top after drawing; the hero stays first.
+  const oldHero=isStreak&&body.querySelector(':scope>.ds-st-hero');if(oldHero&&body.firstElementChild!==oldHero)body.prepend(oldHero);
+  if(isStreak&&!body.querySelector('.ds-st-hero')){
+   const metric=body.querySelector('.v5-metricrow>span'),n=num(metric?.firstChild?.textContent||metric?.textContent),label=metric?.querySelector('small')?.textContent||'';
+   const hero=document.createElement('div');hero.className='ds-st-hero';hero.setAttribute('aria-hidden','true');
+   hero.innerHTML='<span class="ds-st-flame'+(n>0?' lit':'')+'">'+FLAME+'</span><b>'+n+'</b><small>'+label+'</small>';
+   body.prepend(hero);
+  }
+  if(isStreak){
+   // The calendar and the companion card can arrive after the hero (the engine adds the card later): checked each time.
+   const today=body.querySelector('.v5-calendar')?.lastElementChild;if(today&&!today.classList.contains('ds-today'))today.classList.add('ds-today');
+   const a=(()=>{try{return String(state?.profile?.companion||'').replace(/[^a-z]/g,'')}catch(_){return ''}})(),comp=body.querySelector('.v994-streak-companion .animal');
+   if(a&&comp&&!comp.querySelector('img')){comp.textContent='';const im=new Image();im.src='assets/companions/'+a+'/'+a+'_avatar.png';im.alt='';comp.append(im)}
+  }
+ }
+ let q=0;const schedule=()=>{if(q)return;q=requestAnimationFrame(()=>{q=0;decorate()})};
+ function install(){
+  const d=document.getElementById('v5Sheet');if(!d){setTimeout(install,400);return}
+  new MutationObserver(schedule).observe(d,{attributes:true,attributeFilter:['open'],childList:true,subtree:true});schedule();
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});else install();
+ window.DEEN_DS_PANELS=Object.freeze({version:'ds-panels-1',decorate});
+})();

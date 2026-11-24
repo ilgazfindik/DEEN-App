@@ -296,3 +296,65 @@ html body #energyModal .ds-en-adnote{margin:-4px 4px 2px;font:600 11px/1.35 var(
 html body #energyModal .ds-en-btn.prem{border:1px solid rgba(196,123,255,.55);color:#f1e4ff;background:linear-gradient(180deg,rgba(196,123,255,.24),rgba(107,43,192,.2))}
 html body #energyModal .ds-en-btn.ok{border:1px solid rgba(150,175,255,.3);color:#e8edff;background:rgba(150,175,255,.08)}
 @media (prefers-reduced-motion:reduce){html body #energyModal .ds-energy,html body #energyModal .ds-en-orb{animation:none}}
+
+/* XP and streak sheets (home.js "XP and streak sheets"). */
+html body dialog#v5Sheet:is(.ds-xpsheet,.ds-streaksheet):not(#a){background:radial-gradient(120% 45% at 50% 0%,rgba(84,116,226,.38),rgba(84,116,226,0) 62%),linear-gradient(180deg,#1b2a57,#111b3b 60%,#0d1531)!important;border:1px solid rgba(242,207,132,.28)!important;border-bottom:0!important;color:#eef1ff!important;box-shadow:0 -18px 50px rgba(0,0,0,.5)!important}
+html body dialog#v5Sheet:is(.ds-xpsheet,.ds-streaksheet) .v5-kicker{color:#f2cf84!important}
+html body dialog#v5Sheet:is(.ds-xpsheet,.ds-streaksheet) .v5-iconbtn{background:rgba(150,175,255,.1)!important;border:1px solid rgba(150,175,255,.3)!important;box-shadow:none!important;color:#e8edff!important}
+html body dialog#v5Sheet:is(.ds-xpsheet,.ds-streaksheet) #v5SheetTitle{text-align:center!important;color:#fff!important;font-weight:900!important}
+html body dialog#v5Sheet:is(.ds-xpsheet,.ds-streaksheet) #v5SheetBody p{color:#b9c6ee!important}
+html body dialog#v5Sheet:is(.ds-xpsheet,.ds-streaksheet) .v5-bar{height:12px!important;border-radius:999px!important;background:rgba(150,175,255,.16)!important;overflow:hidden}
+html body dialog#v5Sheet:is(.ds-xpsheet,.ds-streaksheet) .v5-bar i{background:linear-gradient(90deg,#f9e7b4,#e2b95f)!important;box-shadow:0 0 12px rgba(242,207,132,.5)!important;border-radius:inherit}
+/* XP */
+html body dialog#v5Sheet.ds-xpsheet #v5SheetTitle{display:none!important}
+html body dialog#v5Sheet.ds-xpsheet #v5SheetBody{text-align:center}
+html body dialog#v5Sheet .ds-xp-hero{position:relative;width:140px;height:140px;margin:2px auto 10px;display:grid;place-items:center;align-content:center}
+html body dialog#v5Sheet .ds-xp-hero svg{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg);filter:drop-shadow(0 0 12px rgba(242,207,132,.35))}
+html body dialog#v5Sheet .ds-xp-hero .trk{fill:rgba(150,175,255,.08);stroke:rgba(150,175,255,.18);stroke-width:10}
+html body dialog#v5Sheet .ds-xp-hero .val{fill:none;stroke:url(#dsXpRing);stroke-width:10;stroke-linecap:round;transition:stroke-dashoffset .8s cubic-bezier(.2,.9,.3,1)}
+html body dialog#v5Sheet .ds-xp-hero b{position:relative;font:900 48px/1 var(--ds-font,inherit);color:#fff;text-shadow:0 0 18px rgba(242,207,132,.45)}
+html body dialog#v5Sheet .ds-xp-hero small{position:relative;margin-top:4px;font:800 13px/1 var(--ds-font,inherit);letter-spacing:.04em;color:#f2cf84}
+html body dialog#v5Sheet.ds-xpsheet .v5-big{display:block!important;margin:0 0 2px!important;font:900 34px/1.1 var(--ds-font,inherit)!important;color:#ffe6a6!important;text-shadow:0 0 16px rgba(255,205,100,.4)!important}
+html body dialog#v5Sheet.ds-xpsheet .v5-big+p{margin:0 0 12px!important;font-weight:700!important;color:#c9d3f2!important}
+html body dialog#v5Sheet.ds-xpsheet .v54-level-reward{margin:14px 0 12px!important;padding:12px 14px!important;border-radius:14px!important;background:rgba(242,207,132,.1)!important;border:1px solid rgba(242,207,132,.4)!important;color:#f6d78f!important;text-align:center}
+html body dialog#v5Sheet.ds-xpsheet .v54-level-reward b{color:#ffe6a6!important}
+html body dialog#v5Sheet.ds-xpsheet .v54-level-reward~p{margin:8px 0 0!important;padding:10px 12px!important;border-radius:12px;background:rgba(150,175,255,.07);border:1px solid rgba(150,175,255,.16);font-size:13px!important;line-height:1.45!important;text-align:start}
+/* Streak */
+html body dialog#v5Sheet.ds-streaksheet #v5SheetTitle{margin-bottom:6px!important}
+html body dialog#v5Sheet .ds-st-hero{display:flex;flex-direction:column;align-items:center;margin:0 0 12px}
+html body dialog#v5Sheet .ds-st-flame{width:74px;height:74px;display:grid;place-items:center;border-radius:24px;background:rgba(255,157,74,.12);border:1px solid rgba(255,157,74,.35)}
+html body dialog#v5Sheet .ds-st-flame svg{width:46px;height:46px;filter:grayscale(1) opacity(.45)}
+html body dialog#v5Sheet .ds-st-flame.lit svg{filter:drop-shadow(0 0 12px rgba(255,157,74,.7));animation:dsStFlick 1.6s ease-in-out infinite}
+@keyframes dsStFlick{50%{transform:scale(1.07) rotate(-2deg)}}
+html body dialog#v5Sheet .ds-st-hero b{margin-top:6px;font:900 40px/1 var(--ds-font,inherit);color:#ffe6a6;text-shadow:0 0 16px rgba(255,157,74,.45)}
+html body dialog#v5Sheet .ds-st-hero small{margin-top:4px;font:800 14px/1 var(--ds-font,inherit);letter-spacing:.02em;color:#f2cf84}
+html body dialog#v5Sheet.ds-streaksheet .v994-streak-companion{display:flex!important;align-items:center!important;gap:12px!important;padding:10px 12px!important;border-radius:16px!important;background:rgba(150,175,255,.08)!important;border:1px solid rgba(150,175,255,.22)!important;margin:0 0 12px!important}
+html body dialog#v5Sheet.ds-streaksheet .v994-streak-companion .animal{flex:none;width:48px;height:48px;border-radius:50%;overflow:hidden;display:grid;place-items:center;background:#1d2c5a;box-shadow:0 0 0 2px rgba(242,207,132,.55)}
+html body dialog#v5Sheet.ds-streaksheet .v994-streak-companion .animal img{width:100%;height:100%;object-fit:cover}
+html body dialog#v5Sheet.ds-streaksheet .v994-streak-companion b{color:#fff!important}
+html body dialog#v5Sheet.ds-streaksheet .v994-streak-companion small{color:#b9c6ee!important}
+html body dialog#v5Sheet.ds-streaksheet .v5-metricrow{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important;margin:0 0 12px!important}
+html body dialog#v5Sheet.ds-streaksheet .v5-metricrow span{display:flex!important;flex-direction:column!important;align-items:center!important;gap:4px!important;padding:10px 6px!important;border-radius:14px!important;background:rgba(150,175,255,.08)!important;border:1px solid rgba(150,175,255,.2)!important;font:900 24px/1 var(--ds-font,inherit)!important;color:#fff!important}
+html body dialog#v5Sheet.ds-streaksheet .v5-metricrow small{font:700 11px/1.2 var(--ds-font,inherit)!important;color:#9fb0dc!important;text-align:center;text-transform:none!important}
+html body dialog#v5Sheet.ds-streaksheet .v5-calendar{gap:6px!important;margin:0 0 12px!important}
+html body dialog#v5Sheet.ds-streaksheet .v5-calendar>div{border-radius:12px!important;background:rgba(150,175,255,.07)!important;border:1px solid rgba(150,175,255,.18)!important;color:#b9c6ee!important;box-shadow:none!important}
+html body dialog#v5Sheet.ds-streaksheet .v5-calendar>div small{color:#9fb0dc!important}
+html body dialog#v5Sheet.ds-streaksheet .v5-calendar>div.active{background:linear-gradient(180deg,#f9e7b4,#e2b95f)!important;border-color:#fff1bf!important;box-shadow:0 0 12px rgba(242,207,132,.35)!important}
+html body dialog#v5Sheet.ds-streaksheet .v5-calendar>div.active :is(small,span){color:#16122f!important}
+html body dialog#v5Sheet.ds-streaksheet .v5-calendar>div.frozen{background:rgba(124,200,242,.18)!important;border-color:rgba(124,200,242,.6)!important}
+html body dialog#v5Sheet.ds-streaksheet .v5-calendar>div.ds-today:not(.active){border:2px solid #f2cf84!important}
+html body dialog#v5Sheet.ds-streaksheet .v54-streak-next{padding:12px 14px!important;border-radius:16px!important;background:rgba(242,207,132,.08)!important;border:1px solid rgba(242,207,132,.32)!important;margin:0 0 12px!important}
+html body dialog#v5Sheet.ds-streaksheet .v54-streak-next b{color:#ffe6a6!important}
+html body dialog#v5Sheet.ds-streaksheet .v54-streak-next small{color:#c9d3f2!important}
+html body dialog#v5Sheet.ds-streaksheet .v660-chest-card{padding:12px 14px!important;border-radius:16px!important;background:linear-gradient(170deg,rgba(196,123,255,.16),rgba(107,43,192,.1))!important;border:1px solid rgba(196,123,255,.4)!important;margin:0 0 12px!important;box-shadow:none!important}
+html body dialog#v5Sheet.ds-streaksheet .v660-chest-card .row{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:10px!important}
+html body dialog#v5Sheet.ds-streaksheet .v660-chest-card strong{display:block;color:#fff!important}
+html body dialog#v5Sheet.ds-streaksheet .v660-chest-card small{display:block;margin-top:3px;color:#c9d3f2!important}
+html body dialog#v5Sheet.ds-streaksheet .v660-chest-card .row>b{color:#e7c9ff!important;font-size:16px!important}
+html body dialog#v5Sheet.ds-streaksheet .v660-chest-card button{margin-top:10px!important;width:100%;min-height:46px;border-radius:14px!important;border:0!important;background:linear-gradient(180deg,#f9e7b4,#e2b95f)!important;color:#16122f!important;font-weight:900!important;box-shadow:0 4px 0 #a8823a!important}
+html body dialog#v5Sheet.ds-streaksheet .v660-chest-card button:disabled{background:rgba(150,175,255,.12)!important;color:#9fb0dc!important;box-shadow:none!important}
+html body dialog#v5Sheet.ds-streaksheet .v660-policy{background:rgba(150,175,255,.06)!important;border:1px solid rgba(150,175,255,.16)!important;color:#9fb0dc!important;border-radius:12px!important}
+@media (prefers-reduced-motion:reduce){html body dialog#v5Sheet .ds-st-flame.lit svg{animation:none}html body dialog#v5Sheet .ds-xp-hero .val{transition:none}}
+/* The hero already shows the current streak: the metric row keeps the longest streak and the freezes. */
+html body dialog#v5Sheet.ds-streaksheet .v5-metricrow{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+html body dialog#v5Sheet.ds-streaksheet .v5-metricrow>span:first-child{display:none!important}
