@@ -433,6 +433,8 @@ window.DEEN_NATIVE_PLUGIN=window.DEEN_NATIVE_PLUGIN||function(name){
  function install(){
   const prev=window.showEnergy;if(typeof prev!=='function'){setTimeout(install,300);return}
   const mine=function(...args){let out;try{out=prev.apply(this,args)}catch(_){}paint();modal()?.classList.add('show');return out};
+  // Keeps the marks of the boundary it wraps, which the runtime regression guard checks (energyOwner).
+  for(const k of Object.keys(prev))if(k.startsWith('__deen'))mine[k]=prev[k];
   window.showEnergy=mine;try{showEnergy=mine}catch(_){}
   const m=modal();if(m&&!m.__dsEnergy){m.__dsEnergy=true;m.addEventListener('click',e=>{if(e.target===m)close()})}
  }

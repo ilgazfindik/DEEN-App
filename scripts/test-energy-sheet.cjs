@@ -17,6 +17,8 @@ const server=http.createServer((req,res)=>{let p=path.join(root,decodeURICompone
   await page.goto(url);await page.waitForSelector('.navbtn',{timeout:90000});await page.waitForTimeout(2500);
   const shown=()=>page.evaluate(()=>document.getElementById('energyModal').classList.contains('show'));
   const open=async()=>{await page.evaluate(()=>showEnergy());await page.waitForTimeout(700);assert.equal(await shown(),true,lang+': opens')};
+  // The sheet keeps the runtime's boundary marks (the runtime regression guard checks energyOwner).
+  assert.equal(await page.evaluate(()=>!!window.showEnergy.__deen9953),true,lang+': showEnergy keeps its boundary mark');
   // Opened from the header's energy chip.
   await page.locator('.app-header .stat[onclick*="showEnergy"]').first().click();await page.waitForTimeout(700);assert.equal(await shown(),true,lang+': the energy chip opens it');
   const look=await page.evaluate(()=>{const s=document.querySelector('#energyModal .sheet');return {ds:s.classList.contains('ds-energy'),dir:s.dir,count:s.querySelector('.ds-en-count b').textContent,hearts:s.querySelectorAll('.ds-en-hearts i.on').length,next:s.querySelector('.ds-en-next').textContent}});
