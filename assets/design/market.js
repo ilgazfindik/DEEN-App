@@ -97,7 +97,7 @@
  let OUTFITS=[];let outfitsLoading=null;
  function loadOutfits(){
   if(outfitsLoading)return outfitsLoading;
-  outfitsLoading=fetch('assets/companions/outfits.json').then(r=>r.ok?r.json():null).then(j=>{OUTFITS=(j&&Array.isArray(j.items)?j.items:[]).filter(o=>o&&o.art&&Number(o.cost)>0);if(isActive())render()}).catch(()=>{});
+  outfitsLoading=fetch('assets/companions/outfits.json').then(r=>r.ok?r.json():null).then(j=>{OUTFITS=(j&&Array.isArray(j.items)?j.items:[]).filter(o=>o&&o.art&&Number(o.cost)>0&&!o.season);if(isActive())render()}).catch(()=>{});
   return outfitsLoading;
  }
  const outName=o=>(o.name&&(o.name[lang()]||o.name.tr))||o.id;

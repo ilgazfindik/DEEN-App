@@ -18,7 +18,7 @@ for(const it of cat.items){
  for(const [a,f] of Object.entries(it.art)){assert.ok(fs.existsSync(path.join(root,f)),'missing '+f);assert.deepEqual(webpSize(path.join(root,f)),[512,768],f)}
  for(const l of ['tr','en','de','fr','ar'])assert.ok(it.name&&it.name[l],it.id+' name '+l);
 }
-const NEW=['ot_thobe_white_turban','ot_dress_blue_hijab_shawl','ot_kaftan_fur_winter','ot_robe_purple_gold','ot_kaftan_iznik','ot_robe_green_turban','ot_dress_green_gold_hijab','ot_robe_starry_night','ot_kaftan_emerald_pearl_hijab','ot_kaftan_sultan','ot_robe_brown_tasbih','ot_thobe_kufi_knit','ot_thobe_brown_vest','ot_thobe_mosque_scarf','ot_robe_green_vest_dark','ot_cloak_green','ot_robe_white_green_shawl','ot_robe_brown_gold_sash','ot_robe_green_sash','ot_robe_navy_crescent','ot_robe_green_gold_vest','ot_robe_white_crescent','ot_robe_navy_gold_sash','ot_robe_burgundy_gold','ot_robe_black_gold'];
+const NEW=['ot_thobe_burgundy','ot_thobe_black','ot_dress_pink_hijab','ot_eid_blue_vest','ot_robe_ramadan_lanterns','ot_thobe_white_turban','ot_dress_blue_hijab_shawl','ot_kaftan_fur_winter','ot_robe_purple_gold','ot_kaftan_iznik','ot_robe_green_turban','ot_dress_green_gold_hijab','ot_robe_starry_night','ot_kaftan_emerald_pearl_hijab','ot_kaftan_sultan','ot_robe_brown_tasbih','ot_thobe_kufi_knit','ot_thobe_brown_vest','ot_thobe_mosque_scarf','ot_robe_green_vest_dark','ot_cloak_green','ot_robe_white_green_shawl','ot_robe_brown_gold_sash','ot_robe_green_sash','ot_robe_navy_crescent','ot_robe_green_gold_vest','ot_robe_white_crescent','ot_robe_navy_gold_sash','ot_robe_burgundy_gold','ot_robe_black_gold'];
 const rar=c=>c<=60?'common':c<=110?'rare':c<=160?'epic':'legendary';
 for(const id of NEW){const it=cat.items.find(i=>i.id===id);assert.ok(it,'new outfit '+id);assert.deepEqual(Object.keys(it.art).sort(),[...A].sort(),id+' for every companion')}
 assert.deepEqual([...new Set(NEW.map(id=>rar(cat.items.find(i=>i.id===id).cost)))].sort(),['common','epic','legendary','rare'],'all four rarities');
@@ -50,6 +50,8 @@ for(const it of cat.items)assert.deepEqual(Object.keys(it.art).sort(),[...A].sor
  const shop=await page.evaluate(()=>document.querySelector('#marketScreen').innerHTML);
  for(const id of ['ot_robe_black_gold','ot_cloak_green','ot_robe_brown_tasbih'])assert.ok(shop.includes('owl/'+id+'.webp'),'shop shows '+id);
  assert.ok(!/ot_jacket_1\.webp|ot_thobe_kufi_bow\.webp/.test(shop),'old outfits not in the shop');
+ assert.ok(!/ot_robe_ramadan_lanterns|ot_eid_blue_vest/.test(shop),'seasonal outfits are not in the shop or chests');
+ assert.equal(cat.items.find(i=>i.id==='ot_robe_ramadan_lanterns').season,'ramadan');assert.equal(cat.items.find(i=>i.id==='ot_eid_blue_vest').season,'eid');
  assert.deepEqual(errors,[]);
  await browser.close();server.close();console.log('PASS: outfit catalogue and replacement of the old outfits');
 })().catch(e=>{console.error(e);process.exit(1)});

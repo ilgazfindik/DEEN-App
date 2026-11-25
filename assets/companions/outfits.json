@@ -872,6 +872,118 @@
     "turtle": "assets/companions/outfits/turtle/ot_kaftan_iznik.webp",
     "eagle": "assets/companions/outfits/eagle/ot_kaftan_iznik.webp"
    }
+  },
+  {
+   "id": "ot_thobe_burgundy",
+   "slot": "body",
+   "z": 10,
+   "cost": 60,
+   "full": true,
+   "name": {
+    "tr": "Bordo cübbe",
+    "en": "Burgundy thobe",
+    "de": "Bordeauxrotes Thobe",
+    "fr": "Thobe bordeaux",
+    "ar": "ثوب عنابي"
+   },
+   "art": {
+    "lion": "assets/companions/outfits/lion/ot_thobe_burgundy.webp",
+    "cat": "assets/companions/outfits/cat/ot_thobe_burgundy.webp",
+    "wolf": "assets/companions/outfits/wolf/ot_thobe_burgundy.webp",
+    "owl": "assets/companions/outfits/owl/ot_thobe_burgundy.webp",
+    "turtle": "assets/companions/outfits/turtle/ot_thobe_burgundy.webp",
+    "eagle": "assets/companions/outfits/eagle/ot_thobe_burgundy.webp"
+   }
+  },
+  {
+   "id": "ot_thobe_black",
+   "slot": "body",
+   "z": 10,
+   "cost": 60,
+   "full": true,
+   "name": {
+    "tr": "Siyah cübbe",
+    "en": "Black thobe",
+    "de": "Schwarzes Thobe",
+    "fr": "Thobe noir",
+    "ar": "ثوب أسود"
+   },
+   "art": {
+    "lion": "assets/companions/outfits/lion/ot_thobe_black.webp",
+    "cat": "assets/companions/outfits/cat/ot_thobe_black.webp",
+    "wolf": "assets/companions/outfits/wolf/ot_thobe_black.webp",
+    "owl": "assets/companions/outfits/owl/ot_thobe_black.webp",
+    "turtle": "assets/companions/outfits/turtle/ot_thobe_black.webp",
+    "eagle": "assets/companions/outfits/eagle/ot_thobe_black.webp"
+   }
+  },
+  {
+   "id": "ot_dress_pink_hijab",
+   "slot": "body",
+   "z": 10,
+   "cost": 60,
+   "full": true,
+   "name": {
+    "tr": "Başörtülü pembe elbise",
+    "en": "Pink dress with headscarf",
+    "de": "Rosa Kleid mit Kopftuch",
+    "fr": "Robe rose avec foulard",
+    "ar": "فستان وردي مع حجاب"
+   },
+   "art": {
+    "lion": "assets/companions/outfits/lion/ot_dress_pink_hijab.webp",
+    "cat": "assets/companions/outfits/cat/ot_dress_pink_hijab.webp",
+    "wolf": "assets/companions/outfits/wolf/ot_dress_pink_hijab.webp",
+    "owl": "assets/companions/outfits/owl/ot_dress_pink_hijab.webp",
+    "turtle": "assets/companions/outfits/turtle/ot_dress_pink_hijab.webp",
+    "eagle": "assets/companions/outfits/eagle/ot_dress_pink_hijab.webp"
+   }
+  },
+  {
+   "id": "ot_eid_blue_vest",
+   "slot": "body",
+   "z": 10,
+   "cost": 100,
+   "full": true,
+   "name": {
+    "tr": "Bayramlık",
+    "en": "Eid outfit",
+    "de": "Festtagsoutfit zum Eid",
+    "fr": "Tenue de l’Aïd",
+    "ar": "ملابس العيد"
+   },
+   "art": {
+    "lion": "assets/companions/outfits/lion/ot_eid_blue_vest.webp",
+    "cat": "assets/companions/outfits/cat/ot_eid_blue_vest.webp",
+    "wolf": "assets/companions/outfits/wolf/ot_eid_blue_vest.webp",
+    "owl": "assets/companions/outfits/owl/ot_eid_blue_vest.webp",
+    "turtle": "assets/companions/outfits/turtle/ot_eid_blue_vest.webp",
+    "eagle": "assets/companions/outfits/eagle/ot_eid_blue_vest.webp"
+   },
+   "season": "eid"
+  },
+  {
+   "id": "ot_robe_ramadan_lanterns",
+   "slot": "body",
+   "z": 10,
+   "cost": 150,
+   "full": true,
+   "name": {
+    "tr": "Ramazan cübbesi",
+    "en": "Ramadan robe",
+    "de": "Ramadan-Gewand",
+    "fr": "Robe du Ramadan",
+    "ar": "ثوب رمضان"
+   },
+   "art": {
+    "lion": "assets/companions/outfits/lion/ot_robe_ramadan_lanterns.webp",
+    "cat": "assets/companions/outfits/cat/ot_robe_ramadan_lanterns.webp",
+    "wolf": "assets/companions/outfits/wolf/ot_robe_ramadan_lanterns.webp",
+    "owl": "assets/companions/outfits/owl/ot_robe_ramadan_lanterns.webp",
+    "turtle": "assets/companions/outfits/turtle/ot_robe_ramadan_lanterns.webp",
+    "eagle": "assets/companions/outfits/eagle/ot_robe_ramadan_lanterns.webp"
+   },
+   "season": "ramadan"
   }
  ],
  "groups": {
