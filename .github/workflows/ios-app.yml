@@ -82,6 +82,17 @@ jobs:
           grep -q 'CODE_SIGN_IDENTITY = Apple Distribution' <<<"$S"
           grep -q 'PROVISIONING_PROFILE_SPECIFIER = Ilnura App Store (CI)' <<<"$S"
           grep -q 'PRODUCT_BUNDLE_IDENTIFIER = com.ilgazfindik.ilnura' <<<"$S"
+          W=$(xcodebuild -project ios/App/App.xcodeproj -target IlnuraWidgetExtension -configuration Release -showBuildSettings 2>/dev/null)
+          grep -E '^ *(CODE_SIGN_IDENTITY|CODE_SIGN_STYLE|PROVISIONING_PROFILE_SPECIFIER|PRODUCT_BUNDLE_IDENTIFIER) =' <<<"$W" | sort -u
+          grep -q 'PROVISIONING_PROFILE_SPECIFIER = Ilnura Widget App Store (CI)' <<<"$W"
+          grep -q 'PRODUCT_BUNDLE_IDENTIFIER = com.ilgazfindik.ilnura.widget' <<<"$W"
+          grep -q 'CODE_SIGN_IDENTITY = Apple Distribution' <<<"$W"
+      - name: The widget extension is built and embedded in the app
+        run: |
+          APP=$(find ~/Library/Developer/Xcode/DerivedData -maxdepth 6 -path '*Debug-iphonesimulator/App.app' | head -1)
+          ls "$APP/PlugIns"
+          test -f "$APP/PlugIns/IlnuraWidgetExtension.appex/Info.plist"
+          plutil -extract NSExtension.NSExtensionPointIdentifier raw "$APP/PlugIns/IlnuraWidgetExtension.appex/Info.plist" | grep -q com.apple.widgetkit-extension
 
   testflight:
     if: github.event_name == 'workflow_dispatch' && inputs.upload
@@ -99,6 +110,8 @@ jobs:
       ASC_API_KEY_P8: ${{ secrets.APPSTORE_API_KEY_P8 }}
       BUNDLE_ID: com.ilgazfindik.ilnura
       PROFILE_NAME: Ilnura App Store (CI)
+      WIDGET_BUNDLE_ID: com.ilgazfindik.ilnura.widget
+      WIDGET_PROFILE_NAME: Ilnura Widget App Store (CI)
     steps:
       - name: Check the secrets are set
         run: |
@@ -123,6 +136,7 @@ jobs:
         run: |
           node scripts/ios-signing.mjs setup --out "$SIGN_DIR"
           PROFILE_UUID=$(node -p "require('$SIGN_DIR/info.json').profileUuid")
+          WIDGET_UUID=$(node -p "require('$SIGN_DIR/info.json').widget.profileUuid")
           KC="$RUNNER_TEMP/ilnura-signing.keychain-db"
           KCP=$(openssl rand -hex 16); echo "::add-mask::$KCP"
           security create-keychain -p "$KCP" "$KC"
@@ -133,6 +147,7 @@ jobs:
           security list-keychains -d user -s "$KC" login.keychain-db
           for d in "$HOME/Library/MobileDevice/Provisioning Profiles" "$HOME/Library/Developer/Xcode/UserData/Provisioning Profiles"; do
             mkdir -p "$d"; cp "$SIGN_DIR/AppStore.mobileprovision" "$d/$PROFILE_UUID.mobileprovision"
+            cp "$SIGN_DIR/Widget.mobileprovision" "$d/$WIDGET_UUID.mobileprovision"
           done
           echo "KC=$KC" >> "$GITHUB_ENV"
           echo "Signing identities in the build keychain:"
@@ -159,7 +174,7 @@ jobs:
             <key>teamID</key><string>$TEAM_ID</string>
             <key>signingStyle</key><string>manual</string>
             <key>signingCertificate</key><string>Apple Distribution</string>
-            <key>provisioningProfiles</key><dict><key>$BUNDLE_ID</key><string>$PROFILE_NAME</string></dict>
+            <key>provisioningProfiles</key><dict><key>$BUNDLE_ID</key><string>$PROFILE_NAME</string><key>$WIDGET_BUNDLE_ID</key><string>$WIDGET_PROFILE_NAME</string></dict>
             <key>uploadSymbols</key><true/>
           </dict></plist>
           PLIST

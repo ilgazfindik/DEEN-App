@@ -49,7 +49,12 @@ const server = http.createServer((req, res) => {
     }
     if (req.method === 'POST' && url === '/v1/profiles') {
       const d = entry.body.data;
-      assert.equal(d.attributes.profileType, 'IOS_APP_STORE', 'an App Store profile'); assert.equal(d.attributes.name, PROFILE_NAME);
+      assert.equal(d.attributes.profileType, 'IOS_APP_STORE', 'an App Store profile');
+      if (d.attributes.name !== PROFILE_NAME) {
+        assert.equal(d.attributes.name, 'Ilnura Widget App Store (CI)'); assert.equal(d.relationships.bundleId.data.id, 'BUNDLE2', 'the widget profile is for the widget bundle id');
+        assert.deepEqual(d.relationships.certificates.data, [{ type: 'certificates', id: 'CERT1' }]);
+        return send(201, { data: { id: 'PROFILE2', attributes: { uuid: 'uuid-widget', profileContent: Buffer.from('MOCK-WIDGET').toString('base64') } } });
+      }
       assert.equal(d.relationships.devices, undefined, 'no devices are involved');
       assert.deepEqual(d.relationships.certificates.data, [{ type: 'certificates', id: 'CERT1' }]);
       return send(201, { data: { id: 'PROFILE1', attributes: { uuid: 'uuid-1234', profileContent: Buffer.from('MOCK-PROFILE').toString('base64') } } });
@@ -102,6 +107,18 @@ try {
   // 5. a certificate that was issued but whose profile step failed is still revoked: state.json exists right after the certificate
   // (checked through the mock failing the profile call)
   // -> covered by cleanup reading state.json written before the profile request
+
+  // 5b. with a widget extension: its bundle id is registered, its own profile signed by the same certificate, cleanup removes it too
+  process.env.WIDGET_BUNDLE_ID = 'com.ilgazfindik.ilnura.widget'; log = [];
+  const out4 = path.join(tmp, 'run4');
+  const winfo = await setup(creds(out4));
+  assert.deepEqual(winfo.widget, { profileName: 'Ilnura Widget App Store (CI)', profileUuid: 'uuid-widget', bundleId: 'com.ilgazfindik.ilnura.widget' });
+  assert.equal(fs.readFileSync(path.join(out4, 'Widget.mobileprovision'), 'utf8'), 'MOCK-WIDGET');
+  assert.ok(log.some((l) => l.method === 'POST' && l.url === '/v1/bundleIds' && l.body.data.attributes.identifier === 'com.ilgazfindik.ilnura.widget'));
+  assert.deepEqual(JSON.parse(fs.readFileSync(path.join(out4, 'state.json'), 'utf8')), { certId: 'CERT1', profileId: 'PROFILE1', widgetProfileId: 'PROFILE2' });
+  log = []; await cleanup(creds(out4));
+  assert.deepEqual(log.map((l) => `${l.method} ${l.url}`), ['DELETE /v1/profiles/PROFILE2', 'DELETE /v1/profiles/PROFILE1', 'DELETE /v1/certificates/CERT1']);
+  delete process.env.WIDGET_BUNDLE_ID;
 
   // 6. no secret reaches the output
   const all = printed.join('\n');
