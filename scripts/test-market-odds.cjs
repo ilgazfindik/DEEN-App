@@ -19,6 +19,8 @@ const server=http.createServer((req,res)=>{let p=path.join(root,decodeURICompone
  const sim=await page.evaluate(async()=>{
   await new Promise(r=>{const t=setInterval(()=>{if(DEEN_MARKET.chests)clearInterval(t),r()},50)});
   await fetch('assets/companions/outfits.json');await new Promise(r=>setTimeout(r,500));
+  // A seeded generator: the shares are compared with the published chances on the same sample every run (no random misses).
+  const realRandom=Math.random;let seed=0x9e3779b9;Math.random=()=>{seed|=0;seed=seed+0x6D2B79F5|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};
   const out={};const R=['common','rare','epic','legendary'];
   for(const c of DEEN_MARKET.chests){const n={common:0,rare:0,epic:0,legendary:0};let items=0,guarOk=true;
    for(let k=0;k<20000;k++){state.marketMeta.pity={epic:0,legendary:0};const rw=DEEN_MARKET.roll(c).filter(x=>x.kind==='outfit');items+=rw.length;rw.forEach(x=>n[x.r]++);
@@ -26,7 +28,7 @@ const server=http.createServer((req,res)=>{let p=path.join(root,decodeURICompone
    out[c.r]={share:R.map(r=>+(n[r]/items*100).toFixed(2)),odds:c.odds,guarOk}}
   state.marketMeta.pity={epic:7,legendary:0};const pe=DEEN_MARKET.roll(DEEN_MARKET.chests[0]).filter(x=>x.kind==='outfit').map(x=>x.r);
   state.marketMeta.pity={epic:0,legendary:39};const pl=DEEN_MARKET.roll(DEEN_MARKET.chests[0]).filter(x=>x.kind==='outfit').map(x=>x.r);
-  state.marketMeta.pity={epic:0,legendary:0};
+  state.marketMeta.pity={epic:0,legendary:0};Math.random=realRandom;
   return {out,pe,pl,rule:DEEN_MARKET.pityRule}});
  for(const [r,v] of Object.entries(sim.out)){
   if(!v.guarOk)assert.fail(r+': guarantee broken');
