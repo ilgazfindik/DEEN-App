@@ -17,6 +17,12 @@
 		50B271D11FEDC1A000F3C39B /* public in Resources */ = {isa = PBXBuildFile; fileRef = 50B271D01FEDC1A000F3C39B /* public */; };
 		9582B6832FE993A70072D4E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9582B6822FE993A50072D4E8 /* SceneDelegate.swift */; };
 		9582B6862FE993B10072D4E8 /* NativeTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9582B6852FE993B10072D4E8 /* NativeTabBar.swift */; };
+		A1D0E5012FF0000000000000 /* WidgetBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D0E5002FF0000000000000 /* WidgetBridge.swift */; };
+		A1D0E5032FF0000000000000 /* WidgetStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D0E5022FF0000000000000 /* WidgetStore.swift */; };
+		A1D0E5042FF0000000000000 /* WidgetStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D0E5022FF0000000000000 /* WidgetStore.swift */; };
+		A1D0E5062FF0000000000000 /* IlnuraWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D0E5052FF0000000000000 /* IlnuraWidget.swift */; };
+		A1D0E5112FF0000000000000 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1D0E5102FF0000000000000 /* Assets.xcassets */; };
+		A1D0E5132FF0000000000000 /* IlnuraWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A1D0E5122FF0000000000000 /* IlnuraWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,7 +38,39 @@
 		9582B6822FE993A50072D4E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		9582B6852FE993B10072D4E8 /* NativeTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeTabBar.swift; sourceTree = "<group>"; };
 		958DCC722DB07C7200EA8C5F /* debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = debug.xcconfig; path = ../debug.xcconfig; sourceTree = SOURCE_ROOT; };
+		A1D0E5002FF0000000000000 /* WidgetBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBridge.swift; sourceTree = "<group>"; };
+		A1D0E5092FF0000000000000 /* App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = App.entitlements; sourceTree = "<group>"; };
+		A1D0E5022FF0000000000000 /* WidgetStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetStore.swift; sourceTree = "<group>"; };
+		A1D0E5052FF0000000000000 /* IlnuraWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IlnuraWidget.swift; sourceTree = "<group>"; };
+		A1D0E5072FF0000000000000 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1D0E5082FF0000000000000 /* IlnuraWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IlnuraWidget.entitlements; sourceTree = "<group>"; };
+		A1D0E5102FF0000000000000 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A1D0E5122FF0000000000000 /* IlnuraWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = IlnuraWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXContainerItemProxy section */
+		A1D0E5212FF0000000000000 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 504EC2FC1FED79650016851F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A1D0E5162FF0000000000000;
+			remoteInfo = IlnuraWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A1D0E5202FF0000000000000 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A1D0E5132FF0000000000000 /* IlnuraWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		504EC3011FED79650016851F /* Frameworks */ = {
@@ -40,6 +78,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D22ABE92AF431CB00220026 /* CapApp-SPM in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1D0E5182FF0000000000000 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,6 +96,8 @@
 			children = (
 				958DCC722DB07C7200EA8C5F /* debug.xcconfig */,
 				504EC3061FED79650016851F /* App */,
+				A1D0E5152FF0000000000000 /* Shared */,
+				A1D0E5142FF0000000000000 /* IlnuraWidget */,
 				504EC3051FED79650016851F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -59,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				504EC3041FED79650016851F /* App.app */,
+				A1D0E5122FF0000000000000 /* IlnuraWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -68,6 +116,8 @@
 			children = (
 				9582B6822FE993A50072D4E8 /* SceneDelegate.swift */,
 				9582B6852FE993B10072D4E8 /* NativeTabBar.swift */,
+				A1D0E5002FF0000000000000 /* WidgetBridge.swift */,
+				A1D0E5092FF0000000000000 /* App.entitlements */,
 				50379B222058CBB4000EE86E /* capacitor.config.json */,
 				504EC3071FED79650016851F /* AppDelegate.swift */,
 				504EC30B1FED79650016851F /* Main.storyboard */,
@@ -80,6 +130,25 @@
 			path = App;
 			sourceTree = "<group>";
 		};
+		A1D0E5152FF0000000000000 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				A1D0E5022FF0000000000000 /* WidgetStore.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		A1D0E5142FF0000000000000 /* IlnuraWidget */ = {
+			isa = PBXGroup;
+			children = (
+				A1D0E5052FF0000000000000 /* IlnuraWidget.swift */,
+				A1D0E5102FF0000000000000 /* Assets.xcassets */,
+				A1D0E5072FF0000000000000 /* Info.plist */,
+				A1D0E5082FF0000000000000 /* IlnuraWidget.entitlements */,
+			);
+			path = IlnuraWidget;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -90,10 +159,12 @@
 				504EC3001FED79650016851F /* Sources */,
 				504EC3011FED79650016851F /* Frameworks */,
 				504EC3021FED79650016851F /* Resources */,
+				A1D0E5202FF0000000000000 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A1D0E5222FF0000000000000 /* PBXTargetDependency */,
 			);
 			name = App;
 			packageProductDependencies = (
@@ -102,6 +173,23 @@
 			productName = App;
 			productReference = 504EC3041FED79650016851F /* App.app */;
 			productType = "com.apple.product-type.application";
+		};
+		A1D0E5162FF0000000000000 /* IlnuraWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1D0E5232FF0000000000000 /* Build configuration list for PBXNativeTarget "IlnuraWidgetExtension" */;
+			buildPhases = (
+				A1D0E5172FF0000000000000 /* Sources */,
+				A1D0E5182FF0000000000000 /* Frameworks */,
+				A1D0E5192FF0000000000000 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IlnuraWidgetExtension;
+			productName = IlnuraWidgetExtension;
+			productReference = A1D0E5122FF0000000000000 /* IlnuraWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -116,6 +204,9 @@
 						CreatedOnToolsVersion = 9.2;
 						LastSwiftMigration = 1100;
 						ProvisioningStyle = Automatic;
+					};
+					A1D0E5162FF0000000000000 = {
+						CreatedOnToolsVersion = 16.0;
 					};
 				};
 			};
@@ -136,6 +227,7 @@
 			projectRoot = "";
 			targets = (
 				504EC3031FED79650016851F /* App */,
+				A1D0E5162FF0000000000000 /* IlnuraWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -154,6 +246,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A1D0E5192FF0000000000000 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1D0E5112FF0000000000000 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -164,10 +264,29 @@
 				504EC3081FED79650016851F /* AppDelegate.swift in Sources */,
 				9582B6832FE993A70072D4E8 /* SceneDelegate.swift in Sources */,
 				9582B6862FE993B10072D4E8 /* NativeTabBar.swift in Sources */,
+				A1D0E5012FF0000000000000 /* WidgetBridge.swift in Sources */,
+				A1D0E5032FF0000000000000 /* WidgetStore.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1D0E5172FF0000000000000 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1D0E5062FF0000000000000 /* IlnuraWidget.swift in Sources */,
+				A1D0E5042FF0000000000000 /* WidgetStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A1D0E5222FF0000000000000 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A1D0E5162FF0000000000000 /* IlnuraWidgetExtension */;
+			targetProxy = A1D0E5212FF0000000000000 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		504EC30B1FED79650016851F /* Main.storyboard */ = {
@@ -303,6 +422,7 @@
 			baseConfigurationReference = 958DCC722DB07C7200EA8C5F /* debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = App/App.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = App/Info.plist;
@@ -325,6 +445,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = App/App.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Distribution";
 				CODE_SIGN_STYLE = Manual;
@@ -345,6 +466,55 @@
 			};
 			name = Release;
 		};
+		A1D0E5242FF0000000000000 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = IlnuraWidget/IlnuraWidget.entitlements;
+				CURRENT_PROJECT_VERSION = 1;
+				INFOPLIST_FILE = IlnuraWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ilgazfindik.ilnura.widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+			};
+			name = Debug;
+		};
+		A1D0E5252FF0000000000000 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_ENTITLEMENTS = IlnuraWidget/IlnuraWidget.entitlements;
+				CURRENT_PROJECT_VERSION = 1;
+				INFOPLIST_FILE = IlnuraWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ilgazfindik.ilnura.widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				PROVISIONING_PROFILE_SPECIFIER = "Ilnura Widget App Store (CI)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -362,6 +532,15 @@
 			buildConfigurations = (
 				504EC3171FED79650016851F /* Debug */,
 				504EC3181FED79650016851F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1D0E5232FF0000000000000 /* Build configuration list for PBXNativeTarget "IlnuraWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1D0E5242FF0000000000000 /* Debug */,
+				A1D0E5252FF0000000000000 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

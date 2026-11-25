@@ -212,3 +212,40 @@
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});else install();
  window.DEEN_NOTIFY=Object.freeze({version:'notify-1',plan,usualTime,cfg,reschedule,enable,disable,setHour,set,permission,maybeAsk,last:()=>lastPlan.slice(),supported:()=>!!plugin()});
 })();
+/* Home and lock screen widgets (iPhone app): the progress they show is handed to the native side (WidgetBridge →
+   the widget extension) whenever the app starts, goes to the background or finishes a lesson. Only a changed snapshot
+   redraws the widgets. */
+(()=>{
+ 'use strict';
+ if(window.DEEN_WIDGET)return;
+ const native=()=>{try{const C=window.Capacitor;return !!(C&&C.isNativePlatform&&C.isNativePlatform())}catch(_){return false}};
+ const plugin=()=>{try{return native()&&window.DEEN_NATIVE_PLUGIN?window.DEEN_NATIVE_PLUGIN('DeenWidget'):null}catch(_){return null}};
+ const dkey=t=>{const d=new Date(t),p=n=>String(n).padStart(2,'0');return d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate())};
+ function snapshot(now){
+  let st=null;try{st=state}catch(_){}if(!st)return null;
+  now=now||Date.now();const today=dkey(now),m=st.streakMeta||{},hist=Array.isArray(st.history)?st.history:[];
+  const studied=[...new Set(hist.filter(h=>h&&Number(h.at)>now-15*864e5).map(h=>h.date||dkey(Number(h.at))))].sort().slice(-14);
+  let todayLessons=hist.filter(h=>h&&(h.date||dkey(Number(h.at)))===today&&!h.review).length;
+  try{if(typeof daily==='function'){const d=daily();if(d&&Number.isFinite(d.lessons))todayLessons=Math.max(todayLessons,d.lessons)}}catch(_){}
+  let lang='tr';try{lang=localStorage.getItem('deen_app_language_v1')||'tr'}catch(_){}
+  return {streak:Math.max(0,Number(m.currentStreak!=null?m.currentStreak:st.streak)||0),lastStudy:m.lastStudyDate||null,studied,
+   todayLessons,todayKey:today,goal:Math.max(1,Number(st.dailyGoal)||1),xp:Math.max(0,Number(st.xp)||0),
+   companion:String(st.profile&&st.profile.companion||'owl').replace(/[^a-z]/g,'')||'owl',lang:['tr','en','de','fr','ar'].includes(lang)?lang:'tr'};
+ }
+ let last='';
+ async function push(){
+  const p=plugin(),s=snapshot();if(!p||!s)return null;
+  const json=JSON.stringify(s);if(json===last)return {changed:false};
+  try{const r=await p.update({json});last=json;return r}catch(_){return null}
+ }
+ function install(){
+  if(!native())return;
+  document.addEventListener('visibilitychange',()=>{if(document.hidden)push()});
+  window.addEventListener('pagehide',()=>push());
+  const rv=document.getElementById('resultView');
+  if(rv)new MutationObserver(()=>{if(rv.classList.contains('show'))setTimeout(push,500)}).observe(rv,{attributes:true,attributeFilter:['class']});
+  setTimeout(push,2000);
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});else install();
+ window.DEEN_WIDGET=Object.freeze({version:'widget-1',snapshot,push});
+})();
