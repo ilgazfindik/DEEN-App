@@ -5,7 +5,7 @@
    - daily gift (the shop's free chest) in the morning;
    - energy full (when it will be 30/30);
    - weekly summary on Sunday evening.
-   Rules: at most 2 a day, nothing 22:00–08:00, and when the app is not opened the reminders thin out (days 3 and 5 only,
+   Rules: at most 2 a day at any hour of the day (no quiet hours), and when the app is not opened the reminders thin out (days 3 and 5 only,
    then one gentle note after a week and after two). Everything is planned from the app's own state each time it opens,
    goes to the background or finishes a lesson, so a lesson done today removes today's reminders. A soft question asks
    for permission after the second lesson (twice at most), and Settings has a Notifications group. A tap opens the
@@ -14,7 +14,7 @@
  'use strict';
  if(window.DEEN_NOTIFY)return;
  const KEY='deen_native_reminder',BASE=4000,SPAN=100,LEGACY=[3100,3101,3102,3103,3104,3105,3106,3107];
- const QUIET_FROM=22,QUIET_TO=8,RESCUE_H=21,GIFT_H=9,WEEKLY_H=19,WEEKLY_M=30,DAY=864e5;
+ const RESCUE_H=21,GIFT_H=9,WEEKLY_H=19,WEEKLY_M=30,DAY=864e5;
  const LANGS=['tr','en','de','fr','ar'];
  const lang=()=>{try{const l=localStorage.getItem('deen_app_language_v1');return LANGS.includes(l)?l:'tr'}catch(_){return 'tr'}};
  const app=()=>{try{return state||null}catch(_){return null}};
@@ -32,7 +32,7 @@
    weekly:[['Haftanın özeti 🌙','Bu hafta {d} gün çalıştın ve {x} XP kazandın. Harika gidiyorsun!']],
    weekly0:[['Yeni bir hafta 🌙','{a} seninle yeniden başlamak için hazır {e}']],
    miss:[['{a} seni bekliyor {e}','Kaldığın yerden devam etmek için bir dakikan yeter.']],
-   ui:{head:'BİLDİRİMLER',on:'Hatırlatmalar',time:'Hatırlatma saati',smart:'Akıllı saat (genelde çalıştığın saat)',types:'Ne zaman haber verelim?',daily:'Günlük hatırlatma',rescue:'Seri bitmek üzereyken',gift:'Günlük hediye hazır olunca',energy:'Enerjin dolunca',weekly:'Haftalık özet (Pazar)',denied:'Bildirim izni kapalı. iPhone Ayarları › Ilnura › Bildirimler’den açabilirsin.',note:'Günde en fazla 2 bildirim; 22:00–08:00 arası sessiz.',askT:'Seni hatırlatayım mı?',askB:'Her gün senin saatinde nazik bir hatırlatma, serin bitmek üzereyken de küçük bir haber. Günde en fazla 2 bildirim.',yes:'Evet, hatırlat',later:'Şimdi değil'}},
+   ui:{head:'BİLDİRİMLER',on:'Hatırlatmalar',time:'Hatırlatma saati',smart:'Akıllı saat (genelde çalıştığın saat)',types:'Ne zaman haber verelim?',daily:'Günlük hatırlatma',rescue:'Seri bitmek üzereyken',gift:'Günlük hediye hazır olunca',energy:'Enerjin dolunca',weekly:'Haftalık özet (Pazar)',denied:'Bildirim izni kapalı. iPhone Ayarları › Ilnura › Bildirimler’den açabilirsin.',note:'Günde en fazla 2 bildirim.',askT:'Seni hatırlatayım mı?',askB:'Her gün senin saatinde nazik bir hatırlatma, serin bitmek üzereyken de küçük bir haber. Günde en fazla 2 bildirim.',yes:'Evet, hatırlat',later:'Şimdi değil'}},
   en:{daily:[['{a} is waiting for you {e}','Today’s mini lesson takes just a few minutes.'],['Time for a small step {e}','{a} has today’s lesson ready.'],['What shall we learn today? {e}','One mini lesson makes the day better.']],
    rescue:[['Your {n}-day streak ends tonight 🔥','One mini lesson keeps it going. {a} is with you!']],
    gift:[['Your daily gift is ready 🎁','Today’s free chest is waiting in the shop.']],
@@ -40,7 +40,7 @@
    weekly:[['Your week 🌙','You studied on {d} days this week and earned {x} XP. Great going!']],
    weekly0:[['A new week 🌙','{a} is ready to start again with you {e}']],
    miss:[['{a} is waiting for you {e}','One minute is enough to pick up where you left off.']],
-   ui:{head:'NOTIFICATIONS',on:'Reminders',time:'Reminder time',smart:'Smart time (when you usually study)',types:'When should we let you know?',daily:'Daily reminder',rescue:'When a streak is about to end',gift:'When the daily gift is ready',energy:'When your energy is full',weekly:'Weekly summary (Sunday)',denied:'Notifications are off. Turn them on in iPhone Settings › Ilnura › Notifications.',note:'At most 2 a day; quiet from 22:00 to 08:00.',askT:'Shall I remind you?',askB:'A gentle reminder at your time each day, and a heads-up when your streak is about to end. At most 2 a day.',yes:'Yes, remind me',later:'Not now'}},
+   ui:{head:'NOTIFICATIONS',on:'Reminders',time:'Reminder time',smart:'Smart time (when you usually study)',types:'When should we let you know?',daily:'Daily reminder',rescue:'When a streak is about to end',gift:'When the daily gift is ready',energy:'When your energy is full',weekly:'Weekly summary (Sunday)',denied:'Notifications are off. Turn them on in iPhone Settings › Ilnura › Notifications.',note:'At most 2 a day.',askT:'Shall I remind you?',askB:'A gentle reminder at your time each day, and a heads-up when your streak is about to end. At most 2 a day.',yes:'Yes, remind me',later:'Not now'}},
   de:{daily:[['{a} wartet auf dich {e}','Deine Mini-Lektion für heute dauert nur ein paar Minuten.'],['Zeit für einen kleinen Schritt {e}','{a} hat deine heutige Lektion bereit.'],['Was lernen wir heute? {e}','Eine Mini-Lektion macht den Tag schöner.']],
    rescue:[['Deine {n}-Tage-Serie endet heute Nacht 🔥','Eine Mini-Lektion rettet sie. {a} ist bei dir!']],
    gift:[['Dein Tagesgeschenk ist bereit 🎁','Deine kostenlose Truhe wartet im Shop.']],
@@ -48,7 +48,7 @@
    weekly:[['Deine Woche 🌙','Du hast diese Woche an {d} Tagen gelernt und {x} XP gesammelt. Super!']],
    weekly0:[['Eine neue Woche 🌙','{a} ist bereit, mit dir neu zu starten {e}']],
    miss:[['{a} wartet auf dich {e}','Eine Minute reicht, um weiterzumachen.']],
-   ui:{head:'BENACHRICHTIGUNGEN',on:'Erinnerungen',time:'Uhrzeit',smart:'Schlaue Uhrzeit (wann du meist lernst)',types:'Wann sollen wir uns melden?',daily:'Tägliche Erinnerung',rescue:'Wenn die Serie bald endet',gift:'Wenn das Tagesgeschenk bereit ist',energy:'Wenn die Energie voll ist',weekly:'Wochenrückblick (Sonntag)',denied:'Benachrichtigungen sind aus. Schalte sie in den iPhone-Einstellungen › Ilnura › Mitteilungen ein.',note:'Höchstens 2 pro Tag; Ruhe von 22:00 bis 08:00.',askT:'Soll ich dich erinnern?',askB:'Jeden Tag eine sanfte Erinnerung zu deiner Zeit und ein Hinweis, wenn deine Serie bald endet. Höchstens 2 pro Tag.',yes:'Ja, erinnern',later:'Jetzt nicht'}},
+   ui:{head:'BENACHRICHTIGUNGEN',on:'Erinnerungen',time:'Uhrzeit',smart:'Schlaue Uhrzeit (wann du meist lernst)',types:'Wann sollen wir uns melden?',daily:'Tägliche Erinnerung',rescue:'Wenn die Serie bald endet',gift:'Wenn das Tagesgeschenk bereit ist',energy:'Wenn die Energie voll ist',weekly:'Wochenrückblick (Sonntag)',denied:'Benachrichtigungen sind aus. Schalte sie in den iPhone-Einstellungen › Ilnura › Mitteilungen ein.',note:'Höchstens 2 pro Tag.',askT:'Soll ich dich erinnern?',askB:'Jeden Tag eine sanfte Erinnerung zu deiner Zeit und ein Hinweis, wenn deine Serie bald endet. Höchstens 2 pro Tag.',yes:'Ja, erinnern',later:'Jetzt nicht'}},
   fr:{daily:[['{a} t’attend {e}','Ta mini-leçon du jour ne prend que quelques minutes.'],['C’est l’heure d’un petit pas {e}','{a} a préparé ta leçon du jour.'],['On apprend quoi aujourd’hui ? {e}','Une mini-leçon rend la journée plus belle.']],
    rescue:[['Ta série de {n} jours se termine ce soir 🔥','Une mini-leçon suffit à la garder. {a} est avec toi !']],
    gift:[['Ton cadeau du jour est prêt 🎁','Ton coffre gratuit t’attend dans la boutique.']],
@@ -56,7 +56,7 @@
    weekly:[['Ta semaine 🌙','Tu as appris {d} jours cette semaine et gagné {x} XP. Bravo !']],
    weekly0:[['Une nouvelle semaine 🌙','{a} est prêt à recommencer avec toi {e}']],
    miss:[['{a} t’attend {e}','Une minute suffit pour reprendre.']],
-   ui:{head:'NOTIFICATIONS',on:'Rappels',time:'Heure du rappel',smart:'Heure intelligente (quand tu apprends d’habitude)',types:'Quand te prévenir ?',daily:'Rappel quotidien',rescue:'Quand une série va se terminer',gift:'Quand le cadeau du jour est prêt',energy:'Quand ton énergie est pleine',weekly:'Bilan de la semaine (dimanche)',denied:'Les notifications sont désactivées. Active-les dans Réglages › Ilnura › Notifications.',note:'2 par jour au maximum ; silence de 22 h à 8 h.',askT:'Je te le rappelle ?',askB:'Un rappel doux chaque jour à ton heure, et un mot quand ta série va se terminer. 2 par jour au maximum.',yes:'Oui, rappelle-moi',later:'Pas maintenant'}},
+   ui:{head:'NOTIFICATIONS',on:'Rappels',time:'Heure du rappel',smart:'Heure intelligente (quand tu apprends d’habitude)',types:'Quand te prévenir ?',daily:'Rappel quotidien',rescue:'Quand une série va se terminer',gift:'Quand le cadeau du jour est prêt',energy:'Quand ton énergie est pleine',weekly:'Bilan de la semaine (dimanche)',denied:'Les notifications sont désactivées. Active-les dans Réglages › Ilnura › Notifications.',note:'2 par jour au maximum.',askT:'Je te le rappelle ?',askB:'Un rappel doux chaque jour à ton heure, et un mot quand ta série va se terminer. 2 par jour au maximum.',yes:'Oui, rappelle-moi',later:'Pas maintenant'}},
   ar:{daily:[['{a} ينتظرك {e}','درس اليوم القصير يستغرق دقائق قليلة فقط.'],['حان وقت خطوة صغيرة {e}','{a} جهّز لك درس اليوم.'],['ماذا نتعلّم اليوم؟ {e}','درس قصير واحد يجعل يومك أجمل.']],
    rescue:[['سلسلتك من {n} أيام تنتهي الليلة 🔥','درس قصير واحد يحافظ عليها. {a} معك!']],
    gift:[['هديتك اليومية جاهزة 🎁','صندوقك المجاني ينتظرك في المتجر.']],
@@ -64,7 +64,7 @@
    weekly:[['أسبوعك 🌙','تعلّمت هذا الأسبوع {d} أيام وكسبت {x} نقطة خبرة. رائع!']],
    weekly0:[['أسبوع جديد 🌙','{a} مستعد ليبدأ معك من جديد {e}']],
    miss:[['{a} ينتظرك {e}','دقيقة واحدة تكفي لتكمل.']],
-   ui:{head:'الإشعارات',on:'التذكيرات',time:'وقت التذكير',smart:'وقت ذكي (حين تتعلّم عادةً)',types:'متى نخبرك؟',daily:'تذكير يومي',rescue:'حين تقترب السلسلة من نهايتها',gift:'حين تجهز الهدية اليومية',energy:'حين تمتلئ الطاقة',weekly:'ملخص الأسبوع (الأحد)',denied:'الإشعارات مغلقة. فعّلها من إعدادات iPhone › Ilnura › الإشعارات.',note:'إشعاران في اليوم كحد أقصى؛ هدوء من 22:00 إلى 08:00.',askT:'هل أذكّرك؟',askB:'تذكير لطيف كل يوم في وقتك، وتنبيه صغير حين تقترب سلسلتك من نهايتها. إشعاران في اليوم كحد أقصى.',yes:'نعم، ذكّرني',later:'ليس الآن'}}
+   ui:{head:'الإشعارات',on:'التذكيرات',time:'وقت التذكير',smart:'وقت ذكي (حين تتعلّم عادةً)',types:'متى نخبرك؟',daily:'تذكير يومي',rescue:'حين تقترب السلسلة من نهايتها',gift:'حين تجهز الهدية اليومية',energy:'حين تمتلئ الطاقة',weekly:'ملخص الأسبوع (الأحد)',denied:'الإشعارات مغلقة. فعّلها من إعدادات iPhone › Ilnura › الإشعارات.',note:'إشعاران في اليوم كحد أقصى.',askT:'هل أذكّرك؟',askB:'تذكير لطيف كل يوم في وقتك، وتنبيه صغير حين تقترب سلسلتك من نهايتها. إشعاران في اليوم كحد أقصى.',yes:'نعم، ذكّرني',later:'ليس الآن'}}
  };
  const TYPES=['daily','rescue','gift','energy','weekly'];
  function cfg(){
@@ -75,13 +75,12 @@
  function save(c){ls.set(KEY,JSON.stringify(c))}
  const dkey=t=>{const d=new Date(t),p=n=>String(n).padStart(2,'0');return d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate())};
  const at=(base,days,h,m)=>{const d=new Date(base);return new Date(d.getFullYear(),d.getMonth(),d.getDate()+days,h,m||0,0,0).getTime()};
- const quiet=t=>{const h=new Date(t).getHours();return h>=QUIET_FROM||h<QUIET_TO};
  // The learner's usual study time: the median start of the lessons of the last 14 days (3 at least), on the half hour.
  function usualTime(st,now){
   const h=(st&&Array.isArray(st.history)?st.history:[]).filter(x=>x&&Number(x.at)>now-14*DAY&&Number(x.at)<=now).map(x=>{const d=new Date(Number(x.at));return d.getHours()+d.getMinutes()/60}).sort((a,b)=>a-b);
   if(h.length<3)return null;
   const mid=h[Math.floor(h.length/2)],r=Math.round(mid*2)/2;
-  const v=Math.max(QUIET_TO,Math.min(QUIET_FROM-1,r));return {h:Math.floor(v),m:v%1?30:0};
+  const v=r%24;return {h:Math.floor(v),m:v%1?30:0};
  }
  function liveStreak(st,today){
   const m=st&&st.streakMeta||{},n=Number(m.currentStreak!=null?m.currentStreak:st&&st.streak)||0,last=m.lastStudyDate;if(!n||!last)return 0;
@@ -101,7 +100,7 @@
   const ws=weekStats(st,now);vars.d=ws.d;vars.x=ws.x;const giftToday=!!(st&&st.marketMeta&&st.marketMeta.gift===today),out=[];
   const pick=(list,i)=>list[((i%list.length)+list.length)%list.length];
   for(let d=0;d<14;d++){
-   const day=[],add=(kind,t,msg,extra)=>{if(t<=now+60000||quiet(t))return;day.push({kind,at:t,title:fill(msg[0],vars),body:fill(msg[1],vars),extra})};
+   const day=[],add=(kind,t,msg,extra)=>{if(t<=now+60000)return;day.push({kind,at:t,title:fill(msg[0],vars),body:fill(msg[1],vars),extra})};
    const away=d>=3; // the app has not been opened since: thin out
    if(away){
     if(d===3||d===5){if(c.types.daily)add('daily',at(now,d,H,Mi),pick(L.daily,d),{screen:'learnScreen'})}
@@ -118,10 +117,9 @@
    const rank={rescue:0,daily:1,miss:1,gift:2,weekly:3};
    day.sort((x,y)=>rank[x.kind]-rank[y.kind]).slice(0,2).forEach(x=>out.push(x));
   }
-  // energy full: once, within two days, outside quiet hours, on a day that still has room
+  // energy full: once, within two days, on a day that still has room
   if(c.types.energy&&st&&!st.premium&&Number(st.energy)<30){
    const last=Number.isFinite(st.lastEnergyAt)?st.lastEnergyAt:now;let t=last+(30-Number(st.energy))*300000;
-   if(quiet(t)){const d=new Date(t);t=new Date(d.getFullYear(),d.getMonth(),d.getDate()+(d.getHours()>=QUIET_FROM?1:0),QUIET_TO,0,0,0).getTime()}
    if(t>now+15*60000&&t<now+2*DAY&&out.filter(x=>dkey(x.at)===dkey(t)).length<2)out.push({kind:'energy',at:t,title:fill(L.energy[0][0],vars),body:fill(L.energy[0][1],vars),extra:{screen:'learnScreen'}});
   }
   return out.sort((x,y)=>x.at-y.at).map((x,i)=>({...x,id:BASE+i}));
@@ -180,7 +178,7 @@
   const body=document.getElementById('v5SheetBody');if(!body||!plugin()||body.querySelector('.ds-ntf-settings'))return;
   const L=(M[lang()]||M.tr).ui,c=cfg();
   const g=document.createElement('div');g.className='v690-setting-group ds-ntf-settings';
-  const opts=Array.from({length:QUIET_FROM-QUIET_TO},(_,i)=>QUIET_TO+i).map(h=>'<option value="'+h+'"'+(h===c.hour?' selected':'')+'>'+String(h).padStart(2,'0')+':00</option>').join('');
+  const opts=Array.from({length:24},(_,h)=>h).map(h=>'<option value="'+h+'"'+(h===c.hour?' selected':'')+'>'+String(h).padStart(2,'0')+':00</option>').join('');
   g.innerHTML='<small>'+L.head+'</small><label class="v5-toggle"><span>'+L.on+'</span><input type="checkbox" data-n="on"'+(c.on?' checked':'')+'></label>'+
    '<p class="ds-ntf-msg" hidden></p><div class="ds-ntf-more"'+(c.on?'':' hidden')+'><label class="v5-toggle"><span>'+L.smart+'</span><input type="checkbox" data-n="smart"'+(c.smart?' checked':'')+'></label>'+
    '<label class="v5-toggle ds-ntf-time"><span>'+L.time+'</span><select data-n="hour" dir="ltr">'+opts+'</select></label><p class="ds-ntf-sub">'+L.types+'</p>'+

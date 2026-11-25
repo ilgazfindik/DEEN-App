@@ -36,10 +36,10 @@ const server=http.createServer((req,res)=>{let p=path.join(root,decodeURICompone
  assert.ok(__flat(await page.evaluate(()=>__ln.calls.filter(c=>c[0]==='cancel').map(c=>c[1]))).includes(3100),'old reminders cancelled');
  assert.ok(daily(s).length>=3,'daily reminders, got '+daily(s).length);
  assert.ok(daily(s).every(n=>n.h===19),'all at 19:00');assert.equal(new Set(s.map(n=>n.id)).size,s.length,'unique ids');
- assert.ok(s.every(n=>n.h>=8&&n.h<22),'nothing in quiet hours');assert.ok(s.some(n=>/Baykuş/.test(n.title+n.body)),'in the companion’s voice');
+ assert.ok(s.some(n=>/Baykuş/.test(n.title+n.body)),'in the companion’s voice');
  assert.equal(await page.locator('[data-acc=remOff]').count(),1,'switch shows "turn off"');
- // 3. change the hour: rescheduled; the hours offered are 08:00–21:00
- assert.deepEqual(await page.evaluate(()=>[...document.querySelector('[data-acc-hour]').options].map(o=>+o.value)),[8,9,10,11,12,13,14,15,16,17,18,19,20,21]);
+ // 3. change the hour: rescheduled; every hour of the day is offered
+ assert.deepEqual(await page.evaluate(()=>[...document.querySelector('[data-acc-hour]').options].map(o=>+o.value)),Array.from({length:24},(_,h)=>h));
  await page.evaluate(()=>{window.__ln.calls.length=0});
  await page.selectOption('[data-acc-hour]','8');await page.waitForFunction(()=>__ln.calls.some(c=>c[0]==='schedule'),null,{timeout:5000});
  s=(await sched()).pop();assert.ok(daily(s).every(n=>n.h===8),'rescheduled at 08:00');

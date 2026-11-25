@@ -190,7 +190,7 @@
   const t=T();
   if(nat()&&NT()&&!rem.busy){const c=NT().cfg();rem.on=c.on;rem.hour=c.hour}
   if(!nat()&&!pushSupported())return '<hr class="dacc-hr"><h4 class="dacc-h">'+esc(t.remind)+'</h4><p class="dacc-small">'+esc(t.remUnsup)+'</p>';
-  const opts=(nat()?Array.from({length:14},(_,i)=>i+8):Array.from({length:24},(_,h)=>h)).map(h=>'<option value="'+h+'"'+(h===rem.hour?' selected':'')+'>'+pad2(h)+':00</option>').join('');
+  const opts=Array.from({length:24},(_,h)=>h).map(h=>'<option value="'+h+'"'+(h===rem.hour?' selected':'')+'>'+pad2(h)+':00</option>').join('');
   return '<hr class="dacc-hr"><h4 class="dacc-h">'+esc(t.remind)+'</h4><p class="dacc-small">'+esc(t.remindSub)+'</p>'+
    '<label class="dacc-row">'+esc(t.remAt)+' <select data-acc-hour dir="ltr"'+(rem.busy?' disabled':'')+'>'+opts+'</select></label>'+
    (rem.msg?'<p class="dacc-status" role="status" aria-live="polite">'+esc(rem.msg)+'</p>':'')+

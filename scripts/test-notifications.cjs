@@ -1,7 +1,7 @@
 /* Notifications (assets/design/notify.js) with a stand-in for Capacitor's native bridge (LocalNotifications through
    nativePromise/addListener, as in the real app):
    - the plan: daily reminder at the chosen or usual hour, streak rescue at 21:00, gift, energy full, weekly summary on Sunday;
-     at most 2 a day, nothing 22:00–08:00, thinning out on days the app is not opened, unique ids under iOS's 64 limit,
+     at most 2 a day at any hour (no quiet hours), thinning out on days the app is not opened, unique ids under iOS's 64 limit,
      nothing today once today's lesson is done, messages in the learner's language with the companion's name;
    - the native flow: the old 3100+ reminders are cancelled, the Settings toggle asks permission and schedules, a denied
      permission explains itself, the soft question after the second lesson, a tap opens its screen;
@@ -39,7 +39,6 @@ function seed(native,perm){
   const st=(o)=>Object.assign({profile:{companion:'cat'},energy:30,history:[],streakMeta:{currentStreak:5,lastStudyDate:'2026-11-22'},marketMeta:{}},o||{});
   const sum=l=>l.map(x=>{const d=new Date(x.at);return x.kind+'@'+d.getDate()+'T'+d.getHours()+':'+String(d.getMinutes()).padStart(2,'0')});
   const perDay=l=>{const m={};l.forEach(x=>{const k=new Date(x.at).toDateString();m[k]=(m[k]||0)+1});return Math.max(0,...Object.values(m))};
-  const quiet=l=>l.filter(x=>{const h=new Date(x.at).getHours();return h>=22||h<8}).length;
   const a=N.plan(now,st(),on(),'tr');
   const b=N.plan(now,st({streakMeta:{currentStreak:5,lastStudyDate:'2026-11-23'}}),on(),'tr');
   const c=N.plan(now,st({history:[0,1,2,3,4].map(i=>({at:new Date(2026,10,18+i,7,10).getTime(),xp:20}))}),on({smart:true}),'en');
@@ -48,13 +47,13 @@ function seed(native,perm){
   const f=N.plan(now,st(),on({on:false}),'tr');
   const g=N.plan(now,st({history:[{at:now-D,xp:40},{at:now-2*D,xp:30}]}),on(),'de');
   const off=N.plan(now,st(),on({types:{daily:false,rescue:true,gift:false,energy:true,weekly:false}}),'tr');
-  return {a:sum(a),aIds:a.map(x=>x.id),aMax:perDay(a),aQuiet:quiet(a),aLen:a.length,aRescue:a.find(x=>x.kind==='rescue'),aDaily:a.find(x=>x.kind==='daily'),aGift:a.find(x=>x.kind==='gift'),
+  return {a:sum(a),aIds:a.map(x=>x.id),aMax:perDay(a),late:sum(N.plan(now,st(),on({hour:23}),'tr')).filter(x=>x.startsWith('daily@23T')),early:sum(N.plan(now,st(),on({hour:6}),'tr')).filter(x=>x.startsWith('daily@24T')),aLen:a.length,aRescue:a.find(x=>x.kind==='rescue'),aDaily:a.find(x=>x.kind==='daily'),aGift:a.find(x=>x.kind==='gift'),
    b:sum(b),c:sum(c).slice(0,3),cTitle:c[0]&&c[0].title,d:sum(d).filter(x=>x.startsWith('energy')),d2:sum(d2).filter(x=>x.startsWith('energy')),e:sum(e).filter(x=>x.endsWith('T20:00')||x.includes('@23T')),f:f.length,gWeekly:g.find(x=>x.kind==='weekly'),off:[...new Set(off.map(x=>x.kind))]};
  });
  // Monday 23rd, not studied yet, 5-day streak: today 19:00 daily + 21:00 rescue (the gift at 09:00 has passed).
  assert.deepEqual(r.a.filter(x=>x.includes('@23T')),['daily@23T19:00','rescue@23T21:00'],'today: daily and rescue');
  assert.deepEqual(r.a.filter(x=>x.includes('@24T')),['gift@24T9:00','daily@24T19:00'],'tomorrow: gift and daily');
- assert.equal(r.aMax,2,'at most 2 a day');assert.equal(r.aQuiet,0,'nothing in quiet hours');assert.ok(r.aLen<=64,'under the iOS limit');
+ assert.equal(r.aMax,2,'at most 2 a day');assert.deepEqual(r.late,['daily@23T23:00'],'a late hour is kept (23:00)');assert.deepEqual(r.early,['daily@24T6:00'],'an early hour is kept (06:00)');assert.ok(r.aLen<=64,'under the iOS limit');
  assert.equal(new Set(r.aIds).size,r.aIds.length,'unique ids');assert.ok(r.aIds.every(i=>i>=4000&&i<4100),'ids 4000+');
  // Away days (not opened since): 26th (day 3) and 28th (day 5) daily, 30th (day 7) and 6 Dec (day 13) a gentle note,
  // Sunday 29th the weekly summary; 27th and 1–5 Dec silent.
@@ -64,8 +63,8 @@ function seed(native,perm){
  assert.deepEqual(r.aDaily.extra,{screen:'learnScreen'});assert.deepEqual(r.aGift.extra,{screen:'marketScreen'},'gift opens the shop');
  // Studied today: nothing more today, the rescue moves to tomorrow night.
  assert.equal(r.b.filter(x=>x.includes('@23T')).length,0,'nothing today after today’s lesson');assert.ok(r.b.includes('rescue@24T21:00'),'tomorrow’s rescue');
- // Smart time: lessons around 07:10 → the earliest allowed time, 08:00; English text.
- assert.ok(r.c.some(x=>x.endsWith('T8:00')&&x.startsWith('daily')),'smart time clamped to 08:00: '+r.c);assert.match(r.cTitle,/Cat|streak|ready|step|learn/,'English text');
+ // Smart time: lessons around 07:10 → 07:00 (any hour is allowed); English text.
+ assert.ok(r.c.some(x=>x.endsWith('T7:00')&&x.startsWith('daily')),'smart time at 07:00: '+r.c);assert.match(r.cTitle,/Cat|streak|ready|step|learn/,'English text');
  // Energy 10/30 with the clock at now: full in 100 minutes.
  assert.deepEqual(r.d,['energy@23T11:40'],'energy full');assert.deepEqual(r.d2,[],'not on a day that already has 2');
  // A daily reminder close to the rescue is dropped (the rescue says it).
