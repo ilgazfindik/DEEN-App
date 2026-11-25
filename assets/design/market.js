@@ -209,7 +209,7 @@
  const today=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
  function mmeta(){const st=app();const m=st.marketMeta=st.marketMeta&&typeof st.marketMeta==='object'?st.marketMeta:{};if(!Array.isArray(m.history))m.history=[];return m}
  const giftClaimed=()=>{try{return mmeta().gift===today()}catch(_){return false}};
- function cmeta(){const st=app();const m=st.companionMeta=st.companionMeta&&typeof st.companionMeta==='object'?st.companionMeta:{};if(!Array.isArray(m.items))m.items=[];if(!Array.isArray(m.owned))m.owned=[];if(!Array.isArray(m.seen))m.seen=[];if(!m.eq||typeof m.eq!=='object')m.eq={};return m}
+ function cmeta(){const st=app();const m=st.companionMeta=st.companionMeta&&typeof st.companionMeta==='object'?st.companionMeta:{};if(!Array.isArray(m.items))m.items=[];if(!Array.isArray(m.owned))m.owned=[];if(!Array.isArray(m.seen))m.seen=[];if(!m.eq||typeof m.eq!=='object')m.eq={};try{window.DEEN_OUTFIT_MIGRATE&&window.DEEN_OUTFIT_MIGRATE(m)}catch(_){}return m}
  const rand=(a,b)=>a+Math.floor(Math.random()*(b-a+1));
  const pick=l=>l[Math.floor(Math.random()*l.length)];
  function pickRarity(odds){let x=Math.random()*odds.reduce((a,b)=>a+b,0);for(let i=0;i<RARITY.length;i++){x-=odds[i];if(x<0)return RARITY[i]}return RARITY[0]}

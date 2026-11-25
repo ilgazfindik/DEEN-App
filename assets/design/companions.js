@@ -139,6 +139,18 @@
  const lvl=()=>{try{return Math.max(1,Number(level(app().xp||0).n)||1)}catch(_){return 1}};
  function xpFor(n){let b=0,span=300;for(let k=2;k<=n;k++){b+=span;span=300+k*100-100+0}return b}
  function nextLock(){const l=lvl();return ORDER.filter(id=>LEVELS[id]>l&&!unlocked(id)).sort((a,b)=>LEVELS[a]-LEVELS[b])[0]||null}
+ /* Outfits taken out of the shop (blurry art) and the new outfit each owner gets in their place: what was owned, worn
+    or saved in a look moves to the new one, once. */
+ const REPLACED={"ot_thobe_kufi_vest_brown": "ot_thobe_brown_vest", "ot_thobe_kufi_scarf_brown": "ot_thobe_mosque_scarf", "ot_thobe_kufi_scarf_vest_brown": "ot_robe_white_green_shawl", "ot_thobe_kufi_glasses": "ot_robe_green_vest_dark", "ot_thobe_kufi_bow": "ot_cloak_green", "ot_jacket_1": "ot_robe_brown_gold_sash", "ot_jacket_2": "ot_robe_green_sash", "ot_vest_green_mosque": "ot_robe_green_gold_vest"};
+ function migrateOutfits(m){
+  if(!m||m.outfitMig>=1)return m;
+  const r=id=>REPLACED[id]||id;
+  if(Array.isArray(m.items))m.items=[...new Set(m.items.map(r))];
+  if(m.outfit&&typeof m.outfit==='object')Object.values(m.outfit).forEach(w=>{if(w&&typeof w==='object')Object.keys(w).forEach(k=>{w[k]=r(w[k])})});
+  if(m.combos&&typeof m.combos==='object'){try{let t=JSON.stringify(m.combos);Object.keys(REPLACED).forEach(o=>{t=t.split('"'+o+'"').join('"'+REPLACED[o]+'"')});m.combos=JSON.parse(t)}catch(_){}}
+  m.outfitMig=1;return m;
+ }
+ window.DEEN_OUTFIT_MIGRATE=migrateOutfits;
  function meta(){
   const st=app();if(!st)return null;
   const m=st.companionMeta=st.companionMeta&&typeof st.companionMeta==='object'?st.companionMeta:{};
@@ -146,6 +158,7 @@
   if(!Array.isArray(m.owned))m.owned=[];
   if(!Array.isArray(m.items))m.items=[];
   if(!m.eq||typeof m.eq!=='object')m.eq={};
+  migrateOutfits(m);
   const cur=String(st.profile?.companion||'');
   if(ORDER.includes(cur)&&!m.owned.includes(cur))m.owned.push(cur); // grandfather earlier choices
   return m;

@@ -308,162 +308,6 @@
    }
   },
   {
-   "id": "ot_thobe_kufi_vest_brown",
-   "slot": "body",
-   "z": 10,
-   "cost": 100,
-   "full": true,
-   "name": {
-    "tr": "Takkeli cübbe ve kahverengi yelek",
-    "en": "Thobe with cap and brown waistcoat",
-    "de": "Thobe mit Kappe und brauner Weste",
-    "fr": "Thobe avec calotte et gilet marron",
-    "ar": "ثوب مع طاقية وسترة بنية"
-   },
-   "art": {
-    "wolf": "assets/companions/outfits/wolf/ot_thobe_kufi_vest_brown.webp",
-    "owl": "assets/companions/outfits/owl/ot_thobe_kufi_vest_brown.webp",
-    "turtle": "assets/companions/outfits/turtle/ot_thobe_kufi_vest_brown.webp",
-    "eagle": "assets/companions/outfits/eagle/ot_thobe_kufi_vest_brown.webp"
-   }
-  },
-  {
-   "id": "ot_thobe_kufi_scarf_brown",
-   "slot": "body",
-   "z": 10,
-   "cost": 100,
-   "full": true,
-   "name": {
-    "tr": "Takkeli cübbe ve kahverengi atkı",
-    "en": "Thobe with cap and brown scarf",
-    "de": "Thobe mit Kappe und braunem Schal",
-    "fr": "Thobe avec calotte et écharpe marron",
-    "ar": "ثوب مع طاقية ووشاح بني"
-   },
-   "art": {
-    "wolf": "assets/companions/outfits/wolf/ot_thobe_kufi_scarf_brown.webp",
-    "owl": "assets/companions/outfits/owl/ot_thobe_kufi_scarf_brown.webp",
-    "turtle": "assets/companions/outfits/turtle/ot_thobe_kufi_scarf_brown.webp",
-    "eagle": "assets/companions/outfits/eagle/ot_thobe_kufi_scarf_brown.webp"
-   }
-  },
-  {
-   "id": "ot_thobe_kufi_scarf_vest_brown",
-   "slot": "body",
-   "z": 10,
-   "cost": 110,
-   "full": true,
-   "name": {
-    "tr": "Takkeli cübbe, kahverengi atkı ve yelek",
-    "en": "Thobe with cap, brown scarf and waistcoat",
-    "de": "Thobe mit Kappe, braunem Schal und Weste",
-    "fr": "Thobe avec calotte, écharpe et gilet marron",
-    "ar": "ثوب مع طاقية ووشاح وسترة بنية"
-   },
-   "art": {
-    "wolf": "assets/companions/outfits/wolf/ot_thobe_kufi_scarf_vest_brown.webp",
-    "owl": "assets/companions/outfits/owl/ot_thobe_kufi_scarf_vest_brown.webp",
-    "turtle": "assets/companions/outfits/turtle/ot_thobe_kufi_scarf_vest_brown.webp",
-    "eagle": "assets/companions/outfits/eagle/ot_thobe_kufi_scarf_vest_brown.webp"
-   },
-   "reward": {
-    "type": "streak",
-    "n": 7
-   }
-  },
-  {
-   "id": "ot_thobe_kufi_glasses",
-   "slot": "body",
-   "z": 10,
-   "cost": 110,
-   "full": true,
-   "name": {
-    "tr": "Takkeli cübbe ve gözlük",
-    "en": "Thobe with cap and glasses",
-    "de": "Thobe mit Kappe und Brille",
-    "fr": "Thobe avec calotte et lunettes",
-    "ar": "ثوب مع طاقية ونظارة"
-   },
-   "art": {
-    "wolf": "assets/companions/outfits/wolf/ot_thobe_kufi_glasses.webp",
-    "owl": "assets/companions/outfits/owl/ot_thobe_kufi_glasses.webp",
-    "turtle": "assets/companions/outfits/turtle/ot_thobe_kufi_glasses.webp",
-    "eagle": "assets/companions/outfits/eagle/ot_thobe_kufi_glasses.webp",
-    "cat": "assets/companions/outfits/cat/ot_thobe_kufi_glasses.webp",
-    "lion": "assets/companions/outfits/lion/ot_thobe_kufi_glasses.webp"
-   }
-  },
-  {
-   "id": "ot_thobe_kufi_bow",
-   "slot": "body",
-   "z": 10,
-   "cost": 100,
-   "full": true,
-   "name": {
-    "tr": "Takkeli cübbe ve papyon",
-    "en": "Thobe with cap and bow tie",
-    "de": "Thobe mit Kappe und Fliege",
-    "fr": "Thobe avec calotte et nœud papillon",
-    "ar": "ثوب مع طاقية وربطة عنق فراشة"
-   },
-   "art": {
-    "wolf": "assets/companions/outfits/wolf/ot_thobe_kufi_bow.webp",
-    "owl": "assets/companions/outfits/owl/ot_thobe_kufi_bow.webp",
-    "turtle": "assets/companions/outfits/turtle/ot_thobe_kufi_bow.webp",
-    "eagle": "assets/companions/outfits/eagle/ot_thobe_kufi_bow.webp",
-    "cat": "assets/companions/outfits/cat/ot_thobe_kufi_bow.webp",
-    "lion": "assets/companions/outfits/lion/ot_thobe_kufi_bow.webp"
-   }
-  },
-  {
-   "id": "ot_jacket_1",
-   "slot": "body",
-   "z": 10,
-   "cost": 120,
-   "full": true,
-   "name": {
-    "tr": "Basit ceket",
-    "en": "Simple jacket",
-    "de": "Einfache Jacke",
-    "fr": "Veste simple",
-    "ar": "جاكيت بسيط"
-   },
-   "art": {
-    "wolf": "assets/companions/outfits/wolf/ot_jacket_1.webp",
-    "owl": "assets/companions/outfits/owl/ot_jacket_1.webp",
-    "turtle": "assets/companions/outfits/turtle/ot_jacket_1.webp",
-    "eagle": "assets/companions/outfits/eagle/ot_jacket_1.webp",
-    "cat": "assets/companions/outfits/cat/ot_jacket_1.webp",
-    "lion": "assets/companions/outfits/lion/ot_jacket_1.webp"
-   },
-   "group": "jacket",
-   "swatch": "#cbbfa8"
-  },
-  {
-   "id": "ot_jacket_2",
-   "slot": "body",
-   "z": 10,
-   "cost": 160,
-   "full": true,
-   "name": {
-    "tr": "Orta ceket",
-    "en": "Fine jacket",
-    "de": "Feine Jacke",
-    "fr": "Veste soignée",
-    "ar": "جاكيت أنيق"
-   },
-   "art": {
-    "wolf": "assets/companions/outfits/wolf/ot_jacket_2.webp",
-    "owl": "assets/companions/outfits/owl/ot_jacket_2.webp",
-    "turtle": "assets/companions/outfits/turtle/ot_jacket_2.webp",
-    "eagle": "assets/companions/outfits/eagle/ot_jacket_2.webp",
-    "cat": "assets/companions/outfits/cat/ot_jacket_2.webp",
-    "lion": "assets/companions/outfits/lion/ot_jacket_2.webp"
-   },
-   "group": "jacket",
-   "swatch": "#b99f7c"
-  },
-  {
    "id": "ot_jacket_3",
    "slot": "body",
    "z": 10,
@@ -623,27 +467,6 @@
    }
   },
   {
-   "id": "ot_vest_green_mosque",
-   "slot": "neck",
-   "z": 20,
-   "cost": 160,
-   "name": {
-    "tr": "Camili yeşil yelek",
-    "en": "Green mosque waistcoat",
-    "de": "Grüne Moschee-Weste",
-    "fr": "Gilet vert à la mosquée",
-    "ar": "سترة خضراء بالمسجد"
-   },
-   "art": {
-    "wolf": "assets/companions/outfits/wolf/ot_vest_green_mosque.webp",
-    "owl": "assets/companions/outfits/owl/ot_vest_green_mosque.webp",
-    "turtle": "assets/companions/outfits/turtle/ot_vest_green_mosque.webp",
-    "eagle": "assets/companions/outfits/eagle/ot_vest_green_mosque.webp",
-    "cat": "assets/companions/outfits/cat/ot_vest_green_mosque.webp",
-    "lion": "assets/companions/outfits/lion/ot_vest_green_mosque.webp"
-   }
-  },
-  {
    "id": "ot_robe_green_vest",
    "slot": "body",
    "z": 10,
@@ -663,6 +486,340 @@
     "eagle": "assets/companions/outfits/eagle/ot_robe_green_vest.webp",
     "cat": "assets/companions/outfits/cat/ot_robe_green_vest.webp",
     "lion": "assets/companions/outfits/lion/ot_robe_green_vest.webp"
+   }
+  },
+  {
+   "id": "ot_robe_brown_tasbih",
+   "slot": "body",
+   "z": 10,
+   "cost": 60,
+   "full": true,
+   "name": {
+    "tr": "Tesbihli kahverengi cübbe",
+    "en": "Brown robe with prayer beads",
+    "de": "Braunes Gewand mit Gebetskette",
+    "fr": "Robe marron avec chapelet",
+    "ar": "ثوب بني مع مسبحة"
+   },
+   "art": {
+    "lion": "assets/companions/outfits/lion/ot_robe_brown_tasbih.webp",
+    "cat": "assets/companions/outfits/cat/ot_robe_brown_tasbih.webp",
+    "wolf": "assets/companions/outfits/wolf/ot_robe_brown_tasbih.webp",
+    "owl": "assets/companions/outfits/owl/ot_robe_brown_tasbih.webp",
+    "turtle": "assets/companions/outfits/turtle/ot_robe_brown_tasbih.webp",
+    "eagle": "assets/companions/outfits/eagle/ot_robe_brown_tasbih.webp"
+   }
+  },
+  {
+   "id": "ot_thobe_kufi_knit",
+   "slot": "body",
+   "z": 10,
+   "cost": 60,
+   "full": true,
+   "name": {
+    "tr": "Örgü takkeli beyaz cübbe",
+    "en": "White thobe with knitted cap",
+    "de": "Weißes Thobe mit Strickkappe",
+    "fr": "Thobe blanc avec calotte tricotée",
+    "ar": "ثوب أبيض مع طاقية محبوكة"
+   },
+   "art": {
+    "lion": "assets/companions/outfits/lion/ot_thobe_kufi_knit.webp",
+    "cat": "assets/companions/outfits/cat/ot_thobe_kufi_knit.webp",
+    "wolf": "assets/companions/outfits/wolf/ot_thobe_kufi_knit.webp",
+    "owl": "assets/companions/outfits/owl/ot_thobe_kufi_knit.webp",
+    "turtle": "assets/companions/outfits/turtle/ot_thobe_kufi_knit.webp",
+    "eagle": "assets/companions/outfits/eagle/ot_thobe_kufi_knit.webp"
+   }
+  },
+  {
+   "id": "ot_thobe_brown_vest",
+   "slot": "body",
+   "z": 10,
+   "cost": 100,
+   "full": true,
+   "name": {
+    "tr": "Kahverengi yelekli cübbe",
+    "en": "Thobe with brown vest",
+    "de": "Thobe mit brauner Weste",
+    "fr": "Thobe avec gilet marron",
+    "ar": "ثوب مع صدرية بنية"
+   },
+   "art": {
+    "lion": "assets/companions/outfits/lion/ot_thobe_brown_vest.webp",
+    "cat": "assets/companions/outfits/cat/ot_thobe_brown_vest.webp",
+    "wolf": "assets/companions/outfits/wolf/ot_thobe_brown_vest.webp",
+    "owl": "assets/companions/outfits/owl/ot_thobe_brown_vest.webp",
+    "turtle": "assets/companions/outfits/turtle/ot_thobe_brown_vest.webp",
+    "eagle": "assets/companions/outfits/eagle/ot_thobe_brown_vest.webp"
+   }
+  },
+  {
+   "id": "ot_thobe_mosque_scarf",
+   "slot": "body",
+   "z": 10,
+   "cost": 100,
+   "full": true,
+   "name": {
+    "tr": "Camili atkılı cübbe",
+    "en": "Thobe with mosque scarf",
+    "de": "Thobe mit Moschee-Schal",
+    "fr": "Thobe avec écharpe mosquée",
+    "ar": "ثوب مع وشاح المسجد"
+   },
+   "art": {
+    "lion": "assets/companions/outfits/lion/ot_thobe_mosque_scarf.webp",
+    "cat": "assets/companions/outfits/cat/ot_thobe_mosque_scarf.webp",
+    "wolf": "assets/companions/outfits/wolf/ot_thobe_mosque_scarf.webp",
+    "owl": "assets/companions/outfits/owl/ot_thobe_mosque_scarf.webp",
+    "turtle": "assets/companions/outfits/turtle/ot_thobe_mosque_scarf.webp",
+    "eagle": "assets/companions/outfits/eagle/ot_thobe_mosque_scarf.webp"
+   }
+  },
+  {
+   "id": "ot_robe_green_vest_dark",
+   "slot": "body",
+   "z": 10,
+   "cost": 105,
+   "full": true,
+   "name": {
+    "tr": "Yeşil yelekli entari",
+    "en": "Green robe with vest",
+    "de": "Grünes Gewand mit Weste",
+    "fr": "Robe verte avec gilet",
+    "ar": "ثوب أخضر مع صدرية"
+   },
+   "art": {
+    "lion": "assets/companions/outfits/lion/ot_robe_green_vest_dark.webp",
+    "cat": "assets/companions/outfits/cat/ot_robe_green_vest_dark.webp",
+    "wolf": "assets/companions/outfits/wolf/ot_robe_green_vest_dark.webp",
+    "owl": "assets/companions/outfits/owl/ot_robe_green_vest_dark.webp",
+    "turtle": "assets/companions/outfits/turtle/ot_robe_green_vest_dark.webp",
+    "eagle": "assets/companions/outfits/eagle/ot_robe_green_vest_dark.webp"
+   }
+  },
+  {
+   "id": "ot_cloak_green",
+   "slot": "body",
+   "z": 10,
+   "cost": 110,
+   "full": true,
+   "name": {
+    "tr": "Yeşil pelerin",
+    "en": "Green cloak",
+    "de": "Grüner Umhang",
+    "fr": "Cape verte",
+    "ar": "عباءة خضراء"
+   },
+   "art": {
+    "lion": "assets/companions/outfits/lion/ot_cloak_green.webp",
+    "cat": "assets/companions/outfits/cat/ot_cloak_green.webp",
+    "wolf": "assets/companions/outfits/wolf/ot_cloak_green.webp",
+    "owl": "assets/companions/outfits/owl/ot_cloak_green.webp",
+    "turtle": "assets/companions/outfits/turtle/ot_cloak_green.webp",
+    "eagle": "assets/companions/outfits/eagle/ot_cloak_green.webp"
+   }
+  },
+  {
+   "id": "ot_robe_white_green_shawl",
+   "slot": "body",
+   "z": 10,
+   "cost": 110,
+   "full": true,
+   "name": {
+    "tr": "Yeşil şallı beyaz cübbe",
+    "en": "White robe with green shawl",
+    "de": "Weißes Gewand mit grünem Tuch",
+    "fr": "Robe blanche avec châle vert",
+    "ar": "ثوب أبيض مع شال أخضر"
+   },
+   "art": {
+    "lion": "assets/companions/outfits/lion/ot_robe_white_green_shawl.webp",
+    "cat": "assets/companions/outfits/cat/ot_robe_white_green_shawl.webp",
+    "wolf": "assets/companions/outfits/wolf/ot_robe_white_green_shawl.webp",
+    "owl": "assets/companions/outfits/owl/ot_robe_white_green_shawl.webp",
+    "turtle": "assets/companions/outfits/turtle/ot_robe_white_green_shawl.webp",
+    "eagle": "assets/companions/outfits/eagle/ot_robe_white_green_shawl.webp"
+   },
+   "reward": {
+    "type": "streak",
+    "n": 7
+   }
+  },
+  {
+   "id": "ot_robe_brown_gold_sash",
+   "slot": "body",
+   "z": 10,
+   "cost": 140,
+   "full": true,
+   "name": {
+    "tr": "Altın kuşaklı kahverengi cübbe",
+    "en": "Brown robe with gold cord",
+    "de": "Braunes Gewand mit Goldkordel",
+    "fr": "Robe marron à cordon doré",
+    "ar": "ثوب بني بحزام ذهبي"
+   },
+   "art": {
+    "lion": "assets/companions/outfits/lion/ot_robe_brown_gold_sash.webp",
+    "cat": "assets/companions/outfits/cat/ot_robe_brown_gold_sash.webp",
+    "wolf": "assets/companions/outfits/wolf/ot_robe_brown_gold_sash.webp",
+    "owl": "assets/companions/outfits/owl/ot_robe_brown_gold_sash.webp",
+    "turtle": "assets/companions/outfits/turtle/ot_robe_brown_gold_sash.webp",
+    "eagle": "assets/companions/outfits/eagle/ot_robe_brown_gold_sash.webp"
+   }
+  },
+  {
+   "id": "ot_robe_green_sash",
+   "slot": "body",
+   "z": 10,
+   "cost": 140,
+   "full": true,
+   "name": {
+    "tr": "Kuşaklı yeşil cübbe",
+    "en": "Green robe with sash",
+    "de": "Grünes Gewand mit Schärpe",
+    "fr": "Robe verte à ceinture",
+    "ar": "ثوب أخضر بحزام"
+   },
+   "art": {
+    "lion": "assets/companions/outfits/lion/ot_robe_green_sash.webp",
+    "cat": "assets/companions/outfits/cat/ot_robe_green_sash.webp",
+    "wolf": "assets/companions/outfits/wolf/ot_robe_green_sash.webp",
+    "owl": "assets/companions/outfits/owl/ot_robe_green_sash.webp",
+    "turtle": "assets/companions/outfits/turtle/ot_robe_green_sash.webp",
+    "eagle": "assets/companions/outfits/eagle/ot_robe_green_sash.webp"
+   }
+  },
+  {
+   "id": "ot_robe_navy_crescent",
+   "slot": "body",
+   "z": 10,
+   "cost": 150,
+   "full": true,
+   "name": {
+    "tr": "Hilalli lacivert cübbe",
+    "en": "Navy robe with crescent",
+    "de": "Dunkelblaues Gewand mit Halbmond",
+    "fr": "Robe bleu marine au croissant",
+    "ar": "ثوب كحلي بهلال"
+   },
+   "art": {
+    "lion": "assets/companions/outfits/lion/ot_robe_navy_crescent.webp",
+    "cat": "assets/companions/outfits/cat/ot_robe_navy_crescent.webp",
+    "wolf": "assets/companions/outfits/wolf/ot_robe_navy_crescent.webp",
+    "owl": "assets/companions/outfits/owl/ot_robe_navy_crescent.webp",
+    "turtle": "assets/companions/outfits/turtle/ot_robe_navy_crescent.webp",
+    "eagle": "assets/companions/outfits/eagle/ot_robe_navy_crescent.webp"
+   }
+  },
+  {
+   "id": "ot_robe_green_gold_vest",
+   "slot": "body",
+   "z": 10,
+   "cost": 160,
+   "full": true,
+   "name": {
+    "tr": "Altın işlemeli yeşil yelekli cübbe",
+    "en": "Robe with gold-embroidered green vest",
+    "de": "Gewand mit goldbestickter grüner Weste",
+    "fr": "Robe avec gilet vert brodé d’or",
+    "ar": "ثوب مع صدرية خضراء مطرزة بالذهب"
+   },
+   "art": {
+    "lion": "assets/companions/outfits/lion/ot_robe_green_gold_vest.webp",
+    "cat": "assets/companions/outfits/cat/ot_robe_green_gold_vest.webp",
+    "wolf": "assets/companions/outfits/wolf/ot_robe_green_gold_vest.webp",
+    "owl": "assets/companions/outfits/owl/ot_robe_green_gold_vest.webp",
+    "turtle": "assets/companions/outfits/turtle/ot_robe_green_gold_vest.webp",
+    "eagle": "assets/companions/outfits/eagle/ot_robe_green_gold_vest.webp"
+   }
+  },
+  {
+   "id": "ot_robe_white_crescent",
+   "slot": "body",
+   "z": 10,
+   "cost": 200,
+   "full": true,
+   "name": {
+    "tr": "Altın hilalli beyaz cübbe",
+    "en": "White robe with gold crescent",
+    "de": "Weißes Gewand mit goldenem Halbmond",
+    "fr": "Robe blanche au croissant doré",
+    "ar": "ثوب أبيض بهلال ذهبي"
+   },
+   "art": {
+    "lion": "assets/companions/outfits/lion/ot_robe_white_crescent.webp",
+    "cat": "assets/companions/outfits/cat/ot_robe_white_crescent.webp",
+    "wolf": "assets/companions/outfits/wolf/ot_robe_white_crescent.webp",
+    "owl": "assets/companions/outfits/owl/ot_robe_white_crescent.webp",
+    "turtle": "assets/companions/outfits/turtle/ot_robe_white_crescent.webp",
+    "eagle": "assets/companions/outfits/eagle/ot_robe_white_crescent.webp"
+   }
+  },
+  {
+   "id": "ot_robe_navy_gold_sash",
+   "slot": "body",
+   "z": 10,
+   "cost": 220,
+   "full": true,
+   "name": {
+    "tr": "Altın kuşaklı lacivert cübbe",
+    "en": "Navy robe with gold sash",
+    "de": "Dunkelblaues Gewand mit Goldschärpe",
+    "fr": "Robe bleu marine à ceinture dorée",
+    "ar": "ثوب كحلي بحزام ذهبي"
+   },
+   "art": {
+    "lion": "assets/companions/outfits/lion/ot_robe_navy_gold_sash.webp",
+    "cat": "assets/companions/outfits/cat/ot_robe_navy_gold_sash.webp",
+    "wolf": "assets/companions/outfits/wolf/ot_robe_navy_gold_sash.webp",
+    "owl": "assets/companions/outfits/owl/ot_robe_navy_gold_sash.webp",
+    "turtle": "assets/companions/outfits/turtle/ot_robe_navy_gold_sash.webp",
+    "eagle": "assets/companions/outfits/eagle/ot_robe_navy_gold_sash.webp"
+   }
+  },
+  {
+   "id": "ot_robe_burgundy_gold",
+   "slot": "body",
+   "z": 10,
+   "cost": 240,
+   "full": true,
+   "name": {
+    "tr": "Bordo-altın cübbe",
+    "en": "Burgundy and gold robe",
+    "de": "Gewand in Bordeaux und Gold",
+    "fr": "Robe bordeaux et or",
+    "ar": "ثوب عنابي وذهبي"
+   },
+   "art": {
+    "lion": "assets/companions/outfits/lion/ot_robe_burgundy_gold.webp",
+    "cat": "assets/companions/outfits/cat/ot_robe_burgundy_gold.webp",
+    "wolf": "assets/companions/outfits/wolf/ot_robe_burgundy_gold.webp",
+    "owl": "assets/companions/outfits/owl/ot_robe_burgundy_gold.webp",
+    "turtle": "assets/companions/outfits/turtle/ot_robe_burgundy_gold.webp",
+    "eagle": "assets/companions/outfits/eagle/ot_robe_burgundy_gold.webp"
+   }
+  },
+  {
+   "id": "ot_robe_black_gold",
+   "slot": "body",
+   "z": 10,
+   "cost": 250,
+   "full": true,
+   "name": {
+    "tr": "Siyah-altın kapüşonlu cübbe",
+    "en": "Black and gold hooded robe",
+    "de": "Schwarz-goldenes Kapuzengewand",
+    "fr": "Robe noire et or à capuche",
+    "ar": "ثوب أسود وذهبي بقلنسوة"
+   },
+   "art": {
+    "lion": "assets/companions/outfits/lion/ot_robe_black_gold.webp",
+    "cat": "assets/companions/outfits/cat/ot_robe_black_gold.webp",
+    "wolf": "assets/companions/outfits/wolf/ot_robe_black_gold.webp",
+    "owl": "assets/companions/outfits/owl/ot_robe_black_gold.webp",
+    "turtle": "assets/companions/outfits/turtle/ot_robe_black_gold.webp",
+    "eagle": "assets/companions/outfits/eagle/ot_robe_black_gold.webp"
    }
   }
  ],
