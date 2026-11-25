@@ -141,7 +141,7 @@
  function nextLock(){const l=lvl();return ORDER.filter(id=>LEVELS[id]>l&&!unlocked(id)).sort((a,b)=>LEVELS[a]-LEVELS[b])[0]||null}
  /* Outfits taken out of the shop (blurry art) and the new outfit each owner gets in their place: what was owned, worn
     or saved in a look moves to the new one, once. */
- const REPLACED={"ot_thobe_kufi_vest_brown": "ot_thobe_brown_vest", "ot_thobe_kufi_scarf_brown": "ot_thobe_mosque_scarf", "ot_thobe_kufi_scarf_vest_brown": "ot_robe_white_green_shawl", "ot_thobe_kufi_glasses": "ot_robe_green_vest_dark", "ot_thobe_kufi_bow": "ot_cloak_green", "ot_jacket_1": "ot_robe_brown_gold_sash", "ot_jacket_2": "ot_robe_green_sash", "ot_vest_green_mosque": "ot_robe_green_gold_vest", "ot_glasses_bow_jacket_beige": "ot_robe_navy_crescent", "ot_glasses_scarf_vest_black": "ot_robe_green_gold_vest", "ot_glasses_scarf_vest_brown": "ot_robe_green_sash"};
+ const REPLACED={"ot_thobe_kufi_vest_brown": "ot_thobe_brown_vest", "ot_thobe_kufi_scarf_brown": "ot_thobe_mosque_scarf", "ot_thobe_kufi_scarf_vest_brown": "ot_robe_white_green_shawl", "ot_thobe_kufi_glasses": "ot_robe_green_vest_dark", "ot_thobe_kufi_bow": "ot_cloak_green", "ot_jacket_1": "ot_robe_brown_gold_sash", "ot_jacket_2": "ot_robe_green_sash", "ot_vest_green_mosque": "ot_robe_green_gold_vest", "ot_glasses_bow_jacket_beige": "ot_robe_navy_crescent", "ot_glasses_scarf_vest_black": "ot_robe_green_gold_vest", "ot_glasses_scarf_vest_brown": "ot_robe_green_sash", "ot_thobe_kufi_scarf_vest": "ot_cloak_green", "ot_glasses_jacket_navy": "ot_robe_brown_gold_sash", "ot_glasses_jacket_navy_tunic": "ot_robe_navy_crescent", "ot_jacket_3": "ot_robe_white_crescent", "ot_jacket_4": "ot_robe_navy_gold_sash"};
  function migrateOutfits(m){
   if(!m||m.outfitMig>=1)return m;
   const r=id=>REPLACED[id]||id;
@@ -404,7 +404,7 @@
  const shuffle=l=>{const r=l.slice();for(let i=r.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[r[i],r[j]]=[r[j],r[i]]}return r};
  const soonLater=(fn,ms)=>{const id=setTimeout(()=>{soonTimers=soonTimers.filter(x=>x!==id);if(soonEl)fn()},ms);soonTimers.push(id);return id};
  function soonOutfits(a){
-  const fb=['ot_thobe_kufi','ot_jacket_4','ot_robe_green_vest'].map(id=>'assets/companions/outfits/'+a+'/'+id+'.webp');
+  const fb=['ot_thobe_kufi','ot_robe_black_gold','ot_robe_green_vest'].map(id=>'assets/companions/outfits/'+a+'/'+id+'.webp');
   const list=shuffle(OUT.list.filter(o=>o.slot==='body'&&o.full===true&&o.default!==true&&o.art&&o.art[a])).slice(0,3).map(o=>o.art[a]);
   while(list.length<3)list.push(fb[list.length]);
   return list;
