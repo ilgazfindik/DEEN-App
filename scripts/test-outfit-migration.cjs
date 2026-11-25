@@ -22,8 +22,12 @@ const NEW=['ot_robe_brown_tasbih','ot_thobe_kufi_knit','ot_thobe_brown_vest','ot
 const rar=c=>c<=60?'common':c<=110?'rare':c<=160?'epic':'legendary';
 for(const id of NEW){const it=cat.items.find(i=>i.id===id);assert.ok(it,'new outfit '+id);assert.deepEqual(Object.keys(it.art).sort(),[...A].sort(),id+' for every companion')}
 assert.deepEqual([...new Set(NEW.map(id=>rar(cat.items.find(i=>i.id===id).cost)))].sort(),['common','epic','legendary','rare'],'all four rarities');
-const OLD=['ot_thobe_kufi_vest_brown','ot_thobe_kufi_scarf_brown','ot_thobe_kufi_scarf_vest_brown','ot_thobe_kufi_glasses','ot_thobe_kufi_bow','ot_jacket_1','ot_jacket_2','ot_vest_green_mosque'];
+const OLD=['ot_glasses_bow_jacket_beige','ot_glasses_scarf_vest_black','ot_glasses_scarf_vest_brown','ot_thobe_kufi_vest_brown','ot_thobe_kufi_scarf_brown','ot_thobe_kufi_scarf_vest_brown','ot_thobe_kufi_glasses','ot_thobe_kufi_bow','ot_jacket_1','ot_jacket_2','ot_vest_green_mosque'];
 for(const id of OLD){assert.ok(!ids.includes(id),'taken out: '+id);for(const a of A)assert.ok(!fs.existsSync(path.join(root,'assets/companions/outfits',a,id+'.webp')),'old art removed '+a+'/'+id)}
+// Outfits whose art did not fit some companions are kept only for the ones they fit.
+const only={ot_jacket_3:['cat','lion'],ot_jacket_4:['cat','lion'],ot_glasses_jacket_navy:['eagle','turtle'],ot_glasses_jacket_navy_tunic:['eagle','turtle']};
+for(const [id,keep] of Object.entries(only)){const it=cat.items.find(i=>i.id===id);assert.deepEqual(Object.keys(it.art).sort(),keep,id);
+ for(const a of A)if(!keep.includes(a))assert.ok(!fs.existsSync(path.join(root,'assets/companions/outfits',a,id+'.webp')),'removed art '+a+'/'+id)}
 (async()=>{
  await new Promise(r=>server.listen(0,'127.0.0.1',r));const url='http://127.0.0.1:'+server.address().port+'/index.html';
  let browser;try{browser=await chromium.launch({channel:'chrome',headless:true,args:['--no-sandbox','--disable-dev-shm-usage']})}catch(_){browser=await chromium.launch({headless:true,args:['--no-sandbox']})}
