@@ -51,6 +51,8 @@ for(const it of cat.items)assert.deepEqual(Object.keys(it.art).sort(),[...A].sor
  for(const id of ['ot_robe_black_gold','ot_cloak_green','ot_robe_brown_tasbih'])assert.ok(shop.includes('owl/'+id+'.webp'),'shop shows '+id);
  assert.ok(!/ot_jacket_1\.webp|ot_thobe_kufi_bow\.webp/.test(shop),'old outfits not in the shop');
  assert.ok(!/ot_robe_ramadan_lanterns|ot_eid_blue_vest/.test(shop),'seasonal outfits are not in the shop or chests');
+ // Full-body outfits already hold the companion: no bare body is drawn under them (it showed at their edges).
+ assert.ok(!/_body\.webp/.test(shop),'no bare body under the outfits in the shop');
  assert.equal(cat.items.find(i=>i.id==='ot_robe_ramadan_lanterns').season,'ramadan');assert.equal(cat.items.find(i=>i.id==='ot_eid_blue_vest').season,'eid');
  assert.deepEqual(errors,[]);
  await browser.close();server.close();console.log('PASS: outfit catalogue and replacement of the old outfits');
