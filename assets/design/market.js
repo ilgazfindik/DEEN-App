@@ -272,7 +272,10 @@
  }
  let opening=null;
  function openChest(res){
-  if(opening)return;const L=t(),c=res.chest,r=c.r,items=res.rewards;
+  if(opening)return;const L=t(),c=res.chest,r=c.r;
+  // Shown from the least to the most precious: Sparkles first, then items common → legendary (a companion at its rarity),
+  // so the best comes last.
+  const items=res.rewards.map((x,k)=>({x,k})).sort((p,q)=>(p.x.kind==='sp'?-1:tierOf(p.x.r))-(q.x.kind==='sp'?-1:tierOf(q.x.r))||p.k-q.k).map(e=>e.x);
   const o=document.createElement('div');o.className='mko';o.dataset.r=r;o.setAttribute('role','dialog');o.setAttribute('aria-modal','true');o.setAttribute('aria-label',c.gift?L.gift:L.chest(r));if(lang()==='ar')o.dir='rtl';
   let shards='';for(let k=0;k<18;k++){const a=(k/18)*Math.PI*2+(k%3)*.2,d=150+(k%5)*38;shards+='<i class="mko-shard" style="--dx:'+Math.round(Math.cos(a)*d)+'px;--dy:'+Math.round(Math.sin(a)*d*.85-60)+'px;--rx:'+(200+k*37)%540+'deg;--ry:'+(120+k*53)%540+'deg;--sz:'+(9+(k*7)%16)+'px;--d:'+(k%4)*25+'ms"></i>'}
   o.innerHTML='<div class="mko-flash"></div><div class="mko-stage"><span class="mko-rays"></span><span class="mko-beam"></span><span class="mko-shock"></span>'+shards+
@@ -287,14 +290,33 @@
    idx++;
    if(idx>=items.length){return summary()}
    const x=items[idx],left=items.length-idx-1;count.hidden=left<=0;count.textContent=String(left);
-   show.innerHTML=rewardCard(x,true);const card=show.firstElementChild;
+   o.classList.remove('leg-burst');
+   // A legendary item is announced: the screen dims, a golden light gathers and pulses (with growing taps of the
+   // phone), then bursts into the card with gold rays, sparks and a banner.
+   if(x.r==='legendary'&&!reduced()){
+    busy=true;o.dataset.cr='legendary';o.classList.add('leg-charge');show.innerHTML='<div class="mko-orb" aria-hidden="true"><i></i><i></i><i></i></div>';
+    hint.textContent='';snd('chest');haptic('select');
+    setTimeout(()=>haptic('tap'),450);setTimeout(()=>haptic('tap'),800);setTimeout(()=>haptic('tap'),1050);
+    setTimeout(()=>{o.classList.remove('leg-charge');reveal(x,true)},1250);
+    return;
+   }
+   reveal(x,false);
+  }
+  function legendFx(){
+   let sp='';for(let k=0;k<28;k++){const a=(k/28)*Math.PI*2,d=170+(k%4)*45;sp+='<i style="--dx:'+Math.round(Math.cos(a)*d)+'px;--dy:'+Math.round(Math.sin(a)*d)+'px;--d:'+(k%5)*40+'ms;--s:'+(6+(k*5)%9)+'px"></i>'}
+   let cf='';for(let k=0;k<26;k++)cf+='<b style="--x:'+((k*37)%100)+'%;--d:'+((k*113)%900)+'ms;--t:'+(1600+(k*71)%900)+'ms;--r:'+((k*47)%360)+'deg"></b>';
+   return '<div class="mko-legfx" aria-hidden="true"><span class="mko-legring"></span><span class="mko-legring two"></span><span class="mko-legsparks">'+sp+'</span><span class="mko-confetti">'+cf+'</span></div>';
+  }
+  function reveal(x,legend){
+   show.innerHTML=(legend?legendFx():'')+rewardCard(x,true)+(legend?'<div class="mko-legbanner">'+esc(L.rar.legendary)+'!</div>':'');const card=show.querySelector('.mko-card');
+   if(legend){o.classList.add('leg-burst');snd('level');setTimeout(()=>snd('reward'),350);haptic('tap');setTimeout(()=>haptic('tap'),120);setTimeout(()=>haptic('tap'),260)}
    o.dataset.cr=x.r;o.classList.remove('pop');void o.offsetWidth;o.classList.add('pop');
-   snd(x.kind==='animal'||x.r==='legendary'?'reward':'pop');haptic(x.kind==='animal'||x.r==='legendary'||x.r==='epic'?'tap':'select');
-   hint.textContent=L.tapNext;busy=true;later(()=>{busy=false},420);
+   if(!legend){snd(x.kind==='animal'||x.r==='legendary'?'reward':'pop');haptic(x.kind==='animal'||x.r==='legendary'||x.r==='epic'?'tap':'select')}
+   hint.textContent=L.tapNext;busy=true;later(()=>{busy=false},legend?1400:420);
    card.focus?.();
   }
   function summary(){
-   phase='summary';o.classList.add('summary');count.hidden=true;hint.textContent='';
+   phase='summary';o.classList.remove('leg-burst');o.classList.add('summary');count.hidden=true;hint.textContent='';
    const outfits=items.some(x=>x.kind==='outfit'&&x.fresh);let soon=false;try{soon=!!(window.DEEN_COMPANIONS&&DEEN_COMPANIONS.soon&&DEEN_COMPANIONS.soon())}catch(_){}
    show.innerHTML='<div class="mko-sum"><h3>'+esc(L.got)+'</h3><div class="mko-grid">'+items.map(x=>rewardCard(x,false)).join('')+'</div>'+
     (outfits?'<p class="mko-note">'+esc(soon?L.wardrobeSoon:L.wardrobeAdded)+'</p>':'')+'<button type="button" class="mko-done">'+esc(L.done)+'</button></div>';
