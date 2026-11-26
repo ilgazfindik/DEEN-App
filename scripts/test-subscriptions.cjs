@@ -32,6 +32,20 @@ const IPHONE='Mozilla/5.0 (iPhone; CPU iPhone OS 18_6 like Mac OS X) AppleWebKit
  // ---- Native: paywall, gate, purchase ----
  let {ctx,page,errors}=await open(true,'de');
  assert.equal(await page.evaluate(()=>state.premium),false,'not Premium at first');
+ // Right after sign-up (no lesson yet) the paywall is offered once, when the store has the plans.
+ await page.waitForSelector('.sub-sheet.in .sub-plan',{timeout:8000});
+ assert.ok(await page.evaluate(()=>!!localStorage.getItem('deen_paywall_onboard_v1')),'offered once');
+ await page.click('.sub-later');await page.waitForTimeout(400);
+ // The crown in the top bar opens it.
+ assert.equal(await page.locator('header.app-header .sub-crown').count(),1,'crown in the top bar');
+ await page.click('header.app-header .sub-crown');await page.waitForSelector('.sub-sheet.in');await page.click('.sub-x');await page.waitForTimeout(400);
+ // The profile has a Premium card with a free-trial button.
+ await page.evaluate(()=>navigate('profileScreen'));await page.waitForSelector('#profileScreenBody .sub-pcard',{timeout:5000});
+ assert.match(await page.textContent('#profileScreenBody .sub-pcard'),/Premium entdecken.*7 Tage gratis testen/s,'profile card');
+ if(SHOT)await page.screenshot({path:SHOT+'-profile.png'});
+ await page.click('#profileScreenBody .sub-pcard .dh-compare');await page.waitForSelector('.sub-sheet.in');await page.click('.sub-x');await page.waitForTimeout(400);
+ await page.evaluate(()=>navigate('learnScreen'));await page.waitForTimeout(300);
+
  await page.evaluate(()=>premiumPanel());await page.waitForSelector('.sub-sheet.in .sub-plan',{timeout:5000});
  const pw=await page.evaluate(()=>({plans:[...document.querySelectorAll('.sub-plan')].map(b=>b.innerText.replace(/\s+/g,' ')),cta:document.querySelector('[data-sub=buy]').textContent,fine:document.querySelector('.sub-fine').textContent,links:[...document.querySelectorAll('.sub-legal a')].map(a=>a.href),restore:!!document.querySelector('[data-sub=restore]')}));
  assert.match(pw.plans[0],/Jährlich.*49,99 €.*4,17 € \/ Monat.*58 % sparen.*7 Tage gratis/,'yearly: store price, per month, saving, trial: '+pw.plans[0]);
@@ -49,6 +63,7 @@ const IPHONE='Mozilla/5.0 (iPhone; CPU iPhone OS 18_6 like Mac OS X) AppleWebKit
  await page.fill('.sub-gate input',String(sum));await page.click('.sub-gate-ok');
  await page.waitForFunction(()=>state.premium===true,null,{timeout:5000});
  assert.ok((await page.evaluate(()=>__st.calls)).includes('purchase:com.ilgazfindik.ilnura.premium.yearly'),'yearly bought');
+ await page.waitForTimeout(300);assert.equal(await page.locator('header.app-header .sub-crown.on').count(),1,'gold crown when Premium');
  assert.equal(await page.evaluate(()=>DEEN_PREMIUM_ENTITLEMENT.active),true);
  await page.waitForTimeout(400);assert.equal(await page.$('.sub-sheet'),null,'paywall closes');
  // Active: the paywall shows the status and Manage.
@@ -72,7 +87,7 @@ const IPHONE='Mozilla/5.0 (iPhone; CPU iPhone OS 18_6 like Mac OS X) AppleWebKit
  assert.deepEqual(errors,[]);await ctx.close();
  // ---- Five languages on the paywall ----
  for(const l of ['tr','en','fr','ar']){
-  ({ctx,page,errors}=await open(true,l));await page.evaluate(()=>premiumPanel());await page.waitForSelector('.sub-plan');
+  ({ctx,page,errors}=await open(true,l));await page.waitForSelector('.sub-sheet.in .sub-plan',{timeout:8000});await page.waitForSelector('.sub-plan');
   const r=await page.evaluate(()=>({dir:document.querySelector('.sub-sheet').dir,cta:document.querySelector('[data-sub=buy]').textContent}));
   assert.equal(r.dir,l==='ar'?'rtl':'ltr');assert.ok(r.cta.length>3);
   if(SHOT&&l==='tr')await page.screenshot({path:SHOT+'-paywall-tr.png'});
@@ -80,6 +95,7 @@ const IPHONE='Mozilla/5.0 (iPhone; CPU iPhone OS 18_6 like Mac OS X) AppleWebKit
  }
  // ---- Web: no purchase, a note ----
  ({ctx,page,errors}=await open(false,'tr'));
+ assert.equal(await page.locator('.sub-crown,.sub-pcard').count(),0,'no crown or card on the web');
  await page.evaluate(()=>premiumPanel());await page.waitForSelector('.sub-sheet');
  assert.match(await page.textContent('.sub-note'),/iPhone uygulamasındaki App Store/);assert.equal(await page.$('[data-sub=buy]'),null);
  assert.equal(await page.evaluate(()=>DEEN_PREMIUM_ENTITLEMENT.active),false);

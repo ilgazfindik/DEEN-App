@@ -37,3 +37,8 @@
 .sub-gate-ok{background:#ffd36b;color:#3a2600}.sub-gate-no{background:rgba(255,255,255,.12);color:#fff}
 .sub-gate-err{color:#ff9b8a;font-size:13px!important}
 @media (prefers-reduced-motion:reduce){.sub-card,.sub-sheet{transition:none}}
+/* Top bar crown (iPhone app) */
+header.app-header .stats .sub-crown{flex:0 0 auto;width:40px;min-width:40px;padding:0;display:grid;place-items:center;color:#f3c45b}
+header.app-header .stats .sub-crown svg{width:22px!important;height:22px!important;flex:none;filter:drop-shadow(0 1px 0 rgba(0,0,0,.35))}
+header.app-header .stats .sub-crown.on{background:linear-gradient(180deg,#ffe28a,#e7a83a);color:#5a2a00;box-shadow:0 0 14px rgba(255,200,90,.55)}
+@media (max-width:370px){header.app-header:has(.sub-crown) .brand-name{display:none}header.app-header .stats .sub-crown{width:36px;min-width:36px}}
