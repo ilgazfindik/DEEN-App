@@ -120,9 +120,10 @@
 
  // ---- Markup ----
  const art=it=>{
-  if(it.kind==='outfit')return '<span class="mk-art mk-skin"><img src="'+body(it.a)+'" alt="" loading="lazy" decoding="async"><img src="'+esc(it.o.art[it.a])+'" alt="" loading="lazy" decoding="async"></span>';
+  // A full-body outfit already holds the companion; the bare body under it would show at its edges.
+  if(it.kind==='outfit')return '<span class="mk-art mk-skin">'+(it.o.full?'':'<img src="'+body(it.a)+'" alt="" loading="lazy" decoding="async">')+'<img src="'+esc(it.o.art[it.a])+'" alt="" loading="lazy" decoding="async"></span>';
   // The companions row scrolls sideways, where lazy images can stay unloaded (RTL): they load at once.
-  if(it.kind==='animal')return '<span class="mk-art mk-skin"><img src="'+body(it.a)+'" alt="" decoding="async"><img src="assets/companions/outfits/'+it.a+'/ot_thobe.webp" alt="" decoding="async"></span>';
+  if(it.kind==='animal')return '<span class="mk-art mk-skin"><img src="assets/companions/outfits/'+it.a+'/ot_thobe.webp" alt="" decoding="async"></span>';
   return '<span class="mk-art mk-chestart"><img src="assets/design/market/chest-'+it.r+'.webp" alt="" loading="lazy" decoding="async"></span>';
  };
  const priceBtn=(it)=>{
