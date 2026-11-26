@@ -8,6 +8,7 @@ class MainViewController: CAPBridgeViewController {
     override open func capacitorDidLoad() {
         bridge?.registerPluginInstance(NativeTabBarPlugin())
         bridge?.registerPluginInstance(WidgetBridgePlugin())
+        bridge?.registerPluginInstance(SubscriptionsPlugin())
     }
 
     /// TestFlight and debug builds get the developer tools (the admin panel); the App Store build never does. The flag goes

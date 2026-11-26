@@ -3,7 +3,9 @@
  'use strict';
  if(window.DEEN_PREMIUM_OFFER)return;
  // Draft prices and a trial that starts no real payment are not shown to players: the preview only exists in developer mode until real billing is in place.
+ // In the iPhone app the real App Store paywall (assets/design/subscribe.js) replaces this preview.
  if(!window.__DEEN_DEV_MODE__)return;
+ try{if(window.Capacitor&&window.Capacitor.isNativePlatform&&window.Capacitor.isNativePlatform())return}catch(_){}
  const TRIAL_KEY='deen_premium_trial_v1',SEEN_KEY='deen_premium_offer_seen_v1',TRIAL_MS=72*60*60*1000;
  const translations={
   tr:{
