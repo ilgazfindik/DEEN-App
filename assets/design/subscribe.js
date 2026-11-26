@@ -17,35 +17,35 @@
  const LANGS=['tr','en','de','fr','ar'];
  const lang=()=>{let l='tr';try{l=window.DEEN_APP_LOCALE?.get?.()||localStorage.getItem('deen_app_language_v1')||'tr'}catch(_){}return LANGS.includes(l)?l:'tr'};
  const T={
-  tr:{brand:'ILNURA PREMIUM',title:'Öğrenmenin en rahat hâli',perks:['Sınırsız enerji: dersler hiç durmaz','Kopan serini haftada bir ücretsiz kurtar','Ilnura’nın gelişmesine ve daha çok kişiye ulaşmasına destek'],
+  tr:{card:{head:'Öğrenmenin en rahat hâli.',sum:'Dinî dersler herkese açık; Premium konfor katar.',perks:'Sınırsız enerji · Haftalık seri kurtarma · Ilnura’ya destek',main:'Premium’u keşfet',trial:'7 gün ücretsiz dene',on:'Premium etkin',onMain:'Aboneliğim'},crown:'Premium',brand:'ILNURA PREMIUM',title:'Öğrenmenin en rahat hâli',perks:['Sınırsız enerji: dersler hiç durmaz','Kopan serini haftada bir ücretsiz kurtar','Ilnura’nın gelişmesine ve daha çok kişiye ulaşmasına destek'],
    yearly:'Yıllık',monthly:'Aylık',best:'EN AVANTAJLI',save:p=>'%'+p+' tasarruf',perMonth:p=>p+' / ay',trial:'7 gün ücretsiz',then:(p,per)=>'sonra '+p+' / '+per,year:'yıl',month:'ay',
    cta:'7 gün ücretsiz başla',ctaPlain:'Premium’a geç',restore:'Satın alımları geri yükle',terms:'Kullanım Şartları',privacy:'Gizlilik',later:'Şimdi değil',
    fine:'Ödeme, satın almayı onayladığında Apple hesabından alınır. Abonelik, dönem bitmeden en az 24 saat önce iptal edilmezse aynı fiyattan otomatik yenilenir. Ücretsiz deneme bitmeden iptal edersen ücret alınmaz. Aboneliğini iPhone Ayarları › Apple hesabın › Abonelikler’den yönetebilir ve iptal edebilirsin.',
    gateT:'Ebeveyn onayı',gateQ:(a,b)=>a+' + '+b+' kaç eder?',gateOk:'Devam',gateWrong:'Yanlış cevap. Lütfen bir yetişkinden yardım iste.',
    loading:'Fiyatlar yükleniyor…',noProducts:'Abonelikler şu an yüklenemedi. Biraz sonra tekrar dene.',active:'Premium etkin',activeUntil:d=>d+' tarihine kadar',inTrial:'Ücretsiz deneme sürüyor',manage:'Aboneliği yönet',
    done:'Premium etkin! Hayırlı olsun 🎉',pending:'Satın alma onay bekliyor.',restored:'Premium geri yüklendi.',nothing:'Geri yüklenecek bir abonelik bulunamadı.',err:'Bir sorun oluştu. Lütfen tekrar dene.',web:'Premium, iPhone uygulamasındaki App Store aboneliği ile alınır.',close:'Kapat'},
-  en:{brand:'ILNURA PREMIUM',title:'Learning at its most comfortable',perks:['Unlimited energy: lessons never stop','Repair a broken streak for free once a week','Support Ilnura as it grows and reaches more learners'],
+  en:{card:{head:'Learning at its most comfortable.',sum:'Religious lessons are open to all; Premium adds comfort.',perks:'Unlimited energy · Weekly streak repair · Support Ilnura',main:'Explore Premium',trial:'Try 7 days free',on:'Premium active',onMain:'My subscription'},crown:'Premium',brand:'ILNURA PREMIUM',title:'Learning at its most comfortable',perks:['Unlimited energy: lessons never stop','Repair a broken streak for free once a week','Support Ilnura as it grows and reaches more learners'],
    yearly:'Yearly',monthly:'Monthly',best:'BEST VALUE',save:p=>'Save '+p+'%',perMonth:p=>p+' / month',trial:'7 days free',then:(p,per)=>'then '+p+' / '+per,year:'year',month:'month',
    cta:'Start 7 days free',ctaPlain:'Get Premium',restore:'Restore purchases',terms:'Terms of Use',privacy:'Privacy',later:'Not now',
    fine:'Payment is charged to your Apple Account when you confirm the purchase. The subscription renews automatically at the same price unless cancelled at least 24 hours before the end of the period. Cancel before the free trial ends and you will not be charged. Manage or cancel in iPhone Settings › your Apple Account › Subscriptions.',
    gateT:'Ask a parent',gateQ:(a,b)=>'What is '+a+' + '+b+'?',gateOk:'Continue',gateWrong:'Wrong answer. Please ask an adult for help.',
    loading:'Loading prices…',noProducts:'Subscriptions could not be loaded right now. Please try again later.',active:'Premium is active',activeUntil:d=>'until '+d,inTrial:'Free trial in progress',manage:'Manage subscription',
    done:'Premium is active! 🎉',pending:'The purchase is waiting for approval.',restored:'Premium restored.',nothing:'No subscription to restore was found.',err:'Something went wrong. Please try again.',web:'Premium is bought with an App Store subscription in the iPhone app.',close:'Close'},
-  de:{brand:'ILNURA PREMIUM',title:'Lernen in seiner bequemsten Form',perks:['Unbegrenzte Energie: Lektionen ohne Pause','Einmal pro Woche eine verlorene Serie gratis retten','Unterstütze Ilnura dabei, mehr Lernende zu erreichen'],
+  de:{card:{head:'Lernen in seiner bequemsten Form.',sum:'Religiöse Lektionen sind für alle offen; Premium bringt Komfort.',perks:'Unbegrenzte Energie · Wöchentliche Serien-Rettung · Ilnura unterstützen',main:'Premium entdecken',trial:'7 Tage gratis testen',on:'Premium aktiv',onMain:'Mein Abo'},crown:'Premium',brand:'ILNURA PREMIUM',title:'Lernen in seiner bequemsten Form',perks:['Unbegrenzte Energie: Lektionen ohne Pause','Einmal pro Woche eine verlorene Serie gratis retten','Unterstütze Ilnura dabei, mehr Lernende zu erreichen'],
    yearly:'Jährlich',monthly:'Monatlich',best:'BESTER PREIS',save:p=>p+' % sparen',perMonth:p=>p+' / Monat',trial:'7 Tage gratis',then:(p,per)=>'danach '+p+' / '+per,year:'Jahr',month:'Monat',
    cta:'7 Tage gratis starten',ctaPlain:'Premium holen',restore:'Käufe wiederherstellen',terms:'Nutzungsbedingungen',privacy:'Datenschutz',later:'Nicht jetzt',
    fine:'Die Zahlung wird bei Bestätigung des Kaufs deinem Apple Account belastet. Das Abo verlängert sich automatisch zum selben Preis, wenn es nicht mindestens 24 Stunden vor Ende des Zeitraums gekündigt wird. Kündigst du vor Ende der Testphase, wird nichts berechnet. Verwalten oder kündigen in den iPhone-Einstellungen › dein Apple Account › Abonnements.',
    gateT:'Frag deine Eltern',gateQ:(a,b)=>'Was ist '+a+' + '+b+'?',gateOk:'Weiter',gateWrong:'Falsche Antwort. Bitte frag einen Erwachsenen.',
    loading:'Preise werden geladen…',noProducts:'Abos konnten gerade nicht geladen werden. Bitte später erneut versuchen.',active:'Premium ist aktiv',activeUntil:d=>'bis '+d,inTrial:'Gratis-Testphase läuft',manage:'Abo verwalten',
    done:'Premium ist aktiv! 🎉',pending:'Der Kauf wartet auf Freigabe.',restored:'Premium wiederhergestellt.',nothing:'Kein Abo zum Wiederherstellen gefunden.',err:'Etwas ist schiefgelaufen. Bitte erneut versuchen.',web:'Premium gibt es als App-Store-Abo in der iPhone-App.',close:'Schließen'},
-  fr:{brand:'ILNURA PREMIUM',title:'Apprendre en toute sérénité',perks:['Énergie illimitée : les leçons ne s’arrêtent jamais','Répare gratuitement une série perdue une fois par semaine','Soutiens Ilnura pour qu’il aide plus de personnes'],
+  fr:{card:{head:'Apprendre en toute sérénité.',sum:'Les leçons religieuses sont ouvertes à tous ; Premium ajoute du confort.',perks:'Énergie illimitée · Série réparée chaque semaine · Soutenir Ilnura',main:'Découvrir Premium',trial:'Essayer 7 jours gratuits',on:'Premium actif',onMain:'Mon abonnement'},crown:'Premium',brand:'ILNURA PREMIUM',title:'Apprendre en toute sérénité',perks:['Énergie illimitée : les leçons ne s’arrêtent jamais','Répare gratuitement une série perdue une fois par semaine','Soutiens Ilnura pour qu’il aide plus de personnes'],
    yearly:'Annuel',monthly:'Mensuel',best:'MEILLEURE OFFRE',save:p=>'−'+p+' %',perMonth:p=>p+' / mois',trial:'7 jours gratuits',then:(p,per)=>'puis '+p+' / '+per,year:'an',month:'mois',
    cta:'Essayer 7 jours gratuits',ctaPlain:'Passer à Premium',restore:'Restaurer les achats',terms:'Conditions d’utilisation',privacy:'Confidentialité',later:'Pas maintenant',
    fine:'Le paiement est débité de ton compte Apple à la confirmation de l’achat. L’abonnement se renouvelle automatiquement au même prix sauf s’il est annulé au moins 24 heures avant la fin de la période. Si tu annules avant la fin de l’essai gratuit, rien n’est facturé. Gère ou annule dans Réglages de l’iPhone › ton compte Apple › Abonnements.',
    gateT:'Demande à un parent',gateQ:(a,b)=>'Combien font '+a+' + '+b+' ?',gateOk:'Continuer',gateWrong:'Mauvaise réponse. Demande de l’aide à un adulte.',
    loading:'Chargement des prix…',noProducts:'Impossible de charger les abonnements pour le moment. Réessaie plus tard.',active:'Premium est actif',activeUntil:d=>'jusqu’au '+d,inTrial:'Essai gratuit en cours',manage:'Gérer l’abonnement',
    done:'Premium est actif ! 🎉',pending:'L’achat attend une validation.',restored:'Premium restauré.',nothing:'Aucun abonnement à restaurer.',err:'Un problème est survenu. Réessaie.',web:'Premium s’obtient avec un abonnement App Store dans l’app iPhone.',close:'Fermer'},
-  ar:{brand:'ILNURA PREMIUM',title:'التعلّم بأريح طريقة',perks:['طاقة غير محدودة: الدروس لا تتوقف','أصلح سلسلتك المنقطعة مجانًا مرة كل أسبوع','ادعم Ilnura ليصل إلى مزيد من المتعلمين'],
+  ar:{card:{head:'التعلّم بأريح طريقة.',sum:'الدروس الدينية متاحة للجميع؛ Premium يضيف الراحة.',perks:'طاقة غير محدودة · إصلاح السلسلة أسبوعيًا · دعم Ilnura',main:'اكتشف Premium',trial:'جرّب ٧ أيام مجانًا',on:'Premium مفعّل',onMain:'اشتراكي'},crown:'Premium',brand:'ILNURA PREMIUM',title:'التعلّم بأريح طريقة',perks:['طاقة غير محدودة: الدروس لا تتوقف','أصلح سلسلتك المنقطعة مجانًا مرة كل أسبوع','ادعم Ilnura ليصل إلى مزيد من المتعلمين'],
    yearly:'سنوي',monthly:'شهري',best:'الأفضل قيمة',save:p=>'وفّر '+p+'٪',perMonth:p=>p+' / شهر',trial:'٧ أيام مجانًا',then:(p,per)=>'ثم '+p+' / '+per,year:'سنة',month:'شهر',
    cta:'ابدأ ٧ أيام مجانًا',ctaPlain:'احصل على Premium',restore:'استعادة المشتريات',terms:'شروط الاستخدام',privacy:'الخصوصية',later:'ليس الآن',
    fine:'يُخصم المبلغ من حساب Apple عند تأكيد الشراء. يتجدد الاشتراك تلقائيًا بالسعر نفسه ما لم يُلغَ قبل ٢٤ ساعة على الأقل من نهاية الفترة. إذا ألغيت قبل انتهاء التجربة المجانية فلن يُخصم شيء. يمكنك الإدارة أو الإلغاء من إعدادات iPhone › حساب Apple › الاشتراكات.',
@@ -72,7 +72,7 @@
   const on=cacheActive();
   if(!!s.premium!==on){s.premium=on;try{saveState()}catch(_){}try{updateUI()}catch(_){}}
  }
- function takeEntitlement(e){if(!e)return;writeCache(e);applyPremium();if(sheet)paint()}
+ function takeEntitlement(e){if(!e)return;writeCache(e);applyPremium();if(sheet)paint();try{entries()}catch(_){}}
  async function refresh(){const p=store();if(!p)return null;try{const e=await p.entitlement();takeEntitlement(e);return e}catch(_){return null}}
 
  // ---- Products ----
@@ -165,12 +165,57 @@
  });
  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&sheet&&!document.querySelector('.sub-gate'))close()});
 
+ // ---- Entry points (iPhone app) ----
+ const CROWN='<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.5 8.5 8 12l4-6.5 4 6.5 4.5-3.5-1.8 9.5H5.3L3.5 8.5Z" fill="currentColor"/><rect x="5.3" y="19" width="13.4" height="2.2" rx="1.1" fill="currentColor"/></svg>';
+ // Profile: a Premium card right under the learner's identity (the profile design places and styles .deen-hub-profile).
+ function profileCard(){
+  const body=document.getElementById('profileScreenBody');if(!body||!body.querySelector(':scope>.v5-profilehead'))return;
+  const c=L().card,on=cacheActive(),sig=lang()+'|'+on;
+  let card=body.querySelector(':scope>.deen-hub-profile');
+  if(card&&card.dataset.sub===sig)return;
+  if(card)card.remove();
+  card=document.createElement('section');card.className='deen-hub-profile sub-pcard';card.dataset.sub=sig;card.dir=lang()==='ar'?'rtl':'ltr';
+  card.innerHTML='<div class="dh-topline"><span class="dh-crown" aria-hidden="true"></span><span class="dh-brand"></span><span class="dh-status"></span></div><h2 class="dh-headline"></h2><p class="dh-summary"></p><p class="dh-perks"></p><div class="dh-profile-actions"><button type="button" class="dh-main" data-sub-open="1"><span class="dh-main-label"></span><span aria-hidden="true">→</span></button>'+(on?'':'<button type="button" class="dh-compare" data-sub-open="1"></button>')+'</div>';
+  card.querySelector('.dh-brand').textContent='ILNURA PREMIUM';card.querySelector('.dh-status').textContent=on?c.on:'ILNURA PREMIUM';
+  card.querySelector('.dh-headline').textContent=c.head;card.querySelector('.dh-summary').textContent=c.sum;card.querySelector('.dh-perks').textContent=c.perks;
+  card.querySelector('.dh-main-label').textContent=on?c.onMain:c.main;const tr=card.querySelector('.dh-compare');if(tr)tr.textContent=c.trial;
+  const head=body.querySelector(':scope>.v5-profilehead');head.after(card);
+ }
+ // Top bar: a crown next to the stats; gold when Premium is on.
+ function crown(){
+  for(const stats of document.querySelectorAll('header.app-header .stats')){
+   let b=stats.querySelector('.sub-crown');
+   if(!b){b=document.createElement('button');b.type='button';b.className='stat sub-crown';b.dataset.subOpen='1';b.innerHTML=CROWN;stats.append(b)}
+   const on=cacheActive();b.classList.toggle('on',on);b.setAttribute('aria-label',L().crown+(on?' ✓':''));
+  }
+ }
+ // Right after sign-up (a learner who has not finished a lesson yet), the paywall is offered once.
+ const ONBOARD='deen_paywall_onboard_v1';
+ function onboardOffer(){
+  const s=app();let seen=null;try{seen=localStorage.getItem(ONBOARD)}catch(_){}
+  if(seen||!s||!s.onboarded||cacheActive()||(Array.isArray(s.history)&&s.history.length)||document.getElementById('v998Onboarding'))return;
+  if(sheet||document.querySelector('dialog[open],.mko,.ds-ntf-ask,.sub-sheet,#deenLanguageGate,#deenAccountGate,#lesson.active,.v998-onboarding'))return;
+  // Only once the store has the plans (before the App Store setup there is nothing to offer).
+  loadProducts().then(pr=>{
+   if(!pr||sheet)return;try{if(localStorage.getItem(ONBOARD))return;localStorage.setItem(ONBOARD,String(Date.now()))}catch(_){}
+   open();
+  });
+ }
+ let entryQueued=false;
+ let ready=false,offerTimer=0;
+ const entries=()=>{if(entryQueued)return;entryQueued=true;requestAnimationFrame(()=>{entryQueued=false;try{profileCard();crown()}catch(_){}
+  if(ready&&!offerTimer){offerTimer=setTimeout(()=>{offerTimer=0;onboardOffer()},1500)}})};
+ document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('[data-sub-open]');if(b){e.preventDefault();e.stopPropagation();open()}},true);
+
  // ---- Wiring ----
  function install(){
   // Every Premium entry point opens the real paywall.
   window.premiumPanel=open;try{premiumPanel=open}catch(_){}
   if(!native())return;
   applyPremium();
+  new MutationObserver(entries).observe(document.getElementById('phone')||document.body,{childList:true,subtree:true});entries();
+  // The first offer waits for the start screens to settle; it also follows the end of onboarding.
+  setTimeout(()=>{ready=true;onboardOffer()},2600);
   const p=store();
   try{p&&p.addListener&&p.addListener('entitlement',takeEntitlement)}catch(_){}
   setTimeout(refresh,1200);
