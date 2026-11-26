@@ -44,15 +44,11 @@ const server=http.createServer((req,res)=>{const n=decodeURIComponent((req.url||
   ['Choose Your Learning Pace','Light','Intensive','1 mini lesson · about 5 minutes','2 mini lessons · about 10 minutes','3 mini lessons · about 15 minutes','Changing your goal will not erase your progress'],
   ['Kendi ritmini','Hedef yalnız','Hafif','Yoğun','yaklaşık','Hedefi değiştirmek']);
  await page.evaluate(()=>closeSheet());
- // The Premium sheet is the plan hub now (draft USD prices, local 3-day trial; real billing comes later)
- await show('03-premium',"premiumPanel()",'#v5Sheet',
-  ['Premium benefits','Choose your Premium plan','Full Plan','Premium with Ads','Unlimited learning energy','Try 3 days free','Prices are draft USD amounts'],
-  ['Kendi ritmini','Premium ayrıcalıkları','Tam Paket','Reklamlı Premium','Fiyatlar USD']);
- await page.evaluate(()=>closeSheet());
- await page.evaluate(()=>{state.premium=true});
- await show('04-premium-active',"premiumPanel()",'#v5Sheet',
-  ['Premium benefits'],['Premium ayrıcalıkları']);
- await page.evaluate(()=>{state.premium=false;closeSheet()});
+ // Premium is the App Store paywall (assets/design/subscribe.js); outside the iPhone app it says where to buy it.
+ await show('03-premium',"premiumPanel()",'.sub-sheet',
+  ['ILNURA PREMIUM','Learning at its most comfortable','Unlimited energy','App Store subscription in the iPhone app','Terms of Use','Privacy'],
+  ['Kendi ritmini','Öğrenmenin en rahat','Sınırsız enerji','Kullanım Şartları']);
+ await page.evaluate(()=>DEEN_SUBSCRIBE.close());await page.waitForTimeout(300);
  await show('05-home',"navigate('learnScreen')",'#learnScreen',[],[]);
  const samples={
   'Şimdi bilgiyi sabitle.':'Reinforce What You Learned',

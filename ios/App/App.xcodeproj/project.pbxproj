@@ -23,6 +23,7 @@
 		A1D0E5062FF0000000000000 /* IlnuraWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D0E5052FF0000000000000 /* IlnuraWidget.swift */; };
 		A1D0E5112FF0000000000000 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1D0E5102FF0000000000000 /* Assets.xcassets */; };
 		A1D0E5132FF0000000000000 /* IlnuraWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A1D0E5122FF0000000000000 /* IlnuraWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B2D0E5022FF0000000000000 /* Subscriptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D0E5012FF0000000000000 /* Subscriptions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		A1D0E5082FF0000000000000 /* IlnuraWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IlnuraWidget.entitlements; sourceTree = "<group>"; };
 		A1D0E5102FF0000000000000 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1D0E5122FF0000000000000 /* IlnuraWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = IlnuraWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2D0E5012FF0000000000000 /* Subscriptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subscriptions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +119,7 @@
 				9582B6822FE993A50072D4E8 /* SceneDelegate.swift */,
 				9582B6852FE993B10072D4E8 /* NativeTabBar.swift */,
 				A1D0E5002FF0000000000000 /* WidgetBridge.swift */,
+				B2D0E5012FF0000000000000 /* Subscriptions.swift */,
 				A1D0E5092FF0000000000000 /* App.entitlements */,
 				50379B222058CBB4000EE86E /* capacitor.config.json */,
 				504EC3071FED79650016851F /* AppDelegate.swift */,
@@ -265,6 +268,7 @@
 				9582B6832FE993A70072D4E8 /* SceneDelegate.swift in Sources */,
 				9582B6862FE993B10072D4E8 /* NativeTabBar.swift in Sources */,
 				A1D0E5012FF0000000000000 /* WidgetBridge.swift in Sources */,
+				B2D0E5022FF0000000000000 /* Subscriptions.swift in Sources */,
 				A1D0E5032FF0000000000000 /* WidgetStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
