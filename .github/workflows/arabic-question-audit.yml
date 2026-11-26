@@ -95,6 +95,7 @@ jobs:
           node scripts/test-notifications.cjs
           node scripts/test-widget-bridge.cjs
           node scripts/test-outfit-migration.cjs
+          node scripts/test-chest-reveal.cjs
           node scripts/test-level-up-design.cjs
           node scripts/test-pose-swap.cjs
           node scripts/test-companion-images.mjs
