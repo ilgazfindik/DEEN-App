@@ -41,9 +41,9 @@ const server=http.createServer((req,res)=>{
  await ev(()=>{state.companionMeta.items=[];state.companionMeta.eq={}});
  await page.locator('[data-adm2=wardrobe]').click();
  assert.equal(await ev(()=>['lion','cat','wolf','owl','turtle','eagle'].every(i=>DEEN_COMPANIONS.unlocked(i))),true,'every animal opens');
- assert.equal(await ev(()=>DEEN_COMPANIONS.soon()),true,'unlocking items does not open the room: regular users still see Yakında');
+ assert.equal(await ev(()=>DEEN_COMPANIONS.soon()),false,'the room is open for everyone');
  await page.locator('[data-adm2=room]').click();
- assert.equal(await ev(()=>DEEN_COMPANIONS.soon()),false,'the admin room switch opens the real wardrobe');
+ assert.equal(await ev(()=>DEEN_COMPANIONS.soon()),false,'the admin room switch keeps it open');
  assert.equal(await ev(()=>DEEN_COMPANIONS.buyItem('fr_nur')),true,'items are free while the switch is on');
  assert.equal(await ev(()=>state.currency),42,'nothing is charged');
  const closed=()=>page.waitForFunction(()=>!document.querySelector('.dcz-room'));
@@ -74,11 +74,7 @@ const server=http.createServer((req,res)=>{
  assert.equal(await ev(()=>DEEN_COMPANIONS.unlocked('eagle')),false);
  assert.equal(await ev(()=>DEEN_COMPANIONS.soon()),false,'the room switch is separate: still open');
  await page.locator('[data-adm2=room]').click();
- assert.equal(await ev(()=>DEEN_COMPANIONS.soon()),true,'switching the room off brings the coming-soon screen back');
- await ev(()=>DEEN_COMPANIONS.open('wardrobe'));
- await page.locator('.dcz-soon.in').waitFor();
- assert.equal(await page.locator('.dcz-room').count(),0);
- await ev(()=>DEEN_COMPANIONS.closeSoon());
+ assert.equal(await ev(()=>DEEN_COMPANIONS.soon()),false,'switching the room off keeps the room open (it is open for everyone)');
  await ev(()=>DEEN_COMPANIONS.open('wardrobe',{force:true}));
  await page.locator('.dcz-room.in').waitFor();
  await page.locator('[data-dcz=cat][data-id=ot]').click();

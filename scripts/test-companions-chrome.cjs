@@ -66,29 +66,13 @@ const server=http.createServer((req,res)=>{
  await page.waitForFunction(()=>!document.querySelector('.dcz-room'));
  await page.waitForSelector('#dczEntry');
  await ev(()=>closeSheet());
- // 5a. coming soon: regular users only see the red animated notice, never the wardrobe
- assert.equal(await ev(()=>DEEN_COMPANIONS.soon()),true,'soon mode is on for regular users');
- assert.equal(await page.locator('#dczEntry .dcz-soonpill').textContent(),'Yakında','entry button carries the red pill');
- assert.equal(await page.locator('#dczEntry .dcz-soonpill').evaluate(e=>getComputedStyle(e).animationName),'dczSoonPulse');
+ // 5a. the room is open for everyone: no coming-soon notice, the entry opens the wardrobe
+ assert.equal(await ev(()=>DEEN_COMPANIONS.soon()),false,'the room is open for regular users');
+ assert.equal(await page.locator('#dczEntry .dcz-soonpill').count(),0,'no coming-soon pill');
  await page.locator('#dczEntry').click();
- await page.locator('.dcz-soon.in').waitFor();
- assert.equal(await page.locator('.dcz-room').count(),0,'regular users do not reach the wardrobe');
- assert.equal(await page.locator('.dcz-soon-tag').textContent(),'Yakında');
- const tagCss=await page.locator('.dcz-soon-tag').evaluate(e=>{const c=getComputedStyle(e);return {bg:c.backgroundImage,an:c.animationName}});
- assert.match(tagCss.bg,/rgb\(255, 74, 61\)/,'the tag is red');
- assert.equal(tagCss.an,'dczSoonTag','the tag is animated');
- await page.locator('.dcz-sc-out').waitFor({state:'attached'});
- assert.equal(await page.locator('.dcz-sc-base').count(),1,'dress-up animation: the animal in its default robe');
- assert.ok(await page.locator('.dcz-actor').evaluate(e=>e.getAnimations().length>0),'the animal walks in (running animation)');
- assert.equal(await page.locator('.dcz-rays').evaluate(e=>getComputedStyle(e).animationName),'dczRays','background light rays turn');
- assert.ok(await page.locator('.dcz-tw').count()>=8,'twinkling stars');
- await page.waitForFunction(()=>{const o=document.querySelector('.dcz-sc-out');return o&&/outfits\/[a-z]+\/ot_/.test(o.getAttribute('src'))&&o.style.opacity==='1'},null,{timeout:5000});
- await page.waitForSelector('.dcz-bubble.on',{timeout:6000});
- assert.match(await page.locator('.dcz-bubble').textContent(),/Yakında!/,'the speech bubble says coming soon');
- assert.equal(await page.locator('.dcz-bubble').evaluate(e=>getComputedStyle(e).color),'rgb(211, 23, 30)','the bubble text is red');
- assert.ok(await page.locator('.dcz-soon-txt').innerText().then(t=>/yakında geliyor/i.test(t)),'caption');
- await page.locator('.dcz-soon-x').click();
- await page.waitForFunction(()=>!document.querySelector('.dcz-soon'),null,{timeout:3000});
+ await page.locator('.dcz-room.in').waitFor();
+ assert.equal(await page.locator('.dcz-soon').count(),0,'no coming-soon screen');
+ await ev(()=>DEEN_COMPANIONS.close());await page.waitForFunction(()=>!document.querySelector('.dcz-room'));
  await ev(()=>DEEN_COMPANIONS.open(undefined,{force:true}));
  await page.locator('.dcz-room.in').waitFor();
  assert.equal(await page.locator('#v5Sheet[open]').count(),0,'the room is its own page, not the bottom sheet');
@@ -171,10 +155,19 @@ const server=http.createServer((req,res)=>{
  assert.equal(await page.locator('[data-dcz=cat][data-id=ot]').count(),1);
  await cat('ot');
  assert.equal(await page.locator('[data-dcz=tile][data-id=ot_cap]').count(),1);
+ // Outfits come from the shop's chests: they can be tried on, but not bought in the room.
+ assert.match(await page.locator('[data-dcz=tile][data-id=ot_cap] .dcz-chest').textContent(),/Sandıktan/,'unowned outfit is marked "from chests"');
+ await tile('ot_cap');await save();
+ assert.equal(await ev(()=>state.currency),300,'an outfit is not bought with Sparkles in the room');
+ assert.ok(await ev(()=>!state.companionMeta.items.includes('ot_cap')),'not added');
+ await ev(()=>DEEN_COMPANIONS.close());await closed();
+ // From a chest (owned): worn in the room.
+ await ev(()=>{state.companionMeta.items.push('ot_cap','ot_scarf','ot_robe_blue')});
+ await openRoom('wardrobe');await cat('ot');
  await tile('ot_scarf');await tile('ot_cap');
  assert.deepEqual(await page.locator('.dcz-char .dcz-layer').evaluateAll(a=>a.map(e=>e.dataset.slot+':'+e.style.zIndex)),['neck:20','head:30'],'layers stack by z over the full dressed character');
  await save();await closed();
- assert.equal(await ev(()=>state.currency),200,'outfits cost 40+60; the default robe is free');
+ assert.equal(await ev(()=>state.currency),300,'wearing chest outfits costs nothing');
  await openRoom('wardrobe');await cat('ot');
  assert.equal(await page.locator('.dcz-char .dcz-layer').count(),2,'saved outfit is worn when the room opens');
  await tile('ot_cap'); // tap the chosen one again = take it off
@@ -183,10 +176,10 @@ const server=http.createServer((req,res)=>{
  await ev(()=>{state.currency=300});
  await openRoom('wardrobe');await cat('ot');
  await tile('ot_robe_blue');
- assert.match(await page.locator('.dcz-char .dcz-base').getAttribute('src'),/ot_robe_blue\.png/,'a colour is previewed before it is bought');
+ assert.match(await page.locator('.dcz-char .dcz-base').getAttribute('src'),/ot_robe_blue\.png/,'a colour is shown');
  assert.equal(await ev(()=>state.currency),300,'previewing does not charge');
  await save();await closed();
- assert.equal(await ev(()=>state.currency),240,'second robe costs 60');
+ assert.equal(await ev(()=>state.currency),300,'an owned robe is worn for free');
  await openRoom('wardrobe');await cat('ot');
  await tile('ot_robe_blue'); // take it off
  assert.match(await page.locator('.dcz-char .dcz-base').getAttribute('src'),/ot_robe\.png/,'taking it off brings the default robe back');
