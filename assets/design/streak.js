@@ -80,6 +80,10 @@
   el.dir=lang()==='ar'?'rtl':'ltr';
  }
 
+ // The return card is re-rendered (and moved right under the stats header) whenever the path is drawn again, e.g. after a
+ // late language pack; put the streak card back between them each time.
+ document.addEventListener('deen:return-card-rendered',()=>setTimeout(card,0));
+
  document.addEventListener('click',ev=>{
   const b=ev.target.closest?.('[data-dsg]');if(!b||b.disabled)return;const a=b.dataset.dsg,t=T();
   if(a==='repair'){const info=lost();if(info&&repair(info)){closeSheet();try{toast(t.done(info.value))}catch(_){}card()}}
