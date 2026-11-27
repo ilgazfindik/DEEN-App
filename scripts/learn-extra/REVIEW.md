@@ -12822,3 +12822,590 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Seçenekler: Doğru | Yanlış
 - Doğru cevap: Doğru
 - Açıklama: Buhârî ve Müslim’de geçen hadis.
+
+## U29 — dua_zikir (100 soru)
+
+**DEEN-U29-S01-X001** · Dua Nedir? · multiple_choice
+- Soru: Dua ne demektir?
+- Seçenekler: Allah’a yalvarmak, O’ndan istemek ve O’na sığınmak | Sadece insanlardan bir şey istemek | Şarkı söylemek | Bir oyun oynamak
+- Doğru cevap: Allah’a yalvarmak, O’ndan istemek ve O’na sığınmak
+- Açıklama: Dua, kulun Rabbine yönelip ihtiyacını O’na arz etmesidir.
+
+**DEEN-U29-S01-X002** · Dua Nedir? · multiple_choice
+- Soru: Hadise göre dua neyin ta kendisidir?
+- Seçenekler: İbadetin | Oyunun | Ticaretin | Şöhretin
+- Doğru cevap: İbadetin
+- Açıklama: “Dua ibadetin ta kendisidir.” (Tirmizî, Ebû Dâvûd)
+
+**DEEN-U29-S01-X003** · Dua Nedir? · multiple_choice
+- Soru: Bakara 186’ya göre Allah, kulları O’nu sorduğunda ne buyurur?
+- Seçenekler: “Ben çok uzağım.” | “Bana dua etmeyin.” | “Ben yakınım; dua edenin duasına icabet ederim.” | “Sadece bayramda dua edin.”
+- Doğru cevap: “Ben yakınım; dua edenin duasına icabet ederim.”
+- Açıklama: Bakara 2:186: Kullarım sana beni sorarsa, ben yakınım.
+
+**DEEN-U29-S01-X004** · Dua Nedir? · multiple_choice
+- Soru: Mü’min 60’ta Allah ne buyurur?
+- Seçenekler: “Sadece meleklere dua edin.” | “Bana dua edin, size icabet edeyim.” | “Benden bir şey istemeyin.” | “Dua sadece peygamberlere özeldir.”
+- Doğru cevap: “Bana dua edin, size icabet edeyim.”
+- Açıklama: Mü’min 40:60: Rabbiniz, “Bana dua edin, size icabet edeyim” dedi.
+
+**DEEN-U29-S01-X005** · Dua Nedir? · multiple_choice
+- Soru: Hadise göre kabul edilen bir dua hangi şekillerde karşılık bulabilir?
+- Seçenekler: Sadece para olarak gelir | Sadece ertesi gün verilir | Hemen verilir, ahirete saklanır ya da bir kötülük uzaklaştırılır | Hiçbir karşılığı olmaz
+- Doğru cevap: Hemen verilir, ahirete saklanır ya da bir kötülük uzaklaştırılır
+- Açıklama: Ahmed b. Hanbel’de geçen hadise göre dua boşa gitmez.
+
+**DEEN-U29-S01-X006** · Dua Nedir? · multiple_choice
+- Soru: Hadise göre hangi durumda kulun duası kabul olmaya devam eder?
+- Seçenekler: “Dua ettim de kabul olmadı” diye acele etmedikçe | Hiç dua etmedikçe | Duayı bıraktıkça | Sadece bağırarak dua ettikçe
+- Doğru cevap: “Dua ettim de kabul olmadı” diye acele etmedikçe
+- Açıklama: “Biriniz ‘Dua ettim de kabul olmadı’ diye acele etmedikçe duası kabul olunur.” (Buhârî)
+
+**DEEN-U29-S01-X007** · Dua Nedir? · true_false
+- Soru: Doğru mu, yanlış mı? Kişi kendi dilinde de Allah’a dua edebilir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Allah her dili bilir ve işitir; dua kalpten yapılır.
+
+**DEEN-U29-S01-X008** · Dua Nedir? · true_false
+- Soru: Doğru mu, yanlış mı? Dua sadece zor zamanlarda edilir; işler iyi giderken dua etmeye gerek yoktur.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: “Kim zorluk anında duasının kabul edilmesini isterse, bolluk zamanında çok dua etsin.” (Tirmizî)
+
+**DEEN-U29-S01-X009** · Dua Nedir? · missing_item
+- Soru: Eksik kavramı seç: Bakara 186: “Kullarım sana beni sorarsa, ben ___.”
+- Seçenekler: gizliyim | meşgulüm | yakınım | uzağım
+- Doğru cevap: yakınım
+- Açıklama: Allah kullarına çok yakındır.
+
+**DEEN-U29-S01-X010** · Dua Nedir? · fill_blank
+- Soru: Boşluğu tamamla: “Dua ___ ta kendisidir.”
+- Seçenekler: ibadetin | oyunun | ticaretin | yolculuğun
+- Doğru cevap: ibadetin
+- Açıklama: Tirmizî ve Ebû Dâvûd’da geçen hadis.
+
+**DEEN-U29-S01-X011** · Dua Nedir? · progressive_recall
+- Soru: İpucu olmadan tamamla: Allah’a yalvarıp O’ndan istemeye ___ denir.
+- Doğru cevap: dua
+- Açıklama: Dua kul ile Rabbi arasındaki bağdır.
+
+**DEEN-U29-S01-X012** · Dua Nedir? · matching
+- Soru: Ayetleri mesajlarıyla eşleştir: Bakara 2:186, Mü’min 40:60, A‘râf 7:55 ve Bakara 2:152.
+- Eşleşmeler: Bakara 2:186 → Allah yakındır; Mü’min 40:60 → Bana dua edin; A‘râf 7:55 → Yalvararak ve gizlice dua edin; Bakara 2:152 → Beni anın, ben de sizi anayım
+- Açıklama: Kur’an dua ve zikre davet eder.
+
+**DEEN-U29-S01-X013** · Dua Nedir? · scenario
+- Soru: Yarın önemli bir sınavın var. En doğru yaklaşım hangisidir?
+- Seçenekler: Hiç çalışmadan sadece dua etmek | Kopya planı yapmak | Ne çalışmak ne dua etmek | İyi çalışıp Allah’a başarı için dua etmek
+- Doğru cevap: İyi çalışıp Allah’a başarı için dua etmek
+- Açıklama: Dua çabayla birlikte olur; tedbir alıp Allah’a tevekkül edilir.
+
+**DEEN-U29-S01-X014** · Dua Nedir? · error_spotting
+- Soru: “İstediğim şey hemen olmadıysa duam boşa gitmiştir.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Dua hiç kabul olmaz | Dua boşa gitmez; ya verilir, ya ahirete saklanır ya da bir kötülük uzaklaştırılır | Dua sadece zenginlerin kabul olur | Dua sadece hemen kabul olur
+- Doğru cevap: Dua boşa gitmez; ya verilir, ya ahirete saklanır ya da bir kötülük uzaklaştırılır
+- Açıklama: Ahmed b. Hanbel’de geçen hadis.
+
+**DEEN-U29-S02-X001** · Kur’an’dan Dualar · multiple_choice
+- Soru: “Rabbenâ âtinâ fi’d-dünyâ haseneten ve fi’l-âhirati haseneten…” duasında ne istenir?
+- Seçenekler: Sadece dünyada zenginlik | Hiçbir şey | Sadece şöhret | Dünyada da ahirette de iyilik ve ateş azabından korunma
+- Doğru cevap: Dünyada da ahirette de iyilik ve ateş azabından korunma
+- Açıklama: Bakara 2:201: Rabbimiz! Bize dünyada da iyilik ver, ahirette de iyilik ver ve bizi ateş azabından koru.
+
+**DEEN-U29-S02-X002** · Kur’an’dan Dualar · multiple_choice
+- Soru: “Rabbi zidnî ilmâ” duasının anlamı nedir?
+- Seçenekler: “Rabbim, beni uyut.” | “Rabbim, malımı artır.” | “Rabbim, ilmimi artır.” | “Rabbim, beni meşhur et.”
+- Doğru cevap: “Rabbim, ilmimi artır.”
+- Açıklama: Tâhâ 20:114: De ki: Rabbim, ilmimi artır.
+
+**DEEN-U29-S02-X003** · Kur’an’dan Dualar · multiple_choice
+- Soru: Balığın karnındayken “Lâ ilâhe illâ ente, sübhâneke innî küntü mine’z-zâlimîn” diye dua eden peygamber kimdir?
+- Seçenekler: Hz. İsa | Hz. Nuh | Hz. Musa | Hz. Yunus
+- Doğru cevap: Hz. Yunus
+- Açıklama: Enbiyâ 21:87–88: Biz de duasını kabul ettik ve onu kederden kurtardık.
+
+**DEEN-U29-S02-X004** · Kur’an’dan Dualar · multiple_choice
+- Soru: “Rabbenâ zalemnâ enfüsenâ…” (Rabbimiz, biz kendimize zulmettik) diye tövbe eden kimdir?
+- Seçenekler: Hz. Yusuf ve kardeşleri | Hz. Musa ve Hz. Harun | Hz. Âdem ve Hz. Havva | Hz. İbrahim ve Hz. İsmail
+- Doğru cevap: Hz. Âdem ve Hz. Havva
+- Açıklama: A‘râf 7:23: Rabbimiz! Biz kendimize zulmettik; bizi bağışlamazsan hüsrana uğrayanlardan oluruz.
+
+**DEEN-U29-S02-X005** · Kur’an’dan Dualar · multiple_choice
+- Soru: Hz. Musa’nın Firavun’a gitmeden önce yaptığı “Rabbişrah lî sadrî” duasının anlamı nedir?
+- Seçenekler: “Rabbim, bana kılıç ver.” | “Rabbim, beni sakla.” | “Rabbim, göğsümü genişlet.” | “Rabbim, beni geri çevir.”
+- Doğru cevap: “Rabbim, göğsümü genişlet.”
+- Açıklama: Tâhâ 20:25–26: Rabbim, göğsümü genişlet ve işimi kolaylaştır.
+
+**DEEN-U29-S02-X006** · Kur’an’dan Dualar · multiple_choice
+- Soru: Medyen’de yorgun ve yalnız kalan Hz. Musa nasıl dua etti?
+- Seçenekler: “Rabbim, bana indireceğin her hayra muhtacım.” | “Rabbim, beni Mısır’a götür.” | “Rabbim, bana hiçbir şey verme.” | “Rabbim, beni kral yap.”
+- Doğru cevap: “Rabbim, bana indireceğin her hayra muhtacım.”
+- Açıklama: Kasas 28:24: Rabbim, bana indireceğin her hayra muhtacım.
+
+**DEEN-U29-S02-X007** · Kur’an’dan Dualar · multiple_choice
+- Soru: İbrâhim 40’ta Hz. İbrahim kendisi ve soyu için ne diledi?
+- Seçenekler: Namazı dosdoğru kılanlardan olmayı | Kral olmayı | Hiç dua etmemeyi | Çok zengin olmayı
+- Doğru cevap: Namazı dosdoğru kılanlardan olmayı
+- Açıklama: İbrâhim 14:40: Rabbim! Beni ve soyumdan gelenleri namazı dosdoğru kılanlardan eyle.
+
+**DEEN-U29-S02-X008** · Kur’an’dan Dualar · true_false
+- Soru: Doğru mu, yanlış mı? Hz. Yunus’un duası kabul edildi ve o kederden kurtarıldı.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Enbiyâ 21:88: Müminleri işte böyle kurtarırız.
+
+**DEEN-U29-S02-X009** · Kur’an’dan Dualar · true_false
+- Soru: Doğru mu, yanlış mı? “Rabbenâ âtinâ” duası Kur’an’da yer alan bir duadır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Bakara 2:201.
+
+**DEEN-U29-S02-X010** · Kur’an’dan Dualar · missing_item
+- Soru: Eksik kavramı seç: Tâhâ 114: “Rabbim, ___ artır.”
+- Seçenekler: ilmimi | evimi | oyunumu | malımı
+- Doğru cevap: ilmimi
+- Açıklama: İlim istemek Kur’an’ın öğrettiği bir duadır.
+
+**DEEN-U29-S02-X011** · Kur’an’dan Dualar · fill_blank
+- Soru: Boşluğu tamamla: Balığın karnında tesbih ederek dua eden peygamber Hz. ___.
+- Seçenekler: Yunus | Nuh | Musa | İsa
+- Doğru cevap: Yunus
+- Açıklama: Enbiyâ 21:87.
+
+**DEEN-U29-S02-X012** · Kur’an’dan Dualar · progressive_recall
+- Soru: İpucu olmadan tamamla: Hz. Musa: “Rabbim, ___ genişlet.”
+- Doğru cevap: göğsümü
+- Açıklama: Tâhâ 20:25.
+
+**DEEN-U29-S02-X013** · Kur’an’dan Dualar · matching
+- Soru: Peygamberleri dualarıyla eşleştir: Hz. Âdem, Hz. Yunus, Hz. Musa ve Hz. İbrahim.
+- Eşleşmeler: Hz. Âdem → “Rabbimiz, biz kendimize zulmettik.”; Hz. Yunus → “Senden başka ilah yoktur, seni tenzih ederim.”; Hz. Musa → “Rabbim, göğsümü genişlet.”; Hz. İbrahim → “Beni namazı dosdoğru kılanlardan eyle.”
+- Açıklama: Peygamberlerin duaları bize örnektir.
+
+**DEEN-U29-S02-X014** · Kur’an’dan Dualar · error_spotting
+- Soru: ““Rabbi zidnî ilmâ” duası mal ve servet istemek için okunur.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Bu dua uyumak için okunur | Bu dua yolculuk için okunur | Bu dua yağmur için okunur | “Rabbi zidnî ilmâ” duasıyla ilmin artması istenir
+- Doğru cevap: “Rabbi zidnî ilmâ” duasıyla ilmin artması istenir
+- Açıklama: Tâhâ 20:114.
+
+**DEEN-U29-S03-X001** · Zikir ve Tesbih · multiple_choice
+- Soru: Ra‘d 28’e göre kalpler ne ile huzur bulur?
+- Seçenekler: Çok uyumakla | Çok oyunla | Allah’ı anmakla | Çok parayla
+- Doğru cevap: Allah’ı anmakla
+- Açıklama: Ra‘d 13:28: Bilesiniz ki kalpler ancak Allah’ı anmakla huzur bulur.
+
+**DEEN-U29-S03-X002** · Zikir ve Tesbih · multiple_choice
+- Soru: Namazdan sonra genellikle kaçar kez “Sübhânallah, Elhamdülillah, Allâhu ekber” denir?
+- Seçenekler: 33’er kez | 100’er kez | 1’er kez | 3’er kez
+- Doğru cevap: 33’er kez
+- Açıklama: Toplam 99 olur; sonra “Lâ ilâhe illallah…” ile 100’e tamamlanır (Müslim).
+
+**DEEN-U29-S03-X003** · Zikir ve Tesbih · multiple_choice
+- Soru: Hadise göre dile hafif, mizanda ağır ve Rahmân’a sevimli iki kelime hangisidir?
+- Seçenekler: “Evet, hayır” | “Günaydın, iyi geceler” | “Merhaba, güle güle” | “Sübhânallâhi ve bihamdihî, sübhânallâhi’l-azîm”
+- Doğru cevap: “Sübhânallâhi ve bihamdihî, sübhânallâhi’l-azîm”
+- Açıklama: Bu hadis Buhârî’nin son hadisidir.
+
+**DEEN-U29-S03-X004** · Zikir ve Tesbih · multiple_choice
+- Soru: Hadise göre cennet hazinelerinden bir hazine olan söz hangisidir?
+- Seçenekler: “Ben her şeyi yaparım” | “Lâ havle ve lâ kuvvete illâ billâh” | “Bana ne” | “Nasılsa olmaz”
+- Doğru cevap: “Lâ havle ve lâ kuvvete illâ billâh”
+- Açıklama: Buhârî ve Müslim’de geçen hadis; anlamı: Güç ve kuvvet ancak Allah’tandır.
+
+**DEEN-U29-S03-X005** · Zikir ve Tesbih · multiple_choice
+- Soru: Hz. Peygamber günde yetmiş defadan fazla ne yapardı?
+- Seçenekler: Uyurdu | Allah’tan bağışlanma diler, tövbe ederdi | Şiir okurdu | Pazar alışverişi yapardı
+- Doğru cevap: Allah’tan bağışlanma diler, tövbe ederdi
+- Açıklama: “Vallahi ben günde yetmiş defadan fazla Allah’tan af diler ve O’na tövbe ederim.” (Buhârî)
+
+**DEEN-U29-S03-X006** · Zikir ve Tesbih · multiple_choice
+- Soru: Bakara 152’ye göre Allah’ı anana ne vaat edilir?
+- Seçenekler: Unutulmak | Sadece dünya malı | Allah’ın da onu anması | Hiçbir şey
+- Doğru cevap: Allah’ın da onu anması
+- Açıklama: Bakara 2:152: Beni anın ki ben de sizi anayım.
+
+**DEEN-U29-S03-X007** · Zikir ve Tesbih · multiple_choice
+- Soru: Hadise göre Hz. Peygamber’e bir salavat getirene Allah kaç rahmet eder?
+- Seçenekler: Bir | Üç | On | Yüz
+- Doğru cevap: On
+- Açıklama: “Bana bir salavat getirene Allah on rahmet eder.” (Müslim)
+
+**DEEN-U29-S03-X008** · Zikir ve Tesbih · true_false
+- Soru: Doğru mu, yanlış mı? Zikir sadece camide yapılabilir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Âl-i İmrân 3:191: Onlar ayakta, otururken ve yanları üzerine yatarken Allah’ı anarlar.
+
+**DEEN-U29-S03-X009** · Zikir ve Tesbih · true_false
+- Soru: Doğru mu, yanlış mı? Ahzâb 41’de müminlere Allah’ı çokça anmaları emredilir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Ahzâb 33:41: Ey iman edenler! Allah’ı çokça anın.
+
+**DEEN-U29-S03-X010** · Zikir ve Tesbih · missing_item
+- Soru: Eksik kavramı seç: Ra‘d 28: “Kalpler ancak Allah’ı ___ huzur bulur.”
+- Seçenekler: anmakla | unutmakla | satmakla | görmekle
+- Doğru cevap: anmakla
+- Açıklama: Ra‘d 13:28.
+
+**DEEN-U29-S03-X011** · Zikir ve Tesbih · fill_blank
+- Soru: Boşluğu tamamla: “Lâ havle ve lâ kuvvete illâ ___.”
+- Seçenekler: şimdi | bizzat | yarın | billâh
+- Doğru cevap: billâh
+- Açıklama: Güç ve kuvvet ancak Allah’tandır.
+
+**DEEN-U29-S03-X012** · Zikir ve Tesbih · progressive_recall
+- Soru: İpucu olmadan tamamla: Namaz tesbihatında “Sübhânallah” ___ kez söylenir.
+- Doğru cevap: 33
+- Açıklama: Müslim’de geçen hadis.
+
+**DEEN-U29-S03-X013** · Zikir ve Tesbih · matching
+- Soru: Zikirleri anlamlarıyla eşleştir: Sübhânallah, Elhamdülillah, Allâhu ekber ve Estağfirullah.
+- Eşleşmeler: Sübhânallah → Allah her eksiklikten uzaktır; Elhamdülillah → Hamd Allah’adır; Allâhu ekber → Allah en büyüktür; Estağfirullah → Allah’tan bağışlanma dilerim
+- Açıklama: Her zikrin derin bir anlamı vardır.
+
+**DEEN-U29-S03-X014** · Zikir ve Tesbih · error_spotting
+- Soru: “Hz. Peygamber’e salavat getirmek gereksizdir.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Salavat Kur’an’da geçmez | Salavat sadece meleklere özeldir | Ahzâb 56’da müminlere Hz. Peygamber’e salavat getirmeleri emredilir | Salavat sadece bayramda okunur
+- Doğru cevap: Ahzâb 56’da müminlere Hz. Peygamber’e salavat getirmeleri emredilir
+- Açıklama: Ahzâb 33:56: Ey iman edenler! Siz de ona salat ve selam getirin.
+
+**DEEN-U29-S04-X001** · Günlük Dualar · multiple_choice
+- Soru: Hz. Peygamber uykudan uyanınca nasıl hamd ederdi?
+- Seçenekler: Hiçbir şey söylemezdi | “Bugün de sıkıcı olacak.” | “Bizi öldürdükten sonra dirilten Allah’a hamd olsun.” | “Keşke hiç uyanmasaydım.”
+- Doğru cevap: “Bizi öldürdükten sonra dirilten Allah’a hamd olsun.”
+- Açıklama: “Elhamdülillâhillezî ahyânâ ba‘de mâ emâtenâ ve ileyhi’n-nüşûr.” (Buhârî)
+
+**DEEN-U29-S04-X002** · Günlük Dualar · multiple_choice
+- Soru: Evden çıkarken okunan “Bismillâhi tevekkeltü alallâh” duasının anlamı nedir?
+- Seçenekler: “Bir daha eve dönmeyeceğim.” | “Allah’ın adıyla çıkıyorum, Allah’a güvendim.” | “Hava çok güzel.” | “Kapıyı kilitlemeyi unuttum.”
+- Doğru cevap: “Allah’ın adıyla çıkıyorum, Allah’a güvendim.”
+- Açıklama: Ebû Dâvûd ve Tirmizî’de geçen dua.
+
+**DEEN-U29-S04-X003** · Günlük Dualar · multiple_choice
+- Soru: Bir araca binerken okunan “Sübhânellezî sahhara lenâ hâzâ…” ayeti hangi suredendir?
+- Seçenekler: Kevser suresi | Fâtiha suresi | Nas suresi | Zuhruf suresi
+- Doğru cevap: Zuhruf suresi
+- Açıklama: Zuhruf 43:13: Bunu bizim hizmetimize veren Allah’ı tenzih ederiz.
+
+**DEEN-U29-S04-X004** · Günlük Dualar · multiple_choice
+- Soru: Bir musibet veya kötü haber karşısında ne söylenir?
+- Seçenekler: “Afiyet olsun” | “İnnâ lillâhi ve innâ ileyhi râci‘ûn” | “Hoş geldin” | “Maşallah”
+- Doğru cevap: “İnnâ lillâhi ve innâ ileyhi râci‘ûn”
+- Açıklama: Bakara 2:156: Biz Allah’a aidiz ve O’na döneceğiz.
+
+**DEEN-U29-S04-X005** · Günlük Dualar · multiple_choice
+- Soru: Gelecekte yapılacak bir iş için ne denir?
+- Seçenekler: “Eyvah” | “İnşallah” | “Elveda” | “Yazık”
+- Doğru cevap: “İnşallah”
+- Açıklama: Kehf 18:23–24: Hiçbir şey için “Bunu yarın yapacağım” deme; ancak “Allah dilerse” de.
+
+**DEEN-U29-S04-X006** · Günlük Dualar · multiple_choice
+- Soru: Güzel bir şey görüldüğünde söylenen ve Kehf suresinde geçen söz hangisidir?
+- Seçenekler: “Mâşâallah, lâ kuvvete illâ billâh” | “Hiç güzel değil” | “Kıskandım” | “Bana ne”
+- Doğru cevap: “Mâşâallah, lâ kuvvete illâ billâh”
+- Açıklama: Kehf 18:39: Bağına girdiğinde “Mâşâallah, güç ancak Allah’ındır” deseydin ya!
+
+**DEEN-U29-S04-X007** · Günlük Dualar · multiple_choice
+- Soru: Hadise göre kendisine iyilik yapılan kişinin “Cezâkellâhu hayran” demesi ne anlama gelir?
+- Seçenekler: “Allah seni hayırla mükâfatlandırsın.” | “Bunu bir daha yapma.” | “Bana borçlusun.” | “Hiç gerek yoktu.”
+- Doğru cevap: “Allah seni hayırla mükâfatlandırsın.”
+- Açıklama: “Kime bir iyilik yapılır da o da ‘Cezâkellâhu hayran’ derse en güzel şekilde övmüş olur.” (Tirmizî)
+
+**DEEN-U29-S04-X008** · Günlük Dualar · multiple_choice
+- Soru: Yemekten sonra okunan dualardan birinin anlamı hangisidir?
+- Seçenekler: “Yemek hiç güzel değildi.” | “Bizi yediren, içiren ve Müslüman kılan Allah’a hamd olsun.” | “Kimse benden iyi yemez.” | “Daha çok yemek istiyorum.”
+- Doğru cevap: “Bizi yediren, içiren ve Müslüman kılan Allah’a hamd olsun.”
+- Açıklama: Ebû Dâvûd ve Tirmizî’de geçen dua.
+
+**DEEN-U29-S04-X009** · Günlük Dualar · true_false
+- Soru: Doğru mu, yanlış mı? “İnşallah” demek, bir işi yapmamak için bahane bulmak demektir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: “İnşallah”, niyet edip çalışırken sonucu Allah’ın dilemesine bağlamaktır.
+
+**DEEN-U29-S04-X010** · Günlük Dualar · true_false
+- Soru: Doğru mu, yanlış mı? Hz. Peygamber uyumadan önce “Bismike Allâhümme emûtü ve ahyâ” derdi.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: “Allah’ım, senin adınla ölür ve dirilirim.” (Buhârî)
+
+**DEEN-U29-S04-X011** · Günlük Dualar · missing_item
+- Soru: Eksik kavramı seç: Bakara 156: “Biz Allah’a aidiz ve O’na ___.”
+- Seçenekler: kızacağız | unutacağız | kaçacağız | döneceğiz
+- Doğru cevap: döneceğiz
+- Açıklama: Musibet anında söylenen bu söz sabrı ifade eder.
+
+**DEEN-U29-S04-X012** · Günlük Dualar · fill_blank
+- Soru: Boşluğu tamamla: Kehf 18:24’e göre gelecek için “Allah dilerse” anlamında ___ denir.
+- Seçenekler: elveda | maşallah | eyvah | inşallah
+- Doğru cevap: inşallah
+- Açıklama: Kehf 18:23–24.
+
+**DEEN-U29-S04-X013** · Günlük Dualar · progressive_recall
+- Soru: İpucu olmadan tamamla: Evden çıkarken “___ tevekkeltü alallâh” denir.
+- Doğru cevap: Bismillâhi
+- Açıklama: Ebû Dâvûd ve Tirmizî’de geçen dua.
+
+**DEEN-U29-S04-X014** · Günlük Dualar · matching
+- Soru: Durumları söylenecek sözlerle eşleştir: Güzel bir şey görünce, Gelecek bir iş için, Musibet anında ve İyilik görünce.
+- Eşleşmeler: Güzel bir şey görünce → Mâşâallah; Gelecek bir iş için → İnşallah; Musibet anında → İnnâ lillâh; İyilik görünce → Cezâkellâhu hayran
+- Açıklama: Günlük hayatta Allah’ı anmanın güzel sözleri vardır.
+
+**DEEN-U29-S04-X015** · Günlük Dualar · scenario
+- Soru: Arkadaşının dedesinin vefat ettiğini öğrendin. Ne dersin?
+- Seçenekler: “Bana ne.” | “Maşallah!” | “İnnâ lillâhi ve innâ ileyhi râci‘ûn; Allah rahmet eylesin, başınız sağ olsun.” | Hiçbir şey söylemeden gülerim
+- Doğru cevap: “İnnâ lillâhi ve innâ ileyhi râci‘ûn; Allah rahmet eylesin, başınız sağ olsun.”
+- Açıklama: Bakara 2:156 ve taziye adabı.
+
+**DEEN-U29-S04-X016** · Günlük Dualar · error_spotting
+- Soru: ““Maşallah” kötü bir şey görünce söylenir.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Maşallah hiç söylenmez | Maşallah sadece yemekten önce söylenir | Maşallah bir vedalaşma sözüdür | “Maşallah” güzel bir şey görünce Allah’ı anmak için söylenir
+- Doğru cevap: “Maşallah” güzel bir şey görünce Allah’ı anmak için söylenir
+- Açıklama: Kehf 18:39.
+
+**DEEN-U29-S05-X001** · Duanın Adabı · multiple_choice
+- Soru: Hadise göre duaya nasıl başlamak güzeldir?
+- Seçenekler: Allah’a hamd ve Hz. Peygamber’e salavatla | Şikâyet ederek | Bağırarak | Başkalarını suçlayarak
+- Doğru cevap: Allah’a hamd ve Hz. Peygamber’e salavatla
+- Açıklama: Hz. Peygamber, hamd ve salavat getirmeden dua edeni “acele etti” diye uyardı (Tirmizî).
+
+**DEEN-U29-S05-X002** · Duanın Adabı · multiple_choice
+- Soru: Hadise göre kul Rabbine en çok ne zaman yakındır?
+- Seçenekler: Oyun oynarken | Uyurken | Alışverişte | Secde hâlindeyken
+- Doğru cevap: Secde hâlindeyken
+- Açıklama: “Kulun Rabbine en yakın olduğu an secde hâlidir; secdede çok dua edin.” (Müslim)
+
+**DEEN-U29-S05-X003** · Duanın Adabı · multiple_choice
+- Soru: Hadise göre Allah’ın “Bana dua eden yok mu, icabet edeyim” buyurduğu vakit hangisidir?
+- Seçenekler: Sabah kahvaltısı | Öğle sıcağı | Gecenin son üçte biri | İkindi sonrası
+- Doğru cevap: Gecenin son üçte biri
+- Açıklama: Buhârî ve Müslim’de geçen hadis.
+
+**DEEN-U29-S05-X004** · Duanın Adabı · multiple_choice
+- Soru: Hadise göre reddedilmeyen dua hangi vakitte yapılandır?
+- Seçenekler: Ders sırasında konuşurken | Ezan ile kamet arasında | Gece yarısı oyun oynarken | Kavga ederken
+- Doğru cevap: Ezan ile kamet arasında
+- Açıklama: “Ezan ile kamet arasında yapılan dua reddolunmaz.” (Tirmizî, Ebû Dâvûd)
+
+**DEEN-U29-S05-X005** · Duanın Adabı · multiple_choice
+- Soru: A‘râf 55’e göre Rabbimize nasıl dua etmeliyiz?
+- Seçenekler: Gösteriş yaparak | Kibirle | Yalvararak ve gizlice | Bağırıp çağırarak
+- Doğru cevap: Yalvararak ve gizlice
+- Açıklama: A‘râf 7:55: Rabbinize yalvararak ve gizlice dua edin.
+
+**DEEN-U29-S05-X006** · Duanın Adabı · multiple_choice
+- Soru: Hadise göre bir Müslüman kardeşine gıyabında dua edince melek ne der?
+- Seçenekler: Hiçbir şey demez | “Bu dua geçersiz.” | “Kendin için dua et.” | “Senin için de aynısı olsun.”
+- Doğru cevap: “Senin için de aynısı olsun.”
+- Açıklama: Müslim’de geçen hadis.
+
+**DEEN-U29-S05-X007** · Duanın Adabı · multiple_choice
+- Soru: Hadise göre hangi duadan sakınmak gerekir; çünkü onunla Allah arasında perde yoktur?
+- Seçenekler: Çocuğun gülmesinden | Rüzgârın sesinden | Mazlumun duasından | Kuşların ötmesinden
+- Doğru cevap: Mazlumun duasından
+- Açıklama: “Mazlumun bedduasından sakın; onunla Allah arasında perde yoktur.” (Buhârî)
+
+**DEEN-U29-S05-X008** · Duanın Adabı · multiple_choice
+- Soru: Hadise göre Allah, kendisine el açan kulunu nasıl karşılar?
+- Seçenekler: Ellerini boş çevirmekten hayâ eder | Onu unutur | Onu azarlar | Ona hiç bakmaz
+- Doğru cevap: Ellerini boş çevirmekten hayâ eder
+- Açıklama: “Rabbiniz hayâ sahibidir; kulu ellerini kaldırdığında onları boş çevirmekten hayâ eder.” (Ebû Dâvûd, Tirmizî)
+
+**DEEN-U29-S05-X009** · Duanın Adabı · true_false
+- Soru: Doğru mu, yanlış mı? Hz. Peygamber kişinin kendisine, çocuklarına ve malına beddua etmesini yasaklamıştır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Müslim’de geçen hadis.
+
+**DEEN-U29-S05-X010** · Duanın Adabı · true_false
+- Soru: Doğru mu, yanlış mı? Akrabalık bağlarını koparmak veya bir günahı işlemek için de dua edilebilir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Günah veya akrabalığı koparma içeren dua kabul olunmaz (Müslim).
+
+**DEEN-U29-S05-X011** · Duanın Adabı · missing_item
+- Soru: Eksik kavramı seç: Kulun Rabbine en yakın olduğu an ___ hâlidir.
+- Seçenekler: oyun | koşu | secde | uyku
+- Doğru cevap: secde
+- Açıklama: Müslim’de geçen hadis.
+
+**DEEN-U29-S05-X012** · Duanın Adabı · fill_blank
+- Soru: Boşluğu tamamla: A‘râf 7:55: “Rabbinize yalvararak ve ___ dua edin.”
+- Seçenekler: kızarak | gösterişle | gizlice | bağırarak
+- Doğru cevap: gizlice
+- Açıklama: İçten ve alçakgönüllü dua makbuldür.
+
+**DEEN-U29-S05-X013** · Duanın Adabı · progressive_recall
+- Soru: İpucu olmadan tamamla: Ezan ile ___ arasında yapılan dua reddolunmaz.
+- Doğru cevap: kamet
+- Açıklama: Tirmizî ve Ebû Dâvûd’da geçen hadis.
+
+**DEEN-U29-S05-X014** · Duanın Adabı · matching
+- Soru: Durumları hadislerdeki karşılıklarıyla eşleştir: Secde, Gecenin son üçte biri, Ezan ile kamet arası ve Mazlumun duası.
+- Eşleşmeler: Secde → Kulun Rabbine en yakın anı; Gecenin son üçte biri → “Bana dua eden yok mu?”; Ezan ile kamet arası → Dua reddolunmaz; Mazlumun duası → Allah ile arasında perde yok
+- Açıklama: Bazı vakit ve hâllerde dua daha çok umulur.
+
+**DEEN-U29-S05-X015** · Duanın Adabı · scenario
+- Soru: Arkadaşın hastanede ve onu ziyaret edemiyorsun. Ne yapabilirsin?
+- Seçenekler: Onun hastalığıyla dalga geçerim | Onun için gıyabında dua eder, mesajla halini sorarım | Hastanede olduğunu herkese yayarım | Hiç umursamam
+- Doğru cevap: Onun için gıyabında dua eder, mesajla halini sorarım
+- Açıklama: Gıyabında dua edene melek “Senin için de aynısı olsun” der (Müslim).
+
+**DEEN-U29-S05-X016** · Duanın Adabı · error_spotting
+- Soru: “Dua en iyi gösteriş yaparak ve herkese duyurarak edilir.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Dua sadece bağırarak edilir | Dua sadece başkaları duysun diye edilir | Dua yalvararak, içten ve gizlice edilir | Duada içtenlik gerekmez
+- Doğru cevap: Dua yalvararak, içten ve gizlice edilir
+- Açıklama: A‘râf 7:55.
+
+**DEEN-U29-S06-X001** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: Bakara 186’ya göre Allah kullarına ne kadar yakındır?
+- Seçenekler: Çok uzaktır | “Ben yakınım” buyurur | Hiç duymaz | Sadece bayramda duyar
+- Doğru cevap: “Ben yakınım” buyurur
+- Açıklama: Bakara 2:186.
+
+**DEEN-U29-S06-X002** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: “Lâ ilâhe illâ ente sübhâneke” diye dua eden peygamber kimdir?
+- Seçenekler: Hz. Hud | Hz. Yunus | Hz. Musa | Hz. Nuh
+- Doğru cevap: Hz. Yunus
+- Açıklama: Enbiyâ 21:87.
+
+**DEEN-U29-S06-X003** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: Kalpler ne ile huzur bulur (Ra‘d 28)?
+- Seçenekler: Oyunla | Şöhretle | Allah’ı anmakla | Parayla
+- Doğru cevap: Allah’ı anmakla
+- Açıklama: Ra‘d 13:28.
+
+**DEEN-U29-S06-X004** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: Kulun Rabbine en yakın olduğu an hangisidir?
+- Seçenekler: Secde hâli | Yemek hâli | Yürüyüş hâli | Uyku hâli
+- Doğru cevap: Secde hâli
+- Açıklama: Müslim’de geçen hadis.
+
+**DEEN-U29-S06-X005** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? “Rabbi zidnî ilmâ” “Rabbim, ilmimi artır” demektir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Tâhâ 20:114.
+
+**DEEN-U29-S06-X006** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? “Dua ettim, kabul olmadı” diyerek duayı bırakmak doğrudur.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Buhârî’de geçen hadis acele etmemeyi öğütler.
+
+**DEEN-U29-S06-X007** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Bir salavat getirene Allah on rahmet eder.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Müslim’de geçen hadis.
+
+**DEEN-U29-S06-X008** · Akıllı Tekrar · multiple_choice
+- Soru: Namazdan sonra “Elhamdülillah” kaç kez söylenir?
+- Seçenekler: 70 | 10 | 3 | 33
+- Doğru cevap: 33
+- Açıklama: Müslim’de geçen hadis.
+
+**DEEN-U29-S06-X009** · Akıllı Tekrar · multiple_choice
+- Soru: Musibet anında hangi söz söylenir?
+- Seçenekler: “İnnâ lillâhi ve innâ ileyhi râci‘ûn” | “İnşallah” | “Afiyet olsun” | “Maşallah”
+- Doğru cevap: “İnnâ lillâhi ve innâ ileyhi râci‘ûn”
+- Açıklama: Bakara 2:156.
+
+**DEEN-U29-S06-X010** · Akıllı Tekrar · multiple_choice
+- Soru: “Rabbenâ âtinâ” duası hangi suredendir?
+- Seçenekler: Yâsîn | Fâtiha | Mülk | Bakara
+- Doğru cevap: Bakara
+- Açıklama: Bakara 2:201.
+
+**DEEN-U29-S06-X011** · Akıllı Tekrar · error_spotting
+- Soru: “A‘râf 55’e göre dua bağırarak ve gösterişle edilmelidir.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: A‘râf 55’e göre dua sadece meleklere edilir | A‘râf 55 duadan bahsetmez | A‘râf 55’e göre dua yalvararak ve gizlice edilmelidir | A‘râf 55’e göre dua yasaktır
+- Doğru cevap: A‘râf 55’e göre dua yalvararak ve gizlice edilmelidir
+- Açıklama: A‘râf 7:55.
+
+**DEEN-U29-S06-X012** · Akıllı Tekrar · error_spotting
+- Soru: ““İnşallah” bir işi yapmamak için söylenen bir bahanedir.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: İnşallah bir musibet sözüdür | “İnşallah”, işi Allah’ın dilemesine bağlamaktır | İnşallah sadece geçmiş için söylenir | İnşallah bir selamlaşma sözüdür
+- Doğru cevap: “İnşallah”, işi Allah’ın dilemesine bağlamaktır
+- Açıklama: Kehf 18:23–24.
+
+**DEEN-U29-S07-X001** · Ünite Challenge · multiple_choice
+- Soru: Takımın maçı kazanmak istiyor. Hangisi dua ile çabayı birlikte gösterir?
+- Seçenekler: Rakip takıma beddua etmek | Hiç antrenman yapmadan sadece dua etmek | Ne çalışmak ne dua etmek | Antrenman yapıp, maçtan önce Allah’tan başarı dilemek
+- Doğru cevap: Antrenman yapıp, maçtan önce Allah’tan başarı dilemek
+- Açıklama: Tedbir almak ve Allah’a tevekkül etmek birlikte olur.
+
+**DEEN-U29-S07-X002** · Ünite Challenge · multiple_choice
+- Soru: Hz. Yunus’un en zor anında yaptığı dua bize ne öğretir?
+- Seçenekler: Sadece rahat zamanda dua etmeyi | Zor anda ümitsizliğe düşmeyi | En zor durumda bile Allah’a yönelip hatayı kabul ederek dua etmeyi | Duanın işe yaramadığını
+- Doğru cevap: En zor durumda bile Allah’a yönelip hatayı kabul ederek dua etmeyi
+- Açıklama: Enbiyâ 21:87–88.
+
+**DEEN-U29-S07-X003** · Ünite Challenge · multiple_choice
+- Soru: “Dile hafif, mizanda ağır” denilen zikir hangisidir?
+- Seçenekler: “Lâ havle ve lâ kuvvete illâ billâh” | “İnşallah” | “İnnâ lillâhi ve innâ ileyhi râci‘ûn” | “Sübhânallâhi ve bihamdihî, sübhânallâhi’l-azîm”
+- Doğru cevap: “Sübhânallâhi ve bihamdihî, sübhânallâhi’l-azîm”
+- Açıklama: Buhârî’de geçen hadis.
+
+**DEEN-U29-S07-X004** · Ünite Challenge · multiple_choice
+- Soru: “Beni anın ki ben de sizi anayım” ayeti hangisidir?
+- Seçenekler: Ra‘d 13:28 | Bakara 2:152 | Tâhâ 20:114 | Bakara 2:201
+- Doğru cevap: Bakara 2:152
+- Açıklama: Bakara 2:152.
+
+**DEEN-U29-S07-X005** · Ünite Challenge · error_spotting
+- Soru: “Dua sadece Arapça yapılırsa kabul olur.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Dua sadece yazıyla yapılır | Dua sadece bayramda yapılır | Kişi kendi diliyle de dua edebilir; Allah her dili bilir | Dua sadece camide yapılır
+- Doğru cevap: Kişi kendi diliyle de dua edebilir; Allah her dili bilir
+- Açıklama: Dua kalpten yapılır; namazdaki okunuşlar ise Arapçadır.
+
+**DEEN-U29-S07-X006** · Ünite Challenge · error_spotting
+- Soru: “Allah’ı anmak sadece oturarak yapılabilir.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Allah sadece sabah anılır | Allah sadece yüksek sesle anılır | Allah ayakta, otururken ve yatarken anılabilir | Allah sadece camide anılır
+- Doğru cevap: Allah ayakta, otururken ve yatarken anılabilir
+- Açıklama: Âl-i İmrân 3:191.
+
+**DEEN-U29-S07-X007** · Ünite Challenge · progressive_recall
+- Soru: İpucu olmadan tamamla: Güzel bir şey görünce “___” denir.
+- Doğru cevap: Mâşâallah
+- Açıklama: Kehf 18:39.
+
+**DEEN-U29-S07-X008** · Ünite Challenge · progressive_recall
+- Soru: İpucu olmadan tamamla: “Allah’tan bağışlanma dilerim” anlamına gelen söz ___.
+- Doğru cevap: Estağfirullah
+- Açıklama: Hz. Peygamber günde yetmiş defadan fazla istiğfar ederdi (Buhârî).
+
+**DEEN-U29-S07-X009** · Ünite Challenge · progressive_recall
+- Soru: İpucu olmadan tamamla: İyilik yapana “Cezâkellâhu ___” denir.
+- Doğru cevap: hayran
+- Açıklama: Tirmizî’de geçen hadis.
+
+**DEEN-U29-S07-X010** · Ünite Challenge · multiple_choice
+- Soru: Hz. Musa’nın “Rabbim, bana indireceğin her hayra muhtacım” duası hangi suredendir?
+- Seçenekler: Tâhâ suresi | Zuhruf suresi | Kasas suresi | Bakara suresi
+- Doğru cevap: Kasas suresi
+- Açıklama: Kasas 28:24.
+
+**DEEN-U29-S07-X011** · Ünite Challenge · matching
+- Soru: Duaları geçtikleri ayetlerle eşleştir: Rabbenâ âtinâ, Rabbi zidnî ilmâ, Rabbişrah lî sadrî ve Sübhânellezî sahhara lenâ.
+- Eşleşmeler: Rabbenâ âtinâ → Bakara 2:201; Rabbi zidnî ilmâ → Tâhâ 20:114; Rabbişrah lî sadrî → Tâhâ 20:25; Sübhânellezî sahhara lenâ → Zuhruf 43:13
+- Açıklama: Kur’an pek çok güzel dua öğretir.
+
+**DEEN-U29-S07-X012** · Ünite Challenge · matching
+- Soru: Anları okunan dualarla eşleştir: Uyanınca, Evden çıkarken, Araca binerken ve Uyumadan önce.
+- Eşleşmeler: Uyanınca → Bizi dirilten Allah’a hamd olsun; Evden çıkarken → Bismillâhi tevekkeltü alallâh; Araca binerken → Sübhânellezî sahhara lenâ; Uyumadan önce → Bismike Allâhümme emûtü ve ahyâ
+- Açıklama: Günün her anında Allah anılır.
+
+**DEEN-U29-S07-X013** · Ünite Challenge · scenario
+- Soru: Kardeşin sana kızdırdı ve ona beddua etmek istiyorsun. Ne yaparsın?
+- Seçenekler: Herkese onu kötülerim | Ağır bir beddua ederim | Ona da beddua etmesini söylerim | Sakinleşip onun ve kendim için hayır duası ederim
+- Doğru cevap: Sakinleşip onun ve kendim için hayır duası ederim
+- Açıklama: Hz. Peygamber kişinin yakınlarına beddua etmesini yasakladı (Müslim).
+
+**DEEN-U29-S07-X014** · Ünite Challenge · true_false
+- Soru: Doğru mu, yanlış mı? Gecenin son üçte biri duanın kabulü umulan vakitlerdendir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Buhârî ve Müslim’de geçen hadis.
