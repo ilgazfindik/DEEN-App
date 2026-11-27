@@ -8709,3 +8709,591 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Seçenekler: Doğru | Yanlış
 - Doğru cevap: Doğru
 - Açıklama: Hz. Ömer döneminde hicret takvimin başlangıcı oldu.
+
+## U22 — siyer_medine (100 soru)
+
+**DEEN-U22-S01-X001** · Yeni Bir Toplum · multiple_choice
+- Soru: Hz. Peygamber Medine’ye gelince ilk iş olarak ne inşa ettirdi?
+- Seçenekler: Bir saray | Bir pazar yeri | Bir kale | Mescid-i Nebevî’yi
+- Doğru cevap: Mescid-i Nebevî’yi
+- Açıklama: Mescid-i Nebevî hem ibadet hem eğitim hem de toplumun buluşma yeri oldu.
+
+**DEEN-U22-S01-X002** · Yeni Bir Toplum · multiple_choice
+- Soru: Mekke’den Medine’ye göç eden Müslümanlara ne ad verilir?
+- Seçenekler: Muhacir | Münafık | Bedevi | Ensar
+- Doğru cevap: Muhacir
+- Açıklama: Göç edenlere muhacir, onlara kucak açan Medineli Müslümanlara ensar denir.
+
+**DEEN-U22-S01-X003** · Yeni Bir Toplum · multiple_choice
+- Soru: Muhacirlere yardım eden Medineli Müslümanlara ne denir?
+- Seçenekler: Tâbiûn | Ensar | Muhacir | Ehl-i kitap
+- Doğru cevap: Ensar
+- Açıklama: Ensar “yardım edenler” demektir.
+
+**DEEN-U22-S01-X004** · Yeni Bir Toplum · multiple_choice
+- Soru: Hz. Peygamber’in her muhaciri bir ensarla kardeş ilan etmesine ne ad verilir?
+- Seçenekler: Biat | Hicret | Gazve | Muâhât (kardeşleştirme)
+- Doğru cevap: Muâhât (kardeşleştirme)
+- Açıklama: Muâhât ile ensar evini, işini ve malını muhacir kardeşiyle paylaştı.
+
+**DEEN-U22-S01-X005** · Yeni Bir Toplum · multiple_choice
+- Soru: Mescid-i Nebevî’nin yanında kurulan ve ilk eğitim yeri sayılan bölüm hangisidir?
+- Seçenekler: Suffe | Dârü’l-Erkam | Dârünnedve | Hatîm
+- Doğru cevap: Suffe
+- Açıklama: Suffe’de kalan sahabeler (ashâb-ı suffe) Kur’an ve dini bilgileri öğrenirdi.
+
+**DEEN-U22-S01-X006** · Yeni Bir Toplum · multiple_choice
+- Soru: Hz. Peygamber’in Medine’deki farklı toplulukların hak ve görevlerini belirlediği belgeye ne denir?
+- Seçenekler: Akabe Biatı | Veda Hutbesi | Hudeybiye Antlaşması | Medine Vesikası
+- Doğru cevap: Medine Vesikası
+- Açıklama: Medine Vesikası, şehirdeki Müslümanlar, Yahudiler ve diğer gruplar arasında ortak yaşamın kurallarını belirledi.
+
+**DEEN-U22-S01-X007** · Yeni Bir Toplum · true_false
+- Soru: Doğru mu, yanlış mı? Ensar, muhacir kardeşleriyle evlerini ve imkânlarını paylaştı.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Haşr 59:9 ensarın kendileri ihtiyaç içinde olsa bile kardeşlerini kendilerine tercih ettiğini anlatır.
+
+**DEEN-U22-S01-X008** · Yeni Bir Toplum · true_false
+- Soru: Doğru mu, yanlış mı? Mescid-i Nebevî yalnızca namaz kılınan bir yer değil, aynı zamanda eğitim ve danışma merkeziydi.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Mescitte namaz kılındı, ders yapıldı, elçiler kabul edildi ve istişareler yapıldı.
+
+**DEEN-U22-S01-X009** · Yeni Bir Toplum · missing_item
+- Soru: Eksik kavramı seç: Yesrib, hicretten sonra ___ olarak anıldı.
+- Seçenekler: Kudüs | Mekke | Medine | Taif
+- Doğru cevap: Medine
+- Açıklama: Yesrib, Peygamber şehri anlamında Medînetü’n-Nebî, kısaca Medine oldu.
+
+**DEEN-U22-S01-X010** · Yeni Bir Toplum · missing_item
+- Soru: Eksik kavramı seç: Muâhât ile ensar ve muhacirler birbirlerine ___ oldular.
+- Seçenekler: yabancı | rakip | kardeş | düşman
+- Doğru cevap: kardeş
+- Açıklama: Muâhât, inanç temelinde kurulan kardeşliktir.
+
+**DEEN-U22-S01-X011** · Yeni Bir Toplum · multiple_choice
+- Soru: Ensardan kardeşi malının yarısını teklif edince “Bana çarşının yolunu göster” diyen muhacir kimdir?
+- Seçenekler: Hz. Bilâl | Hz. Ömer | Hz. Ali | Abdurrahman b. Avf
+- Doğru cevap: Abdurrahman b. Avf
+- Açıklama: Abdurrahman b. Avf kardeşinin cömertliğine teşekkür edip kendi emeğiyle kazanmayı tercih etti (Buhârî).
+
+**DEEN-U22-S01-X012** · Yeni Bir Toplum · multiple_choice
+- Soru: Hz. Peygamber Medine’ye girmeden önce birkaç gün nerede kaldı?
+- Seçenekler: Taif’te | Kuba’da | Hayber’de | Uhud’da
+- Doğru cevap: Kuba’da
+- Açıklama: Kuba’da kalıp Kuba Mescidi’ni inşa ettikten sonra Medine’ye girdi.
+
+**DEEN-U22-S01-X013** · Yeni Bir Toplum · multiple_choice
+- Soru: Hz. Peygamber Medine’ye gelince mescit ve odaları yapılana kadar kimin evinde misafir kaldı?
+- Seçenekler: Ebû Tâlib | Ebû Süfyân | Ebû Cehil | Ebû Eyyûb el-Ensârî
+- Doğru cevap: Ebû Eyyûb el-Ensârî
+- Açıklama: Devesinin çöktüğü yerin yakınındaki Ebû Eyyûb el-Ensârî’nin evinde kaldı.
+
+**DEEN-U22-S01-X014** · Yeni Bir Toplum · true_false
+- Soru: Doğru mu, yanlış mı? Mescidin inşasında Hz. Peygamber de sahabelerle birlikte kerpiç taşıdı.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hz. Peygamber kendisini ayrı tutmadan çalışmaya katıldı (Buhârî).
+
+**DEEN-U22-S02-X001** · İbadetlerin Kuruluşu · multiple_choice
+- Soru: Ezan hangi dönemde okunmaya başlandı?
+- Seçenekler: Hicretten sonra, Medine’de | Mekke’nin ilk yıllarında | Hz. Peygamber’in vefatından sonra | Fil Yılı’nda
+- Doğru cevap: Hicretten sonra, Medine’de
+- Açıklama: Ezan hicretin birinci yılında Medine’de meşru kılındı.
+
+**DEEN-U22-S02-X002** · İbadetlerin Kuruluşu · multiple_choice
+- Soru: İslam’ın ilk müezzini kimdir?
+- Seçenekler: Hz. Zeyd | Hz. Bilâl | Hz. Ebû Bekir | Hz. Osman
+- Doğru cevap: Hz. Bilâl
+- Açıklama: Gür ve güzel sesi nedeniyle ezanı ilk okuyan Hz. Bilâl oldu.
+
+**DEEN-U22-S02-X003** · İbadetlerin Kuruluşu · multiple_choice
+- Soru: Medine’de kıble hangi yönden Kâbe’ye çevrildi?
+- Seçenekler: Taif’ten | Kudüs’teki Mescid-i Aksâ’dan | Medine’deki Uhud’dan | Şam’daki bir kiliseden
+- Doğru cevap: Kudüs’teki Mescid-i Aksâ’dan
+- Açıklama: Bakara 2:144 ile kıble Mescid-i Aksâ’dan Kâbe’ye çevrildi.
+
+**DEEN-U22-S02-X004** · İbadetlerin Kuruluşu · multiple_choice
+- Soru: Namaz kılınırken kıblenin değiştiği haberinin geldiği mescit hangisidir?
+- Seçenekler: Mescid-i Kıbleteyn | Mescid-i Aksâ | Mescid-i Haram | Kuba Mescidi
+- Doğru cevap: Mescid-i Kıbleteyn
+- Açıklama: Kıbleteyn “iki kıble” demektir; cemaat namazın ortasında yönünü Kâbe’ye çevirdi.
+
+**DEEN-U22-S02-X005** · İbadetlerin Kuruluşu · multiple_choice
+- Soru: Ramazan orucu ve zekât hicretin kaçıncı yılında farz kılındı?
+- Seçenekler: Onuncu | İkinci | Yedinci | Birinci
+- Doğru cevap: İkinci
+- Açıklama: Ramazan orucu ve zekât hicretin ikinci yılında farz kılındı.
+
+**DEEN-U22-S02-X006** · İbadetlerin Kuruluşu · matching
+- Soru: Olayları açıklamalarıyla eşleştir: Ezan, Kıble değişikliği, Ramazan orucu ve Muâhât.
+- Eşleşmeler: Ezan → Namaza çağrı, ilk müezzin Bilâl; Kıble değişikliği → Mescid-i Aksâ’dan Kâbe’ye; Ramazan orucu → Hicretin ikinci yılında farz; Muâhât → Ensar ve muhacirin kardeşliği
+- Açıklama: Medine’nin ilk yıllarında ibadet ve toplum hayatı şekillendi.
+
+**DEEN-U22-S02-X007** · İbadetlerin Kuruluşu · true_false
+- Soru: Doğru mu, yanlış mı? Ezanın sözleri bir sahabenin gördüğü rüya ve Hz. Peygamber’in onayıyla belirlendi.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Abdullah b. Zeyd’in gördüğü rüyayı Hz. Peygamber onayladı; Hz. Ömer de aynı rüyayı gördüğünü söyledi (Ebû Dâvûd).
+
+**DEEN-U22-S02-X008** · İbadetlerin Kuruluşu · fill_blank
+- Soru: Boşluğu tamamla: Kıblenin Kâbe’ye çevrilmesi ___ Suresi 144. âyette bildirilir.
+- Seçenekler: Nisâ | Âl-i İmrân | Bakara | Mâide
+- Doğru cevap: Bakara
+- Açıklama: Bakara 2:144: Yüzünü Mescid-i Haram tarafına çevir.
+
+**DEEN-U22-S02-X009** · İbadetlerin Kuruluşu · fill_blank
+- Soru: Boşluğu tamamla: Hz. Bilâl’in müezzin seçilmesinin bir sebebi sesinin ___ olmasıydı.
+- Seçenekler: gür ve güzel | sert ve kaba | duyulmaz | çok kısık
+- Doğru cevap: gür ve güzel
+- Açıklama: Hz. Peygamber, “Onun sesi seninkinden daha gürdür” diyerek ezanı Bilâl’e öğretmesini istedi.
+
+**DEEN-U22-S02-X010** · İbadetlerin Kuruluşu · progressive_recall
+- Soru: İpucu olmadan tamamla: Kıble değişikliğinin yaşandığı mescide Mescid-i ___ denir.
+- Doğru cevap: Kıbleteyn
+- Açıklama: Kıbleteyn iki kıble demektir.
+
+**DEEN-U22-S02-X011** · İbadetlerin Kuruluşu · progressive_recall
+- Soru: İpucu olmadan tamamla: Müslümanları namaza çağırmak için okunan söze ___ denir.
+- Doğru cevap: ezan
+- Açıklama: Ezan, namaz vaktini bildiren çağrıdır.
+
+**DEEN-U22-S02-X012** · İbadetlerin Kuruluşu · multiple_choice
+- Soru: Müslümanlar ilk Ramazan Bayramı’nı nerede kutladılar?
+- Seçenekler: Mekke’de | Habeşistan’da | Medine’de | Taif’te
+- Doğru cevap: Medine’de
+- Açıklama: Ramazan orucu Medine’de farz kılındığı için ilk bayram da orada kutlandı.
+
+**DEEN-U22-S02-X013** · İbadetlerin Kuruluşu · missing_item
+- Soru: Eksik kavramı seç: Hz. Peygamber hicret yolculuğunda ilk cuma namazını ___ kıldırdı.
+- Seçenekler: Habeşistan’da | Mekke’de Kâbe’de | Medine’ye girerken yol üzerinde | Hayber’de
+- Doğru cevap: Medine’ye girerken yol üzerinde
+- Açıklama: Kuba’dan Medine’ye giderken Benî Sâlim yurdunda ilk cumayı kıldırdığı rivayet edilir.
+
+**DEEN-U22-S02-X014** · İbadetlerin Kuruluşu · true_false
+- Soru: Doğru mu, yanlış mı? Müslümanların ilk kıblesi Mescid-i Aksâ idi.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Bir süre Mescid-i Aksâ’ya yönelerek namaz kılındı, sonra kıble Kâbe’ye çevrildi.
+
+**DEEN-U22-S03-X001** · Zor Sınavlar · multiple_choice
+- Soru: Müslümanların müşriklere karşı ilk büyük zaferi hangi savaştır?
+- Seçenekler: Bedir | Huneyn | Uhud | Hendek
+- Doğru cevap: Bedir
+- Açıklama: Bedir savaşı hicretin ikinci yılında, Ramazan ayında yapıldı.
+
+**DEEN-U22-S03-X002** · Zor Sınavlar · multiple_choice
+- Soru: Bedir’de yaklaşık 313 Müslümana karşı müşriklerin sayısı yaklaşık kaçtı?
+- Seçenekler: Yüz | On bin | Üç yüz | Bin
+- Doğru cevap: Bin
+- Açıklama: Sayıca az olmalarına rağmen Müslümanlar Allah’ın yardımıyla kazandı (Âl-i İmrân 3:123).
+
+**DEEN-U22-S03-X003** · Zor Sınavlar · multiple_choice
+- Soru: Uhud savaşında Müslümanların zor duruma düşmesinin temel sebebi neydi?
+- Seçenekler: Savaşın kışın yapılması | Hiç silahları olmaması | Okçuların Hz. Peygamber’in emrine rağmen tepedeki yerlerini bırakması | Müslümanların sayıca çok olması
+- Doğru cevap: Okçuların Hz. Peygamber’in emrine rağmen tepedeki yerlerini bırakması
+- Açıklama: Okçular ganimet için yerini terk edince düşman arkadan saldırdı; itaatin önemi anlaşıldı.
+
+**DEEN-U22-S03-X004** · Zor Sınavlar · multiple_choice
+- Soru: Uhud’da şehit düşen ve “şehitlerin efendisi” olarak anılan sahabe kimdir?
+- Seçenekler: Hz. Sa‘d | Hz. Zübeyr | Hz. Ali | Hz. Hamza
+- Doğru cevap: Hz. Hamza
+- Açıklama: Hz. Peygamber’in amcası Hz. Hamza Uhud’da şehit oldu.
+
+**DEEN-U22-S03-X005** · Zor Sınavlar · multiple_choice
+- Soru: Hendek savaşında Medine’nin etrafına hendek kazılması fikrini kim verdi?
+- Seçenekler: Hâlid b. Velîd | Ebû Süfyân | Selmân-ı Fârisî | Hz. Ömer
+- Doğru cevap: Selmân-ı Fârisî
+- Açıklama: İran’da bilinen bu savunma yöntemini Selmân-ı Fârisî önerdi; istişare sonucu uygulandı.
+
+**DEEN-U22-S03-X006** · Zor Sınavlar · matching
+- Soru: Savaşları özellikleriyle eşleştir: Bedir, Uhud, Hendek ve Huneyn.
+- Eşleşmeler: Bedir → İlk büyük zafer, Ramazan ayında; Uhud → Okçuların yerini bırakması; Hendek → Şehrin etrafına kazılan çukur; Huneyn → Fetihten sonra Hevâzin’e karşı
+- Açıklama: Her savaş farklı dersler içerir.
+
+**DEEN-U22-S03-X007** · Zor Sınavlar · true_false
+- Soru: Doğru mu, yanlış mı? Hz. Peygamber önemli kararlarda sahabeleriyle istişare ederdi.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Âl-i İmrân 3:159: İş hakkında onlarla istişare et.
+
+**DEEN-U22-S03-X008** · Zor Sınavlar · true_false
+- Soru: Doğru mu, yanlış mı? Uhud, Medine’nin yakınındaki bir dağın adıdır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hz. Peygamber “Uhud bizi sever, biz de onu severiz” buyurmuştur (Buhârî).
+
+**DEEN-U22-S03-X009** · Zor Sınavlar · fill_blank
+- Soru: Boşluğu tamamla: Bedir savaşı hicretin ___ yılında yapıldı.
+- Seçenekler: onuncu | altıncı | ikinci | sekizinci
+- Doğru cevap: ikinci
+- Açıklama: Bedir, hicretin ikinci yılı Ramazan ayındadır.
+
+**DEEN-U22-S03-X010** · Zor Sınavlar · fill_blank
+- Soru: Boşluğu tamamla: Bedir esirlerinden okuma yazma bilenlerin fidyesi, Medineli çocuklara ___ öğretmekti.
+- Seçenekler: yüzmeyi | okuma yazma | ticaret yapmayı | savaşmayı
+- Doğru cevap: okuma yazma
+- Açıklama: Her biri on çocuğa okuma yazma öğreterek serbest kalabiliyordu; bu, ilme verilen değeri gösterir.
+
+**DEEN-U22-S03-X011** · Zor Sınavlar · progressive_recall
+- Soru: İpucu olmadan tamamla: Hendek kazma fikrini veren sahabe Selmân-ı ___ idi.
+- Doğru cevap: Fârisî
+- Açıklama: Selmân-ı Fârisî İranlı bir sahabeydi.
+
+**DEEN-U22-S03-X012** · Zor Sınavlar · progressive_recall
+- Soru: İpucu olmadan tamamla: Uhud’da tepedeki ___ yerlerini bırakmaları ağır sonuçlar doğurdu.
+- Doğru cevap: okçuların
+- Açıklama: İtaatsizlik ve dünyalık hırsının bedeli ağır oldu.
+
+**DEEN-U22-S03-X013** · Zor Sınavlar · scenario
+- Soru: Takım kaptanı herkese görev verdi ama bir oyuncu kendi bildiğini yaptı ve takım kaybetti. Bu durum Uhud’dan hangi dersi hatırlatır?
+- Seçenekler: Kaybetmenin hiçbir zaman ders vermediğini | Ortak karara ve göreve bağlı kalmanın önemini | Herkesin kendi bildiğini yapması gerektiğini | Görevin önemsiz olduğunu
+- Doğru cevap: Ortak karara ve göreve bağlı kalmanın önemini
+- Açıklama: Uhud, itaat ve görev bilincinin önemini öğretir.
+
+**DEEN-U22-S03-X014** · Zor Sınavlar · multiple_choice
+- Soru: Hendek savaşı hicretin kaçıncı yılında oldu?
+- Seçenekler: Onuncu | Dokuzuncu | Beşinci | Birinci
+- Doğru cevap: Beşinci
+- Açıklama: Hendek savaşı hicretin beşinci yılında oldu.
+
+**DEEN-U22-S04-X001** · Antlaşma ve Fetih · multiple_choice
+- Soru: Hicretin altıncı yılında umre için gelen Müslümanlarla Mekkeli müşrikler arasında yapılan antlaşma hangisidir?
+- Seçenekler: Hudeybiye Antlaşması | Akabe Biatı | Medine Vesikası | Hılfu’l-fudûl
+- Doğru cevap: Hudeybiye Antlaşması
+- Açıklama: Hudeybiye’de on yıllık barış antlaşması yapıldı.
+
+**DEEN-U22-S04-X002** · Antlaşma ve Fetih · multiple_choice
+- Soru: Hudeybiye’de Hz. Osman’ın öldürüldüğü haberi üzerine ağacın altında yapılan biata ne denir?
+- Seçenekler: Veda biatı | Akabe biatı | Kuba biatı | Rıdvan biatı
+- Doğru cevap: Rıdvan biatı
+- Açıklama: Fetih 48:18’de Allah’ın ağacın altında biat eden müminlerden razı olduğu bildirilir.
+
+**DEEN-U22-S04-X003** · Antlaşma ve Fetih · multiple_choice
+- Soru: Fetih Suresi’nde “apaçık bir fetih” olarak nitelenen olay hangisidir?
+- Seçenekler: Hudeybiye Antlaşması | Hendek savaşı | Uhud savaşı | Bedir savaşı
+- Doğru cevap: Hudeybiye Antlaşması
+- Açıklama: Görünüşte Müslümanların aleyhine gibi görünen antlaşma, barış ortamıyla İslam’ın hızla yayılmasını sağladı.
+
+**DEEN-U22-S04-X004** · Antlaşma ve Fetih · multiple_choice
+- Soru: Hudeybiye’den sonra Hz. Peygamber kimlere mektup göndererek İslam’a davet etti?
+- Seçenekler: Sadece akrabalarına | Dönemin hükümdarlarına | Hiç kimseye | Sadece Mekkelilere
+- Doğru cevap: Dönemin hükümdarlarına
+- Açıklama: Bizans, İran, Habeşistan ve Mısır hükümdarlarına davet mektupları gönderildi.
+
+**DEEN-U22-S04-X005** · Antlaşma ve Fetih · multiple_choice
+- Soru: Mekke hangi yıl fethedildi?
+- Seçenekler: Hicretten önce | Hicretin birinci yılı | Hicretin onuncu yılı | Hicretin sekizinci yılı (630)
+- Doğru cevap: Hicretin sekizinci yılı (630)
+- Açıklama: Mekke, Kureyş’in antlaşmayı bozması üzerine 630 yılında neredeyse kan dökülmeden fethedildi.
+
+**DEEN-U22-S04-X006** · Antlaşma ve Fetih · multiple_choice
+- Soru: Mekke’nin fethinde Hz. Peygamber kendisine yıllarca eziyet eden Mekkelilere nasıl davrandı?
+- Seçenekler: Mallarını el koydu | Genel af ilan etti | Hepsini cezalandırdı | Hepsini sürgün etti
+- Doğru cevap: Genel af ilan etti
+- Açıklama: “Bugün size kınama yok; gidiniz, serbestsiniz” diyerek affetti.
+
+**DEEN-U22-S04-X007** · Antlaşma ve Fetih · multiple_choice
+- Soru: Mekke’nin fethinde Kâbe’deki putları kırarken Hz. Peygamber hangi âyeti okudu?
+- Seçenekler: “Allah birdir.” | “Hak geldi, batıl yok oldu.” | “Bizi doğru yola ilet.” | “Rabbin seni terk etmedi.”
+- Doğru cevap: “Hak geldi, batıl yok oldu.”
+- Açıklama: İsrâ 17:81: Hak geldi, batıl yok oldu; batıl zaten yok olmaya mahkûmdur.
+
+**DEEN-U22-S04-X008** · Antlaşma ve Fetih · true_false
+- Soru: Doğru mu, yanlış mı? Mekke büyük ölçüde savaşılmadan fethedildi.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hz. Peygamber kan dökülmemesi için tedbir aldı; şehir neredeyse çatışmasız teslim oldu.
+
+**DEEN-U22-S04-X009** · Antlaşma ve Fetih · true_false
+- Soru: Doğru mu, yanlış mı? Hudeybiye’de Müslümanlar o yıl umre yapamadan geri döndüler.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Antlaşmaya göre o yıl dönüp ertesi yıl umre yapacaklardı (kaza umresi).
+
+**DEEN-U22-S04-X010** · Antlaşma ve Fetih · scenario
+- Soru: Seni yıllarca üzen bir arkadaşın artık senden yardım istiyor. Mekke’nin fethindeki örnek ne öğretir?
+- Seçenekler: Onu hiç görmemeyi | Mutlaka intikam almayı | Güç sahibiyken bile affedebilmeyi | Onu herkese şikâyet etmeyi
+- Doğru cevap: Güç sahibiyken bile affedebilmeyi
+- Açıklama: Hz. Peygamber en güçlü olduğu anda affetmeyi seçti.
+
+**DEEN-U22-S04-X011** · Antlaşma ve Fetih · scenario
+- Soru: Hudeybiye’de antlaşma şartları ağır görünse de Hz. Peygamber sözünü tuttu. Bundan ne öğreniriz?
+- Seçenekler: Sabrın gereksiz olduğunu | Verilen söze bağlı kalmanın ve sabrın sonunda hayır getirdiğini | Zor sözlerin bozulabileceğini | Antlaşma yapmanın her zaman kötü olduğunu
+- Doğru cevap: Verilen söze bağlı kalmanın ve sabrın sonunda hayır getirdiğini
+- Açıklama: Antlaşmaya sadakat ve sabır, kısa sürede büyük kazanımlar getirdi.
+
+**DEEN-U22-S04-X012** · Antlaşma ve Fetih · fill_blank
+- Soru: Boşluğu tamamla: Mekke’nin fethi ___ ayında gerçekleşti.
+- Seçenekler: Muharrem | Zilhicce | Receb | Ramazan
+- Doğru cevap: Ramazan
+- Açıklama: Mekke hicretin sekizinci yılı Ramazan ayında fethedildi.
+
+**DEEN-U22-S04-X013** · Antlaşma ve Fetih · fill_blank
+- Soru: Boşluğu tamamla: Hudeybiye Antlaşması ___ yıllık bir barış öngörüyordu.
+- Seçenekler: bir | üç | on | yüz
+- Doğru cevap: on
+- Açıklama: Antlaşma on yıllık barış öngörüyordu; müşrikler iki yıl sonra bozdu.
+
+**DEEN-U22-S04-X014** · Antlaşma ve Fetih · progressive_recall
+- Soru: İpucu olmadan tamamla: Fetih günü Hz. Peygamber “Bugün size kınama yok” diyerek ___ ilan etti.
+- Doğru cevap: genel af
+- Açıklama: Hz. Peygamber, Yûsuf 12:92’deki ifadeyle affettiğini bildirdi.
+
+**DEEN-U22-S04-X015** · Antlaşma ve Fetih · matching
+- Soru: Olayları hicrî yıllarla eşleştir: Bedir, Hendek, Hudeybiye ve Mekke’nin fethi.
+- Eşleşmeler: Bedir → 2. yıl; Hendek → 5. yıl; Hudeybiye → 6. yıl; Mekke’nin fethi → 8. yıl
+- Açıklama: Medine döneminin kronolojisi.
+
+**DEEN-U22-S04-X016** · Antlaşma ve Fetih · error_spotting
+- Soru: “Mekke’nin fethinde Hz. Peygamber düşmanlarından intikam aldı.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Mekke’nin fethinde Hz. Peygamber genel af ilan etti | Fetihte bütün Mekkeliler sürüldü | Mekke hiç fethedilmedi | Fetihte Kâbe yıkıldı
+- Doğru cevap: Mekke’nin fethinde Hz. Peygamber genel af ilan etti
+- Açıklama: Fetih, af ve merhametin örneğidir.
+
+**DEEN-U22-S05-X001** · Veda ve Vefat · multiple_choice
+- Soru: Hz. Peygamber Veda Haccı’nı hangi yıl yaptı?
+- Seçenekler: Hicretin beşinci yılı | Hicretten önce | Hicretin onuncu yılı (632) | Hicretin ikinci yılı
+- Doğru cevap: Hicretin onuncu yılı (632)
+- Açıklama: Hicretin onuncu yılında, vefatından kısa süre önce yapılmıştır.
+
+**DEEN-U22-S05-X002** · Veda ve Vefat · multiple_choice
+- Soru: Veda Hutbesi’nin önemli bir kısmı nerede okundu?
+- Seçenekler: Medine’de | Arafat’ta | Taif’te | Uhud’da
+- Doğru cevap: Arafat’ta
+- Açıklama: Hz. Peygamber Arafat’ta büyük kalabalığa hitap etti.
+
+**DEEN-U22-S05-X003** · Veda ve Vefat · multiple_choice
+- Soru: Veda Hutbesi’ne göre hangileri birbirinize karşı dokunulmazdır?
+- Seçenekler: Sadece hayvanlarınız | Canlarınız, mallarınız ve namuslarınız | Sadece mallarınız | Hiçbir şey
+- Doğru cevap: Canlarınız, mallarınız ve namuslarınız
+- Açıklama: “Canlarınız, mallarınız ve namuslarınız bu günün, bu ayın, bu şehrin kutsallığı gibi dokunulmazdır.” (Buhârî)
+
+**DEEN-U22-S05-X004** · Veda ve Vefat · multiple_choice
+- Soru: Veda Hutbesi’ne göre insanlar arasında üstünlük neyledir?
+- Seçenekler: Renk ile | Zenginlik ile | Takva ile | Soy ile
+- Doğru cevap: Takva ile
+- Açıklama: “Arap’ın Arap olmayana, Arap olmayanın Arap’a üstünlüğü yoktur; üstünlük takvadadır.” (Ahmed b. Hanbel)
+
+**DEEN-U22-S05-X005** · Veda ve Vefat · multiple_choice
+- Soru: Veda Hutbesi’nde hangi konuda özellikle uyarıda bulunulmuştur?
+- Seçenekler: Savaş taktikleri | Saray kuralları | Ticaret vergileri | Kadınların hakları konusunda Allah’tan korkmak
+- Doğru cevap: Kadınların hakları konusunda Allah’tan korkmak
+- Açıklama: “Kadınların haklarına riayet etmenizi ve bu hususta Allah’tan korkmanızı tavsiye ederim.” (Müslim)
+
+**DEEN-U22-S05-X006** · Veda ve Vefat · multiple_choice
+- Soru: “Bugün dininizi kemale erdirdim” âyeti hangi olay sırasında indi?
+- Seçenekler: Hendek kazılırken | Bedir savaşında | Veda Haccı’nda Arafat’ta | Hicret yolunda
+- Doğru cevap: Veda Haccı’nda Arafat’ta
+- Açıklama: Mâide 5:3, Veda Haccı’nda Arafat’ta inmiştir.
+
+**DEEN-U22-S05-X007** · Veda ve Vefat · multiple_choice
+- Soru: Hz. Peygamber kaç yaşında vefat etti?
+- Seçenekler: 53 | 80 | 40 | 63
+- Doğru cevap: 63
+- Açıklama: Hz. Peygamber 632 yılında, 63 yaşında Medine’de vefat etti.
+
+**DEEN-U22-S05-X008** · Veda ve Vefat · multiple_choice
+- Soru: Hz. Peygamber’in kabri nerededir?
+- Seçenekler: Medine’de, Mescid-i Nebevî’nin yanında | Taif’te | Mekke’de, Kâbe’nin içinde | Kudüs’te
+- Doğru cevap: Medine’de, Mescid-i Nebevî’nin yanında
+- Açıklama: Hz. Âişe’nin odasına defnedildi; bugün Mescid-i Nebevî’nin içindedir.
+
+**DEEN-U22-S05-X009** · Veda ve Vefat · true_false
+- Soru: Doğru mu, yanlış mı? Hz. Peygamber vefat edince Hz. Ebû Bekir “Kim Muhammed’e kulluk ediyorsa bilsin ki o öldü; kim Allah’a kulluk ediyorsa bilsin ki Allah diridir, ölmez” dedi.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hz. Ebû Bekir ardından Âl-i İmrân 3:144’ü okudu (Buhârî).
+
+**DEEN-U22-S05-X010** · Veda ve Vefat · true_false
+- Soru: Doğru mu, yanlış mı? Veda Hutbesi’nde Hz. Peygamber ümmetine sarıldıkları sürece yolunu şaşırmayacakları bir emanet bıraktığını söyledi.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Rivayetlerde Allah’ın kitabı ve sünneti (ya da ehl-i beyti) olarak geçer.
+
+**DEEN-U22-S05-X011** · Veda ve Vefat · scenario
+- Soru: Okulda bir öğrenci farklı bir ülkeden geldiği için dışlanıyor. Veda Hutbesi’nin mesajı ne der?
+- Seçenekler: Bazı milletler doğuştan üstündür | Dışlamak doğaldır | Hiç kimsenin soyu veya rengi yüzünden üstünlüğü yoktur; üstünlük takvadadır | Herkes yalnız kendi milletiyle arkadaş olmalı
+- Doğru cevap: Hiç kimsenin soyu veya rengi yüzünden üstünlüğü yoktur; üstünlük takvadadır
+- Açıklama: Veda Hutbesi ırk ve renk ayrımcılığını reddeder.
+
+**DEEN-U22-S05-X012** · Veda ve Vefat · scenario
+- Soru: Arkadaşının çantasından izinsiz bir şey almak “küçük bir şey” sayılabilir mi?
+- Seçenekler: Hayır, başkasının malı dokunulmazdır | Evet, kimse görmezse olur | Evet, küçük şeyler sayılmaz | Evet, arkadaşsa sorun olmaz
+- Doğru cevap: Hayır, başkasının malı dokunulmazdır
+- Açıklama: Veda Hutbesi malların dokunulmaz olduğunu vurgular.
+
+**DEEN-U22-S05-X013** · Veda ve Vefat · fill_blank
+- Soru: Boşluğu tamamla: Hz. Peygamber miladi ___ yılında vefat etti.
+- Seçenekler: 610 | 622 | 632 | 571
+- Doğru cevap: 632
+- Açıklama: Hz. Peygamber 632’de vefat etti.
+
+**DEEN-U22-S05-X014** · Veda ve Vefat · fill_blank
+- Soru: Boşluğu tamamla: Veda Hutbesi’ne göre üstünlük ancak ___ iledir.
+- Seçenekler: takva | soy | güç | servet
+- Doğru cevap: takva
+- Açıklama: Üstünlük, Allah’a saygı ve sorumluluk bilinci olan takvadadır.
+
+**DEEN-U22-S05-X015** · Veda ve Vefat · missing_item
+- Soru: Eksik kavramı seç: Hz. Peygamber’in kabri ile minberi arasındaki alana ___ denir.
+- Seçenekler: Hatîm | Ravza | Makam | Mültezem
+- Doğru cevap: Ravza
+- Açıklama: Hadiste bu alanın cennet bahçelerinden bir bahçe olduğu bildirilir (Buhârî).
+
+**DEEN-U22-S05-X016** · Veda ve Vefat · matching
+- Soru: Veda Hutbesi’nin mesajlarını eşleştir: Canlar ve mallar, Üstünlük, Kadınlar ve Din.
+- Eşleşmeler: Canlar ve mallar → Dokunulmazdır; Üstünlük → Takvadadır; Kadınlar → Haklarına riayet edilir; Din → Kemale ermiştir
+- Açıklama: Veda Hutbesi temel insan haklarını özetler.
+
+**DEEN-U22-S06-X001** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: İlk büyük zafer hangi savaştır?
+- Seçenekler: Uhud | Tebük | Bedir | Hendek
+- Doğru cevap: Bedir
+- Açıklama: Bedir, hicretin ikinci yılında kazanıldı.
+
+**DEEN-U22-S06-X002** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: İlk müezzin kimdir?
+- Seçenekler: Ali | Osman | Ömer | Bilâl
+- Doğru cevap: Bilâl
+- Açıklama: Hz. Bilâl ilk müezzindir.
+
+**DEEN-U22-S06-X003** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: Mekke hangi yıl fethedildi?
+- Seçenekler: 610 | 622 | 630 | 632
+- Doğru cevap: 630
+- Açıklama: Mekke 630’da fethedildi.
+
+**DEEN-U22-S06-X004** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: Hz. Peygamber kaç yaşında vefat etti?
+- Seçenekler: 63 | 53 | 40 | 70
+- Doğru cevap: 63
+- Açıklama: Altmış üç yaşında vefat etti.
+
+**DEEN-U22-S06-X005** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Hendek fikrini Hz. Ömer verdi.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Hendek fikrini Selmân-ı Fârisî verdi.
+
+**DEEN-U22-S06-X006** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Kıble Medine döneminde Kâbe’ye çevrildi.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Bakara 2:144 ile kıble Kâbe’ye çevrildi.
+
+**DEEN-U22-S06-X007** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Hz. Hamza Bedir’de şehit oldu.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Hz. Hamza Uhud’da şehit oldu.
+
+**DEEN-U22-S06-X008** · Akıllı Tekrar · multiple_choice
+- Soru: Muhacirlere kucak açan Medinelilere ne denir?
+- Seçenekler: Ensar | Muhacir | Münafık | Mürted
+- Doğru cevap: Ensar
+- Açıklama: Ensar, yardım edenler demektir.
+
+**DEEN-U22-S06-X009** · Akıllı Tekrar · multiple_choice
+- Soru: Fetih Suresi’nde “apaçık fetih” denen antlaşma hangisidir?
+- Seçenekler: Hudeybiye | Hılfu’l-fudûl | Medine Vesikası | Akabe
+- Doğru cevap: Hudeybiye
+- Açıklama: Hudeybiye Antlaşması.
+
+**DEEN-U22-S06-X010** · Akıllı Tekrar · multiple_choice
+- Soru: Veda Hutbesi’ne göre üstünlük neyledir?
+- Seçenekler: Renk | Soy | Takva | Mal
+- Doğru cevap: Takva
+- Açıklama: Üstünlük takvadadır.
+
+**DEEN-U22-S06-X011** · Akıllı Tekrar · error_spotting
+- Soru: “Uhud’da okçular Hz. Peygamber’in emrine uyup yerlerinden ayrılmadılar.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Okçuların çoğu emre rağmen yerlerini bıraktı | Okçular savaşa katılmadı | Uhud’da hiç okçu yoktu | Uhud’da savaş olmadı
+- Doğru cevap: Okçuların çoğu emre rağmen yerlerini bıraktı
+- Açıklama: Bu itaatsizlik ağır kayıplara yol açtı.
+
+**DEEN-U22-S06-X012** · Akıllı Tekrar · error_spotting
+- Soru: “Mekke’nin fethinde şehir büyük bir savaşla ele geçirildi.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Mekke büyük ölçüde kan dökülmeden fethedildi | Mekke’nin fethi Medine’de oldu | Mekke’yi Ebrehe fethetti | Mekke hiç fethedilmedi
+- Doğru cevap: Mekke büyük ölçüde kan dökülmeden fethedildi
+- Açıklama: Fetih, af ve barış içinde gerçekleşti.
+
+**DEEN-U22-S07-X001** · Ünite Challenge · scenario
+- Soru: Sınıfınıza başka şehirden gelen bir öğrenci kimseyi tanımıyor. Ensar örneği ne öğretir?
+- Seçenekler: Kucak açıp yardımcı olmayı, imkânları paylaşmayı | Onu kendi haline bırakmayı | Onunla alay etmeyi | Ondan uzak durmayı
+- Doğru cevap: Kucak açıp yardımcı olmayı, imkânları paylaşmayı
+- Açıklama: Ensar, muhacirleri kardeş bilip her şeylerini paylaştı.
+
+**DEEN-U22-S07-X002** · Ünite Challenge · scenario
+- Soru: Sınıf başkanı önemli bir karar vermeden önce herkesin fikrini soruyor. Bu, Hz. Peygamber’in hangi uygulamasına uygundur?
+- Seçenekler: Kendi başına karar vermek | Kura çekmek | İstişare | Hiç karar vermemek
+- Doğru cevap: İstişare
+- Açıklama: Hz. Peygamber Hendek’te ve başka pek çok konuda istişare etti.
+
+**DEEN-U22-S07-X003** · Ünite Challenge · scenario
+- Soru: Bedir esirlerinin okuma yazma öğreterek serbest kalabilmesi neyi gösterir?
+- Seçenekler: Esirlerin önemsiz olduğunu | İslam’ın ilme ve eğitime verdiği değeri | Okuma yazmanın gereksiz olduğunu | Savaşın tek amacın olduğunu
+- Doğru cevap: İslam’ın ilme ve eğitime verdiği değeri
+- Açıklama: Fidye olarak eğitimi kabul etmek, ilmin önemini gösterir.
+
+**DEEN-U22-S07-X004** · Ünite Challenge · error_spotting
+- Soru: “Müslümanların ilk kıblesi Mescid-i Nebevî idi.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Müslümanların hiç kıblesi olmadı | Müslümanların ilk kıblesi Mescid-i Aksâ idi | İlk kıble Taif’ti | İlk kıble Uhud dağıydı
+- Doğru cevap: Müslümanların ilk kıblesi Mescid-i Aksâ idi
+- Açıklama: İlk kıble Mescid-i Aksâ, sonra Kâbe oldu.
+
+**DEEN-U22-S07-X005** · Ünite Challenge · error_spotting
+- Soru: “Veda Hutbesi Medine’de Mescid-i Nebevî’de okundu.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Veda Hutbesi Taif’te okundu | Veda Hutbesi hiç okunmadı | Veda Hutbesi Uhud’da okundu | Veda Hutbesi’nin önemli bir kısmı Arafat’ta okundu
+- Doğru cevap: Veda Hutbesi’nin önemli bir kısmı Arafat’ta okundu
+- Açıklama: Veda Haccı sırasında Arafat’ta okundu.
+
+**DEEN-U22-S07-X006** · Ünite Challenge · progressive_recall
+- Soru: İpucu olmadan tamamla: Hz. Peygamber’in ensar ile muhaciri kardeş yapmasına ___ denir.
+- Doğru cevap: muâhât
+- Açıklama: Muâhât, kardeşleştirme demektir.
+
+**DEEN-U22-S07-X007** · Ünite Challenge · progressive_recall
+- Soru: İpucu olmadan tamamla: Hudeybiye’de ağacın altında yapılan biata ___ biatı denir.
+- Doğru cevap: Rıdvan
+- Açıklama: Fetih 48:18.
+
+**DEEN-U22-S07-X008** · Ünite Challenge · progressive_recall
+- Soru: İpucu olmadan tamamla: Uhud’da şehit düşen Hz. Peygamber’in amcası Hz. ___ dır.
+- Doğru cevap: Hamza
+- Açıklama: Hz. Hamza “şehitlerin efendisi” olarak anılır.
+
+**DEEN-U22-S07-X009** · Ünite Challenge · multiple_choice
+- Soru: Aşağıdaki olaylardan hangisi en son yaşanmıştır?
+- Seçenekler: Mekke’nin fethi | Bedir savaşı | Veda Haccı | Hudeybiye Antlaşması
+- Doğru cevap: Veda Haccı
+- Açıklama: Sıra: Bedir (2), Hudeybiye (6), Mekke’nin fethi (8), Veda Haccı (10).
+
+**DEEN-U22-S07-X010** · Ünite Challenge · multiple_choice
+- Soru: Hz. Peygamber fetih günü Mekkelilere hangi peygamberin kardeşlerine söylediği sözle hitap etti?
+- Seçenekler: Hz. Yûsuf’un | Hz. Musa’nın | Hz. İsa’nın | Hz. Nuh’un
+- Doğru cevap: Hz. Yûsuf’un
+- Açıklama: “Bugün size kınama yok” sözü Hz. Yûsuf’un kardeşlerine söylediği sözdür (Yûsuf 12:92).
+
+**DEEN-U22-S07-X011** · Ünite Challenge · matching
+- Soru: Kişileri olaylarla eşleştir: Selmân-ı Fârisî, Bilâl, Ebû Eyyûb el-Ensârî ve Abdurrahman b. Avf.
+- Eşleşmeler: Selmân-ı Fârisî → Hendek fikri; Bilâl → İlk ezan; Ebû Eyyûb el-Ensârî → Peygamber’i evinde misafir etmesi; Abdurrahman b. Avf → “Bana çarşının yolunu göster”
+- Açıklama: Medine döneminin önemli isimleri.
+
+**DEEN-U22-S07-X012** · Ünite Challenge · matching
+- Soru: Yerleri olaylarla eşleştir: Kuba, Kıbleteyn, Arafat ve Hudeybiye.
+- Eşleşmeler: Kuba → İlk mescit; Kıbleteyn → Kıblenin değiştiği mescit; Arafat → Veda Hutbesi; Hudeybiye → On yıllık barış antlaşması
+- Açıklama: Siyerdeki önemli yerler.
+
+**DEEN-U22-S07-X013** · Ünite Challenge · scenario
+- Soru: Kardeşine bir hafta boyunca oyuncağını ödünç vereceğine söz verdin ama şimdi vazgeçmek istiyorsun. Hudeybiye örneğine göre ne yapmalısın?
+- Seçenekler: Sözünü tutup sabretmek | Sözü hiç vermemiş gibi davranmak | Kardeşini suçlamak | Sözünü hemen bozmak
+- Doğru cevap: Sözünü tutup sabretmek
+- Açıklama: Hz. Peygamber ağır görünen şartlara rağmen sözünü tuttu.
+
+**DEEN-U22-S07-X014** · Ünite Challenge · true_false
+- Soru: Doğru mu, yanlış mı? Hz. Peygamber’in kabri Medine’dedir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Mescid-i Nebevî’nin içinde, Hz. Âişe’nin odasındadır.
