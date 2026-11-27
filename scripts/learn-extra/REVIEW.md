@@ -6355,3 +6355,592 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Seçenekler: Doğru | Yanlış
 - Doğru cevap: Doğru
 - Açıklama: Cemrelere taş atmak haccın vaciplerindendir; terk edilirse ceza (dem) gerekir.
+
+## U18 — cuma_bayram_namazlari (100 soru)
+
+**DEEN-U18-S01-X001** · Cuma Namazı · multiple_choice
+- Soru: Cuma Suresi 9. âyette cuma namazına çağrıldığında ne yapılması istenir?
+- Seçenekler: Alışverişi bırakıp Allah’ı anmaya koşmak | Alışverişe hız vermek | Yolculuğa çıkmak | Evde uyumak
+- Doğru cevap: Alışverişi bırakıp Allah’ı anmaya koşmak
+- Açıklama: Cuma 62:9: “Cuma günü namaz için çağrı yapıldığında Allah’ı anmaya koşun ve alışverişi bırakın.”
+
+**DEEN-U18-S01-X002** · Cuma Namazı · multiple_choice
+- Soru: Cuma namazının farzı kaç rekâttır?
+- Seçenekler: İki | Üç | Dört | Altı
+- Doğru cevap: İki
+- Açıklama: Cuma namazının farzı iki rekâttır ve cemaatle kılınır.
+
+**DEEN-U18-S01-X003** · Cuma Namazı · multiple_choice
+- Soru: Cuma namazı hangi namazın vaktinde kılınır?
+- Seçenekler: İkindi namazının | Sabah namazının | Öğle namazının | Yatsı namazının
+- Doğru cevap: Öğle namazının
+- Açıklama: Cuma namazı öğle vaktinde kılınır ve o günün öğle namazının yerine geçer.
+
+**DEEN-U18-S01-X004** · Cuma Namazı · multiple_choice
+- Soru: Cuma namazında hutbe ne zaman okunur?
+- Seçenekler: Farzdan önce | Namazın ortasında | Hiç okunmaz | Farzdan sonra
+- Doğru cevap: Farzdan önce
+- Açıklama: Cuma hutbesi farzdan önce okunur ve cuma namazının şartlarındandır.
+
+**DEEN-U18-S01-X005** · Cuma Namazı · true_false
+- Soru: Doğru mu, yanlış mı? Cuma namazı kadınlara farz değildir; kılarlarsa öğle namazı yerine geçer.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Cuma; erkek, hür, mukim ve sağlıklı Müslümanlara farzdır. Kadınlar kılarsa o günün öğlesi yerine geçer.
+
+**DEEN-U18-S01-X006** · Cuma Namazı · true_false
+- Soru: Doğru mu, yanlış mı? Yolculuktaki kişiye cuma namazı farz değildir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Yolcu (misafir) cuma ile yükümlü değildir; kılarsa geçerlidir.
+
+**DEEN-U18-S01-X007** · Cuma Namazı · multiple_choice
+- Soru: Cuma günü namaza gitmeden önce yapılması sünnet olan temizlik hangisidir?
+- Seçenekler: Yalnız el yıkamak | Gusül (boy abdesti) | Hiçbir temizlik | Teyemmüm
+- Doğru cevap: Gusül (boy abdesti)
+- Açıklama: Cuma günü gusletmek, güzel koku sürünmek ve temiz elbise giymek sünnettir (Buhârî).
+
+**DEEN-U18-S01-X008** · Cuma Namazı · multiple_choice
+- Soru: Hutbe okunurken cemaatin tutumu nasıl olmalıdır?
+- Seçenekler: Sessizce dinlemek | Telefonla konuşmak | Yanındakiyle sohbet etmek | Dışarı çıkıp beklemek
+- Doğru cevap: Sessizce dinlemek
+- Açıklama: Hadis: “İmam hutbe okurken yanındakine ‘sus’ dersen boş bir iş yapmış olursun.” (Buhârî)
+
+**DEEN-U18-S01-X009** · Cuma Namazı · missing_item
+- Soru: Eksik kavramı seç: Hadislerde cuma günü Müslümanlar için haftanın ___ olarak anılır.
+- Seçenekler: yasını | tatili | son günü | bayramı
+- Doğru cevap: bayramı
+- Açıklama: Cuma günü Müslümanların haftalık bayramı olarak anılır (İbn Mâce).
+
+**DEEN-U18-S01-X010** · Cuma Namazı · missing_item
+- Soru: Eksik kavramı seç: Cuma namazı tek başına değil ___ kılınır.
+- Seçenekler: cemaatle | evde gizlice | yalnız gece | yolda yürürken
+- Doğru cevap: cemaatle
+- Açıklama: Cuma namazının şartlarından biri cemaattir.
+
+**DEEN-U18-S01-X011** · Cuma Namazı · multiple_choice
+- Soru: Hadise göre özürsüz olarak cumayı üst üste terk etmek konusunda ne bildirilmiştir?
+- Seçenekler: Yalnızca yaz aylarında önemlidir | Sevabı artar | Hiçbir sakıncası yoktur | Özürsüz üç cumayı terk edenin kalbi mühürlenir
+- Doğru cevap: Özürsüz üç cumayı terk edenin kalbi mühürlenir
+- Açıklama: Hz. Peygamber: “Kim önemsemeyerek üç cumayı terk ederse Allah onun kalbini mühürler.” (Ebû Dâvûd, Tirmizî)
+
+**DEEN-U18-S01-X012** · Cuma Namazı · multiple_choice
+- Soru: Hanefî mezhebine göre cuma namazının farzından önce ve sonra kaçar rekât sünnet kılınır?
+- Seçenekler: Önce altı, sonra iki | Önce iki, sonra hiç | Önce dört, sonra dört | Hiç sünnet yoktur
+- Doğru cevap: Önce dört, sonra dört
+- Açıklama: Hanefîlere göre cumanın ilk sünneti dört, son sünneti dört rekâttır.
+
+**DEEN-U18-S01-X013** · Cuma Namazı · true_false
+- Soru: Doğru mu, yanlış mı? Hadise göre cuma gününde duaların kabul edildiği bir saat vardır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hz. Peygamber cuma gününde Müslümanın Allah’tan istediğinin verildiği bir an bulunduğunu bildirmiştir (Buhârî, Müslim).
+
+**DEEN-U18-S01-X014** · Cuma Namazı · multiple_choice
+- Soru: Kur’an’da adını cuma gününden alan sure hangisidir?
+- Seçenekler: Mülk Suresi | Cuma Suresi | Yâsîn Suresi | Kehf Suresi
+- Doğru cevap: Cuma Suresi
+- Açıklama: Cuma Suresi 62. suredir; cuma namazına çağrı bu surede geçer.
+
+**DEEN-U18-S02-X001** · Bayram Namazı · multiple_choice
+- Soru: Hanefî mezhebine göre bayram namazının hükmü nedir?
+- Seçenekler: Mekruh | Vacip | Mübah | Farz-ı kifaye
+- Doğru cevap: Vacip
+- Açıklama: Hanefîlere göre cuma ile yükümlü olanlara bayram namazı vaciptir.
+
+**DEEN-U18-S02-X002** · Bayram Namazı · multiple_choice
+- Soru: Bayram namazı kaç rekâttır?
+- Seçenekler: İki | Bir | Dört | Üç
+- Doğru cevap: İki
+- Açıklama: Bayram namazı cemaatle kılınan iki rekâtlık bir namazdır.
+
+**DEEN-U18-S02-X003** · Bayram Namazı · multiple_choice
+- Soru: Hanefî mezhebine göre bayram namazının her rekâtında kaç zevâid (fazladan) tekbir alınır?
+- Seçenekler: Yedi | On | Üç | Bir
+- Doğru cevap: Üç
+- Açıklama: Hanefîlere göre her rekâtta üçer zevâid tekbiri alınır; diğer mezheplerde sayı farklıdır.
+
+**DEEN-U18-S02-X004** · Bayram Namazı · multiple_choice
+- Soru: Bayram namazında hutbe ne zaman okunur?
+- Seçenekler: Namazdan sonra | İki rekât arasında | Namazdan önce | Hiç okunmaz
+- Doğru cevap: Namazdan sonra
+- Açıklama: Cuma hutbesinin aksine bayram hutbesi namazdan sonra okunur.
+
+**DEEN-U18-S02-X005** · Bayram Namazı · true_false
+- Soru: Doğru mu, yanlış mı? Bayram namazı için ezan okunmaz ve kamet getirilmez.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Bayram namazında ezan ve kamet yoktur.
+
+**DEEN-U18-S02-X006** · Bayram Namazı · multiple_choice
+- Soru: Bayram namazının vakti ne zaman başlar?
+- Seçenekler: İkindi vaktinde | Akşam ezanıyla | Güneş doğup kerahat vakti çıktıktan sonra | Gece yarısında
+- Doğru cevap: Güneş doğup kerahat vakti çıktıktan sonra
+- Açıklama: Bayram namazı güneş doğduktan yaklaşık 45-50 dakika sonra kılınabilir ve öğleye kadar vakti sürer.
+
+**DEEN-U18-S02-X007** · Bayram Namazı · multiple_choice
+- Soru: Ramazan Bayramı sabahı namaza gitmeden önce ne yapmak sünnettir?
+- Seçenekler: Hiçbir şey yememek | Kurban kesmek | Hurma ya da tatlı bir şey yemek | Oruç tutmaya devam etmek
+- Doğru cevap: Hurma ya da tatlı bir şey yemek
+- Açıklama: Hz. Peygamber Ramazan Bayramı’nda namaza çıkmadan önce birkaç hurma yerdi (Buhârî).
+
+**DEEN-U18-S02-X008** · Bayram Namazı · multiple_choice
+- Soru: Kurban Bayramı sabahı için hangisi sünnete uygundur?
+- Seçenekler: Namazdan önce tatlı yemek şarttır | Bayram namazını kılmamak | Bütün gün oruç tutmak | Namazdan sonra kurban etinden yemeyi beklemek
+- Doğru cevap: Namazdan sonra kurban etinden yemeyi beklemek
+- Açıklama: Kurban Bayramı’nda namazdan önce bir şey yememek, ilk lokmayı kurban etinden almak müstehaptır.
+
+**DEEN-U18-S02-X009** · Bayram Namazı · true_false
+- Soru: Doğru mu, yanlış mı? Bayram namazına bir yoldan gidip başka bir yoldan dönmek sünnettir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hz. Peygamber bayram günü namaza giderken ve dönerken farklı yolları kullanırdı (Buhârî).
+
+**DEEN-U18-S02-X010** · Bayram Namazı · multiple_choice
+- Soru: Teşrik tekbirleri ne zamandan ne zamana kadar farz namazlardan sonra getirilir?
+- Seçenekler: Ramazan’ın ilk gününden son gününe kadar | Arefe günü sabahından bayramın dördüncü günü ikindisine kadar | Muharrem ayı boyunca | Yalnızca bayram sabahı
+- Doğru cevap: Arefe günü sabahından bayramın dördüncü günü ikindisine kadar
+- Açıklama: Teşrik tekbirleri arefe sabahından bayramın 4. günü ikindisine kadar 23 vakit farzdan sonra getirilir (Hanefî).
+
+**DEEN-U18-S02-X011** · Bayram Namazı · fill_blank
+- Soru: Boşluğu tamamla: Teşrik tekbiri “Allâhu ekber Allâhu ekber, lâ ilâhe illallâhu vallâhu ekber, Allâhu ekber ve lillâhi’l-___” diye biter.
+- Seçenekler: salat | selam | hamd | kurban
+- Doğru cevap: hamd
+- Açıklama: Teşrik tekbiri “… Allâhu ekber ve lillâhi’l-hamd” sözüyle tamamlanır.
+
+**DEEN-U18-S02-X012** · Bayram Namazı · matching
+- Soru: Özellikleri ilgili namazla eşleştir: Hutbe namazdan önce, Hutbe namazdan sonra, Ramazan’da yatsıdan sonra ve Dört tekbirle ayakta.
+- Eşleşmeler: Hutbe namazdan önce → Cuma namazı; Hutbe namazdan sonra → Bayram namazı; Ramazan’da yatsıdan sonra → Teravih namazı; Dört tekbirle ayakta → Cenaze namazı
+- Açıklama: Her namazın kendine özgü bir özelliği vardır.
+
+**DEEN-U18-S02-X013** · Bayram Namazı · missing_item
+- Soru: Eksik kavramı seç: Bayram günü gusletmek ve ___ giyinmek sünnettir.
+- Seçenekler: kirli | yırtık | güzel | siyah
+- Doğru cevap: güzel
+- Açıklama: Bayramda yıkanmak, güzel koku sürünmek ve en güzel elbiseyi giymek sünnettir.
+
+**DEEN-U18-S02-X014** · Bayram Namazı · multiple_choice
+- Soru: Müslümanların iki dinî bayramı hangileridir?
+- Seçenekler: Yılbaşı ve Hıdrellez | Aşure ve Kandil | Cuma ve Arefe | Ramazan Bayramı ve Kurban Bayramı
+- Doğru cevap: Ramazan Bayramı ve Kurban Bayramı
+- Açıklama: Hz. Peygamber Medine’de Müslümanlara iki bayram verildiğini bildirmiştir: Ramazan ve Kurban bayramları (Ebû Dâvûd).
+
+**DEEN-U18-S03-X001** · Vitir, Teravih ve Cenaze · multiple_choice
+- Soru: Hanefî mezhebine göre vitir namazının hükmü nedir?
+- Seçenekler: Vacip | Mekruh | Farz | Mübah
+- Doğru cevap: Vacip
+- Açıklama: Hanefîlere göre vitir vaciptir; diğer mezheplere göre müekked sünnettir.
+
+**DEEN-U18-S03-X002** · Vitir, Teravih ve Cenaze · multiple_choice
+- Soru: Hanefî mezhebine göre vitir namazı kaç rekâttır?
+- Seçenekler: İki | Bir | Üç | Dört
+- Doğru cevap: Üç
+- Açıklama: Hanefîlere göre vitir üç rekâttır ve yatsıdan sonra kılınır.
+
+**DEEN-U18-S03-X003** · Vitir, Teravih ve Cenaze · multiple_choice
+- Soru: Hanefîlere göre kunut duaları vitirin kaçıncı rekâtında okunur?
+- Seçenekler: Namazdan sonra | Birinci rekâtında, secdede | Üçüncü rekâtında, rükûdan önce | İkinci rekâtında, oturuşta
+- Doğru cevap: Üçüncü rekâtında, rükûdan önce
+- Açıklama: Üçüncü rekâtta kıraatten sonra tekbir alınır ve rükûdan önce kunut duaları okunur.
+
+**DEEN-U18-S03-X004** · Vitir, Teravih ve Cenaze · multiple_choice
+- Soru: Hanefî mezhebine göre teravih namazı kaç rekâttır?
+- Seçenekler: Kırk | Yirmi | İki | Dört
+- Doğru cevap: Yirmi
+- Açıklama: Hanefîlere göre teravih yirmi rekâttır; vitirden önce kılınması efdaldir.
+
+**DEEN-U18-S03-X005** · Vitir, Teravih ve Cenaze · true_false
+- Soru: Doğru mu, yanlış mı? Teravih namazı müekked bir sünnettir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Teravih Ramazan gecelerine özgü, kadın ve erkek için müekked bir sünnettir.
+
+**DEEN-U18-S03-X006** · Vitir, Teravih ve Cenaze · multiple_choice
+- Soru: Cenaze namazının hükmü nedir?
+- Seçenekler: Farz-ı kifaye | Farz-ı ayn | Mübah | Sünnet
+- Doğru cevap: Farz-ı kifaye
+- Açıklama: Cenaze namazı farz-ı kifayedir: bir kısım Müslüman kılınca diğerlerinden düşer.
+
+**DEEN-U18-S03-X007** · Vitir, Teravih ve Cenaze · multiple_choice
+- Soru: Cenaze namazında kaç tekbir alınır?
+- Seçenekler: On | Yedi | Dört | İki
+- Doğru cevap: Dört
+- Açıklama: Cenaze namazı dört tekbirle kılınır.
+
+**DEEN-U18-S03-X008** · Vitir, Teravih ve Cenaze · true_false
+- Soru: Doğru mu, yanlış mı? Cenaze namazında rükû ve secde yoktur.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Cenaze namazı ayakta kılınır; rükû, secde ve oturuş yoktur.
+
+**DEEN-U18-S03-X009** · Vitir, Teravih ve Cenaze · matching
+- Soru: Cenaze namazındaki tekbirleri sonrasında okunanlarla eşleştir: Birinci tekbir, İkinci tekbir, Üçüncü tekbir ve Dördüncü tekbir.
+- Eşleşmeler: Birinci tekbir → Sübhâneke; İkinci tekbir → Salli ve Bârik duaları; Üçüncü tekbir → Cenaze duası; Dördüncü tekbir → Selam
+- Açıklama: Cenaze namazının her tekbirinden sonra belirli bir okuma vardır.
+
+**DEEN-U18-S03-X010** · Vitir, Teravih ve Cenaze · fill_blank
+- Soru: Boşluğu tamamla: Cenaze namazını bir topluluk kılınca diğerlerinden sorumluluk düşer; buna farz-ı ___ denir.
+- Seçenekler: ayn | kifaye | vacip | nafile
+- Doğru cevap: kifaye
+- Açıklama: Farz-ı kifaye, bazı kişilerin yerine getirmesiyle diğerlerinden düşen farzdır.
+
+**DEEN-U18-S03-X011** · Vitir, Teravih ve Cenaze · progressive_recall
+- Soru: İpucu olmadan tamamla: Vitir namazı ___ namazından sonra kılınır.
+- Doğru cevap: yatsı
+- Açıklama: Vitrin vakti yatsıdan sonra başlar, sabaha kadar devam eder.
+
+**DEEN-U18-S03-X012** · Vitir, Teravih ve Cenaze · progressive_recall
+- Soru: İpucu olmadan tamamla: Teravih namazı yalnızca ___ ayına özgüdür.
+- Doğru cevap: Ramazan
+- Açıklama: Teravih, Ramazan gecelerinde kılınır.
+
+**DEEN-U18-S03-X013** · Vitir, Teravih ve Cenaze · missing_item
+- Soru: Eksik kavramı seç: Cenaze namazında cenaze, imamın ___ konulur.
+- Seçenekler: önüne | başka bir odaya | sağ yanına uzağa | arkasına
+- Doğru cevap: önüne
+- Açıklama: Cenaze namazında tabut imamın önüne konulur; imam cenazenin göğüs hizasında durur.
+
+**DEEN-U18-S03-X014** · Vitir, Teravih ve Cenaze · multiple_choice
+- Soru: Cenaze namazının farzları hangileridir?
+- Seçenekler: Rükû ve secde | Kur’an’dan uzun sure okumak | Ezan ve kamet | Dört tekbir ve kıyam (ayakta durmak)
+- Doğru cevap: Dört tekbir ve kıyam (ayakta durmak)
+- Açıklama: Cenaze namazının farzları dört tekbir ve ayakta durmaktır.
+
+**DEEN-U18-S04-X001** · Yolculuk ve Kaza · multiple_choice
+- Soru: Diyanet’e göre kişinin namazda yolcu (misafir) sayılması için yaklaşık kaç kilometrelik bir yolculuğa çıkması gerekir?
+- Seçenekler: 5 km | 90 km | 1.000 km | 20 km
+- Doğru cevap: 90 km
+- Açıklama: Hanefî ölçüsüne göre yaklaşık 90 km ve daha uzun yola çıkan kişi misafir sayılır (Diyanet).
+
+**DEEN-U18-S04-X002** · Yolculuk ve Kaza · multiple_choice
+- Soru: Yolcu, dört rekâtlı farz namazları kaç rekât kılar?
+- Seçenekler: Dört | İki | Bir | Üç
+- Doğru cevap: İki
+- Açıklama: Yolcu öğle, ikindi ve yatsının farzlarını ikişer rekât kılar (kasr).
+
+**DEEN-U18-S04-X003** · Yolculuk ve Kaza · multiple_choice
+- Soru: Yolculukta hangi namazların farzları kısaltılmaz?
+- Seçenekler: Sabah ve akşam | İkindi ve yatsı | Öğle ve yatsı | Öğle ve ikindi
+- Doğru cevap: Sabah ve akşam
+- Açıklama: Sabahın iki ve akşamın üç rekâtlık farzı yolculukta da aynı kılınır.
+
+**DEEN-U18-S04-X004** · Yolculuk ve Kaza · multiple_choice
+- Soru: Hanefîlere göre gittiği yerde kaç günden az kalmaya niyet eden yolcu sayılır?
+- Seçenekler: Bir aydan | On beş günden | Bir yıldan | Üç günden
+- Doğru cevap: On beş günden
+- Açıklama: Gidilen yerde on beş gün veya daha fazla kalmaya niyet eden mukim olur; daha az kalacak olan misafirdir.
+
+**DEEN-U18-S04-X005** · Yolculuk ve Kaza · scenario
+- Soru: Mehmet 400 km uzaktaki bir şehre iki günlüğüne gitti. Öğlenin farzını nasıl kılar?
+- Seçenekler: Hiç kılmaz | Dört rekât kılmak zorundadır | Altı rekât kılar | İki rekât kılar
+- Doğru cevap: İki rekât kılar
+- Açıklama: Misafir, dört rekâtlı farzları iki rekât kılar.
+
+**DEEN-U18-S04-X006** · Yolculuk ve Kaza · scenario
+- Soru: Yolcu olan Ayşe, mukim bir imama uyarak öğle namazı kılıyor. Kaç rekât kılar?
+- Seçenekler: İki rekât kılıp ayrılır | Üç rekât kılar | Namazı kılamaz | İmamla birlikte dört rekât
+- Doğru cevap: İmamla birlikte dört rekât
+- Açıklama: Misafir, mukim imama uyarsa imama tabi olarak dört rekât kılar.
+
+**DEEN-U18-S04-X007** · Yolculuk ve Kaza · scenario
+- Soru: Selim sabah namazına uyanamadı ve güneş doğdu. Ne yapmalıdır?
+- Seçenekler: Sadece dua eder | Ertesi gün iki kez kılar | Kerahat vakti çıkınca sabah namazını kaza eder | Namazı tamamen unutur
+- Doğru cevap: Kerahat vakti çıkınca sabah namazını kaza eder
+- Açıklama: Vaktinde kılınamayan farz namaz, hatırlanınca kaza edilir; kerahat vaktinde kılınmaz.
+
+**DEEN-U18-S04-X008** · Yolculuk ve Kaza · fill_blank
+- Soru: Boşluğu tamamla: Vaktinde kılınamayan farz namazı sonradan kılmaya ___ denir.
+- Seçenekler: kaza | iade | nafile | eda
+- Doğru cevap: kaza
+- Açıklama: Vaktinde kılınan namaza eda, vakti çıktıktan sonra kılınana kaza denir.
+
+**DEEN-U18-S04-X009** · Yolculuk ve Kaza · fill_blank
+- Soru: Boşluğu tamamla: Namazda bir vacip yanılarak terk edilince yapılan secdeye ___ secdesi denir.
+- Seçenekler: şükür | sehiv | tilavet | tahiyyat
+- Doğru cevap: sehiv
+- Açıklama: Sehiv secdesi, namazdaki yanılmaları telafi eder.
+
+**DEEN-U18-S04-X010** · Yolculuk ve Kaza · progressive_recall
+- Soru: İpucu olmadan tamamla: Secde âyeti okunduğunda veya duyulduğunda yapılan secdeye ___ secdesi denir.
+- Doğru cevap: tilavet
+- Açıklama: Hanefîlere göre Kur’an’da on dört secde âyeti vardır; okuyan ve dinleyen tilavet secdesi yapar.
+
+**DEEN-U18-S04-X011** · Yolculuk ve Kaza · progressive_recall
+- Soru: İpucu olmadan tamamla: Namazı kendi vakti içinde kılmaya ___ denir.
+- Doğru cevap: eda
+- Açıklama: Eda, ibadeti vaktinde yerine getirmektir.
+
+**DEEN-U18-S04-X012** · Yolculuk ve Kaza · multiple_choice
+- Soru: Hanefîlere göre sehiv secdesi nasıl yapılır?
+- Seçenekler: Namazın başında bir secde yapılır | Namaz bitince ayakta tekbir alınır | Yalnızca dua okunur | Son oturuşta tahiyyattan sonra sağa selam verip iki secde yapılır
+- Doğru cevap: Son oturuşta tahiyyattan sonra sağa selam verip iki secde yapılır
+- Açıklama: Son oturuşta tahiyyattan sonra sağa selam verilir, iki secde yapılır, sonra oturup dualar okunarak selam verilir.
+
+**DEEN-U18-S04-X013** · Yolculuk ve Kaza · multiple_choice
+- Soru: Hanefîlere göre vaktinde kılınamayan vitir namazı için ne yapılır?
+- Seçenekler: Kaza edilir | Yerine sadaka verilir | Yerine oruç tutulur | Hiç kaza edilmez
+- Doğru cevap: Kaza edilir
+- Açıklama: Vitir vacip olduğu için kılınamazsa kaza edilir.
+
+**DEEN-U18-S04-X014** · Yolculuk ve Kaza · error_spotting
+- Soru: “Yolcu, sabah namazının farzını bir rekât kılar.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Sabah namazının farzı yolculukta da iki rekâttır | Sabah namazı yolculukta yatsıyla birleştirilir | Yolcu sabah namazını hiç kılmaz | Yolcu sabahı dört rekât kılar
+- Doğru cevap: Sabah namazının farzı yolculukta da iki rekâttır
+- Açıklama: Kasr yalnızca dört rekâtlı farzlarda uygulanır.
+
+**DEEN-U18-S04-X015** · Yolculuk ve Kaza · error_spotting
+- Soru: “Kılınamayan bütün sünnet namazlar da kaza edilmek zorundadır.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Sünnetler farzdan önce iki kez kılınır | Sünnet kılınmazsa farz da geçersiz olur | Sünnetler kaza edilmez; yalnız sabahın sünneti o gün öğleden önce farzla birlikte kılınabilir | Sünnetler yalnızca cuma günü kaza edilir
+- Doğru cevap: Sünnetler kaza edilmez; yalnız sabahın sünneti o gün öğleden önce farzla birlikte kılınabilir
+- Açıklama: Hanefîlere göre sünnetlerin kazası yoktur; sabah namazının sünneti istisnadır.
+
+**DEEN-U18-S04-X016** · Yolculuk ve Kaza · matching
+- Soru: Secde çeşitlerini açıklamalarıyla eşleştir: Sehiv secdesi, Tilavet secdesi, Şükür secdesi ve Namazın secdesi.
+- Eşleşmeler: Sehiv secdesi → Namazdaki yanılmayı telafi eder; Tilavet secdesi → Secde âyeti okununca yapılır; Şükür secdesi → Bir nimete şükür için yapılır; Namazın secdesi → Her rekâtta iki kez yapılır
+- Açıklama: Secde, farklı sebeplerle yapılan bir ibadet şeklidir.
+
+**DEEN-U18-S05-X001** · Nafile Namazlar · multiple_choice
+- Soru: “Nafile namaz” ne demektir?
+- Seçenekler: Yalnızca hacda kılınan namaz | Farz ve vacip dışında, gönüllü olarak kılınan namaz | Kılınması yasak olan namaz | Cemaatsiz kılınamayan namaz
+- Doğru cevap: Farz ve vacip dışında, gönüllü olarak kılınan namaz
+- Açıklama: Nafile, farz ve vaciplerin dışında Allah rızası için fazladan kılınan namazdır.
+
+**DEEN-U18-S05-X002** · Nafile Namazlar · multiple_choice
+- Soru: Gece bir süre uyuduktan sonra kalkıp kılınan nafile namaza ne denir?
+- Seçenekler: Duha | Teheccüd | Teravih | Evvâbîn
+- Doğru cevap: Teheccüd
+- Açıklama: İsrâ 17:79’da gecenin bir kısmında teheccüd namazı kılmak tavsiye edilir.
+
+**DEEN-U18-S05-X003** · Nafile Namazlar · multiple_choice
+- Soru: Güneş yükseldikten öğleye kadar olan vakitte kılınan nafile namaza ne denir?
+- Seçenekler: İşrak sonrası teravih | Teheccüd | Kuşluk (duha) namazı | Vitir
+- Doğru cevap: Kuşluk (duha) namazı
+- Açıklama: Kuşluk (duha) namazı güneşin yükselmesinden öğleye yakın zamana kadar kılınır.
+
+**DEEN-U18-S05-X004** · Nafile Namazlar · multiple_choice
+- Soru: Camiye girince oturmadan önce kılınan iki rekât nafile namaza ne denir?
+- Seçenekler: Cenaze namazı | Bayram namazı | Hacet namazı | Tahiyyetü’l-mescid
+- Doğru cevap: Tahiyyetü’l-mescid
+- Açıklama: Hadis: “Biriniz mescide girince oturmadan önce iki rekât namaz kılsın.” (Buhârî)
+
+**DEEN-U18-S05-X005** · Nafile Namazlar · multiple_choice
+- Soru: Bir işin hayırlısını Allah’tan dilemek için kılınan namaz ve yapılan duaya ne denir?
+- Seçenekler: Tesbih | İstiska | Kunut | İstihare
+- Doğru cevap: İstihare
+- Açıklama: İstihare, iki rekât namazdan sonra okunan duayla Allah’tan hayırlı olanı dilemektir (Buhârî).
+
+**DEEN-U18-S05-X006** · Nafile Namazlar · multiple_choice
+- Soru: Kuraklıkta yağmur için kılınan namaz ve yapılan duaya ne denir?
+- Seçenekler: Küsûf | İstihare | Tahiyye | İstiska
+- Doğru cevap: İstiska
+- Açıklama: İstiska, kuraklık zamanında topluca yağmur için yapılan dua ve namazdır.
+
+**DEEN-U18-S05-X007** · Nafile Namazlar · multiple_choice
+- Soru: Güneş tutulduğunda kılınan namaza ne ad verilir?
+- Seçenekler: Duha namazı | Vitir namazı | Hüsûf namazı | Küsûf namazı
+- Doğru cevap: Küsûf namazı
+- Açıklama: Güneş tutulmasında küsûf, ay tutulmasında hüsûf namazı kılınır.
+
+**DEEN-U18-S05-X008** · Nafile Namazlar · true_false
+- Soru: Doğru mu, yanlış mı? Hadise göre cemaatle kılınan namaz, tek başına kılınandan yirmi yedi derece daha faziletlidir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hz. Peygamber: “Cemaatle kılınan namaz tek başına kılınan namazdan yirmi yedi derece üstündür.” (Buhârî, Müslim)
+
+**DEEN-U18-S05-X009** · Nafile Namazlar · true_false
+- Soru: Doğru mu, yanlış mı? Nafile namazların bir kısmını evde kılmak hadislerde teşvik edilmiştir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hz. Peygamber: “Evlerinizde de namaz kılın, onları kabirlere çevirmeyin.” (Buhârî)
+
+**DEEN-U18-S05-X010** · Nafile Namazlar · scenario
+- Soru: Öğle namazından önce camiye erken geldin ve vakit var. Oturmadan önce ne yapabilirsin?
+- Seçenekler: Telefonla oyun oynarım | Hemen uyurum | Cemaati rahatsız ederim | Tahiyyetü’l-mescid için iki rekât kılarım
+- Doğru cevap: Tahiyyetü’l-mescid için iki rekât kılarım
+- Açıklama: Mescide girince oturmadan iki rekât kılmak sünnettir.
+
+**DEEN-U18-S05-X011** · Nafile Namazlar · scenario
+- Soru: Zehra iki üniversite arasında karar veremiyor. Dinî açıdan ne yapabilir?
+- Seçenekler: Araştırıp danışır, istihare namazı kılıp Allah’tan hayırlısını diler | Fal baktırır | Kararı tamamen başkasına bırakır | Hiç düşünmeden kura çeker
+- Doğru cevap: Araştırıp danışır, istihare namazı kılıp Allah’tan hayırlısını diler
+- Açıklama: İstihare, araştırma ve danışmayla birlikte Allah’tan hayırlı olanı istemektir; fal ise dinen yasaktır.
+
+**DEEN-U18-S05-X012** · Nafile Namazlar · scenario
+- Soru: Kerem gece ibadetini sevmek istiyor ama sabah namazını kaçırmaktan korkuyor. En dengeli tutum hangisi?
+- Seçenekler: Hiç uyumamak | Gece ibadetini tamamen bırakmak | Gücü ölçüsünde, yatsıdan sonra veya erken kalkarak kısa bir teheccüd kılmak | Sabah namazını feda etmek
+- Doğru cevap: Gücü ölçüsünde, yatsıdan sonra veya erken kalkarak kısa bir teheccüd kılmak
+- Açıklama: Nafile ibadette devamlılık ve denge esastır; “Allah’a en sevimli amel az da olsa devamlı olanıdır.” (Buhârî)
+
+**DEEN-U18-S05-X013** · Nafile Namazlar · error_spotting
+- Soru: “Nafile namaz kılan, farz namazı terk etse de olur.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Farzlar yalnızca cuma kılınır | Nafile farzdan önemlidir | Nafile kılan oruç tutmaz | Nafileler farzların yerini tutmaz; önce farzlar kılınır
+- Doğru cevap: Nafileler farzların yerini tutmaz; önce farzlar kılınır
+- Açıklama: Nafileler farzları tamamlar, onların yerine geçmez.
+
+**DEEN-U18-S05-X014** · Nafile Namazlar · fill_blank
+- Soru: Boşluğu tamamla: Her rekâtında yetmiş beş, toplamda üç yüz tesbih okunan dört rekâtlık nafileye ___ namazı denir.
+- Seçenekler: vitir | bayram | cenaze | tesbih
+- Doğru cevap: tesbih
+- Açıklama: Tesbih namazında “Sübhânallâhi ve’l-hamdü lillâhi ve lâ ilâhe illallâhu vallâhu ekber” tesbihi toplam üç yüz kez okunur.
+
+**DEEN-U18-S05-X015** · Nafile Namazlar · missing_item
+- Soru: Eksik kavramı seç: Bir ihtiyacın giderilmesi için kılınan nafile namaza ___ namazı denir.
+- Seçenekler: cuma | vitir | bayram | hacet
+- Doğru cevap: hacet
+- Açıklama: Hacet namazı, bir ihtiyaç için iki rekât kılıp dua etmektir.
+
+**DEEN-U18-S05-X016** · Nafile Namazlar · matching
+- Soru: Nafile namazları vakitleriyle eşleştir: Teheccüd, Duha, Tahiyyetü’l-mescid ve Teravih.
+- Eşleşmeler: Teheccüd → Gece uykudan kalkınca; Duha → Güneş yükseldikten sonra; Tahiyyetü’l-mescid → Camiye girince; Teravih → Ramazan gecelerinde
+- Açıklama: Nafile namazların her birinin kendine özgü bir vakti vardır.
+
+**DEEN-U18-S06-X001** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: Cumanın farzı kaç rekâttır?
+- Seçenekler: Bir | İki | Dört | Üç
+- Doğru cevap: İki
+- Açıklama: Cumanın farzı iki rekâttır.
+
+**DEEN-U18-S06-X002** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: Cenaze namazında kaç tekbir vardır?
+- Seçenekler: Altı | Beş | Dört | Üç
+- Doğru cevap: Dört
+- Açıklama: Cenaze namazı dört tekbirlidir.
+
+**DEEN-U18-S06-X003** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: Yolcu yatsının farzını kaç rekât kılar?
+- Seçenekler: İki | Bir | Dört | Üç
+- Doğru cevap: İki
+- Açıklama: Yolcu dört rekâtlı farzları iki kılar.
+
+**DEEN-U18-S06-X004** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: Hanefîlere göre vitir kaç rekâttır?
+- Seçenekler: Bir | Beş | Üç | İki
+- Doğru cevap: Üç
+- Açıklama: Vitir üç rekâttır.
+
+**DEEN-U18-S06-X005** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Bayram hutbesi namazdan önce okunur.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Bayram hutbesi namazdan sonra, cuma hutbesi ise namazdan önce okunur.
+
+**DEEN-U18-S06-X006** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Cenaze namazı bir kısım Müslümanın kılmasıyla diğerlerinden düşer.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Cenaze namazı farz-ı kifayedir.
+
+**DEEN-U18-S06-X007** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Camiye girince iki rekât namaz kılmak sünnettir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Buna tahiyyetü’l-mescid denir.
+
+**DEEN-U18-S06-X008** · Akıllı Tekrar · multiple_choice
+- Soru: Namazda yanılmayı telafi eden secde hangisidir?
+- Seçenekler: Sehiv secdesi | Şükür secdesi | Tilavet secdesi | Cenaze secdesi
+- Doğru cevap: Sehiv secdesi
+- Açıklama: Sehiv secdesi yanılmaları telafi eder.
+
+**DEEN-U18-S06-X009** · Akıllı Tekrar · multiple_choice
+- Soru: Hayırlı olanı Allah’tan dilemek için kılınan namaz hangisidir?
+- Seçenekler: İstiska | Küsûf | İstihare | Teravih
+- Doğru cevap: İstihare
+- Açıklama: İstihare, hayırlı olanı dilemek için kılınır.
+
+**DEEN-U18-S06-X010** · Akıllı Tekrar · multiple_choice
+- Soru: Teşrik tekbirleri hangi bayramla ilgilidir?
+- Seçenekler: Mevlid | Kurban Bayramı | Ramazan Bayramı | Hicrî yılbaşı
+- Doğru cevap: Kurban Bayramı
+- Açıklama: Teşrik tekbirleri arefe ve Kurban Bayramı günlerinde getirilir.
+
+**DEEN-U18-S06-X011** · Akıllı Tekrar · error_spotting
+- Soru: “Cuma namazı kadınlara da erkekler gibi farzdır.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Kadınlar cuma kılarsa öğleyi de kılar | Cuma kadınlara farz değildir; kılarlarsa öğle yerine geçer | Cuma yalnızca kadınlara farzdır | Cuma hiç kimseye farz değildir
+- Doğru cevap: Cuma kadınlara farz değildir; kılarlarsa öğle yerine geçer
+- Açıklama: Cuma erkek, hür, mukim ve sağlıklı Müslümanlara farzdır.
+
+**DEEN-U18-S06-X012** · Akıllı Tekrar · error_spotting
+- Soru: “Bayram namazından önce ezan okunur ve kamet getirilir.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Bayram namazı kametsiz kılınamaz | Bayram namazında iki ezan okunur | Bayram namazında ezan ve kamet yoktur | Bayram namazı ezan okunmadan geçersizdir
+- Doğru cevap: Bayram namazında ezan ve kamet yoktur
+- Açıklama: Bayram namazı ezansız ve kametsiz kılınır.
+
+**DEEN-U18-S07-X001** · Ünite Challenge · scenario
+- Soru: Yolcu olan Hasan cuma günü bir camide cemaatle cuma namazı kıldı. O günün öğle namazı için ne yapar?
+- Seçenekler: Cuma kılması geçersizdir | Öğleyi ertesi gün kaza eder | Cuma öğlenin yerine geçtiği için ayrıca öğle kılmaz | Ayrıca dört rekât öğle kılmalıdır
+- Doğru cevap: Cuma öğlenin yerine geçtiği için ayrıca öğle kılmaz
+- Açıklama: Cuma ile yükümlü olmayan kişi cumayı kılarsa o günün öğle namazı yerine geçer.
+
+**DEEN-U18-S07-X002** · Ünite Challenge · scenario
+- Soru: Mahallende bir cenaze namazı kılınacak. Sen de katılıyorsun. Hangisi doğrudur?
+- Seçenekler: Önce ezan okunur | Rükû ve secdeyle dört rekât kılınır | Dört tekbirle ayakta kılınır, rükû ve secde yapılmaz | Oturarak kılınması sünnettir
+- Doğru cevap: Dört tekbirle ayakta kılınır, rükû ve secde yapılmaz
+- Açıklama: Cenaze namazı ayakta, dört tekbirle kılınır.
+
+**DEEN-U18-S07-X003** · Ünite Challenge · scenario
+- Soru: Ramazan Bayramı sabahı Yusuf namaza gidecek. Hangisi sünnete uygundur?
+- Seçenekler: Kahvaltı etmeden aç gitmek şarttır | Namaza gitmeyip kurban kesmek | Gusledip güzel giyinmek ve birkaç hurma yiyerek çıkmak | Eski kıyafetle gitmek
+- Doğru cevap: Gusledip güzel giyinmek ve birkaç hurma yiyerek çıkmak
+- Açıklama: Ramazan Bayramı’nda namazdan önce hurma yemek, yıkanmak ve güzel giyinmek sünnettir.
+
+**DEEN-U18-S07-X004** · Ünite Challenge · error_spotting
+- Soru: “Teravih namazı yılın her gecesinde kılınan bir namazdır.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Teravih cuma namazının diğer adıdır | Teravih öğle vaktinde kılınır | Teravih yalnızca Ramazan gecelerinde kılınır | Teravih yalnızca bayram gecesi kılınır
+- Doğru cevap: Teravih yalnızca Ramazan gecelerinde kılınır
+- Açıklama: Teravih Ramazan’a özgü bir sünnettir.
+
+**DEEN-U18-S07-X005** · Ünite Challenge · error_spotting
+- Soru: “Yolcu akşam namazının farzını iki rekât kılar.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Akşam namazının farzı yolculukta da üç rekâttır | Yolcu akşamı hiç kılmaz | Akşam yolculukta sabahla birleşir | Akşam yolculukta dört rekât olur
+- Doğru cevap: Akşam namazının farzı yolculukta da üç rekâttır
+- Açıklama: Kasr yalnızca dört rekâtlı farzlarda uygulanır.
+
+**DEEN-U18-S07-X006** · Ünite Challenge · progressive_recall
+- Soru: İpucu olmadan tamamla: Cuma namazında ___ farzdan önce okunur.
+- Doğru cevap: hutbe
+- Açıklama: Cuma hutbesi farzdan önce okunur ve cumanın şartıdır.
+
+**DEEN-U18-S07-X007** · Ünite Challenge · progressive_recall
+- Soru: İpucu olmadan tamamla: Cenaze namazı farz-ı ___ bir ibadettir.
+- Doğru cevap: kifaye
+- Açıklama: Bazı Müslümanların kılmasıyla diğerlerinden düşer.
+
+**DEEN-U18-S07-X008** · Ünite Challenge · progressive_recall
+- Soru: İpucu olmadan tamamla: İsrâ 79’da geceleyin kılınması tavsiye edilen nafile namaz ___ namazıdır.
+- Doğru cevap: teheccüd
+- Açıklama: İsrâ 17:79: “Gecenin bir kısmında da uyanıp sana mahsus bir nafile olarak teheccüd namazı kıl.”
+
+**DEEN-U18-S07-X009** · Ünite Challenge · multiple_choice
+- Soru: Hanefî mezhebine göre aşağıdakilerden hangisi vacip olan bir namazdır?
+- Seçenekler: Teheccüd namazı | Tahiyyetü’l-mescid | Vitir namazı | Kuşluk namazı
+- Doğru cevap: Vitir namazı
+- Açıklama: Hanefîlere göre vitir ve bayram namazları vaciptir; diğerleri nafiledir.
+
+**DEEN-U18-S07-X010** · Ünite Challenge · multiple_choice
+- Soru: Aşağıdaki namazlardan hangisi farz-ı kifayedir?
+- Seçenekler: Cenaze namazı | Vitir namazı | Cuma namazı | Sabah namazı
+- Doğru cevap: Cenaze namazı
+- Açıklama: Cenaze namazı farz-ı kifayedir; cuma ve beş vakit farz-ı ayndır.
+
+**DEEN-U18-S07-X011** · Ünite Challenge · matching
+- Soru: Namazları Hanefî mezhebindeki hükümleriyle eşleştir: Cuma namazı, Cenaze namazı, Bayram namazı ve Teravih namazı.
+- Eşleşmeler: Cuma namazı → Farz-ı ayn; Cenaze namazı → Farz-ı kifaye; Bayram namazı → Vacip; Teravih namazı → Müekked sünnet
+- Açıklama: Namazların hükümleri farklıdır.
+
+**DEEN-U18-S07-X012** · Ünite Challenge · matching
+- Soru: Namazları rekât sayılarıyla eşleştir: Cumanın farzı, Vitir (Hanefî), Yolcunun öğle farzı ve Teravih (Hanefî).
+- Eşleşmeler: Cumanın farzı → 2 rekât; Vitir (Hanefî) → 3 rekât; Yolcunun öğle farzı → 2 rekât kısaltılmış; Teravih (Hanefî) → 20 rekât
+- Açıklama: Rekât sayıları namaza göre değişir.
+
+**DEEN-U18-S07-X013** · Ünite Challenge · scenario
+- Soru: Kur’an okurken bir secde âyetini okudun. Ne yapman gerekir?
+- Seçenekler: Sehiv secdesi yaparım | Kaza namazı kılarım | Tilavet secdesi yaparım | Okumayı bırakırım
+- Doğru cevap: Tilavet secdesi yaparım
+- Açıklama: Secde âyetini okuyan veya duyan kişi tilavet secdesi yapar (Hanefîlere göre vacip).
+
+**DEEN-U18-S07-X014** · Ünite Challenge · true_false
+- Soru: Doğru mu, yanlış mı? Cemaatle namaz, tek başına kılınan namazdan daha faziletlidir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Cemaatle namaz yirmi yedi derece daha faziletlidir (Buhârî, Müslim).
