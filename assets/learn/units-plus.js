@@ -89,7 +89,9 @@
  if(install()){
   // Another language's questions arrive with its pack; the path is drawn now and again once that pack is in.
   const l=lang();
-  if(l!=='tr'){try{window.DEEN_EXTRA_I18N_LOAD?.(l)?.then?.(()=>redraw())}catch(_){}}
+  // The pack only brings question text (names, titles and dividers are already in the metadata), so only the stage
+  // plan and the path are refreshed; a full updateUI here would re-render the home cards under the player.
+  if(l!=='tr'){try{window.DEEN_EXTRA_I18N_LOAD?.(l)?.then?.(()=>{try{window.DEEN_FIVE_STAGE?.sync?.()}catch(_){}try{if(typeof renderPaths==='function'&&document.getElementById('v5Paths'))renderPaths()}catch(_){}})}catch(_){}}
   redraw();
  }
 })();

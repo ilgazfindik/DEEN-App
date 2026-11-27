@@ -118,7 +118,7 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
  fs.writeFileSync(path.join(out,'english-ui-candidate.json'),JSON.stringify(snapshot,null,2));
  // Catch ASCII-only Turkish completion badges that character-based leak scans missed.
  const completedLabels=snapshot.texts.filter(s=>/^SECTION \d+ · UNIT \d+ · ✓ COMPLETED$/.test(s));
- assert.equal(completedLabels.length,15,'All 15 completed learning unit labels must be fully English: '+JSON.stringify(completedLabels));
+ const unitCount=await page.evaluate(()=>U.length);assert.equal(completedLabels.length,unitCount,'All '+unitCount+' completed learning unit labels must be fully English: '+JSON.stringify(completedLabels));
  assert(snapshot.texts.includes('EARN XP'),'Learning stage introduction must display EARN XP in English');
  const learningLeaks=snapshot.texts.filter(s=>/\b(?:TAMAMLANDI|XP KAZAN|ÜNİTE UNVANI|ÜNİTE XP|USTALIK SINAVINI BAŞLAT)\b/i.test(s));
  assert.deepEqual(learningLeaks,[],'Learning path still contains ASCII Turkish copy');
