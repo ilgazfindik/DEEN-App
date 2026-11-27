@@ -32,7 +32,7 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
   const collect=v=>{if(typeof v==='string')__qaContentTexts.add(v.trim());else if(Array.isArray(v))v.forEach(collect);else if(v&&typeof v==='object')Object.values(v).forEach(collect)};
   for(const q of [...DEEN_BASE_QUESTIONS,...QUESTIONS])for(const k of ['question_tr','explanation_tr','options_tr','correct_answer','pairs','items','correct_order','teaching_card'])collect(q[k]);
   for(const x of DEEN_QURAN_CONTENT.inventory())collect(DEEN_QURAN_CONTENT.getAyah(x.surah_id,x.ayah_number)?.translation?.text);
-  state.completed=STAGES.map(s=>s.id);state.energy=30;state.sectionFinal={completed:true};state.section2Final={completed:true};DEEN_FIVE_STAGE.sync();
+  state.completed=STAGES.map(s=>s.id);state.energy=30;state.sectionFinal={completed:true};state.section2Final={completed:true};state.section3Final={completed:true};DEEN_FIVE_STAGE.sync();
  });
  async function capture(){
   await page.waitForTimeout(180);
