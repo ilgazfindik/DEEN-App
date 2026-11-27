@@ -13409,3 +13409,590 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Seçenekler: Doğru | Yanlış
 - Doğru cevap: Doğru
 - Açıklama: Buhârî ve Müslim’de geçen hadis.
+
+## U30 — esmaul_husna (100 soru)
+
+**DEEN-U30-S01-X001** · Esmâ-ül Hüsnâ Nedir? · multiple_choice
+- Soru: “Esmâ-ül Hüsnâ” ne demektir?
+- Seçenekler: Surelerin isimleri | Meleklerin isimleri | Peygamberlerin isimleri | Allah’ın en güzel isimleri
+- Doğru cevap: Allah’ın en güzel isimleri
+- Açıklama: Esmâ “isimler”, hüsnâ “en güzel” demektir.
+
+**DEEN-U30-S01-X002** · Esmâ-ül Hüsnâ Nedir? · multiple_choice
+- Soru: A‘râf 180’e göre en güzel isimlerle ne yapmamız istenir?
+- Seçenekler: Allah’a o isimlerle dua etmemiz | Onları hiç söylememiz | Onları unutmamız | Onları sadece yazmamız
+- Doğru cevap: Allah’a o isimlerle dua etmemiz
+- Açıklama: A‘râf 7:180: En güzel isimler Allah’ındır; O’na onlarla dua edin.
+
+**DEEN-U30-S01-X003** · Esmâ-ül Hüsnâ Nedir? · multiple_choice
+- Soru: Hadise göre Allah’ın kaç ismi sayılmıştır?
+- Seçenekler: 7 | 1000 | 99 | 40
+- Doğru cevap: 99
+- Açıklama: “Allah’ın doksan dokuz ismi vardır; kim onları sayıp korursa cennete girer.” (Buhârî, Müslim)
+
+**DEEN-U30-S01-X004** · Esmâ-ül Hüsnâ Nedir? · multiple_choice
+- Soru: Hadisteki “onları ihsâ eden cennete girer” sözü neyi ifade eder?
+- Seçenekler: İsimleri öğrenip anlamlarını kavrayarak yaşamayı | İsimleri saklamayı | Sadece bir kez okumayı | İsimleri satmayı
+- Doğru cevap: İsimleri öğrenip anlamlarını kavrayarak yaşamayı
+- Açıklama: İhsâ; saymak, ezberlemek, anlamını bilmek ve gereğince yaşamaktır.
+
+**DEEN-U30-S01-X005** · Esmâ-ül Hüsnâ Nedir? · multiple_choice
+- Soru: Allah’ın pek çok isminin art arda sayıldığı ayetler hangi surenin sonundadır?
+- Seçenekler: Kevser suresi | Haşr suresi | Nas suresi | Fil suresi
+- Doğru cevap: Haşr suresi
+- Açıklama: Haşr 59:22–24’te Rahmân, Rahîm, Melik, Kuddûs, Selâm gibi isimler sayılır.
+
+**DEEN-U30-S01-X006** · Esmâ-ül Hüsnâ Nedir? · multiple_choice
+- Soru: İhlâs suresinde geçen “Ehad” ve “Samed” isimleri neyi anlatır?
+- Seçenekler: Allah’ın çocuğu olduğunu | Allah’ın yorulduğunu | Allah’ın uyuduğunu | Allah’ın tek olduğunu ve hiçbir şeye muhtaç olmadığını
+- Doğru cevap: Allah’ın tek olduğunu ve hiçbir şeye muhtaç olmadığını
+- Açıklama: İhlâs 112:1–2: De ki O Allah birdir; Allah Samed’dir.
+
+**DEEN-U30-S01-X007** · Esmâ-ül Hüsnâ Nedir? · true_false
+- Soru: Doğru mu, yanlış mı? Allah’ın isimlerini Kur’an ve sahih hadislerden öğreniriz.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Allah’ın isimleri, O’nun kendisini tanıttığı şekliyle bilinir.
+
+**DEEN-U30-S01-X008** · Esmâ-ül Hüsnâ Nedir? · true_false
+- Soru: Doğru mu, yanlış mı? “Er-Rahmân” ismi bir insana da tek başına ad olarak verilebilir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Er-Rahmân yalnızca Allah için kullanılır; insanlara “Abdurrahman” (Rahmân’ın kulu) gibi isimler verilir.
+
+**DEEN-U30-S01-X009** · Esmâ-ül Hüsnâ Nedir? · missing_item
+- Soru: Eksik kavramı seç: A‘râf 180: “En güzel isimler ___; O’na onlarla dua edin.”
+- Seçenekler: şehirlerindir | Allah’ındır | insanlarındır | meleklerindir
+- Doğru cevap: Allah’ındır
+- Açıklama: A‘râf 7:180.
+
+**DEEN-U30-S01-X010** · Esmâ-ül Hüsnâ Nedir? · fill_blank
+- Soru: Boşluğu tamamla: “Hüsnâ” kelimesi “en ___” anlamına gelir.
+- Seçenekler: uzak | büyük | güzel | eski
+- Doğru cevap: güzel
+- Açıklama: Esmâ-ül Hüsnâ: en güzel isimler.
+
+**DEEN-U30-S01-X011** · Esmâ-ül Hüsnâ Nedir? · progressive_recall
+- Soru: İpucu olmadan tamamla: Hadise göre Allah’ın ___ ismi sayılmıştır.
+- Doğru cevap: 99
+- Açıklama: Buhârî ve Müslim’de geçen hadis.
+
+**DEEN-U30-S01-X012** · Esmâ-ül Hüsnâ Nedir? · matching
+- Soru: Sureleri içlerinde geçen isimlerle eşleştir: İhlâs, Hadîd 57:3, Bakara 2:255 ve Haşr 59:24.
+- Eşleşmeler: İhlâs → Ehad ve Samed; Hadîd 57:3 → Evvel, Âhir, Zâhir, Bâtın; Bakara 2:255 → Hayy ve Kayyûm; Haşr 59:24 → Hâlık, Bârî, Musavvir
+- Açıklama: Allah’ın isimleri Kur’an’ın pek çok yerinde geçer.
+
+**DEEN-U30-S01-X013** · Esmâ-ül Hüsnâ Nedir? · scenario
+- Soru: Ailen yeni doğan kardeşine bir isim arıyor. Allah’ın isimleriyle ilgili en uygun seçenek hangisidir?
+- Seçenekler: Anlamı kötü bir isim seçmek | “Abdullah” veya “Abdurrahman” gibi “Allah’ın kulu” anlamına gelen bir isim | Doğrudan “Rahmân” ismini vermek | Allah’ın isimleriyle alay eden bir lakap
+- Doğru cevap: “Abdullah” veya “Abdurrahman” gibi “Allah’ın kulu” anlamına gelen bir isim
+- Açıklama: Hz. Peygamber: “Allah’a en sevimli isimler Abdullah ve Abdurrahman’dır.” (Müslim)
+
+**DEEN-U30-S01-X014** · Esmâ-ül Hüsnâ Nedir? · error_spotting
+- Soru: “Esmâ-ül Hüsnâ, peygamberlerin en güzel isimleri demektir.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Esmâ-ül Hüsnâ şehirlerin isimleridir | Esmâ-ül Hüsnâ surelerin isimleridir | Esmâ-ül Hüsnâ, Allah’ın en güzel isimleri demektir | Esmâ-ül Hüsnâ meleklerin isimleridir
+- Doğru cevap: Esmâ-ül Hüsnâ, Allah’ın en güzel isimleri demektir
+- Açıklama: A‘râf 7:180.
+
+**DEEN-U30-S02-X001** · Merhamet ve Bağış · multiple_choice
+- Soru: “Er-Rahmân” isminin anlamı nedir?
+- Seçenekler: Sadece zenginlere merhamet eden | Hiç merhamet etmeyen | Sadece kızan | Dünyada bütün varlıklara merhamet eden
+- Doğru cevap: Dünyada bütün varlıklara merhamet eden
+- Açıklama: Rahmân’ın rahmeti bu dünyada herkesi kuşatır.
+
+**DEEN-U30-S02-X002** · Merhamet ve Bağış · multiple_choice
+- Soru: “Er-Rahîm” ismi en çok hangi anlamla açıklanır?
+- Seçenekler: Hiçbir şeyi bilmeyen | Merhameti sürekli olan, özellikle ahirette müminlere çok merhamet eden | Sadece cezalandıran | Hiç affetmeyen
+- Doğru cevap: Merhameti sürekli olan, özellikle ahirette müminlere çok merhamet eden
+- Açıklama: Rahîm, rahmetinin devamlılığını ifade eder.
+
+**DEEN-U30-S02-X003** · Merhamet ve Bağış · multiple_choice
+- Soru: “El-Gaffâr” ne demektir?
+- Seçenekler: Günahları çokça bağışlayan | Çok güçlü olan | Çok yüksek olan | Çok zengin olan
+- Doğru cevap: Günahları çokça bağışlayan
+- Açıklama: Zümer 39:53: Allah bütün günahları bağışlar; O Gafûr’dur, Rahîm’dir.
+
+**DEEN-U30-S02-X004** · Merhamet ve Bağış · multiple_choice
+- Soru: Tövbeleri çokça kabul eden anlamındaki isim hangisidir?
+- Seçenekler: El-Mümît | El-Kahhâr | Et-Tevvâb | El-Melik
+- Doğru cevap: Et-Tevvâb
+- Açıklama: Bakara 2:37: Şüphesiz O, tövbeleri çok kabul eden, çok merhametli olandır.
+
+**DEEN-U30-S02-X005** · Merhamet ve Bağış · multiple_choice
+- Soru: Kadir gecesi duasında geçen ve “affı seven, günahları silen” anlamındaki isim hangisidir?
+- Seçenekler: El-Mukît | El-Bâkî | El-Kavî | El-Afüv
+- Doğru cevap: El-Afüv
+- Açıklama: “Allâhümme inneke afüvvün tuhibbü’l-afve fa‘fü annî.” (Tirmizî)
+
+**DEEN-U30-S02-X006** · Merhamet ve Bağış · multiple_choice
+- Soru: “El-Vedûd” isminin anlamı hangisidir?
+- Seçenekler: Kullarını çok seven ve sevilmeye layık olan | Sadece kendini seven | Unutan | Hiç sevmeyen
+- Doğru cevap: Kullarını çok seven ve sevilmeye layık olan
+- Açıklama: Burûc 85:14: O, çok bağışlayan, çok sevendir.
+
+**DEEN-U30-S02-X007** · Merhamet ve Bağış · multiple_choice
+- Soru: Cezalandırmakta acele etmeyen, yumuşak davranan anlamındaki isim hangisidir?
+- Seçenekler: El-Müntakim | El-Cebbâr | El-Kahhâr | El-Halîm
+- Doğru cevap: El-Halîm
+- Açıklama: Allah kullarına tövbe için fırsat verir.
+
+**DEEN-U30-S02-X008** · Merhamet ve Bağış · true_false
+- Soru: Doğru mu, yanlış mı? A‘râf 156’ya göre Allah’ın rahmeti her şeyi kuşatmıştır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: A‘râf 7:156: Rahmetim her şeyi kuşatmıştır.
+
+**DEEN-U30-S02-X009** · Merhamet ve Bağış · true_false
+- Soru: Doğru mu, yanlış mı? Zümer 53’e göre çok günah işleyen kişi Allah’ın rahmetinden ümit kesmelidir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Zümer 39:53: Allah’ın rahmetinden ümidinizi kesmeyin.
+
+**DEEN-U30-S02-X010** · Merhamet ve Bağış · missing_item
+- Soru: Eksik kavramı seç: Besmelede geçen iki isim Er-Rahmân ve Er-___.
+- Seçenekler: Melik | Kavî | Kahhâr | Rahîm
+- Doğru cevap: Rahîm
+- Açıklama: Bismillâhirrahmânirrahîm.
+
+**DEEN-U30-S02-X011** · Merhamet ve Bağış · fill_blank
+- Soru: Boşluğu tamamla: Günahları çokça bağışlayan anlamındaki isim El-___.
+- Seçenekler: Mümît | Kahhâr | Gaffâr | Mâni‘
+- Doğru cevap: Gaffâr
+- Açıklama: Gaffâr, çok bağışlayan demektir.
+
+**DEEN-U30-S02-X012** · Merhamet ve Bağış · progressive_recall
+- Soru: İpucu olmadan tamamla: Tövbeleri çokça kabul eden anlamındaki isim Et-___.
+- Doğru cevap: Tevvâb
+- Açıklama: Bakara 2:37.
+
+**DEEN-U30-S02-X013** · Merhamet ve Bağış · matching
+- Soru: İsimleri anlamlarıyla eşleştir: Er-Rahmân, El-Gaffâr, Et-Tevvâb ve El-Vedûd.
+- Eşleşmeler: Er-Rahmân → Dünyada herkese merhamet eden; El-Gaffâr → Çokça bağışlayan; Et-Tevvâb → Tövbeleri kabul eden; El-Vedûd → Çok seven
+- Açıklama: Merhamet ve bağış isimleri Allah’ın rahmetini anlatır.
+
+**DEEN-U30-S02-X014** · Merhamet ve Bağış · error_spotting
+- Soru: ““El-Halîm” cezalandırmakta çok acele eden demektir.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: El-Halîm zalim demektir | El-Halîm uyuyan demektir | “El-Halîm” cezalandırmakta acele etmeyen, yumuşak davranan demektir | El-Halîm hiçbir şeyi bilmeyen demektir
+- Doğru cevap: “El-Halîm” cezalandırmakta acele etmeyen, yumuşak davranan demektir
+- Açıklama: Allah kullarına mühlet verir.
+
+**DEEN-U30-S03-X001** · Yaratma ve Rızık · multiple_choice
+- Soru: “El-Hâlık” isminin anlamı nedir?
+- Seçenekler: Yok eden | Sadece süsleyen | Satın alan | Yoktan yaratan
+- Doğru cevap: Yoktan yaratan
+- Açıklama: Haşr 59:24: O, yaratan, var eden, şekil veren Allah’tır.
+
+**DEEN-U30-S03-X002** · Yaratma ve Rızık · multiple_choice
+- Soru: Her varlığa kendine özgü bir şekil veren anlamındaki isim hangisidir?
+- Seçenekler: El-Vâris | El-Bâkî | El-Mümît | El-Musavvir
+- Doğru cevap: El-Musavvir
+- Açıklama: Âl-i İmrân 3:6: Sizi rahimlerde dilediği gibi şekillendiren O’dur.
+
+**DEEN-U30-S03-X003** · Yaratma ve Rızık · multiple_choice
+- Soru: Bütün canlılara rızık veren anlamındaki isim hangisidir?
+- Seçenekler: El-Âhir | Er-Rezzâk | El-Bâtın | El-Kahhâr
+- Doğru cevap: Er-Rezzâk
+- Açıklama: Zâriyât 51:58: Şüphesiz rızık veren, güç ve kuvvet sahibi olan Allah’tır.
+
+**DEEN-U30-S03-X004** · Yaratma ve Rızık · multiple_choice
+- Soru: “El-Vehhâb” ne demektir?
+- Seçenekler: Karşılık beklemeden bol bol veren | Hiç vermeyen | Geri alan | Sadece borç veren
+- Doğru cevap: Karşılık beklemeden bol bol veren
+- Açıklama: Âl-i İmrân 3:8: Şüphesiz sen çok bağışta bulunansın.
+
+**DEEN-U30-S03-X005** · Yaratma ve Rızık · multiple_choice
+- Soru: Hayat veren, dirilten anlamındaki isim hangisidir?
+- Seçenekler: El-Mâni‘ | El-Mümît | El-Kâbız | El-Muhyî
+- Doğru cevap: El-Muhyî
+- Açıklama: Rûm 30:50: Allah’ın rahmetinin eserlerine bak; ölü toprağı nasıl diriltiyor!
+
+**DEEN-U30-S03-X006** · Yaratma ve Rızık · multiple_choice
+- Soru: Göklerin ve yerin eşsiz, benzersiz yaratıcısı anlamındaki isim hangisidir?
+- Seçenekler: El-Muktedir | El-Mâlik | El-Câmi‘ | El-Bedî‘
+- Doğru cevap: El-Bedî‘
+- Açıklama: Bakara 2:117: O, göklerin ve yerin eşsiz yaratıcısıdır.
+
+**DEEN-U30-S03-X007** · Yaratma ve Rızık · multiple_choice
+- Soru: Çok cömert, ikramı bol anlamındaki isim hangisidir?
+- Seçenekler: El-Kahhâr | El-Kerîm | El-Müntakim | El-Cebbâr
+- Doğru cevap: El-Kerîm
+- Açıklama: İnfitâr 82:6: Ey insan! Seni, cömert olan Rabbine karşı aldatan nedir?
+
+**DEEN-U30-S03-X008** · Yaratma ve Rızık · true_false
+- Soru: Doğru mu, yanlış mı? Hûd 6’ya göre yeryüzündeki her canlının rızkı Allah’a aittir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hûd 11:6: Yeryüzünde hiçbir canlı yoktur ki rızkı Allah’a ait olmasın.
+
+**DEEN-U30-S03-X009** · Yaratma ve Rızık · true_false
+- Soru: Doğru mu, yanlış mı? İnsanlar da Allah gibi yoktan var edebilir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Yoktan yaratmak yalnızca Allah’a aittir; insan var olandan bir şey yapar.
+
+**DEEN-U30-S03-X010** · Yaratma ve Rızık · missing_item
+- Soru: Eksik kavramı seç: Zâriyât 58: “Şüphesiz rızık veren, güç ve kuvvet sahibi olan ___.”
+- Seçenekler: şanstır | paradır | insandır | Allah’tır
+- Doğru cevap: Allah’tır
+- Açıklama: Zâriyât 51:58.
+
+**DEEN-U30-S03-X011** · Yaratma ve Rızık · fill_blank
+- Soru: Boşluğu tamamla: Yoktan yaratan anlamındaki isim El-___.
+- Seçenekler: Bâsıt | Mâni‘ | Hâlık | Kahhâr
+- Doğru cevap: Hâlık
+- Açıklama: Haşr 59:24.
+
+**DEEN-U30-S03-X012** · Yaratma ve Rızık · progressive_recall
+- Soru: İpucu olmadan tamamla: Rızık veren anlamındaki isim Er-___.
+- Doğru cevap: Rezzâk
+- Açıklama: Zâriyât 51:58.
+
+**DEEN-U30-S03-X013** · Yaratma ve Rızık · matching
+- Soru: İsimleri anlamlarıyla eşleştir: El-Hâlık, El-Musavvir, Er-Rezzâk ve El-Muhyî.
+- Eşleşmeler: El-Hâlık → Yoktan yaratan; El-Musavvir → Şekil veren; Er-Rezzâk → Rızık veren; El-Muhyî → Hayat veren
+- Açıklama: Yaratma ve rızık isimleri Allah’ın kudretini ve cömertliğini anlatır.
+
+**DEEN-U30-S03-X014** · Yaratma ve Rızık · scenario
+- Soru: Arkadaşın “Yarın ne yiyeceğimizi kim bilir” diye çok endişeleniyor. Er-Rezzâk ismi ona ne hatırlatır?
+- Seçenekler: Başkasının rızkını almayı | Sürekli korkmayı | Çalışmayı bırakmadan rızkın Allah’tan geldiğine güvenmeyi | Hiç çalışmamayı
+- Doğru cevap: Çalışmayı bırakmadan rızkın Allah’tan geldiğine güvenmeyi
+- Açıklama: Hûd 11:6 ve Zâriyât 51:58; tevekkül çalışmayla birliktedir.
+
+**DEEN-U30-S04-X001** · İlim ve Kudret · multiple_choice
+- Soru: “El-Alîm” isminin anlamı nedir?
+- Seçenekler: Hiçbir şeyi bilmeyen | Sadece geçmişi bilen | Sadece bazı şeyleri bilen | Her şeyi hakkıyla bilen
+- Doğru cevap: Her şeyi hakkıyla bilen
+- Açıklama: Bakara 2:29: O, her şeyi hakkıyla bilendir.
+
+**DEEN-U30-S04-X002** · İlim ve Kudret · multiple_choice
+- Soru: “Es-Semî‘” ve “El-Basîr” isimleri neyi anlatır?
+- Seçenekler: Allah’ın bazen duymadığını | Allah’ın uyuduğunu | Allah’ın sadece gündüz gördüğünü | Allah’ın her şeyi işittiğini ve gördüğünü
+- Doğru cevap: Allah’ın her şeyi işittiğini ve gördüğünü
+- Açıklama: Şûrâ 42:11: O’nun benzeri hiçbir şey yoktur; O, işitendir, görendir.
+
+**DEEN-U30-S04-X003** · İlim ve Kudret · multiple_choice
+- Soru: Âyetü’l-kürsîde geçen “El-Hayy, El-Kayyûm” isimleri ne anlama gelir?
+- Seçenekler: Diri olan ve her şeyi ayakta tutan | Doğan ve ölen | Yorgun olan ve uyuyan | Unutan ve hatırlayan
+- Doğru cevap: Diri olan ve her şeyi ayakta tutan
+- Açıklama: Bakara 2:255: O’nu ne uyuklama ne uyku tutar.
+
+**DEEN-U30-S04-X004** · İlim ve Kudret · multiple_choice
+- Soru: Hadîd 3’te geçen “El-Evvel, El-Âhir” isimleri neyi anlatır?
+- Seçenekler: Varlığının başlangıcı ve sonu olmadığını | Bir gün sona ereceğini | Bir gün doğduğunu | Sadece geçmişte var olduğunu
+- Doğru cevap: Varlığının başlangıcı ve sonu olmadığını
+- Açıklama: Hadîd 57:3: O, Evvel’dir, Âhir’dir, Zâhir’dir, Bâtın’dır.
+
+**DEEN-U30-S04-X005** · İlim ve Kudret · multiple_choice
+- Soru: Her şeye gücü yeten anlamındaki isim hangisidir?
+- Seçenekler: Es-Selâm | El-Kadîr | El-Vedûd | El-Halîm
+- Doğru cevap: El-Kadîr
+- Açıklama: Bakara 2:20: Şüphesiz Allah her şeye kadirdir.
+
+**DEEN-U30-S04-X006** · İlim ve Kudret · multiple_choice
+- Soru: Her işi hikmetli, yerli yerinde yapan anlamındaki isim hangisidir?
+- Seçenekler: El-Vâris | El-Hakîm | Er-Râfi‘ | El-Mümît
+- Doğru cevap: El-Hakîm
+- Açıklama: Allah’ın hiçbir işi boş ve anlamsız değildir.
+
+**DEEN-U30-S04-X007** · İlim ve Kudret · multiple_choice
+- Soru: Her an gözetleyen, kontrol eden anlamındaki isim hangisidir?
+- Seçenekler: El-Mâni‘ | Er-Rakîb | El-Bâsıt | El-Ganî
+- Doğru cevap: Er-Rakîb
+- Açıklama: Nisâ 4:1: Şüphesiz Allah sizin üzerinizde gözetleyicidir.
+
+**DEEN-U30-S04-X008** · İlim ve Kudret · multiple_choice
+- Soru: Hiçbir şeye muhtaç olmayan, zengin anlamındaki isim hangisidir?
+- Seçenekler: El-Mümît | El-Hâfıd | El-Ganiyy | El-Kâbız
+- Doğru cevap: El-Ganiyy
+- Açıklama: Fâtır 35:15: Ey insanlar! Siz Allah’a muhtaçsınız; Allah ise Ganî’dir, Hamîd’dir.
+
+**DEEN-U30-S04-X009** · İlim ve Kudret · true_false
+- Soru: Doğru mu, yanlış mı? Âyetü’l-kürsîye göre Allah’ı ne uyuklama ne de uyku tutar.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Bakara 2:255.
+
+**DEEN-U30-S04-X010** · İlim ve Kudret · true_false
+- Soru: Doğru mu, yanlış mı? Allah yalnızca açıkta olanı bilir; kalplerdekini bilmez.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Mülk 67:13: O, kalplerin özünü hakkıyla bilendir.
+
+**DEEN-U30-S04-X011** · İlim ve Kudret · missing_item
+- Soru: Eksik kavramı seç: Şûrâ 11: “O’nun benzeri hiçbir şey yoktur; O, ___, görendir.”
+- Seçenekler: unutandır | yorulandır | işitendir | uyuyandır
+- Doğru cevap: işitendir
+- Açıklama: Şûrâ 42:11.
+
+**DEEN-U30-S04-X012** · İlim ve Kudret · fill_blank
+- Soru: Boşluğu tamamla: Âyetü’l-kürsîde geçen ve “diri olan” anlamındaki isim El-___.
+- Seçenekler: Bâkî | Hayy | Vâris | Mümît
+- Doğru cevap: Hayy
+- Açıklama: Bakara 2:255.
+
+**DEEN-U30-S04-X013** · İlim ve Kudret · progressive_recall
+- Soru: İpucu olmadan tamamla: Her şeyi hakkıyla bilen anlamındaki isim El-___.
+- Doğru cevap: Alîm
+- Açıklama: Bakara 2:29.
+
+**DEEN-U30-S04-X014** · İlim ve Kudret · matching
+- Soru: İsimleri anlamlarıyla eşleştir: El-Alîm, Es-Semî‘, El-Basîr ve El-Kadîr.
+- Eşleşmeler: El-Alîm → Her şeyi bilen; Es-Semî‘ → Her şeyi işiten; El-Basîr → Her şeyi gören; El-Kadîr → Her şeye gücü yeten
+- Açıklama: İlim ve kudret isimleri Allah’ın sınırsız bilgisini ve gücünü anlatır.
+
+**DEEN-U30-S04-X015** · İlim ve Kudret · scenario
+- Soru: Odada yalnızken kimse görmeyecek diye arkadaşının eşyasını karıştırmak istiyorsun. Hangi isim seni durdurmalıdır?
+- Seçenekler: El-Muhyî; Allah hayat verir | Er-Rakîb ve El-Basîr; Allah her an görür | El-Vehhâb; Allah verir | El-Bedî‘; Allah eşsiz yaratır
+- Doğru cevap: Er-Rakîb ve El-Basîr; Allah her an görür
+- Açıklama: Alak 96:14: Allah’ın gördüğünü bilmez mi?
+
+**DEEN-U30-S04-X016** · İlim ve Kudret · error_spotting
+- Soru: “Allah geleceği bilmez; sadece geçmişi bilir.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Allah hiçbir şeyi bilmez | Allah sadece bugünü bilir | Allah sadece meleklerin söylediğini bilir | Allah geçmişi, şimdiyi ve geleceği bilir; O El-Alîm’dir
+- Doğru cevap: Allah geçmişi, şimdiyi ve geleceği bilir; O El-Alîm’dir
+- Açıklama: Bakara 2:255: Önlerindekini ve arkalarındakini bilir.
+
+**DEEN-U30-S05-X001** · Esmâ ile Yaşamak · multiple_choice
+- Soru: Allah’ın Er-Rahmân ismini öğrenen bir çocuk hayatına nasıl yansıtabilir?
+- Seçenekler: Hayvanlara eziyet ederek | İnsanlara ve hayvanlara merhametli davranarak | Kimseye yardım etmeyerek | Herkese kızarak
+- Doğru cevap: İnsanlara ve hayvanlara merhametli davranarak
+- Açıklama: “Merhamet edenlere Rahmân merhamet eder.” (Tirmizî, Ebû Dâvûd)
+
+**DEEN-U30-S05-X002** · Esmâ ile Yaşamak · multiple_choice
+- Soru: El-Adl ismini düşünen bir kişi nasıl davranmalıdır?
+- Seçenekler: Herkese karşı adil olmaya çalışarak | Kuralları kendine göre değiştirerek | Güçlünün yanında haksızlık yaparak | Sadece arkadaşlarını kayırarak
+- Doğru cevap: Herkese karşı adil olmaya çalışarak
+- Açıklama: Nahl 16:90: Allah adaleti ve iyiliği emreder.
+
+**DEEN-U30-S05-X003** · Esmâ ile Yaşamak · multiple_choice
+- Soru: Allah’ın El-Afüv ve El-Gaffâr olduğunu bilen kişi başkalarının hatalarına nasıl yaklaşır?
+- Seçenekler: Affetmeye ve bağışlamaya çalışır | Herkese anlatır | Hep intikam alır | Hiç unutmaz ve kin tutar
+- Doğru cevap: Affetmeye ve bağışlamaya çalışır
+- Açıklama: Nûr 24:22: Affetsinler, hoş görsünler; Allah’ın sizi bağışlamasını istemez misiniz?
+
+**DEEN-U30-S05-X004** · Esmâ ile Yaşamak · multiple_choice
+- Soru: Az amele çok karşılık veren anlamındaki isim hangisidir?
+- Seçenekler: El-Mâni‘ | Eş-Şekûr | El-Kâbız | El-Hâfıd
+- Doğru cevap: Eş-Şekûr
+- Açıklama: Fâtır 35:30: O çok bağışlayan, karşılığını bol verendir.
+
+**DEEN-U30-S05-X005** · Esmâ ile Yaşamak · multiple_choice
+- Soru: İşini kendisine bıraktığımız, güvenilen anlamındaki isim hangisidir?
+- Seçenekler: El-Mümît | El-Âhir | El-Vekîl | El-Vâris
+- Doğru cevap: El-Vekîl
+- Açıklama: Âl-i İmrân 3:173: Allah bize yeter; O ne güzel vekildir.
+
+**DEEN-U30-S05-X006** · Esmâ ile Yaşamak · multiple_choice
+- Soru: Her türlü eksiklikten uzak olan ve esenlik veren anlamındaki isim hangisidir?
+- Seçenekler: El-Müntakim | El-Mümît | Es-Selâm | El-Kahhâr
+- Doğru cevap: Es-Selâm
+- Açıklama: Haşr 59:23; Müslümanların selamlaşması da bu isimle bağlantılıdır.
+
+**DEEN-U30-S05-X007** · Esmâ ile Yaşamak · multiple_choice
+- Soru: Dualara cevap veren anlamındaki isim hangisidir?
+- Seçenekler: El-Kâbız | El-Hâfıd | El-Mucîb | El-Mâni‘
+- Doğru cevap: El-Mucîb
+- Açıklama: Hûd 11:61: Şüphesiz Rabbim yakındır, dualara cevap verendir.
+
+**DEEN-U30-S05-X008** · Esmâ ile Yaşamak · multiple_choice
+- Soru: Esmâ ile dua etmeye örnek hangisidir?
+- Seçenekler: “Yâ Rahmân, yâ Rahîm, bize merhamet et.” | “Kimse beni duymuyor.” | “Bana ne.” | “Dua etmenin anlamı yok.”
+- Doğru cevap: “Yâ Rahmân, yâ Rahîm, bize merhamet et.”
+- Açıklama: A‘râf 7:180: O’na onlarla dua edin.
+
+**DEEN-U30-S05-X009** · Esmâ ile Yaşamak · true_false
+- Soru: Doğru mu, yanlış mı? Allah’ın El-Vekîl olduğunu bilmek, hiç çalışmadan beklemek demektir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Tevekkül; elden geleni yapıp sonucu Allah’a bırakmaktır.
+
+**DEEN-U30-S05-X010** · Esmâ ile Yaşamak · true_false
+- Soru: Doğru mu, yanlış mı? Eş-Şekûr ismi, en küçük iyiliğin bile Allah katında boşa gitmediğini hatırlatır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Zilzâl 99:7: Kim zerre ağırlığınca hayır işlerse onu görür.
+
+**DEEN-U30-S05-X011** · Esmâ ile Yaşamak · missing_item
+- Soru: Eksik kavramı seç: Âl-i İmrân 173: “Allah bize yeter; O ne güzel ___.”
+- Seçenekler: evdir | uykudur | vekildir | yoldur
+- Doğru cevap: vekildir
+- Açıklama: Âl-i İmrân 3:173.
+
+**DEEN-U30-S05-X012** · Esmâ ile Yaşamak · fill_blank
+- Soru: Boşluğu tamamla: Dualara cevap veren anlamındaki isim El-___.
+- Seçenekler: Mucîb | Hâfıd | Kâbız | Mâni‘
+- Doğru cevap: Mucîb
+- Açıklama: Hûd 11:61.
+
+**DEEN-U30-S05-X013** · Esmâ ile Yaşamak · progressive_recall
+- Soru: İpucu olmadan tamamla: Esenlik veren anlamındaki isim Es-___.
+- Doğru cevap: Selâm
+- Açıklama: Haşr 59:23.
+
+**DEEN-U30-S05-X014** · Esmâ ile Yaşamak · matching
+- Soru: İsimleri hayatımıza yansıyan davranışlarla eşleştir: Er-Rahmân, El-Adl, El-Afüv ve El-Vekîl.
+- Eşleşmeler: Er-Rahmân → Merhametli olmak; El-Adl → Adil davranmak; El-Afüv → Affedici olmak; El-Vekîl → Çalışıp Allah’a güvenmek
+- Açıklama: İsimleri öğrenmek davranışlarımızı güzelleştirir.
+
+**DEEN-U30-S05-X015** · Esmâ ile Yaşamak · scenario
+- Soru: Oyunda bir arkadaşına haksızlık yapıldığını görüyorsun. El-Adl ismini bilen biri olarak ne yaparsın?
+- Seçenekler: Güçlü tarafı tutarım | Hiçbir şey söylemem | Haksızlığa ben de katılırım | Nazikçe hakkı savunur, adil olanı söylerim
+- Doğru cevap: Nazikçe hakkı savunur, adil olanı söylerim
+- Açıklama: Nisâ 4:135: Adaleti ayakta tutan şahitler olun.
+
+**DEEN-U30-S05-X016** · Esmâ ile Yaşamak · error_spotting
+- Soru: “Esmâ-ül Hüsnâ’yı öğrenmek sadece ezberlemekten ibarettir.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: İsimler sadece bayramda okunur | İsimleri öğrenmek; anlamlarını bilmek, onlarla dua etmek ve davranışa yansıtmaktır | İsimleri öğrenmenin hiçbir faydası yoktur | İsimler sadece yazıda kullanılır
+- Doğru cevap: İsimleri öğrenmek; anlamlarını bilmek, onlarla dua etmek ve davranışa yansıtmaktır
+- Açıklama: Buhârî ve Müslim’deki “ihsâ” hadisi.
+
+**DEEN-U30-S06-X001** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: “Esmâ-ül Hüsnâ” ne demektir?
+- Seçenekler: Peygamberlerin isimleri | Allah’ın en güzel isimleri | Ayların isimleri | Meleklerin isimleri
+- Doğru cevap: Allah’ın en güzel isimleri
+- Açıklama: A‘râf 7:180.
+
+**DEEN-U30-S06-X002** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: Rızık veren anlamındaki isim hangisidir?
+- Seçenekler: El-Kahhâr | El-Mümît | Er-Rezzâk | El-Âhir
+- Doğru cevap: Er-Rezzâk
+- Açıklama: Zâriyât 51:58.
+
+**DEEN-U30-S06-X003** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: Her şeyi işiten anlamındaki isim hangisidir?
+- Seçenekler: El-Basîr | El-Alîm | El-Kadîr | Es-Semî‘
+- Doğru cevap: Es-Semî‘
+- Açıklama: Şûrâ 42:11.
+
+**DEEN-U30-S06-X004** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: Tövbeleri kabul eden anlamındaki isim hangisidir?
+- Seçenekler: El-Melik | El-Kavî | Et-Tevvâb | El-Mümît
+- Doğru cevap: Et-Tevvâb
+- Açıklama: Bakara 2:37.
+
+**DEEN-U30-S06-X005** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Hadiste Allah’ın doksan dokuz isminden söz edilir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Buhârî ve Müslim.
+
+**DEEN-U30-S06-X006** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Allah bazen uyur.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Bakara 2:255: O’nu ne uyuklama ne uyku tutar.
+
+**DEEN-U30-S06-X007** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Allah’ın rahmeti her şeyi kuşatmıştır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: A‘râf 7:156.
+
+**DEEN-U30-S06-X008** · Akıllı Tekrar · multiple_choice
+- Soru: Yoktan yaratan anlamındaki isim hangisidir?
+- Seçenekler: El-Hâlık | Es-Selâm | El-Vekîl | Er-Rakîb
+- Doğru cevap: El-Hâlık
+- Açıklama: Haşr 59:24.
+
+**DEEN-U30-S06-X009** · Akıllı Tekrar · multiple_choice
+- Soru: İhlâs suresinde geçen ve hiçbir şeye muhtaç olmayan anlamındaki isim hangisidir?
+- Seçenekler: El-Hakîm | El-Mucîb | El-Vehhâb | Es-Samed
+- Doğru cevap: Es-Samed
+- Açıklama: İhlâs 112:2.
+
+**DEEN-U30-S06-X010** · Akıllı Tekrar · multiple_choice
+- Soru: Hadîd 3’te geçmeyen isim hangisidir?
+- Seçenekler: El-Evvel | El-Âhir | Ez-Zâhir | Er-Rezzâk
+- Doğru cevap: Er-Rezzâk
+- Açıklama: Hadîd 57:3: Evvel, Âhir, Zâhir, Bâtın.
+
+**DEEN-U30-S06-X011** · Akıllı Tekrar · error_spotting
+- Soru: ““El-Gaffâr” hiç bağışlamayan demektir.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: El-Gaffâr rızık veren demektir | “El-Gaffâr” günahları çokça bağışlayan demektir | El-Gaffâr şekil veren demektir | El-Gaffâr çok güçlü demektir
+- Doğru cevap: “El-Gaffâr” günahları çokça bağışlayan demektir
+- Açıklama: Zümer 39:53.
+
+**DEEN-U30-S06-X012** · Akıllı Tekrar · error_spotting
+- Soru: ““Er-Rahmân” ismi insanlara tek başına ad olarak verilir.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: “Er-Rahmân” yalnızca Allah’ın ismidir; insanlara “Abdurrahman” denir | Er-Rahmân bir peygamber adıdır | Er-Rahmân bir sure adıdır | Er-Rahmân bir melek adıdır
+- Doğru cevap: “Er-Rahmân” yalnızca Allah’ın ismidir; insanlara “Abdurrahman” denir
+- Açıklama: İsrâ 17:110: İster Allah deyin, ister Rahmân deyin.
+
+**DEEN-U30-S07-X001** · Ünite Challenge · multiple_choice
+- Soru: Sınavda öğretmen sınıftan çıktı. Hangi isimler kopya çekmemen gerektiğini hatırlatır?
+- Seçenekler: Er-Rakîb ve El-Basîr | El-Evvel ve El-Âhir | El-Vehhâb ve Er-Rezzâk | El-Muhyî ve El-Mümît
+- Doğru cevap: Er-Rakîb ve El-Basîr
+- Açıklama: Allah her an gözetler ve görür.
+
+**DEEN-U30-S07-X002** · Ünite Challenge · multiple_choice
+- Soru: Büyük bir hata yapıp çok üzülen bir arkadaşına hangi isimleri hatırlatırsın?
+- Seçenekler: El-Kahhâr ve El-Cebbâr | Et-Tevvâb ve El-Gaffâr | El-Bâtın ve Ez-Zâhir | El-Mâni‘ ve El-Kâbız
+- Doğru cevap: Et-Tevvâb ve El-Gaffâr
+- Açıklama: Zümer 39:53: Allah’ın rahmetinden ümit kesmeyin.
+
+**DEEN-U30-S07-X003** · Ünite Challenge · multiple_choice
+- Soru: Âyetü’l-kürsî hangi surededir?
+- Seçenekler: Âl-i İmrân | Bakara | Nisâ | Mâide
+- Doğru cevap: Bakara
+- Açıklama: Bakara 2:255.
+
+**DEEN-U30-S07-X004** · Ünite Challenge · multiple_choice
+- Soru: İsrâ 110’a göre Allah’a nasıl seslenilebilir?
+- Seçenekler: Hiçbir isimle | “Allah” ya da “Rahmân” diye; en güzel isimler O’nundur | Sadece bir isimle | Sadece rakamlarla
+- Doğru cevap: “Allah” ya da “Rahmân” diye; en güzel isimler O’nundur
+- Açıklama: İsrâ 17:110: İster Allah deyin, ister Rahmân deyin; hangisiyle dua ederseniz edin, en güzel isimler O’nundur.
+
+**DEEN-U30-S07-X005** · Ünite Challenge · error_spotting
+- Soru: “İhlâs suresindeki “Ehad” ismi, Allah’ın birden fazla olduğunu anlatır.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Ehad Allah’ın yorulduğunu anlatır | “Ehad” ismi Allah’ın tek ve eşsiz olduğunu anlatır | Ehad Allah’ın çocuğu olduğunu anlatır | Ehad meleklerin ismidir
+- Doğru cevap: “Ehad” ismi Allah’ın tek ve eşsiz olduğunu anlatır
+- Açıklama: İhlâs 112:1.
+
+**DEEN-U30-S07-X006** · Ünite Challenge · error_spotting
+- Soru: ““El-Vehhâb” verdiği her şeyin karşılığını isteyen demektir.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: “El-Vehhâb” karşılık beklemeden bol bol veren demektir | El-Vehhâb hiç vermeyen demektir | El-Vehhâb unutan demektir | El-Vehhâb sadece borç veren demektir
+- Doğru cevap: “El-Vehhâb” karşılık beklemeden bol bol veren demektir
+- Açıklama: Âl-i İmrân 3:8.
+
+**DEEN-U30-S07-X007** · Ünite Challenge · progressive_recall
+- Soru: İpucu olmadan tamamla: İşimizi kendisine bıraktığımız, güvenilen anlamındaki isim El-___.
+- Doğru cevap: Vekîl
+- Açıklama: Âl-i İmrân 3:173.
+
+**DEEN-U30-S07-X008** · Ünite Challenge · progressive_recall
+- Soru: İpucu olmadan tamamla: Âyetü’l-kürsîde El-Hayy isminden sonra gelen isim El-___.
+- Doğru cevap: Kayyûm
+- Açıklama: Bakara 2:255.
+
+**DEEN-U30-S07-X009** · Ünite Challenge · progressive_recall
+- Soru: İpucu olmadan tamamla: İhlâs 112:2: “Allah ___.”
+- Doğru cevap: Samed’dir
+- Açıklama: Her şey O’na muhtaçtır; O hiçbir şeye muhtaç değildir.
+
+**DEEN-U30-S07-X010** · Ünite Challenge · multiple_choice
+- Soru: Eş-Şekûr ismi bize hangi davranışı öğretir?
+- Seçenekler: Küçük iyilikleri bile küçümsemeden yapmayı ve teşekkür etmeyi | İyilik yapmamayı | Sadece büyük işleri önemsemeyi | Kimseye teşekkür etmemeyi
+- Doğru cevap: Küçük iyilikleri bile küçümsemeden yapmayı ve teşekkür etmeyi
+- Açıklama: Fâtır 35:30 ve Zilzâl 99:7.
+
+**DEEN-U30-S07-X011** · Ünite Challenge · matching
+- Soru: Ayetleri içinde geçen isimlerle eşleştir: Bakara 2:255, İhlâs 112:2, Zâriyât 51:58 ve Burûc 85:14.
+- Eşleşmeler: Bakara 2:255 → El-Hayy, El-Kayyûm; İhlâs 112:2 → Es-Samed; Zâriyât 51:58 → Er-Rezzâk; Burûc 85:14 → El-Vedûd
+- Açıklama: Allah’ın isimleri Kur’an’ın sayfalarına yayılmıştır.
+
+**DEEN-U30-S07-X012** · Ünite Challenge · matching
+- Soru: Durumları en çok hatırlanacak isimle eşleştir: Hata yapıp pişman olunca, Dua ederken, Gizlice kötülük yapmak isteyince ve Geleceğe dair endişelenince.
+- Eşleşmeler: Hata yapıp pişman olunca → Et-Tevvâb; Dua ederken → El-Mucîb; Gizlice kötülük yapmak isteyince → Er-Rakîb; Geleceğe dair endişelenince → El-Vekîl
+- Açıklama: Her durumda Allah’ın bir ismi bize yol gösterir.
+
+**DEEN-U30-S07-X013** · Ünite Challenge · scenario
+- Soru: Soğuk bir kış gününde aç bir sokak kedisi gördün. Er-Rahmân ismini bilen biri olarak ne yaparsın?
+- Seçenekler: Onu kovalarım | Ona yiyecek ve su verip korunaklı bir yer bulmaya çalışırım | Görmezden gelirim | Ona taş atarım
+- Doğru cevap: Ona yiyecek ve su verip korunaklı bir yer bulmaya çalışırım
+- Açıklama: Her canlıya iyilikte sevap vardır (Buhârî).
+
+**DEEN-U30-S07-X014** · Ünite Challenge · true_false
+- Soru: Doğru mu, yanlış mı? A‘râf 180’e göre Allah’a en güzel isimleriyle dua edilir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: A‘râf 7:180.
