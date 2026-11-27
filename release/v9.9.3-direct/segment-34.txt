@@ -2713,7 +2713,7 @@ window.DEEN_REWARD_BADGE_ART={
     try{document.getElementById('deenAdminOverlay')?.remove()}catch(_){}
     try{document.getElementById('deenAdminTrigger')?.remove()}catch(_){}
   }
-  function units(){try{return Array.from({length:15},(_,i)=>uid(i+1))}catch(_){return Array.from({length:15},(_,i)=>'U'+String(i+1).padStart(2,'0'))}}
+  function units(){try{return Array.from({length:U.length},(_,i)=>uid(i+1))}catch(_){return Array.from({length:15},(_,i)=>'U'+String(i+1).padStart(2,'0'))}}
   function stageList(){try{return Array.isArray(STAGES)?STAGES:[]}catch(_){return[]}}
   function finalState(n){
     const key=n===1?'sectionFinal':n===2?'section2Final':'section3Final';

@@ -290,7 +290,7 @@
   function ensureState(s=state){
     if(!s||typeof s!=='object')return s;
     s.unitPedagogyMeta=s.unitPedagogyMeta&&typeof s.unitPedagogyMeta==='object'?s.unitPedagogyMeta:{};
-    for(let n=1;n<=15;n++){
+    for(let n=1;n<=U.length;n++){
       const u='U'+String(n).padStart(2,'0');
       const raw=s.unitPedagogyMeta[u]&&typeof s.unitPedagogyMeta[u]==='object'?s.unitPedagogyMeta[u]:{};
       raw.firstPassTarget=UNIT_FIRST_PASS_TARGET;
@@ -308,7 +308,7 @@
   function unitMeta(u){ensureState();return state.unitPedagogyMeta[u]}
   function rebuildExposureFromAssignments(){
     ensureState();
-    for(let n=1;n<=15;n++){
+    for(let n=1;n<=U.length;n++){
       const u='U'+String(n).padStart(2,'0'),um=unitMeta(u);
       if(um.firstPassSeenIds.length)continue;
       const ids=[];
@@ -726,7 +726,7 @@
     return{unit,score,learnedConcepts:rows.length,weak:rows.filter(r=>r.band==='weak'||r.band==='developing').length,due:rows.reduce((a,r)=>a+r.due,0),strong:rows.filter(r=>r.band==='strong').length};
   }
   function globalMastery(){
-    const rows=[];for(let n=1;n<=15;n++){const u=unitMastery(unitId(n));if(u.learnedConcepts)rows.push(u)}
+    const rows=[];for(let n=1;n<=U.length;n++){const u=unitMastery(unitId(n));if(u.learnedConcepts)rows.push(u)}
     if(!rows.length)return{score:0,units:0,weak:0,due:0};
     return{score:Math.round(rows.reduce((a,b)=>a+b.score,0)/rows.length),units:rows.length,weak:rows.reduce((a,b)=>a+b.weak,0),due:rows.reduce((a,b)=>a+b.due,0)};
   }
@@ -820,7 +820,7 @@
   const BASE_REVIEW_VIEW=window.reviewView;
   window.reviewView=function(){
     ensureAdaptive();const p=plan('smart',null,7),due=Object.values(state.reviewSchedule||{}).filter(r=>Number(r.nextReview)>0&&Number(r.nextReview)<=now640()).length,concepts=conceptRows(),weak=concepts.filter(c=>c.score<60),unitCards=[];
-    for(let n=1;n<=15;n++){const u=unitId(n),m=unitMastery(u);if(!m.learnedConcepts)continue;unitCards.push(`<button class="v640-unit-card" onclick="startSmartReview('smart','${u}')"><div class="row"><b>${esc(U[n-1]||('Ünite '+n))}</b><span class="score">%${m.score}</span></div>${bar(m.score)}<small>${m.learnedConcepts} öğrenilmiş kavram · ${m.weak} güçlendirilecek · ${m.due} vadesi gelen</small></button>`)}
+    for(let n=1;n<=U.length;n++){const u=unitId(n),m=unitMastery(u);if(!m.learnedConcepts)continue;unitCards.push(`<button class="v640-unit-card" onclick="startSmartReview('smart','${u}')"><div class="row"><b>${esc(U[n-1]||('Ünite '+n))}</b><span class="score">%${m.score}</span></div>${bar(m.score)}<small>${m.learnedConcepts} öğrenilmiş kavram · ${m.weak} güçlendirilecek · ${m.due} vadesi gelen</small></button>`)}
     const weakRows=weak.slice(0,5).map(c=>`<div class="v640-weak-row"><div class="row"><b>${esc(c.topic)}</b><span>%${c.score}</span></div><small>${esc(U[Number(c.unit.slice(1))-1]||c.unit)} · ${weakLabel(c)}${c.due?' · '+c.due+' tekrar bekliyor':''}</small></div>`).join('');
     $('reviewScreenBody').innerHTML=heading('HATIRLA · PEKİŞTİR','Unutmaya göre çalışan tekrar.','Plan, geçmiş cevapların ve tekrar zamanlarınla otomatik değişir.')+planCardHtml(p)+`<div class="v5-tilegrid">`+[['mistakes','Yanlışların',state.mistakes.length+' soru','review'],['weak','Zayıf Kavramlar',weak.length+' kavram · 3 enerji','bulb'],['quick','Hızlı Tekrar','5 soru · Ücretsiz','book'],['due','Vadesi Gelen',due+' soru','review']].map(([mode,title,desc,icon])=>`<button onclick="startSmartReview('${mode}')"><span>${SVG[icon]}</span><b>${title}</b><small>${desc}</small></button>`).join('')+`</div><h2 class="v5-section-label">Öğrenme hafızası</h2>${weakRows?`<div class="v640-weak-list">${weakRows}</div>`:'<p class="v5-muted">Henüz yeterli cevap geçmişi yok. Birkaç ders sonra zayıf kavramlar burada görünür.</p>'}<h2 class="v5-section-label">Ünite bazında</h2>${unitCards.join('')||'<p class="v5-muted">İlk üniteni oynadıkça burada kişisel hafıza skoru oluşur.</p>'}<p class="v5-muted">Bu skor yalnız öğrenme ve hatırlama performansını yönetir; dinî yeterlilik veya ibadet değeri değildir.</p>`;
   };

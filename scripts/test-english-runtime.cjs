@@ -41,7 +41,7 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
  const defs=await page.evaluate(()=>DEEN_FIVE_STAGE.defs?Array.from({length:15},(_,i)=>DEEN_FIVE_STAGE.defs('U'+String(i+1).padStart(2,'0'))).flat():[]);
  console.log('MACRO_DEFS',defs.length);
  // Retrieve IDs from actual user-facing path buttons, not the legacy seven-stage mapping.
- const macroIds=await page.evaluate(()=>{state.sectionFinal={completed:true};state.section2Final={completed:true};DEEN_FIVE_STAGE.sync();return DEEN_FIVE_STAGE.all().map(d=>d.id)});
+ const macroIds=await page.evaluate(()=>{state.sectionFinal={completed:true};state.section2Final={completed:true};state.section3Final={completed:true};DEEN_FIVE_STAGE.sync();return DEEN_FIVE_STAGE.all().map(d=>d.id)});
  report.introductions=[];const introductionLeaks=[];
  for(const id of macroIds){
   await page.evaluate(id=>previewMacro(id),id);await page.waitForTimeout(85);

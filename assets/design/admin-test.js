@@ -51,6 +51,13 @@
   try{window.DEEN_ADMIN?.render?.()}catch(_){}
   note(v?'Hayvan Odası açık: sadece sen gerçek odaya girersin.':'Hayvan Odası herkes gibi Yakında ekranını gösterir.');
  }
+ // New units (U16+) await expert review: they show only on this device while this switch is on (assets/learn/units-plus.js).
+ const UKEY='deen_admin_units_plus',unitsOn=()=>flag(UKEY);
+ function setUnits(v){
+  try{v?localStorage.setItem(UKEY,'1'):localStorage.removeItem(UKEY)}catch(_){}
+  note(v?'Yeni üniteler açılıyor: sayfa yenileniyor…':'Yeni üniteler gizleniyor: sayfa yenileniyor…');
+  setTimeout(()=>{try{location.reload()}catch(_){}},400);
+ }
  function setWardrobe(v){
   try{v?localStorage.setItem(WKEY,'1'):localStorage.removeItem(WKEY)}catch(_){}
   try{window.DEEN_ADMIN?.render?.()}catch(_){}
@@ -110,10 +117,12 @@
 
  function build(){
   const isOn=on(),sec=document.createElement('section');
-  sec.id='deenAdminTestMode';sec.className='deen-admin-section';sec.dataset.on=String(isOn);
+  sec.id='deenAdminTestMode';sec.className='deen-admin-section';sec.dataset.on=String(isOn)+(unitsOn()?'u':'');
   sec.innerHTML='<h3>TEST MODU · TÜM BÖLÜMLER</h3>'+
    '<div class="deen-admin-grid"><button class="deen-admin-btn '+(isOn?'gold':'primary')+'" data-adm2="toggle" style="grid-column:1/-1">'+
-   (isOn?'TEST MODU AÇIK · KİLİTLERİ NORMALLEŞTİR':'TÜM BÖLÜMLERİ AÇ · TEST MODU')+'</button></div>'+
+   (isOn?'TEST MODU AÇIK · KİLİTLERİ NORMALLEŞTİR':'TÜM BÖLÜMLERİ AÇ · TEST MODU')+'</button>'+
+   '<button class="deen-admin-btn '+(unitsOn()?'gold':'primary')+'" data-adm2="units" style="grid-column:1/-1">'+
+   (unitsOn()?'YENİ ÜNİTELER (U16+): AÇIK · SADECE SEN':'YENİ ÜNİTELER (U16+): GİZLİ · UZMAN ONAYI BEKLİYOR')+'</button></div>'+
    '<p class="deen-admin-note">Açıkken Öğren, Arapça yolu (harfler, harekeler, okuma, kelimeler, anlam…), okuma işaretleri, harf biçimleri, ünite tekrarları ve Sure Yolu’nun tüm kilitleri kalkar ve enerji sınırsız olur. Hiçbir ders tamamlanmış sayılmaz, ilerlemen silinmez; kapatınca kilitler geri gelir.</p>'+
    '<h4 style="margin:12px 0 6px;font-size:11px;letter-spacing:.12em;opacity:.7">BÖLÜME GİT</h4>'+
    '<div class="deen-admin-grid">'+GO.map(([k,l])=>'<button class="deen-admin-btn" data-adm2="go" data-arg="'+k+'">'+l+'</button>').join('')+'</div>';
@@ -133,7 +142,7 @@
  function inject(){
   const body=document.getElementById('deenAdminBody');if(!body)return;
   const old=document.getElementById('deenAdminTestMode');
-  if(old&&old.dataset.on===String(on())){injectWardrobe();return}
+  if(old&&old.dataset.on===String(on())+(unitsOn()?'u':'')){injectWardrobe();return}
   old?.remove();
   const sec=build(),status=body.querySelector('.deen-admin-status');
   if(status&&status.nextSibling)body.insertBefore(sec,status.nextSibling);else body.append(sec);
@@ -156,6 +165,7 @@
   else if(b.dataset.adm2==='wardrobe')setWardrobe(!wardrobeOn());
   else if(b.dataset.adm2==='room')setRoom(!roomOn());
   else if(b.dataset.adm2==='season')cycleSeason();
+  else if(b.dataset.adm2==='units')setUnits(!unitsOn());
  },true);
  // The panel draws itself again after most actions; put the section back each time.
  if(typeof MutationObserver!=='undefined')new MutationObserver(()=>{if(document.getElementById('deenAdminBody'))setTimeout(inject,0)}).observe(document.body,{childList:true,subtree:true});
@@ -163,5 +173,5 @@
  if(on())[1800,3800,5300,6800,8000].forEach(ms=>setTimeout(()=>{if(on()){legacy(true);refresh()}},ms));
  // Keep the unlimited balance topped up (spending in the store or wardrobe lowers it).
  if(typeof setInterval!=='undefined')setInterval(topUp,1200);
- window.DEEN_ADMIN_TEST=Object.freeze({on,set,go,inject,wardrobeOn,sparklesOn,roomOn,setWardrobe,setSparkles,setRoom});
+ window.DEEN_ADMIN_TEST=Object.freeze({on,set,go,inject,wardrobeOn,sparklesOn,roomOn,setWardrobe,setSparkles,setRoom,unitsOn,setUnits});
 })();

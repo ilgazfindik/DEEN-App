@@ -220,10 +220,12 @@
   const LAST_GOOD_KEY='deen_v57_last_good_state';
   const BEFORE_IMPORT_KEY='deen_v57_before_import';
   const MAX_BACKUP_BYTES=2_000_000;
-  const validStageIds=new Set(STAGES.map(s=>s.id));
+  // New units (U16-U30, assets/learn/units-plus.js) register after the boot-time sanitize; their progress is kept too.
+  const baseStageIds=new Set(STAGES.map(s=>s.id)),PLUS_STAGE_ID=/^U(?:1[6-9]|2[0-9]|30)-S0[1-7]$/;
+  const validStageIds={has:id=>baseStageIds.has(id)||PLUS_STAGE_ID.test(id)};
   // Question packs (e.g. the U01 pilot) register after this layer and after the boot-time sanitize,
   // so a snapshot Set would silently wipe their mistakes and spaced-review history on every save.
-  const QUESTION_ID_PATTERN=/^DEEN-U(?:0[1-9]|1[0-5])-S\d{2}-[A-Z0-9-]{1,24}$/;
+  const QUESTION_ID_PATTERN=/^DEEN-U(?:0[1-9]|1[0-9]|2[0-9]|30)-S\d{2}-[A-Z0-9-]{1,24}$/;
   let questionIdCache=null,questionIdCount=-1;
   const validQuestionIds={has(id){
     if(QUESTION_ID_PATTERN.test(id))return true;
@@ -242,7 +244,7 @@
 
   function sanitizeState(s){
     s=safeObj(s);
-    s.completed=uniqueValid(s.completed,validStageIds,105);
+    s.completed=uniqueValid(s.completed,validStageIds,210);
     s.mistakes=uniqueValid(s.mistakes,validQuestionIds,1000);
     s.energy=finite(s.energy,30,0,30);
     s.xp=finite(s.xp,0,0,100_000_000);
@@ -291,7 +293,7 @@
 
     s.history=Array.isArray(s.history)?s.history.slice(-2000).filter(h=>h&&typeof h==='object'):[];
     s.achievements=Array.isArray(s.achievements)?[...new Set(s.achievements.filter(x=>typeof x==='string'))].slice(0,200):[];
-    s.celebratedUnits=Array.isArray(s.celebratedUnits)?[...new Set(s.celebratedUnits.filter(x=>/^U(?:0[1-9]|1[0-5])$/.test(x)))]:[];
+    s.celebratedUnits=Array.isArray(s.celebratedUnits)?[...new Set(s.celebratedUnits.filter(x=>/^U(?:0[1-9]|1[0-9]|2[0-9]|30)$/.test(x)))]:[];
     s.celebratedSections=Array.isArray(s.celebratedSections)?[...new Set(s.celebratedSections.filter(x=>x===1||x===2||x===3))]:[];
 
     s.settings={sound:true,animation:true,haptic:false,reducedMotion:false,...safeObj(s.settings)};
@@ -471,7 +473,7 @@
  // Section 3 starts only after the Imân mastery final is passed.
  stageState=function(unit,index){
   const a=unitStages(unit),s=a[index];if(!s)return{locked:true};const n=Number(unit.slice(1));
-  const open=n===1||(n===6?state.sectionFinal.completed:n===11?state.section2Final.completed:state.completed.includes(uid(n-1)+'-S07'));
+  const open=n===1||(n===6?state.sectionFinal.completed:n===11?state.section2Final.completed:n===16?!!state.section3Final?.completed:state.completed.includes(uid(n-1)+'-S07'));
   const prev=index===0||state.completed.includes(a[index-1].id),done=state.completed.includes(s.id);
   return{done,locked:!previewMode&&(!open||!prev),current:!done&&open&&prev,mastered:done&&(state.stageScores[s.id]||0)>=95&&masteryFor(unit)>=90};
  };

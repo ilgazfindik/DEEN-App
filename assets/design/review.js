@@ -134,7 +134,7 @@
   const due=Object.values(st.reviewSchedule||{}).filter(r=>Number(r?.nextReview)>0&&Number(r.nextReview)<=now).length;
   const weak=concepts.filter(c=>c.score<60);
   const units=[];
-  for(let n=1;n<=15;n++){const id='U'+String(n).padStart(2,'0'),m=A.unit(id);if(m?.learnedConcepts)units.push({id,n,...m})}
+  for(let n=1,N=window.DEEN_UNIT_COUNT?.()||15;n<=N;n++){const id='U'+String(n).padStart(2,'0'),m=A.unit(id);if(m?.learnedConcepts)units.push({id,n,...m})}
   const global=A.global?.()||{score:0};
   let spaced=null;
   if(S){
