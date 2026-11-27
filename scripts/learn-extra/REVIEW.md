@@ -5766,3 +5766,592 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Seçenekler: Doğru | Yanlış
 - Doğru cevap: Doğru
 - Açıklama: Zekâtı yıl dolmadan önce vermek caizdir.
+
+## U17 — hac_umre_kurban (100 soru)
+
+**DEEN-U17-S01-X001** · Hac Nedir? · multiple_choice
+- Soru: “Hac” kelimesi sözlükte ne anlama gelir?
+- Seçenekler: Yönelmek, kastetmek | Dinlenmek | Saymak | Satın almak
+- Doğru cevap: Yönelmek, kastetmek
+- Açıklama: Hac sözlükte bir yere yönelmek, kastetmek demektir; dinî terim olarak belirli vakitte belirli yerleri ziyaret etmektir.
+
+**DEEN-U17-S01-X002** · Hac Nedir? · multiple_choice
+- Soru: Hac ibadeti nedir?
+- Seçenekler: Her cuma camiye gitmek | Ramazan’da oruç tutmak | Belirli günlerde Kâbe’yi ve kutsal yerleri usulüne göre ziyaret etmek | Kur’an’ı baştan sona okumak
+- Doğru cevap: Belirli günlerde Kâbe’yi ve kutsal yerleri usulüne göre ziyaret etmek
+- Açıklama: Hac, Zilhicce ayının belirli günlerinde ihramlı olarak Arafat’ta bulunmak ve Kâbe’yi tavaf etmektir.
+
+**DEEN-U17-S01-X003** · Hac Nedir? · multiple_choice
+- Soru: Gücü yeten Müslümana hac ömründe kaç kez farzdır?
+- Seçenekler: Her yıl | Bir kez | Hiç farz değildir | Üç kez
+- Doğru cevap: Bir kez
+- Açıklama: Hac, şartlarını taşıyan Müslümana ömründe bir kez farzdır; fazlası nafiledir.
+
+**DEEN-U17-S01-X004** · Hac Nedir? · multiple_choice
+- Soru: Âl-i İmrân Suresi 97. âyete göre hac kimlere farzdır?
+- Seçenekler: Yalnızca yaşlılara | Yalnızca Mekkelilere | Yoluna gücü yetenlere | Her yaştaki çocuğa
+- Doğru cevap: Yoluna gücü yetenlere
+- Açıklama: Âl-i İmrân 3:97: “Yoluna gücü yetenlerin Kâbe’yi haccetmesi Allah’ın insanlar üzerindeki hakkıdır.”
+
+**DEEN-U17-S01-X005** · Hac Nedir? · multiple_choice
+- Soru: Haccın asıl günleri hicrî takvimin hangi ayındadır?
+- Seçenekler: Receb | Zilhicce | Ramazan | Muharrem
+- Doğru cevap: Zilhicce
+- Açıklama: Haccın asıl günleri Zilhicce ayının 8–13. günleri arasındadır.
+
+**DEEN-U17-S01-X006** · Hac Nedir? · true_false
+- Soru: Doğru mu, yanlış mı? Hac hem beden hem de mal ile yapılan bir ibadettir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hac yolculuğu hem bedenî güç hem de malî imkân gerektirir.
+
+**DEEN-U17-S01-X007** · Hac Nedir? · multiple_choice
+- Soru: Hz. Peygamber’in yaptığı ve son haccı olan hacca ne ad verilir?
+- Seçenekler: Fetih Haccı | Bedir Haccı | Veda Haccı | Hicret Haccı
+- Doğru cevap: Veda Haccı
+- Açıklama: Hz. Peygamber hicretin 10. yılında haccetmiş; bu hacca Veda Haccı denir.
+
+**DEEN-U17-S01-X008** · Hac Nedir? · multiple_choice
+- Soru: Bakara 127’ye göre Kâbe’nin temellerini hangi peygamberler yükseltmiştir?
+- Seçenekler: Hz. Musa ve Hz. Harun | Hz. Nuh ve Hz. Hûd | Hz. İbrahim ve Hz. İsmail | Hz. Davud ve Hz. Süleyman
+- Doğru cevap: Hz. İbrahim ve Hz. İsmail
+- Açıklama: Bakara 2:127: İbrahim ve İsmail Kâbe’nin temellerini yükseltiyorlardı.
+
+**DEEN-U17-S01-X009** · Hac Nedir? · multiple_choice
+- Soru: Hac 27’ye göre insanları hacca çağırmakla görevlendirilen peygamber kimdir?
+- Seçenekler: Hz. İbrahim | Hz. Eyüp | Hz. Yahya | Hz. Yunus
+- Doğru cevap: Hz. İbrahim
+- Açıklama: Hac 22:27: “İnsanlar arasında haccı ilan et; yaya olarak ve binekler üzerinde sana gelsinler.”
+
+**DEEN-U17-S01-X010** · Hac Nedir? · missing_item
+- Soru: Eksik kavramı seç: Haccın farz olması için kişinin hem sağlık hem de ___ yönünden gücünün yetmesi gerekir.
+- Seçenekler: meslek | maddi imkân | boy uzunluğu | yaş farkı
+- Doğru cevap: maddi imkân
+- Açıklama: Hac için sağlık, yol güvenliği ve yol masraflarını karşılayacak malî imkân gerekir.
+
+**DEEN-U17-S01-X011** · Hac Nedir? · missing_item
+- Soru: Eksik kavramı seç: Kâbe, ___ şehrinde Mescid-i Haram’ın ortasında bulunur.
+- Seçenekler: Taif | Kudüs | Medine | Mekke
+- Doğru cevap: Mekke
+- Açıklama: Kâbe, Mekke’deki Mescid-i Haram’ın ortasındadır.
+
+**DEEN-U17-S01-X012** · Hac Nedir? · true_false
+- Soru: Doğru mu, yanlış mı? Ergenlik çağına gelmeden hac yapan çocuk, büyüyüp imkân bulunca farz olan haccı da yapmalıdır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Çocuğun haccı nafile sayılır; ergenlikten sonra şartlar oluşursa farz hac yerine getirilir.
+
+**DEEN-U17-S01-X013** · Hac Nedir? · multiple_choice
+- Soru: Aşağıdakilerden hangisi haccın hikmetlerinden biridir?
+- Seçenekler: Ticari kazancı artırmak | Yeni ülkeler görmek için tatil yapmak | İnsanlar arasında üstünlük kurmak | Farklı ülkelerden Müslümanların kardeşliğini ve eşitliğini hissettirmesi
+- Doğru cevap: Farklı ülkelerden Müslümanların kardeşliğini ve eşitliğini hissettirmesi
+- Açıklama: Hacda herkes aynı sade kıyafetle aynı yerde bulunur; bu, eşitlik ve kardeşliği hatırlatır.
+
+**DEEN-U17-S01-X014** · Hac Nedir? · true_false
+- Soru: Doğru mu, yanlış mı? Hadise göre kabul edilen bir hacla kişi annesinden doğduğu gün gibi günahlarından arınır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hz. Peygamber: “Kim hac eder de kötü söz ve davranışta bulunmazsa annesinden doğduğu gün gibi döner.” (Buhârî)
+
+**DEEN-U17-S02-X001** · İhram ve Mikat · multiple_choice
+- Soru: Hac veya umreye niyet edip telbiye ile bazı helal şeyleri kendine yasaklamaya ne denir?
+- Seçenekler: İhram | Vakfe | Sa’y | Tavaf
+- Doğru cevap: İhram
+- Açıklama: İhram, hac ya da umreye niyet edip telbiye getirerek bazı şeyleri kendine yasaklamaktır.
+
+**DEEN-U17-S02-X002** · İhram ve Mikat · multiple_choice
+- Soru: Erkekler ihramda nasıl giyinir?
+- Seçenekler: Siyah cübbe giyer | Başına sarık sarar | Dikişsiz iki parça beyaz örtüye bürünür | Her zamanki kıyafetini giyer
+- Doğru cevap: Dikişsiz iki parça beyaz örtüye bürünür
+- Açıklama: Erkekler dikişsiz iki parça bezle (izar ve rida) ihrama girer; kadınlar normal tesettür kıyafetiyle ihramlı olur.
+
+**DEEN-U17-S02-X003** · İhram ve Mikat · multiple_choice
+- Soru: Hacca veya umreye gidenlerin ihrama girmeden geçemeyeceği sınır yerlerine ne denir?
+- Seçenekler: Mina | Mikat | Mültezem | Makam
+- Doğru cevap: Mikat
+- Açıklama: Mikat, ihramsız geçilmemesi gereken sınır yerleridir.
+
+**DEEN-U17-S02-X004** · İhram ve Mikat · multiple_choice
+- Soru: Medine yönünden gelenlerin mikatı neresidir?
+- Seçenekler: Zâtüırk | Karnülmenâzil | Yelemlem | Zülhuleyfe
+- Doğru cevap: Zülhuleyfe
+- Açıklama: Medine yönünden gelenlerin mikatı Zülhuleyfe’dir (bugün Âbâr-ı Ali).
+
+**DEEN-U17-S02-X005** · İhram ve Mikat · multiple_choice
+- Soru: Şam ve Türkiye yönünden gelenlerin mikatı hangisidir?
+- Seçenekler: Yelemlem | Zâtüırk | Zülhuleyfe | Cuhfe
+- Doğru cevap: Cuhfe
+- Açıklama: Şam, Mısır ve Türkiye yönünden gelenlerin mikatı Cuhfe’dir; uçakla gelenler mikat hizasında ihrama girer.
+
+**DEEN-U17-S02-X006** · İhram ve Mikat · multiple_choice
+- Soru: “Lebbeyk Allahümme lebbeyk” diye başlayan söze ne ad verilir?
+- Seçenekler: Tekbir | Ezan | Tesbih | Telbiye
+- Doğru cevap: Telbiye
+- Açıklama: Telbiye, ihrama girerken ve ihram boyunca söylenen “Buyur Allah’ım, buyur!” anlamındaki sözdür.
+
+**DEEN-U17-S02-X007** · İhram ve Mikat · multiple_choice
+- Soru: Aşağıdakilerden hangisi ihramlıya yasaktır?
+- Seçenekler: Güzel koku sürünmek | Namaz kılmak | Dua etmek | Su içmek
+- Doğru cevap: Güzel koku sürünmek
+- Açıklama: İhramlıya koku sürünmek, saç-tırnak kesmek, avlanmak, erkeklere dikişli elbise ve başı örtmek yasaktır.
+
+**DEEN-U17-S02-X008** · İhram ve Mikat · true_false
+- Soru: Doğru mu, yanlış mı? İhramlı iken saç tıraşı olmak ve tırnak kesmek yasaktır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Saç ve tırnak kesmek ihram yasaklarındandır; ihramdan çıkarken tıraş olunur.
+
+**DEEN-U17-S02-X009** · İhram ve Mikat · true_false
+- Soru: Doğru mu, yanlış mı? İhramlı kişinin kara hayvanı avlaması yasaktır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Mâide 5:95: İhramlıyken avı öldürmeyin.
+
+**DEEN-U17-S02-X010** · İhram ve Mikat · true_false
+- Soru: Doğru mu, yanlış mı? Kadınlar da erkekler gibi dikişsiz iki parça beze bürünmek zorundadır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Kadınlar normal, örtünmeye uygun elbiseleriyle ihrama girer; yalnızca yüzlerini ve ellerini örtmezler.
+
+**DEEN-U17-S02-X011** · İhram ve Mikat · multiple_choice
+- Soru: Bakara 197’ye göre hac sırasında hangilerinden kaçınılmalıdır?
+- Seçenekler: Kötü söz, günah ve kavga-tartışma | Dua etmek ve zikretmek | Yürümek ve dinlenmek | Su içmek, uyumak ve yemek
+- Doğru cevap: Kötü söz, günah ve kavga-tartışma
+- Açıklama: Bakara 2:197: Hacda refes (çirkin söz), fusûk (günah) ve cidal (kavga) yoktur.
+
+**DEEN-U17-S02-X012** · İhram ve Mikat · fill_blank
+- Soru: Boşluğu tamamla: Hacı adayı ___ geçmeden ihrama girmelidir.
+- Seçenekler: mikatı | Arafat’ı | Kâbe’yi | Mina’yı
+- Doğru cevap: mikatı
+- Açıklama: Mikat sınırı ihramsız geçilmez; geçen kişiye ceza (dem) gerekir.
+
+**DEEN-U17-S02-X013** · İhram ve Mikat · matching
+- Soru: Kavramları anlamlarıyla eşleştir: İhram, Mikat, Telbiye ve Dem.
+- Eşleşmeler: İhram → Hac veya umre için niyet ve telbiye; Mikat → İhrama girilen sınır yer; Telbiye → “Lebbeyk Allahümme lebbeyk” sözü; Dem → Hac kurallarının ihlalinde kesilen ceza kurbanı
+- Açıklama: Bu kavramlar haccın başlangıcıyla ilgilidir.
+
+**DEEN-U17-S02-X014** · İhram ve Mikat · missing_item
+- Soru: Eksik kavramı seç: Telbiyedeki “lebbeyk” sözü ___ anlamına gelir.
+- Seçenekler: “Buyur, emrine hazırım” | “Hoşça kal” | “Yolculuk bitti” | “Beni bekle”
+- Doğru cevap: “Buyur, emrine hazırım”
+- Açıklama: Lebbeyk, Allah’ın çağrısına “Buyur, emrine hazırım” diye cevap vermektir.
+
+**DEEN-U17-S03-X001** · Haccın Adımları · multiple_choice
+- Soru: Hanefî mezhebine göre haccın farzları hangileridir?
+- Seçenekler: Telbiye, veda tavafı ve sadaka | Mina’da kalmak, kurban ve dua | İhram, Arafat vakfesi ve ziyaret tavafı | Sa’y, zemzem içmek ve tıraş
+- Doğru cevap: İhram, Arafat vakfesi ve ziyaret tavafı
+- Açıklama: Haccın farzları üçtür: ihram (şart), Arafat’ta vakfe ve ziyaret tavafı (rükün).
+
+**DEEN-U17-S03-X002** · Haccın Adımları · multiple_choice
+- Soru: Arafat vakfesi hangi gün yapılır?
+- Seçenekler: Muharrem’in 10. günü | Zilhicce’nin 9. günü (arefe günü) | Zilhicce’nin 1. günü | Ramazan’ın 27. günü
+- Doğru cevap: Zilhicce’nin 9. günü (arefe günü)
+- Açıklama: Arafat vakfesi arefe günü (9 Zilhicce) öğleden sonra başlar; “Hac Arafat’tır” (Tirmizî).
+
+**DEEN-U17-S03-X003** · Haccın Adımları · multiple_choice
+- Soru: Bir tavaf, Kâbe’nin etrafında kaç kez dönülerek tamamlanır?
+- Seçenekler: Üç | Beş | Yedi | On
+- Doğru cevap: Yedi
+- Açıklama: Tavaf, Hacerülesved hizasından başlanarak Kâbe’nin etrafında yedi şavt dönmektir.
+
+**DEEN-U17-S03-X004** · Haccın Adımları · multiple_choice
+- Soru: Tavafta Kâbe kişinin hangi tarafında kalır?
+- Seçenekler: Sol tarafında | Arkasında | Sağ tarafında | Önünde
+- Doğru cevap: Sol tarafında
+- Açıklama: Tavaf, Kâbe sol tarafta kalacak şekilde yapılır.
+
+**DEEN-U17-S03-X005** · Haccın Adımları · multiple_choice
+- Soru: Sa’y hangi iki tepe arasında yapılır?
+- Seçenekler: Mina ile Müzdelife | Arafat ile Mina | Safa ile Merve | Uhud ile Sevr
+- Doğru cevap: Safa ile Merve
+- Açıklama: Sa’y, Safa ile Merve tepeleri arasında yedi kez gidip gelmektir.
+
+**DEEN-U17-S03-X006** · Haccın Adımları · multiple_choice
+- Soru: Sa’y, hangi annenin su arayışını hatırlatır?
+- Seçenekler: Hz. Hâcer’in | Hz. Hatice’nin | Hz. Meryem’in | Hz. Âmine’nin
+- Doğru cevap: Hz. Hâcer’in
+- Açıklama: Hz. Hâcer, oğlu İsmail için su ararken Safa ile Merve arasında koşmuş; ardından zemzem çıkmıştır.
+
+**DEEN-U17-S03-X007** · Haccın Adımları · matching
+- Soru: Mekânları hacdaki görevleriyle eşleştir: Arafat, Müzdelife, Mina ve Safa ile Merve.
+- Eşleşmeler: Arafat → Arefe günü vakfe yapılan yer; Müzdelife → Bayram gecesi vakfe yapılan yer; Mina → Şeytan taşlanan yer; Safa ile Merve → Sa’y yapılan tepeler
+- Açıklama: Hac bu mekânlar arasında belirli bir sırayla yapılır.
+
+**DEEN-U17-S03-X008** · Haccın Adımları · matching
+- Soru: Kâbe çevresindeki yerleri açıklamalarıyla eşleştir: Hacerülesved, Makam-ı İbrahim, Hatîm ve Mültezem.
+- Eşleşmeler: Hacerülesved → Tavafın başladığı siyah taş; Makam-ı İbrahim → Hz. İbrahim’in ayak izinin bulunduğu taş; Hatîm → Kâbe’nin yanındaki yarım daire duvarlı alan; Mültezem → Kapı ile Hacerülesved arasındaki duvar
+- Açıklama: Bunlar Mescid-i Haram’daki önemli yerlerdir.
+
+**DEEN-U17-S03-X009** · Haccın Adımları · fill_blank
+- Soru: Boşluğu tamamla: Sa’ye ___ tepesinden başlanır ve Merve’de bitirilir.
+- Seçenekler: Nur | Uhud | Safa | Arafat
+- Doğru cevap: Safa
+- Açıklama: Sa’y Safa’dan başlar; dört gidiş üç dönüş Merve’de tamamlanır.
+
+**DEEN-U17-S03-X010** · Haccın Adımları · fill_blank
+- Soru: Boşluğu tamamla: Hacılar Mina’da ___ adı verilen yerlere taş atar.
+- Seçenekler: makam | mikat | mültezem | cemre
+- Doğru cevap: cemre
+- Açıklama: Mina’daki üç taşlama yerine cemre denir; her birine yedişer taş atılır.
+
+**DEEN-U17-S03-X011** · Haccın Adımları · progressive_recall
+- Soru: İpucu olmadan tamamla: Mekke’de Kâbe yakınında bulunan bereketli kuyunun adı ___ dir.
+- Doğru cevap: zemzem
+- Açıklama: Zemzem, Hz. Hâcer ve Hz. İsmail’e ikram edilen bereketli sudur.
+
+**DEEN-U17-S03-X012** · Haccın Adımları · progressive_recall
+- Soru: İpucu olmadan tamamla: Hacıların Mina’ya çıktığı 8 Zilhicce gününe ___ günü denir.
+- Doğru cevap: terviye
+- Açıklama: Terviye günü hacılar Mina’ya gider; ertesi gün Arafat’a çıkılır.
+
+**DEEN-U17-S03-X013** · Haccın Adımları · multiple_choice
+- Soru: Aşağıdakilerden hangisi haccın farzı değil vaciplerindendir?
+- Seçenekler: Müzdelife vakfesi | Arafat vakfesi | Ziyaret tavafı | İhram
+- Doğru cevap: Müzdelife vakfesi
+- Açıklama: Müzdelife vakfesi, sa’y, şeytan taşlama, tıraş ve veda tavafı haccın vaciplerindendir.
+
+**DEEN-U17-S03-X014** · Haccın Adımları · missing_item
+- Soru: Eksik kavramı seç: Haccın rüknü olan tavafa ___ denir.
+- Seçenekler: veda tavafı | nafile tavaf | kudüm tavafı | ziyaret tavafı
+- Doğru cevap: ziyaret tavafı
+- Açıklama: Ziyaret (ifâda) tavafı Arafat’tan sonra yapılır ve haccın rüknüdür.
+
+**DEEN-U17-S04-X001** · Hac Yolculuğu · scenario
+- Soru: Ahmet Bey İstanbul’dan uçakla doğrudan Cidde’ye uçacak ve umre yapacak. Ne zaman ihrama girmelidir?
+- Seçenekler: Uçak mikat hizasına gelmeden önce | Umre bittikten sonra | Mekke’deki otele vardıktan sonra | Kâbe’yi gördüğü anda
+- Doğru cevap: Uçak mikat hizasına gelmeden önce
+- Açıklama: Uçakla gelenler mikat hizasını ihramsız geçmemelidir; ihram uçakta ya da kalkıştan önce giyilir.
+
+**DEEN-U17-S04-X002** · Hac Yolculuğu · scenario
+- Soru: İhramlıyken arkadaşın sana kolonya ikram ediyor. Ne yaparsın?
+- Seçenekler: İhramımı çıkarıp sürerim | Nazikçe teşekkür eder, sürmem | Saçıma sürerim | Bolca sürerim
+- Doğru cevap: Nazikçe teşekkür eder, sürmem
+- Açıklama: İhramlıya koku sürünmek yasaktır; ihramdan çıkınca kullanılabilir.
+
+**DEEN-U17-S04-X003** · Hac Yolculuğu · scenario
+- Soru: Tavafta Hacerülesved’e yaklaşmak için insanları itmek gerekiyor. Ne yapmalısın?
+- Seçenekler: Herkesle tartışırım | Uzaktan elimle işaret edip tavafa devam ederim | Tavafı bırakırım | İnsanları iterek yaklaşırım
+- Doğru cevap: Uzaktan elimle işaret edip tavafa devam ederim
+- Açıklama: Hacerülesved’i öpmek sünnettir; insanlara eziyet etmek ise haramdır. Uzaktan işaret yeterlidir.
+
+**DEEN-U17-S04-X004** · Hac Yolculuğu · scenario
+- Soru: Mina’da çadırda biri yüksek sesle sana çıkışıyor. Hacda nasıl davranmalısın?
+- Seçenekler: Sabredip tartışmaya girmem | Daha yüksek sesle karşılık veririm | Kavga ederim | Haccı bırakırım
+- Doğru cevap: Sabredip tartışmaya girmem
+- Açıklama: Bakara 2:197: Hacda kavga ve tartışma yoktur.
+
+**DEEN-U17-S04-X005** · Hac Yolculuğu · scenario
+- Soru: Zeynep Hanım’ın babası çok yaşlı ve hasta; hacca gidecek gücü yok ama imkânı var. Ne yapılabilir?
+- Seçenekler: Yerine oruç tutulur | Yerine kurban kesmek yeterlidir | Hac tamamen düşer, bir şey yapılmaz | Onun adına bedel haccı yaptırılabilir
+- Doğru cevap: Onun adına bedel haccı yaptırılabilir
+- Açıklama: Malî gücü olup bedenen haccedemeyecek durumdaki kişi adına bedel haccı yaptırılabilir (Diyanet).
+
+**DEEN-U17-S04-X006** · Hac Yolculuğu · fill_blank
+- Soru: Boşluğu tamamla: Hacılar Arafat’tan sonra geceyi ___ geçirir.
+- Seçenekler: Cidde’de | Taif’te | Medine’de | Müzdelife’de
+- Doğru cevap: Müzdelife’de
+- Açıklama: Arafat’tan sonra Müzdelife’ye gelinir; bayram sabahı orada vakfe yapılır.
+
+**DEEN-U17-S04-X007** · Hac Yolculuğu · fill_blank
+- Soru: Boşluğu tamamla: Bayramın ilk günü Akabe cemresine ___ taş atılır.
+- Seçenekler: on | üç | kırk | yedi
+- Doğru cevap: yedi
+- Açıklama: Bayramın ilk günü yalnız büyük (Akabe) cemreye yedi taş atılır.
+
+**DEEN-U17-S04-X008** · Hac Yolculuğu · progressive_recall
+- Soru: İpucu olmadan tamamla: İhram yasağını çiğneyen kişinin ceza olarak kestiği kurbana ___ denir.
+- Doğru cevap: dem
+- Açıklama: Dem, hac kurallarına aykırılık durumunda Harem bölgesinde kesilen kurbandır.
+
+**DEEN-U17-S04-X009** · Hac Yolculuğu · progressive_recall
+- Soru: İpucu olmadan tamamla: Hacı veya umreci saçını tıraş ettirerek ya da ___ ihramdan çıkar.
+- Doğru cevap: kısaltarak
+- Açıklama: Tıraş olmak veya saçları kısaltmak ihramdan çıkmayı sağlar; kadınlar saçlarının ucundan keser.
+
+**DEEN-U17-S04-X010** · Hac Yolculuğu · multiple_choice
+- Soru: Önce umre yapıp ihramdan çıkan, sonra aynı mevsimde hac için yeniden ihrama giren kişinin haccına ne denir?
+- Seçenekler: İfrad haccı | Temettu haccı | Bedel haccı | Kıran haccı
+- Doğru cevap: Temettu haccı
+- Açıklama: Temettu haccında umre ve hac ayrı ihramlarla aynı mevsimde yapılır.
+
+**DEEN-U17-S04-X011** · Hac Yolculuğu · multiple_choice
+- Soru: Umre ve haccın tek ihramla birlikte yapıldığı hac çeşidi hangisidir?
+- Seçenekler: Nafile | Kıran | İfrad | Temettu
+- Doğru cevap: Kıran
+- Açıklama: Kıran haccında umre ve hac aynı ihramla yapılır.
+
+**DEEN-U17-S04-X012** · Hac Yolculuğu · multiple_choice
+- Soru: Sadece hac için ihrama girilen hac çeşidine ne denir?
+- Seçenekler: İfrad | Umre | Kıran | Temettu
+- Doğru cevap: İfrad
+- Açıklama: İfrad, yalnızca hac niyetiyle ihrama girmektir.
+
+**DEEN-U17-S04-X013** · Hac Yolculuğu · matching
+- Soru: Günleri hacdaki işlerle eşleştir: 8 Zilhicce, 9 Zilhicce, 10 Zilhicce ve 11–12 Zilhicce.
+- Eşleşmeler: 8 Zilhicce → Mina’ya çıkış (terviye); 9 Zilhicce → Arafat vakfesi; 10 Zilhicce → Akabe cemresi ve kurban; 11–12 Zilhicce → Üç cemreye taş atma
+- Açıklama: Hac günleri belirli bir sırayla ilerler.
+
+**DEEN-U17-S04-X014** · Hac Yolculuğu · missing_item
+- Soru: Eksik kavramı seç: Mekke’den ayrılırken yapılan son tavafa ___ denir.
+- Seçenekler: kudüm tavafı | ziyaret tavafı | umre tavafı | veda tavafı
+- Doğru cevap: veda tavafı
+- Açıklama: Veda tavafı, Mekke dışından gelen hacıların ayrılırken yaptığı vacip tavaftır.
+
+**DEEN-U17-S04-X015** · Hac Yolculuğu · error_spotting
+- Soru: “Arafat vakfesini kaçıran kişi ertesi gün yaparak haccını tamamlayabilir.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Arafat vakfesi vaktinde yapılmazsa o yılın haccı kaçmış olur | Arafat vakfesi hacda gerekli değildir | Vakfe yalnızca umrede yapılır | Arafat yerine Mina’da beklemek yeter
+- Doğru cevap: Arafat vakfesi vaktinde yapılmazsa o yılın haccı kaçmış olur
+- Açıklama: Arafat vakfesi haccın en temel rüknüdür; vakti geçince telafisi yoktur, hac sonraki yıla kalır.
+
+**DEEN-U17-S04-X016** · Hac Yolculuğu · error_spotting
+- Soru: “Sa’y, Kâbe’nin etrafında yedi kez dönmektir.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Sa’y, şeytan taşlamaktır | Sa’y, Arafat’ta beklemektir | Sa’y, zemzem içmektir | Sa’y, Safa ile Merve arasında yedi kez gidip gelmektir
+- Doğru cevap: Sa’y, Safa ile Merve arasında yedi kez gidip gelmektir
+- Açıklama: Kâbe’nin etrafında dönmek tavaftır; sa’y Safa ile Merve arasında yapılır.
+
+**DEEN-U17-S05-X001** · Umre ve Kurban · multiple_choice
+- Soru: Umre nedir?
+- Seçenekler: Sadece kurban kesmek | Yalnızca Arafat’ta beklemek | Ramazan’da itikâfa girmek | Yılın uygun her zamanında ihramla Kâbe’yi tavaf edip sa’y yapmak
+- Doğru cevap: Yılın uygun her zamanında ihramla Kâbe’yi tavaf edip sa’y yapmak
+- Açıklama: Umre; ihram, tavaf, sa’y ve tıraştan oluşan, belirli günlere bağlı olmayan ziyarettir.
+
+**DEEN-U17-S05-X002** · Umre ve Kurban · multiple_choice
+- Soru: Hanefî mezhebine göre umrenin hükmü nedir?
+- Seçenekler: Her yıl farz | Mekruh | Sünnet-i müekkede | Haram
+- Doğru cevap: Sünnet-i müekkede
+- Açıklama: Hanefîlere göre umre ömürde bir kez yapılması müekked sünnettir.
+
+**DEEN-U17-S05-X003** · Umre ve Kurban · true_false
+- Soru: Doğru mu, yanlış mı? Umrede Arafat vakfesi yoktur.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Arafat vakfesi haca özgüdür; umre ihram, tavaf, sa’y ve tıraştan oluşur.
+
+**DEEN-U17-S05-X004** · Umre ve Kurban · multiple_choice
+- Soru: “Kurban” kelimesi sözlükte ne anlama gelir?
+- Seçenekler: Bayram etmek | Hayvan beslemek | Et dağıtmak | Allah’a yaklaşmak, yakınlık
+- Doğru cevap: Allah’a yaklaşmak, yakınlık
+- Açıklama: Kurban, Allah’a yaklaşmaya vesile olan şey demektir.
+
+**DEEN-U17-S05-X005** · Umre ve Kurban · multiple_choice
+- Soru: Hanefî mezhebine göre gücü yeten Müslümana kurban kesmenin hükmü nedir?
+- Seçenekler: Vacip | Haram | Mekruh | Mübah
+- Doğru cevap: Vacip
+- Açıklama: Hanefîlere göre nisap miktarı mala sahip, mukim Müslümanın kurban kesmesi vaciptir; diğer mezheplerde müekked sünnettir.
+
+**DEEN-U17-S05-X006** · Umre ve Kurban · multiple_choice
+- Soru: Kurban hangi günlerde kesilir?
+- Seçenekler: Yılın herhangi bir gününde | Hicrî yılbaşında | Kurban Bayramı’nın ilk üç gününde | Ramazan’ın son gününde
+- Doğru cevap: Kurban Bayramı’nın ilk üç gününde
+- Açıklama: Kurban, bayram namazından sonra başlayarak bayramın üçüncü günü akşamına kadar kesilir.
+
+**DEEN-U17-S05-X007** · Umre ve Kurban · multiple_choice
+- Soru: Büyükbaş bir hayvan (sığır veya deve) en fazla kaç kişi adına kurban edilebilir?
+- Seçenekler: İki | Yedi | On | Yirmi
+- Doğru cevap: Yedi
+- Açıklama: Sığır ve deve yedi kişiye kadar ortak kesilebilir; koyun ve keçi tek kişiliktir.
+
+**DEEN-U17-S05-X008** · Umre ve Kurban · multiple_choice
+- Soru: Kurbanlık koyun ve keçi kaç yaşını doldurmuş olmalıdır?
+- Seçenekler: Bir yaşını | On yaşını | Beş yaşını | İki ayını
+- Doğru cevap: Bir yaşını
+- Açıklama: Koyun ve keçi bir yaşını doldurmalı; altı ayını geçmiş, bir yaşındaki gibi gösterişli kuzu da kurban edilebilir. Sığır iki, deve beş yaşını doldurmalıdır.
+
+**DEEN-U17-S05-X009** · Umre ve Kurban · multiple_choice
+- Soru: Hac Suresi 37. âyete göre Allah’a kurbanın neyi ulaşır?
+- Seçenekler: Sahibinin takvası | Kanı | Derisi | Eti
+- Doğru cevap: Sahibinin takvası
+- Açıklama: Hac 22:37: “Onların ne etleri ne de kanları Allah’a ulaşır; fakat O’na sizin takvanız ulaşır.”
+
+**DEEN-U17-S05-X010** · Umre ve Kurban · multiple_choice
+- Soru: Kurban ibadeti hangi peygamberlerin teslimiyetini hatırlatır?
+- Seçenekler: Hz. İbrahim ve Hz. İsmail | Hz. Âdem ve Hz. Şit | Hz. Musa ve Hz. Hızır | Hz. Zekeriya ve Hz. Yahya
+- Doğru cevap: Hz. İbrahim ve Hz. İsmail
+- Açıklama: Sâffât 37:102-107’de Hz. İbrahim ile Hz. İsmail’in teslimiyeti ve büyük bir kurbanla fidye verilmesi anlatılır.
+
+**DEEN-U17-S05-X011** · Umre ve Kurban · true_false
+- Soru: Doğru mu, yanlış mı? Kurban etinin bir kısmını kendine, bir kısmını akrabalara, bir kısmını da fakirlere ayırmak güzeldir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Etin üçe bölünmesi müstehaptır; tamamını yemek veya dağıtmak da caizdir (adak hariç).
+
+**DEEN-U17-S05-X012** · Umre ve Kurban · true_false
+- Soru: Doğru mu, yanlış mı? Kurbanın derisi veya etinden bir kısmı kasaba ücret olarak verilebilir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Kurbandan bir şey kasaba ücret olarak verilmez; ücret ayrıca ödenir. Deri bağışlanabilir.
+
+**DEEN-U17-S05-X013** · Umre ve Kurban · scenario
+- Soru: Bayramda kurban kesilecek. Hayvana karşı nasıl davranılmalıdır?
+- Seçenekler: Diğer hayvanların gözü önünde kesmek | Kör bıçakla kesmek | Hayvanı korkutup koşturmak | Eziyet etmeden, bıçağı onun önünde bilemeden kesmek
+- Doğru cevap: Eziyet etmeden, bıçağı onun önünde bilemeden kesmek
+- Açıklama: Hz. Peygamber kesimde bıçağın keskin olmasını ve hayvanın rahat ettirilmesini emretmiştir (Müslim).
+
+**DEEN-U17-S05-X014** · Umre ve Kurban · scenario
+- Soru: Kurbanlık alırken bir gözü kör bir koyun görüyorsun. Ne yaparsın?
+- Seçenekler: Kurbana engel kusuru olduğu için başka hayvan seçerim | Ucuz olduğu için alırım | Kusurun önemi yok derim | Yarısını kurban ederim
+- Doğru cevap: Kurbana engel kusuru olduğu için başka hayvan seçerim
+- Açıklama: Bir gözü kör, topal, çok zayıf veya hasta hayvan kurban edilmez.
+
+**DEEN-U17-S05-X015** · Umre ve Kurban · missing_item
+- Soru: Eksik kavramı seç: Çocuk doğduğunda şükür için kesilen kurbana ___ denir.
+- Seçenekler: dem | adak | fidye | akîka
+- Doğru cevap: akîka
+- Açıklama: Akîka, doğan çocuk için şükür niyetiyle kesilen kurbandır.
+
+**DEEN-U17-S05-X016** · Umre ve Kurban · missing_item
+- Soru: Eksik kavramı seç: Adak kurbanının etini ___ yiyemez; tamamı fakirlere verilir.
+- Seçenekler: adayan kişi | komşu yoksullar | yolcular | fakirler
+- Doğru cevap: adayan kişi
+- Açıklama: Adak kurbanının eti adayan kişiye ve bakmakla yükümlü olduğu kimselere yenmez; fakirlere verilir.
+
+**DEEN-U17-S06-X001** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: Haccın farzlarından biri hangisidir?
+- Seçenekler: Zemzem içmek | Taş toplamak | Arafat vakfesi | Medine’yi ziyaret
+- Doğru cevap: Arafat vakfesi
+- Açıklama: Haccın farzları: ihram, Arafat vakfesi ve ziyaret tavafı.
+
+**DEEN-U17-S06-X002** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: Bir tavaf kaç şavttır?
+- Seçenekler: Üç | Dokuz | Beş | Yedi
+- Doğru cevap: Yedi
+- Açıklama: Tavaf yedi şavttır.
+
+**DEEN-U17-S06-X003** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: Sa’y nerede yapılır?
+- Seçenekler: Safa ile Merve arasında | Arafat’ta | Mina’da | Müzdelife’de
+- Doğru cevap: Safa ile Merve arasında
+- Açıklama: Sa’y, Safa ile Merve arasında yapılır.
+
+**DEEN-U17-S06-X004** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: Bir deve kaç kişiye kadar ortak kurban edilir?
+- Seçenekler: Kırk | Bir | Yedi | Üç
+- Doğru cevap: Yedi
+- Açıklama: Sığır ve deve yedi kişiye kadar ortak kesilir.
+
+**DEEN-U17-S06-X005** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Umre yalnızca Zilhicce ayında yapılabilir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Umre yılın her zamanında yapılabilir; yalnızca arefe ve bayram günlerinde yapılması mekruhtur.
+
+**DEEN-U17-S06-X006** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Telbiye ihrama girerken söylenir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Niyetle birlikte telbiye söylemek ihramın gereğidir.
+
+**DEEN-U17-S06-X007** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Bir koyun yedi kişi adına kurban edilebilir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Koyun ve keçi yalnızca bir kişi adına kurban edilir.
+
+**DEEN-U17-S06-X008** · Akıllı Tekrar · multiple_choice
+- Soru: Kâbe’nin temellerini yükselten peygamber hangisidir?
+- Seçenekler: Hz. Yusuf | Hz. Musa | Hz. İsa | Hz. İbrahim
+- Doğru cevap: Hz. İbrahim
+- Açıklama: Hz. İbrahim, oğlu İsmail ile birlikte Kâbe’nin temellerini yükseltti (Bakara 2:127).
+
+**DEEN-U17-S06-X009** · Akıllı Tekrar · multiple_choice
+- Soru: İhramsız geçilmemesi gereken sınır yere ne denir?
+- Seçenekler: Mikat | Mina | Cemre | Hatîm
+- Doğru cevap: Mikat
+- Açıklama: Mikat, ihram sınırıdır.
+
+**DEEN-U17-S06-X010** · Akıllı Tekrar · multiple_choice
+- Soru: Hac 37’ye göre kurbanın Allah’a ulaşan yönü nedir?
+- Seçenekler: Takva | Kan | Deri | Et
+- Doğru cevap: Takva
+- Açıklama: Allah’a ulaşan, kurban sahibinin takvasıdır.
+
+**DEEN-U17-S06-X011** · Akıllı Tekrar · error_spotting
+- Soru: “İhramlıyken güzel koku sürünmek sünnettir.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Koku yalnızca tavafta sürülür | İhramlıya koku sürünmek yasaktır | Koku yalnızca Arafat’ta serbesttir | Koku sürmek ihramı başlatır
+- Doğru cevap: İhramlıya koku sürünmek yasaktır
+- Açıklama: Koku sürünmek ihram yasaklarındandır.
+
+**DEEN-U17-S06-X012** · Akıllı Tekrar · error_spotting
+- Soru: “Kurban, Ramazan Bayramı’nda kesilir.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Kurban yalnızca cuma kesilir | Kurban hicrî yılbaşında kesilir | Kurban arefe sabahı kesilir | Kurban, Kurban Bayramı’nın ilk üç gününde kesilir
+- Doğru cevap: Kurban, Kurban Bayramı’nın ilk üç gününde kesilir
+- Açıklama: Kurbanın vakti Kurban Bayramı’nın ilk üç günüdür.
+
+**DEEN-U17-S07-X001** · Ünite Challenge · scenario
+- Soru: Fatma Hanım Zilhicce’den önce Mekke’ye gidip umre yaptı, ihramdan çıktı, sonra hac için yeniden ihrama girdi. Hangi haccı yapmıştır?
+- Seçenekler: Temettu | Bedel | İfrad | Kıran
+- Doğru cevap: Temettu
+- Açıklama: Aynı mevsimde önce umre, sonra ayrı ihramla hac temettu haccıdır; şükür kurbanı gerekir.
+
+**DEEN-U17-S07-X002** · Ünite Challenge · scenario
+- Soru: Bir hacı arefe günü yolda kalıyor ve bayram sabahı fecirden önce birkaç dakika Arafat’ta bulunabiliyor. Vakfesi geçerli mi?
+- Seçenekler: Vakfe hacda şart değildir | Evet, vakfe vakti bayram sabahı fecre kadar sürer | Hayır, vakfe yalnızca öğle vaktinde olur | Hayır, en az bir gün durmak gerekir
+- Doğru cevap: Evet, vakfe vakti bayram sabahı fecre kadar sürer
+- Açıklama: Arafat vakfesinin vakti arefe günü öğleden bayram sabahı fecre kadardır; bu süre içinde kısa bir an bulunmak yeterlidir.
+
+**DEEN-U17-S07-X003** · Ünite Challenge · scenario
+- Soru: Beş arkadaş bir sığırı ortak kurban etmek istiyor. Bu mümkün mü?
+- Seçenekler: Yalnızca deve ortak kesilir | Hayır, sığır tek kişiliktir | Ancak on kişi olursa olur | Evet, sığıra yedi kişiye kadar ortak olunabilir
+- Doğru cevap: Evet, sığıra yedi kişiye kadar ortak olunabilir
+- Açıklama: Sığır ve deveye yedi kişiye kadar ortak olunabilir.
+
+**DEEN-U17-S07-X004** · Ünite Challenge · error_spotting
+- Soru: “Sa’ye Merve’den başlanır, Safa’da bitirilir.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Sa’y yalnızca bir kez yürünür | Sa’ye Arafat’tan başlanır | Sa’ye Safa’dan başlanır, Merve’de bitirilir | Sa’y Kâbe’nin içinde yapılır
+- Doğru cevap: Sa’ye Safa’dan başlanır, Merve’de bitirilir
+- Açıklama: Sa’y Safa’dan başlar ve yedinci şavt Merve’de biter.
+
+**DEEN-U17-S07-X005** · Ünite Challenge · error_spotting
+- Soru: “Gücü yeten Müslümana hac her yıl farzdır.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Hac ömürde bir kez farzdır | Hac hiç farz değildir | Hac yalnızca Mekkelilere farzdır | Hac yalnızca yaşlılara farzdır
+- Doğru cevap: Hac ömürde bir kez farzdır
+- Açıklama: Hac ömürde bir kez farzdır; sonrakiler nafiledir.
+
+**DEEN-U17-S07-X006** · Ünite Challenge · progressive_recall
+- Soru: İpucu olmadan tamamla: Hadiste “Hac ___’tır” buyrulmuştur.
+- Doğru cevap: Arafat
+- Açıklama: Hz. Peygamber: “Hac Arafat’tır.” (Tirmizî) Arafat vakfesi haccın en temel rüknüdür.
+
+**DEEN-U17-S07-X007** · Ünite Challenge · progressive_recall
+- Soru: İpucu olmadan tamamla: Hac ve umre ___ ile başlar.
+- Doğru cevap: ihram
+- Açıklama: Niyet ve telbiye ile ihrama girilerek hac veya umre başlar.
+
+**DEEN-U17-S07-X008** · Ünite Challenge · progressive_recall
+- Soru: İpucu olmadan tamamla: Tavafın başladığı köşedeki siyah taşa ___ denir.
+- Doğru cevap: Hacerülesved
+- Açıklama: Tavaf Hacerülesved hizasından başlar ve orada biter.
+
+**DEEN-U17-S07-X009** · Ünite Challenge · multiple_choice
+- Soru: Aşağıdakilerden hangisi ihramlıya yasak değildir?
+- Seçenekler: Tırnak kesmek | Avlanmak | Güzel koku sürünmek | Yıkanmak ve kokusuz sabun kullanmak
+- Doğru cevap: Yıkanmak ve kokusuz sabun kullanmak
+- Açıklama: Kokusuz yıkanmak ihramlıya yasak değildir; av, tırnak kesmek ve koku yasaktır.
+
+**DEEN-U17-S07-X010** · Ünite Challenge · multiple_choice
+- Soru: Haccda herkesin aynı sade ihram kıyafetini giymesi en çok neyi hatırlatır?
+- Seçenekler: Allah katında insanların eşitliğini | Zenginlerin üstünlüğünü | Moda ve süslenmeyi | Ülkeler arası rekabeti
+- Doğru cevap: Allah katında insanların eşitliğini
+- Açıklama: İhram, makam ve servet farklarını kaldırarak eşitliği ve ahireti hatırlatır.
+
+**DEEN-U17-S07-X011** · Ünite Challenge · matching
+- Soru: Hac çeşitlerini açıklamalarıyla eşleştir: İfrad, Temettu, Kıran ve Bedel.
+- Eşleşmeler: İfrad → Yalnızca hac için ihram; Temettu → Önce umre, sonra ayrı ihramla hac; Kıran → Umre ve hac tek ihramla; Bedel → Gücü yetmeyen adına yapılan hac
+- Açıklama: Hac farklı biçimlerde yapılabilir.
+
+**DEEN-U17-S07-X012** · Ünite Challenge · matching
+- Soru: Kurban türlerini açıklamalarıyla eşleştir: Udhiye, Akîka, Adak ve Dem.
+- Eşleşmeler: Udhiye → Kurban Bayramı’nda kesilen kurban; Akîka → Doğan çocuk için şükür kurbanı; Adak → Söz verilip kesilen kurban; Dem → Hac kurallarının ihlali için ceza kurbanı
+- Açıklama: Kurbanlar amaçlarına göre farklı adlar alır.
+
+**DEEN-U17-S07-X013** · Ünite Challenge · scenario
+- Soru: Ali ailesiyle kurban kesti. Eti nasıl değerlendirmesi en güzelidir?
+- Seçenekler: Bir kısmını kendine, bir kısmını akrabalara, bir kısmını fakirlere ayırmak | Kimseyle paylaşmamak | Hepsini satmak | Kasaba ücret olarak vermek
+- Doğru cevap: Bir kısmını kendine, bir kısmını akrabalara, bir kısmını fakirlere ayırmak
+- Açıklama: Kurban etini paylaşmak bayramın sevincini yayar; satmak ve ücret olarak vermek caiz değildir.
+
+**DEEN-U17-S07-X014** · Ünite Challenge · true_false
+- Soru: Doğru mu, yanlış mı? Şeytan taşlamak haccın vaciplerindendir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Cemrelere taş atmak haccın vaciplerindendir; terk edilirse ceza (dem) gerekir.
