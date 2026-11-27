@@ -1,4 +1,4 @@
-// New Learn-path units (U16+): hidden by default (expert review pending); with the admin switch on they follow U15 on the
+// New Learn-path units (U16+): live for every player (LIVE = true); with the admin switch on they follow U15 on the
 // path under their own section, open after the section 3 final, and every mini lesson of U16 can be played to the end.
 const {chromium}=require('playwright'),http=require('node:http'),fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
 const root=path.resolve(__dirname,'..');
@@ -31,11 +31,11 @@ async function answerAll(page,label){
  await new Promise(r=>server.listen(0,'127.0.0.1',r));const url='http://127.0.0.1:'+server.address().port+'/index.html';
  const browser=await chromium.launch();
  try{
-  // Default: hidden.
+  // Default (no admin switch): live for every player.
   {const {page,ctx,errors}=await open(browser,url,{flag:false});
-   const r=await page.evaluate(()=>({len:U.length,units:document.querySelectorAll('#v5Paths section.restored-unit').length,live:DEEN_UNITS_PLUS.live,stages:STAGES.length}));
-   assert.deepEqual(r,{len:15,units:15,live:false,stages:105},'new units stay hidden without the admin switch');
-   assert.deepEqual(errors,[]);await ctx.close();console.log('hidden by default ok');}
+   const r=await page.evaluate(()=>({len:U.length,live:DEEN_UNITS_PLUS.live,stages:STAGES.length,n:DEEN_UNITS_PLUS_META.units.length}));
+   assert.deepEqual(r,{len:30,live:true,stages:210,n:15},'new units are live without the admin switch');
+   assert.deepEqual(errors,[]);await ctx.close();console.log('live by default ok');}
   // Switch on, section 3 final not passed: U16 is on the path but locked.
   {const {page,ctx}=await open(browser,url,{final3:false});
    const r=await page.evaluate(()=>DEEN_FIVE_STAGE.state('U16-M01'));assert.equal(r.locked,true,'U16 waits for the section 3 final');await ctx.close();console.log('locked before final ok');}
