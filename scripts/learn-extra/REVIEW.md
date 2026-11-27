@@ -8122,3 +8122,590 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Seçenekler: Doğru | Yanlış
 - Doğru cevap: Doğru
 - Açıklama: Fatiha namazın her rekâtında okunur.
+
+## U21 — siyer_mekke (100 soru)
+
+**DEEN-U21-S01-X001** · Doğumu ve Çocukluğu · multiple_choice
+- Soru: Hz. Muhammed’in doğduğu yıl miladi takvimle hangisidir?
+- Seçenekler: 610 | 571 | 622 | 632
+- Doğru cevap: 571
+- Açıklama: Hz. Muhammed 571 yılında, Fil Yılı’nda Mekke’de doğmuştur.
+
+**DEEN-U21-S01-X002** · Doğumu ve Çocukluğu · multiple_choice
+- Soru: Hz. Muhammed’i dünyaya getiren annesi kimdir?
+- Seçenekler: Hatice | Âmine | Halîme | Fâtıma
+- Doğru cevap: Âmine
+- Açıklama: Annesi Âmine binti Vehb’dir.
+
+**DEEN-U21-S01-X003** · Doğumu ve Çocukluğu · multiple_choice
+- Soru: Hz. Muhammed’in babası Abdullah ne zaman vefat etmiştir?
+- Seçenekler: O henüz doğmadan önce | O evlendikten sonra | Hicretten sonra | O on yaşındayken
+- Doğru cevap: O henüz doğmadan önce
+- Açıklama: Babası Abdullah, Hz. Muhammed doğmadan önce Medine’de vefat etmiştir.
+
+**DEEN-U21-S01-X004** · Doğumu ve Çocukluğu · multiple_choice
+- Soru: Hz. Muhammed’in çölde yanında kaldığı sütannesi kimdir?
+- Seçenekler: Halîme | Sevde | Ümmü Eymen | Âmine
+- Doğru cevap: Halîme
+- Açıklama: Mekke geleneğine göre çocuklar çöle verilirdi; Hz. Muhammed Benî Sa‘d’dan Halîme’nin yanında büyüdü.
+
+**DEEN-U21-S01-X005** · Doğumu ve Çocukluğu · multiple_choice
+- Soru: Hz. Muhammed annesini kaç yaşında kaybetmiştir?
+- Seçenekler: Yirmi yaşında | On beş yaşında | Altı yaşında | Bir yaşında
+- Doğru cevap: Altı yaşında
+- Açıklama: Annesi Âmine, Medine dönüşü Ebvâ’da vefat ettiğinde Hz. Muhammed altı yaşındaydı.
+
+**DEEN-U21-S01-X006** · Doğumu ve Çocukluğu · multiple_choice
+- Soru: Annesinin vefatından sonra Hz. Muhammed’i kim himaye etti?
+- Seçenekler: Amcası Ebû Leheb | Dedesi Abdülmuttalib | Komşusu Ebû Cehil | Rahip Bahîrâ
+- Doğru cevap: Dedesi Abdülmuttalib
+- Açıklama: Dedesi Abdülmuttalib onu sekiz yaşına kadar büyüttü.
+
+**DEEN-U21-S01-X007** · Doğumu ve Çocukluğu · multiple_choice
+- Soru: Dedesinin vefatından sonra Hz. Muhammed’i hangi amcası yanına aldı?
+- Seçenekler: Hamza | Ebû Leheb | Abbas | Ebû Tâlib
+- Doğru cevap: Ebû Tâlib
+- Açıklama: Amcası Ebû Tâlib onu yanına aldı ve hayatı boyunca korudu.
+
+**DEEN-U21-S01-X008** · Doğumu ve Çocukluğu · true_false
+- Soru: Doğru mu, yanlış mı? Hz. Muhammed yetim olarak büyümüştür.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Babası doğmadan, annesi altı yaşında vefat etti; Duhâ 93:6 da “Seni yetim bulup barındırmadı mı?” der.
+
+**DEEN-U21-S01-X009** · Doğumu ve Çocukluğu · true_false
+- Soru: Doğru mu, yanlış mı? Hz. Muhammed Kureyş kabilesinin Hâşimoğulları ailesindendir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hz. Muhammed Kureyş kabilesinin Hâşimoğulları koluna mensuptur.
+
+**DEEN-U21-S01-X010** · Doğumu ve Çocukluğu · missing_item
+- Soru: Eksik kavramı seç: Hz. Muhammed ___ şehrinde doğmuştur.
+- Seçenekler: Kudüs | Taif | Mekke | Medine
+- Doğru cevap: Mekke
+- Açıklama: Hz. Muhammed Mekke’de doğmuştur.
+
+**DEEN-U21-S01-X011** · Doğumu ve Çocukluğu · missing_item
+- Soru: Eksik kavramı seç: Yaygın kabule göre Hz. Muhammed hicrî ___ ayında doğmuştur.
+- Seçenekler: Rebîülevvel | Ramazan | Muharrem | Zilhicce
+- Doğru cevap: Rebîülevvel
+- Açıklama: Yaygın kabule göre Rebîülevvel ayının 12. gecesi, bir pazartesi doğmuştur; bu gece Mevlid Kandili olarak anılır.
+
+**DEEN-U21-S01-X012** · Doğumu ve Çocukluğu · multiple_choice
+- Soru: Hz. Muhammed amcasıyla Şam yolculuğundayken onda peygamberlik alametleri gördüğü rivayet edilen rahip kimdir?
+- Seçenekler: Varaka | Necâşî | Bahîrâ | Addâs
+- Doğru cevap: Bahîrâ
+- Açıklama: On iki yaşında amcasıyla Şam’a giderken Busra’da rahip Bahîrâ’nın onu tanıdığı rivayet edilir.
+
+**DEEN-U21-S01-X013** · Doğumu ve Çocukluğu · multiple_choice
+- Soru: Hz. Muhammed’in çocukluğunda ona bakan ve sonra azat ettiği dadısı kimdir?
+- Seçenekler: Ümmü Eymen | Hatice | Halîme | Sümeyye
+- Doğru cevap: Ümmü Eymen
+- Açıklama: Ümmü Eymen (Bereke), Hz. Peygamber’in dadısıydı; o onu anne gibi severdi.
+
+**DEEN-U21-S01-X014** · Doğumu ve Çocukluğu · multiple_choice
+- Soru: Hz. Muhammed’in doğduğu yıla, Kâbe’ye saldıran ordu nedeniyle hangi ad verilir?
+- Seçenekler: Heyetler Yılı | Hüzün Yılı | Fil Yılı | Fetih Yılı
+- Doğru cevap: Fil Yılı
+- Açıklama: Ebrehe’nin filli ordusunun Mekke’ye saldırdığı yıl Fil Yılı’dır.
+
+**DEEN-U21-S02-X001** · Güvenilir Genç · multiple_choice
+- Soru: Hz. Muhammed gençliğinde dürüstlüğü nedeniyle hangi lakapla anılırdı?
+- Seçenekler: el-Emîn (güvenilir) | el-Hakîm | el-Kâtib | es-Seyyid
+- Doğru cevap: el-Emîn (güvenilir)
+- Açıklama: Mekkeliler ona dürüstlüğü ve güvenilirliği nedeniyle “Muhammedü’l-Emîn” derdi.
+
+**DEEN-U21-S02-X002** · Güvenilir Genç · multiple_choice
+- Soru: Haksızlığa uğrayanları korumak için Mekke’de kurulan ve gençken Hz. Muhammed’in katıldığı birliğin adı nedir?
+- Seçenekler: Dârünnedve | Akabe Biatı | Hılfu’l-fudûl | Hudeybiye
+- Doğru cevap: Hılfu’l-fudûl
+- Açıklama: Hılfu’l-fudûl, mazlumu zalime karşı korumak için yapılan bir anlaşmaydı; Hz. Peygamber yıllar sonra da ona bağlılığını dile getirmiştir.
+
+**DEEN-U21-S02-X003** · Güvenilir Genç · multiple_choice
+- Soru: Kâbe onarılırken Hacerülesved’i kimin yerine koyacağı konusunda çıkan anlaşmazlığı Hz. Muhammed nasıl çözdü?
+- Seçenekler: Kura çekti | Taşı bir örtüye koyup kabile reislerine birlikte taşıttı | Taşı kimseye vermeyip sakladı | Taşı tek başına zorla yerine koydu
+- Doğru cevap: Taşı bir örtüye koyup kabile reislerine birlikte taşıttı
+- Açıklama: Herkesin onuru korunmuş, kavga önlenmiştir; bu olay onun adaletini ve hikmetini gösterir.
+
+**DEEN-U21-S02-X004** · Güvenilir Genç · multiple_choice
+- Soru: Hz. Muhammed’in ilk eşi kimdir?
+- Seçenekler: Hz. Sevde | Hz. Âişe | Hz. Hatice | Hz. Hafsa
+- Doğru cevap: Hz. Hatice
+- Açıklama: Hz. Muhammed yirmi beş yaşında, dürüstlüğünü tanıyan Hz. Hatice ile evlendi.
+
+**DEEN-U21-S02-X005** · Güvenilir Genç · multiple_choice
+- Soru: Hz. Muhammed gençliğinde hangi işlerle geçimini sağladı?
+- Seçenekler: Kuyumculuk | Askerlik ve vergi toplamak | Çobanlık ve ticaret | Gemicilik
+- Doğru cevap: Çobanlık ve ticaret
+- Açıklama: Gençliğinde çobanlık yaptı, sonra ticaretle uğraştı; Hz. Hatice’nin kervanını Şam’a götürdü.
+
+**DEEN-U21-S02-X006** · Güvenilir Genç · true_false
+- Soru: Doğru mu, yanlış mı? Hz. Muhammed peygamberlikten önce de putlara tapmamıştır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Peygamberlikten önce de putlara tapmamış, Mekke’deki kötü alışkanlıklardan uzak durmuştur.
+
+**DEEN-U21-S02-X007** · Güvenilir Genç · true_false
+- Soru: Doğru mu, yanlış mı? Hz. Muhammed peygamberlikten önce Hira mağarasına çekilip tefekkür ederdi.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Özellikle Ramazan aylarında Hira’ya çekilip düşünür ve ibadet ederdi.
+
+**DEEN-U21-S02-X008** · Güvenilir Genç · matching
+- Soru: Kişileri Hz. Peygamber’le yakınlıklarıyla eşleştir: Âmine, Abdullah, Abdülmuttalib ve Ebû Tâlib.
+- Eşleşmeler: Âmine → Annesi; Abdullah → Babası; Abdülmuttalib → Dedesi; Ebû Tâlib → Amcası
+- Açıklama: Hz. Peygamber’in çocukluğunda yanında olan aile büyükleri.
+
+**DEEN-U21-S02-X009** · Güvenilir Genç · matching
+- Soru: Hz. Peygamber’in çocuklarını bilgileriyle eşleştir: Kâsım, Fâtıma, Zeyneb ve İbrahim.
+- Eşleşmeler: Kâsım → Küçük yaşta vefat eden ilk oğlu; Fâtıma → Soyu devam eden kızı; Zeyneb → En büyük kızı; İbrahim → Medine’de doğan oğlu
+- Açıklama: Hz. Peygamber’in çocuklarından Fâtıma dışındakiler kendisinden önce vefat etti.
+
+**DEEN-U21-S02-X010** · Güvenilir Genç · fill_blank
+- Soru: Boşluğu tamamla: Hz. Hatice, Mekke’nin saygın bir ___ kadındı.
+- Seçenekler: tüccar | şair | kâhin | savaşçı
+- Doğru cevap: tüccar
+- Açıklama: Hz. Hatice ticaretle uğraşan saygın ve zengin bir kadındı.
+
+**DEEN-U21-S02-X011** · Güvenilir Genç · fill_blank
+- Soru: Boşluğu tamamla: Hz. Muhammed Hz. Hatice ile evlendiğinde ___ yaşındaydı.
+- Seçenekler: on beş | altmış | kırk | yirmi beş
+- Doğru cevap: yirmi beş
+- Açıklama: Hz. Muhammed yirmi beş yaşında evlendi.
+
+**DEEN-U21-S02-X012** · Güvenilir Genç · progressive_recall
+- Soru: İpucu olmadan tamamla: Mekkeliler Hz. Muhammed’e güvenilir anlamında ___ derlerdi.
+- Doğru cevap: Emîn
+- Açıklama: Muhammedü’l-Emîn lakabı onun dürüstlüğünün göstergesidir.
+
+**DEEN-U21-S02-X013** · Güvenilir Genç · multiple_choice
+- Soru: Müşrikler Hz. Peygamber’e düşman olmalarına rağmen ne yapmaya devam ettiler?
+- Seçenekler: Onun dinine girmeye | Değerli eşyalarını ona emanet etmeye | Ona hiç güvenmemeye | Onu kendilerine kral seçmeye
+- Doğru cevap: Değerli eşyalarını ona emanet etmeye
+- Açıklama: Hicret gecesi bile yanında müşriklere ait emanetler vardı; Hz. Ali bunları sahiplerine teslim etti.
+
+**DEEN-U21-S02-X014** · Güvenilir Genç · missing_item
+- Soru: Eksik kavramı seç: Hz. Muhammed’e peygamberlik ___ yaşında geldi.
+- Seçenekler: otuz | yirmi | elli beş | kırk
+- Doğru cevap: kırk
+- Açıklama: İlk vahiy kırk yaşındayken, 610 yılında geldi.
+
+**DEEN-U21-S03-X001** · İlk Vahiy ve Davet · multiple_choice
+- Soru: İlk vahiyden sonra heyecanla evine dönen Hz. Peygamber’i kim teselli etti?
+- Seçenekler: Ümeyye | Ebû Cehil | Hz. Hatice | Ebû Leheb
+- Doğru cevap: Hz. Hatice
+- Açıklama: Hz. Hatice “Allah seni asla utandırmaz; sen akrabanı gözetir, yoksulu kollarsın” diyerek onu teselli etti (Buhârî).
+
+**DEEN-U21-S03-X002** · İlk Vahiy ve Davet · multiple_choice
+- Soru: Hz. Hatice’nin, Hz. Peygamber’i götürdüğü ve önceki kitapları bilen amcasının oğlu kimdir?
+- Seçenekler: Ebû Süfyân | Varaka b. Nevfel | Velîd b. Muğîre | Utbe b. Rebîa
+- Doğru cevap: Varaka b. Nevfel
+- Açıklama: Varaka, gelenin Musa’ya gelen melek olduğunu söylemiştir (Buhârî).
+
+**DEEN-U21-S03-X003** · İlk Vahiy ve Davet · matching
+- Soru: İlk Müslümanları gruplarıyla eşleştir: Hz. Hatice, Hz. Ebû Bekir, Hz. Ali ve Zeyd b. Hârise.
+- Eşleşmeler: Hz. Hatice → İlk iman eden; Hz. Ebû Bekir → Hür erkeklerden ilk; Hz. Ali → Çocuklardan ilk; Zeyd b. Hârise → Azatlılardan ilk
+- Açıklama: İslam’ı ilk kabul edenler farklı kesimlerdendi.
+
+**DEEN-U21-S03-X004** · İlk Vahiy ve Davet · multiple_choice
+- Soru: Davetin ilk yıllarında Müslümanların gizlice toplandığı ev kimindir?
+- Seçenekler: Ebû Cehil’in evi | Erkam’ın evi | Dârünnedve | Ebû Leheb’in evi
+- Doğru cevap: Erkam’ın evi
+- Açıklama: Dârü’l-Erkam, ilk Müslümanların gizlice eğitildiği evdir.
+
+**DEEN-U21-S03-X005** · İlk Vahiy ve Davet · multiple_choice
+- Soru: Davetin gizli yürütüldüğü dönem yaklaşık ne kadar sürdü?
+- Seçenekler: Bir ay | Üç yıl | On yıl | Yirmi yıl
+- Doğru cevap: Üç yıl
+- Açıklama: Yaklaşık üç yıl gizli davetten sonra açık davet başladı.
+
+**DEEN-U21-S03-X006** · İlk Vahiy ve Davet · multiple_choice
+- Soru: Şuarâ 214. âyette Hz. Peygamber’e ilk olarak kimleri uyarması emredildi?
+- Seçenekler: En yakın akrabalarını | Uzak ülkelerin krallarını | Yalnızca çocukları | Yalnızca tüccarları
+- Doğru cevap: En yakın akrabalarını
+- Açıklama: Şuarâ 26:214: “En yakın akrabanı uyar.”
+
+**DEEN-U21-S03-X007** · İlk Vahiy ve Davet · multiple_choice
+- Soru: Hz. Peygamber açık davete başladığında Kureyş’i nereye toplayıp seslendi?
+- Seçenekler: Safa tepesine | Uhud dağına | Taif’e | Hira mağarasına
+- Doğru cevap: Safa tepesine
+- Açıklama: Safa tepesine çıkıp “Bu dağın arkasında düşman var desem inanır mısınız?” diye sorduktan sonra onları uyardı (Buhârî).
+
+**DEEN-U21-S03-X008** · İlk Vahiy ve Davet · true_false
+- Soru: Doğru mu, yanlış mı? İlk vahiyden sonra Hz. Peygamber eve gelince “Beni örtün” demiştir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Yaşadığı büyük olayın etkisiyle “Zemmilûnî, beni örtün” demiştir (Buhârî).
+
+**DEEN-U21-S03-X009** · İlk Vahiy ve Davet · true_false
+- Soru: Doğru mu, yanlış mı? Amcası Ebû Leheb, Hz. Peygamber’i ilk günden destekleyenlerdendi.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Ebû Leheb ona en çok düşmanlık edenlerdendi; Mesed Suresi onun hakkında indi.
+
+**DEEN-U21-S03-X010** · İlk Vahiy ve Davet · fill_blank
+- Soru: Boşluğu tamamla: İlk Müslümanların gizlice toplandığı eve Dârü’l-___ denir.
+- Seçenekler: Hikme | Erkam | Nedve | Emân
+- Doğru cevap: Erkam
+- Açıklama: Erkam b. Ebi’l-Erkam’ın evidir.
+
+**DEEN-U21-S03-X011** · İlk Vahiy ve Davet · fill_blank
+- Soru: Boşluğu tamamla: İlk iman eden kişi Hz. ___ dir.
+- Seçenekler: Ömer | Hatice | Osman | Hamza
+- Doğru cevap: Hatice
+- Açıklama: Hz. Hatice ilk iman edendir.
+
+**DEEN-U21-S03-X012** · İlk Vahiy ve Davet · progressive_recall
+- Soru: İpucu olmadan tamamla: İlk vahiy miladi ___ yılında gelmiştir.
+- Doğru cevap: 610
+- Açıklama: Hz. Peygamber kırk yaşındayken, 610 yılında ilk vahiy geldi.
+
+**DEEN-U21-S03-X013** · İlk Vahiy ve Davet · progressive_recall
+- Soru: İpucu olmadan tamamla: “En yakın akrabanı uyar” âyeti ___ Suresi’ndedir.
+- Doğru cevap: Şuarâ
+- Açıklama: Şuarâ 26:214.
+
+**DEEN-U21-S03-X014** · İlk Vahiy ve Davet · multiple_choice
+- Soru: Mekke’de Hz. Peygamber’in davetinin temel konusu neydi?
+- Seçenekler: Ticaret yollarını ele geçirmek | Allah’ın birliği ve ahiret inancı | Yeni bir krallık kurmak | Vergi toplamak
+- Doğru cevap: Allah’ın birliği ve ahiret inancı
+- Açıklama: Mekke döneminde tevhid, ahiret ve güzel ahlak öne çıkar.
+
+**DEEN-U21-S04-X001** · Zorluk Yılları · multiple_choice
+- Soru: Kızgın kumlarda işkence görürken “Ehad, ehad” (Allah bir) diyen sahabe kimdir?
+- Seçenekler: Hz. Osman | Hz. Ömer | Hz. Abbas | Hz. Bilâl
+- Doğru cevap: Hz. Bilâl
+- Açıklama: Hz. Bilâl, efendisi Ümeyye’nin işkencelerine rağmen “Ehad, ehad” demeye devam etti.
+
+**DEEN-U21-S04-X002** · Zorluk Yılları · multiple_choice
+- Soru: İslam’ın ilk şehidi kimdir?
+- Seçenekler: Hz. Hamza | Hz. Sümeyye | Hz. Mus‘ab | Hz. Câfer
+- Doğru cevap: Hz. Sümeyye
+- Açıklama: Ammâr b. Yâsir’in annesi Sümeyye, Ebû Cehil tarafından şehit edildi.
+
+**DEEN-U21-S04-X003** · Zorluk Yılları · multiple_choice
+- Soru: Zulüm artınca bir grup Müslüman ilk olarak hangi ülkeye hicret etti?
+- Seçenekler: Bizans | Habeşistan | Mısır | Yemen
+- Doğru cevap: Habeşistan
+- Açıklama: Nübüvvetin beşinci yılında Müslümanlar, adaletli hükümdar Necâşî’nin yönettiği Habeşistan’a hicret etti.
+
+**DEEN-U21-S04-X004** · Zorluk Yılları · multiple_choice
+- Soru: Habeşistan’a giden Müslümanları koruyan hükümdarın unvanı nedir?
+- Seçenekler: Firavun | Kisrâ | Kayser | Necâşî
+- Doğru cevap: Necâşî
+- Açıklama: Habeş hükümdarı Necâşî, Müslümanları Kureyş’e teslim etmedi.
+
+**DEEN-U21-S04-X005** · Zorluk Yılları · multiple_choice
+- Soru: Necâşî’nin huzurunda Müslümanlar adına konuşan ve Meryem Suresi’nden âyetler okuyan sahabe kimdir?
+- Seçenekler: Ebû Hüreyre | Muâz b. Cebel | Câfer b. Ebû Tâlib | Hâlid b. Velîd
+- Doğru cevap: Câfer b. Ebû Tâlib
+- Açıklama: Câfer’in okuduğu âyetleri dinleyen Necâşî’nin gözleri yaşarmıştır.
+
+**DEEN-U21-S04-X006** · Zorluk Yılları · multiple_choice
+- Soru: Müşriklerin Müslümanlara ve Hâşimoğullarına uyguladığı boykot yaklaşık kaç yıl sürdü?
+- Seçenekler: Bir ay | Üç yıl | On yıl | Üç gün
+- Doğru cevap: Üç yıl
+- Açıklama: Şi‘b-i Ebî Tâlib’de yaşanan boykot yaklaşık üç yıl sürdü; açlık ve sıkıntı çekildi.
+
+**DEEN-U21-S04-X007** · Zorluk Yılları · multiple_choice
+- Soru: “Hüzün yılı”nda Hz. Peygamber kimleri kaybetti?
+- Seçenekler: Hz. Ebû Bekir’i ve Hz. Ömer’i | Hz. Hatice’yi ve amcası Ebû Tâlib’i | Hz. Hamza’yı ve Hz. Ali’yi | Oğlu İbrahim’i ve kızı Fâtıma’yı
+- Doğru cevap: Hz. Hatice’yi ve amcası Ebû Tâlib’i
+- Açıklama: Boykottan kısa süre sonra eşi Hz. Hatice ve amcası Ebû Tâlib vefat etti.
+
+**DEEN-U21-S04-X008** · Zorluk Yılları · multiple_choice
+- Soru: Taif’e davet için giden Hz. Peygamber’e Taifliler nasıl davrandı?
+- Seçenekler: Onu taşlayıp şehirden çıkardılar | Onu kral seçtiler | Hepsi hemen Müslüman oldu | Ona büyük hediyeler verdiler
+- Doğru cevap: Onu taşlayıp şehirden çıkardılar
+- Açıklama: Taif’te taşlanmasına rağmen Hz. Peygamber onlara beddua etmedi, hidayet diledi.
+
+**DEEN-U21-S04-X009** · Zorluk Yılları · scenario
+- Soru: Taif’te taşlanan Hz. Peygamber’e dağlar meleği “İstersen iki dağı üzerlerine kapatayım” dedi. Hz. Peygamber ne cevap verdi?
+- Seçenekler: “Evet, hemen yap” dedi | “Onlara ceza ver ama beni de götür” dedi | “Belki onların neslinden Allah’a ibadet edenler çıkar” dedi | Hiç cevap vermedi
+- Doğru cevap: “Belki onların neslinden Allah’a ibadet edenler çıkar” dedi
+- Açıklama: Hz. Peygamber intikam yerine merhameti seçti (Buhârî, Müslim).
+
+**DEEN-U21-S04-X010** · Zorluk Yılları · scenario
+- Soru: Arkadaşları Ahmet’le inancı yüzünden alay ediyor. Mekke yıllarından hangi örnek ona güç verir?
+- Seçenekler: Kimseyle konuşmayan biri | Alay edenlere hakaret eden biri | Zorluklara rağmen inancından vazgeçmeyen Hz. Bilâl ve diğer sahabeler | İnancını gizleyip bırakan biri
+- Doğru cevap: Zorluklara rağmen inancından vazgeçmeyen Hz. Bilâl ve diğer sahabeler
+- Açıklama: İlk Müslümanlar ağır zorluklara sabırla ve güzel ahlakla karşılık verdi.
+
+**DEEN-U21-S04-X011** · Zorluk Yılları · fill_blank
+- Soru: Boşluğu tamamla: Hz. Hamza ve Hz. ___’in Müslüman olması Müslümanlara büyük güç verdi.
+- Seçenekler: Ebû Cehil | Ebû Leheb | Velîd | Ömer
+- Doğru cevap: Ömer
+- Açıklama: Nübüvvetin altıncı yılında Hz. Hamza ve Hz. Ömer’in Müslüman olmasıyla Müslümanlar Kâbe’de açıkça namaz kılabildi.
+
+**DEEN-U21-S04-X012** · Zorluk Yılları · fill_blank
+- Soru: Boşluğu tamamla: İsrâ Suresi’ne göre Hz. Peygamber bir gece Mescid-i Haram’dan Mescid-i ___’ya götürüldü.
+- Seçenekler: Kuba | Aksâ | Nebevî | Dırâr
+- Doğru cevap: Aksâ
+- Açıklama: İsrâ 17:1: Kulunu bir gece Mescid-i Haram’dan Mescid-i Aksâ’ya götüren Allah’ı tenzih ederim.
+
+**DEEN-U21-S04-X013** · Zorluk Yılları · progressive_recall
+- Soru: İpucu olmadan tamamla: Mi‘râc’ta beş vakit ___ farz kılındı.
+- Doğru cevap: namaz
+- Açıklama: Mi‘râc gecesi beş vakit namaz farz kılınmıştır (Buhârî).
+
+**DEEN-U21-S04-X014** · Zorluk Yılları · progressive_recall
+- Soru: İpucu olmadan tamamla: Hz. Bilâl işkence altında “___, ehad” diyerek Allah’ın birliğini haykırdı.
+- Doğru cevap: Ehad
+- Açıklama: Ehad, “bir” demektir.
+
+**DEEN-U21-S04-X015** · Zorluk Yılları · matching
+- Soru: Olayları ilgili kişilerle eşleştir: İlk şehit, Habeşistan’ın hükümdarı, Hüzün yılında vefat eden eş ve “Ehad, ehad” diyen.
+- Eşleşmeler: İlk şehit → Sümeyye; Habeşistan’ın hükümdarı → Necâşî; Hüzün yılında vefat eden eş → Hz. Hatice; “Ehad, ehad” diyen → Bilâl
+- Açıklama: Mekke’nin zor yıllarından önemli isimler.
+
+**DEEN-U21-S04-X016** · Zorluk Yılları · error_spotting
+- Soru: “Hz. Peygamber Taif’te taşlanınca Taiflilere beddua etti.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Hz. Peygamber Taif’e hiç gitmedi | Taifliler onu kral yaptı | Taif’e Hz. Ömer gitti | Hz. Peygamber beddua etmedi, onların hidayeti için dua etti
+- Doğru cevap: Hz. Peygamber beddua etmedi, onların hidayeti için dua etti
+- Açıklama: Merhameti öfkesinden önce gelirdi.
+
+**DEEN-U21-S05-X001** · Hicret · multiple_choice
+- Soru: Hicretten önce Medineli Müslümanların Hz. Peygamber’e söz verdiği buluşmalara ne denir?
+- Seçenekler: Hudeybiye antlaşması | Akabe biatları | Veda hutbesi | Rıdvan biatı
+- Doğru cevap: Akabe biatları
+- Açıklama: Mina’daki Akabe’de iki kez biat edilmiş, Medineliler Hz. Peygamber’i korumaya söz vermiştir.
+
+**DEEN-U21-S05-X002** · Hicret · multiple_choice
+- Soru: Medine’ye İslam’ı öğretmek üzere gönderilen ilk sahabe kimdir?
+- Seçenekler: Mus‘ab b. Umeyr | Ebû Süfyân | Hâlid b. Velîd | Amr b. Âs
+- Doğru cevap: Mus‘ab b. Umeyr
+- Açıklama: Birinci Akabe biatından sonra Mus‘ab b. Umeyr Medine’ye öğretmen olarak gönderildi.
+
+**DEEN-U21-S05-X003** · Hicret · multiple_choice
+- Soru: Hicret miladi hangi yılda gerçekleşti?
+- Seçenekler: 632 | 622 | 571 | 610
+- Doğru cevap: 622
+- Açıklama: Hz. Peygamber 622 yılında Mekke’den Medine’ye hicret etti.
+
+**DEEN-U21-S05-X004** · Hicret · multiple_choice
+- Soru: Hicret gecesi Hz. Peygamber’in yatağına kim yattı?
+- Seçenekler: Hz. Ömer | Hz. Ebû Bekir | Hz. Ali | Hz. Bilâl
+- Doğru cevap: Hz. Ali
+- Açıklama: Hz. Ali, emanetleri sahiplerine vermek üzere Mekke’de kaldı ve o gece Peygamber’in yatağına yattı.
+
+**DEEN-U21-S05-X005** · Hicret · multiple_choice
+- Soru: Hz. Peygamber ve Hz. Ebû Bekir hicret yolunda üç gün nerede saklandılar?
+- Seçenekler: Kâbe’de | Sevr mağarasında | Hira mağarasında | Uhud dağında
+- Doğru cevap: Sevr mağarasında
+- Açıklama: Müşrikler mağaranın ağzına kadar geldi ama onları göremedi.
+
+**DEEN-U21-S05-X006** · Hicret · multiple_choice
+- Soru: Mağarada endişelenen Hz. Ebû Bekir’e Hz. Peygamber ne dedi?
+- Seçenekler: “Üzülme, Allah bizimle beraberdir.” | “Biz yakalandık.” | “Silahlarını hazırla.” | “Hemen kaçalım.”
+- Doğru cevap: “Üzülme, Allah bizimle beraberdir.”
+- Açıklama: Tevbe 9:40: “Üzülme, Allah bizimle beraberdir.”
+
+**DEEN-U21-S05-X007** · Hicret · multiple_choice
+- Soru: Hz. Peygamber Medine’ye varmadan önce yaptırdığı ilk mescit hangisidir?
+- Seçenekler: Kuba Mescidi | Mescid-i Kıbleteyn | Mescid-i Haram | Mescid-i Aksâ
+- Doğru cevap: Kuba Mescidi
+- Açıklama: Kuba Mescidi, İslam’da inşa edilen ilk mesciddir.
+
+**DEEN-U21-S05-X008** · Hicret · multiple_choice
+- Soru: Hicrî takvimin başlangıcı hangi olaydır?
+- Seçenekler: Mekke’nin fethi | İlk vahiy | Hz. Peygamber’in doğumu | Hicret
+- Doğru cevap: Hicret
+- Açıklama: Hz. Ömer döneminde hicret, takvimin başlangıcı kabul edildi.
+
+**DEEN-U21-S05-X009** · Hicret · true_false
+- Soru: Doğru mu, yanlış mı? Müşrikler Dârünnedve’de toplanarak Hz. Peygamber’i öldürmeye karar verdiler.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Her kabileden bir genç seçilerek suikast planlandı; Allah elçisini korudu (Enfâl 8:30).
+
+**DEEN-U21-S05-X010** · Hicret · true_false
+- Soru: Doğru mu, yanlış mı? Hicrette Hz. Peygamber’in yol arkadaşı Hz. Ebû Bekir’di.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hz. Ebû Bekir hicret yolculuğunda Hz. Peygamber’in arkadaşıydı.
+
+**DEEN-U21-S05-X011** · Hicret · scenario
+- Soru: Hz. Peygamber hicret ederken kendisine düşman olanların emanetlerini ne yaptı?
+- Seçenekler: Hz. Ali aracılığıyla sahiplerine iade ettirdi | Yanında götürdü | Yok etti | Fakirlere dağıttı
+- Doğru cevap: Hz. Ali aracılığıyla sahiplerine iade ettirdi
+- Açıklama: Düşmanlarına bile emanet konusunda adaletli davrandı.
+
+**DEEN-U21-S05-X012** · Hicret · scenario
+- Soru: Sevr mağarasında müşrikler tam kapıdayken Hz. Peygamber’in tutumundan hangi ders çıkar?
+- Seçenekler: Teslim olmak | Paniğe kapılmak | Tedbir aldıktan sonra Allah’a güvenmek (tevekkül) | Hiç tedbir almamak
+- Doğru cevap: Tedbir aldıktan sonra Allah’a güvenmek (tevekkül)
+- Açıklama: Yolu gizli tuttular, mağaraya saklandılar; sonra Allah’a güvendiler.
+
+**DEEN-U21-S05-X013** · Hicret · fill_blank
+- Soru: Boşluğu tamamla: Medine’nin hicretten önceki adı ___ idi.
+- Seçenekler: Yesrib | Taif | Tebük | Hayber
+- Doğru cevap: Yesrib
+- Açıklama: Hicretten sonra şehir “Medînetü’n-Nebî”, yani Peygamber şehri olarak anıldı.
+
+**DEEN-U21-S05-X014** · Hicret · fill_blank
+- Soru: Boşluğu tamamla: Hicret yolunda Hz. Peygamber’i yakalamak için peşine düşen ama sonra vazgeçen kişi ___ b. Mâlik’tir.
+- Seçenekler: Ebû Süfyân | İkrime | Sürâka | Ümeyye
+- Doğru cevap: Sürâka
+- Açıklama: Sürâka’nın atının ayakları kuma battı; o da vazgeçip geri döndü.
+
+**DEEN-U21-S05-X015** · Hicret · missing_item
+- Soru: Eksik kavramı seç: Medineliler Hz. Peygamber’i büyük bir ___ karşıladılar.
+- Seçenekler: öfkeyle | sevinçle | korkuyla | kayıtsızlıkla
+- Doğru cevap: sevinçle
+- Açıklama: Medineliler onu coşkuyla karşıladı.
+
+**DEEN-U21-S05-X016** · Hicret · matching
+- Soru: Hicretle ilgili kavramları eşleştir: Sevr, Kuba, Yesrib ve Dârünnedve.
+- Eşleşmeler: Sevr → Üç gün saklanılan mağara; Kuba → İlk inşa edilen mescit; Yesrib → Medine’nin eski adı; Dârünnedve → Müşriklerin toplantı yeri
+- Açıklama: Hicretin önemli yer ve kavramları.
+
+**DEEN-U21-S06-X001** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: Hz. Muhammed hangi yıl doğdu?
+- Seçenekler: 632 | 622 | 610 | 571
+- Doğru cevap: 571
+- Açıklama: 571, Fil Yılı.
+
+**DEEN-U21-S06-X002** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: İlk iman eden kimdir?
+- Seçenekler: Hz. Osman | Hz. Ömer | Hz. Hamza | Hz. Hatice
+- Doğru cevap: Hz. Hatice
+- Açıklama: Hz. Hatice.
+
+**DEEN-U21-S06-X003** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: Hicrette saklanılan mağara hangisidir?
+- Seçenekler: Uhud | Hira | Nur | Sevr
+- Doğru cevap: Sevr
+- Açıklama: Sevr mağarası.
+
+**DEEN-U21-S06-X004** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: Hicret hangi yıl oldu?
+- Seçenekler: 630 | 622 | 610 | 571
+- Doğru cevap: 622
+- Açıklama: Hicret 622 yılında oldu.
+
+**DEEN-U21-S06-X005** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Müslümanların ilk hicreti Habeşistan’a olmuştur.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Necâşî’nin ülkesine hicret edildi.
+
+**DEEN-U21-S06-X006** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? İslam’da inşa edilen ilk mescit Mescid-i Nebevî’dir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: İlk mescit Kuba Mescidi’dir.
+
+**DEEN-U21-S06-X007** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Hz. Muhammed gençliğinde “Emîn” lakabıyla anılırdı.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Güvenilir anlamındadır.
+
+**DEEN-U21-S06-X008** · Akıllı Tekrar · multiple_choice
+- Soru: Hz. Muhammed’in sütannesi kimdir?
+- Seçenekler: Hatice | Sevde | Halîme | Âmine
+- Doğru cevap: Halîme
+- Açıklama: Sütannesi Halîme’dir.
+
+**DEEN-U21-S06-X009** · Akıllı Tekrar · multiple_choice
+- Soru: Hüzün yılında vefat eden amca kimdir?
+- Seçenekler: Hamza | Ebû Leheb | Ebû Tâlib | Abbas
+- Doğru cevap: Ebû Tâlib
+- Açıklama: Ebû Tâlib ve Hz. Hatice vefat etti.
+
+**DEEN-U21-S06-X010** · Akıllı Tekrar · multiple_choice
+- Soru: Ammâr b. Yâsir’in annesi olan ilk şehit kimdir?
+- Seçenekler: Hamza | Sümeyye | Mus‘ab | Bilâl
+- Doğru cevap: Sümeyye
+- Açıklama: Hz. Sümeyye.
+
+**DEEN-U21-S06-X011** · Akıllı Tekrar · error_spotting
+- Soru: “Hicret gecesi Peygamber’in yatağına Hz. Ebû Bekir yattı.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Yatağa Hz. Hatice yattı | Hicret gecesi Peygamber’in yatağına Hz. Ali yattı | Yatağa Hz. Ömer yattı | Hicret gecesi kimse evde kalmadı
+- Doğru cevap: Hicret gecesi Peygamber’in yatağına Hz. Ali yattı
+- Açıklama: Hz. Ebû Bekir yol arkadaşıydı; yatağa Hz. Ali yattı.
+
+**DEEN-U21-S06-X012** · Akıllı Tekrar · error_spotting
+- Soru: “Hz. Muhammed annesini doğduğu gün kaybetti.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Annesi ona hiç bakmadı | Hz. Muhammed annesini altı yaşında kaybetti | Annesi onu hiç görmedi | Annesi hicretten sonra vefat etti
+- Doğru cevap: Hz. Muhammed annesini altı yaşında kaybetti
+- Açıklama: Babasını doğmadan, annesini altı yaşında kaybetti.
+
+**DEEN-U21-S07-X001** · Ünite Challenge · scenario
+- Soru: Sınıfta iki grup bir onur meselesi yüzünden tartışıyor. Hz. Peygamber’in Hacerülesved örneğinden nasıl bir çözüm çıkar?
+- Seçenekler: Hiç karışmamak | Kavgayı büyütmek | Bir tarafı haklı ilan edip diğerini küçümsemek | Herkesin katılıp onurunun korunduğu ortak bir çözüm bulmak
+- Doğru cevap: Herkesin katılıp onurunun korunduğu ortak bir çözüm bulmak
+- Açıklama: Hz. Peygamber taşı örtüye koyup bütün reislere taşıtarak kavgayı önledi.
+
+**DEEN-U21-S07-X002** · Ünite Challenge · scenario
+- Soru: Selim iyiliği yaymak istiyor. Şuarâ 214’teki ilkeye göre nereden başlamalı?
+- Seçenekler: En yakınından, ailesinden | Hiçbir yerden | Hiç tanımadığı uzak ülkelerden | Sadece sosyal medyadaki yabancılardan
+- Doğru cevap: En yakınından, ailesinden
+- Açıklama: Davet ve iyilik yakın çevreden başlar.
+
+**DEEN-U21-S07-X003** · Ünite Challenge · scenario
+- Soru: Kaan çok sevdiği iki yakınını kısa sürede kaybetti. Hz. Peygamber’in hayatından hangi dönem onu teselli edebilir?
+- Seçenekler: Ticaret yolculukları | Eşini ve amcasını aynı yıl kaybettiği hüzün yılı ve sonrasındaki sabrı | Çobanlık yılları | Fetih günü
+- Doğru cevap: Eşini ve amcasını aynı yıl kaybettiği hüzün yılı ve sonrasındaki sabrı
+- Açıklama: Hz. Peygamber de büyük kayıplar yaşadı ve sabırla yoluna devam etti.
+
+**DEEN-U21-S07-X004** · Ünite Challenge · error_spotting
+- Soru: “Hz. Peygamber hicretten sonra ilk olarak Mescid-i Aksâ’yı inşa etti.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Hicretten sonra ilk inşa edilen mescit Kuba Mescidi’dir | İlk mescit Taif’tedir | İlk mescit Mekke’de inşa edildi | Hz. Peygamber hiç mescit yapmadı
+- Doğru cevap: Hicretten sonra ilk inşa edilen mescit Kuba Mescidi’dir
+- Açıklama: Kuba Mescidi ilk mesciddir.
+
+**DEEN-U21-S07-X005** · Ünite Challenge · error_spotting
+- Soru: “Hz. Muhammed Medine’de doğmuştur.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Hz. Muhammed Kudüs’te doğmuştur | Hz. Muhammed Taif’te doğmuştur | Hz. Muhammed Mekke’de doğmuştur | Hz. Muhammed Habeşistan’da doğmuştur
+- Doğru cevap: Hz. Muhammed Mekke’de doğmuştur
+- Açıklama: Mekke’de doğdu, Medine’ye hicret etti.
+
+**DEEN-U21-S07-X006** · Ünite Challenge · progressive_recall
+- Soru: İpucu olmadan tamamla: “Üzülme, Allah ___ beraberdir.”
+- Doğru cevap: bizimle
+- Açıklama: Tevbe 9:40.
+
+**DEEN-U21-S07-X007** · Ünite Challenge · progressive_recall
+- Soru: İpucu olmadan tamamla: Habeşistan’ın Müslümanları koruyan hükümdarına ___ denir.
+- Doğru cevap: Necâşî
+- Açıklama: Necâşî, Habeş krallarının unvanıdır.
+
+**DEEN-U21-S07-X008** · Ünite Challenge · progressive_recall
+- Soru: İpucu olmadan tamamla: İlk vahiy ___ mağarasında gelmiştir.
+- Doğru cevap: Hira
+- Açıklama: Nur dağındaki Hira mağarası.
+
+**DEEN-U21-S07-X009** · Ünite Challenge · multiple_choice
+- Soru: Aşağıdaki olaylardan hangisi en önce yaşanmıştır?
+- Seçenekler: Medine’ye hicret | Hz. Hatice ile evlilik | İlk vahiy | Habeşistan’a hicret
+- Doğru cevap: Hz. Hatice ile evlilik
+- Açıklama: Sıra: evlilik (25 yaş), ilk vahiy (40 yaş), Habeşistan hicreti, Medine’ye hicret.
+
+**DEEN-U21-S07-X010** · Ünite Challenge · multiple_choice
+- Soru: İsrâ ve Mi‘râc olayında Müslümanlara hangi ibadet farz kılındı?
+- Seçenekler: Hac | Ramazan orucu | Beş vakit namaz | Zekât
+- Doğru cevap: Beş vakit namaz
+- Açıklama: Mi‘râc’ta beş vakit namaz farz kılındı.
+
+**DEEN-U21-S07-X011** · Ünite Challenge · matching
+- Soru: Hz. Peygamber’in yaşlarını olaylarla eşleştir: 6 yaş, 25 yaş, 40 yaş ve 53 yaş.
+- Eşleşmeler: 6 yaş → Annesini kaybetti; 25 yaş → Hz. Hatice ile evlendi; 40 yaş → İlk vahiy geldi; 53 yaş → Medine’ye hicret etti
+- Açıklama: Mekke dönemi kronolojisi.
+
+**DEEN-U21-S07-X012** · Ünite Challenge · matching
+- Soru: Kişileri rolleriyle eşleştir: Varaka b. Nevfel, Mus‘ab b. Umeyr, Câfer b. Ebû Tâlib ve Sürâka b. Mâlik.
+- Eşleşmeler: Varaka b. Nevfel → Önceki kitapları bilen yaşlı âlim; Mus‘ab b. Umeyr → Medine’ye gönderilen öğretmen; Câfer b. Ebû Tâlib → Necâşî’nin huzurunda konuşan; Sürâka b. Mâlik → Hicret yolunda takip eden
+- Açıklama: Mekke döneminin önemli isimleri.
+
+**DEEN-U21-S07-X013** · Ünite Challenge · scenario
+- Soru: Arkadaşın sana ödünç bir kitap bıraktı ama sonra sana kırıldı. Hz. Peygamber’in hicret örneğine göre ne yaparsın?
+- Seçenekler: Kızdığım için kitabı vermem | Kitabı başkasına veririm | Kitabını yine de özenle geri veririm | Kitabı bozarım
+- Doğru cevap: Kitabını yine de özenle geri veririm
+- Açıklama: Hz. Peygamber düşmanlarının emanetlerini bile sahiplerine iade ettirdi.
+
+**DEEN-U21-S07-X014** · Ünite Challenge · true_false
+- Soru: Doğru mu, yanlış mı? Hicrî takvim hicretle başlar.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hz. Ömer döneminde hicret takvimin başlangıcı oldu.
