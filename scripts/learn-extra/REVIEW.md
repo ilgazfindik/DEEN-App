@@ -7533,3 +7533,592 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Seçenekler: Doğru | Yanlış
 - Doğru cevap: Doğru
 - Açıklama: Bakara 2:185 ve Kadir 97:1.
+
+## U20 — kisa_sureler_anlamlari (100 soru)
+
+**DEEN-U20-S01-X001** · Fatiha · multiple_choice
+- Soru: Fatiha Suresi kaç âyettir?
+- Seçenekler: Beş | On | Yedi | Üç
+- Doğru cevap: Yedi
+- Açıklama: Fatiha yedi âyettir; Hicr 15:87’de “tekrarlanan yedi” (es-seb‘u’l-mesânî) olarak anılır.
+
+**DEEN-U20-S01-X002** · Fatiha · multiple_choice
+- Soru: Fatiha Suresi namazda ne zaman okunur?
+- Seçenekler: Yalnızca ilk rekâtta | Hiç okunmaz | Her rekâtta | Yalnızca cuma günleri
+- Doğru cevap: Her rekâtta
+- Açıklama: Fatiha namazın her rekâtında okunur.
+
+**DEEN-U20-S01-X003** · Fatiha · multiple_choice
+- Soru: Fatiha’nın başında hamdin kime ait olduğu bildirilir?
+- Seçenekler: Peygamberlere | Meleklere | İnsanlara | Âlemlerin Rabbi Allah’a
+- Doğru cevap: Âlemlerin Rabbi Allah’a
+- Açıklama: Fatiha 1:2: “Hamd, âlemlerin Rabbi Allah’a mahsustur.”
+
+**DEEN-U20-S01-X004** · Fatiha · multiple_choice
+- Soru: Fatiha’da Allah “din gününün sahibi” olarak anılır. Din günü hangisidir?
+- Seçenekler: Cuma günü | Hesap günü, ahiret | Doğum günü | Bayram günü
+- Doğru cevap: Hesap günü, ahiret
+- Açıklama: Din günü, herkesin yaptıklarının karşılığını göreceği hesap günüdür.
+
+**DEEN-U20-S01-X005** · Fatiha · multiple_choice
+- Soru: “Yalnız sana ibadet eder, yalnız senden yardım dileriz” âyeti hangi sureden?
+- Seçenekler: Fatiha | Asr | İhlâs | Nas
+- Doğru cevap: Fatiha
+- Açıklama: Fatiha 1:5 kulluğun ve yardım istemenin yalnızca Allah’a olduğunu bildirir.
+
+**DEEN-U20-S01-X006** · Fatiha · multiple_choice
+- Soru: Fatiha’da Allah’tan ne istenir?
+- Seçenekler: Bize çok mal vermesi | Bizi doğru yola iletmesi | Bizi hiç sınamaması | Bizi meşhur etmesi
+- Doğru cevap: Bizi doğru yola iletmesi
+- Açıklama: Fatiha 1:6: “Bizi doğru yola ilet.”
+
+**DEEN-U20-S01-X007** · Fatiha · multiple_choice
+- Soru: Fatiha’nın son âyetine göre istenen yol kimlerin yoludur?
+- Seçenekler: Hiç kimsenin | Yolunu şaşıranların | Gazaba uğrayanların | Allah’ın nimet verdiklerinin
+- Doğru cevap: Allah’ın nimet verdiklerinin
+- Açıklama: Fatiha 1:7: Nimet verdiklerinin yoluna; gazaba uğrayanların ve sapıtanların yoluna değil.
+
+**DEEN-U20-S01-X008** · Fatiha · true_false
+- Soru: Doğru mu, yanlış mı? Fatiha aynı zamanda bir dua suresidir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Fatiha’nın ilk kısmı Allah’ı övmek, son kısmı ise O’ndan hidayet istemek üzerinedir.
+
+**DEEN-U20-S01-X009** · Fatiha · true_false
+- Soru: Doğru mu, yanlış mı? Fatiha’da Allah’ın “Rahmân” ve “Rahîm” isimleri geçer.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Fatiha 1:3: “O, Rahmân’dır, Rahîm’dir.”
+
+**DEEN-U20-S01-X010** · Fatiha · missing_item
+- Soru: Eksik kavramı seç: “Âlemlerin Rabbi” ifadesi, Allah’ın ___ yaratıp yönettiğini anlatır.
+- Seçenekler: yalnız gökyüzünü | yalnız insanları | bütün varlıkları | yalnız bir ülkeyi
+- Doğru cevap: bütün varlıkları
+- Açıklama: Âlemler, Allah dışındaki bütün varlıklardır; O hepsinin Rabbidir.
+
+**DEEN-U20-S01-X011** · Fatiha · missing_item
+- Soru: Eksik kavramı seç: Fatiha, Kur’an’ın özünü taşıdığı için “Kitabın ___” diye de anılır.
+- Seçenekler: sonu | anası | ortası | kapağı
+- Doğru cevap: anası
+- Açıklama: Fatiha Ümmü’l-Kitâb, yani Kitabın anası olarak anılır.
+
+**DEEN-U20-S01-X012** · Fatiha · multiple_choice
+- Soru: Fatiha mushafta kaçıncı suredir?
+- Seçenekler: Sonuncu | Yedinci | Yüz on dördüncü | Birinci
+- Doğru cevap: Birinci
+- Açıklama: Fatiha “açılış” demektir; mushaf onunla açılır.
+
+**DEEN-U20-S01-X013** · Fatiha · multiple_choice
+- Soru: “Fâtiha” kelimesi ne anlama gelir?
+- Seçenekler: Kalem | Açılış, başlangıç | Kapanış | Bölüm
+- Doğru cevap: Açılış, başlangıç
+- Açıklama: Fâtiha, açan ve başlatan demektir.
+
+**DEEN-U20-S01-X014** · Fatiha · true_false
+- Soru: Doğru mu, yanlış mı? Fatiha’ya göre Müslüman yardımı yalnızca Allah’tan ister.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Fatiha 1:5: “Yalnız senden yardım dileriz.”
+
+**DEEN-U20-S02-X001** · Koruyan Sureler · multiple_choice
+- Soru: İhlâs Suresi’nin ana konusu nedir?
+- Seçenekler: Hac ibadeti | Miras hükümleri | Allah’ın birliği (tevhid) | Peygamber kıssaları
+- Doğru cevap: Allah’ın birliği (tevhid)
+- Açıklama: İhlâs Suresi Allah’ın bir olduğunu ve hiçbir şeyin O’na denk olmadığını anlatır.
+
+**DEEN-U20-S02-X002** · Koruyan Sureler · multiple_choice
+- Soru: İhlâs Suresi’nde geçen “Samed” ne demektir?
+- Seçenekler: Değişen | Her şeyin kendisine muhtaç olduğu, kendisi hiçbir şeye muhtaç olmayan | Uyuyan | Doğan
+- Doğru cevap: Her şeyin kendisine muhtaç olduğu, kendisi hiçbir şeye muhtaç olmayan
+- Açıklama: İhlâs 112:2: “Allah Samed’dir.”
+
+**DEEN-U20-S02-X003** · Koruyan Sureler · multiple_choice
+- Soru: İhlâs Suresi Allah hakkında hangisini bildirir?
+- Seçenekler: Çocukları vardır | Doğurmamış ve doğurulmamıştır | Sonradan var olmuştur | Bir babası vardır
+- Doğru cevap: Doğurmamış ve doğurulmamıştır
+- Açıklama: İhlâs 112:3: “O, doğurmamış ve doğurulmamıştır.”
+
+**DEEN-U20-S02-X004** · Koruyan Sureler · multiple_choice
+- Soru: Felak Suresi’nde kime sığınılır?
+- Seçenekler: Gecenin hükümdarına | Güçlü insanlara | Sabahın Rabbine | Yıldızlara
+- Doğru cevap: Sabahın Rabbine
+- Açıklama: Felak 113:1: “De ki: Sabahın Rabbine sığınırım.”
+
+**DEEN-U20-S02-X005** · Koruyan Sureler · multiple_choice
+- Soru: Felak Suresi’nde hangi kişinin şerrinden Allah’a sığınılır?
+- Seçenekler: Haset ettiği zaman hasetçinin | Öğretmenin | Dua eden müminin | Yardım eden komşunun
+- Doğru cevap: Haset ettiği zaman hasetçinin
+- Açıklama: Felak 113:5: “Haset ettiği zaman hasetçinin şerrinden.”
+
+**DEEN-U20-S02-X006** · Koruyan Sureler · multiple_choice
+- Soru: Nas Suresi’nde hangisinin şerrinden Allah’a sığınılır?
+- Seçenekler: Rüzgârın | Yağmurun | Kitabın | Sinsi vesvesecinin
+- Doğru cevap: Sinsi vesvesecinin
+- Açıklama: Nas 114:4-5: İnsanların göğüslerine vesvese veren sinsi vesvesecinin şerrinden.
+
+**DEEN-U20-S02-X007** · Koruyan Sureler · multiple_choice
+- Soru: Nas Suresi’nde Allah hangi üç sıfatla anılır?
+- Seçenekler: Meleklerin, cinlerin ve hayvanların yaratıcısı | İnsanların Rabbi, Meliki ve İlâhı | Göklerin, dağların ve denizlerin sahibi | Gecenin, gündüzün ve ayın Rabbi
+- Doğru cevap: İnsanların Rabbi, Meliki ve İlâhı
+- Açıklama: Nas 114:1-3: İnsanların Rabbine, Meliki’ne (hükümdarına) ve İlâhı’na sığınırım.
+
+**DEEN-U20-S02-X008** · Koruyan Sureler · true_false
+- Soru: Doğru mu, yanlış mı? Felak ve Nas surelerine birlikte “Muavvizeteyn” (sığınma sureleri) denir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Felak ve Nas, Allah’a sığınmayı öğrettikleri için Muavvizeteyn olarak anılır.
+
+**DEEN-U20-S02-X009** · Koruyan Sureler · true_false
+- Soru: Doğru mu, yanlış mı? İhlâs Suresi’ne göre hiçbir şey Allah’a denk değildir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: İhlâs 112:4: “Hiçbir şey O’na denk değildir.”
+
+**DEEN-U20-S02-X010** · Koruyan Sureler · matching
+- Soru: Sureleri mesajlarıyla eşleştir: İhlâs, Felak, Nas ve Fatiha.
+- Eşleşmeler: İhlâs → Allah birdir, Samed’dir; Felak → Sabahın Rabbine sığınmak; Nas → Vesveseden insanların Rabbine sığınmak; Fatiha → Doğru yola iletilmeyi istemek
+- Açıklama: Her sure farklı bir mesaj verir.
+
+**DEEN-U20-S02-X011** · Koruyan Sureler · fill_blank
+- Soru: Boşluğu tamamla: İhlâs Suresi “De ki: O Allah ___” diye başlar.
+- Seçenekler: yakındır | görendir | büyüktür | birdir
+- Doğru cevap: birdir
+- Açıklama: İhlâs 112:1: “De ki: O Allah birdir.”
+
+**DEEN-U20-S02-X012** · Koruyan Sureler · fill_blank
+- Soru: Boşluğu tamamla: Nas Suresi’ne göre vesvese verenler cinlerden ve ___ olabilir.
+- Seçenekler: meleklerden | insanlardan | taşlardan | hayvanlardan
+- Doğru cevap: insanlardan
+- Açıklama: Nas 114:6: “Cinlerden ve insanlardan.”
+
+**DEEN-U20-S02-X013** · Koruyan Sureler · missing_item
+- Soru: Eksik kavramı seç: Felak Suresi’nde karanlığı ___ zaman gecenin şerrinden sığınılır.
+- Seçenekler: aydınlandığı | unutulduğu | çöktüğü | bittiği
+- Doğru cevap: çöktüğü
+- Açıklama: Felak 113:3: “Karanlığı çöktüğü zaman gecenin şerrinden.”
+
+**DEEN-U20-S02-X014** · Koruyan Sureler · multiple_choice
+- Soru: Hz. Peygamber’in yatmadan önce okuyup ellerine üfleyerek vücuduna sürdüğü sureler hangileridir?
+- Seçenekler: İhlâs, Felak ve Nas | Bakara ve Âl-i İmrân | Fil ve Kureyş | Yâsîn ve Mülk
+- Doğru cevap: İhlâs, Felak ve Nas
+- Açıklama: Hz. Peygamber her gece yatarken İhlâs, Felak ve Nas’ı okuyup avuçlarına üfler, vücuduna sürerdi (Buhârî).
+
+**DEEN-U20-S03-X001** · Mekke’den Dersler · multiple_choice
+- Soru: Fil Suresi hangi olayı anlatır?
+- Seçenekler: Kâbe’yi yıkmaya gelen fil ordusunun helakini | Hz. Musa’nın denizi geçişini | Bedir savaşını | Hz. Nuh’un gemisini
+- Doğru cevap: Kâbe’yi yıkmaya gelen fil ordusunun helakini
+- Açıklama: Fil Suresi, Kâbe’ye saldırmaya gelen Ebrehe’nin fil ordusunun yok edilişini anlatır.
+
+**DEEN-U20-S03-X002** · Mekke’den Dersler · multiple_choice
+- Soru: Fil Suresi’ne göre Allah fil ordusunun üzerine ne gönderdi?
+- Seçenekler: Şiddetli bir kar | Büyük bir sel | Sürü sürü kuşlar | Bir deprem
+- Doğru cevap: Sürü sürü kuşlar
+- Açıklama: Fil 105:3-4: Üzerlerine sürü sürü kuşlar gönderdi; onlara pişmiş çamurdan taşlar atıyorlardı.
+
+**DEEN-U20-S03-X003** · Mekke’den Dersler · multiple_choice
+- Soru: Fil olayı hangi yıl yaşanmıştır?
+- Seçenekler: Hz. Peygamber’in doğduğu yıl | Mekke’nin fethi yılı | Veda Haccı yılı | Hicretin ilk yılı
+- Doğru cevap: Hz. Peygamber’in doğduğu yıl
+- Açıklama: Fil olayı Hz. Peygamber’in doğduğu yıl yaşanmış ve bu yıla Fil Yılı denmiştir.
+
+**DEEN-U20-S03-X004** · Mekke’den Dersler · multiple_choice
+- Soru: Kureyş Suresi’nde Kureyş’in hangi yolculuklarından söz edilir?
+- Seçenekler: Deniz yolculuklarından | Savaş seferlerinden | Kış ve yaz yolculuklarından | Hac yolculuklarından
+- Doğru cevap: Kış ve yaz yolculuklarından
+- Açıklama: Kureyş 106:2: Kış ve yaz yolculuklarına alıştırılmaları.
+
+**DEEN-U20-S03-X005** · Mekke’den Dersler · multiple_choice
+- Soru: Kureyş Suresi’ne göre Allah Kureyş’e hangi nimetleri vermiştir?
+- Seçenekler: Onlara denizleri vermiştir | Onlara hiç ölüm vermemiştir | Açlıktan doyurmuş, korkudan emin kılmıştır | Onları en kalabalık kavim yapmıştır
+- Doğru cevap: Açlıktan doyurmuş, korkudan emin kılmıştır
+- Açıklama: Kureyş 106:4: O ki onları açlıktan doyurdu ve korkudan emin kıldı.
+
+**DEEN-U20-S03-X006** · Mekke’den Dersler · multiple_choice
+- Soru: Kevser Suresi’nde verilen nimete karşılık hangi iki şey emredilir?
+- Seçenekler: Oruç tutmak ve hacca gitmek | Mal toplamak ve saymak | Uyumak ve dinlenmek | Namaz kılmak ve kurban kesmek
+- Doğru cevap: Namaz kılmak ve kurban kesmek
+- Açıklama: Kevser 108:2: “Öyleyse Rabbin için namaz kıl ve kurban kes.”
+
+**DEEN-U20-S03-X007** · Mekke’den Dersler · multiple_choice
+- Soru: Tebbet (Mesed) Suresi kimden söz eder?
+- Seçenekler: Firavun ve sihirbazlarından | Ebû Leheb ve karısından | Ebû Bekir ve kızından | Kârûn ve hazinelerinden
+- Doğru cevap: Ebû Leheb ve karısından
+- Açıklama: Mesed Suresi Hz. Peygamber’e düşmanlık eden amcası Ebû Leheb ile karısını anlatır.
+
+**DEEN-U20-S03-X008** · Mekke’den Dersler · matching
+- Soru: Sureleri anlattıklarıyla eşleştir: Fil, Kureyş, Kevser ve Tebbet.
+- Eşleşmeler: Fil → Ebrehe’nin ordusu; Kureyş → Kış ve yaz yolculukları; Kevser → Bol nimet ve namaz-kurban; Tebbet → Ebû Leheb’in sonu
+- Açıklama: Bu sureler Mekke dönemindeki olaylara ve kişilere değinir.
+
+**DEEN-U20-S03-X009** · Mekke’den Dersler · matching
+- Soru: Sureleri âyet sayılarıyla eşleştir: Kevser, İhlâs, Felak ve Nas.
+- Eşleşmeler: Kevser → 3 âyet; İhlâs → 4 âyet; Felak → 5 âyet; Nas → 6 âyet
+- Açıklama: Kısa surelerin âyet sayıları.
+
+**DEEN-U20-S03-X010** · Mekke’den Dersler · fill_blank
+- Soru: Boşluğu tamamla: Fil Suresi’nde kuşların attığı taşlar ___ taşlar olarak anlatılır.
+- Seçenekler: buzdan | demirden | altından | pişmiş çamurdan
+- Doğru cevap: pişmiş çamurdan
+- Açıklama: Fil 105:4: “Onlara pişmiş çamurdan (siccîl) taşlar atıyorlardı.”
+
+**DEEN-U20-S03-X011** · Mekke’den Dersler · fill_blank
+- Soru: Boşluğu tamamla: Kureyş Suresi’nde “Bu ___ Rabbine ibadet etsinler” buyrulur.
+- Seçenekler: evin | şehrin | denizin | dağın
+- Doğru cevap: evin
+- Açıklama: Kureyş 106:3: Bu evin (Kâbe’nin) Rabbine ibadet etsinler.
+
+**DEEN-U20-S03-X012** · Mekke’den Dersler · progressive_recall
+- Soru: İpucu olmadan tamamla: “Şüphesiz biz sana ___ verdik” âyeti Kevser Suresi’nin ilk âyetidir.
+- Doğru cevap: Kevser’i
+- Açıklama: Kevser 108:1. Kevser, bol hayır ve cennette bir ırmak olarak açıklanır.
+
+**DEEN-U20-S03-X013** · Mekke’den Dersler · progressive_recall
+- Soru: İpucu olmadan tamamla: Fil ordusunun komutanı ___ idi.
+- Doğru cevap: Ebrehe
+- Açıklama: Yemen valisi Ebrehe, Kâbe’yi yıkmak için fillerle Mekke’ye yürüdü.
+
+**DEEN-U20-S03-X014** · Mekke’den Dersler · true_false
+- Soru: Doğru mu, yanlış mı? Tebbet Suresi’ne göre Ebû Leheb’e malı ve kazandıkları fayda vermemiştir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Mesed 111:2: Malı ve kazandıkları ona fayda vermedi.
+
+**DEEN-U20-S04-X001** · Hayata Dair Mesajlar · multiple_choice
+- Soru: Asr Suresi neye yemin ederek başlar?
+- Seçenekler: Zamana (asra) | Güneşe | Kaleme | İncire
+- Doğru cevap: Zamana (asra)
+- Açıklama: Asr 103:1: “Asra (zamana) yemin olsun.”
+
+**DEEN-U20-S04-X002** · Hayata Dair Mesajlar · multiple_choice
+- Soru: Asr Suresi’ne göre ziyandan kurtulanlar kimlerdir?
+- Seçenekler: Hiç kimseyle konuşmayanlar | İman edip salih amel işleyen, hakkı ve sabrı tavsiye edenler | En çok mal toplayanlar | En çok uyuyanlar
+- Doğru cevap: İman edip salih amel işleyen, hakkı ve sabrı tavsiye edenler
+- Açıklama: Asr 103:3: İman edenler, salih ameller işleyenler, birbirlerine hakkı ve sabrı tavsiye edenler.
+
+**DEEN-U20-S04-X003** · Hayata Dair Mesajlar · multiple_choice
+- Soru: Mâûn Suresi’ne göre dini yalanlayanın davranışlarından biri hangisidir?
+- Seçenekler: Yetimi itip kakmak | Komşuya yardım etmek | Yetime iyilik etmek | Namazı vaktinde kılmak
+- Doğru cevap: Yetimi itip kakmak
+- Açıklama: Mâûn 107:2: O, yetimi itip kakar.
+
+**DEEN-U20-S04-X004** · Hayata Dair Mesajlar · multiple_choice
+- Soru: Mâûn Suresi namaz kılanlardan hangilerini kınar?
+- Seçenekler: Namazı uzun kılanları | Namazlarını önemsemeyip gösteriş yapanları | Namazı cemaatle kılanları | Namazdan sonra dua edenleri
+- Doğru cevap: Namazlarını önemsemeyip gösteriş yapanları
+- Açıklama: Mâûn 107:4-6: Namazlarından gafil olanlar ve gösteriş yapanlar.
+
+**DEEN-U20-S04-X005** · Hayata Dair Mesajlar · multiple_choice
+- Soru: Kâfirûn Suresi hangi sözle biter?
+- Seçenekler: “Sizin dininiz size, benim dinim banadır.” | “Din önemli değildir.” | “Hepimizin dini birdir.” | “Dininizi bana verin.”
+- Doğru cevap: “Sizin dininiz size, benim dinim banadır.”
+- Açıklama: Kâfirûn 109:6: “Sizin dininiz size, benim dinim banadır.”
+
+**DEEN-U20-S04-X006** · Hayata Dair Mesajlar · multiple_choice
+- Soru: Zilzâl Suresi’ne göre zerre ağırlığınca hayır işleyen ne olur?
+- Seçenekler: Hiçbir karşılık görmez | Onun karşılığını görür | Yalnızca dünyada görür | Hemen unutulur
+- Doğru cevap: Onun karşılığını görür
+- Açıklama: Zilzâl 99:7-8: Zerre ağırlığınca hayır işleyen onu görür, zerre ağırlığınca şer işleyen de onu görür.
+
+**DEEN-U20-S04-X007** · Hayata Dair Mesajlar · multiple_choice
+- Soru: Tekâsür Suresi insanları neyle uyarır?
+- Seçenekler: Çok namaz kılmalarıyla | Kitap okumalarıyla | Çoklukla övünmenin onları oyalamasıyla | Az yemeleriyle
+- Doğru cevap: Çoklukla övünmenin onları oyalamasıyla
+- Açıklama: Tekâsür 102:1-2: Çoklukla övünmek sizi oyaladı, kabirleri ziyaret edinceye (ölünceye) kadar.
+
+**DEEN-U20-S04-X008** · Hayata Dair Mesajlar · scenario
+- Soru: Selin yolda gördüğü bir taşı kenara çekti ama “Bu çok küçük bir iyilik” diye düşündü. Zilzâl Suresi ne der?
+- Seçenekler: İyilik yalnızca zengine aittir | Zerre ağırlığınca hayır bile karşılıksız kalmaz | Küçük iyiliklerin hiçbir değeri yoktur | Sadece büyük iyilikler yazılır
+- Doğru cevap: Zerre ağırlığınca hayır bile karşılıksız kalmaz
+- Açıklama: Zilzâl 99:7: Kim zerre ağırlığınca hayır işlerse onu görür.
+
+**DEEN-U20-S04-X009** · Hayata Dair Mesajlar · scenario
+- Soru: Burak bütün gününü boş geçirdiğini fark ediyor. Asr Suresi ona ne hatırlatır?
+- Seçenekler: Zamanın değerli olduğunu; iman ve salih amelle değerlendirilmesini | Sadece eğlenmek gerektiğini | Zamanın önemsiz olduğunu | Hiçbir şey yapmamanın en iyisi olduğunu
+- Doğru cevap: Zamanın değerli olduğunu; iman ve salih amelle değerlendirilmesini
+- Açıklama: Asr Suresi zamana yemin ederek insanın ziyanda olduğunu, kurtuluşun iman ve salih amelde olduğunu bildirir.
+
+**DEEN-U20-S04-X010** · Hayata Dair Mesajlar · scenario
+- Soru: Komşunuz birkaç saatliğine merdiven istiyor. Mâûn Suresi’nin mesajına uygun davranış hangisi?
+- Seçenekler: Kızıp kapıyı kapatmak | Gönül hoşluğuyla ödünç vermek | Hiçbir şey vermemek | Para karşılığı satmak
+- Doğru cevap: Gönül hoşluğuyla ödünç vermek
+- Açıklama: Mâûn 107:7: Küçük yardımları (mâûn) engelleyenler kınanır.
+
+**DEEN-U20-S04-X011** · Hayata Dair Mesajlar · scenario
+- Soru: Farklı inançtaki bir arkadaşın, birlikte kendi ibadetini yapmanı istiyor. Kâfirûn Suresi’nin mesajına uygun tutum hangisidir?
+- Seçenekler: Onunla kavga ederim | Ona saygılı davranır ama kendi inancımdan taviz vermem | Onu aşağılarım | İnancımı bırakırım
+- Doğru cevap: Ona saygılı davranır ama kendi inancımdan taviz vermem
+- Açıklama: Kâfirûn Suresi inançta karışıklığı reddederken “Sizin dininiz size, benim dinim bana” der.
+
+**DEEN-U20-S04-X012** · Hayata Dair Mesajlar · fill_blank
+- Soru: Boşluğu tamamla: Asr Suresi’ne göre müminler birbirlerine hakkı ve ___ tavsiye eder.
+- Seçenekler: öfkeyi | sabrı | israfı | tembelliği
+- Doğru cevap: sabrı
+- Açıklama: Asr 103:3.
+
+**DEEN-U20-S04-X013** · Hayata Dair Mesajlar · fill_blank
+- Soru: Boşluğu tamamla: Tekâsür Suresi’ne göre o gün ___ sorguya çekileceksiniz.
+- Seçenekler: oyunlardan | şarkılardan | nimetlerden | rüyalardan
+- Doğru cevap: nimetlerden
+- Açıklama: Tekâsür 102:8: Sonra o gün nimetlerden elbette sorguya çekileceksiniz.
+
+**DEEN-U20-S04-X014** · Hayata Dair Mesajlar · progressive_recall
+- Soru: İpucu olmadan tamamla: Zilzâl Suresi’ne göre o gün yer, kendi ___ anlatır.
+- Doğru cevap: haberlerini
+- Açıklama: Zilzâl 99:4: O gün yer, haberlerini anlatır.
+
+**DEEN-U20-S04-X015** · Hayata Dair Mesajlar · error_spotting
+- Soru: “Asr Suresi’ne göre insanların hepsi istisnasız ziyandadır.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Kimse ziyanda değildir | İman edip salih amel işleyen, hakkı ve sabrı tavsiye edenler ziyanda değildir | Yalnızca zenginler ziyanda değildir | Yalnızca yaşlılar ziyandadır
+- Doğru cevap: İman edip salih amel işleyen, hakkı ve sabrı tavsiye edenler ziyanda değildir
+- Açıklama: Asr Suresi ziyandan kurtulanları dört özellikle tanımlar.
+
+**DEEN-U20-S04-X016** · Hayata Dair Mesajlar · matching
+- Soru: Sureleri verdikleri mesajla eşleştir: Asr, Mâûn, Zilzâl ve Tekâsür.
+- Eşleşmeler: Asr → Zamanı iman ve salih amelle değerlendir; Mâûn → Yetime ve yoksula yardım et, gösterişten kaçın; Zilzâl → Zerre kadar iyilik de kötülük de görülür; Tekâsür → Çoklukla övünme seni oyalamasın
+- Açıklama: Kısa sureler günlük hayata dair güçlü mesajlar taşır.
+
+**DEEN-U20-S05-X001** · Umut ve Teselli · multiple_choice
+- Soru: Duhâ Suresi Hz. Peygamber’e hangi müjdeyi verir?
+- Seçenekler: Rabbinin onu terk etmediğini ve ona darılmadığını | Hiç zorluk yaşamayacağını | Bir daha vahiy gelmeyeceğini | Çok zengin olacağını
+- Doğru cevap: Rabbinin onu terk etmediğini ve ona darılmadığını
+- Açıklama: Duhâ 93:3: Rabbin seni terk etmedi, sana darılmadı da.
+
+**DEEN-U20-S05-X002** · Umut ve Teselli · multiple_choice
+- Soru: Duhâ Suresi’nin sonunda hangi tavsiye vardır?
+- Seçenekler: İsteyene hiçbir şey verme | Nimetleri gizle | Yetimden uzak dur | Yetimi ezme, isteyeni azarlama, Rabbinin nimetini anlat
+- Doğru cevap: Yetimi ezme, isteyeni azarlama, Rabbinin nimetini anlat
+- Açıklama: Duhâ 93:9-11.
+
+**DEEN-U20-S05-X003** · Umut ve Teselli · multiple_choice
+- Soru: İnşirah Suresi’nin en bilinen müjdesi nedir?
+- Seçenekler: “Sabretmek gereksizdir.” | “Kolaylık hiç gelmez.” | “Şüphesiz güçlükle beraber bir kolaylık vardır.” | “Güçlükler hiç bitmez.”
+- Doğru cevap: “Şüphesiz güçlükle beraber bir kolaylık vardır.”
+- Açıklama: İnşirah 94:5-6: Şüphesiz güçlükle beraber bir kolaylık vardır; evet, güçlükle beraber bir kolaylık vardır.
+
+**DEEN-U20-S05-X004** · Umut ve Teselli · multiple_choice
+- Soru: Tîn Suresi’ne göre insan nasıl yaratılmıştır?
+- Seçenekler: Kusurlu ve değersiz | En güzel biçimde | Amaçsız | Hayvanlardan aşağı
+- Doğru cevap: En güzel biçimde
+- Açıklama: Tîn 95:4: Biz insanı en güzel biçimde yarattık.
+
+**DEEN-U20-S05-X005** · Umut ve Teselli · multiple_choice
+- Soru: Tîn Suresi hangi meyvelere yemin ederek başlar?
+- Seçenekler: İncir ve zeytin | Muz ve portakal | Hurma ve üzüm | Elma ve nar
+- Doğru cevap: İncir ve zeytin
+- Açıklama: Tîn 95:1: İncire ve zeytine yemin olsun.
+
+**DEEN-U20-S05-X006** · Umut ve Teselli · multiple_choice
+- Soru: Nasr Suresi’ne göre Allah’ın yardımı ve fetih gelince ne yapılmalıdır?
+- Seçenekler: Rabbi hamd ile tesbih edip O’ndan bağışlanma dilemek | Hiçbir şey yapmamak | İbadeti bırakmak | Övünüp büyüklenmek
+- Doğru cevap: Rabbi hamd ile tesbih edip O’ndan bağışlanma dilemek
+- Açıklama: Nasr 110:3: Rabbini hamd ile tesbih et ve O’ndan bağışlanma dile.
+
+**DEEN-U20-S05-X007** · Umut ve Teselli · multiple_choice
+- Soru: Alak Suresi’nin ilk âyetlerine göre Allah insana neyle öğretmiştir?
+- Seçenekler: Para ile | Şiirle | Kalemle | Kılıçla
+- Doğru cevap: Kalemle
+- Açıklama: Alak 96:4-5: O, kalemle öğretendir; insana bilmediğini öğretendir.
+
+**DEEN-U20-S05-X008** · Umut ve Teselli · multiple_choice
+- Soru: Kadr Suresi’ne göre Kadir gecesi ne zamana kadar esenliktir?
+- Seçenekler: Öğle vaktine kadar | Fecrin doğuşuna kadar | Bir hafta boyunca | Gece yarısına kadar
+- Doğru cevap: Fecrin doğuşuna kadar
+- Açıklama: Kadr 97:5: O gece fecrin doğuşuna kadar bir esenliktir.
+
+**DEEN-U20-S05-X009** · Umut ve Teselli · true_false
+- Soru: Doğru mu, yanlış mı? Kadr Suresi’ne göre o gece melekler ve Ruh (Cebrâil) iner.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Kadr 97:4: Melekler ve Ruh o gece Rablerinin izniyle her iş için iner.
+
+**DEEN-U20-S05-X010** · Umut ve Teselli · true_false
+- Soru: Doğru mu, yanlış mı? Nasr Suresi Medine döneminde inmiştir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Nasr Medenî bir suredir ve Mekke’nin fethiyle ilgili müjdeyi taşır.
+
+**DEEN-U20-S05-X011** · Umut ve Teselli · scenario
+- Soru: Defne sınavları yüzünden çok bunalmış. Ona hangi sureden bir âyet hatırlatırsın?
+- Seçenekler: Tebbet: “Ebû Leheb’in elleri kurusun.” | İnşirah: “Güçlükle beraber bir kolaylık vardır.” | Kureyş: “Kış ve yaz yolculukları.” | Fil: “Pişmiş çamurdan taşlar.”
+- Doğru cevap: İnşirah: “Güçlükle beraber bir kolaylık vardır.”
+- Açıklama: İnşirah Suresi zorlukla birlikte kolaylığın da geleceğini müjdeler.
+
+**DEEN-U20-S05-X012** · Umut ve Teselli · scenario
+- Soru: Sınıfa babasını kaybetmiş yeni bir öğrenci geldi. Duhâ Suresi’nin mesajına uygun davranış hangisidir?
+- Seçenekler: Onu görmezden gelmek | Ona şefkatle yaklaşıp yardımcı olmak | Onu dışlamak | Onunla alay etmek
+- Doğru cevap: Ona şefkatle yaklaşıp yardımcı olmak
+- Açıklama: Duhâ 93:9: Öyleyse sakın yetimi ezme.
+
+**DEEN-U20-S05-X013** · Umut ve Teselli · fill_blank
+- Soru: Boşluğu tamamla: İnşirah Suresi’ne göre bir işi bitirince hemen ___ koyulmak tavsiye edilir.
+- Seçenekler: tembelliğe | uzun bir uykuya | başka bir işe | şikâyete
+- Doğru cevap: başka bir işe
+- Açıklama: İnşirah 94:7: Boş kalınca hemen başka bir işe koyul, Rabbine yönel.
+
+**DEEN-U20-S05-X014** · Umut ve Teselli · fill_blank
+- Soru: Boşluğu tamamla: Duhâ Suresi’ne göre ___ senin için dünyadan daha hayırlıdır.
+- Seçenekler: oyun | şöhret | para | ahiret
+- Doğru cevap: ahiret
+- Açıklama: Duhâ 93:4: Ahiret senin için dünyadan elbette daha hayırlıdır.
+
+**DEEN-U20-S05-X015** · Umut ve Teselli · missing_item
+- Soru: Eksik kavramı seç: Nasr Suresi’ne göre insanlar Allah’ın dinine ___ girmektedir.
+- Seçenekler: akın akın | tek tek gizlice | hiç | zorla
+- Doğru cevap: akın akın
+- Açıklama: Nasr 110:2: İnsanların akın akın Allah’ın dinine girdiğini gördüğünde.
+
+**DEEN-U20-S05-X016** · Umut ve Teselli · matching
+- Soru: Sureleri mesajlarıyla eşleştir: Duhâ, İnşirah, Tîn ve Nasr.
+- Eşleşmeler: Duhâ → Rabbin seni terk etmedi; İnşirah → Güçlükle beraber kolaylık var; Tîn → İnsan en güzel biçimde yaratıldı; Nasr → Zaferde tesbih ve istiğfar
+- Açıklama: Bu sureler umut ve teselli verir.
+
+**DEEN-U20-S06-X001** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: Fatiha kaç âyettir?
+- Seçenekler: Üç | Beş | Dokuz | Yedi
+- Doğru cevap: Yedi
+- Açıklama: Fatiha yedi âyettir.
+
+**DEEN-U20-S06-X002** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: “Allah Samed’dir” âyeti hangi suredendir?
+- Seçenekler: Kevser | Nas | İhlâs | Felak
+- Doğru cevap: İhlâs
+- Açıklama: İhlâs 112:2.
+
+**DEEN-U20-S06-X003** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: Ebrehe’nin ordusunu anlatan sure hangisidir?
+- Seçenekler: Mâûn | Fil | Asr | Kureyş
+- Doğru cevap: Fil
+- Açıklama: Fil Suresi.
+
+**DEEN-U20-S06-X004** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: “Güçlükle beraber bir kolaylık vardır” hangi suredendir?
+- Seçenekler: Tîn | Alak | İnşirah | Duhâ
+- Doğru cevap: İnşirah
+- Açıklama: İnşirah 94:5-6.
+
+**DEEN-U20-S06-X005** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Kevser Suresi’nde namaz kılmak ve kurban kesmek emredilir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Kevser 108:2.
+
+**DEEN-U20-S06-X006** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Hasetçinin şerrinden sığınma Nas Suresi’nde geçer.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Hasetçinin şerrinden sığınma Felak Suresi’ndedir; Nas’ta vesveseciden sığınılır.
+
+**DEEN-U20-S06-X007** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Tîn Suresi’ne göre insan en güzel biçimde yaratılmıştır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Tîn 95:4.
+
+**DEEN-U20-S06-X008** · Akıllı Tekrar · multiple_choice
+- Soru: Asr Suresi hangisine yemin eder?
+- Seçenekler: Denize | Aya | Dağlara | Zamana
+- Doğru cevap: Zamana
+- Açıklama: Asr 103:1.
+
+**DEEN-U20-S06-X009** · Akıllı Tekrar · multiple_choice
+- Soru: “Sizin dininiz size, benim dinim bana” âyeti hangi suredendir?
+- Seçenekler: Mâûn | Kâfirûn | Felak | Nasr
+- Doğru cevap: Kâfirûn
+- Açıklama: Kâfirûn 109:6.
+
+**DEEN-U20-S06-X010** · Akıllı Tekrar · multiple_choice
+- Soru: Allah’ın insana kalemle öğrettiği hangi surede bildirilir?
+- Seçenekler: Alak | Nas | Kevser | Fil
+- Doğru cevap: Alak
+- Açıklama: Alak 96:4.
+
+**DEEN-U20-S06-X011** · Akıllı Tekrar · error_spotting
+- Soru: “Kureyş Suresi Ebrehe’nin fil ordusunu anlatır.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Kureyş Suresi Ebû Leheb’i anlatır | Fil ordusunu Fil Suresi anlatır; Kureyş Suresi kış ve yaz yolculuklarından söz eder | Kureyş Suresi Kadir gecesini anlatır | Kureyş Suresi Hz. Nuh’u anlatır
+- Doğru cevap: Fil ordusunu Fil Suresi anlatır; Kureyş Suresi kış ve yaz yolculuklarından söz eder
+- Açıklama: Fil ve Kureyş sureleri birbirine bağlı ama farklı konuları işler.
+
+**DEEN-U20-S06-X012** · Akıllı Tekrar · error_spotting
+- Soru: “Zilzâl Suresi’ne göre çok küçük iyiliklerin hesabı yoktur.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Yalnızca büyük kötülükler görülür | Zerre ağırlığınca hayır bile görülür | İyiliklerin karşılığı yalnızca dünyadadır | Zerre kadar kötülük affedilmiş sayılır
+- Doğru cevap: Zerre ağırlığınca hayır bile görülür
+- Açıklama: Zilzâl 99:7-8.
+
+**DEEN-U20-S07-X001** · Ünite Challenge · scenario
+- Soru: Kerem namaz kılarken aklına sürekli kötü düşünceler geliyor. Hangi sure tam da bu durum için sığınmayı öğretir?
+- Seçenekler: Kureyş Suresi | Fil Suresi | Nas Suresi | Tebbet Suresi
+- Doğru cevap: Nas Suresi
+- Açıklama: Nas Suresi insanların göğüslerine vesvese verenden Allah’a sığınmayı öğretir.
+
+**DEEN-U20-S07-X002** · Ünite Challenge · scenario
+- Soru: Takımın büyük bir başarı kazandı ve herkes övünmeye başladı. Nasr Suresi’nin mesajına uygun tutum hangisidir?
+- Seçenekler: Rakipleri küçümsemek | Kendini herkesten üstün görmek | Başarıyı Allah’tan bilip hamd ve istiğfar etmek | Hiç şükretmemek
+- Doğru cevap: Başarıyı Allah’tan bilip hamd ve istiğfar etmek
+- Açıklama: Nasr Suresi zafer anında tesbih, hamd ve istiğfarı öğretir.
+
+**DEEN-U20-S07-X003** · Ünite Challenge · scenario
+- Soru: Biri namazını sadece insanlar görsün diye kılıyor. Hangi sure bu tutumu kınar?
+- Seçenekler: Mâûn | İhlâs | Tîn | Kevser
+- Doğru cevap: Mâûn
+- Açıklama: Mâûn 107:6: Onlar gösteriş yaparlar.
+
+**DEEN-U20-S07-X004** · Ünite Challenge · error_spotting
+- Soru: “Felak Suresi’nde gecenin Rabbine sığınılır.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Felak Suresi’nde sabahın Rabbine sığınılır | Felak’te insanların Rabbine sığınılır | Felak’te denizin Rabbine sığınılır | Felak’te kimseye sığınılmaz
+- Doğru cevap: Felak Suresi’nde sabahın Rabbine sığınılır
+- Açıklama: Felak 113:1: Sabahın Rabbine sığınırım.
+
+**DEEN-U20-S07-X005** · Ünite Challenge · error_spotting
+- Soru: “İhlâs Suresi Hz. Peygamber’in hayatını anlatır.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: İhlâs Suresi miras hükümlerini anlatır | İhlâs Suresi hac ibadetini anlatır | İhlâs Suresi Allah’ın birliğini anlatır | İhlâs Suresi Ebrehe’yi anlatır
+- Doğru cevap: İhlâs Suresi Allah’ın birliğini anlatır
+- Açıklama: İhlâs Suresi tevhidin özüdür.
+
+**DEEN-U20-S07-X006** · Ünite Challenge · progressive_recall
+- Soru: İpucu olmadan tamamla: Felak ve Nas surelerine birlikte ___ denir.
+- Doğru cevap: Muavvizeteyn
+- Açıklama: İki sığınma suresi anlamına gelir.
+
+**DEEN-U20-S07-X007** · Ünite Challenge · progressive_recall
+- Soru: İpucu olmadan tamamla: Namazda tekrar tekrar okunan yedi âyetli sure ___ Suresi’dir.
+- Doğru cevap: Fatiha
+- Açıklama: Fatiha her rekâtta okunur ve yedi âyettir.
+
+**DEEN-U20-S07-X008** · Ünite Challenge · progressive_recall
+- Soru: İpucu olmadan tamamla: “Kim zerre ağırlığınca hayır işlerse onu görür” âyeti ___ Suresi’ndedir.
+- Doğru cevap: Zilzâl
+- Açıklama: Zilzâl 99:7.
+
+**DEEN-U20-S07-X009** · Ünite Challenge · multiple_choice
+- Soru: Kâbe’nin korunması ve Kureyş’e verilen güven arasında bağ kurulan iki ardışık sure hangileridir?
+- Seçenekler: Duhâ ve İnşirah | Fil ve Kureyş | Asr ve Tekâsür | İhlâs ve Felak
+- Doğru cevap: Fil ve Kureyş
+- Açıklama: Fil Suresi Kâbe’nin korunmasını, Kureyş Suresi bu evin Rabbinin verdiği güveni anlatır.
+
+**DEEN-U20-S07-X010** · Ünite Challenge · multiple_choice
+- Soru: Hadise göre hangi sure Kur’an’ın üçte birine denktir?
+- Seçenekler: İhlâs | Fatiha | Kevser | Nas
+- Doğru cevap: İhlâs
+- Açıklama: Hz. Peygamber İhlâs’ın Kur’an’ın üçte birine denk olduğunu bildirmiştir (Buhârî).
+
+**DEEN-U20-S07-X011** · Ünite Challenge · matching
+- Soru: Kilit ifadeleri surelerle eşleştir: “Biz insanı en güzel biçimde yarattık”, “Rabbin seni terk etmedi”, “Çoklukla övünmek sizi oyaladı” ve “Oku! Yaratan Rabbinin adıyla”.
+- Eşleşmeler: “Biz insanı en güzel biçimde yarattık” → Tîn; “Rabbin seni terk etmedi” → Duhâ; “Çoklukla övünmek sizi oyaladı” → Tekâsür; “Oku! Yaratan Rabbinin adıyla” → Alak
+- Açıklama: Her surenin akılda kalan bir cümlesi vardır.
+
+**DEEN-U20-S07-X012** · Ünite Challenge · matching
+- Soru: Sureleri söz ettikleri kişi veya toplulukla eşleştir: Fil, Tebbet, Kureyş ve Kâfirûn.
+- Eşleşmeler: Fil → Ebrehe ve ordusu; Tebbet → Ebû Leheb; Kureyş → Mekke’nin Kureyş kabilesi; Kâfirûn → İnkâr edenler
+- Açıklama: Bazı sureler belirli kişi ve toplulukları anlatır.
+
+**DEEN-U20-S07-X013** · Ünite Challenge · scenario
+- Soru: Ayşe yatmadan önce Hz. Peygamber’in sünnetine uygun bir şey okumak istiyor. Hangisini önerirsin?
+- Seçenekler: Sadece Fil Suresi’ni | Hiçbir şey okumamayı | Tebbet Suresi’ni | İhlâs, Felak ve Nas surelerini
+- Doğru cevap: İhlâs, Felak ve Nas surelerini
+- Açıklama: Hz. Peygamber yatarken üç sureyi okuyup avuçlarına üflerdi (Buhârî).
+
+**DEEN-U20-S07-X014** · Ünite Challenge · true_false
+- Soru: Doğru mu, yanlış mı? Fatiha namazın her rekâtında okunur.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Fatiha namazın her rekâtında okunur.
