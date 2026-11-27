@@ -11648,3 +11648,590 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Seçenekler: Doğru | Yanlış
 - Doğru cevap: Yanlış
 - Açıklama: Ankebût 29:45: Namaz, hayâsızlıktan ve kötülükten alıkoyar; ibadet ahlakı güzelleştirmelidir.
+
+## U27 — aile_komsu_toplum (100 soru)
+
+**DEEN-U27-S01-X001** · Anne Babaya İyilik · multiple_choice
+- Soru: İsrâ 23’e göre yaşlanan anne babaya karşı hangi söz bile söylenmemelidir?
+- Seçenekler: “Öf” | “Günaydın” | “Teşekkürler” | “Hoş geldiniz”
+- Doğru cevap: “Öf”
+- Açıklama: İsrâ 17:23: Onlara “öf” bile deme, onları azarlama; onlara güzel söz söyle.
+
+**DEEN-U27-S01-X002** · Anne Babaya İyilik · multiple_choice
+- Soru: İsrâ 24’te anne baba için öğretilen dua hangisidir?
+- Seçenekler: “Rabbim, beni herkesten üstün kıl.” | “Rabbim, onlar beni küçükken nasıl yetiştirdilerse sen de onlara öyle merhamet et.” | “Rabbim, onları benden uzak tut.” | “Rabbim, bana çok mal ver.”
+- Doğru cevap: “Rabbim, onlar beni küçükken nasıl yetiştirdilerse sen de onlara öyle merhamet et.”
+- Açıklama: İsrâ 17:24: Rabbim, küçükken beni yetiştirdikleri gibi sen de onlara merhamet et.
+
+**DEEN-U27-S01-X003** · Anne Babaya İyilik · multiple_choice
+- Soru: Hz. Peygamber’e “İyilik yapmama en layık kimdir?” diye sorulduğunda üç kez kimi söyledi?
+- Seçenekler: Arkadaşını | Anneni | Öğretmenini | Komşunu
+- Doğru cevap: Anneni
+- Açıklama: Üç kez “annen”, dördüncüsünde “baban” dedi (Buhârî).
+
+**DEEN-U27-S01-X004** · Anne Babaya İyilik · multiple_choice
+- Soru: Lokmân 14’te anne hakkında ne hatırlatılır?
+- Seçenekler: Onun çocuğunu zahmet üstüne zahmetle taşıdığı | Annenin hiç yorulmadığı | Annenin önemli olmadığı | Annenin sadece yemek yaptığı
+- Doğru cevap: Onun çocuğunu zahmet üstüne zahmetle taşıdığı
+- Açıklama: Lokmân 31:14: Annesi onu zahmet üstüne zahmetle taşıdı; bana ve anne babana şükret.
+
+**DEEN-U27-S01-X005** · Anne Babaya İyilik · multiple_choice
+- Soru: Hadise göre Allah’ın rızası kimin rızasındadır?
+- Seçenekler: Komşuların | Anne babanın | Zenginlerin | Arkadaşların
+- Doğru cevap: Anne babanın
+- Açıklama: “Rabbin rızası anne babanın rızasındadır.” (Tirmizî)
+
+**DEEN-U27-S01-X006** · Anne Babaya İyilik · multiple_choice
+- Soru: İsrâ 23’te Allah’a kulluktan hemen sonra hangi emir gelir?
+- Seçenekler: Ev almak | Anne babaya iyilik etmek | Ticaret yapmak | Seyahat etmek
+- Doğru cevap: Anne babaya iyilik etmek
+- Açıklama: İsrâ 17:23: Rabbin, yalnız kendisine kulluk etmenizi ve anne babaya iyilik etmenizi emretti.
+
+**DEEN-U27-S01-X007** · Anne Babaya İyilik · true_false
+- Soru: Doğru mu, yanlış mı? Anne baba yaşlandığında onlara daha fazla sabır ve şefkat göstermek gerekir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: İsrâ 17:23 özellikle yaşlılık dönemini hatırlatır.
+
+**DEEN-U27-S01-X008** · Anne Babaya İyilik · true_false
+- Soru: Doğru mu, yanlış mı? Anne babaya iyilik, onlar vefat ettikten sonra tamamen sona erer.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Onlara dua etmek, dostlarına iyilik etmek ve akrabalarını gözetmek devam eder (Ebû Dâvûd).
+
+**DEEN-U27-S01-X009** · Anne Babaya İyilik · missing_item
+- Soru: Eksik kavramı seç: İsrâ 24’e göre anne babaya merhametle ___ kanadını indir.
+- Seçenekler: tevazu | kibir | hız | öfke
+- Doğru cevap: tevazu
+- Açıklama: İsrâ 17:24: Onlara merhametle tevazu kanadını indir.
+
+**DEEN-U27-S01-X010** · Anne Babaya İyilik · fill_blank
+- Soru: Boşluğu tamamla: İsrâ 17:23: “Onlara ___ bile deme.”
+- Seçenekler: öf | evet | teşekkür | merhaba
+- Doğru cevap: öf
+- Açıklama: Anne babayı incitecek en küçük söz bile yasaklanmıştır.
+
+**DEEN-U27-S01-X011** · Anne Babaya İyilik · progressive_recall
+- Soru: İpucu olmadan tamamla: Hz. Peygamber iyiliğe en layık kişi olarak üç kez ___ dedi.
+- Doğru cevap: annen
+- Açıklama: Dördüncüsünde “baban” dedi (Buhârî).
+
+**DEEN-U27-S01-X012** · Anne Babaya İyilik · matching
+- Soru: Ayetleri öğütleriyle eşleştir: İsrâ 17:23, İsrâ 17:24, Lokmân 31:14 ve Lokmân 31:15.
+- Eşleşmeler: İsrâ 17:23 → “Öf” bile deme; İsrâ 17:24 → Onlara merhamet için dua et; Lokmân 31:14 → Annenin zahmetini hatırla; Lokmân 31:15 → Dünyada onlarla iyi geçin
+- Açıklama: Kur’an anne baba hakkını farklı ayetlerde öğretir.
+
+**DEEN-U27-S01-X013** · Anne Babaya İyilik · scenario
+- Soru: Annen işten yorgun geldi ve mutfakta bulaşıklar var. Ne yaparsın?
+- Seçenekler: Odama kapanırım | Ona yardım edip bulaşıkları yıkarım | Yemeğin ne zaman hazır olacağını sorarım | Oyun oynamaya devam ederim
+- Doğru cevap: Ona yardım edip bulaşıkları yıkarım
+- Açıklama: Anne babaya yardım etmek, onlara iyiliğin en güzel yollarındandır.
+
+**DEEN-U27-S01-X014** · Anne Babaya İyilik · error_spotting
+- Soru: “Anne babaya iyilik etmek sadece küçük çocuklar için geçerlidir.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Anne babaya iyilik sadece zenginlerin işidir | Anne babaya iyilik gerekli değildir | Anne babaya iyilik her yaşta devam eden bir görevdir | Anne babaya iyilik sadece bayramlarda yapılır
+- Doğru cevap: Anne babaya iyilik her yaşta devam eden bir görevdir
+- Açıklama: İsrâ 17:23 anne baba yaşlandığında bile iyiliği emreder.
+
+**DEEN-U27-S02-X001** · Aile ve Akrabalar · multiple_choice
+- Soru: Akrabaları ziyaret edip gözetmeye ne denir?
+- Seçenekler: İsraf | Gıybet | Sıla-i rahim | Kibir
+- Doğru cevap: Sıla-i rahim
+- Açıklama: Sıla-i rahim, akrabalık bağlarını korumak demektir.
+
+**DEEN-U27-S02-X002** · Aile ve Akrabalar · multiple_choice
+- Soru: Hadise göre rızkının genişlemesini ve ömrünün bereketlenmesini isteyen ne yapmalıdır?
+- Seçenekler: Akrabalarını gözetmeli | Sadece para biriktirmeli | Akrabalarından uzak durmalı | Kimseyle görüşmemeli
+- Doğru cevap: Akrabalarını gözetmeli
+- Açıklama: “Rızkının genişlemesini ve ömrünün uzamasını isteyen akrabasını gözetsin.” (Buhârî)
+
+**DEEN-U27-S02-X003** · Aile ve Akrabalar · multiple_choice
+- Soru: Hadise göre aile içindeki davranışı bakımından en hayırlınız kimdir?
+- Seçenekler: Ailesine karşı en hayırlı olanınız | En çok gezeniniz | En çok kazananınız | En güçlü olanınız
+- Doğru cevap: Ailesine karşı en hayırlı olanınız
+- Açıklama: “Sizin en hayırlınız ailesine karşı en hayırlı olanınızdır.” (Tirmizî)
+
+**DEEN-U27-S02-X004** · Aile ve Akrabalar · multiple_choice
+- Soru: Hz. Âişe’ye Hz. Peygamber’in evde ne yaptığı sorulunca ne cevap verdi?
+- Seçenekler: Sürekli uyurdu | Sadece emir verirdi | Hiçbir iş yapmazdı | Ailesinin işlerine yardım ederdi
+- Doğru cevap: Ailesinin işlerine yardım ederdi
+- Açıklama: Hz. Âişe: “Ailesinin hizmetinde bulunurdu; namaz vakti gelince namaza çıkardı.” (Buhârî)
+
+**DEEN-U27-S02-X005** · Aile ve Akrabalar · multiple_choice
+- Soru: Rûm 21’e göre Allah eşlerin arasına ne koymuştur?
+- Seçenekler: Sessizlik ve uzaklık | Sevgi ve merhamet | Korku ve öfke | Kıskançlık ve kavga
+- Doğru cevap: Sevgi ve merhamet
+- Açıklama: Rûm 30:21: Aranızda sevgi ve merhamet var etmesi O’nun ayetlerindendir.
+
+**DEEN-U27-S02-X006** · Aile ve Akrabalar · multiple_choice
+- Soru: Hadise göre “bizden değildir” denen kişi hangisidir?
+- Seçenekler: Küçüklerine merhamet etmeyen, büyüklerine saygı göstermeyen | Spor yapan | Kitap okuyan | Erken kalkan
+- Doğru cevap: Küçüklerine merhamet etmeyen, büyüklerine saygı göstermeyen
+- Açıklama: “Küçüklerimize merhamet etmeyen, büyüklerimize saygı göstermeyen bizden değildir.” (Tirmizî)
+
+**DEEN-U27-S02-X007** · Aile ve Akrabalar · true_false
+- Soru: Doğru mu, yanlış mı? Hadise göre akrabalık bağını koparan kişi için ağır bir uyarı vardır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: “Akrabalık bağını koparan cennete giremez.” (Buhârî, Müslim)
+
+**DEEN-U27-S02-X008** · Aile ve Akrabalar · true_false
+- Soru: Doğru mu, yanlış mı? Kardeşler arasında sevgi, paylaşma ve yardımlaşma güzel ahlaktandır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Kardeşler birbirine destek olmalı, adil davranmalıdır.
+
+**DEEN-U27-S02-X009** · Aile ve Akrabalar · missing_item
+- Soru: Eksik kavramı seç: Hz. Peygamber çocuklar arasında ___ davranmayı emretti.
+- Seçenekler: kayırmacı | ilgisiz | adil | sert
+- Doğru cevap: adil
+- Açıklama: “Allah’tan korkun ve çocuklarınız arasında adil olun.” (Buhârî)
+
+**DEEN-U27-S02-X010** · Aile ve Akrabalar · fill_blank
+- Soru: Boşluğu tamamla: Akrabalarla bağları koruyup onları ziyaret etmeye sıla-i ___ denir.
+- Seçenekler: vakit | hayır | selam | rahim
+- Doğru cevap: rahim
+- Açıklama: Rahim, akrabalık bağını ifade eder.
+
+**DEEN-U27-S02-X011** · Aile ve Akrabalar · progressive_recall
+- Soru: İpucu olmadan tamamla: “Sizin en hayırlınız ___ karşı en hayırlı olanınızdır.”
+- Doğru cevap: ailesine
+- Açıklama: Tirmizî’de geçen hadis.
+
+**DEEN-U27-S02-X012** · Aile ve Akrabalar · matching
+- Soru: Kişileri onlara karşı görevlerle eşleştir: Anne baba, Küçük kardeş, Büyükler ve Akrabalar.
+- Eşleşmeler: Anne baba → İyilik ve dua; Küçük kardeş → Şefkat ve koruma; Büyükler → Saygı; Akrabalar → Ziyaret ve gözetme
+- Açıklama: Aile içinde herkesin bir hakkı vardır.
+
+**DEEN-U27-S02-X013** · Aile ve Akrabalar · scenario
+- Soru: Uzak şehirde yaşayan yaşlı bir akrabanız var ve uzun zamandır görüşmediniz. Ne yapabilirsin?
+- Seçenekler: Ailemle onu arayıp hatırını sormayı ya da ziyaret etmeyi teklif ederim | Sadece miras konusunda ilgilenirim | Onun aramasını beklerim | Nasılsa uzakta deyip unuturum
+- Doğru cevap: Ailemle onu arayıp hatırını sormayı ya da ziyaret etmeyi teklif ederim
+- Açıklama: Sıla-i rahim telefonla, mesajla veya ziyaretle sürdürülebilir.
+
+**DEEN-U27-S02-X014** · Aile ve Akrabalar · error_spotting
+- Soru: “Kardeşimle istediğim kadar uzun süre küs kalabilirim.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Küslük sadece bir yıl sürer | Küslük sevaptır | Küslük hiç bitmemelidir | Bir Müslümanın kardeşine üç günden fazla küs durması helal değildir
+- Doğru cevap: Bir Müslümanın kardeşine üç günden fazla küs durması helal değildir
+- Açıklama: “Bir Müslümanın kardeşine üç günden fazla küs durması helal değildir.” (Buhârî)
+
+**DEEN-U27-S03-X001** · Komşuluk · multiple_choice
+- Soru: Hz. Peygamber, Cebrail’in komşu hakkında çok tavsiyede bulunduğunu anlatırken ne demiştir?
+- Seçenekler: “Sadece zengin komşuyu sordu.” | “Komşunun önemli olmadığını söyledi.” | “Komşuyu komşuya mirasçı kılacak sandım.” | “Komşuyla hiç konuşmamamı söyledi.”
+- Doğru cevap: “Komşuyu komşuya mirasçı kılacak sandım.”
+- Açıklama: Buhârî’de geçen hadis komşu hakkının büyüklüğünü anlatır.
+
+**DEEN-U27-S03-X002** · Komşuluk · multiple_choice
+- Soru: Hadise göre kim cennete giremez?
+- Seçenekler: Komşusu, zararından emin olmayan kişi | Komşusuna selam veren | Komşusunu ziyaret eden | Komşusuna yemek götüren
+- Doğru cevap: Komşusu, zararından emin olmayan kişi
+- Açıklama: “Komşusu kötülüklerinden emin olmayan cennete giremez.” (Müslim)
+
+**DEEN-U27-S03-X003** · Komşuluk · multiple_choice
+- Soru: Hz. Peygamber Ebû Zer’e çorba pişirdiğinde ne yapmasını tavsiye etti?
+- Seçenekler: Suyunu çoğaltıp komşularına da ikram etmesini | Çorbayı satmasını | Hepsini kendisinin yemesini | Kapıyı kilitlemesini
+- Doğru cevap: Suyunu çoğaltıp komşularına da ikram etmesini
+- Açıklama: “Çorba pişirdiğinde suyunu çoğalt ve komşularını gözet.” (Müslim)
+
+**DEEN-U27-S03-X004** · Komşuluk · multiple_choice
+- Soru: Nisâ 36’da iyilik edilmesi emredilenler arasında hangileri sayılır?
+- Seçenekler: Yakın komşu ve uzak komşu | Hiçbir komşu | Sadece zengin komşu | Sadece akraba olmayan komşu
+- Doğru cevap: Yakın komşu ve uzak komşu
+- Açıklama: Nisâ 4:36: Anne babaya, akrabaya… yakın komşuya, uzak komşuya iyilik edin.
+
+**DEEN-U27-S03-X005** · Komşuluk · multiple_choice
+- Soru: Hadise göre komşusu açken tok yatan kişi için ne söylenmiştir?
+- Seçenekler: Kâmil mümin olamaz | Hiçbir sorumluluğu yoktur | En iyi insandır | Çok cömerttir
+- Doğru cevap: Kâmil mümin olamaz
+- Açıklama: “Komşusu açken tok yatan kâmil mümin değildir.” (Hâkim, Taberânî)
+
+**DEEN-U27-S03-X006** · Komşuluk · multiple_choice
+- Soru: Hz. Peygamber kadınlara komşularına gönderecekleri hediye için ne dedi?
+- Seçenekler: Sadece pahalı hediye göndersinler | Hediyeyi geri istesinler | Bir koyun paçası bile olsa küçümsemesinler | Hiç hediye göndermesinler
+- Doğru cevap: Bir koyun paçası bile olsa küçümsemesinler
+- Açıklama: “Hiçbir komşu kadın, komşusuna bir koyun paçası bile olsa hediye göndermeyi küçümsemesin.” (Buhârî)
+
+**DEEN-U27-S03-X007** · Komşuluk · true_false
+- Soru: Doğru mu, yanlış mı? Müslüman olmayan komşunun da komşuluk hakkı vardır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Komşuluk hakkı her komşuyu kapsar; Abdullah b. Amr, Yahudi komşusuna da kurbandan ikram ettirmiştir (Tirmizî).
+
+**DEEN-U27-S03-X008** · Komşuluk · true_false
+- Soru: Doğru mu, yanlış mı? Gece geç saatte yüksek sesle müzik açıp komşuları rahatsız etmek komşuluk hakkına uygundur.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Komşuya eziyet vermemek komşuluk hakkının temelidir.
+
+**DEEN-U27-S03-X009** · Komşuluk · missing_item
+- Soru: Eksik kavramı seç: Hadise göre Allah’a ve ahiret gününe iman eden ___ ikram etsin.
+- Seçenekler: sadece zenginlere | komşusuna | sadece ünlülere | sadece kendisine
+- Doğru cevap: komşusuna
+- Açıklama: “Allah’a ve ahiret gününe iman eden komşusuna ikram etsin.” (Buhârî, Müslim)
+
+**DEEN-U27-S03-X010** · Komşuluk · fill_blank
+- Soru: Boşluğu tamamla: Cebrail komşu hakkında o kadar tavsiyede bulundu ki, Hz. Peygamber komşuyu komşuya ___ kılacak sandı.
+- Seçenekler: düşman | yabancı | mirasçı | patron
+- Doğru cevap: mirasçı
+- Açıklama: Buhârî’de geçen hadis.
+
+**DEEN-U27-S03-X011** · Komşuluk · progressive_recall
+- Soru: İpucu olmadan tamamla: Çorba pişirdiğinde ___ çoğalt ve komşularını gözet.
+- Doğru cevap: suyunu
+- Açıklama: Müslim’de geçen hadis.
+
+**DEEN-U27-S03-X012** · Komşuluk · matching
+- Soru: Durumları güzel davranışlarla eşleştir: Komşu hasta, Komşu yolculukta, Komşunun sevinci ve Komşunun acısı.
+- Eşleşmeler: Komşu hasta → Ziyaret edip yardım etmek; Komşu yolculukta → Evine göz kulak olmak; Komşunun sevinci → Tebrik etmek; Komşunun acısı → Taziye ve destek
+- Açıklama: Komşuluk iyi günde ve kötü günde birlikte olmaktır.
+
+**DEEN-U27-S03-X013** · Komşuluk · scenario
+- Soru: Apartmandaki yaşlı komşunuz ağır market poşetlerini taşımakta zorlanıyor. Ne yaparsın?
+- Seçenekler: Asansörü ona bırakmam | Poşetlerini kapısına kadar taşımasına yardım ederim | Görmemiş gibi yaparım | Arkasından gülerim
+- Doğru cevap: Poşetlerini kapısına kadar taşımasına yardım ederim
+- Açıklama: Komşuya yardım etmek ve yaşlılara destek olmak güzel ahlaktır.
+
+**DEEN-U27-S03-X014** · Komşuluk · error_spotting
+- Soru: “Komşumuzu tanımamıza gerek yoktur; onun hiçbir hakkı yoktur.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Komşu hakkı sadece bayramda vardır | Komşunun büyük hakları vardır; onu tanımak ve gözetmek gerekir | Komşu sadece akrabaysa hakkı vardır | Komşuyla konuşmak yasaktır
+- Doğru cevap: Komşunun büyük hakları vardır; onu tanımak ve gözetmek gerekir
+- Açıklama: Nisâ 4:36 komşuya iyiliği emreder.
+
+**DEEN-U27-S04-X001** · Selam, Ziyaret ve Misafir · multiple_choice
+- Soru: Hadise göre müminler arasında sevgiyi artıracak şey nedir?
+- Seçenekler: Birbirine küsmek | Birbirini görmezden gelmek | Selamı aralarında yaymak | Birbirine bağırmak
+- Doğru cevap: Selamı aralarında yaymak
+- Açıklama: “Size, yaptığınızda birbirinizi seveceğiniz bir şey söyleyeyim mi? Selamı aranızda yayın.” (Müslim)
+
+**DEEN-U27-S04-X002** · Selam, Ziyaret ve Misafir · multiple_choice
+- Soru: Hadise göre Müslümanın Müslüman üzerindeki haklarından biri hangisidir?
+- Seçenekler: Hastayı ziyaret etmek | Onu görmezden gelmek | Onunla alay etmek | Ona borç vermeyi reddetmek
+- Doğru cevap: Hastayı ziyaret etmek
+- Açıklama: Selamı almak, hastayı ziyaret etmek, cenazeye katılmak, davete icabet etmek ve aksırana “Yerhamükellah” demek (Buhârî).
+
+**DEEN-U27-S04-X003** · Selam, Ziyaret ve Misafir · multiple_choice
+- Soru: Hadise göre Allah’a ve ahiret gününe iman eden misafirine ne yapmalıdır?
+- Seçenekler: Onu bekletmeli | İkram etmeli | Ona kızmalı | Kapıyı açmamalı
+- Doğru cevap: İkram etmeli
+- Açıklama: “Allah’a ve ahiret gününe iman eden misafirine ikram etsin.” (Buhârî)
+
+**DEEN-U27-S04-X004** · Selam, Ziyaret ve Misafir · multiple_choice
+- Soru: Zâriyât suresine göre misafirleri gelince Hz. İbrahim ne yaptı?
+- Seçenekler: Onları kapıdan çevirdi | Onlara hiçbir şey ikram etmedi | Hemen gidip onlara semiz bir buzağı kızartıp getirdi | Onlardan para istedi
+- Doğru cevap: Hemen gidip onlara semiz bir buzağı kızartıp getirdi
+- Açıklama: Zâriyât 51:26–27: Ailesine gitti, semiz bir buzağı getirip onlara sundu.
+
+**DEEN-U27-S04-X005** · Selam, Ziyaret ve Misafir · multiple_choice
+- Soru: Nûr 27’ye göre başkasının evine girmeden önce ne yapılmalıdır?
+- Seçenekler: Pencereden bakmak | Kapıyı kırmak | Habersiz girmek | İzin alıp selam vermek
+- Doğru cevap: İzin alıp selam vermek
+- Açıklama: Nûr 24:27: Kendi evlerinizden başka evlere izin almadan ve selam vermeden girmeyin.
+
+**DEEN-U27-S04-X006** · Selam, Ziyaret ve Misafir · multiple_choice
+- Soru: Hadise göre izin istenip cevap verilmezse kaç kez denendikten sonra dönülür?
+- Seçenekler: On kez | Bir kez bile denenmez | Kapı açılana kadar | Üç kez
+- Doğru cevap: Üç kez
+- Açıklama: “İzin istemek üç defadır; izin verilirse girersin, verilmezse dönersin.” (Buhârî, Müslim)
+
+**DEEN-U27-S04-X007** · Selam, Ziyaret ve Misafir · multiple_choice
+- Soru: Nisâ 86’ya göre verilen selama nasıl karşılık verilmelidir?
+- Seçenekler: Daha güzeliyle ya da aynısıyla | Yüzünü çevirerek | Kaba bir sözle | Hiç cevap vermeden
+- Doğru cevap: Daha güzeliyle ya da aynısıyla
+- Açıklama: Nisâ 4:86: Bir selamla selamlandığınızda ondan daha güzeliyle veya aynısıyla karşılık verin.
+
+**DEEN-U27-S04-X008** · Selam, Ziyaret ve Misafir · multiple_choice
+- Soru: Hadise göre selamlaşmada kim önce selam verir?
+- Seçenekler: Binekli yürüyene, yürüyen oturana, az olan çok olana | Her zaman çocuk olan | Kimse önce vermez | Her zaman en yaşlı olan
+- Doğru cevap: Binekli yürüyene, yürüyen oturana, az olan çok olana
+- Açıklama: Bu edep Buhârî’de geçen hadiste öğretilir.
+
+**DEEN-U27-S04-X009** · Selam, Ziyaret ve Misafir · true_false
+- Soru: Doğru mu, yanlış mı? Hasta ziyaretinde hastaya dua etmek ve onu fazla yormamak güzel bir edeptir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hz. Peygamber hastaları ziyaret eder, onlara dua ederdi (Buhârî).
+
+**DEEN-U27-S04-X010** · Selam, Ziyaret ve Misafir · true_false
+- Soru: Doğru mu, yanlış mı? Selam sadece tanıdığımız kişilere verilir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Hadiste “tanıdığına ve tanımadığına selam vermek” İslam’ın hayırlı işlerinden sayılmıştır (Buhârî).
+
+**DEEN-U27-S04-X011** · Selam, Ziyaret ve Misafir · missing_item
+- Soru: Eksik kavramı seç: Aksırıp “Elhamdülillah” diyene ___ denir.
+- Seçenekler: “Kolay gelsin” | “Afiyet olsun” | “Hoşça kal” | “Yerhamükellah”
+- Doğru cevap: “Yerhamükellah”
+- Açıklama: “Allah sana merhamet etsin” anlamındadır (Buhârî).
+
+**DEEN-U27-S04-X012** · Selam, Ziyaret ve Misafir · fill_blank
+- Soru: Boşluğu tamamla: “Selamı aranızda ___.”
+- Seçenekler: satın | yayın | unutun | saklayın
+- Doğru cevap: yayın
+- Açıklama: Müslim’de geçen hadis.
+
+**DEEN-U27-S04-X013** · Selam, Ziyaret ve Misafir · progressive_recall
+- Soru: İpucu olmadan tamamla: Nûr 24:27’ye göre başkasının evine ___ almadan girilmez.
+- Doğru cevap: izin
+- Açıklama: İzin istemek mahremiyete saygıdır.
+
+**DEEN-U27-S04-X014** · Selam, Ziyaret ve Misafir · matching
+- Soru: Durumları yapılacak davranışla eşleştir: Biri selam verdi, Biri hastalandı, Biri davet etti ve Biri vefat etti.
+- Eşleşmeler: Biri selam verdi → Selamını almak; Biri hastalandı → Ziyaret etmek; Biri davet etti → Davete icabet etmek; Biri vefat etti → Cenazesine katılmak
+- Açıklama: Bunlar Müslümanın Müslüman üzerindeki haklarındandır (Buhârî).
+
+**DEEN-U27-S04-X015** · Selam, Ziyaret ve Misafir · scenario
+- Soru: Evinize misafir geldi ve sen bilgisayar oyunu oynuyorsun. Ne yaparsın?
+- Seçenekler: Misafirin gitmesini beklerim | Oyuna devam edip selam vermem | Odamın kapısını kapatırım | Oyunu bırakıp misafiri güler yüzle karşılarım
+- Doğru cevap: Oyunu bırakıp misafiri güler yüzle karşılarım
+- Açıklama: Misafire ikram etmek ve onu güler yüzle karşılamak sünnettir.
+
+**DEEN-U27-S04-X016** · Selam, Ziyaret ve Misafir · error_spotting
+- Soru: “Hasta ziyaretinde saatlerce kalıp yüksek sesle konuşmak en güzel davranıştır.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Hastaya kötü haber vermek gerekir | Hasta ziyaret edilmez | Hasta ziyareti sadece doktorların işidir | Hasta ziyaretinde kısa kalmak, sakin olmak ve dua etmek güzeldir
+- Doğru cevap: Hasta ziyaretinde kısa kalmak, sakin olmak ve dua etmek güzeldir
+- Açıklama: Ziyaretin amacı hastayı sevindirmek ve ona dua etmektir.
+
+**DEEN-U27-S05-X001** · Topluma Faydalı Olmak · multiple_choice
+- Soru: Hadise göre insanların en hayırlısı kimdir?
+- Seçenekler: En çok harcayan | İnsanlara en faydalı olan | En çok bağıran | En çok uyuyan
+- Doğru cevap: İnsanlara en faydalı olan
+- Açıklama: “İnsanların en hayırlısı insanlara en faydalı olanıdır.” (Taberânî)
+
+**DEEN-U27-S05-X002** · Topluma Faydalı Olmak · multiple_choice
+- Soru: Hucurât 10’a göre müminler kardeş olduğuna göre ne yapılmalıdır?
+- Seçenekler: Hiç karışmamalı | Kardeşlerin arası düzeltilmeli | Kavgaları büyütmeli | Taraf tutup kışkırtmalı
+- Doğru cevap: Kardeşlerin arası düzeltilmeli
+- Açıklama: Hucurât 49:10: Müminler ancak kardeştir; kardeşlerinizin arasını düzeltin.
+
+**DEEN-U27-S05-X003** · Topluma Faydalı Olmak · multiple_choice
+- Soru: A‘râf 31’e göre yiyip içerken neye dikkat edilmelidir?
+- Seçenekler: Çok hızlı yemeye | İsraf etmemeye | Hep ayakta yemeye | Hiç su içmemeye
+- Doğru cevap: İsraf etmemeye
+- Açıklama: A‘râf 7:31: Yiyin, için fakat israf etmeyin; Allah israf edenleri sevmez.
+
+**DEEN-U27-S05-X004** · Topluma Faydalı Olmak · multiple_choice
+- Soru: Başkasının malına, emeğine veya onuruna zarar vermeye ne denir?
+- Seçenekler: Sadaka vermek | Tevazu | Kul hakkı çiğnemek | Sıla-i rahim
+- Doğru cevap: Kul hakkı çiğnemek
+- Açıklama: Kul hakkı, sahibi helal etmedikçe affedilmesi zor bir haktır.
+
+**DEEN-U27-S05-X005** · Topluma Faydalı Olmak · multiple_choice
+- Soru: Hadise göre ümmetin gerçek müflisi (iflas edeni) kimdir?
+- Seçenekler: İşini kaybeden kişi | Parası bitmiş kişi | Namaz ve oruçla gelip insanlara haksızlık ettiği için sevapları alınan kişi | Evi küçük olan kişi
+- Doğru cevap: Namaz ve oruçla gelip insanlara haksızlık ettiği için sevapları alınan kişi
+- Açıklama: Haksızlık ettiklerine sevapları verilir; yetmezse onların günahları ona yüklenir (Müslim).
+
+**DEEN-U27-S05-X006** · Topluma Faydalı Olmak · multiple_choice
+- Soru: Hadise göre bir Müslümanın diktiği ağaçtan insan veya hayvan yerse ne olur?
+- Seçenekler: Ceza alır | Ona sadaka sevabı yazılır | Ağacı kesmek zorunda kalır | Hiçbir sevap almaz
+- Doğru cevap: Ona sadaka sevabı yazılır
+- Açıklama: “Bir Müslüman ağaç diker de ondan insan veya hayvan yerse, bu onun için sadaka olur.” (Buhârî)
+
+**DEEN-U27-S05-X007** · Topluma Faydalı Olmak · multiple_choice
+- Soru: Âl-i İmrân 104’e göre içinizden nasıl bir topluluk bulunmalıdır?
+- Seçenekler: Sadece kendini düşünen | İyiliğe çağıran, iyiliği emredip kötülükten alıkoyan | Hiçbir şeye karışmayan | Herkesi eleştiren
+- Doğru cevap: İyiliğe çağıran, iyiliği emredip kötülükten alıkoyan
+- Açıklama: Âl-i İmrân 3:104: İçinizden hayra çağıran, iyiliği emredip kötülükten alıkoyan bir topluluk bulunsun.
+
+**DEEN-U27-S05-X008** · Topluma Faydalı Olmak · multiple_choice
+- Soru: Hadise göre kıyamet kopmak üzereyken elinde fidan olan kişiye ne tavsiye edilir?
+- Seçenekler: Gücü yetiyorsa onu dikmesi | Kaçması | Fidanı satması | Fidanı atması
+- Doğru cevap: Gücü yetiyorsa onu dikmesi
+- Açıklama: “Kıyamet kopuyorken birinizin elinde bir fidan varsa, onu dikebiliyorsa diksin.” (Ahmed b. Hanbel)
+
+**DEEN-U27-S05-X009** · Topluma Faydalı Olmak · true_false
+- Soru: Doğru mu, yanlış mı? Parkları, okulları ve sokakları temiz tutmak toplumsal bir sorumluluktur.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Ortak alanlar herkesin emanetidir; onları korumak kul hakkına saygıdır.
+
+**DEEN-U27-S05-X010** · Topluma Faydalı Olmak · true_false
+- Soru: Doğru mu, yanlış mı? Kul hakkı, sadece tövbe ederek hak sahibinin rızası olmadan tamamen ortadan kalkar.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Kul hakkında hakkın sahibine iade edilmesi veya helallik alınması gerekir.
+
+**DEEN-U27-S05-X011** · Topluma Faydalı Olmak · missing_item
+- Soru: Eksik kavramı seç: Hucurât 10’a göre müminler ancak ___.
+- Seçenekler: düşmandır | yabancıdır | rakiptir | kardeştir
+- Doğru cevap: kardeştir
+- Açıklama: Hucurât 49:10.
+
+**DEEN-U27-S05-X012** · Topluma Faydalı Olmak · fill_blank
+- Soru: Boşluğu tamamla: A‘râf 7:31: “Yiyin, için fakat ___ etmeyin.”
+- Seçenekler: israf | dua | paylaşım | şükür
+- Doğru cevap: israf
+- Açıklama: Allah israf edenleri sevmez.
+
+**DEEN-U27-S05-X013** · Topluma Faydalı Olmak · progressive_recall
+- Soru: İpucu olmadan tamamla: “İnsanların en hayırlısı insanlara en ___ olanıdır.”
+- Doğru cevap: faydalı
+- Açıklama: Taberânî’de geçen hadis.
+
+**DEEN-U27-S05-X014** · Topluma Faydalı Olmak · matching
+- Soru: Davranışları ilgili değerlerle eşleştir: Kavgalıları barıştırmak, Ağaç dikmek, Suyu boşa akıtmamak ve Ödünç alınanı geri vermek.
+- Eşleşmeler: Kavgalıları barıştırmak → Kardeşlik; Ağaç dikmek → Sadaka-i câriye; Suyu boşa akıtmamak → İsraftan kaçınmak; Ödünç alınanı geri vermek → Kul hakkına saygı
+- Açıklama: Topluma faydalı olmanın birçok yolu vardır.
+
+**DEEN-U27-S05-X015** · Topluma Faydalı Olmak · scenario
+- Soru: İki arkadaşın birbirine küstü ve ikisi de sana diğerini kötülüyor. Ne yaparsın?
+- Seçenekler: Birinin sözlerini diğerine iletirim | Kavgayı büyütürüm | Kötü sözleri taşımadan ikisinin arasını bulmaya çalışırım | Bir tarafı seçip diğerini dışlarım
+- Doğru cevap: Kötü sözleri taşımadan ikisinin arasını bulmaya çalışırım
+- Açıklama: Hucurât 49:10: Kardeşlerinizin arasını düzeltin.
+
+**DEEN-U27-S05-X016** · Topluma Faydalı Olmak · error_spotting
+- Soru: “Okulun sıralarına yazı yazmak kimseye zarar vermez.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Sıralar zaten bozulacaktır | Okul eşyaları kimsenin değildir | Ortak eşyaya zarar vermek herkesin hakkına zarar vermektir | Bu sadece okul müdürünü ilgilendirir
+- Doğru cevap: Ortak eşyaya zarar vermek herkesin hakkına zarar vermektir
+- Açıklama: Ortak mallara zarar vermek kul hakkına girer.
+
+**DEEN-U27-S06-X001** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: Anne babaya “öf” bile denmemesini emreden ayet hangisidir?
+- Seçenekler: Fil 105:1 | Fâtiha 1:1 | İsrâ 17:23 | Kevser 108:1
+- Doğru cevap: İsrâ 17:23
+- Açıklama: İsrâ 17:23.
+
+**DEEN-U27-S06-X002** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: Akrabaları gözetip ziyaret etmeye ne denir?
+- Seçenekler: Tecessüs | Sıla-i rahim | Gıybet | İsraf
+- Doğru cevap: Sıla-i rahim
+- Açıklama: Sıla-i rahim akrabalık bağlarını korumaktır.
+
+**DEEN-U27-S06-X003** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: Selama nasıl karşılık verilmelidir (Nisâ 86)?
+- Seçenekler: Kaba bir sözle | Daha güzeliyle ya da aynısıyla | Hiç cevap vermeyerek | Sadece el sallayarak
+- Doğru cevap: Daha güzeliyle ya da aynısıyla
+- Açıklama: Nisâ 4:86.
+
+**DEEN-U27-S06-X004** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: Cebrail komşu hakkında o kadar tavsiyede bulundu ki Hz. Peygamber ne sandı?
+- Seçenekler: Komşuyla konuşmanın yasak olduğunu | Komşuyu komşuya mirasçı kılacağını | Sadece akrabanın komşu sayıldığını | Komşunun önemsiz olduğunu
+- Doğru cevap: Komşuyu komşuya mirasçı kılacağını
+- Açıklama: Buhârî’de geçen hadis.
+
+**DEEN-U27-S06-X005** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Bir Müslümanın kardeşine üç günden fazla küs durması helal değildir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Buhârî’de geçen hadis.
+
+**DEEN-U27-S06-X006** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Başkasının evine izin almadan girmek serbesttir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Nûr 24:27.
+
+**DEEN-U27-S06-X007** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Allah israf edenleri sevmez.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: A‘râf 7:31.
+
+**DEEN-U27-S06-X008** · Akıllı Tekrar · multiple_choice
+- Soru: Hz. Peygamber iyiliğe en layık kişiyi sorana kaç kez “annen” dedi?
+- Seçenekler: Üç | İki | Beş | Bir
+- Doğru cevap: Üç
+- Açıklama: Dördüncüsünde “baban” dedi (Buhârî).
+
+**DEEN-U27-S06-X009** · Akıllı Tekrar · multiple_choice
+- Soru: Allah’a ve ahiret gününe iman eden misafirine ne yapmalıdır?
+- Seçenekler: Kapıyı kapatmalı | İkram etmeli | Ona kızmalı | Onu bekletmeli
+- Doğru cevap: İkram etmeli
+- Açıklama: Buhârî’de geçen hadis.
+
+**DEEN-U27-S06-X010** · Akıllı Tekrar · multiple_choice
+- Soru: Aşağıdakilerden hangisi Müslümanın Müslüman üzerindeki haklarından değildir?
+- Seçenekler: Hastalığında ziyaret etmek | Onun eşyasını izinsiz kullanmak | Davetine icabet etmek | Selamını almak
+- Doğru cevap: Onun eşyasını izinsiz kullanmak
+- Açıklama: Buhârî’deki hadiste sayılan haklar arasında böyle bir şey yoktur.
+
+**DEEN-U27-S06-X011** · Akıllı Tekrar · error_spotting
+- Soru: “İnsanların en hayırlısı en çok kazananıdır.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: İnsanların en hayırlısı insanlara en faydalı olanıdır | İnsanların en hayırlısı en çok konuşanıdır | İnsanların en hayırlısı en çok uyuyanıdır | İnsanların en hayırlısı en uzun boylu olanıdır
+- Doğru cevap: İnsanların en hayırlısı insanlara en faydalı olanıdır
+- Açıklama: Taberânî’de geçen hadis.
+
+**DEEN-U27-S06-X012** · Akıllı Tekrar · error_spotting
+- Soru: “Rûm 21’e göre Allah eşlerin arasına kıskançlık koymuştur.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Rûm 21 sadece ticareti anlatır | Rûm 21’e göre Allah eşlerin arasına sevgi ve merhamet koymuştur | Rûm 21 eşlerden hiç bahsetmez | Rûm 21’e göre eşler birbirine yabancıdır
+- Doğru cevap: Rûm 21’e göre Allah eşlerin arasına sevgi ve merhamet koymuştur
+- Açıklama: Rûm 30:21.
+
+**DEEN-U27-S07-X001** · Ünite Challenge · multiple_choice
+- Soru: Anne babası vefat etmiş biri onlara iyiliğe nasıl devam edebilir?
+- Seçenekler: Onlara dua ederek, dostlarına ve akrabalarına iyilik ederek | Sadece mezarlarını boyayarak | Hiçbir şekilde devam edemez | Onları unutarak
+- Doğru cevap: Onlara dua ederek, dostlarına ve akrabalarına iyilik ederek
+- Açıklama: Ebû Dâvûd’daki hadiste bu yollar sayılır.
+
+**DEEN-U27-S07-X002** · Ünite Challenge · multiple_choice
+- Soru: Doğum günü partisini apartmanda yapacaksınız. Komşuluk hakkına en uygun davranış hangisidir?
+- Seçenekler: Gece yarısına kadar yüksek müzik açmak | Merdivenleri kirletip bırakmak | Komşuların kapısını çalıp kaçmak | Komşulara önceden haber verip geç saatlerde sesi kısmak
+- Doğru cevap: Komşulara önceden haber verip geç saatlerde sesi kısmak
+- Açıklama: Komşuya eziyet vermemek komşuluk hakkının temelidir.
+
+**DEEN-U27-S07-X003** · Ünite Challenge · multiple_choice
+- Soru: Başkalarının evine izin ve selamla girmeyi öğreten ayet hangisidir?
+- Seçenekler: Rûm 30:21 | İsrâ 17:23 | A‘râf 7:31 | Nûr 24:27
+- Doğru cevap: Nûr 24:27
+- Açıklama: Nûr 24:27.
+
+**DEEN-U27-S07-X004** · Ünite Challenge · multiple_choice
+- Soru: Namazı, orucu olduğu hâlde insanlara haksızlık eden birinin durumu ne öğretir?
+- Seçenekler: Kul hakkının önemsiz olduğunu | İbadetlerin yanında kul hakkına da dikkat etmek gerektiğini | Sadece namazın yettiğini | İbadetin gereksiz olduğunu
+- Doğru cevap: İbadetlerin yanında kul hakkına da dikkat etmek gerektiğini
+- Açıklama: Müslim’deki müflis hadisi kul hakkının ağırlığını anlatır.
+
+**DEEN-U27-S07-X005** · Ünite Challenge · error_spotting
+- Soru: “Hadise göre akrabalarını gözetmek rızkı azaltır.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Akrabalık bağının önemi yoktur | Hadise göre akrabalarını gözetmek rızkı genişletir ve ömrü bereketlendirir | Akraba ziyareti yasaktır | Akraba sadece bayramda aranır
+- Doğru cevap: Hadise göre akrabalarını gözetmek rızkı genişletir ve ömrü bereketlendirir
+- Açıklama: Buhârî’de geçen hadis.
+
+**DEEN-U27-S07-X006** · Ünite Challenge · error_spotting
+- Soru: “Selamlaşmak insanlar arasında soğukluğa yol açar.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Selam sadece büyüklere verilir | Selam sadece camide verilir | Selam vermek gereksizdir | Selamı yaymak insanlar arasında sevgiyi artırır
+- Doğru cevap: Selamı yaymak insanlar arasında sevgiyi artırır
+- Açıklama: Müslim’de geçen hadis.
+
+**DEEN-U27-S07-X007** · Ünite Challenge · progressive_recall
+- Soru: İpucu olmadan tamamla: Akrabalık bağlarını korumaya sıla-i ___ denir.
+- Doğru cevap: rahim
+- Açıklama: Rahim, akrabalık bağı demektir.
+
+**DEEN-U27-S07-X008** · Ünite Challenge · progressive_recall
+- Soru: İpucu olmadan tamamla: Hucurât 49:10: “Müminler ancak ___.”
+- Doğru cevap: kardeştir
+- Açıklama: Bu kardeşlik barışmayı gerektirir.
+
+**DEEN-U27-S07-X009** · Ünite Challenge · progressive_recall
+- Soru: İpucu olmadan tamamla: Aksırıp hamd edene “Yerhamükellah” demek Müslümanın Müslüman üzerindeki ___ biridir.
+- Doğru cevap: haklarından
+- Açıklama: Buhârî’de geçen hadis.
+
+**DEEN-U27-S07-X010** · Ünite Challenge · multiple_choice
+- Soru: Misafirlerine semiz bir buzağı ikram eden peygamber hangisidir?
+- Seçenekler: Hz. Yunus | Hz. Nuh | Hz. İbrahim | Hz. Musa
+- Doğru cevap: Hz. İbrahim
+- Açıklama: Zâriyât 51:26–27.
+
+**DEEN-U27-S07-X011** · Ünite Challenge · matching
+- Soru: Bu ayetleri anlattıkları konularla eşleştir: İsrâ 17:23, Nisâ 4:36, Nisâ 4:86 ve Hucurât 49:10.
+- Eşleşmeler: İsrâ 17:23 → Anne babaya iyilik; Nisâ 4:36 → Komşu hakkı; Nisâ 4:86 → Selama karşılık; Hucurât 49:10 → Kardeşleri barıştırmak
+- Açıklama: Kur’an aile ve toplum ilişkilerini düzenler.
+
+**DEEN-U27-S07-X012** · Ünite Challenge · matching
+- Soru: Kişileri onlara karşı en uygun davranışla eşleştir: Misafir, Hasta, Yaşlı ve Küçük çocuk.
+- Eşleşmeler: Misafir → İkram; Hasta → Ziyaret ve dua; Yaşlı → Saygı ve yardım; Küçük çocuk → Şefkat
+- Açıklama: Her insana durumuna uygun bir iyilik yapılır.
+
+**DEEN-U27-S07-X013** · Ünite Challenge · scenario
+- Soru: Arkadaşından ödünç aldığın kitabı kaybettin. Ne yaparsın?
+- Seçenekler: Kitabın onda olduğunu iddia ederim | Hiç söz etmem | Durumu dürüstçe söyleyip yenisini alırım | Başka birinin aldığını söylerim
+- Doğru cevap: Durumu dürüstçe söyleyip yenisini alırım
+- Açıklama: Ödünç alınan emanettir; kaybedilen kul hakkı telafi edilmelidir.
+
+**DEEN-U27-S07-X014** · Ünite Challenge · true_false
+- Soru: Doğru mu, yanlış mı? Dikilen ağaçtan hayvanların yemesi bile dikene sadaka sevabı kazandırır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Buhârî’de geçen hadis.
