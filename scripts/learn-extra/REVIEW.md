@@ -10473,3 +10473,590 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Seçenekler: Doğru | Yanlış
 - Doğru cevap: Doğru
 - Açıklama: İstanbul kuşatmasında vefat edip surların dibine defnedildi.
+
+## U25 — islam_takvimi (100 soru)
+
+**DEEN-U25-S01-X001** · Hicrî Takvim · multiple_choice
+- Soru: Hicrî takvim hangi olayı başlangıç kabul eder?
+- Seçenekler: Hz. Peygamber’in doğumunu | Mekke’nin fethini | Bedir savaşını | Hz. Peygamber’in Mekke’den Medine’ye hicretini
+- Doğru cevap: Hz. Peygamber’in Mekke’den Medine’ye hicretini
+- Açıklama: Hicrî takvim adını hicretten alır; başlangıcı miladi 622 yılıdır.
+
+**DEEN-U25-S01-X002** · Hicrî Takvim · multiple_choice
+- Soru: Hicrî takvim neyin hareketine göre hesaplanır?
+- Seçenekler: Ay’ın Dünya etrafındaki dönüşüne | Yıldızların parlaklığına | Güneş’in doğuşuna göre mevsimlere | Rüzgârların yönüne
+- Doğru cevap: Ay’ın Dünya etrafındaki dönüşüne
+- Açıklama: Hicrî takvim kamerî (ay) takvimidir; aylar hilalle başlar.
+
+**DEEN-U25-S01-X003** · Hicrî Takvim · multiple_choice
+- Soru: Bir kamerî yıl yaklaşık kaç gündür?
+- Seçenekler: 354 gün | 300 gün | 365 gün | 400 gün
+- Doğru cevap: 354 gün
+- Açıklama: Kamerî yıl güneş yılından yaklaşık 11 gün kısadır.
+
+**DEEN-U25-S01-X004** · Hicrî Takvim · multiple_choice
+- Soru: Bir kamerî ay kaç gün sürer?
+- Seçenekler: Her zaman 28 gün | 29 veya 30 gün | 15 gün | Her zaman 31 gün
+- Doğru cevap: 29 veya 30 gün
+- Açıklama: Kamerî ay, hilalin görünmesine göre 29 ya da 30 gün çeker.
+
+**DEEN-U25-S01-X005** · Hicrî Takvim · multiple_choice
+- Soru: Yeni kamerî ayın başladığı, gökyüzünde görülen ince ay şekline ne denir?
+- Seçenekler: Kutup yıldızı | Tutulma | Hilal | Dolunay
+- Doğru cevap: Hilal
+- Açıklama: Bakara 2:189: Hilaller insanlar ve hac için vakit ölçüleridir.
+
+**DEEN-U25-S01-X006** · Hicrî Takvim · true_false
+- Soru: Doğru mu, yanlış mı? Ramazan ayı her yıl güneş takvimine göre yaklaşık 10–11 gün öne kayar.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Bu yüzden Ramazan zamanla yılın bütün mevsimlerine denk gelir.
+
+**DEEN-U25-S01-X007** · Hicrî Takvim · true_false
+- Soru: Doğru mu, yanlış mı? Kur’an’a göre Allah katında ayların sayısı on ikidir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Tevbe 9:36: Allah katında ayların sayısı on ikidir.
+
+**DEEN-U25-S01-X008** · Hicrî Takvim · missing_item
+- Soru: Eksik kavramı seç: Kur’an’a göre hilaller insanlar ve ___ için vakit ölçüleridir.
+- Seçenekler: ticaret | savaş | hac | yolculuk
+- Doğru cevap: hac
+- Açıklama: Bakara 2:189’da hilallerin insanlar ve hac için vakit ölçüsü olduğu bildirilir.
+
+**DEEN-U25-S01-X009** · Hicrî Takvim · fill_blank
+- Soru: Boşluğu tamamla: Hicrî yıllar genellikle rakamın yanına “___” kısaltması yazılarak gösterilir.
+- Seçenekler: H. | K. | Ö. | M.
+- Doğru cevap: H.
+- Açıklama: Örneğin “1447 H.” hicrî yılı gösterir; “M.” ise miladi yıldır.
+
+**DEEN-U25-S01-X010** · Hicrî Takvim · progressive_recall
+- Soru: İpucu olmadan tamamla: Ay’ın hareketine dayanan takvime ___ takvim denir.
+- Doğru cevap: kamerî
+- Açıklama: Kamer, Arapçada ay demektir.
+
+**DEEN-U25-S01-X011** · Hicrî Takvim · scenario
+- Soru: Arkadaşın “Geçen yıl bayram yazdaydı, bu yıl neden daha erken?” diye soruyor. En doğru cevap hangisi?
+- Seçenekler: Bayramlar kamerî takvime göre olduğu için her yıl yaklaşık 11 gün öne gelir | Takvim yanlış basılmıştır | Bayram her yıl aynı gündedir | Bayram tarihleri rastgele seçilir
+- Doğru cevap: Bayramlar kamerî takvime göre olduğu için her yıl yaklaşık 11 gün öne gelir
+- Açıklama: Kamerî yıl güneş yılından kısa olduğu için tarihler her yıl kayar.
+
+**DEEN-U25-S01-X012** · Hicrî Takvim · matching
+- Soru: Kavramları açıklamalarıyla eşleştir: Hilal, Kamerî yıl, Şemsî yıl ve Hicret.
+- Eşleşmeler: Hilal → Yeni ayın ilk ince görüntüsü; Kamerî yıl → Yaklaşık 354 gün; Şemsî yıl → Yaklaşık 365 gün; Hicret → Takvimin başlangıç olayı
+- Açıklama: Takvimle ilgili temel kavramlar.
+
+**DEEN-U25-S01-X013** · Hicrî Takvim · error_spotting
+- Soru: “Hicrî takvim Hz. Peygamber’in doğduğu yılı başlangıç kabul eder.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Hicrî takvim Mekke’nin fethiyle başlar | Hicrî takvimin başlangıcı yoktur | Hicrî takvim hicret yılını (622) başlangıç kabul eder | Hicrî takvim güneşe göre hesaplanır
+- Doğru cevap: Hicrî takvim hicret yılını (622) başlangıç kabul eder
+- Açıklama: Takvim adını hicretten alır.
+
+**DEEN-U25-S01-X014** · Hicrî Takvim · multiple_choice
+- Soru: Hicrî takvimde yeni gün ne zaman başlar?
+- Seçenekler: Güneş battığında | İkindi vaktinde | Öğle vaktinde | Gece yarısı saat 12’de
+- Doğru cevap: Güneş battığında
+- Açıklama: Bu yüzden mübarek geceler, o günün öncesindeki akşam başlar.
+
+**DEEN-U25-S02-X001** · Kamerî Aylar · multiple_choice
+- Soru: Hicrî takvimin ilk ayı hangisidir?
+- Seçenekler: Zilhicce | Recep | Ramazan | Muharrem
+- Doğru cevap: Muharrem
+- Açıklama: Hicrî yılbaşı 1 Muharrem’dir.
+
+**DEEN-U25-S02-X002** · Kamerî Aylar · multiple_choice
+- Soru: Hicrî takvimin son ayı hangisidir?
+- Seçenekler: Muharrem | Şevval | Zilhicce | Şaban
+- Doğru cevap: Zilhicce
+- Açıklama: Zilhicce, hac ve Kurban Bayramı’nın da ayıdır.
+
+**DEEN-U25-S02-X003** · Kamerî Aylar · multiple_choice
+- Soru: Ramazan hicrî takvimin kaçıncı ayıdır?
+- Seçenekler: Dokuzuncu | Birinci | Yedinci | On ikinci
+- Doğru cevap: Dokuzuncu
+- Açıklama: Ramazan’dan önce Şaban, sonra Şevval gelir.
+
+**DEEN-U25-S02-X004** · Kamerî Aylar · multiple_choice
+- Soru: Kur’an’da “haram aylar” olarak anılan dört ay hangileridir?
+- Seçenekler: Sadece Ramazan ve Şaban | Rebîülevvel, Rebîülâhir, Cemâziyelevvel ve Cemâziyelâhir | Zilkade, Zilhicce, Muharrem ve Recep | Ramazan, Şevval, Şaban ve Safer
+- Doğru cevap: Zilkade, Zilhicce, Muharrem ve Recep
+- Açıklama: Tevbe 9:36’da dört ayın haram (saygın) olduğu bildirilir; sahih hadiste bu aylar sayılır (Buhârî).
+
+**DEEN-U25-S02-X005** · Kamerî Aylar · multiple_choice
+- Soru: Ramazan ayından hemen sonra gelen ay hangisidir?
+- Seçenekler: Zilkade | Şaban | Muharrem | Şevval
+- Doğru cevap: Şevval
+- Açıklama: Ramazan biter, 1 Şevval’de Ramazan Bayramı başlar.
+
+**DEEN-U25-S02-X006** · Kamerî Aylar · multiple_choice
+- Soru: Hz. Peygamber’in doğumu genellikle hangi ayda anılır?
+- Seçenekler: Zilhicce | Rebîülevvel | Ramazan | Şevval
+- Doğru cevap: Rebîülevvel
+- Açıklama: Mevlid, yaygın olarak 12 Rebîülevvel’de anılır.
+
+**DEEN-U25-S02-X007** · Kamerî Aylar · matching
+- Soru: Ayları onlarla ilgili günlerle eşleştir: Muharrem, Ramazan, Şevval ve Zilhicce.
+- Eşleşmeler: Muharrem → Âşûrâ günü; Ramazan → Oruç ayı; Şevval → Ramazan Bayramı; Zilhicce → Kurban Bayramı
+- Açıklama: Her ayın öne çıkan günleri vardır.
+
+**DEEN-U25-S02-X008** · Kamerî Aylar · matching
+- Soru: Ayları sıra numaralarıyla eşleştir: Muharrem, Recep, Şaban ve Ramazan.
+- Eşleşmeler: Muharrem → 1.; Recep → 7.; Şaban → 8.; Ramazan → 9.
+- Açıklama: Ayların sırası: Muharrem, Safer, Rebîülevvel, Rebîülâhir, Cemâziyelevvel, Cemâziyelâhir, Recep, Şaban, Ramazan, Şevval, Zilkade, Zilhicce.
+
+**DEEN-U25-S02-X009** · Kamerî Aylar · true_false
+- Soru: Doğru mu, yanlış mı? Şaban ayı Ramazan’dan hemen önce gelir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Sıra: Recep, Şaban, Ramazan.
+
+**DEEN-U25-S02-X010** · Kamerî Aylar · true_false
+- Soru: Doğru mu, yanlış mı? Hicrî takvimde bir yıl on üç aydır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Hicrî yıl da on iki aydır (Tevbe 9:36).
+
+**DEEN-U25-S02-X011** · Kamerî Aylar · fill_blank
+- Soru: Boşluğu tamamla: Muharrem’den sonra gelen ay ___ ayıdır.
+- Seçenekler: Safer | Şaban | Recep | Şevval
+- Doğru cevap: Safer
+- Açıklama: Safer hicrî takvimin ikinci ayıdır.
+
+**DEEN-U25-S02-X012** · Kamerî Aylar · fill_blank
+- Soru: Boşluğu tamamla: Recep, Şaban ve Ramazan’a birlikte “üç ___” denir.
+- Seçenekler: günler | yıllar | aylar | haftalar
+- Doğru cevap: aylar
+- Açıklama: Türkiye’de bu üç ay “üç aylar” olarak bilinir ve ibadetlere özen gösterilir.
+
+**DEEN-U25-S02-X013** · Kamerî Aylar · progressive_recall
+- Soru: İpucu olmadan tamamla: Hicrî yılbaşı 1 ___ tarihidir.
+- Doğru cevap: Muharrem
+- Açıklama: Muharrem hicrî yılın ilk ayıdır.
+
+**DEEN-U25-S02-X014** · Kamerî Aylar · scenario
+- Soru: Haram aylarda Müslümanlar özellikle neye dikkat eder?
+- Seçenekler: İbadeti tamamen bırakmaya | Her türlü kuralı bırakmaya | Sadece eğlenmeye | Haksızlık ve kavgadan kaçınıp iyiliğe daha çok özen göstermeye
+- Doğru cevap: Haksızlık ve kavgadan kaçınıp iyiliğe daha çok özen göstermeye
+- Açıklama: Tevbe 9:36: O aylarda kendinize zulmetmeyin.
+
+**DEEN-U25-S03-X001** · Ramazan ve Kadir Gecesi · multiple_choice
+- Soru: Bakara 185’e göre Ramazan ayında ne indirilmeye başlandı?
+- Seçenekler: Zebur | Kur’an | Tevrat | İncil
+- Doğru cevap: Kur’an
+- Açıklama: Bakara 2:185: Ramazan ayı, Kur’an’ın indirildiği aydır.
+
+**DEEN-U25-S03-X002** · Ramazan ve Kadir Gecesi · multiple_choice
+- Soru: Kur’an’a göre Kadir gecesi kaç aydan daha hayırlıdır?
+- Seçenekler: On aydan | Yüz aydan | Bir aydan | Bin aydan
+- Doğru cevap: Bin aydan
+- Açıklama: Kadr 97:3: Kadir gecesi bin aydan daha hayırlıdır.
+
+**DEEN-U25-S03-X003** · Ramazan ve Kadir Gecesi · multiple_choice
+- Soru: Hz. Peygamber Kadir gecesini en çok hangi gecelerde aramayı tavsiye etti?
+- Seçenekler: Ramazan’ın son on gecesinin tek gecelerinde | Şevval’in ilk gecesinde | Ramazan’ın ilk gecesinde | Recep’in ilk cuma gecesinde
+- Doğru cevap: Ramazan’ın son on gecesinin tek gecelerinde
+- Açıklama: “Kadir gecesini Ramazan’ın son on gecesinin teklerinde arayın.” (Buhârî)
+
+**DEEN-U25-S03-X004** · Ramazan ve Kadir Gecesi · multiple_choice
+- Soru: Türkiye’de Kadir gecesi genellikle Ramazan’ın hangi gecesi ihya edilir?
+- Seçenekler: 1. gecesi | 27. gecesi | 30. gecesi | 15. gecesi
+- Doğru cevap: 27. gecesi
+- Açıklama: Kesin tarihi bilinmez; 27. gece güçlü kabul edildiği için o gece ihya edilir.
+
+**DEEN-U25-S03-X005** · Ramazan ve Kadir Gecesi · multiple_choice
+- Soru: Hz. Âişe Kadir gecesinde ne diye dua etmesini sorduğunda Hz. Peygamber hangi duayı öğretti?
+- Seçenekler: “Allah’ım, bana çok mal ver.” | “Allah’ım, beni meşhur et.” | “Allah’ım, sen affedicisin, affı seversin; beni affet.” | Hiçbir dua öğretmedi
+- Doğru cevap: “Allah’ım, sen affedicisin, affı seversin; beni affet.”
+- Açıklama: Allâhümme inneke afüvvün tuhibbü’l-afve fa‘fü annî (Tirmizî).
+
+**DEEN-U25-S03-X006** · Ramazan ve Kadir Gecesi · multiple_choice
+- Soru: Hz. Peygamber Ramazan’ın son on gününde camide ibadete çekilirdi. Buna ne denir?
+- Seçenekler: Sahur | İftar | İtikâf | Teravih
+- Doğru cevap: İtikâf
+- Açıklama: Hz. Peygamber her Ramazan’ın son on gününde itikâfa girerdi (Buhârî).
+
+**DEEN-U25-S03-X007** · Ramazan ve Kadir Gecesi · multiple_choice
+- Soru: Ramazan gecelerinde yatsıdan sonra kılınan namaza ne denir?
+- Seçenekler: Cuma namazı | Cenaze namazı | Bayram namazı | Teravih
+- Doğru cevap: Teravih
+- Açıklama: Teravih, Ramazan’a özgü bir sünnet namazdır.
+
+**DEEN-U25-S03-X008** · Ramazan ve Kadir Gecesi · true_false
+- Soru: Doğru mu, yanlış mı? Kadr suresine göre o gece melekler ve Ruh (Cebrail) yeryüzüne iner.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Kadr 97:4: O gece melekler ve Ruh iner.
+
+**DEEN-U25-S03-X009** · Ramazan ve Kadir Gecesi · true_false
+- Soru: Doğru mu, yanlış mı? Kadir gecesinin hangi gece olduğu kesin olarak bildirilmiştir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Kesin tarihi bildirilmemiştir; Müslümanlar onu son on gecede arar.
+
+**DEEN-U25-S03-X010** · Ramazan ve Kadir Gecesi · missing_item
+- Soru: Eksik kavramı seç: Kadr suresine göre o gece ___ doğuşuna kadar bir esenliktir.
+- Seçenekler: öğle vaktine | ertesi akşamın | güneşin batışına | tan yerinin
+- Doğru cevap: tan yerinin
+- Açıklama: Kadr 97:5: O gece tan yerinin ağarmasına kadar bir esenliktir.
+
+**DEEN-U25-S03-X011** · Ramazan ve Kadir Gecesi · fill_blank
+- Soru: Boşluğu tamamla: Hadise göre Ramazan girince ___ kapıları açılır.
+- Seçenekler: okul | çarşı | şehir | cennet
+- Doğru cevap: cennet
+- Açıklama: “Ramazan girince cennet kapıları açılır.” (Buhârî)
+
+**DEEN-U25-S03-X012** · Ramazan ve Kadir Gecesi · progressive_recall
+- Soru: İpucu olmadan tamamla: Ramazan’ın son on gününde camide ibadete çekilmeye ___ denir.
+- Doğru cevap: itikâf
+- Açıklama: İtikâf, ibadet niyetiyle camide kalmaktır.
+
+**DEEN-U25-S03-X013** · Ramazan ve Kadir Gecesi · scenario
+- Soru: Kadir gecesini değerlendirmek isteyen bir kişi ne yapabilir?
+- Seçenekler: Başkalarını rahatsız eder | Bütün geceyi kavga ederek geçirir | Hiçbir şey yapmadan uyur ve bunu ibadet sayar | Namaz, Kur’an, dua ve tövbe ile geceyi ihya edebilir
+- Doğru cevap: Namaz, Kur’an, dua ve tövbe ile geceyi ihya edebilir
+- Açıklama: “Kim Kadir gecesini iman ederek ve sevabını Allah’tan umarak ihya ederse geçmiş günahları bağışlanır.” (Buhârî)
+
+**DEEN-U25-S03-X014** · Ramazan ve Kadir Gecesi · error_spotting
+- Soru: “Kadir gecesi Şevval ayındadır.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Kadir gecesi her ay tekrarlanır | Kadir gecesi Zilhicce’dedir | Kadir gecesi Ramazan ayındadır | Kadir gecesi Muharrem’dedir
+- Doğru cevap: Kadir gecesi Ramazan ayındadır
+- Açıklama: Kur’an Ramazan’da indirildi; Kadir gecesi de Ramazan’dadır.
+
+**DEEN-U25-S04-X001** · Mübarek Gün ve Geceler · multiple_choice
+- Soru: Türkiye’de bazı mübarek gecelere neden “kandil” denir?
+- Seçenekler: Kandil adlı bir sahabeden | Gökte kandil göründüğü için | O gece herkes mum sattığı için | Eskiden bu gecelerde camilerin kandillerle aydınlatılmasından
+- Doğru cevap: Eskiden bu gecelerde camilerin kandillerle aydınlatılmasından
+- Açıklama: Mübarek gecelerde minareleri kandillerle aydınlatma geleneği bu adı vermiştir.
+
+**DEEN-U25-S04-X002** · Mübarek Gün ve Geceler · multiple_choice
+- Soru: Mevlid Kandili hangi olayı hatırlatır?
+- Seçenekler: Hz. Peygamber’in doğumunu | Hz. Peygamber’in vefatını | Hicreti | Mekke’nin fethini
+- Doğru cevap: Hz. Peygamber’in doğumunu
+- Açıklama: Mevlid, doğum demektir; Hz. Peygamber’in dünyaya gelişi anılır.
+
+**DEEN-U25-S04-X003** · Mübarek Gün ve Geceler · multiple_choice
+- Soru: Miraç Kandili hangi olayı hatırlatır?
+- Seçenekler: Hz. Peygamber’in İsrâ ve Mi‘râc yolculuğunu | Bedir zaferini | Kâbe’nin inşasını | İlk vahyi
+- Doğru cevap: Hz. Peygamber’in İsrâ ve Mi‘râc yolculuğunu
+- Açıklama: İsrâ 17:1’de bu gece yolculuğundan bahsedilir; beş vakit namaz bu yolculukta farz kılındı.
+
+**DEEN-U25-S04-X004** · Mübarek Gün ve Geceler · multiple_choice
+- Soru: Miraç’ta Müslümanlara farz kılınan ibadet hangisidir?
+- Seçenekler: Hac | Ramazan orucu | Beş vakit namaz | Zekât
+- Doğru cevap: Beş vakit namaz
+- Açıklama: Beş vakit namaz Mi‘râc gecesinde farz kılındı (Buhârî).
+
+**DEEN-U25-S04-X005** · Mübarek Gün ve Geceler · multiple_choice
+- Soru: Hz. Peygamber pazartesi orucu sorulunca “O gün ___” dedi. Hangisi doğrudur?
+- Seçenekler: Doğduğum gündür | İlk namazı kıldığım gündür | Hicret ettiğim gündür | Mekke’yi fethettiğim gündür
+- Doğru cevap: Doğduğum gündür
+- Açıklama: “O gün doğduğum ve bana vahyin geldiği gündür.” (Müslim)
+
+**DEEN-U25-S04-X006** · Mübarek Gün ve Geceler · multiple_choice
+- Soru: Âşûrâ günü hicrî takvimde hangi gündür?
+- Seçenekler: Muharrem’in 10. günü | Ramazan’ın 27. günü | Zilhicce’nin 9. günü | Şevval’in 1. günü
+- Doğru cevap: Muharrem’in 10. günü
+- Açıklama: Âşûrâ, “onuncu” anlamına gelir.
+
+**DEEN-U25-S04-X007** · Mübarek Gün ve Geceler · multiple_choice
+- Soru: Hadise göre Âşûrâ günü Allah hangi peygamberi ve kavmini Firavun’dan kurtardı?
+- Seçenekler: Hz. Nuh’u | Hz. Musa’yı | Hz. Yunus’u | Hz. İbrahim’i
+- Doğru cevap: Hz. Musa’yı
+- Açıklama: Hz. Peygamber, Musa’nın kurtuluşuna şükür olarak bu günde oruç tuttu (Buhârî).
+
+**DEEN-U25-S04-X008** · Mübarek Gün ve Geceler · multiple_choice
+- Soru: Kurban Bayramı’ndan önceki gün olan Zilhicce’nin 9. gününe ne denir?
+- Seçenekler: Cuma günü | Âşûrâ günü | Kadir günü | Arefe günü
+- Doğru cevap: Arefe günü
+- Açıklama: Hacılar arefe günü Arafat’ta vakfe yapar.
+
+**DEEN-U25-S04-X009** · Mübarek Gün ve Geceler · multiple_choice
+- Soru: Hadise göre salih amellerin Allah’a en sevimli olduğu günler hangileridir?
+- Seçenekler: Muharrem’in son on günü | Şevval’in son on günü | Safer’in ilk on günü | Zilhicce’nin ilk on günü
+- Doğru cevap: Zilhicce’nin ilk on günü
+- Açıklama: “Salih amellerin Allah’a bu on günden daha sevimli olduğu günler yoktur.” (Buhârî)
+
+**DEEN-U25-S04-X010** · Mübarek Gün ve Geceler · true_false
+- Soru: Doğru mu, yanlış mı? Cuma, Müslümanların haftalık bayramı gibidir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hadislerde cuma günü haftanın en hayırlı günü olarak anılır (Müslim).
+
+**DEEN-U25-S04-X011** · Mübarek Gün ve Geceler · true_false
+- Soru: Doğru mu, yanlış mı? Kandil gecelerinde özel bir namaz kılmak farzdır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Kandil gecelerine özel farz bir namaz yoktur; nafile ibadet, dua ve Kur’an okunur.
+
+**DEEN-U25-S04-X012** · Mübarek Gün ve Geceler · missing_item
+- Soru: Eksik kavramı seç: Hz. Peygamber Âşûrâ orucunu ___ günüyle birlikte tutmayı tavsiye etti.
+- Seçenekler: bayramın ilk | Ramazan’ın son | bir ay sonraki | bir önceki
+- Doğru cevap: bir önceki
+- Açıklama: Muharrem’in 9. ve 10. günlerini oruçla geçirmek tavsiye edilir (Müslim).
+
+**DEEN-U25-S04-X013** · Mübarek Gün ve Geceler · fill_blank
+- Soru: Boşluğu tamamla: Mescid-i Harâm’dan Mescid-i Aksâ’ya yapılan gece yolculuğuna ___ denir.
+- Seçenekler: Vakfe | Hicret | İsrâ | Fetih
+- Doğru cevap: İsrâ
+- Açıklama: İsrâ 17:1 bu yolculuğu anlatır.
+
+**DEEN-U25-S04-X014** · Mübarek Gün ve Geceler · progressive_recall
+- Soru: İpucu olmadan tamamla: Hz. Peygamber’in doğumunun anıldığı geceye ___ Kandili denir.
+- Doğru cevap: Mevlid
+- Açıklama: Mevlid, doğum anlamına gelir.
+
+**DEEN-U25-S04-X015** · Mübarek Gün ve Geceler · matching
+- Soru: Mübarek geceleri hatırlattıkları olaylarla eşleştir: Mevlid, Miraç, Kadir ve Âşûrâ.
+- Eşleşmeler: Mevlid → Hz. Peygamber’in doğumu; Miraç → Göklere yükseliş; Kadir → Kur’an’ın inmeye başlaması; Âşûrâ → Hz. Musa’nın kurtuluşu
+- Açıklama: Her mübarek gün ve gece bir olayı hatırlatır.
+
+**DEEN-U25-S04-X016** · Mübarek Gün ve Geceler · scenario
+- Soru: Kandil gecesi aileni ziyaret etmeye fırsatın var. En güzel davranış hangisi?
+- Seçenekler: Telefona gömülüp kimseyle konuşmamak | Sadece hediye beklemek | Aileyle buluşup dua etmek ve küsleri barıştırmak | Gece boyu başkalarını rahatsız etmek
+- Doğru cevap: Aileyle buluşup dua etmek ve küsleri barıştırmak
+- Açıklama: Mübarek geceler dua, iyilik ve akraba ziyareti için güzel fırsatlardır.
+
+**DEEN-U25-S05-X001** · Bayramlar ve Özel Oruçlar · multiple_choice
+- Soru: Hz. Peygamber Medine’de Müslümanlara hangi iki bayramı bildirdi?
+- Seçenekler: Mevlid ve Miraç | Yılbaşı ve doğum günü | Nevruz ve hasat bayramı | Ramazan Bayramı ve Kurban Bayramı
+- Doğru cevap: Ramazan Bayramı ve Kurban Bayramı
+- Açıklama: “Allah size onların yerine daha hayırlısını verdi: Kurban ve Ramazan bayramları.” (Ebû Dâvûd)
+
+**DEEN-U25-S05-X002** · Bayramlar ve Özel Oruçlar · multiple_choice
+- Soru: Ramazan Bayramı’nın diğer adı hangisidir?
+- Seçenekler: Îdü’l-Adhâ | Mevlid | Îdü’l-Fıtr | Âşûrâ
+- Doğru cevap: Îdü’l-Fıtr
+- Açıklama: Fıtr, orucu açmak anlamına gelir.
+
+**DEEN-U25-S05-X003** · Bayramlar ve Özel Oruçlar · multiple_choice
+- Soru: Kurban Bayramı’nın diğer adı hangisidir?
+- Seçenekler: Îdü’l-Fıtr | Leyle-i Berât | Îdü’l-Adhâ | Leyle-i Kadr
+- Doğru cevap: Îdü’l-Adhâ
+- Açıklama: Adhâ, kurban anlamındaki kelimeden gelir.
+
+**DEEN-U25-S05-X004** · Bayramlar ve Özel Oruçlar · multiple_choice
+- Soru: Bayram günlerinde oruç tutmak hakkında hüküm nedir?
+- Seçenekler: Bayramda iki gün oruç gerekir | Bayramın ilk günü oruç tutmak yasaktır | Bayramda oruç farzdır | Bayram orucu Ramazan’dan sevaplıdır
+- Doğru cevap: Bayramın ilk günü oruç tutmak yasaktır
+- Açıklama: Hz. Peygamber iki bayram gününde oruç tutmayı yasakladı (Buhârî).
+
+**DEEN-U25-S05-X005** · Bayramlar ve Özel Oruçlar · multiple_choice
+- Soru: Hadise göre Ramazan’dan sonra Şevval’de kaç gün oruç tutan bütün yılı oruçlu geçirmiş gibi olur?
+- Seçenekler: Altı gün | On gün | Otuz gün | İki gün
+- Doğru cevap: Altı gün
+- Açıklama: “Ramazan’ı tutup ardından Şevval’den altı gün oruç tutan, bütün yılı oruçlu geçirmiş gibidir.” (Müslim)
+
+**DEEN-U25-S05-X006** · Bayramlar ve Özel Oruçlar · multiple_choice
+- Soru: Hac yapmayanlar için arefe günü orucu hakkında hadiste ne bildirilir?
+- Seçenekler: Önceki ve sonraki yılın günahlarına kefaret olduğu umulur | Sadece hacılar tutabilir | Tutulması yasaktır | Hiçbir faydası yoktur
+- Doğru cevap: Önceki ve sonraki yılın günahlarına kefaret olduğu umulur
+- Açıklama: Arefe orucu iki yılın günahlarına kefaret olur (Müslim).
+
+**DEEN-U25-S05-X007** · Bayramlar ve Özel Oruçlar · multiple_choice
+- Soru: Hz. Peygamber haftanın hangi iki gününde nafile oruç tutmayı severdi?
+- Seçenekler: Pazartesi ve perşembe | Cumartesi ve pazar | Cuma ve cumartesi | Salı ve çarşamba
+- Doğru cevap: Pazartesi ve perşembe
+- Açıklama: “Ameller pazartesi ve perşembe günleri arz edilir; amelimin oruçlu iken arz edilmesini severim.” (Tirmizî)
+
+**DEEN-U25-S05-X008** · Bayramlar ve Özel Oruçlar · multiple_choice
+- Soru: Her kamerî ayın 13, 14 ve 15. günlerine ne denir?
+- Seçenekler: Teşrik günleri | Haram aylar | Eyyâm-ı bîz (beyaz günler) | Üç aylar
+- Doğru cevap: Eyyâm-ı bîz (beyaz günler)
+- Açıklama: Ay’ın dolunay olduğu bu günlerde oruç tutmak tavsiye edilir (Nesâî).
+
+**DEEN-U25-S05-X009** · Bayramlar ve Özel Oruçlar · true_false
+- Soru: Doğru mu, yanlış mı? Kurban Bayramı dört gündür.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Kurban Bayramı Zilhicce’nin 10, 11, 12 ve 13. günleridir.
+
+**DEEN-U25-S05-X010** · Bayramlar ve Özel Oruçlar · true_false
+- Soru: Doğru mu, yanlış mı? Ramazan Bayramı, Hz. Peygamber’in doğumunu kutlamak için konulmuştur.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Ramazan Bayramı, Ramazan orucunun tamamlanmasının sevincidir.
+
+**DEEN-U25-S05-X011** · Bayramlar ve Özel Oruçlar · missing_item
+- Soru: Eksik kavramı seç: Bakara 185’e göre orucu tamamlayınca Allah’ı ___ için tekbir getiririz.
+- Seçenekler: zengin ettiği | yorduğu | meşhur ettiği | doğru yola ilettiği
+- Doğru cevap: doğru yola ilettiği
+- Açıklama: Bakara 2:185: Sizi doğru yola ilettiği için Allah’ı tekbir edesiniz diye.
+
+**DEEN-U25-S05-X012** · Bayramlar ve Özel Oruçlar · fill_blank
+- Soru: Boşluğu tamamla: Kurban Bayramı’nda farz namazlardan sonra getirilen tekbirlere ___ tekbiri denir.
+- Seçenekler: teravih | teşrik | sahur | iftar
+- Doğru cevap: teşrik
+- Açıklama: Teşrik tekbirleri arefe sabahından bayramın dördüncü günü ikindiye kadar getirilir.
+
+**DEEN-U25-S05-X013** · Bayramlar ve Özel Oruçlar · progressive_recall
+- Soru: İpucu olmadan tamamla: Ramazan Bayramı’nın diğer adı Îdü’l-___ dır.
+- Doğru cevap: Fıtr
+- Açıklama: Fıtr, orucu açmak demektir.
+
+**DEEN-U25-S05-X014** · Bayramlar ve Özel Oruçlar · matching
+- Soru: Oruçları zamanlarıyla eşleştir: Âşûrâ orucu, Arefe orucu, Şevval orucu ve Beyaz günler.
+- Eşleşmeler: Âşûrâ orucu → Muharrem’in 10. günü; Arefe orucu → Zilhicce’nin 9. günü; Şevval orucu → Bayramdan sonra altı gün; Beyaz günler → Ayın 13, 14 ve 15. günleri
+- Açıklama: Ramazan dışında da tavsiye edilen nafile oruçlar vardır.
+
+**DEEN-U25-S05-X015** · Bayramlar ve Özel Oruçlar · scenario
+- Soru: Bayram sabahı nasıl davranmak sünnete uygundur?
+- Seçenekler: Kimseyle bayramlaşmamak | Küslükleri sürdürmek | Temizlenip güzel giyinmek, bayram namazına gitmek ve büyükleri ziyaret etmek | Bütün gün uyumak
+- Doğru cevap: Temizlenip güzel giyinmek, bayram namazına gitmek ve büyükleri ziyaret etmek
+- Açıklama: Hz. Peygamber bayramlarda güzel elbiselerini giyerdi; bayram sevinç ve kaynaşma günüdür.
+
+**DEEN-U25-S05-X016** · Bayramlar ve Özel Oruçlar · error_spotting
+- Soru: “Kurban Bayramı Şevval ayındadır.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Kurban Bayramı Recep’tedir | Kurban Bayramı Ramazan’dadır | Kurban Bayramı Muharrem’dedir | Kurban Bayramı Zilhicce ayındadır
+- Doğru cevap: Kurban Bayramı Zilhicce ayındadır
+- Açıklama: Kurban Bayramı 10 Zilhicce’de başlar; Şevval’de Ramazan Bayramı vardır.
+
+**DEEN-U25-S06-X001** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: Hicrî takvimin başlangıç olayı nedir?
+- Seçenekler: Mekke’nin fethi | Bedir savaşı | Hz. Peygamber’in doğumu | Hicret
+- Doğru cevap: Hicret
+- Açıklama: Takvim adını hicretten alır.
+
+**DEEN-U25-S06-X002** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: Hicrî yılın ilk ayı hangisidir?
+- Seçenekler: Muharrem | Şevval | Ramazan | Recep
+- Doğru cevap: Muharrem
+- Açıklama: Hicrî yılbaşı 1 Muharrem’dir.
+
+**DEEN-U25-S06-X003** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: Kadir gecesi ne kadar zamandan daha hayırlıdır?
+- Seçenekler: Bir yıldan | Bin aydan | On günden | Bir haftadan
+- Doğru cevap: Bin aydan
+- Açıklama: Kadr 97:3.
+
+**DEEN-U25-S06-X004** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: Âşûrâ günü hangi ayın onuncu günüdür?
+- Seçenekler: Şaban | Zilhicce | Muharrem | Ramazan
+- Doğru cevap: Muharrem
+- Açıklama: Âşûrâ Muharrem’in onuncu günüdür.
+
+**DEEN-U25-S06-X005** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Kamerî yıl, güneş yılından uzundur.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Kamerî yıl yaklaşık 354 gündür; güneş yılından yaklaşık 11 gün kısadır.
+
+**DEEN-U25-S06-X006** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Beş vakit namaz Miraç’ta farz kılındı.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Mi‘râc gecesinde beş vakit namaz farz kılındı (Buhârî).
+
+**DEEN-U25-S06-X007** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Ramazan Bayramı Şevval ayının ilk günüdür.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: 1 Şevval Ramazan Bayramı’dır.
+
+**DEEN-U25-S06-X008** · Akıllı Tekrar · multiple_choice
+- Soru: Arefe günü Zilhicce’nin kaçıncı günüdür?
+- Seçenekler: 15. | 9. | 27. | 1.
+- Doğru cevap: 9.
+- Açıklama: Arefe, Kurban Bayramı’ndan önceki gündür.
+
+**DEEN-U25-S06-X009** · Akıllı Tekrar · multiple_choice
+- Soru: Şevval’de tavsiye edilen nafile oruç kaç gündür?
+- Seçenekler: Altı | Kırk | On | Üç
+- Doğru cevap: Altı
+- Açıklama: Müslim’de geçen hadise göre altı gündür.
+
+**DEEN-U25-S06-X010** · Akıllı Tekrar · multiple_choice
+- Soru: Aşağıdakilerden hangisi haram aylardan biri değildir?
+- Seçenekler: Muharrem | Ramazan | Recep | Zilkade
+- Doğru cevap: Ramazan
+- Açıklama: Haram aylar: Zilkade, Zilhicce, Muharrem ve Recep.
+
+**DEEN-U25-S06-X011** · Akıllı Tekrar · error_spotting
+- Soru: “Kamerî aylar her zaman 31 gündür.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Kamerî ayların uzunluğu yoktur | Kamerî aylar 25 gündür | Kamerî aylar 29 veya 30 gündür | Kamerî aylar 35 gündür
+- Doğru cevap: Kamerî aylar 29 veya 30 gündür
+- Açıklama: Ay hilalin görünmesine göre 29 ya da 30 gün çeker.
+
+**DEEN-U25-S06-X012** · Akıllı Tekrar · error_spotting
+- Soru: “Teravih namazı bayram sabahı kılınır.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Teravih Muharrem’de kılınır | Teravih sadece hacda kılınır | Teravih cuma öğlen kılınır | Teravih namazı Ramazan gecelerinde yatsıdan sonra kılınır
+- Doğru cevap: Teravih namazı Ramazan gecelerinde yatsıdan sonra kılınır
+- Açıklama: Bayram sabahı kılınan namaz bayram namazıdır.
+
+**DEEN-U25-S07-X001** · Ünite Challenge · multiple_choice
+- Soru: Bir kişi hayatı boyunca Ramazan’ı hem yazın hem kışın tutabilir. Bunun sebebi nedir?
+- Seçenekler: Ramazan’ın tarihi her yıl kurayla belirlendiği için | Kamerî takvim güneş yılına göre her yıl kaydığı için | Her ülkede farklı ayda tutulduğu için | Ramazan’ın kaç gün olduğu belli olmadığı için
+- Doğru cevap: Kamerî takvim güneş yılına göre her yıl kaydığı için
+- Açıklama: Yaklaşık 33 yılda Ramazan bütün mevsimleri dolaşır.
+
+**DEEN-U25-S07-X002** · Ünite Challenge · multiple_choice
+- Soru: Ramazan’ın 27. günü perşembeye denk geliyorsa, 27. gece olarak ihya edilen Kadir gecesi ne zaman başlar?
+- Seçenekler: Cuma sabahı | Çarşamba akşamı güneş batınca | Perşembe öğlen | Perşembe akşamı güneş batınca
+- Doğru cevap: Çarşamba akşamı güneş batınca
+- Açıklama: Hicrî takvimde gün akşamla başladığı için bir günün gecesi, o günden önceki akşam başlar.
+
+**DEEN-U25-S07-X003** · Ünite Challenge · multiple_choice
+- Soru: Hilallerin vakit ölçüsü olduğunu bildiren ayet hangisidir?
+- Seçenekler: Bakara 2:189 | Kadr 97:1 | Fâtiha 1:1 | İsrâ 17:1
+- Doğru cevap: Bakara 2:189
+- Açıklama: Bakara 2:189: Onlar insanlar ve hac için vakit ölçüleridir.
+
+**DEEN-U25-S07-X004** · Ünite Challenge · multiple_choice
+- Soru: Kur’an’ın Kadir gecesinde indirildiğini bildiren sure hangisidir?
+- Seçenekler: Kevser suresi | Nas suresi | Fil suresi | Kadr suresi
+- Doğru cevap: Kadr suresi
+- Açıklama: Kadr 97:1: Biz onu Kadir gecesinde indirdik.
+
+**DEEN-U25-S07-X005** · Ünite Challenge · error_spotting
+- Soru: “Hadise göre Âşûrâ günü Hz. İsa göğe yükseltildiği için oruç tutulur.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Âşûrâ günü Bedir savaşı oldu | Hadise göre Âşûrâ günü Hz. Musa ve kavmi Firavun’dan kurtarıldı | Âşûrâ günü Hz. Peygamber doğdu | Âşûrâ günü Kâbe inşa edildi
+- Doğru cevap: Hadise göre Âşûrâ günü Hz. Musa ve kavmi Firavun’dan kurtarıldı
+- Açıklama: Hz. Peygamber şükür olarak bu günü oruçla geçirdi (Buhârî).
+
+**DEEN-U25-S07-X006** · Ünite Challenge · error_spotting
+- Soru: “Kadir gecesinin Ramazan’ın ilk gecesi olduğu kesindir.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Kadir gecesi kesin bilinmez; son on gecenin teklerinde aranır | Kadir gecesi hiç yoktur | Kadir gecesi Şaban’ın ilk gecesidir | Kadir gecesi her cuma gecesidir
+- Doğru cevap: Kadir gecesi kesin bilinmez; son on gecenin teklerinde aranır
+- Açıklama: Kesin tarihin gizli tutulması, bütün geceleri değerlendirmeye teşvik eder.
+
+**DEEN-U25-S07-X007** · Ünite Challenge · progressive_recall
+- Soru: İpucu olmadan tamamla: Muharrem’in onuncu gününe ___ günü denir.
+- Doğru cevap: Âşûrâ
+- Açıklama: Âşûrâ, onuncu anlamına gelir.
+
+**DEEN-U25-S07-X008** · Ünite Challenge · progressive_recall
+- Soru: İpucu olmadan tamamla: Zilhicce’nin dokuzuncu gününe ___ günü denir.
+- Doğru cevap: arefe
+- Açıklama: Hacılar arefe günü Arafat’ta bulunur.
+
+**DEEN-U25-S07-X009** · Ünite Challenge · progressive_recall
+- Soru: İpucu olmadan tamamla: Mescid-i Harâm’dan Mescid-i Aksâ’ya gece yolculuğunu anlatan sure ___ suresidir.
+- Doğru cevap: İsrâ
+- Açıklama: İsrâ 17:1 bu yolculuğu anlatır.
+
+**DEEN-U25-S07-X010** · Ünite Challenge · multiple_choice
+- Soru: Aşağıdakilerden hangisi ayların doğru sırasıdır?
+- Seçenekler: Recep, Şaban, Ramazan, Şevval | Şevval, Ramazan, Recep, Şaban | Ramazan, Şaban, Recep, Şevval | Şaban, Recep, Şevval, Ramazan
+- Doğru cevap: Recep, Şaban, Ramazan, Şevval
+- Açıklama: Recep 7., Şaban 8., Ramazan 9., Şevval 10. aydır.
+
+**DEEN-U25-S07-X011** · Ünite Challenge · matching
+- Soru: Günleri tarihleriyle eşleştir: Hicrî yılbaşı, Ramazan Bayramı, Arefe ve Kurban Bayramı.
+- Eşleşmeler: Hicrî yılbaşı → 1 Muharrem; Ramazan Bayramı → 1 Şevval; Arefe → 9 Zilhicce; Kurban Bayramı → 10 Zilhicce
+- Açıklama: Bu tarihler hicrî takvime göredir.
+
+**DEEN-U25-S07-X012** · Ünite Challenge · matching
+- Soru: Arapça isimleri anlamlarıyla eşleştir: Hilal, Fıtr, Adhâ ve Âşûrâ.
+- Eşleşmeler: Hilal → Yeni ayın ilk görüntüsü; Fıtr → Orucu açma; Adhâ → Kurban; Âşûrâ → Onuncu
+- Açıklama: İsimlerin anlamları günlerin özünü anlatır.
+
+**DEEN-U25-S07-X013** · Ünite Challenge · scenario
+- Soru: Bayramda sınıfında yalnız kalan, ailesi uzakta olan bir arkadaşın var. Ne yaparsın?
+- Seçenekler: Onunla dalga geçerim | Bayramın bitmesini beklerim | Onu bayramlaşmaya ve evimize davet ederim | Onu görmezden gelirim
+- Doğru cevap: Onu bayramlaşmaya ve evimize davet ederim
+- Açıklama: Bayram sevinci paylaşıldıkça çoğalır; yalnız olanları gözetmek güzel ahlaktır.
+
+**DEEN-U25-S07-X014** · Ünite Challenge · true_false
+- Soru: Doğru mu, yanlış mı? Teravih namazı Ramazan ayına özgüdür.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Teravih yalnızca Ramazan gecelerinde kılınır.
