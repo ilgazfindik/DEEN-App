@@ -6944,3 +6944,592 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Seçenekler: Doğru | Yanlış
 - Doğru cevap: Doğru
 - Açıklama: Cemaatle namaz yirmi yedi derece daha faziletlidir (Buhârî, Müslim).
+
+## U19 — kurani_taniyalim (100 soru)
+
+**DEEN-U19-S01-X001** · Vahiy ve İniş · multiple_choice
+- Soru: Kur’an-ı Kerîm nedir?
+- Seçenekler: Sahabelerin yazdığı tarih kitabı | Hz. Peygamber’in kendi sözlerinden oluşan kitap | Allah’ın Hz. Muhammed’e vahiy yoluyla indirdiği son kitap | Hz. Musa’ya indirilen kitap
+- Doğru cevap: Allah’ın Hz. Muhammed’e vahiy yoluyla indirdiği son kitap
+- Açıklama: Kur’an, Allah’ın son peygamberi Hz. Muhammed’e indirdiği son ilahî kitaptır.
+
+**DEEN-U19-S01-X002** · Vahiy ve İniş · multiple_choice
+- Soru: Kur’an’ı Hz. Peygamber’e getiren melek hangisidir?
+- Seçenekler: Azrâil | Mîkâil | Cebrâil | İsrâfil
+- Doğru cevap: Cebrâil
+- Açıklama: Kur’an, vahiy meleği Cebrâil aracılığıyla indirilmiştir (Bakara 2:97).
+
+**DEEN-U19-S01-X003** · Vahiy ve İniş · multiple_choice
+- Soru: İlk inen âyetler hangi surenin başıdır?
+- Seçenekler: Alak Suresi | Fatiha Suresi | Bakara Suresi | Nas Suresi
+- Doğru cevap: Alak Suresi
+- Açıklama: İlk vahiy Alak Suresi’nin ilk beş âyetidir: “Oku! Yaratan Rabbinin adıyla…”
+
+**DEEN-U19-S01-X004** · Vahiy ve İniş · multiple_choice
+- Soru: İlk vahiy nerede gelmiştir?
+- Seçenekler: Medine’de | Hira mağarasında | Sevr mağarasında | Kâbe’nin içinde
+- Doğru cevap: Hira mağarasında
+- Açıklama: Hz. Peygamber Mekke yakınlarındaki Nur dağında, Hira mağarasında tefekkür ederken ilk vahiy geldi.
+
+**DEEN-U19-S01-X005** · Vahiy ve İniş · multiple_choice
+- Soru: İlk inen âyetin ilk emri hangisidir?
+- Seçenekler: “Oku!” | “Bekle!” | “Git!” | “Yaz!”
+- Doğru cevap: “Oku!”
+- Açıklama: Alak 96:1: “Yaratan Rabbinin adıyla oku!”
+
+**DEEN-U19-S01-X006** · Vahiy ve İniş · multiple_choice
+- Soru: Kadir Suresi’ne göre Kur’an hangi gecede indirilmeye başlanmıştır?
+- Seçenekler: Kadir gecesinde | Aşure gecesinde | Yılbaşı gecesinde | Bayram gecesinde
+- Doğru cevap: Kadir gecesinde
+- Açıklama: Kadir 97:1: “Biz onu Kadir gecesinde indirdik.”
+
+**DEEN-U19-S01-X007** · Vahiy ve İniş · multiple_choice
+- Soru: Kur’an yaklaşık kaç yılda indirilerek tamamlanmıştır?
+- Seçenekler: Üç ayda | Yüz yılda | Bir günde | Yaklaşık 23 yılda
+- Doğru cevap: Yaklaşık 23 yılda
+- Açıklama: Kur’an olaylara ve ihtiyaçlara göre parça parça, yaklaşık 23 yılda indirilmiştir.
+
+**DEEN-U19-S01-X008** · Vahiy ve İniş · true_false
+- Soru: Doğru mu, yanlış mı? Bakara 185’e göre Kur’an Ramazan ayında indirilmeye başlanmıştır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Bakara 2:185: “Ramazan ayı, insanlara yol gösterici olarak Kur’an’ın indirildiği aydır.”
+
+**DEEN-U19-S01-X009** · Vahiy ve İniş · true_false
+- Soru: Doğru mu, yanlış mı? Kur’an bir defada tek bir kitap halinde indirilmiştir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Kur’an olaylara bağlı olarak parça parça indirilmiştir (İsrâ 17:106).
+
+**DEEN-U19-S01-X010** · Vahiy ve İniş · missing_item
+- Soru: Eksik kavramı seç: Kur’an ___ dilinde indirilmiştir.
+- Seçenekler: Türk | Fars | Latin | Arap
+- Doğru cevap: Arap
+- Açıklama: Yûsuf 12:2: “Biz onu, anlayasınız diye Arapça bir Kur’an olarak indirdik.”
+
+**DEEN-U19-S01-X011** · Vahiy ve İniş · missing_item
+- Soru: Eksik kavramı seç: Kur’an, ilahî kitapların ___ olanıdır.
+- Seçenekler: en kısası | sonuncusu | ikincisi | ilki
+- Doğru cevap: sonuncusu
+- Açıklama: Kur’an, Tevrat, Zebur ve İncil’den sonra indirilen son ilahî kitaptır.
+
+**DEEN-U19-S01-X012** · Vahiy ve İniş · multiple_choice
+- Soru: Dinî anlamda “vahiy” nedir?
+- Seçenekler: Halk arasında anlatılan hikâye | Bir rüya yorumu | Allah’ın peygamberlerine bildirdiği ilahî mesaj | Bir şairin yazdığı şiir
+- Doğru cevap: Allah’ın peygamberlerine bildirdiği ilahî mesaj
+- Açıklama: Vahiy, Allah’ın bildirmek istediklerini peygamberlerine özel bir yolla ulaştırmasıdır.
+
+**DEEN-U19-S01-X013** · Vahiy ve İniş · multiple_choice
+- Soru: Hicretten önce inen surelere ne ad verilir?
+- Seçenekler: Kısa sureler | Mekkî sureler | Secde sureleri | Medenî sureler
+- Doğru cevap: Mekkî sureler
+- Açıklama: Hicretten önce inenlere Mekkî, sonra inenlere Medenî sureler denir.
+
+**DEEN-U19-S01-X014** · Vahiy ve İniş · true_false
+- Soru: Doğru mu, yanlış mı? Mekkî sureler daha çok iman, tevhid ve ahiret konularını işler.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Mekkî sureler inanç esaslarını, Medenî sureler ise daha çok toplumsal ve hukuki konuları işler.
+
+**DEEN-U19-S02-X001** · Sure, Âyet, Cüz · multiple_choice
+- Soru: Kur’an’da kaç sure vardır?
+- Seçenekler: 30 | 99 | 114 | 120
+- Doğru cevap: 114
+- Açıklama: Kur’an 114 sureden oluşur.
+
+**DEEN-U19-S02-X002** · Sure, Âyet, Cüz · multiple_choice
+- Soru: Kur’an kaç cüze ayrılmıştır?
+- Seçenekler: 114 | 30 | 60 | 10
+- Doğru cevap: 30
+- Açıklama: Kur’an okuma kolaylığı için 30 cüze bölünmüştür; bir cüz yaklaşık 20 sayfadır.
+
+**DEEN-U19-S02-X003** · Sure, Âyet, Cüz · multiple_choice
+- Soru: Diyanet’in esas aldığı sayıma göre Kur’an’da kaç âyet vardır?
+- Seçenekler: 6236 | 114 | 6666 | 1000
+- Doğru cevap: 6236
+- Açıklama: Kûfe sayımına göre Kur’an’da 6236 âyet vardır; halk arasındaki 6666 sayısı doğru değildir.
+
+**DEEN-U19-S02-X004** · Sure, Âyet, Cüz · multiple_choice
+- Soru: Mushafın ilk suresi hangisidir?
+- Seçenekler: İhlâs | Bakara | Alak | Fatiha
+- Doğru cevap: Fatiha
+- Açıklama: Mushaf Fatiha ile başlar; Fatiha’ya “Kitabın anası” (Ümmü’l-Kitâb) da denir.
+
+**DEEN-U19-S02-X005** · Sure, Âyet, Cüz · multiple_choice
+- Soru: Âyet sayısı bakımından Kur’an’ın en uzun suresi hangisidir?
+- Seçenekler: Mülk | Yâsîn | Bakara | Âl-i İmrân
+- Doğru cevap: Bakara
+- Açıklama: Bakara Suresi 286 âyetle en uzun suredir.
+
+**DEEN-U19-S02-X006** · Sure, Âyet, Cüz · multiple_choice
+- Soru: Kur’an’ın en kısa suresi hangisidir?
+- Seçenekler: Nas | Yâsîn | Kevser | Fatiha
+- Doğru cevap: Kevser
+- Açıklama: Kevser Suresi üç âyetle en kısa suredir.
+
+**DEEN-U19-S02-X007** · Sure, Âyet, Cüz · multiple_choice
+- Soru: Mushafın son suresi hangisidir?
+- Seçenekler: İhlâs | Nas | Fatiha | Felak
+- Doğru cevap: Nas
+- Açıklama: Mushaf Nas Suresi ile sona erer.
+
+**DEEN-U19-S02-X008** · Sure, Âyet, Cüz · multiple_choice
+- Soru: “Âyet” kelimesi sözlükte ne anlama gelir?
+- Seçenekler: Mektup | İşaret, delil | Kalem | Şarkı
+- Doğru cevap: İşaret, delil
+- Açıklama: Âyet sözlükte işaret ve delil demektir; Kur’an’ın her bir cümlesine âyet denir.
+
+**DEEN-U19-S02-X009** · Sure, Âyet, Cüz · matching
+- Soru: Kavramları anlamlarıyla eşleştir: Sure, Âyet, Cüz ve Mushaf.
+- Eşleşmeler: Sure → Kur’an’ın bölümlerinden her biri; Âyet → Surelerin içindeki her bir cümle; Cüz → Yaklaşık 20 sayfalık bölüm; Mushaf → Kitap haline getirilmiş Kur’an
+- Açıklama: Kur’an sure, âyet ve cüzlere ayrılır.
+
+**DEEN-U19-S02-X010** · Sure, Âyet, Cüz · fill_blank
+- Soru: Boşluğu tamamla: Besmele, ___ Suresi dışındaki bütün surelerin başında yer alır.
+- Seçenekler: Bakara | Tevbe | Fatiha | Nas
+- Doğru cevap: Tevbe
+- Açıklama: Tevbe Suresi besmelesiz başlar; Neml Suresi’nde ise besmele surenin içinde de geçer.
+
+**DEEN-U19-S02-X011** · Sure, Âyet, Cüz · fill_blank
+- Soru: Boşluğu tamamla: Âyetü’l-kürsî, ___ Suresi’nin 255. âyetidir.
+- Seçenekler: Yâsîn | Bakara | Mülk | Rahmân
+- Doğru cevap: Bakara
+- Açıklama: Âyetü’l-kürsî Bakara 2:255’tir ve Allah’ın sıfatlarını anlatır.
+
+**DEEN-U19-S02-X012** · Sure, Âyet, Cüz · missing_item
+- Soru: Eksik kavramı seç: Kitabın anası anlamında “Ümmü’l-Kitâb” diye anılan sure ___ Suresi’dir.
+- Seçenekler: Kevser | Nas | Fatiha | İhlâs
+- Doğru cevap: Fatiha
+- Açıklama: Fatiha, Kur’an’ın özünü taşıdığı için Ümmü’l-Kitâb olarak anılır.
+
+**DEEN-U19-S02-X013** · Sure, Âyet, Cüz · true_false
+- Soru: Doğru mu, yanlış mı? Mushaftaki surelerin sırası, iniş sırasıyla aynıdır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Mushaftaki sıralama Hz. Peygamber’in bildirdiği düzene göredir; iniş sırası farklıdır.
+
+**DEEN-U19-S02-X014** · Sure, Âyet, Cüz · missing_item
+- Soru: Eksik kavramı seç: Hadise göre İhlâs Suresi Kur’an’ın ___ denktir.
+- Seçenekler: yarısına | üçte birine | onda birine | tamamına
+- Doğru cevap: üçte birine
+- Açıklama: Hz. Peygamber İhlâs Suresi’nin Kur’an’ın üçte birine denk olduğunu bildirmiştir (Buhârî).
+
+**DEEN-U19-S03-X001** · Kur’an’ın Korunması · multiple_choice
+- Soru: Hicr 9. âyete göre Kur’an’ı kim koruyacaktır?
+- Seçenekler: Yalnızca hükümdarlar | Yalnızca şairler | Allah | Hiç kimse
+- Doğru cevap: Allah
+- Açıklama: Hicr 15:9: “Zikri (Kur’an’ı) biz indirdik, onun koruyucusu da elbette biziz.”
+
+**DEEN-U19-S03-X002** · Kur’an’ın Korunması · multiple_choice
+- Soru: Hz. Peygamber döneminde inen âyetleri yazan sahabelere ne ad verilir?
+- Seçenekler: Vahiy kâtipleri | Hafız-ı kütüb | Muhacir | Ensar
+- Doğru cevap: Vahiy kâtipleri
+- Açıklama: Zeyd b. Sâbit gibi vahiy kâtipleri inen âyetleri hemen yazıya geçirirdi.
+
+**DEEN-U19-S03-X003** · Kur’an’ın Korunması · multiple_choice
+- Soru: Kur’an hangi halife döneminde tek bir mushafta bir araya getirilmiştir?
+- Seçenekler: Muâviye | Hz. Ebû Bekir | Hz. Ali | Hz. Osman’dan sonra Emevîler
+- Doğru cevap: Hz. Ebû Bekir
+- Açıklama: Yemâme savaşında pek çok hafızın şehit olması üzerine Hz. Ebû Bekir Kur’an’ı mushaf halinde topladırdı.
+
+**DEEN-U19-S03-X004** · Kur’an’ın Korunması · multiple_choice
+- Soru: Kur’an’ın çoğaltılıp farklı şehirlere gönderilmesi hangi halife döneminde olmuştur?
+- Seçenekler: Hz. Ömer | Hz. Ali | Hz. Osman | Hz. Ebû Bekir
+- Doğru cevap: Hz. Osman
+- Açıklama: Hz. Osman döneminde mushaf çoğaltılarak İslam şehirlerine gönderildi.
+
+**DEEN-U19-S03-X005** · Kur’an’ın Korunması · multiple_choice
+- Soru: Kur’an’ın toplanması görevini yürüten heyetin başında hangi sahabe vardı?
+- Seçenekler: Zeyd b. Sâbit | Ebû Hüreyre | Hâlid b. Velîd | Bilâl-i Habeşî
+- Doğru cevap: Zeyd b. Sâbit
+- Açıklama: Vahiy kâtibi Zeyd b. Sâbit, Kur’an’ın toplanması ve çoğaltılmasında görev aldı.
+
+**DEEN-U19-S03-X006** · Kur’an’ın Korunması · true_false
+- Soru: Doğru mu, yanlış mı? Kur’an hem ezberlenerek hem de yazılarak korunmuştur.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Kur’an inişinden itibaren hem sahabelerin hafızalarında hem de yazılı sayfalarda korunmuştur.
+
+**DEEN-U19-S03-X007** · Kur’an’ın Korunması · true_false
+- Soru: Doğru mu, yanlış mı? Hadise göre Cebrâil her Ramazan Kur’an’ı Hz. Peygamber ile karşılıklı okurdu.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Cebrâil her Ramazan Kur’an’ı Hz. Peygamber’le karşılıklı okur; son yıl iki kez okumuşlardır (Buhârî).
+
+**DEEN-U19-S03-X008** · Kur’an’ın Korunması · matching
+- Soru: Dönemleri Kur’an’ın korunmasındaki adımlarla eşleştir: Hz. Peygamber dönemi, Hz. Ebû Bekir dönemi, Hz. Osman dönemi ve Günümüz.
+- Eşleşmeler: Hz. Peygamber dönemi → Âyetlerin yazılması ve ezberlenmesi; Hz. Ebû Bekir dönemi → Tek mushafta toplanması; Hz. Osman dönemi → Çoğaltılıp şehirlere gönderilmesi; Günümüz → Hafızlar ve basılı mushaflarla aktarım
+- Açıklama: Kur’an her dönemde titizlikle korunmuştur.
+
+**DEEN-U19-S03-X009** · Kur’an’ın Korunması · fill_blank
+- Soru: Boşluğu tamamla: Kur’an’ın tamamını ezberleyen kişiye ___ denir.
+- Seçenekler: kâtip | müezzin | imam | hafız
+- Doğru cevap: hafız
+- Açıklama: Hafız, Kur’an’ı ezberleyip koruyan kişidir.
+
+**DEEN-U19-S03-X010** · Kur’an’ın Korunması · fill_blank
+- Soru: Boşluğu tamamla: Kur’an’ın toplanmasına, ___ savaşında birçok hafızın şehit olması vesile oldu.
+- Seçenekler: Uhud | Yemâme | Hendek | Bedir
+- Doğru cevap: Yemâme
+- Açıklama: Hz. Ömer’in önerisiyle Hz. Ebû Bekir, Yemâme savaşından sonra Kur’an’ı topladırdı.
+
+**DEEN-U19-S03-X011** · Kur’an’ın Korunması · progressive_recall
+- Soru: İpucu olmadan tamamla: Sayfaları bir araya getirilmiş, kitap haline gelmiş Kur’an’a ___ denir.
+- Doğru cevap: mushaf
+- Açıklama: Mushaf, iki kapak arasında toplanmış sayfalar demektir.
+
+**DEEN-U19-S03-X012** · Kur’an’ın Korunması · progressive_recall
+- Soru: İpucu olmadan tamamla: Kur’an’ın benzerinin getirilememesi özelliğine ___ denir.
+- Doğru cevap: i’câz
+- Açıklama: Bakara 2:23’te Kur’an’ın bir suresinin benzerini getirmeleri için meydan okunur; buna i’câz (mucizelik) denir.
+
+**DEEN-U19-S03-X013** · Kur’an’ın Korunması · multiple_choice
+- Soru: Bakara 23’te inkârcılara nasıl bir meydan okuma yapılır?
+- Seçenekler: Kur’an’ın bir suresinin benzerini getirmeleri | Bir dağı yerinden oynatmaları | Bir şehir kurmaları | Denizi ikiye ayırmaları
+- Doğru cevap: Kur’an’ın bir suresinin benzerini getirmeleri
+- Açıklama: Bakara 2:23: Kulumuza indirdiğimizden şüphedeyseniz onun benzeri bir sure getirin.
+
+**DEEN-U19-S03-X014** · Kur’an’ın Korunması · missing_item
+- Soru: Eksik kavramı seç: Dünyanın her yerindeki Müslümanlar ___ Kur’an metnini okur.
+- Seçenekler: değişmiş | eksik | farklı | aynı
+- Doğru cevap: aynı
+- Açıklama: Kur’an metni korunmuş olup dünyanın her yerinde aynıdır.
+
+**DEEN-U19-S04-X001** · Kur’an’la Yaşamak · scenario
+- Soru: Elif Kur’an okumayı biliyor ama anlamını merak ediyor. Ne yapabilir?
+- Seçenekler: Okumayı tamamen bırakır | Güvenilir bir meal ve tefsir okuyup bilene sorabilir | Anlamını merak etmeyi bırakır | Rastgele uydurur
+- Doğru cevap: Güvenilir bir meal ve tefsir okuyup bilene sorabilir
+- Açıklama: Kur’an anlaşılmak için indirilmiştir; meal ve tefsirlerden ve bilenlerden yararlanılır.
+
+**DEEN-U19-S04-X002** · Kur’an’la Yaşamak · scenario
+- Soru: Ali Ramazan’da Kur’an’ı baştan sona okumak istiyor. Günde yaklaşık ne kadar okumalı?
+- Seçenekler: Günde bir âyet | Günde on cüz | Günde bir cüz | Yalnızca son gün hepsini
+- Doğru cevap: Günde bir cüz
+- Açıklama: Kur’an 30 cüz olduğu için günde bir cüz okuyan Ramazan’da hatmeder.
+
+**DEEN-U19-S04-X003** · Kur’an’la Yaşamak · scenario
+- Soru: Zeynep kısa sureleri ezberlemek istiyor ama çabuk unutuyor. Hangisi en faydalıdır?
+- Seçenekler: Sadece dinleyip okumamak | Az ama düzenli tekrar edip namazlarında okumak | Bir günde hepsini ezberlemeye çalışmak | Hiç tekrar etmemek
+- Doğru cevap: Az ama düzenli tekrar edip namazlarında okumak
+- Açıklama: Düzenli tekrar ve namazda okumak ezberi kalıcı kılar.
+
+**DEEN-U19-S04-X004** · Kur’an’la Yaşamak · scenario
+- Soru: Camide Kur’an okunurken arkadaşın seninle konuşmak istiyor. Ne yaparsın?
+- Seçenekler: Telefonla müzik açarım | Okuyanı alay ederim | Sonra konuşmayı önerip Kur’an’ı dinlerim | Yüksek sesle konuşurum
+- Doğru cevap: Sonra konuşmayı önerip Kur’an’ı dinlerim
+- Açıklama: A’râf 7:204: “Kur’an okunduğu zaman onu dinleyin ve susun.”
+
+**DEEN-U19-S04-X005** · Kur’an’la Yaşamak · fill_blank
+- Soru: Boşluğu tamamla: Kur’an’ı baştan sona okumaya ___ denir.
+- Seçenekler: tefsir | meal | mukabele | hatim
+- Doğru cevap: hatim
+- Açıklama: Kur’an’ın tamamını okumaya hatim denir.
+
+**DEEN-U19-S04-X006** · Kur’an’la Yaşamak · fill_blank
+- Soru: Boşluğu tamamla: Ramazan’da camide birinin okuyup diğerlerinin takip ettiği okumaya ___ denir.
+- Seçenekler: vaaz | ezan | mukabele | hatim
+- Doğru cevap: mukabele
+- Açıklama: Mukabele, Cebrâil’in Hz. Peygamber’le karşılıklı okumasından gelen bir gelenektir.
+
+**DEEN-U19-S04-X007** · Kur’an’la Yaşamak · progressive_recall
+- Soru: İpucu olmadan tamamla: Kur’an âyetlerinin başka bir dile yapılan anlam çevirisine ___ denir.
+- Doğru cevap: meal
+- Açıklama: Meal, âyetlerin anlamını aktaran çeviridir; tam karşılığı veremeyeceği için “meal” (yaklaşık anlam) denir.
+
+**DEEN-U19-S04-X008** · Kur’an’la Yaşamak · progressive_recall
+- Soru: İpucu olmadan tamamla: Kur’an’ı açıklayıp yorumlayan ilme ___ denir.
+- Doğru cevap: tefsir
+- Açıklama: Tefsir, âyetleri bağlamı, dili ve hadislerle açıklayan ilimdir.
+
+**DEEN-U19-S04-X009** · Kur’an’la Yaşamak · multiple_choice
+- Soru: Hadise göre en hayırlınız kimdir?
+- Seçenekler: Kur’an’ı öğrenen ve öğreten | En zengin olan | En uzun yaşayan | En güçlü olan
+- Doğru cevap: Kur’an’ı öğrenen ve öğreten
+- Açıklama: Hz. Peygamber: “Sizin en hayırlınız Kur’an’ı öğrenen ve öğretendir.” (Buhârî)
+
+**DEEN-U19-S04-X010** · Kur’an’la Yaşamak · multiple_choice
+- Soru: Hadise göre Kur’an’dan okunan her harf için kaç sevap vardır?
+- Seçenekler: Bin | Bir | On | Yüz
+- Doğru cevap: On
+- Açıklama: Hz. Peygamber: “Kur’an’dan bir harf okuyana bir iyilik vardır, iyilik de on katıyla.” (Tirmizî)
+
+**DEEN-U19-S04-X011** · Kur’an’la Yaşamak · multiple_choice
+- Soru: Müzzemmil 4’e göre Kur’an nasıl okunmalıdır?
+- Seçenekler: Hiç okunmadan | Tane tane, tertil ile | Anlamadan bağırarak | Çok hızlı ve yarım
+- Doğru cevap: Tane tane, tertil ile
+- Açıklama: Müzzemmil 73:4: “Kur’an’ı tane tane oku.”
+
+**DEEN-U19-S04-X012** · Kur’an’la Yaşamak · multiple_choice
+- Soru: Kur’an’ı harflerin hakkını vererek doğru okuma kurallarını öğreten ilme ne denir?
+- Seçenekler: Fıkıh | Siyer | Tefsir | Tecvid
+- Doğru cevap: Tecvid
+- Açıklama: Tecvid, Kur’an harflerini mahreç ve sıfatlarına uygun okumayı öğretir.
+
+**DEEN-U19-S04-X013** · Kur’an’la Yaşamak · matching
+- Soru: Kavramları anlamlarıyla eşleştir: Meal, Tefsir, Tecvid ve Hatim.
+- Eşleşmeler: Meal → Âyetlerin anlam çevirisi; Tefsir → Âyetlerin açıklanması; Tecvid → Doğru okuma kuralları; Hatim → Baştan sona okuma
+- Açıklama: Bu kavramlar Kur’an’la ilgili temel çalışmaları anlatır.
+
+**DEEN-U19-S04-X014** · Kur’an’la Yaşamak · true_false
+- Soru: Doğru mu, yanlış mı? İsrâ 82’ye göre Kur’an müminler için şifa ve rahmettir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: İsrâ 17:82: “Kur’an’dan müminler için şifa ve rahmet olanı indiriyoruz.”
+
+**DEEN-U19-S04-X015** · Kur’an’la Yaşamak · error_spotting
+- Soru: “Kur’an sadece güzel sesle okunmak için indirilmiştir, anlamı önemli değildir.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Kur’an’ın anlamını öğrenmek yasaktır | Kur’an yalnızca cenazelerde okunur | Kur’an yalnız hafızlar içindir | Kur’an okunmak, anlaşılmak ve hayata geçirilmek için indirilmiştir
+- Doğru cevap: Kur’an okunmak, anlaşılmak ve hayata geçirilmek için indirilmiştir
+- Açıklama: Sâd 38:29: Kur’an âyetleri üzerinde düşünülsün diye indirilmiş mübarek bir kitaptır.
+
+**DEEN-U19-S04-X016** · Kur’an’la Yaşamak · error_spotting
+- Soru: “Bir meal, Kur’an’ın kendisiyle tamamen aynıdır.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Meal Kur’an’dan daha üstündür | Meal Kur’an’ın yerine namazda okunur | Meal yalnızca Arapça yazılır | Meal, Kur’an’ın anlamını yaklaşık olarak aktarır; asıl metin Arapçadır
+- Doğru cevap: Meal, Kur’an’ın anlamını yaklaşık olarak aktarır; asıl metin Arapçadır
+- Açıklama: Meal yardımcı bir çeviridir; namazda Kur’an’ın Arapça aslı okunur.
+
+**DEEN-U19-S05-X001** · Kur’an’ın Edebi · multiple_choice
+- Soru: Hanefî mezhebine göre mushafa dokunmak için ne gerekir?
+- Seçenekler: Hacı olmak | Hafız olmak | Yaşlı olmak | Abdestli olmak
+- Doğru cevap: Abdestli olmak
+- Açıklama: Vâkıa 56:79 ve hadislere dayanarak abdestsiz mushafa dokunulmaz; ezberden okumak serbesttir.
+
+**DEEN-U19-S05-X002** · Kur’an’ın Edebi · multiple_choice
+- Soru: Kur’an okumaya başlarken önce ne söylenir?
+- Seçenekler: “Afiyet olsun” | “Eûzü billâhi mine’ş-şeytâni’r-racîm” | “Âmin” | “Selâmün aleyküm”
+- Doğru cevap: “Eûzü billâhi mine’ş-şeytâni’r-racîm”
+- Açıklama: Nahl 16:98: Kur’an okuyacağın zaman kovulmuş şeytandan Allah’a sığın.
+
+**DEEN-U19-S05-X003** · Kur’an’ın Edebi · multiple_choice
+- Soru: Mushaf evde nasıl muhafaza edilir?
+- Seçenekler: Mutfakta yağlı yerde | Temiz ve yüksekçe bir yerde, saygıyla | Çöp kutusunun yanında | Yerde, ayak altında
+- Doğru cevap: Temiz ve yüksekçe bir yerde, saygıyla
+- Açıklama: Mushaf temiz ve uygun bir yerde saygıyla korunur.
+
+**DEEN-U19-S05-X004** · Kur’an’ın Edebi · true_false
+- Soru: Doğru mu, yanlış mı? Abdestsiz kişi Kur’an’ı ezberden okuyabilir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Abdestsiz kişinin mushafa dokunmadan ezberden okuması caizdir; cünüp kişi ise okuyamaz (Hanefî).
+
+**DEEN-U19-S05-X005** · Kur’an’ın Edebi · true_false
+- Soru: Doğru mu, yanlış mı? Hanefî mezhebine göre cünüp kişi Kur’an âyetlerini okuyamaz.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Gusül gerektiren durumdaki kişi gusledene kadar Kur’an okumaz; dua niyetiyle kısa dualar okuyabilir.
+
+**DEEN-U19-S05-X006** · Kur’an’ın Edebi · scenario
+- Soru: Kerem telefonundaki Kur’an uygulamasından okuyor. Hangisi doğru bir tutumdur?
+- Seçenekler: Ekranı tuvalette açık bırakır | Okurken müzik açar | Okurken başkalarıyla dalga geçer | Saygıyla okur, ekranı uygun olmayan yerlere götürmez
+- Doğru cevap: Saygıyla okur, ekranı uygun olmayan yerlere götürmez
+- Açıklama: Kur’an hangi araçla okunursa okunsun saygı gerektirir.
+
+**DEEN-U19-S05-X007** · Kur’an’ın Edebi · scenario
+- Soru: Evdeki mushaf çok yıprandı, sayfaları dağılıyor. Ne yapılmalıdır?
+- Seçenekler: Yere bırakılır | Camiye veya müftülüğe verilir ya da saygıyla temiz bir yere gömülür | Paketleme kâğıdı yapılır | Çöpe atılır
+- Doğru cevap: Camiye veya müftülüğe verilir ya da saygıyla temiz bir yere gömülür
+- Açıklama: Kullanılamayacak durumdaki mushaflar saygıyla değerlendirilir; Diyanet’e göre temiz bir yere gömülebilir.
+
+**DEEN-U19-S05-X008** · Kur’an’ın Edebi · scenario
+- Soru: Kur’an okurken kenarında secde işareti olan bir âyet okudun. Ne yaparsın?
+- Seçenekler: Tilavet secdesi yaparım | Sayfayı atlarım | Okumayı bırakırım | Bir şey yapmam gerekmez
+- Doğru cevap: Tilavet secdesi yaparım
+- Açıklama: Secde âyetini okuyan ve dinleyen tilavet secdesi yapar.
+
+**DEEN-U19-S05-X009** · Kur’an’ın Edebi · fill_blank
+- Soru: Boşluğu tamamla: Okumaya başlarken şeytandan Allah’a sığınmaya ___ denir.
+- Seçenekler: tesmiye | istiâze | tehlil | tekbir
+- Doğru cevap: istiâze
+- Açıklama: “Eûzü billâhi mine’ş-şeytâni’r-racîm” demeye istiâze denir.
+
+**DEEN-U19-S05-X010** · Kur’an’ın Edebi · fill_blank
+- Soru: Boşluğu tamamla: Kur’an okunurken onu ___ ve susmak gerekir.
+- Seçenekler: dinlemek | eleştirmek | unutmak | bölmek
+- Doğru cevap: dinlemek
+- Açıklama: A’râf 7:204’te Kur’an okunurken dinlemek ve susmak emredilir.
+
+**DEEN-U19-S05-X011** · Kur’an’ın Edebi · missing_item
+- Soru: Eksik kavramı seç: Kur’an okurken mümkünse abdestli olmak ve ___ dönmek edeptendir.
+- Seçenekler: kıbleye | pencereye | televizyona | kapıya
+- Doğru cevap: kıbleye
+- Açıklama: Abdestli, temiz ve kıbleye dönük okumak Kur’an’a saygının göstergesidir.
+
+**DEEN-U19-S05-X012** · Kur’an’ın Edebi · missing_item
+- Soru: Eksik kavramı seç: Kur’an okumayı bitirince “___” denilmesi bir gelenektir.
+- Seçenekler: Allahu ekber | Bismillâh | Sadakallâhü’l-azîm | Elhamdülillâh ki başladık
+- Doğru cevap: Sadakallâhü’l-azîm
+- Açıklama: “Sadakallâhü’l-azîm”, “Yüce Allah doğru söyledi” anlamına gelir.
+
+**DEEN-U19-S05-X013** · Kur’an’ın Edebi · multiple_choice
+- Soru: Hz. Peygamber, İbn Mes’ûd’un okuduğu Nisâ Suresi’ni dinlerken ne olmuştur?
+- Seçenekler: Gülmüştür | Uyumuştur | Gözlerinden yaşlar akmıştır | Başka bir işle uğraşmıştır
+- Doğru cevap: Gözlerinden yaşlar akmıştır
+- Açıklama: İbn Mes’ûd Nisâ 41. âyete gelince Hz. Peygamber’in gözlerinin yaşla dolduğunu görmüştür (Buhârî).
+
+**DEEN-U19-S05-X014** · Kur’an’ın Edebi · error_spotting
+- Soru: “Abdestsiz kişi mushafı istediği gibi tutup okuyabilir.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Hanefîlere göre mushafa abdestsiz dokunulmaz; ezberden okunabilir | Abdestli kişi mushafı okuyamaz | Mushafa yalnız hafızlar dokunabilir | Mushaf sadece cuma okunur
+- Doğru cevap: Hanefîlere göre mushafa abdestsiz dokunulmaz; ezberden okunabilir
+- Açıklama: Mushafa dokunmak için abdest gerekir.
+
+**DEEN-U19-S05-X015** · Kur’an’ın Edebi · matching
+- Soru: Kavramları anlamlarıyla eşleştir: İstiâze, Besmele, Tertil ve Tilavet secdesi.
+- Eşleşmeler: İstiâze → Şeytandan Allah’a sığınmak; Besmele → Allah’ın adıyla başlamak; Tertil → Tane tane okumak; Tilavet secdesi → Secde âyetinde yapılan secde
+- Açıklama: Bunlar Kur’an okuma edebinin parçalarıdır.
+
+**DEEN-U19-S05-X016** · Kur’an’ın Edebi · true_false
+- Soru: Doğru mu, yanlış mı? Hadislerde Kur’an’ı güzel sesle okumak teşvik edilmiştir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hz. Peygamber: “Kur’an’ı seslerinizle güzelleştirin.” (Ebû Dâvûd)
+
+**DEEN-U19-S06-X001** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: Kur’an kaç suredir?
+- Seçenekler: 99 | 30 | 114 | 286
+- Doğru cevap: 114
+- Açıklama: Kur’an 114 suredir.
+
+**DEEN-U19-S06-X002** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: İlk inen âyetler hangi suredendir?
+- Seçenekler: Alak | Nas | Fatiha | İhlâs
+- Doğru cevap: Alak
+- Açıklama: İlk vahiy Alak Suresi’nin başıdır.
+
+**DEEN-U19-S06-X003** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: Kur’an kaç cüzdür?
+- Seçenekler: 40 | 10 | 114 | 30
+- Doğru cevap: 30
+- Açıklama: Kur’an 30 cüzdür.
+
+**DEEN-U19-S06-X004** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: Kur’an’ı tek mushafta toplatan halife kimdir?
+- Seçenekler: Hz. Ömer | Hz. Osman | Hz. Ali | Hz. Ebû Bekir
+- Doğru cevap: Hz. Ebû Bekir
+- Açıklama: Hz. Ebû Bekir döneminde toplanmıştır.
+
+**DEEN-U19-S06-X005** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Kur’an’ın en kısa suresi Kevser’dir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Kevser üç âyettir.
+
+**DEEN-U19-S06-X006** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Tevbe Suresi besmele ile başlar.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Tevbe Suresi besmelesiz başlayan tek suredir.
+
+**DEEN-U19-S06-X007** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Kur’an yaklaşık 23 yılda indirilmiştir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Kur’an yaklaşık 23 yılda parça parça inmiştir.
+
+**DEEN-U19-S06-X008** · Akıllı Tekrar · multiple_choice
+- Soru: Vahyi getiren melek kimdir?
+- Seçenekler: Azrâil | Cebrâil | Mîkâil | İsrâfil
+- Doğru cevap: Cebrâil
+- Açıklama: Vahiy meleği Cebrâil’dir.
+
+**DEEN-U19-S06-X009** · Akıllı Tekrar · multiple_choice
+- Soru: En uzun sure hangisidir?
+- Seçenekler: Kevser | Mülk | Fatiha | Bakara
+- Doğru cevap: Bakara
+- Açıklama: Bakara 286 âyettir.
+
+**DEEN-U19-S06-X010** · Akıllı Tekrar · multiple_choice
+- Soru: Kur’an’ı ezberleyen kişiye ne denir?
+- Seçenekler: Müezzin | Kayyum | Hafız | Kâtip
+- Doğru cevap: Hafız
+- Açıklama: Kur’an’ı ezberleyene hafız denir.
+
+**DEEN-U19-S06-X011** · Akıllı Tekrar · error_spotting
+- Soru: “Kur’an’da tam olarak 6666 âyet vardır.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Kur’an’da 30 âyet vardır | Kur’an’da âyet yoktur | Kur’an’da 114 âyet vardır | Diyanet’in esas aldığı sayıma göre 6236 âyet vardır
+- Doğru cevap: Diyanet’in esas aldığı sayıma göre 6236 âyet vardır
+- Açıklama: 6666 rakamı halk arasında yaygın ama doğru olmayan bir sayıdır.
+
+**DEEN-U19-S06-X012** · Akıllı Tekrar · error_spotting
+- Soru: “Kur’an’ı çoğaltıp şehirlere gönderen halife Hz. Ebû Bekir’dir.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Kur’an’ı çoğaltıp şehirlere gönderen Hz. Osman’dır | Kur’an hiç çoğaltılmamıştır | Çoğaltmayı Hz. Ali yapmıştır | Çoğaltma yüzyıllar sonra yapılmıştır
+- Doğru cevap: Kur’an’ı çoğaltıp şehirlere gönderen Hz. Osman’dır
+- Açıklama: Hz. Ebû Bekir toplatmış, Hz. Osman çoğaltmıştır.
+
+**DEEN-U19-S07-X001** · Ünite Challenge · scenario
+- Soru: Mert Ramazan’da hem hatim yapmak hem de anlamını öğrenmek istiyor. En dengeli plan hangisi?
+- Seçenekler: Meali okuyup Kur’an’ı hiç okumamak | Hiç plan yapmamak | Sadece son gece bütün Kur’an’ı okumak | Her gün bir cüz okuyup kısa bir bölümün mealine bakmak
+- Doğru cevap: Her gün bir cüz okuyup kısa bir bölümün mealine bakmak
+- Açıklama: Okuma ile anlamayı birleştirmek Kur’an’la bağı güçlendirir.
+
+**DEEN-U19-S07-X002** · Ünite Challenge · scenario
+- Soru: Biri “Kur’an yüzyıllar içinde değişti” diyor. En doğru cevap hangisidir?
+- Seçenekler: Kur’an sadece son yüzyılda yazıldı | Kur’an hiç yazılmamıştır | Evet, her ülkede farklıdır | Kur’an hem ezber hem yazıyla korunmuş, her yerde aynı metin okunur
+- Doğru cevap: Kur’an hem ezber hem yazıyla korunmuş, her yerde aynı metin okunur
+- Açıklama: Hicr 15:9’daki koruma vaadi, ezber ve yazı geleneğiyle Kur’an metni değişmeden ulaşmıştır.
+
+**DEEN-U19-S07-X003** · Ünite Challenge · scenario
+- Soru: Ahmet’e gusül gerekiyor ve Kur’an okumak istiyor. Ne yapmalıdır?
+- Seçenekler: Kur’an’ı hiç okumamalıdır | Önce gusledip sonra okumalıdır | Hemen mushafı alıp okumalıdır | Sadece ellerini yıkaması yeter
+- Doğru cevap: Önce gusledip sonra okumalıdır
+- Açıklama: Hanefîlere göre cünüp kişi gusletmeden Kur’an okumaz.
+
+**DEEN-U19-S07-X004** · Ünite Challenge · error_spotting
+- Soru: “İlk inen sure Fatiha’dır.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: İlk vahiy Medine’de gelmiştir | İlk inen sure Nas’tır | İlk inen âyetler Alak Suresi’nin ilk beş âyetidir | İlk vahiy yazılı bir kitap halinde geldi
+- Doğru cevap: İlk inen âyetler Alak Suresi’nin ilk beş âyetidir
+- Açıklama: Fatiha mushafın ilk suresidir ama ilk inen âyetler Alak’tandır.
+
+**DEEN-U19-S07-X005** · Ünite Challenge · error_spotting
+- Soru: “Namazda Kur’an’ın Türkçe meali okunabilir.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Namazda Kur’an okunmaz | Namazda yalnız tefsir okunur | Namazda Kur’an’ın Arapça aslı okunur | Namazda meal ile Arapça birlikte zorunludur
+- Doğru cevap: Namazda Kur’an’ın Arapça aslı okunur
+- Açıklama: Meal anlamaya yardımcıdır; namazda Kur’an’ın aslı okunur.
+
+**DEEN-U19-S07-X006** · Ünite Challenge · progressive_recall
+- Soru: İpucu olmadan tamamla: “Zikri biz indirdik, onun koruyucusu da biziz” âyeti ___ Suresi’ndedir.
+- Doğru cevap: Hicr
+- Açıklama: Hicr 15:9.
+
+**DEEN-U19-S07-X007** · Ünite Challenge · progressive_recall
+- Soru: İpucu olmadan tamamla: Kur’an’ın indirilmeye başlandığı geceye ___ gecesi denir.
+- Doğru cevap: Kadir
+- Açıklama: Kadir 97:1.
+
+**DEEN-U19-S07-X008** · Ünite Challenge · progressive_recall
+- Soru: İpucu olmadan tamamla: Kur’an’ı doğru okuma kurallarını öğreten ilme ___ denir.
+- Doğru cevap: tecvid
+- Açıklama: Tecvid, harfleri hakkını vererek okumayı öğretir.
+
+**DEEN-U19-S07-X009** · Ünite Challenge · multiple_choice
+- Soru: Hicretten sonra inen ve daha çok toplumsal konuları işleyen surelere ne denir?
+- Seçenekler: Secde sureleri | Medenî sureler | Mekkî sureler | Kısa sureler
+- Doğru cevap: Medenî sureler
+- Açıklama: Hicretten sonra inen sureler Medenî surelerdir.
+
+**DEEN-U19-S07-X010** · Ünite Challenge · multiple_choice
+- Soru: “Sizin en hayırlınız …” diye başlayan hadis nasıl devam eder?
+- Seçenekler: “… en uzun boylu olandır.” | “… Kur’an’ı öğrenen ve öğretendir.” | “… en çok uyuyandır.” | “… en çok mal biriktirendir.”
+- Doğru cevap: “… Kur’an’ı öğrenen ve öğretendir.”
+- Açıklama: Buhârî’de geçen hadis.
+
+**DEEN-U19-S07-X011** · Ünite Challenge · matching
+- Soru: Kavramları sayılarla eşleştir: Sure sayısı, Cüz sayısı, Bakara’nın âyet sayısı ve Kevser’in âyet sayısı.
+- Eşleşmeler: Sure sayısı → 114; Cüz sayısı → 30; Bakara’nın âyet sayısı → 286; Kevser’in âyet sayısı → 3
+- Açıklama: Kur’an’la ilgili temel sayılar.
+
+**DEEN-U19-S07-X012** · Ünite Challenge · matching
+- Soru: Olayları ilgili yer veya kişiyle eşleştir: İlk vahiy, Kur’an’ın toplanması, Mushafın çoğaltılması ve Vahyi getiren.
+- Eşleşmeler: İlk vahiy → Hira mağarası; Kur’an’ın toplanması → Hz. Ebû Bekir; Mushafın çoğaltılması → Hz. Osman; Vahyi getiren → Cebrâil
+- Açıklama: Kur’an tarihinin önemli adımları.
+
+**DEEN-U19-S07-X013** · Ünite Challenge · scenario
+- Soru: Bir arkadaşın Kur’an okurken diğerleri yüksek sesle şakalaşıyor. Ne söylersin?
+- Seçenekler: Hiçbir şey fark etmez derim | “Kur’an okunurken dinleyip susmamız gerekir” derim | Okuyanı susturur, oyuna devam ederim | Ben de şakalaşırım
+- Doğru cevap: “Kur’an okunurken dinleyip susmamız gerekir” derim
+- Açıklama: A’râf 7:204: Kur’an okunduğunda dinleyin ve susun.
+
+**DEEN-U19-S07-X014** · Ünite Challenge · true_false
+- Soru: Doğru mu, yanlış mı? Kur’an Ramazan ayında, Kadir gecesinde indirilmeye başlanmıştır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Bakara 2:185 ve Kadir 97:1.
