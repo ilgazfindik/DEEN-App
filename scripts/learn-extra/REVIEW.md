@@ -11060,3 +11060,591 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Seçenekler: Doğru | Yanlış
 - Doğru cevap: Doğru
 - Açıklama: Teravih yalnızca Ramazan gecelerinde kılınır.
+
+## U26 — guzel_ahlak (100 soru)
+
+**DEEN-U26-S01-X001** · Ahlak Nedir? · multiple_choice
+- Soru: “Ahlak” kelimesi en iyi hangi anlamı karşılar?
+- Seçenekler: Kişinin boyu ve kilosu | Kişinin parası | Kişinin huyları ve davranış biçimi | Kişinin yaşadığı şehir
+- Doğru cevap: Kişinin huyları ve davranış biçimi
+- Açıklama: Ahlak, “huy” anlamındaki hulk kelimesinin çoğuludur; insanın iç dünyasından gelen davranışlardır.
+
+**DEEN-U26-S01-X002** · Ahlak Nedir? · multiple_choice
+- Soru: Kalem suresinde Hz. Peygamber için ne buyrulur?
+- Seçenekler: “Sen en uzun boylu insansın.” | “Sen elbette yüce bir ahlak üzeresin.” | “Sen hiç konuşmazsın.” | “Sen en zengin insansın.”
+- Doğru cevap: “Sen elbette yüce bir ahlak üzeresin.”
+- Açıklama: Kalem 68:4: Şüphesiz sen yüce bir ahlak üzeresin.
+
+**DEEN-U26-S01-X003** · Ahlak Nedir? · multiple_choice
+- Soru: Hadise göre Hz. Peygamber hangi amaçla gönderildiğini söyledi?
+- Seçenekler: Ticaret yapmak için | Saraylar kurmak için | Güzel ahlakı tamamlamak için | Şiir yarışmalarını kazanmak için
+- Doğru cevap: Güzel ahlakı tamamlamak için
+- Açıklama: “Ben güzel ahlakı tamamlamak için gönderildim.” (Muvatta, Ahmed b. Hanbel)
+
+**DEEN-U26-S01-X004** · Ahlak Nedir? · multiple_choice
+- Soru: Hz. Âişe’ye Hz. Peygamber’in ahlakı sorulunca ne cevap verdi?
+- Seçenekler: “Onun ahlakı hiç değişmezdi ama bilinmezdi.” | “Sadece savaşta güzel davranırdı.” | “Ahlakı hakkında konuşmazdı.” | “Onun ahlakı Kur’an’dı.”
+- Doğru cevap: “Onun ahlakı Kur’an’dı.”
+- Açıklama: Hz. Âişe: “Onun ahlakı Kur’an’dı.” (Müslim)
+
+**DEEN-U26-S01-X005** · Ahlak Nedir? · multiple_choice
+- Soru: Hadise göre kıyamet günü mizanda en ağır gelecek şeylerden biri nedir?
+- Seçenekler: Güzel kıyafet | Çok para | Güzel ahlak | Büyük ev
+- Doğru cevap: Güzel ahlak
+- Açıklama: “Kıyamet günü müminin mizanında güzel ahlaktan daha ağır bir şey yoktur.” (Tirmizî)
+
+**DEEN-U26-S01-X006** · Ahlak Nedir? · multiple_choice
+- Soru: Hadise göre müminlerin iman bakımından en olgunu kimdir?
+- Seçenekler: En zengin olanı | En güçlü olanı | En çok konuşanı | Ahlakı en güzel olanı
+- Doğru cevap: Ahlakı en güzel olanı
+- Açıklama: “Müminlerin iman bakımından en olgunu ahlakı en güzel olanıdır.” (Tirmizî, Ebû Dâvûd)
+
+**DEEN-U26-S01-X007** · Ahlak Nedir? · true_false
+- Soru: Doğru mu, yanlış mı? İslam’da ibadet ile güzel ahlak birbirinden ayrı düşünülmez.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Ankebût 29:45: Namaz, hayâsızlıktan ve kötülükten alıkoyar.
+
+**DEEN-U26-S01-X008** · Ahlak Nedir? · true_false
+- Soru: Doğru mu, yanlış mı? İnsan çabalayarak kötü bir huyunu güzelleştirebilir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Güzel ahlak alıştırma ve gayretle kazanılır; Hz. Peygamber de “Allah’ım, yaratılışımı güzel yaptığın gibi ahlakımı da güzelleştir” diye dua ederdi (Ahmed b. Hanbel).
+
+**DEEN-U26-S01-X009** · Ahlak Nedir? · missing_item
+- Soru: Eksik kavramı seç: Hadise göre hayâ ___ bir parçasıdır.
+- Seçenekler: imanın | sporun | ticaretin | oyunun
+- Doğru cevap: imanın
+- Açıklama: “Hayâ imandandır.” (Buhârî)
+
+**DEEN-U26-S01-X010** · Ahlak Nedir? · fill_blank
+- Soru: Boşluğu tamamla: Ahlak kelimesi “___” anlamına gelen hulk kelimesinin çoğuludur.
+- Seçenekler: para | yol | ev | huy
+- Doğru cevap: huy
+- Açıklama: Ahlak, insanın huylarının bütünüdür.
+
+**DEEN-U26-S01-X011** · Ahlak Nedir? · progressive_recall
+- Soru: İpucu olmadan tamamla: Kalem 68:4: “Şüphesiz sen yüce bir ___ üzeresin.”
+- Doğru cevap: ahlak
+- Açıklama: Bu ayet Hz. Peygamber’in ahlakını över.
+
+**DEEN-U26-S01-X012** · Ahlak Nedir? · matching
+- Soru: Güzel huyları anlamlarıyla eşleştir: Sıdk, Emanet, Hilm ve Tevazu.
+- Eşleşmeler: Sıdk → Doğruluk; Emanet → Güvenilirlik; Hilm → Yumuşak huyluluk; Tevazu → Alçakgönüllülük
+- Açıklama: Her güzel huyun bir adı vardır.
+
+**DEEN-U26-S01-X013** · Ahlak Nedir? · scenario
+- Soru: Küçük kardeşin seni her konuda taklit ediyor. Bu durumda en doğru davranış hangisidir?
+- Seçenekler: Her istediğini yaptırmak | Onu hiç umursamamak | Ona kötü sözler öğretmek | Ona güzel davranışlarla örnek olmak
+- Doğru cevap: Ona güzel davranışlarla örnek olmak
+- Açıklama: Ahzâb 33:21: Allah’ın Resulünde sizin için güzel bir örnek vardır; biz de çevremize örnek olmalıyız.
+
+**DEEN-U26-S01-X014** · Ahlak Nedir? · error_spotting
+- Soru: “Güzel ahlak sadece güzel giyinmek demektir.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Güzel ahlak, kişinin sözleri ve davranışlarındaki iyiliktir | Güzel ahlak sadece büyüklere özeldir | Güzel ahlak sadece çok konuşmaktır | Güzel ahlak sadece zengin olmaktır
+- Doğru cevap: Güzel ahlak, kişinin sözleri ve davranışlarındaki iyiliktir
+- Açıklama: Ahlak, dış görünüşten çok kalbin ve davranışın güzelliğidir.
+
+**DEEN-U26-S02-X001** · Doğruluk ve Emanet · multiple_choice
+- Soru: Hz. Peygamber peygamberlikten önce Mekke’de hangi lakapla tanınırdı?
+- Seçenekler: el-Emîn (güvenilir) | Zinnûreyn | el-Fârûk | Seyfullah
+- Doğru cevap: el-Emîn (güvenilir)
+- Açıklama: Mekkeliler ona güvenir, emanetlerini ona bırakırdı.
+
+**DEEN-U26-S02-X002** · Doğruluk ve Emanet · multiple_choice
+- Soru: Hadise göre doğruluk insanı nereye götürür?
+- Seçenekler: Zarara | Yalnızlığa | İyiliğe, iyilik de cennete | Kavgaya
+- Doğru cevap: İyiliğe, iyilik de cennete
+- Açıklama: “Doğruluk iyiliğe, iyilik de cennete götürür.” (Buhârî)
+
+**DEEN-U26-S02-X003** · Doğruluk ve Emanet · multiple_choice
+- Soru: Hadiste münafığın alametlerinden sayılmayan hangisidir?
+- Seçenekler: Emanete hıyanet etmek | Çok namaz kılmak | Söz verince sözünde durmamak | Konuşunca yalan söylemek
+- Doğru cevap: Çok namaz kılmak
+- Açıklama: “Münafığın alameti üçtür: konuşunca yalan söyler, söz verince sözünde durmaz, kendisine bir şey emanet edilince hıyanet eder.” (Buhârî)
+
+**DEEN-U26-S02-X004** · Doğruluk ve Emanet · multiple_choice
+- Soru: Nisâ 58’e göre Allah emanetler hakkında ne emreder?
+- Seçenekler: Emanet almamayı | Emanetleri saklamayı | Emanetleri ehline vermeyi | Emanetleri satmayı
+- Doğru cevap: Emanetleri ehline vermeyi
+- Açıklama: Nisâ 4:58: Allah size emanetleri ehline vermenizi emreder.
+
+**DEEN-U26-S02-X005** · Doğruluk ve Emanet · multiple_choice
+- Soru: Tevbe 119’da müminlere kimlerle beraber olmaları emredilir?
+- Seçenekler: Meşhurlarla | Doğrularla | Güçlülerle | Zenginlerle
+- Doğru cevap: Doğrularla
+- Açıklama: Tevbe 9:119: Ey iman edenler! Allah’tan korkun ve doğrularla beraber olun.
+
+**DEEN-U26-S02-X006** · Doğruluk ve Emanet · multiple_choice
+- Soru: İsrâ 34’e göre verdiğimiz sözler hakkında ne bildirilir?
+- Seçenekler: Sadece büyüklerin sözü tutması gerektiği | Verilen sözden sorumlu tutulacağımız | Söz vermenin yasak olduğu | Sözlerin önemi olmadığı
+- Doğru cevap: Verilen sözden sorumlu tutulacağımız
+- Açıklama: İsrâ 17:34: Verdiğiniz sözü yerine getirin; çünkü verilen söz sorumluluk altındadır.
+
+**DEEN-U26-S02-X007** · Doğruluk ve Emanet · true_false
+- Soru: Doğru mu, yanlış mı? Güldürmek için de olsa yalan söylemek güzel bir davranış değildir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: “İnsanları güldürmek için yalan söyleyene yazıklar olsun.” (Tirmizî, Ebû Dâvûd)
+
+**DEEN-U26-S02-X008** · Doğruluk ve Emanet · true_false
+- Soru: Doğru mu, yanlış mı? Emanet sadece bize bırakılan eşyalardan ibarettir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Sırlar, görevler, sözler, zaman ve sağlık da emanettir.
+
+**DEEN-U26-S02-X009** · Doğruluk ve Emanet · missing_item
+- Soru: Eksik kavramı seç: Sınavda kopya çekmek, ___ ilkesine aykırıdır.
+- Seçenekler: dürüstlük | eğlence | spor | hız
+- Doğru cevap: dürüstlük
+- Açıklama: “Bizi aldatan bizden değildir.” (Müslim)
+
+**DEEN-U26-S02-X010** · Doğruluk ve Emanet · fill_blank
+- Soru: Boşluğu tamamla: Hz. Peygamber’in güvenilirliği yüzünden aldığı lakap: el-___.
+- Seçenekler: Sıddîk | Hamîd | Emîn | Fârûk
+- Doğru cevap: Emîn
+- Açıklama: Emîn, güvenilir demektir.
+
+**DEEN-U26-S02-X011** · Doğruluk ve Emanet · progressive_recall
+- Soru: İpucu olmadan tamamla: Tevbe 9:119: “Allah’tan korkun ve ___ beraber olun.”
+- Doğru cevap: doğrularla
+- Açıklama: Doğrularla beraber olmak, doğruluğu korumaya yardım eder.
+
+**DEEN-U26-S02-X012** · Doğruluk ve Emanet · matching
+- Soru: Durumları doğru davranışlarla eşleştir: Bulduğun cüzdan, Arkadaşın sırrı, Verdiğin söz ve Yaptığın hata.
+- Eşleşmeler: Bulduğun cüzdan → Sahibine ulaştırmak; Arkadaşın sırrı → Saklamak; Verdiğin söz → Yerine getirmek; Yaptığın hata → Dürüstçe kabul etmek
+- Açıklama: Dürüstlük her durumda farklı bir davranışla görünür.
+
+**DEEN-U26-S02-X013** · Doğruluk ve Emanet · scenario
+- Soru: Bakkal sana yanlışlıkla fazla para üstü verdi. Ne yaparsın?
+- Seçenekler: Arkadaşlarıma övünürüm | Fazlasını hemen geri veririm | Bir dahaki sefere yine beklerim | Sessizce cebime koyarım
+- Doğru cevap: Fazlasını hemen geri veririm
+- Açıklama: Başkasının hakkı emanettir; dürüst Müslüman onu sahibine iade eder.
+
+**DEEN-U26-S02-X014** · Doğruluk ve Emanet · error_spotting
+- Soru: “Küçük yalanların hiçbir zararı yoktur.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Küçük yalan her zaman serbesttir | Yalan güveni artırır | Yalan sadece büyükler için kötüdür | Yalan, küçük de olsa insanı kötülüğe götürür
+- Doğru cevap: Yalan, küçük de olsa insanı kötülüğe götürür
+- Açıklama: “Yalan kötülüğe, kötülük de cehenneme götürür.” (Buhârî)
+
+**DEEN-U26-S03-X001** · Merhamet ve Yardımlaşma · multiple_choice
+- Soru: Enbiyâ 107’ye göre Hz. Peygamber nasıl gönderildi?
+- Seçenekler: Sadece Araplara hükümdar olarak | Âlemlere rahmet olarak | Sadece zenginler için | Savaş için
+- Doğru cevap: Âlemlere rahmet olarak
+- Açıklama: Enbiyâ 21:107: Seni ancak âlemlere rahmet olarak gönderdik.
+
+**DEEN-U26-S03-X002** · Merhamet ve Yardımlaşma · multiple_choice
+- Soru: Hadise göre kime merhamet olunmaz?
+- Seçenekler: Merhamet etmeyene | Spor yapana | Çok çalışana | Kitap okuyana
+- Doğru cevap: Merhamet etmeyene
+- Açıklama: “Merhamet etmeyene merhamet olunmaz.” (Buhârî)
+
+**DEEN-U26-S03-X003** · Merhamet ve Yardımlaşma · multiple_choice
+- Soru: Hadise göre “Yerdekilere merhamet edin ki ___” cümlesinin devamı nedir?
+- Seçenekler: Zengin olasınız | Meşhur olasınız | Herkes size hizmet etsin | Göktekiler de size merhamet etsin
+- Doğru cevap: Göktekiler de size merhamet etsin
+- Açıklama: “Yerdekilere merhamet edin ki göktekiler de size merhamet etsin.” (Tirmizî)
+
+**DEEN-U26-S03-X004** · Merhamet ve Yardımlaşma · multiple_choice
+- Soru: Mâide 2’ye göre müminler neyde yardımlaşmalıdır?
+- Seçenekler: İyilik ve takvada | Kavgada | Günah ve düşmanlıkta | Haksızlıkta
+- Doğru cevap: İyilik ve takvada
+- Açıklama: Mâide 5:2: İyilik ve takvada yardımlaşın; günah ve düşmanlıkta yardımlaşmayın.
+
+**DEEN-U26-S03-X005** · Merhamet ve Yardımlaşma · multiple_choice
+- Soru: Hadise göre kişi kardeşi için ne istemedikçe gerçek anlamda iman etmiş olmaz?
+- Seçenekler: Hiçbir şeyi | Kendisi için istediğini | En zor işleri | Kötü şeyleri
+- Doğru cevap: Kendisi için istediğini
+- Açıklama: “Sizden biri kendisi için istediğini kardeşi için de istemedikçe iman etmiş olmaz.” (Buhârî)
+
+**DEEN-U26-S03-X006** · Merhamet ve Yardımlaşma · multiple_choice
+- Soru: Hadiste, susuz bir köpeğe kuyudan ayakkabısıyla su çıkarıp içiren kişi için ne bildirilir?
+- Seçenekler: Unutuldu | Hiçbir sevap almadı | Allah onu bu iyiliği sebebiyle bağışladı | Cezalandırıldı
+- Doğru cevap: Allah onu bu iyiliği sebebiyle bağışladı
+- Açıklama: Hz. Peygamber “Her canlıya yapılan iyilikte sevap vardır” buyurdu (Buhârî).
+
+**DEEN-U26-S03-X007** · Merhamet ve Yardımlaşma · multiple_choice
+- Soru: Hz. Peygamber yetimi koruyan kişinin cennette nerede olacağını söyledi?
+- Seçenekler: Cennetin en uzak köşesinde | Kendisiyle yan yana, iki parmak gibi | Sadece kapıda | Hiçbir yerde
+- Doğru cevap: Kendisiyle yan yana, iki parmak gibi
+- Açıklama: “Ben ve yetimi koruyup gözeten cennette şöyleyiz” diyerek iki parmağını gösterdi (Buhârî).
+
+**DEEN-U26-S03-X008** · Merhamet ve Yardımlaşma · true_false
+- Soru: Doğru mu, yanlış mı? Hadise göre müminler birbirini sevmede ve merhamette tek bir beden gibidir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Bir organ rahatsız olunca bütün beden onunla birlikte acı çeker (Buhârî, Müslim).
+
+**DEEN-U26-S03-X009** · Merhamet ve Yardımlaşma · true_false
+- Soru: Doğru mu, yanlış mı? Merhamet sadece insanlara gösterilir; hayvanlara gösterilmez.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: İslam her canlıya merhamet etmeyi öğretir.
+
+**DEEN-U26-S03-X010** · Merhamet ve Yardımlaşma · missing_item
+- Soru: Eksik kavramı seç: Hadise göre kul kardeşinin yardımında oldukça ___ da onun yardımındadır.
+- Seçenekler: Allah | öğretmenler | zenginler | komşular
+- Doğru cevap: Allah
+- Açıklama: “Kul kardeşinin yardımında olduğu sürece Allah da onun yardımındadır.” (Müslim)
+
+**DEEN-U26-S03-X011** · Merhamet ve Yardımlaşma · fill_blank
+- Soru: Boşluğu tamamla: Enbiyâ 21:107: “Seni ancak âlemlere ___ olarak gönderdik.”
+- Seçenekler: tüccar | hükümdar | yargıç | rahmet
+- Doğru cevap: rahmet
+- Açıklama: Hz. Peygamber’in gönderilişi bütün âlemler için rahmettir.
+
+**DEEN-U26-S03-X012** · Merhamet ve Yardımlaşma · progressive_recall
+- Soru: İpucu olmadan tamamla: Müminler birbirini sevmede ve merhamette tek bir ___ gibidir.
+- Doğru cevap: beden
+- Açıklama: Bu benzetme dayanışmanın önemini anlatır.
+
+**DEEN-U26-S03-X013** · Merhamet ve Yardımlaşma · scenario
+- Soru: Sınıfa yeni gelen ve kimseyi tanımayan bir öğrenci var. Ne yaparsın?
+- Seçenekler: Yanına gidip tanışır, ona arkadaşlık ederim | Arkasından gülerim | Onu yok sayarım | Başkalarını da ondan uzaklaştırırım
+- Doğru cevap: Yanına gidip tanışır, ona arkadaşlık ederim
+- Açıklama: Yalnız kalanı gözetmek merhametin bir göstergesidir.
+
+**DEEN-U26-S03-X014** · Merhamet ve Yardımlaşma · error_spotting
+- Soru: “Sadece akrabalarımıza yardım etmemiz gerekir.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: İhtiyaç sahibi herkese gücümüz yettiğince yardım etmeliyiz | Sadece zenginlere yardım etmeliyiz | Yardım sadece bayramda yapılır | Kimseye yardım etmemeliyiz
+- Doğru cevap: İhtiyaç sahibi herkese gücümüz yettiğince yardım etmeliyiz
+- Açıklama: Mâide 5:2: İyilik ve takvada yardımlaşın.
+
+**DEEN-U26-S04-X001** · Sabır, Şükür ve Tevazu · multiple_choice
+- Soru: Bakara 153’e göre Allah kimlerle beraberdir?
+- Seçenekler: Sabredenlerle | Öfkelenenlerle | Acele edenlerle | Şikâyet edenlerle
+- Doğru cevap: Sabredenlerle
+- Açıklama: Bakara 2:153: Şüphesiz Allah sabredenlerle beraberdir.
+
+**DEEN-U26-S04-X002** · Sabır, Şükür ve Tevazu · multiple_choice
+- Soru: Hadise göre asıl sabır ne zaman gösterilir?
+- Seçenekler: Musibetin ilk anında | Herkes unuttuktan sonra | Sadece bayramlarda | Olaydan yıllar sonra
+- Doğru cevap: Musibetin ilk anında
+- Açıklama: “Sabır, musibetin ilk anında gösterilendir.” (Buhârî)
+
+**DEEN-U26-S04-X003** · Sabır, Şükür ve Tevazu · multiple_choice
+- Soru: İbrâhim 7’ye göre şükredenlere ne vaat edilir?
+- Seçenekler: Nimetlerinin artırılması | Nimetlerinin azaltılması | Sadece zorluk | Hiçbir şey
+- Doğru cevap: Nimetlerinin artırılması
+- Açıklama: İbrâhim 14:7: Şükrederseniz elbette size nimetimi artırırım.
+
+**DEEN-U26-S04-X004** · Sabır, Şükür ve Tevazu · multiple_choice
+- Soru: Hadise göre kim Allah’a da şükretmemiş olur?
+- Seçenekler: Erken uyuyan | İnsanlara teşekkür etmeyen | Çok çalışan | Kitap okuyan
+- Doğru cevap: İnsanlara teşekkür etmeyen
+- Açıklama: “İnsanlara teşekkür etmeyen Allah’a şükretmez.” (Tirmizî, Ebû Dâvûd)
+
+**DEEN-U26-S04-X005** · Sabır, Şükür ve Tevazu · multiple_choice
+- Soru: Hadise göre Allah için alçakgönüllü olana ne olur?
+- Seçenekler: Allah onu unutur | Hiçbir şey değişmez | Herkes onu küçümser | Allah onu yükseltir
+- Doğru cevap: Allah onu yükseltir
+- Açıklama: “Allah için tevazu göstereni Allah yükseltir.” (Müslim)
+
+**DEEN-U26-S04-X006** · Sabır, Şükür ve Tevazu · multiple_choice
+- Soru: Lokmân suresinde oğluna öğüt veren Lokmân ne der?
+- Seçenekler: “Herkesten üstün olduğunu göster.” | “Kimseyle konuşma.” | “Sadece kendini düşün.” | “Yeryüzünde böbürlenerek yürüme.”
+- Doğru cevap: “Yeryüzünde böbürlenerek yürüme.”
+- Açıklama: Lokmân 31:18: İnsanlardan yüz çevirme ve yeryüzünde böbürlenerek yürüme.
+
+**DEEN-U26-S04-X007** · Sabır, Şükür ve Tevazu · multiple_choice
+- Soru: Hadise göre gerçek güçlü kimdir?
+- Seçenekler: En çok bağıran | En uzun boylu olan | Öfkelendiğinde kendine hâkim olan | Güreşte herkesi yenen
+- Doğru cevap: Öfkelendiğinde kendine hâkim olan
+- Açıklama: “Güçlü, güreşte yenen değil; öfke anında kendine hâkim olandır.” (Buhârî)
+
+**DEEN-U26-S04-X008** · Sabır, Şükür ve Tevazu · multiple_choice
+- Soru: Âl-i İmrân 134’te Allah’ın sevdiği kişilerin özelliklerinden biri nedir?
+- Seçenekler: Kin tutmak | İntikam almak | Herkese bağırmak | Öfkesini yutup insanları affetmek
+- Doğru cevap: Öfkesini yutup insanları affetmek
+- Açıklama: Âl-i İmrân 3:134: Onlar öfkelerini yutar, insanları affederler; Allah iyilik yapanları sever.
+
+**DEEN-U26-S04-X009** · Sabır, Şükür ve Tevazu · true_false
+- Soru: Doğru mu, yanlış mı? Şükür sadece “Elhamdülillah” demekle değil, nimeti yerinde kullanmakla da olur.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Sebe 34:13: Ey Dâvûd ailesi! Şükür için çalışın.
+
+**DEEN-U26-S04-X010** · Sabır, Şükür ve Tevazu · true_false
+- Soru: Doğru mu, yanlış mı? Sabır, hiçbir çaba göstermeden beklemek demektir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Sabır; çabalayıp sonucu Allah’a bırakmak, zorluğa dayanmak ve kötülükten uzak durmaktır.
+
+**DEEN-U26-S04-X011** · Sabır, Şükür ve Tevazu · missing_item
+- Soru: Eksik kavramı seç: Hadise göre ayaktayken öfkelenen kişi ___ çalışmalıdır.
+- Seçenekler: koşmaya | kapıyı çarpmaya | oturmaya | bağırmaya
+- Doğru cevap: oturmaya
+- Açıklama: “Biriniz ayaktayken öfkelenirse otursun; geçmezse uzansın.” (Ebû Dâvûd)
+
+**DEEN-U26-S04-X012** · Sabır, Şükür ve Tevazu · fill_blank
+- Soru: Boşluğu tamamla: İbrâhim 14:7: “Şükrederseniz elbette size nimetimi ___.”
+- Seçenekler: saklarım | artırırım | unuturum | azaltırım
+- Doğru cevap: artırırım
+- Açıklama: Şükür nimetin artmasına vesile olur.
+
+**DEEN-U26-S04-X013** · Sabır, Şükür ve Tevazu · progressive_recall
+- Soru: İpucu olmadan tamamla: Bakara 2:153: “Şüphesiz Allah ___ beraberdir.”
+- Doğru cevap: sabredenlerle
+- Açıklama: Sabır, Allah’ın yardımını kazandırır.
+
+**DEEN-U26-S04-X014** · Sabır, Şükür ve Tevazu · matching
+- Soru: Güzel huyları zıtlarıyla eşleştir: Tevazu, Şükür, Sabır ve Hilm.
+- Eşleşmeler: Tevazu → Kibir; Şükür → Nankörlük; Sabır → Acelecilik; Hilm → Öfke
+- Açıklama: Her güzel huyun karşısında bir kötü huy vardır.
+
+**DEEN-U26-S04-X015** · Sabır, Şükür ve Tevazu · scenario
+- Soru: Takımın final maçını kaybetti. Hangisi sabır ve olgunluğa uygundur?
+- Seçenekler: Takım arkadaşlarını suçlamak | Bir daha hiç oynamamak | Rakibi tebrik edip hatalardan ders çıkarmak | Hakeme hakaret etmek
+- Doğru cevap: Rakibi tebrik edip hatalardan ders çıkarmak
+- Açıklama: Sabır, kayıp anında kendine hâkim olup doğru davranmaktır.
+
+**DEEN-U26-S04-X016** · Sabır, Şükür ve Tevazu · error_spotting
+- Soru: “Tevazu, kendini değersiz görüp başkalarına ezilmek demektir.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Tevazu, hiç konuşmamaktır | Tevazu, kimseye yardım etmemektir | Tevazu, kendini başkalarından üstün görmemek ve herkese saygı göstermektir | Tevazu, herkesten üstün olduğunu söylemektir
+- Doğru cevap: Tevazu, kendini başkalarından üstün görmemek ve herkese saygı göstermektir
+- Açıklama: Furkân 25:63: Rahmân’ın kulları yeryüzünde vakarla ve alçakgönüllülükle yürürler.
+
+**DEEN-U26-S05-X001** · Dilin Ahlakı · multiple_choice
+- Soru: Hadise göre Allah’a ve ahiret gününe inanan kişi ne yapmalıdır?
+- Seçenekler: Her aklına geleni söylemeli | Ya hayır söylemeli ya da susmalı | Hep bağırmalı | Başkalarını eleştirmeli
+- Doğru cevap: Ya hayır söylemeli ya da susmalı
+- Açıklama: “Allah’a ve ahiret gününe iman eden ya hayır söylesin ya sussun.” (Buhârî)
+
+**DEEN-U26-S05-X002** · Dilin Ahlakı · multiple_choice
+- Soru: Hadise göre gıybet nedir?
+- Seçenekler: Birine selam vermek | Birine iltifat etmek | Birine dua etmek | Kardeşini, hoşlanmayacağı bir şeyle arkasından anmak
+- Doğru cevap: Kardeşini, hoşlanmayacağı bir şeyle arkasından anmak
+- Açıklama: Hz. Peygamber gıybeti böyle tanımladı; söylenen doğru değilse iftira olur (Müslim).
+
+**DEEN-U26-S05-X003** · Dilin Ahlakı · multiple_choice
+- Soru: Hucurât 12’de gıybet neye benzetilir?
+- Seçenekler: Hediye vermeye | Ölü kardeşinin etini yemeye | Su içmeye | Selamlaşmaya
+- Doğru cevap: Ölü kardeşinin etini yemeye
+- Açıklama: Hucurât 49:12: Biriniz ölü kardeşinin etini yemekten hoşlanır mı?
+
+**DEEN-U26-S05-X004** · Dilin Ahlakı · multiple_choice
+- Soru: Hucurât 11’de müminlere ne yasaklanır?
+- Seçenekler: Selamlaşmak | Birbiriyle alay etmek ve kötü lakap takmak | Birbirine dua etmek | Yardımlaşmak
+- Doğru cevap: Birbiriyle alay etmek ve kötü lakap takmak
+- Açıklama: Hucurât 49:11: Bir topluluk diğeriyle alay etmesin… birbirinize kötü lakaplar takmayın.
+
+**DEEN-U26-S05-X005** · Dilin Ahlakı · multiple_choice
+- Soru: Hadise göre gerçek Müslüman kimdir?
+- Seçenekler: En çok konuşan kişi | Herkesi eleştiren kişi | En çok eşyası olan kişi | Elinden ve dilinden Müslümanların güvende olduğu kişi
+- Doğru cevap: Elinden ve dilinden Müslümanların güvende olduğu kişi
+- Açıklama: “Müslüman, elinden ve dilinden Müslümanların güvende olduğu kişidir.” (Buhârî)
+
+**DEEN-U26-S05-X006** · Dilin Ahlakı · multiple_choice
+- Soru: İnsanlar arasında bozgunculuk için laf taşımaya ne denir?
+- Seçenekler: Tebessüm | Nasihat | Koğuculuk (nemîme) | İkram
+- Doğru cevap: Koğuculuk (nemîme)
+- Açıklama: “Koğucu cennete giremez.” (Buhârî)
+
+**DEEN-U26-S05-X007** · Dilin Ahlakı · multiple_choice
+- Soru: Bakara 83’te insanlara nasıl konuşulması emredilir?
+- Seçenekler: Bağırılması | Sert konuşulması | Hiç konuşulmaması | Güzel söz söylenmesi
+- Doğru cevap: Güzel söz söylenmesi
+- Açıklama: Bakara 2:83: İnsanlara güzel söz söyleyin.
+
+**DEEN-U26-S05-X008** · Dilin Ahlakı · multiple_choice
+- Soru: Hucurât 12’de gıybetle birlikte yasaklanan davranış hangisidir?
+- Seçenekler: Birbirine selam vermek | Birbirine dua etmek | Birbirine hediye vermek | Birbirinin kusurlarını araştırmak (tecessüs)
+- Doğru cevap: Birbirinin kusurlarını araştırmak (tecessüs)
+- Açıklama: Hucurât 49:12: Zannın çoğundan kaçının… birbirinizin kusurlarını araştırmayın.
+
+**DEEN-U26-S05-X009** · Dilin Ahlakı · true_false
+- Soru: Doğru mu, yanlış mı? Söylenen kusur doğru bile olsa, kişinin arkasından onu kötülemek gıybettir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Söylenen doğruysa gıybet, yanlışsa iftiradır (Müslim).
+
+**DEEN-U26-S05-X010** · Dilin Ahlakı · true_false
+- Soru: Doğru mu, yanlış mı? Arkadaşına onun hoşlanmadığı bir lakap takmak şakadır, sakıncası yoktur.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Hucurât 49:11: Birbirinize kötü lakaplar takmayın.
+
+**DEEN-U26-S05-X011** · Dilin Ahlakı · missing_item
+- Soru: Eksik kavramı seç: Hadise göre güzel söz bir ___.
+- Seçenekler: yüktür | sadakadır | boşluktur | zarardır
+- Doğru cevap: sadakadır
+- Açıklama: “Güzel söz sadakadır.” (Buhârî)
+
+**DEEN-U26-S05-X012** · Dilin Ahlakı · fill_blank
+- Soru: Boşluğu tamamla: “Allah’a ve ahiret gününe iman eden ya hayır söylesin ya ___.”
+- Seçenekler: sussun | bağırsın | gülsün | koşsun
+- Doğru cevap: sussun
+- Açıklama: Buhârî’de geçen bu hadis dili korumayı öğretir.
+
+**DEEN-U26-S05-X013** · Dilin Ahlakı · progressive_recall
+- Soru: İpucu olmadan tamamla: Birini hoşlanmayacağı şeyle arkasından anmaya ___ denir.
+- Doğru cevap: gıybet
+- Açıklama: Gıybet Hucurât 49:12’de yasaklanmıştır.
+
+**DEEN-U26-S05-X014** · Dilin Ahlakı · matching
+- Soru: Dil hatalarını tanımlarıyla eşleştir: Gıybet, İftira, Koğuculuk ve Alay.
+- Eşleşmeler: Gıybet → Arkadan doğru bir kusuru anmak; İftira → Birine yapmadığı bir şeyi yüklemek; Koğuculuk → Bozgunculuk için laf taşımak; Alay → Birini küçümseyip gülmek
+- Açıklama: Dilin hatalarından korunmak güzel ahlakın parçasıdır.
+
+**DEEN-U26-S05-X015** · Dilin Ahlakı · scenario
+- Soru: Sınıfın mesaj grubunda biri, bir arkadaşınızla dalga geçen bir fotoğraf paylaştı. Ne yaparsın?
+- Seçenekler: Fotoğrafa beğeni bırakırım | Ben de gülen yüz gönderirim | Paylaşmaz, durdurulmasını ister ve arkadaşıma destek olurum | Fotoğrafı başka gruplara da yayarım
+- Doğru cevap: Paylaşmaz, durdurulmasını ister ve arkadaşıma destek olurum
+- Açıklama: Hucurât 49:11 alay etmeyi yasaklar; zulme ortak olmamak gerekir.
+
+**DEEN-U26-S05-X016** · Dilin Ahlakı · error_spotting
+- Soru: “Bir arkadaşın bize söylediği sırrı başkalarına anlatmak sorun değildir.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Sırları sadece internete yazmalıyız | Sır diye bir şey yoktur | Bize emanet edilen sırrı saklamalıyız | Sırları herkese duyurmalıyız
+- Doğru cevap: Bize emanet edilen sırrı saklamalıyız
+- Açıklama: “Bir kişi konuşurken etrafına bakınırsa o söz emanettir.” (Tirmizî, Ebû Dâvûd)
+
+**DEEN-U26-S06-X001** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: Kur’an’da Hz. Peygamber’in “yüce bir ahlak üzere” olduğu hangi surede bildirilir?
+- Seçenekler: Fil suresi | Kevser suresi | Nas suresi | Kalem suresi
+- Doğru cevap: Kalem suresi
+- Açıklama: Kalem 68:4.
+
+**DEEN-U26-S06-X002** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: Hz. Peygamber’in Mekke’deki lakabı hangisidir?
+- Seçenekler: el-Emîn | Seyfullah | el-Fârûk | Esedullah
+- Doğru cevap: el-Emîn
+- Açıklama: Emîn, güvenilir demektir.
+
+**DEEN-U26-S06-X003** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: Allah kimlerle beraberdir (Bakara 153)?
+- Seçenekler: Kibirlilerle | Acele edenlerle | Sabredenlerle | Öfkelenenlerle
+- Doğru cevap: Sabredenlerle
+- Açıklama: Bakara 2:153.
+
+**DEEN-U26-S06-X004** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: Gıybet hangi surede ölü kardeşin etini yemeye benzetilir?
+- Seçenekler: Fâtiha | Mülk | Yâsîn | Hucurât
+- Doğru cevap: Hucurât
+- Açıklama: Hucurât 49:12.
+
+**DEEN-U26-S06-X005** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Hadise göre gerçek güçlü, öfke anında kendine hâkim olandır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Buhârî’de geçen hadis.
+
+**DEEN-U26-S06-X006** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? İnsanlara teşekkür etmek gereksizdir; yalnızca Allah’a şükretmek yeter.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: “İnsanlara teşekkür etmeyen Allah’a şükretmez.” (Tirmizî)
+
+**DEEN-U26-S06-X007** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Hadise göre merhamet etmeyene merhamet olunmaz.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Buhârî’de geçen hadis.
+
+**DEEN-U26-S06-X008** · Akıllı Tekrar · multiple_choice
+- Soru: Kıyamet günü mizanda en ağır gelecek şeylerden biri nedir?
+- Seçenekler: Güzel ahlak | Meşhur olmak | Çok konuşmak | Pahalı eşyalar
+- Doğru cevap: Güzel ahlak
+- Açıklama: Tirmizî’de geçen hadis.
+
+**DEEN-U26-S06-X009** · Akıllı Tekrar · multiple_choice
+- Soru: Mâide 2’ye göre neyde yardımlaşmamalıyız?
+- Seçenekler: Günah ve düşmanlıkta | Takvada | Hayırda | İyilikte
+- Doğru cevap: Günah ve düşmanlıkta
+- Açıklama: Mâide 5:2.
+
+**DEEN-U26-S06-X010** · Akıllı Tekrar · multiple_choice
+- Soru: Nisâ 58’e göre emanetler kime verilmelidir?
+- Seçenekler: İlk gelene | Hiç kimseye | Ehline | En zengine
+- Doğru cevap: Ehline
+- Açıklama: Nisâ 4:58.
+
+**DEEN-U26-S06-X011** · Akıllı Tekrar · error_spotting
+- Soru: “Kur’an kötü lakap takmayı serbest bırakır.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Kur’an lakaplardan hiç bahsetmez | Kur’an kötü lakap takmayı yasaklar | Kur’an her lakabı emreder | Kur’an sadece güzel lakabı yasaklar
+- Doğru cevap: Kur’an kötü lakap takmayı yasaklar
+- Açıklama: Hucurât 49:11.
+
+**DEEN-U26-S06-X012** · Akıllı Tekrar · error_spotting
+- Soru: “Allah için alçakgönüllü olan kişi küçülür.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Tevazu hiçbir şeyi değiştirmez | Allah için alçakgönüllü olanı Allah yükseltir | Tevazu insanı yalnız bırakır | Tevazu sadece büyüklere yakışır
+- Doğru cevap: Allah için alçakgönüllü olanı Allah yükseltir
+- Açıklama: Müslim’de geçen hadis.
+
+**DEEN-U26-S07-X001** · Ünite Challenge · multiple_choice
+- Soru: Arkadaşın seni haksız yere suçladı ve çok öfkelendin. Hadislere göre ilk yapılacaklardan biri nedir?
+- Seçenekler: Bağırarak karşılık vermek | Sakin kalmaya çalışmak, ayaktaysan oturmak | Eşyalarını kırmak | Hemen ona vurmak
+- Doğru cevap: Sakin kalmaya çalışmak, ayaktaysan oturmak
+- Açıklama: Hz. Peygamber öfke anında oturmayı ve sakinleşmeyi tavsiye etti (Ebû Dâvûd).
+
+**DEEN-U26-S07-X002** · Ünite Challenge · multiple_choice
+- Soru: Arkadaşın sınavda kopya vermeni istiyor. Hangisi dürüstlüğe uygundur?
+- Seçenekler: Nazikçe reddedip sonra ona ders çalışmasında yardım etmek | Öğretmene yalan söylemek | Onunla alay etmek | Kopya vermek
+- Doğru cevap: Nazikçe reddedip sonra ona ders çalışmasında yardım etmek
+- Açıklama: Hem dürüstlüğü korumak hem de arkadaşına gerçek yardım etmek güzel ahlaktır.
+
+**DEEN-U26-S07-X003** · Ünite Challenge · multiple_choice
+- Soru: Lokmân’ın oğluna “yeryüzünde böbürlenerek yürüme” öğüdü hangi huydan sakındırır?
+- Seçenekler: Doğruluk | Cömertlik | Sabır | Kibir
+- Doğru cevap: Kibir
+- Açıklama: Lokmân 31:18 kibri yasaklar.
+
+**DEEN-U26-S07-X004** · Ünite Challenge · multiple_choice
+- Soru: Deprem bölgesindeki insanların acısını hissedip yardım kampanyasına katılmak hangi hadisle uyumludur?
+- Seçenekler: Müminlerin birbirine merhamette tek beden gibi olduğu hadisiyle | Hayânın imandan olduğu hadisiyle | Öfke anında oturma hadisiyle | Güzel sözün sadaka olduğu hadisiyle
+- Doğru cevap: Müminlerin birbirine merhamette tek beden gibi olduğu hadisiyle
+- Açıklama: Bir organ acı çekince bütün beden onunla birlikte acı çeker (Buhârî, Müslim).
+
+**DEEN-U26-S07-X005** · Ünite Challenge · error_spotting
+- Soru: “Hadise göre doğruluk kötülüğe götürür.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Doğruluk yalnızlığa götürür | Hadise göre doğruluk iyiliğe, iyilik de cennete götürür | Doğruluk sadece zenginliğe götürür | Doğruluk hiçbir yere götürmez
+- Doğru cevap: Hadise göre doğruluk iyiliğe, iyilik de cennete götürür
+- Açıklama: Buhârî’de geçen hadis.
+
+**DEEN-U26-S07-X006** · Ünite Challenge · error_spotting
+- Soru: “Asıl sabır, olayın üzerinden yıllar geçtikten sonra gösterilendir.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Sabır sadece hastalıkta olur | Sabır bağırarak gösterilir | Asıl sabır, musibetin ilk anında gösterilendir | Sabır gereksizdir
+- Doğru cevap: Asıl sabır, musibetin ilk anında gösterilendir
+- Açıklama: Buhârî’de geçen hadis.
+
+**DEEN-U26-S07-X007** · Ünite Challenge · progressive_recall
+- Soru: İpucu olmadan tamamla: Hadise göre ___ imandandır.
+- Doğru cevap: hayâ
+- Açıklama: Buhârî’de geçen hadis.
+
+**DEEN-U26-S07-X008** · Ünite Challenge · progressive_recall
+- Soru: İpucu olmadan tamamla: Hz. Peygamber’e güvenilirliği sebebiyle el-___ denirdi.
+- Doğru cevap: Emîn
+- Açıklama: Emîn, güvenilir demektir.
+
+**DEEN-U26-S07-X009** · Ünite Challenge · progressive_recall
+- Soru: İpucu olmadan tamamla: Kendini başkalarından üstün görmemeye ___ denir.
+- Doğru cevap: tevazu
+- Açıklama: Tevazu, alçakgönüllülüktür.
+
+**DEEN-U26-S07-X010** · Ünite Challenge · multiple_choice
+- Soru: “Güçlü, güreşte yenen değil; öfke anında kendine hâkim olandır.” hadisinin anlattığı değer hangisidir?
+- Seçenekler: Öfkeye hâkim olmak | Çok yemek | Hızlı koşmak | Spor yapmak
+- Doğru cevap: Öfkeye hâkim olmak
+- Açıklama: Gerçek güç, nefse hâkim olmaktır.
+
+**DEEN-U26-S07-X011** · Ünite Challenge · matching
+- Soru: Ayetleri konularıyla eşleştir: Kalem 68:4, Nisâ 4:58, Hucurât 49:12 ve İbrâhim 14:7.
+- Eşleşmeler: Kalem 68:4 → Yüce ahlak; Nisâ 4:58 → Emaneti ehline vermek; Hucurât 49:12 → Gıybet yasağı; İbrâhim 14:7 → Şükür nimeti artırır
+- Açıklama: Kur’an ahlakın temel ilkelerini öğretir.
+
+**DEEN-U26-S07-X012** · Ünite Challenge · matching
+- Soru: Durumları güzel ahlakla eşleştir: Nimet aldığında, Musibet geldiğinde, Başarılı olduğunda ve Öfkelendiğinde.
+- Eşleşmeler: Nimet aldığında → Şükretmek; Musibet geldiğinde → Sabretmek; Başarılı olduğunda → Tevazu göstermek; Öfkelendiğinde → Kendine hâkim olmak
+- Açıklama: Her durumun bir güzel ahlak karşılığı vardır.
+
+**DEEN-U26-S07-X013** · Ünite Challenge · scenario
+- Soru: Yanlışlıkla arkadaşının kalemini kırdın, kimse görmedi. Ne yaparsın?
+- Seçenekler: Ona söyleyip özür diler ve kalemini telafi ederim | Kimse görmediği için susarım | Kalemi saklarım | Suçu başkasına atarım
+- Doğru cevap: Ona söyleyip özür diler ve kalemini telafi ederim
+- Açıklama: Dürüstlük, kimse görmediğinde de doğru davranmaktır.
+
+**DEEN-U26-S07-X014** · Ünite Challenge · true_false
+- Soru: Doğru mu, yanlış mı? Namaz kılan biri için kötü ahlakın bir önemi yoktur.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Ankebût 29:45: Namaz, hayâsızlıktan ve kötülükten alıkoyar; ibadet ahlakı güzelleştirmelidir.
