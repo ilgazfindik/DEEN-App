@@ -9297,3 +9297,591 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Seçenekler: Doğru | Yanlış
 - Doğru cevap: Doğru
 - Açıklama: Mescid-i Nebevî’nin içinde, Hz. Âişe’nin odasındadır.
+
+## U23 — peygamber_kissalari (100 soru)
+
+**DEEN-U23-S01-X001** · Âdem ve Nuh · multiple_choice
+- Soru: İlk insan ve ilk peygamber kimdir?
+- Seçenekler: Hz. Âdem | Hz. İdris | Hz. Nuh | Hz. İbrahim
+- Doğru cevap: Hz. Âdem
+- Açıklama: Hz. Âdem hem ilk insan hem de ilk peygamberdir.
+
+**DEEN-U23-S01-X002** · Âdem ve Nuh · multiple_choice
+- Soru: Allah meleklere Hz. Âdem’e secde etmelerini emredince kim kibirlenip karşı çıktı?
+- Seçenekler: İsrâfil | İblis | Cebrâil | Mîkâil
+- Doğru cevap: İblis
+- Açıklama: Bakara 2:34: İblis direndi ve büyüklük tasladı.
+
+**DEEN-U23-S01-X003** · Âdem ve Nuh · multiple_choice
+- Soru: Bakara 31’e göre Allah Hz. Âdem’e neyi öğretti?
+- Seçenekler: Yalnızca hesap yapmayı | Hiçbir şey | Yalnızca tarım yapmayı | Bütün isimleri
+- Doğru cevap: Bütün isimleri
+- Açıklama: Bakara 2:31: Allah Âdem’e bütün isimleri öğretti; böylece insanın bilgiyle donatıldığı vurgulanır.
+
+**DEEN-U23-S01-X004** · Âdem ve Nuh · multiple_choice
+- Soru: Yasak ağaçtan yedikten sonra Hz. Âdem ve Hz. Havva ne yaptı?
+- Seçenekler: Kibirlendiler | Suçu başkasına attılar | Hiçbir şey yapmadılar | Pişman olup Allah’tan bağışlanma dilediler
+- Doğru cevap: Pişman olup Allah’tan bağışlanma dilediler
+- Açıklama: A’râf 7:23: “Rabbimiz, kendimize zulmettik; bizi bağışlamazsan ziyana uğrayanlardan oluruz.”
+
+**DEEN-U23-S01-X005** · Âdem ve Nuh · multiple_choice
+- Soru: Tufandan önce Allah’ın emriyle gemi yapan peygamber kimdir?
+- Seçenekler: Hz. Musa | Hz. Nuh | Hz. Yunus | Hz. Lût
+- Doğru cevap: Hz. Nuh
+- Açıklama: Hz. Nuh, Allah’ın emriyle gemi yaptı ve inananlar tufandan kurtuldu.
+
+**DEEN-U23-S01-X006** · Âdem ve Nuh · multiple_choice
+- Soru: Ankebût 14’e göre Hz. Nuh kavmi arasında ne kadar kaldı?
+- Seçenekler: On yıl | Bin yıldan elli yıl eksik | Beş yüz yıl | Yüz yıl
+- Doğru cevap: Bin yıldan elli yıl eksik
+- Açıklama: Ankebût 29:14: Nuh kavmi içinde bin yıldan elli yıl eksik kaldı; bu sabrın büyüklüğünü gösterir.
+
+**DEEN-U23-S01-X007** · Âdem ve Nuh · multiple_choice
+- Soru: Hûd Suresi’ne göre tufanda Hz. Nuh’un hangi yakını gemiye binmeyip boğuldu?
+- Seçenekler: Kardeşi | Oğlu | Torunu | Babası
+- Doğru cevap: Oğlu
+- Açıklama: Hûd 11:42-43: Oğlu “Beni sudan koruyacak bir dağa sığınırım” dedi ve boğulanlardan oldu.
+
+**DEEN-U23-S01-X008** · Âdem ve Nuh · true_false
+- Soru: Doğru mu, yanlış mı? Hûd 44’e göre Hz. Nuh’un gemisi Cûdî dağına oturdu.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hûd 11:44: Gemi Cûdî’ye oturdu.
+
+**DEEN-U23-S01-X009** · Âdem ve Nuh · true_false
+- Soru: Doğru mu, yanlış mı? Hz. Hûd, Âd kavmine gönderilmiş bir peygamberdir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Âd kavmi inkârda direnince şiddetli bir rüzgârla helak edildi.
+
+**DEEN-U23-S01-X010** · Âdem ve Nuh · missing_item
+- Soru: Eksik kavramı seç: Hz. Sâlih’in kavmi Semûd’a mucize olarak bir ___ verilmişti.
+- Seçenekler: asa | altın buzağı | dişi deve | gemi
+- Doğru cevap: dişi deve
+- Açıklama: Semûd kavmi deveyi kesince helak oldu (Şems 91:13-14).
+
+**DEEN-U23-S01-X011** · Âdem ve Nuh · missing_item
+- Soru: Eksik kavramı seç: İblis’in Hz. Âdem’e secde etmemesinin sebebi ___ idi.
+- Seçenekler: korku | tevazu | unutkanlık | kibir
+- Doğru cevap: kibir
+- Açıklama: İblis “Ben ondan hayırlıyım” diyerek kibirlendi (A’râf 7:12).
+
+**DEEN-U23-S01-X012** · Âdem ve Nuh · multiple_choice
+- Soru: Kur’an’a göre Hz. Âdem neyden yaratıldı?
+- Seçenekler: Nurdan | Ateşten | Sudan buhardan | Topraktan
+- Doğru cevap: Topraktan
+- Açıklama: Âl-i İmrân 3:59: Allah onu topraktan yarattı.
+
+**DEEN-U23-S01-X013** · Âdem ve Nuh · multiple_choice
+- Soru: Hz. Âdem kıssasının en önemli derslerinden biri hangisidir?
+- Seçenekler: İnsanın hiç hata yapmayacağı | Hata yapan insanın tövbe ile Allah’a dönebileceği | Hatanın başkasına yüklenmesi gerektiği | Tövbenin faydasız olduğu
+- Doğru cevap: Hata yapan insanın tövbe ile Allah’a dönebileceği
+- Açıklama: Bakara 2:37: Âdem Rabbinden kelimeler aldı, Allah da tövbesini kabul etti.
+
+**DEEN-U23-S01-X014** · Âdem ve Nuh · true_false
+- Soru: Doğru mu, yanlış mı? Hz. Nuh, “ülü’l-azm” (azim sahibi) peygamberlerden biridir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Nuh, İbrahim, Musa, İsa ve Hz. Muhammed ülü’l-azm peygamberler olarak anılır.
+
+**DEEN-U23-S02-X001** · İbrahim’in Teslimiyeti · multiple_choice
+- Soru: Hz. İbrahim putları kırdıktan sonra hangisini bırakıp “Ona sorun” dedi?
+- Seçenekler: Hiçbirini | En küçük putu | En büyük putu | Altın olanı
+- Doğru cevap: En büyük putu
+- Açıklama: Enbiyâ 21:58-63: Düşünmeleri için büyük putu bıraktı.
+
+**DEEN-U23-S02-X002** · İbrahim’in Teslimiyeti · multiple_choice
+- Soru: Hz. İbrahim ateşe atıldığında Allah ateşe ne emretti?
+- Seçenekler: “Söndürme!” | “Ey ateş, İbrahim’e serin ve selamet ol!” | “Onu yak!” | “Daha da alevlen!”
+- Doğru cevap: “Ey ateş, İbrahim’e serin ve selamet ol!”
+- Açıklama: Enbiyâ 21:69.
+
+**DEEN-U23-S02-X003** · İbrahim’in Teslimiyeti · multiple_choice
+- Soru: Hz. İbrahim’in “Allah’ın dostu” anlamına gelen unvanı nedir?
+- Seçenekler: Habîbullah | Halîlullah | Rûhullah | Kelîmullah
+- Doğru cevap: Halîlullah
+- Açıklama: Nisâ 4:125: Allah İbrahim’i dost edindi.
+
+**DEEN-U23-S02-X004** · İbrahim’in Teslimiyeti · multiple_choice
+- Soru: En’âm Suresi’ne göre Hz. İbrahim yıldızın, ayın ve güneşin batışını görünce ne dedi?
+- Seçenekler: “Bunlara tapalım.” | “Bunlar hiç batmaz.” | “Ben batanları sevmem.” | “Bunlar benim rabbimdir.”
+- Doğru cevap: “Ben batanları sevmem.”
+- Açıklama: En’âm 6:76-79: Batıp kaybolanın ilah olamayacağını göstererek tevhide ulaştı.
+
+**DEEN-U23-S02-X005** · İbrahim’in Teslimiyeti · multiple_choice
+- Soru: Kur’an’da putperest olarak anılan Hz. İbrahim’in babasının adı nedir?
+- Seçenekler: Ebrehe | Nemrut | Âzer | Kârûn
+- Doğru cevap: Âzer
+- Açıklama: En’âm 6:74: İbrahim babası Âzer’e “Putları ilah mı ediniyorsun?” dedi.
+
+**DEEN-U23-S02-X006** · İbrahim’in Teslimiyeti · multiple_choice
+- Soru: Rüyasında oğlunu kurban ettiğini gören Hz. İbrahim’e oğlu ne dedi?
+- Seçenekler: “Benden uzak dur.” | “Babacığım, emrolunduğun şeyi yap; inşallah beni sabredenlerden bulursun.” | “Kaçalım.” | “Bu rüya önemsiz.”
+- Doğru cevap: “Babacığım, emrolunduğun şeyi yap; inşallah beni sabredenlerden bulursun.”
+- Açıklama: Sâffât 37:102.
+
+**DEEN-U23-S02-X007** · İbrahim’in Teslimiyeti · matching
+- Soru: Olayları açıklamalarıyla eşleştir: Putlar, Ateş, Kâbe ve Kurban.
+- Eşleşmeler: Putlar → Büyük putu bırakıp diğerlerini kırdı; Ateş → Serin ve selamet oldu; Kâbe → İsmail ile temellerini yükseltti; Kurban → Büyük bir kurbanla fidye verildi
+- Açıklama: Hz. İbrahim’in hayatı teslimiyet örnekleriyle doludur.
+
+**DEEN-U23-S02-X008** · İbrahim’in Teslimiyeti · true_false
+- Soru: Doğru mu, yanlış mı? Kur’an’da Hz. İbrahim’in misafirlerine hemen kızarmış bir buzağı ikram ettiği anlatılır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hûd 11:69 ve Zâriyât 51:26: Misafirperverliğin güzel bir örneği.
+
+**DEEN-U23-S02-X009** · İbrahim’in Teslimiyeti · true_false
+- Soru: Doğru mu, yanlış mı? Hz. İbrahim Kur’an’da “hanîf” yani batıldan yüz çevirip yalnız Allah’a yönelen biri olarak anılır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Âl-i İmrân 3:67: İbrahim hanîf bir Müslümandı.
+
+**DEEN-U23-S02-X010** · İbrahim’in Teslimiyeti · fill_blank
+- Soru: Boşluğu tamamla: Hz. İbrahim’le tartışan ve “Ben de diriltir ve öldürürüm” diyen hükümdar geleneklerde ___ olarak bilinir.
+- Seçenekler: Firavun | Nemrut | Ebrehe | Kârûn
+- Doğru cevap: Nemrut
+- Açıklama: Bakara 2:258’de anlatılan tartışmada İbrahim “Allah güneşi doğudan getirir, sen de batıdan getir” dedi.
+
+**DEEN-U23-S02-X011** · İbrahim’in Teslimiyeti · fill_blank
+- Soru: Boşluğu tamamla: Hz. İbrahim’in yeğeni ve kendisine iman eden peygamber Hz. ___ dur.
+- Seçenekler: Lût | Sâlih | Hûd | Yunus
+- Doğru cevap: Lût
+- Açıklama: Hz. Lût, Hz. İbrahim’in yeğenidir; kavmi kötülükte direnince helak edildi.
+
+**DEEN-U23-S02-X012** · İbrahim’in Teslimiyeti · progressive_recall
+- Soru: İpucu olmadan tamamla: Hz. İbrahim’e Allah’ın dostu anlamında ___ denir.
+- Doğru cevap: Halîlullah
+- Açıklama: Halîlullah, Allah’ın dostu demektir.
+
+**DEEN-U23-S02-X013** · İbrahim’in Teslimiyeti · progressive_recall
+- Soru: İpucu olmadan tamamla: Hz. İbrahim’in iki peygamber oğlu İsmail ve ___ dır.
+- Doğru cevap: İshak
+- Açıklama: Hz. İsmail Hâcer’den, Hz. İshak Sâre’den doğmuştur.
+
+**DEEN-U23-S02-X014** · İbrahim’in Teslimiyeti · multiple_choice
+- Soru: Hz. İbrahim Kâbe’yi inşa ederken Mekke için ne diledi?
+- Seçenekler: Hiç kimsenin yaşamamasını | Güvenli bir şehir olmasını ve halkının rızıklandırılmasını | Bir savaş kalesi olmasını | Altınla dolmasını
+- Doğru cevap: Güvenli bir şehir olmasını ve halkının rızıklandırılmasını
+- Açıklama: Bakara 2:126: Rabbim, burayı güvenli bir şehir kıl ve halkını ürünlerle rızıklandır.
+
+**DEEN-U23-S03-X001** · Yusuf’un Sabrı · multiple_choice
+- Soru: Hz. Yusuf’u kıskanıp kuyuya atanlar kimlerdi?
+- Seçenekler: Tüccarlar | Kardeşleri | Komşuları | Askerler
+- Doğru cevap: Kardeşleri
+- Açıklama: Yûsuf 12:15: Kardeşleri onu kuyunun dibine attılar.
+
+**DEEN-U23-S03-X002** · Yusuf’un Sabrı · multiple_choice
+- Soru: Yûsuf Suresi’nin 3. âyetinde bu kıssa nasıl nitelenir?
+- Seçenekler: Kıssaların en güzeli | Sıradan bir hikâye | En kısa kıssa | Unutulmuş kıssa
+- Doğru cevap: Kıssaların en güzeli
+- Açıklama: Yûsuf 12:3: Sana kıssaların en güzelini anlatıyoruz.
+
+**DEEN-U23-S03-X003** · Yusuf’un Sabrı · multiple_choice
+- Soru: Hz. Yusuf hükümdarın yedi semiz ve yedi cılız inek rüyasını nasıl yorumladı?
+- Seçenekler: Yedi bolluk yılından sonra yedi kıtlık yılı geleceği | Hükümdarın öleceği | Yedi savaş olacağı | Nehrin kuruyacağı
+- Doğru cevap: Yedi bolluk yılından sonra yedi kıtlık yılı geleceği
+- Açıklama: Yûsuf 12:47-49: Bolluk yıllarında ürünü saklayıp kıtlık yıllarına hazırlanılmasını önerdi.
+
+**DEEN-U23-S03-X004** · Yusuf’un Sabrı · multiple_choice
+- Soru: Hz. Yusuf haksız bir iftira yüzünden nereye konuldu?
+- Seçenekler: Saraya | Zindana | Çöle | Gemiye
+- Doğru cevap: Zindana
+- Açıklama: Yûsuf 12:33: Günaha girmektense zindanı tercih etti.
+
+**DEEN-U23-S03-X005** · Yusuf’un Sabrı · multiple_choice
+- Soru: Oğlunu kaybeden Hz. Yakup hangi sözü söyledi?
+- Seçenekler: “Kardeşlerini cezalandıracağım.” | “Artık bana düşen güzel bir sabırdır.” | “Allah beni unuttu.” | “Artık her şey bitti.”
+- Doğru cevap: “Artık bana düşen güzel bir sabırdır.”
+- Açıklama: Yûsuf 12:18: Fesabrun cemîl, güzel bir sabır.
+
+**DEEN-U23-S03-X006** · Yusuf’un Sabrı · multiple_choice
+- Soru: Güç sahibi olduktan sonra Hz. Yusuf kardeşlerine nasıl davrandı?
+- Seçenekler: Onları sürgün etti | Onları zindana attı | Onları hiç görmek istemedi | Onları affetti
+- Doğru cevap: Onları affetti
+- Açıklama: Yûsuf 12:92: Bugün size kınama yok; Allah sizi bağışlasın.
+
+**DEEN-U23-S03-X007** · Yusuf’un Sabrı · matching
+- Soru: Olayları açıklamalarıyla eşleştir: Kuyu, Zindan, İnek rüyası ve Gömlek.
+- Eşleşmeler: Kuyu → Kardeşlerinin kıskançlığı; Zindan → Haksız iftiraya uğraması; İnek rüyası → Bolluk ve kıtlık yılları; Gömlek → Babasının gözlerinin açılması
+- Açıklama: Yusuf kıssası sabır, iffet ve affı öğretir.
+
+**DEEN-U23-S03-X008** · Yusuf’un Sabrı · true_false
+- Soru: Doğru mu, yanlış mı? Hz. Yusuf daha sonra Mısır’ın hazinelerinin başına geçti.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Yûsuf 12:55: Beni ülkenin hazinelerine görevli kıl; ben iyi korur, iyi bilirim.
+
+**DEEN-U23-S03-X009** · Yusuf’un Sabrı · true_false
+- Soru: Doğru mu, yanlış mı? Hz. Yusuf’un gömleği babası Hz. Yakup’un yüzüne konunca gözleri yeniden görmeye başladı.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Yûsuf 12:96.
+
+**DEEN-U23-S03-X010** · Yusuf’un Sabrı · fill_blank
+- Soru: Boşluğu tamamla: Hz. Yusuf, azîzin karısının günaha çağrısına rağmen ___ korudu.
+- Seçenekler: servetini | makamını | öfkesini | iffetini
+- Doğru cevap: iffetini
+- Açıklama: Yûsuf 12:23: “Allah’a sığınırım” diyerek günaha yaklaşmadı.
+
+**DEEN-U23-S03-X011** · Yusuf’un Sabrı · fill_blank
+- Soru: Boşluğu tamamla: Hz. Yusuf’un babası Hz. ___ dur.
+- Seçenekler: İbrahim | İshak | Yakup | Musa
+- Doğru cevap: Yakup
+- Açıklama: Hz. Yakup, Hz. İshak’ın oğlu, Hz. İbrahim’in torunudur.
+
+**DEEN-U23-S03-X012** · Yusuf’un Sabrı · progressive_recall
+- Soru: İpucu olmadan tamamla: Hz. Yakup’un sözü: “Artık bana düşen güzel bir ___ dır.”
+- Doğru cevap: sabır
+- Açıklama: Yûsuf 12:18 ve 12:83.
+
+**DEEN-U23-S03-X013** · Yusuf’un Sabrı · scenario
+- Soru: Eren, öğretmenin kardeşini daha çok övdüğünü düşünüp onu kıskanıyor. Yusuf kıssası ona ne öğretir?
+- Seçenekler: Kıskançlığın masum bir duygu olduğunu | Kıskançlığın hep haklı olduğunu | Kardeşlerin hiç sevilmemesi gerektiğini | Kıskançlığın insanı büyük haksızlıklara sürükleyebileceğini
+- Doğru cevap: Kıskançlığın insanı büyük haksızlıklara sürükleyebileceğini
+- Açıklama: Kardeşlerin kıskançlığı onları Yusuf’u kuyuya atmaya kadar götürdü.
+
+**DEEN-U23-S03-X014** · Yusuf’un Sabrı · scenario
+- Soru: Melis yapmadığı bir şey yüzünden suçlandı ve çok üzgün. Hz. Yusuf’un tutumu ona nasıl örnek olur?
+- Seçenekler: Yalan söyleyerek kurtulmak | Doğruluktan ayrılmayıp sabretmek; gerçek sonunda ortaya çıkar | Hemen intikam almak | Herkese küsmek
+- Doğru cevap: Doğruluktan ayrılmayıp sabretmek; gerçek sonunda ortaya çıkar
+- Açıklama: Yusuf zindanda bile doğruluğunu ve imanını korudu; sonunda suçsuzluğu ortaya çıktı.
+
+**DEEN-U23-S04-X001** · Musa ve Firavun · multiple_choice
+- Soru: Firavun’un erkek çocukları öldürttüğü dönemde bebek Musa’yı annesi ne yaptı?
+- Seçenekler: Firavun’a teslim etti | Allah’ın ilhamıyla bir sandık içinde nehre bıraktı | Uzak bir ülkeye kaçırdı | Bir mağaraya sakladı
+- Doğru cevap: Allah’ın ilhamıyla bir sandık içinde nehre bıraktı
+- Açıklama: Kasas 28:7: Onu emzir; korktuğun zaman onu nehre bırak.
+
+**DEEN-U23-S04-X002** · Musa ve Firavun · multiple_choice
+- Soru: Bebek Musa’yı nehirden alıp evlat edinen kimdi?
+- Seçenekler: Firavun’un eşi | Hz. Harun | Bir balıkçı | Hz. Şuayb
+- Doğru cevap: Firavun’un eşi
+- Açıklama: Kasas 28:9: Firavun’un karısı “Bir göz aydınlığı, onu öldürmeyin” dedi.
+
+**DEEN-U23-S04-X003** · Musa ve Firavun · multiple_choice
+- Soru: Allah ile Tûr dağında konuşan peygamber hangisidir?
+- Seçenekler: Hz. İsa | Hz. Nuh | Hz. Yunus | Hz. Musa
+- Doğru cevap: Hz. Musa
+- Açıklama: Nisâ 4:164: Allah Musa ile gerçekten konuştu; bu yüzden Kelîmullah denir.
+
+**DEEN-U23-S04-X004** · Musa ve Firavun · multiple_choice
+- Soru: Hz. Musa’nın asası yere atılınca neye dönüştü?
+- Seçenekler: Bir kuşa | Bir yılana | Bir kılıca | Bir ağaca
+- Doğru cevap: Bir yılana
+- Açıklama: Tâhâ 20:20: Asayı atınca o hemen koşan bir yılan oldu.
+
+**DEEN-U23-S04-X005** · Musa ve Firavun · multiple_choice
+- Soru: Hz. Musa, Firavun’a giderken kimin yardımcı olarak kendisine verilmesini diledi?
+- Seçenekler: Firavun’un oğlunun | Kârûn’un | Hızır’ın | Kardeşi Harun’un
+- Doğru cevap: Kardeşi Harun’un
+- Açıklama: Tâhâ 20:29-32: Ailemden kardeşim Harun’u bana yardımcı kıl.
+
+**DEEN-U23-S04-X006** · Musa ve Firavun · multiple_choice
+- Soru: Firavun’un ordusundan kaçan Hz. Musa ve İsrailoğulları nasıl kurtuldu?
+- Seçenekler: Gemiyle kaçtılar | Firavun onları affetti | Allah denizi yardı ve onlar geçti | Bir mağaraya saklandılar
+- Doğru cevap: Allah denizi yardı ve onlar geçti
+- Açıklama: Şuarâ 26:63: Asanla denize vur; deniz yarıldı.
+
+**DEEN-U23-S04-X007** · Musa ve Firavun · multiple_choice
+- Soru: Hz. Musa’ya indirilen kitap hangisidir?
+- Seçenekler: İncil | Kur’an | Zebur | Tevrat
+- Doğru cevap: Tevrat
+- Açıklama: Tevrat, Hz. Musa’ya indirilmiş ilahi kitaptır.
+
+**DEEN-U23-S04-X008** · Musa ve Firavun · multiple_choice
+- Soru: Kehf Suresi’nde Hz. Musa’nın ilim öğrenmek için yolculuk yaptığı salih kul, geleneklerde hangi adla bilinir?
+- Seçenekler: Üzeyir | Zülkarneyn | Hızır | Lokman
+- Doğru cevap: Hızır
+- Açıklama: Kehf 18:60-82: Musa, Allah’ın katından ilim verilmiş bir kulla yolculuk yaptı; gelenekte bu kul Hızır olarak anılır.
+
+**DEEN-U23-S04-X009** · Musa ve Firavun · true_false
+- Soru: Doğru mu, yanlış mı? Firavun ve ordusu, Musa’nın peşinden denize girince boğuldu.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Yûnus 10:90-92: Firavun boğulurken iman ettiğini söyledi ama vakit geçmişti.
+
+**DEEN-U23-S04-X010** · Musa ve Firavun · true_false
+- Soru: Doğru mu, yanlış mı? Hz. Musa Mısır’dan kaçınca Medyen’e gitti ve orada Hz. Şuayb’ın kızıyla evlendi.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Kasas 28:22-28. Gelenekte o yaşlı kişinin Hz. Şuayb olduğu kabul edilir.
+
+**DEEN-U23-S04-X011** · Musa ve Firavun · scenario
+- Soru: Allah, Hz. Musa ve Harun’u zalim Firavun’a gönderirken nasıl konuşmalarını emretti?
+- Seçenekler: Hakaret ederek | Yumuşak bir dille | Hiç konuşmadan | Bağırarak
+- Doğru cevap: Yumuşak bir dille
+- Açıklama: Tâhâ 20:44: Ona yumuşak söz söyleyin; belki öğüt alır ya da korkar.
+
+**DEEN-U23-S04-X012** · Musa ve Firavun · scenario
+- Soru: Hızır’ın yaptığı işlerin hikmetini sonradan öğrenen Hz. Musa kıssası bize ne öğretir?
+- Seçenekler: Her şeyin hikmetini hemen bilmemiz gerektiğini | İlim öğrenmenin gereksiz olduğunu | Soru sormanın yasak olduğunu | Her olayın hikmetini hemen bilemeyebileceğimizi, sabretmeyi
+- Doğru cevap: Her olayın hikmetini hemen bilemeyebileceğimizi, sabretmeyi
+- Açıklama: Kehf 18:82: Bunu ben kendiliğimden yapmadım; sabredemediğin şeylerin içyüzü budur.
+
+**DEEN-U23-S04-X013** · Musa ve Firavun · fill_blank
+- Soru: Boşluğu tamamla: Hz. Musa Allah ile ___ dağında konuştu.
+- Seçenekler: Uhud | Nur | Tûr | Cûdî
+- Doğru cevap: Tûr
+- Açıklama: Tûr-i Sînâ’da Allah Musa’ya seslendi.
+
+**DEEN-U23-S04-X014** · Musa ve Firavun · fill_blank
+- Soru: Boşluğu tamamla: Hz. Musa elini koynuna sokup çıkarınca eli ___ çıkardı.
+- Seçenekler: yeşil | kapkara | bembeyaz | kan kırmızı
+- Doğru cevap: bembeyaz
+- Açıklama: Tâhâ 20:22: Elini koynuna sok, kusursuz bembeyaz çıksın.
+
+**DEEN-U23-S04-X015** · Musa ve Firavun · progressive_recall
+- Soru: İpucu olmadan tamamla: Allah ile konuştuğu için Hz. Musa’ya ___ denir.
+- Doğru cevap: Kelîmullah
+- Açıklama: Kelîmullah, Allah’ın konuştuğu kişi demektir.
+
+**DEEN-U23-S04-X016** · Musa ve Firavun · matching
+- Soru: Olayları açıklamalarıyla eşleştir: Nehir, Tûr, Asa ve Deniz.
+- Eşleşmeler: Nehir → Bebekken sandıkla bırakıldı; Tûr → Allah ile konuştuğu dağ; Asa → Yılana dönüşen mucize; Deniz → Yarılarak kurtuluş yolu oldu
+- Açıklama: Musa kıssası Kur’an’da en çok anlatılan kıssadır.
+
+**DEEN-U23-S05-X001** · Yunus, Süleyman ve İsa · multiple_choice
+- Soru: Balığın karnında kalan peygamber kimdir?
+- Seçenekler: Hz. Yunus | Hz. Eyyûb | Hz. Nuh | Hz. Musa
+- Doğru cevap: Hz. Yunus
+- Açıklama: Hz. Yunus kavminden ayrılıp gemiye bindi; sonra büyük bir balık onu yuttu.
+
+**DEEN-U23-S05-X002** · Yunus, Süleyman ve İsa · multiple_choice
+- Soru: Hz. Yunus balığın karnında nasıl dua etti?
+- Seçenekler: “Senden başka ilah yoktur; seni tenzih ederim; ben zalimlerden oldum.” | “Bu benim suçum değil.” | Hiç dua etmedi | “Beni hemen çıkar, yoksa kızarım.”
+- Doğru cevap: “Senden başka ilah yoktur; seni tenzih ederim; ben zalimlerden oldum.”
+- Açıklama: Enbiyâ 21:87: Lâ ilâhe illâ ente sübhâneke innî küntü mine’z-zâlimîn.
+
+**DEEN-U23-S05-X003** · Yunus, Süleyman ve İsa · multiple_choice
+- Soru: Ağır hastalık ve kayıplara rağmen sabrıyla örnek gösterilen peygamber kimdir?
+- Seçenekler: Hz. Davud | Hz. İdris | Hz. Süleyman | Hz. Eyyûb
+- Doğru cevap: Hz. Eyyûb
+- Açıklama: Sâd 38:44: Biz onu sabırlı bulduk; ne güzel kuldu.
+
+**DEEN-U23-S05-X004** · Yunus, Süleyman ve İsa · multiple_choice
+- Soru: Hz. Süleyman hangi hayvanın “Ordusu sizi ezmesin, yuvalarınıza girin” dediğini duyup gülümsedi?
+- Seçenekler: Karıncanın | Arının | Atın | Kuşun
+- Doğru cevap: Karıncanın
+- Açıklama: Neml 27:18-19.
+
+**DEEN-U23-S05-X005** · Yunus, Süleyman ve İsa · multiple_choice
+- Soru: Hz. Süleyman’a Sebe melikesinin haberini getiren kuş hangisidir?
+- Seçenekler: Karga | Kartal | Güvercin | Hüdhüd
+- Doğru cevap: Hüdhüd
+- Açıklama: Neml 27:20-22: Hüdhüd, Sebe’den kesin bir haber getirdiğini söyledi.
+
+**DEEN-U23-S05-X006** · Yunus, Süleyman ve İsa · multiple_choice
+- Soru: Hz. Davud’a indirilen kitap hangisidir?
+- Seçenekler: İncil | Tevrat | Suhuf | Zebur
+- Doğru cevap: Zebur
+- Açıklama: Nisâ 4:163: Davud’a Zebur’u verdik.
+
+**DEEN-U23-S05-X007** · Yunus, Süleyman ve İsa · multiple_choice
+- Soru: Âl-i İmrân 59’a göre Hz. İsa’nın babasız yaratılışı kimin yaratılışına benzetilir?
+- Seçenekler: Hz. Nuh’un | Hz. Yahya’nın | Hz. Âdem’in | Hz. İbrahim’in
+- Doğru cevap: Hz. Âdem’in
+- Açıklama: Âl-i İmrân 3:59: Allah katında İsa’nın durumu Âdem’in durumu gibidir.
+
+**DEEN-U23-S05-X008** · Yunus, Süleyman ve İsa · multiple_choice
+- Soru: Hz. İsa beşikte konuşarak ne dedi?
+- Seçenekler: “Beni rahat bırakın.” | “Annem beni tanımıyor.” | “Ben Allah’ın kuluyum; bana kitap verdi ve beni peygamber yaptı.” | “Ben Allah’ın oğluyum.”
+- Doğru cevap: “Ben Allah’ın kuluyum; bana kitap verdi ve beni peygamber yaptı.”
+- Açıklama: Meryem 19:30.
+
+**DEEN-U23-S05-X009** · Yunus, Süleyman ve İsa · multiple_choice
+- Soru: Kur’an’da adı geçen ve adıyla bir sure bulunan tek kadın kimdir?
+- Seçenekler: Hz. Meryem | Hz. Sâre | Hz. Âsiye | Hz. Hatice
+- Doğru cevap: Hz. Meryem
+- Açıklama: Meryem 19. suredir; Âl-i İmrân 3:42’de seçkin kılındığı bildirilir.
+
+**DEEN-U23-S05-X010** · Yunus, Süleyman ve İsa · true_false
+- Soru: Doğru mu, yanlış mı? Nisâ 157-158’e göre Hz. İsa öldürülmedi ve asılmadı; Allah onu kendi katına yükseltti.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Nisâ 4:157-158.
+
+**DEEN-U23-S05-X011** · Yunus, Süleyman ve İsa · true_false
+- Soru: Doğru mu, yanlış mı? Yaşlılığında Hz. Zekeriya’ya Yahya adında bir oğul müjdelendi.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Meryem 19:7: Ey Zekeriya, sana Yahya adında bir oğul müjdeliyoruz.
+
+**DEEN-U23-S05-X012** · Yunus, Süleyman ve İsa · scenario
+- Soru: Kaan bir hata yaptı ve çok pişman. Hz. Yunus’un kıssası ona ne öğretir?
+- Seçenekler: Başkasını suçlamayı | Ümidini kesmeyi | Hatasını kabul edip içtenlikle Allah’a yönelmeyi | Hatasını saklamayı
+- Doğru cevap: Hatasını kabul edip içtenlikle Allah’a yönelmeyi
+- Açıklama: Yunus “Ben zalimlerden oldum” diyerek hatasını kabul etti; Allah da onu kurtardı (Enbiyâ 21:88).
+
+**DEEN-U23-S05-X013** · Yunus, Süleyman ve İsa · scenario
+- Soru: Kardeşin yoldaki karıncaları ezmeye çalışıyor. Hz. Süleyman kıssasından ne söylersin?
+- Seçenekler: Karıncalar önemsizdir | Allah’ın bütün canlılarına özen gösterilmeli | Hiçbir şey söylemem | Sadece büyük hayvanlar korunur
+- Doğru cevap: Allah’ın bütün canlılarına özen gösterilmeli
+- Açıklama: Büyük bir hükümdar olan Süleyman bile karıncanın sözüne kulak verdi.
+
+**DEEN-U23-S05-X014** · Yunus, Süleyman ve İsa · fill_blank
+- Soru: Boşluğu tamamla: Hz. Yunus, Kur’an’da “balık sahibi” anlamında ___ diye anılır.
+- Seçenekler: Zülkarneyn | Halîl | Zülkifl | Zünnûn
+- Doğru cevap: Zünnûn
+- Açıklama: Enbiyâ 21:87: Zünnûn’u da an.
+
+**DEEN-U23-S05-X015** · Yunus, Süleyman ve İsa · progressive_recall
+- Soru: İpucu olmadan tamamla: Hz. İsa’ya indirilen kitap ___ dir.
+- Doğru cevap: İncil
+- Açıklama: Hz. İsa’ya İncil indirilmiştir.
+
+**DEEN-U23-S05-X016** · Yunus, Süleyman ve İsa · matching
+- Soru: Peygamberleri özellikleriyle eşleştir: Yunus, Eyyûb, Süleyman ve İsa.
+- Eşleşmeler: Yunus → Balığın karnında dua etti; Eyyûb → Hastalığa sabretti; Süleyman → Karıncayı duydu; İsa → Beşikte konuştu
+- Açıklama: Her peygamberin kıssası farklı bir ders verir.
+
+**DEEN-U23-S06-X001** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: Gemi yapan peygamber kimdir?
+- Seçenekler: Hz. Nuh | Hz. Musa | Hz. Yunus | Hz. Hûd
+- Doğru cevap: Hz. Nuh
+- Açıklama: Hz. Nuh Allah’ın emriyle gemi yaptı.
+
+**DEEN-U23-S06-X002** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: Ateşe atılan peygamber kimdir?
+- Seçenekler: Hz. İsmail | Hz. Yakup | Hz. İbrahim | Hz. Lût
+- Doğru cevap: Hz. İbrahim
+- Açıklama: Ateş İbrahim’e serin ve selamet oldu.
+
+**DEEN-U23-S06-X003** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: Kuyuya atılan peygamber kimdir?
+- Seçenekler: Hz. Yahya | Hz. Yunus | Hz. Eyyûb | Hz. Yusuf
+- Doğru cevap: Hz. Yusuf
+- Açıklama: Kardeşleri Yusuf’u kuyuya attı.
+
+**DEEN-U23-S06-X004** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: Tûr dağında Allah ile konuşan peygamber kimdir?
+- Seçenekler: Hz. Musa | Hz. Harun | Hz. Davud | Hz. İsa
+- Doğru cevap: Hz. Musa
+- Açıklama: Hz. Musa Kelîmullah’tır.
+
+**DEEN-U23-S06-X005** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? İblis Hz. Âdem’e secde etti.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: İblis kibirlenip secde etmedi.
+
+**DEEN-U23-S06-X006** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Zebur Hz. Davud’a indirilmiştir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Nisâ 4:163.
+
+**DEEN-U23-S06-X007** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Hz. Yusuf kardeşlerini affetmedi.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Yusuf kardeşlerini affetti (Yûsuf 12:92).
+
+**DEEN-U23-S06-X008** · Akıllı Tekrar · multiple_choice
+- Soru: Balığın karnında dua eden peygamber kimdir?
+- Seçenekler: Hz. Nuh | Hz. Süleyman | Hz. Musa | Hz. Yunus
+- Doğru cevap: Hz. Yunus
+- Açıklama: Hz. Yunus.
+
+**DEEN-U23-S06-X009** · Akıllı Tekrar · multiple_choice
+- Soru: “Halîlullah” hangi peygamberin unvanıdır?
+- Seçenekler: Hz. Nuh | Hz. Musa | Hz. İbrahim | Hz. İsa
+- Doğru cevap: Hz. İbrahim
+- Açıklama: Halîlullah, Allah’ın dostu demektir.
+
+**DEEN-U23-S06-X010** · Akıllı Tekrar · multiple_choice
+- Soru: Sabrıyla tanınan peygamber kimdir?
+- Seçenekler: Hz. Hûd | Hz. Eyyûb | Hz. Süleyman | Hz. Sâlih
+- Doğru cevap: Hz. Eyyûb
+- Açıklama: Hz. Eyyûb sabrın sembolüdür.
+
+**DEEN-U23-S06-X011** · Akıllı Tekrar · error_spotting
+- Soru: “İncil Hz. Musa’ya indirilmiştir.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: İncil Hz. Nuh’a indirilmiştir | Hz. Musa’ya kitap indirilmemiştir | İncil Hz. Davud’a indirilmiştir | İncil Hz. İsa’ya, Tevrat Hz. Musa’ya indirilmiştir
+- Doğru cevap: İncil Hz. İsa’ya, Tevrat Hz. Musa’ya indirilmiştir
+- Açıklama: Tevrat Musa’ya, İncil İsa’ya verildi.
+
+**DEEN-U23-S06-X012** · Akıllı Tekrar · error_spotting
+- Soru: “Hüdhüd kuşu Hz. Musa’ya haber getirdi.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Hüdhüd kuşu Hz. Süleyman’a Sebe’den haber getirdi | Hüdhüd Hz. Nuh’a zeytin dalı getirdi | Hüdhüd Hz. İbrahim’i kurtardı | Hüdhüd Hz. Yunus’u balıktan çıkardı
+- Doğru cevap: Hüdhüd kuşu Hz. Süleyman’a Sebe’den haber getirdi
+- Açıklama: Neml 27:20-22.
+
+**DEEN-U23-S07-X001** · Ünite Challenge · scenario
+- Soru: Arda yanlış bir şey yapıp “Ben zaten kötüyüm, değişemem” diyor. Hz. Âdem ve Hz. Yunus kıssaları ne der?
+- Seçenekler: Hata gizlenmelidir | Bir kez hata yapan değişemez | Pişmanlıkla Allah’a yönelen için tövbe kapısı açıktır | Tövbe yalnızca peygamberlere aittir
+- Doğru cevap: Pişmanlıkla Allah’a yönelen için tövbe kapısı açıktır
+- Açıklama: Âdem ve Yunus hatalarını kabul edip tövbe ettiler; Allah da affetti.
+
+**DEEN-U23-S07-X002** · Ünite Challenge · scenario
+- Soru: Hz. İbrahim’in büyük putu bırakıp “Ona sorun” demesinin amacı neydi?
+- Seçenekler: Büyük puta tapmalarını istemek | Kavminin putların aczini düşünüp akıllarını kullanmasını sağlamak | Putları korumak | Onlarla şaka yapmak
+- Doğru cevap: Kavminin putların aczini düşünüp akıllarını kullanmasını sağlamak
+- Açıklama: Enbiyâ 21:63-67: Konuşamayan putların ilah olamayacağını fark ettirmek istedi.
+
+**DEEN-U23-S07-X003** · Ünite Challenge · scenario
+- Soru: Arkadaşın çok kaba bir şekilde konuşuyor. Musa kıssasından hangi ilke işine yarar?
+- Seçenekler: Ona daha kaba karşılık vermek | Hiç konuşmamak | Onu herkesin önünde rezil etmek | Yumuşak bir dille konuşmak; Firavun’a bile yumuşak söz emredildi
+- Doğru cevap: Yumuşak bir dille konuşmak; Firavun’a bile yumuşak söz emredildi
+- Açıklama: Tâhâ 20:44.
+
+**DEEN-U23-S07-X004** · Ünite Challenge · error_spotting
+- Soru: “Kur’an’a göre Hz. İsa Allah’ın oğludur.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Hz. İsa’nın kitabı Tevrat’tır | Hz. İsa bir melektir | Kur’an’a göre Hz. İsa Allah’ın kulu ve peygamberidir | Hz. İsa beşikte hiç konuşmadı
+- Doğru cevap: Kur’an’a göre Hz. İsa Allah’ın kulu ve peygamberidir
+- Açıklama: Meryem 19:30: Ben Allah’ın kuluyum.
+
+**DEEN-U23-S07-X005** · Ünite Challenge · error_spotting
+- Soru: “Hz. Nuh’un oğlu gemiye binerek kurtuldu.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Hz. Nuh’un oğlu gemiye binmedi ve boğuldu | Hz. Nuh’un oğlu yoktu | Hz. Nuh’un oğlu dağda yaşamaya devam etti | Hz. Nuh’un oğlu gemiyi yaptı
+- Doğru cevap: Hz. Nuh’un oğlu gemiye binmedi ve boğuldu
+- Açıklama: Hûd 11:43: Aralarına dalga girdi ve boğulanlardan oldu.
+
+**DEEN-U23-S07-X006** · Ünite Challenge · progressive_recall
+- Soru: İpucu olmadan tamamla: “Senden başka ilah yoktur, seni tenzih ederim; ben ___ oldum.”
+- Doğru cevap: zalimlerden
+- Açıklama: Enbiyâ 21:87.
+
+**DEEN-U23-S07-X007** · Ünite Challenge · progressive_recall
+- Soru: İpucu olmadan tamamla: Kur’an’da “kıssaların en güzeli” olarak nitelenen kıssa Hz. ___ kıssasıdır.
+- Doğru cevap: Yusuf
+- Açıklama: Yûsuf 12:3.
+
+**DEEN-U23-S07-X008** · Ünite Challenge · progressive_recall
+- Soru: İpucu olmadan tamamla: “Ey ateş, İbrahim’e serin ve ___ ol!”
+- Doğru cevap: selamet
+- Açıklama: Enbiyâ 21:69.
+
+**DEEN-U23-S07-X009** · Ünite Challenge · multiple_choice
+- Soru: Aşağıdakilerden hangisi ülü’l-azm (azim sahibi) peygamberlerden biri değildir?
+- Seçenekler: Hz. Musa | Hz. Nuh | Hz. Yunus | Hz. İsa
+- Doğru cevap: Hz. Yunus
+- Açıklama: Ülü’l-azm: Nuh, İbrahim, Musa, İsa ve Hz. Muhammed.
+
+**DEEN-U23-S07-X010** · Ünite Challenge · multiple_choice
+- Soru: Kur’an’da adı geçen peygamberlerin sayısı kaçtır?
+- Seçenekler: 124.000 | 5 | 12 | 25
+- Doğru cevap: 25
+- Açıklama: Kur’an’da 25 peygamberin adı geçer; gönderilen peygamberlerin sayısını ise yalnız Allah bilir.
+
+**DEEN-U23-S07-X011** · Ünite Challenge · matching
+- Soru: Peygamberleri gönderildikleri kavimlerle eşleştir: Hûd, Sâlih, Şuayb ve Musa.
+- Eşleşmeler: Hûd → Âd kavmi; Sâlih → Semûd kavmi; Şuayb → Medyen halkı; Musa → Firavun ve İsrailoğulları
+- Açıklama: Her peygamber kendi kavmine gönderildi.
+
+**DEEN-U23-S07-X012** · Ünite Challenge · matching
+- Soru: Kitapları peygamberleriyle eşleştir: Tevrat, Zebur, İncil ve Kur’an.
+- Eşleşmeler: Tevrat → Hz. Musa; Zebur → Hz. Davud; İncil → Hz. İsa; Kur’an → Hz. Muhammed
+- Açıklama: Dört büyük ilahi kitap.
+
+**DEEN-U23-S07-X013** · Ünite Challenge · scenario
+- Soru: Büyükannen uzun süredir hasta ve zaman zaman umutsuzluğa düşüyor. Ona hangi peygamberin kıssasını anlatırsın?
+- Seçenekler: Fil ordusunu | Hz. Eyyûb’un sabrını | Firavun’un sonunu | Kârûn’un hazinelerini
+- Doğru cevap: Hz. Eyyûb’un sabrını
+- Açıklama: Eyyûb ağır hastalığa sabretti ve Allah’a dua etti; Allah da ona şifa verdi (Enbiyâ 21:83-84).
+
+**DEEN-U23-S07-X014** · Ünite Challenge · true_false
+- Soru: Doğru mu, yanlış mı? Kur’an kıssaları sadece tarih anlatmak için değil, ibret ve ders almak için anlatılır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Yûsuf 12:111: Onların kıssalarında akıl sahipleri için ibret vardır.
