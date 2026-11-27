@@ -12235,3 +12235,590 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Seçenekler: Doğru | Yanlış
 - Doğru cevap: Doğru
 - Açıklama: Buhârî’de geçen hadis.
+
+## U28 — helal_haram (100 soru)
+
+**DEEN-U28-S01-X001** · Helal ve Haram Nedir? · multiple_choice
+- Soru: Dinin yapılmasına izin verdiği şeylere ne denir?
+- Seçenekler: Bid‘at | Mekruh | Haram | Helal
+- Doğru cevap: Helal
+- Açıklama: Helal, Allah’ın izin verdiği ve yapılmasında sakınca olmayan şeydir.
+
+**DEEN-U28-S01-X002** · Helal ve Haram Nedir? · multiple_choice
+- Soru: Dinin kesin olarak yasakladığı şeylere ne denir?
+- Seçenekler: Sünnet | Haram | Mubah | Helal
+- Doğru cevap: Haram
+- Açıklama: Haram, Allah’ın kesin olarak yasakladığı ve yapılması günah olan şeydir.
+
+**DEEN-U28-S01-X003** · Helal ve Haram Nedir? · multiple_choice
+- Soru: Hadise göre helal ile haram arasında ne vardır?
+- Seçenekler: Hiçbir şey yoktur | Sadece bayramlar | Sadece farzlar | Birçok kişinin bilmediği şüpheli şeyler
+- Doğru cevap: Birçok kişinin bilmediği şüpheli şeyler
+- Açıklama: “Helal bellidir, haram da bellidir; ikisi arasında şüpheli şeyler vardır.” (Buhârî, Müslim)
+
+**DEEN-U28-S01-X004** · Helal ve Haram Nedir? · multiple_choice
+- Soru: Aynı hadise göre şüpheli şeylerden sakınan kişi neyi korumuş olur?
+- Seçenekler: Sadece sağlığını | Hiçbir şeyi | Sadece malını | Dinini ve onurunu
+- Doğru cevap: Dinini ve onurunu
+- Açıklama: “Şüpheli şeylerden sakınan dinini ve ırzını korumuş olur.” (Buhârî, Müslim)
+
+**DEEN-U28-S01-X005** · Helal ve Haram Nedir? · multiple_choice
+- Soru: Yapılmasında da yapılmamasında da günah ya da sevap olmayan şeylere ne denir?
+- Seçenekler: Farz | Vacip | Mubah | Haram
+- Doğru cevap: Mubah
+- Açıklama: Örneğin çeşitli helal yiyeceklerden birini seçmek mubahtır.
+
+**DEEN-U28-S01-X006** · Helal ve Haram Nedir? · multiple_choice
+- Soru: Dinin hoş görmediği, yapılmaması daha iyi olan şeylere ne denir?
+- Seçenekler: Mubah | Farz | Mekruh | Sünnet
+- Doğru cevap: Mekruh
+- Açıklama: Mekruh, haram kadar kesin olmasa da kaçınılması tavsiye edilen şeydir.
+
+**DEEN-U28-S01-X007** · Helal ve Haram Nedir? · true_false
+- Soru: Doğru mu, yanlış mı? Âlimlere göre eşyada asıl olan mubahlıktır; bir şeyin haram olması için delil gerekir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Bakara 2:29: Yeryüzünde ne varsa hepsini sizin için yaratan O’dur.
+
+**DEEN-U28-S01-X008** · Helal ve Haram Nedir? · true_false
+- Soru: Doğru mu, yanlış mı? Bir şeyin helal ya da haram olduğunu herkes kendi keyfine göre belirleyebilir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Nahl 16:116: Dillerinizin uydurduğu yalana dayanarak “Bu helaldir, bu haramdır” demeyin.
+
+**DEEN-U28-S01-X009** · Helal ve Haram Nedir? · missing_item
+- Soru: Eksik kavramı seç: Bakara 168’e göre yeryüzündeki şeylerin helal ve ___ olanlarından yiyin.
+- Seçenekler: ünlü | yabancı | pahalı | temiz
+- Doğru cevap: temiz
+- Açıklama: Bakara 2:168: Ey insanlar! Yeryüzündeki şeylerin helal ve temiz olanlarından yiyin.
+
+**DEEN-U28-S01-X010** · Helal ve Haram Nedir? · fill_blank
+- Soru: Boşluğu tamamla: “Helal bellidir, haram bellidir; ikisi arasında ___ şeyler vardır.”
+- Seçenekler: şüpheli | eski | büyük | güzel
+- Doğru cevap: şüpheli
+- Açıklama: Buhârî ve Müslim’de geçen hadis.
+
+**DEEN-U28-S01-X011** · Helal ve Haram Nedir? · progressive_recall
+- Soru: İpucu olmadan tamamla: Dinin kesin olarak yasakladığı şeye ___ denir.
+- Doğru cevap: haram
+- Açıklama: Haramdan kaçınmak her Müslümanın görevidir.
+
+**DEEN-U28-S01-X012** · Helal ve Haram Nedir? · matching
+- Soru: Kavramları anlamlarıyla eşleştir: Farz, Haram, Mubah ve Mekruh.
+- Eşleşmeler: Farz → Kesin olarak emredilen; Haram → Kesin olarak yasaklanan; Mubah → Serbest bırakılan; Mekruh → Hoş görülmeyen
+- Açıklama: Dinî hükümlerin temel kavramları.
+
+**DEEN-U28-S01-X013** · Helal ve Haram Nedir? · scenario
+- Soru: Markette içeriğinden emin olmadığın bir ürün gördün. En uygun davranış hangisidir?
+- Seçenekler: Arkadaşlarına zorla yedirmek | Hiç düşünmeden almak | İçeriğini araştırıp emin olana kadar almamak | Ürünü gizlice açmak
+- Doğru cevap: İçeriğini araştırıp emin olana kadar almamak
+- Açıklama: Şüpheliden sakınmak dini korumaktır.
+
+**DEEN-U28-S01-X014** · Helal ve Haram Nedir? · error_spotting
+- Soru: “Mubah bir şeyi yapmak günahtır.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Mubah sadece bayramda yapılır | Mubah haramla aynıdır | Mubah bir şeyi yapmakta da yapmamakta da günah yoktur | Mubah her zaman farzdır
+- Doğru cevap: Mubah bir şeyi yapmakta da yapmamakta da günah yoktur
+- Açıklama: Mubah, dinin serbest bıraktığı şeydir.
+
+**DEEN-U28-S02-X001** · Yiyecek ve İçecekler · multiple_choice
+- Soru: Bakara 173’te açıkça haram kılınan yiyeceklerden biri hangisidir?
+- Seçenekler: Balık | Elma | Domuz eti | Bal
+- Doğru cevap: Domuz eti
+- Açıklama: Bakara 2:173: Size leşi, kanı, domuz etini ve Allah’tan başkası adına kesileni haram kıldı.
+
+**DEEN-U28-S02-X002** · Yiyecek ve İçecekler · multiple_choice
+- Soru: Mâide 90’a göre içki ve kumar nasıl nitelendirilir?
+- Seçenekler: Sünnet olan şeyler | Şeytan işi pislikler | Faydalı şeyler | Mubah şeyler
+- Doğru cevap: Şeytan işi pislikler
+- Açıklama: Mâide 5:90: İçki, kumar… şeytan işi birer pisliktir; onlardan uzak durun.
+
+**DEEN-U28-S02-X003** · Yiyecek ve İçecekler · multiple_choice
+- Soru: Bakara 173’e göre aç kalıp ölüm tehlikesiyle karşılaşan kişinin durumu nedir?
+- Seçenekler: Hiçbir kural geçerli değildir | İstediği kadar haram yiyebilir | Yine de yememelidir | Zaruret miktarınca yemesinde günah yoktur
+- Doğru cevap: Zaruret miktarınca yemesinde günah yoktur
+- Açıklama: Bakara 2:173: Kim zorda kalırsa, başkasının hakkına saldırmamak ve sınırı aşmamak şartıyla ona günah yoktur.
+
+**DEEN-U28-S02-X004** · Yiyecek ve İçecekler · multiple_choice
+- Soru: En‘âm 121’e göre hangi hayvanın etinden yenmez?
+- Seçenekler: Üzerine Allah’ın adı anılmadan kesilenden | Kurban edilenden | Balıktan | Besmeleyle kesilenden
+- Doğru cevap: Üzerine Allah’ın adı anılmadan kesilenden
+- Açıklama: En‘âm 6:121: Üzerine Allah’ın adı anılmayan şeylerden yemeyin.
+
+**DEEN-U28-S02-X005** · Yiyecek ve İçecekler · multiple_choice
+- Soru: Hadise göre çoğu sarhoş eden bir şeyin azı hakkında hüküm nedir?
+- Seçenekler: Azı helaldir | Azı faydalıdır | Azı da haramdır | Azı sünnettir
+- Doğru cevap: Azı da haramdır
+- Açıklama: “Çoğu sarhoş edenin azı da haramdır.” (Ebû Dâvûd, Tirmizî)
+
+**DEEN-U28-S02-X006** · Yiyecek ve İçecekler · multiple_choice
+- Soru: Mâide 96’ya göre neyin avı helal kılınmıştır?
+- Seçenekler: Denizin | Hiçbir şeyin | Sadece yırtıcıların | Sadece kuşların
+- Doğru cevap: Denizin
+- Açıklama: Mâide 5:96: Deniz avı ve onun yiyeceği size helal kılındı.
+
+**DEEN-U28-S02-X007** · Yiyecek ve İçecekler · true_false
+- Soru: Doğru mu, yanlış mı? Akıtılmış kanı yemek veya içmek haramdır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Bakara 2:173 ve En‘âm 6:145.
+
+**DEEN-U28-S02-X008** · Yiyecek ve İçecekler · true_false
+- Soru: Doğru mu, yanlış mı? Sebze ve meyveler, zararlı ya da sarhoş edici olmadıkça helaldir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Eşyada asıl olan mubahlıktır; zararlı ve sarhoş edici olanlar bunun dışındadır.
+
+**DEEN-U28-S02-X009** · Yiyecek ve İçecekler · missing_item
+- Soru: Eksik kavramı seç: Mâide 90’a göre içki ve kumar ___ işi pisliklerdir.
+- Seçenekler: şeytan | melek | çiftçi | insan
+- Doğru cevap: şeytan
+- Açıklama: Mâide 5:90.
+
+**DEEN-U28-S02-X010** · Yiyecek ve İçecekler · fill_blank
+- Soru: Boşluğu tamamla: Bakara 2:173’e göre leş, kan ve ___ eti haramdır.
+- Seçenekler: balık | tavuk | domuz | kuzu
+- Doğru cevap: domuz
+- Açıklama: Bu yiyecekler Kur’an’da açıkça haram kılınmıştır.
+
+**DEEN-U28-S02-X011** · Yiyecek ve İçecekler · progressive_recall
+- Soru: İpucu olmadan tamamla: Ölüm tehlikesi gibi zorunlu duruma ___ denir.
+- Doğru cevap: zaruret
+- Açıklama: Zaruret, haramı ancak zorunlu miktarda mubah kılar.
+
+**DEEN-U28-S02-X012** · Yiyecek ve İçecekler · matching
+- Soru: Yiyecek ve içeceklerle ilgili ayetleri konularıyla eşleştir: Bakara 2:168, Bakara 2:173, Mâide 5:90 ve Mâide 5:96.
+- Eşleşmeler: Bakara 2:168 → Helal ve temiz olanı yemek; Bakara 2:173 → Haram yiyecekler ve zaruret; Mâide 5:90 → İçki ve kumar; Mâide 5:96 → Deniz avının helalliği
+- Açıklama: Kur’an yiyecek ve içecekler hakkında açık hükümler koyar.
+
+**DEEN-U28-S02-X013** · Yiyecek ve İçecekler · scenario
+- Soru: Bir davette sana alkollü bir içecek ikram edildi. Ne yaparsın?
+- Seçenekler: Kaba bir şekilde bağırırım | Ayıp olmasın diye içerim | Nazikçe teşekkür edip almam ve meyve suyu isterim | Bardağı yere atarım
+- Doğru cevap: Nazikçe teşekkür edip almam ve meyve suyu isterim
+- Açıklama: Haramdan kaçınırken de güzel ahlakı korumak gerekir.
+
+**DEEN-U28-S02-X014** · Yiyecek ve İçecekler · error_spotting
+- Soru: “Kur’an’a göre balık ve deniz avı haramdır.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Kur’an balıktan hiç bahsetmez | Deniz avı sadece hacılara haramdır | Deniz avı sadece bayramda helaldir | Kur’an’a göre deniz avı helal kılınmıştır
+- Doğru cevap: Kur’an’a göre deniz avı helal kılınmıştır
+- Açıklama: Mâide 5:96.
+
+**DEEN-U28-S03-X001** · Helal Kazanç · multiple_choice
+- Soru: Hadise göre kimse hangi lokmadan daha hayırlısını yememiştir?
+- Seçenekler: Kendi elinin emeğiyle kazandığından | Başkasından aldığından | Hile ile kazandığından | Yolda bulduğundan
+- Doğru cevap: Kendi elinin emeğiyle kazandığından
+- Açıklama: “Hiç kimse elinin emeğinden daha hayırlı bir lokma yememiştir; Dâvûd peygamber de elinin emeğinden yerdi.” (Buhârî)
+
+**DEEN-U28-S03-X002** · Helal Kazanç · multiple_choice
+- Soru: Bakara 275’e göre Allah neyi helal, neyi haram kılmıştır?
+- Seçenekler: Faizi helal, alışverişi haram | Alışverişi helal, faizi haram | İkisini de helal | İkisini de haram
+- Doğru cevap: Alışverişi helal, faizi haram
+- Açıklama: Bakara 2:275: Allah alışverişi helal, faizi haram kıldı.
+
+**DEEN-U28-S03-X003** · Helal Kazanç · multiple_choice
+- Soru: Bakara 188’de ne yasaklanır?
+- Seçenekler: Çalışıp kazanmak | Ticaret yapmak | Birbirinizin mallarını haksız yollarla yemek | Hediye vermek
+- Doğru cevap: Birbirinizin mallarını haksız yollarla yemek
+- Açıklama: Bakara 2:188: Mallarınızı aranızda haksız yollarla yemeyin.
+
+**DEEN-U28-S03-X004** · Helal Kazanç · multiple_choice
+- Soru: Mutaffifîn suresinin başında kimler kınanır?
+- Seçenekler: Ölçü ve tartıda hile yapanlar | Dürüst satıcılar | Sadaka verenler | Çok çalışanlar
+- Doğru cevap: Ölçü ve tartıda hile yapanlar
+- Açıklama: Mutaffifîn 83:1–3: Ölçüde ve tartıda hile yapanların vay hâline!
+
+**DEEN-U28-S03-X005** · Helal Kazanç · multiple_choice
+- Soru: Hadise göre rüşvet veren ve alan hakkında ne bildirilmiştir?
+- Seçenekler: Sevap kazandıkları | Cömert sayıldıkları | Allah’ın lanetine uğradıkları | Hiçbir sorumlulukları olmadığı
+- Doğru cevap: Allah’ın lanetine uğradıkları
+- Açıklama: “Rüşvet veren de alan da lanetlenmiştir.” (Ebû Dâvûd, Tirmizî)
+
+**DEEN-U28-S03-X006** · Helal Kazanç · multiple_choice
+- Soru: Hadise göre doğru ve güvenilir tüccar kıyamet günü kimlerle beraberdir?
+- Seçenekler: Kimseyle | Sadece komşularıyla | Peygamberler, sıddıklar ve şehitlerle | Sadece zenginlerle
+- Doğru cevap: Peygamberler, sıddıklar ve şehitlerle
+- Açıklama: “Doğru ve güvenilir tüccar peygamberler, sıddıklar ve şehitlerle beraberdir.” (Tirmizî)
+
+**DEEN-U28-S03-X007** · Helal Kazanç · true_false
+- Soru: Doğru mu, yanlış mı? Başkasının malını izinsiz almak haramdır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hırsızlık hem kul hakkı hem de büyük günahtır (Mâide 5:38).
+
+**DEEN-U28-S03-X008** · Helal Kazanç · true_false
+- Soru: Doğru mu, yanlış mı? Satılan malın kusurunu gizlemek ticaretin bir parçasıdır, sakıncası yoktur.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Hz. Peygamber ıslak buğdayı alta saklayan satıcıya “Bizi aldatan bizden değildir” dedi (Müslim).
+
+**DEEN-U28-S03-X009** · Helal Kazanç · missing_item
+- Soru: Eksik kavramı seç: Hadise göre Dâvûd peygamber ___ emeğinden yerdi.
+- Seçenekler: elinin | komşusunun | başkasının | babasının
+- Doğru cevap: elinin
+- Açıklama: Buhârî’de geçen hadis.
+
+**DEEN-U28-S03-X010** · Helal Kazanç · fill_blank
+- Soru: Boşluğu tamamla: Bakara 2:275: “Allah alışverişi helal, ___ haram kıldı.”
+- Seçenekler: faizi | ticareti | hediyeyi | sadakayı
+- Doğru cevap: faizi
+- Açıklama: Faiz Kur’an’da açıkça yasaklanmıştır.
+
+**DEEN-U28-S03-X011** · Helal Kazanç · progressive_recall
+- Soru: İpucu olmadan tamamla: Bir işi haksız yere yaptırmak için verilen paraya ___ denir.
+- Doğru cevap: rüşvet
+- Açıklama: Rüşvet veren de alan da günahkârdır.
+
+**DEEN-U28-S03-X012** · Helal Kazanç · matching
+- Soru: Davranışları hükümleriyle eşleştir: Alın teriyle çalışmak, Eksik tartmak, Rüşvet almak ve Malın kusurunu söylemek.
+- Eşleşmeler: Alın teriyle çalışmak → Helal ve övülmüş; Eksik tartmak → Mutaffifîn suresinde kınanır; Rüşvet almak → Veren de alan da günahkâr olur; Malın kusurunu söylemek → Dürüstlük
+- Açıklama: Kazancın helal yoldan olması gerekir.
+
+**DEEN-U28-S03-X013** · Helal Kazanç · scenario
+- Soru: Kantinde yanlışlıkla parasını ödemeden bir şey aldığını fark ettin. Ne yaparsın?
+- Seçenekler: Fark edilmedi diye susarım | Bir dahakine de öyle yaparım | Geri dönüp parasını öderim | Arkadaşlarıma övünürüm
+- Doğru cevap: Geri dönüp parasını öderim
+- Açıklama: Başkasının hakkını ödemek helal kazancın gereğidir.
+
+**DEEN-U28-S03-X014** · Helal Kazanç · error_spotting
+- Soru: “Bozuk malı iyi gibi göstererek satmak akıllıca bir ticarettir.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Hile ticaretin şartıdır | Hile sadece büyük dükkânlarda yasaktır | Bozuk malı iyi gibi göstermek aldatmadır ve haramdır | Müşteri fark etmezse sorun yoktur
+- Doğru cevap: Bozuk malı iyi gibi göstermek aldatmadır ve haramdır
+- Açıklama: “Bizi aldatan bizden değildir.” (Müslim)
+
+**DEEN-U28-S04-X001** · Günlük Hayat Adabı · multiple_choice
+- Soru: Hz. Peygamber küçük bir çocuğa yemek adabıyla ilgili ne öğretti?
+- Seçenekler: “Besmele çek, sağ elinle ve önünden ye.” | “Ayakta ye.” | “Hızlıca ye ve kalk.” | “Başkasının tabağından ye.”
+- Doğru cevap: “Besmele çek, sağ elinle ve önünden ye.”
+- Açıklama: Ömer b. Ebû Seleme’ye söylenmiştir (Buhârî, Müslim).
+
+**DEEN-U28-S04-X002** · Günlük Hayat Adabı · multiple_choice
+- Soru: Hz. Peygamber beğenmediği bir yemek karşısında ne yapardı?
+- Seçenekler: Herkese şikâyet ederdi | Yapanı azarlardı | Ayıplamaz, canı isterse yer, istemezse bırakırdı | Yemeği yere atardı
+- Doğru cevap: Ayıplamaz, canı isterse yer, istemezse bırakırdı
+- Açıklama: “Hz. Peygamber hiçbir yemeği ayıplamazdı.” (Buhârî)
+
+**DEEN-U28-S04-X003** · Günlük Hayat Adabı · multiple_choice
+- Soru: Hadise göre midenin nasıl kullanılması tavsiye edilir?
+- Seçenekler: Tamamen doldurulmalı | Sadece tatlı yenmeli | Üçte biri yemek, üçte biri su, üçte biri nefes için | Hiç yemek yenmemeli
+- Doğru cevap: Üçte biri yemek, üçte biri su, üçte biri nefes için
+- Açıklama: Tirmizî’de geçen hadis ölçülü beslenmeyi öğütler.
+
+**DEEN-U28-S04-X004** · Günlük Hayat Adabı · multiple_choice
+- Soru: Hadise göre temizlik imanın neyidir?
+- Seçenekler: Hiçbir parçası değil | Sadece süsü | Sadece bayramlık kısmı | Yarısı
+- Doğru cevap: Yarısı
+- Açıklama: “Temizlik imanın yarısıdır.” (Müslim)
+
+**DEEN-U28-S04-X005** · Günlük Hayat Adabı · multiple_choice
+- Soru: Hz. Peygamber’in dişlerini temizlemek için çok kullandığı ve tavsiye ettiği şey nedir?
+- Seçenekler: Hiçbir şey | Misvak | Kum | Kömür
+- Doğru cevap: Misvak
+- Açıklama: “Ümmetime zor gelmeseydi her namazda misvak kullanmalarını emrederdim.” (Buhârî)
+
+**DEEN-U28-S04-X006** · Günlük Hayat Adabı · multiple_choice
+- Soru: Hz. Peygamber uyumadan önce ne yapmayı tavsiye etti?
+- Seçenekler: Tıka basa yemeyi | Yüzüstü yatmayı | Geç saate kadar oyun oynamayı | Abdest alıp sağ tarafına yatmayı ve dua etmeyi
+- Doğru cevap: Abdest alıp sağ tarafına yatmayı ve dua etmeyi
+- Açıklama: Berâ b. Âzib’e öğretilen uyku adabı (Buhârî).
+
+**DEEN-U28-S04-X007** · Günlük Hayat Adabı · multiple_choice
+- Soru: Hz. Peygamber su içerken genellikle nasıl içerdi?
+- Seçenekler: Bardaktan dışarı nefes vererek üç yudumda | Hiç oturmadan koşarken | Kabın içine üfleyerek | Tek nefeste bir dikişte
+- Doğru cevap: Bardaktan dışarı nefes vererek üç yudumda
+- Açıklama: Hz. Peygamber içerken üç kez nefes alırdı (Müslim).
+
+**DEEN-U28-S04-X008** · Günlük Hayat Adabı · multiple_choice
+- Soru: Yemek bittikten sonra Müslüman ne söyler?
+- Seçenekler: “Neyse” | Hiçbir şey | “Elhamdülillah” | “Hoşça kal”
+- Doğru cevap: “Elhamdülillah”
+- Açıklama: Allah’ın verdiği rızka hamd etmek şükrün bir parçasıdır.
+
+**DEEN-U28-S04-X009** · Günlük Hayat Adabı · true_false
+- Soru: Doğru mu, yanlış mı? Hz. Peygamber yemeği sağ elle yemeyi tavsiye etmiştir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Buhârî ve Müslim’de geçen hadis.
+
+**DEEN-U28-S04-X010** · Günlük Hayat Adabı · true_false
+- Soru: Doğru mu, yanlış mı? Yemeğe başlarken besmeleyi unutan kişi, hatırlayınca bir şey söyleyemez.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Hatırlayınca “Bismillâhi evvelehû ve âhirahû” der (Ebû Dâvûd, Tirmizî).
+
+**DEEN-U28-S04-X011** · Günlük Hayat Adabı · missing_item
+- Soru: Eksik kavramı seç: Hadise göre temizlik imanın ___.
+- Seçenekler: yarısıdır | dışındadır | sonudur | süsüdür
+- Doğru cevap: yarısıdır
+- Açıklama: Müslim’de geçen hadis.
+
+**DEEN-U28-S04-X012** · Günlük Hayat Adabı · fill_blank
+- Soru: Boşluğu tamamla: “Ümmetime zor gelmeseydi her namazda ___ kullanmalarını emrederdim.”
+- Seçenekler: sarık | misvak | yüzük | koku
+- Doğru cevap: misvak
+- Açıklama: Buhârî’de geçen hadis.
+
+**DEEN-U28-S04-X013** · Günlük Hayat Adabı · progressive_recall
+- Soru: İpucu olmadan tamamla: Yemeğe Allah’ın adını anarak başlamaya ___ çekmek denir.
+- Doğru cevap: besmele
+- Açıklama: “Bismillâhirrahmânirrahîm” demektir.
+
+**DEEN-U28-S04-X014** · Günlük Hayat Adabı · matching
+- Soru: Durumları sünnete uygun davranışla eşleştir: Yemeğe başlarken, Yemek bitince, Uyumadan önce ve Diş temizliği.
+- Eşleşmeler: Yemeğe başlarken → Besmele çekmek; Yemek bitince → Hamd etmek; Uyumadan önce → Abdest alıp sağa yatmak; Diş temizliği → Misvak kullanmak
+- Açıklama: Günlük hayatın her anı için güzel adaplar vardır.
+
+**DEEN-U28-S04-X015** · Günlük Hayat Adabı · scenario
+- Soru: Arkadaşının annesi sana beğenmediğin bir yemek ikram etti. Ne yaparsın?
+- Seçenekler: Tabağı itip suratımı asarım | Kibarca teşekkür eder, yemeği ayıplamadan az miktarda yerim ya da nazikçe bırakırım | “Bu çok kötü” derim | Yemeği çöpe atarım
+- Doğru cevap: Kibarca teşekkür eder, yemeği ayıplamadan az miktarda yerim ya da nazikçe bırakırım
+- Açıklama: Hz. Peygamber hiçbir yemeği ayıplamazdı (Buhârî).
+
+**DEEN-U28-S04-X016** · Günlük Hayat Adabı · error_spotting
+- Soru: “Temizlik yalnızca namaz kılarken önemlidir.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Temizlik sadece büyükler içindir | Temizlik sadece bayramda gerekir | Temizlik hayatın her alanında önemlidir; imanın yarısıdır | Temizliğin dinde yeri yoktur
+- Doğru cevap: Temizlik hayatın her alanında önemlidir; imanın yarısıdır
+- Açıklama: “Temizlik imanın yarısıdır.” (Müslim)
+
+**DEEN-U28-S05-X001** · Zaman ve Ölçülülük · multiple_choice
+- Soru: Hadise göre insanların çoğunun aldandığı iki nimet hangisidir?
+- Seçenekler: Para ve şöhret | Telefon ve oyun | Sağlık ve boş vakit | Ev ve araba
+- Doğru cevap: Sağlık ve boş vakit
+- Açıklama: “İki nimet vardır ki insanların çoğu onlarda aldanmıştır: sağlık ve boş vakit.” (Buhârî)
+
+**DEEN-U28-S05-X002** · Zaman ve Ölçülülük · multiple_choice
+- Soru: Asr suresi hangi şeye yemin ederek başlar?
+- Seçenekler: Yıldızlara | Zamana | Dağlara | Denize
+- Doğru cevap: Zamana
+- Açıklama: Asr 103:1–2: Asra (zamana) yemin olsun ki insan gerçekten ziyandadır.
+
+**DEEN-U28-S05-X003** · Zaman ve Ölçülülük · multiple_choice
+- Soru: Hadise göre beş şey gelmeden önce beş şeyin kıymetini bilmek gerekir. Bunlardan biri hangisidir?
+- Seçenekler: Yaşlılıktan önce gençliğin | Kıştan önce yazın | Okuldan önce tatilin | Akşamdan önce sabahın
+- Doğru cevap: Yaşlılıktan önce gençliğin
+- Açıklama: Gençliği, sağlığı, zenginliği, boş vakti ve hayatı ganimet bilmek tavsiye edilmiştir (Hâkim).
+
+**DEEN-U28-S05-X004** · Zaman ve Ölçülülük · multiple_choice
+- Soru: Hadise göre kişinin Müslümanlığının güzelliğinden biri nedir?
+- Seçenekler: Her şeye karışması | Bütün gün boş durması | Herkesin işini merak etmesi | Kendisini ilgilendirmeyen şeyi terk etmesi
+- Doğru cevap: Kendisini ilgilendirmeyen şeyi terk etmesi
+- Açıklama: “Kişinin kendisini ilgilendirmeyeni terk etmesi Müslümanlığının güzelliğindendir.” (Tirmizî)
+
+**DEEN-U28-S05-X005** · Zaman ve Ölçülülük · multiple_choice
+- Soru: Mü’minûn suresine göre kurtuluşa eren müminler neden yüz çevirir?
+- Seçenekler: Zekâttan | Boş ve faydasız şeylerden | İyilikten | Namazdan
+- Doğru cevap: Boş ve faydasız şeylerden
+- Açıklama: Mü’minûn 23:3: Onlar boş ve yararsız şeylerden yüz çevirirler.
+
+**DEEN-U28-S05-X006** · Zaman ve Ölçülülük · multiple_choice
+- Soru: Bakara 143’te Müslümanlar nasıl bir ümmet olarak nitelendirilir?
+- Seçenekler: Aşırı bir ümmet | Tembel bir ümmet | Bencil bir ümmet | Orta (dengeli) bir ümmet
+- Doğru cevap: Orta (dengeli) bir ümmet
+- Açıklama: Bakara 2:143: Böylece sizi orta bir ümmet kıldık.
+
+**DEEN-U28-S05-X007** · Zaman ve Ölçülülük · multiple_choice
+- Soru: Hz. Peygamber, gece gündüz ibadet edip hiç dinlenmeyen Abdullah b. Amr’a ne dedi?
+- Seçenekler: “Hiç yemek yeme.” | “Ailene hiç vakit ayırma.” | “Bedeninin de senin üzerinde hakkı vardır.” | “Daha az uyu.”
+- Doğru cevap: “Bedeninin de senin üzerinde hakkı vardır.”
+- Açıklama: Bedenin, gözün ve ailenin de hakkı vardır (Buhârî).
+
+**DEEN-U28-S05-X008** · Zaman ve Ölçülülük · true_false
+- Soru: Doğru mu, yanlış mı? Oyun ve ekran başında geçirilen zamanı ölçülü tutmak, zamanı iyi kullanmanın bir parçasıdır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Boş vakit bir nimettir; onu faydalı işlere ayırmak şükürdür.
+
+**DEEN-U28-S05-X009** · Zaman ve Ölçülülük · true_false
+- Soru: Doğru mu, yanlış mı? İslam, kişinin uyumadan ve yemeden sürekli ibadet etmesini emreder.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Hz. Peygamber aşırılığı yasakladı; “Ben de oruç tutar, açarım; uyur, kalkarım” buyurdu (Buhârî).
+
+**DEEN-U28-S05-X010** · Zaman ve Ölçülülük · missing_item
+- Soru: Eksik kavramı seç: Asr suresine göre iman edip salih amel işleyenler dışında insan ___.
+- Seçenekler: kazançtadır | zengindir | ziyandadır | güvendedir
+- Doğru cevap: ziyandadır
+- Açıklama: Asr 103:2–3.
+
+**DEEN-U28-S05-X011** · Zaman ve Ölçülülük · fill_blank
+- Soru: Boşluğu tamamla: “İki nimet vardır ki insanların çoğu onlarda aldanmıştır: sağlık ve boş ___.”
+- Seçenekler: oyun | para | vakit | ev
+- Doğru cevap: vakit
+- Açıklama: Buhârî’de geçen hadis.
+
+**DEEN-U28-S05-X012** · Zaman ve Ölçülülük · progressive_recall
+- Soru: İpucu olmadan tamamla: Zamana yemin ederek başlayan sure ___ suresidir.
+- Doğru cevap: Asr
+- Açıklama: Asr 103:1.
+
+**DEEN-U28-S05-X013** · Zaman ve Ölçülülük · matching
+- Soru: Hadisteki eşleşmeleri tamamla: Gençlik, Sağlık, Zenginlik ve Boş vakit.
+- Eşleşmeler: Gençlik → Yaşlılıktan önce; Sağlık → Hastalıktan önce; Zenginlik → Fakirlikten önce; Boş vakit → Meşguliyetten önce
+- Açıklama: Beş şeyden önce beş şeyin kıymetini bil (Hâkim).
+
+**DEEN-U28-S05-X014** · Zaman ve Ölçülülük · scenario
+- Soru: Çok sevdiğin bir oyunu oynarken ezan okundu. En güzel davranış hangisidir?
+- Seçenekler: Namazı hiç kılmam | Ezanı duymazdan gelirim | Oyunu kaydedip namazımı kılarım | Oyun bitene kadar namazı unuturum
+- Doğru cevap: Oyunu kaydedip namazımı kılarım
+- Açıklama: Zamanı doğru yönetmek önce önemli olanı yapmaktır.
+
+**DEEN-U28-S05-X015** · Zaman ve Ölçülülük · scenario
+- Soru: Yaz tatili başladı. Hangisi zamanı en iyi değerlendirmeye örnektir?
+- Seçenekler: Hiçbir şey yapmadan uyumak | Bütün gün ekrana bakmak | Başkalarını rahatsız etmek | Kitap okumak, spor yapmak, ailemle vakit geçirmek ve bir beceri öğrenmek
+- Doğru cevap: Kitap okumak, spor yapmak, ailemle vakit geçirmek ve bir beceri öğrenmek
+- Açıklama: Boş vakit, kıymeti bilinmesi gereken bir nimettir (Buhârî).
+
+**DEEN-U28-S05-X016** · Zaman ve Ölçülülük · error_spotting
+- Soru: “Gençken vaktimiz çok olduğu için onu nasıl harcadığımızın önemi yoktur.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Vakit bir nimet değildir | Vakit asla bitmez | Vakit sadece yaşlılar için önemlidir | Gençlik ve boş vakit kıymeti bilinmesi gereken nimetlerdir
+- Doğru cevap: Gençlik ve boş vakit kıymeti bilinmesi gereken nimetlerdir
+- Açıklama: Hâkim’de geçen “beş şeyden önce beş şey” hadisi.
+
+**DEEN-U28-S06-X001** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: Dinin izin verdiği şeye ne denir?
+- Seçenekler: Bid‘at | Haram | Mekruh | Helal
+- Doğru cevap: Helal
+- Açıklama: Helal, izin verilendir.
+
+**DEEN-U28-S06-X002** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: Bakara 275’e göre Allah neyi haram kılmıştır?
+- Seçenekler: Ticareti | Hediyeyi | Faizi | Alışverişi
+- Doğru cevap: Faizi
+- Açıklama: Bakara 2:275.
+
+**DEEN-U28-S06-X003** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: Temizlik imanın neyidir?
+- Seçenekler: Dışı | Yarısı | Sonu | Süsü
+- Doğru cevap: Yarısı
+- Açıklama: Müslim’de geçen hadis.
+
+**DEEN-U28-S06-X004** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: Asr suresinin ilk ayetinde neye yemin edilir?
+- Seçenekler: Aya | Zamana | Denize | Güneşe
+- Doğru cevap: Zamana
+- Açıklama: Asr 103:1.
+
+**DEEN-U28-S06-X005** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Mâide 90’a göre kumar şeytan işi bir pisliktir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Mâide 5:90.
+
+**DEEN-U28-S06-X006** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Hz. Peygamber beğenmediği yemekleri ayıplardı.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Hiçbir yemeği ayıplamazdı (Buhârî).
+
+**DEEN-U28-S06-X007** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Bedenin de insan üzerinde hakkı vardır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Buhârî’de geçen hadis.
+
+**DEEN-U28-S06-X008** · Akıllı Tekrar · multiple_choice
+- Soru: Yapılmasında da yapılmamasında da günah olmayan şeye ne denir?
+- Seçenekler: Farz | Haram | Vacip | Mubah
+- Doğru cevap: Mubah
+- Açıklama: Mubah serbest bırakılandır.
+
+**DEEN-U28-S06-X009** · Akıllı Tekrar · multiple_choice
+- Soru: Ölçü ve tartıda hile yapanları kınayan sure hangisidir?
+- Seçenekler: Mutaffifîn | İhlâs | Fâtiha | Felak
+- Doğru cevap: Mutaffifîn
+- Açıklama: Mutaffifîn 83:1–3.
+
+**DEEN-U28-S06-X010** · Akıllı Tekrar · multiple_choice
+- Soru: İnsanların çoğunun aldandığı iki nimet hangileridir?
+- Seçenekler: Sağlık ve boş vakit | Para ve ev | Oyun ve telefon | Elbise ve araba
+- Doğru cevap: Sağlık ve boş vakit
+- Açıklama: Buhârî’de geçen hadis.
+
+**DEEN-U28-S06-X011** · Akıllı Tekrar · error_spotting
+- Soru: “Rüşvet vermek işleri hızlandırdığı için sevaptır.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Rüşvet sadakadır | Rüşvet farzdır | Rüşvet veren de alan da günahkârdır | Rüşvet sadece alana günahtır
+- Doğru cevap: Rüşvet veren de alan da günahkârdır
+- Açıklama: Ebû Dâvûd ve Tirmizî’de geçen hadis.
+
+**DEEN-U28-S06-X012** · Akıllı Tekrar · error_spotting
+- Soru: “Sünnete göre yemek sol elle yenir.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Sünnete göre yemek sağ elle yenir | Yemek başkasının tabağından yenir | Yemek ayakta yenir | Yemek sadece kaşıkla yenir
+- Doğru cevap: Sünnete göre yemek sağ elle yenir
+- Açıklama: Buhârî ve Müslim’de geçen hadis.
+
+**DEEN-U28-S07-X001** · Ünite Challenge · multiple_choice
+- Soru: Arkadaşın, sahibi belli olmayan bir telefonu satıp parayı paylaşmayı teklif ediyor. En doğru davranış hangisidir?
+- Seçenekler: Daha yüksek fiyata satmak | Teklifi reddedip telefonu sahibine ulaştırmaya çalışmak | Parayı paylaşmak | Telefonu kendine saklamak
+- Doğru cevap: Teklifi reddedip telefonu sahibine ulaştırmaya çalışmak
+- Açıklama: Başkasının malı emanettir; haksız kazanç haramdır (Bakara 2:188).
+
+**DEEN-U28-S07-X002** · Ünite Challenge · multiple_choice
+- Soru: Hem ders, hem oyun, hem ibadet, hem dinlenme için zaman ayırmak hangi ilkeye uygundur?
+- Seçenekler: Dengeli (orta) ümmet olma ilkesine | Tembellik ilkesine | Aşırılık ilkesine | Bencillik ilkesine
+- Doğru cevap: Dengeli (orta) ümmet olma ilkesine
+- Açıklama: Bakara 2:143: Sizi orta bir ümmet kıldık.
+
+**DEEN-U28-S07-X003** · Ünite Challenge · multiple_choice
+- Soru: Hz. Peygamber pazarda buğday yığınının altının ıslak olduğunu görünce ne dedi?
+- Seçenekler: “Çok güzel bir satış.” | “Kimse fark etmez.” | “Daha pahalıya sat.” | “Bizi aldatan bizden değildir.”
+- Doğru cevap: “Bizi aldatan bizden değildir.”
+- Açıklama: Müslim’de geçen hadis.
+
+**DEEN-U28-S07-X004** · Ünite Challenge · multiple_choice
+- Soru: Zaruret hâlinde haram bir şey ne kadar yenebilir?
+- Seçenekler: İstendiği kadar | Sadece hayatı kurtaracak kadar | Sadece bayramlarda | Hiç sınır olmadan her gün
+- Doğru cevap: Sadece hayatı kurtaracak kadar
+- Açıklama: Bakara 2:173: Sınırı aşmamak şartıyla.
+
+**DEEN-U28-S07-X005** · Ünite Challenge · error_spotting
+- Soru: “Herkes helal ve haramı kendi keyfine göre belirleyebilir.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Helal ve haram her yıl değişir | Helal ve haram diye bir şey yoktur | Helal ve haramı Allah belirler; kendiliğimizden “bu helal, bu haram” diyemeyiz | Helal ve haram çoğunluk oyuyla belirlenir
+- Doğru cevap: Helal ve haramı Allah belirler; kendiliğimizden “bu helal, bu haram” diyemeyiz
+- Açıklama: Nahl 16:116.
+
+**DEEN-U28-S07-X006** · Ünite Challenge · error_spotting
+- Soru: “Hadise göre en hayırlı lokma, başkasından kolayca alınandır.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Lokmalar arasında fark yoktur | En hayırlı lokma hile ile kazanılandır | Hadise göre en hayırlı lokma kişinin kendi elinin emeğiyle kazandığıdır | En hayırlı lokma yolda bulunandır
+- Doğru cevap: Hadise göre en hayırlı lokma kişinin kendi elinin emeğiyle kazandığıdır
+- Açıklama: Buhârî’de geçen hadis.
+
+**DEEN-U28-S07-X007** · Ünite Challenge · progressive_recall
+- Soru: İpucu olmadan tamamla: Dinin serbest bıraktığı şeye ___ denir.
+- Doğru cevap: mubah
+- Açıklama: Yapılmasında da yapılmamasında da günah yoktur.
+
+**DEEN-U28-S07-X008** · Ünite Challenge · progressive_recall
+- Soru: İpucu olmadan tamamla: Hz. Peygamber’in diş temizliği için kullandığı dal ___ adını taşır.
+- Doğru cevap: misvak
+- Açıklama: Buhârî’de geçen hadis.
+
+**DEEN-U28-S07-X009** · Ünite Challenge · progressive_recall
+- Soru: İpucu olmadan tamamla: Ölçü ve tartıda hile yapanları kınayan sure ___ suresidir.
+- Doğru cevap: Mutaffifîn
+- Açıklama: Mutaffifîn 83:1–3.
+
+**DEEN-U28-S07-X010** · Ünite Challenge · multiple_choice
+- Soru: “Allah alışverişi helal, faizi haram kıldı” ayeti hangisidir?
+- Seçenekler: Bakara 2:173 | Mâide 5:90 | Asr 103:1 | Bakara 2:275
+- Doğru cevap: Bakara 2:275
+- Açıklama: Bakara 2:275.
+
+**DEEN-U28-S07-X011** · Ünite Challenge · matching
+- Soru: Ayetleri hükümleriyle eşleştir: Bakara 2:188, Bakara 2:275, Mâide 5:90 ve Mutaffifîn 83:1.
+- Eşleşmeler: Bakara 2:188 → Haksız yere mal yememek; Bakara 2:275 → Faizin haramlığı; Mâide 5:90 → İçki ve kumarın yasaklığı; Mutaffifîn 83:1 → Tartıda hilenin kınanması
+- Açıklama: Kur’an kazanç ve tüketimle ilgili açık ölçüler koyar.
+
+**DEEN-U28-S07-X012** · Ünite Challenge · matching
+- Soru: Hadisleri konularıyla eşleştir: “Temizlik imanın yarısıdır.”, “Bizi aldatan bizden değildir.”, “Sağlık ve boş vakit” ve “Besmele çek, sağ elinle ye.”.
+- Eşleşmeler: “Temizlik imanın yarısıdır.” → Temizlik; “Bizi aldatan bizden değildir.” → Dürüst ticaret; “Sağlık ve boş vakit” → Zamanın kıymeti; “Besmele çek, sağ elinle ye.” → Yemek adabı
+- Açıklama: Hadisler günlük hayatın her alanına ışık tutar.
+
+**DEEN-U28-S07-X013** · Ünite Challenge · scenario
+- Soru: Arkadaşın, parayla satılan bir oyunu izinsiz kopyalayıp sana vermek istiyor. Ne yaparsın?
+- Seçenekler: Başkalarına da dağıtırım | Herkes yapıyor deyip alırım | Kopyalayıp satarım | Başkasının emeğine ve hakkına saygı için kabul etmem
+- Doğru cevap: Başkasının emeğine ve hakkına saygı için kabul etmem
+- Açıklama: Başkasının emeğini izinsiz kullanmak kul hakkını ihlal eder.
+
+**DEEN-U28-S07-X014** · Ünite Challenge · true_false
+- Soru: Doğru mu, yanlış mı? Yemeğe besmeleyle başlamak sünnettir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Buhârî ve Müslim’de geçen hadis.
