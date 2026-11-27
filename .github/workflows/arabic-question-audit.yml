@@ -98,6 +98,7 @@ jobs:
           node scripts/test-chest-reveal.cjs
           node scripts/test-subscriptions.cjs
           node scripts/test-settings-design.cjs
+          node scripts/test-units-plus.cjs
           node scripts/test-level-up-design.cjs
           node scripts/test-pose-swap.cjs
           node scripts/test-companion-images.mjs

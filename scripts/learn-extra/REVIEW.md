@@ -5176,3 +5176,593 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Seçenekler: Haksız kazanç elde etmek | İftar sofrasında israf etmek | Başkalarını kırmak | Yalan, gıybet ve kötü sözden uzak durmak
 - Doğru cevap: Yalan, gıybet ve kötü sözden uzak durmak
 - Açıklama: Oruç, aç kalmanın ötesinde yalan, gıybet ve kötü sözden uzak durmayı da gerektirir.
+
+## U16 — zekat_sadaka (100 soru)
+
+**DEEN-U16-S01-X001** · Zekât Nedir? · multiple_choice
+- Soru: “Zekât” kelimesi sözlükte hangi anlamları taşır?
+- Seçenekler: Yolculuk etmek ve göç etmek | Artmak, bereketlenmek ve temizlenmek | Oruç tutmak ve beklemek | Okumak ve yazmak
+- Doğru cevap: Artmak, bereketlenmek ve temizlenmek
+- Açıklama: Zekât sözlükte artma, bereket ve temizlik anlamlarına gelir; verilen zekât malı ve kalbi arındırır.
+
+**DEEN-U16-S01-X002** · Zekât Nedir? · multiple_choice
+- Soru: Dinî bir terim olarak zekât nedir?
+- Seçenekler: Yalnızca bayramda verilen şeker | Nisaba ulaşan maldan belli bir payın Allah rızası için hak sahiplerine verilmesi | İsteyen herkese rastgele para vermek | Devlete ödenen her türlü vergi
+- Doğru cevap: Nisaba ulaşan maldan belli bir payın Allah rızası için hak sahiplerine verilmesi
+- Açıklama: Zekât, belli şartları taşıyan maldan belirli bir oranın Allah rızası için Kur’an’da sayılan kişilere verilmesidir.
+
+**DEEN-U16-S01-X003** · Zekât Nedir? · multiple_choice
+- Soru: Aşağıdakilerden hangisi, zekât gibi İslam’ın beş şartından biridir?
+- Seçenekler: Umre yapmak | Teravih kılmak | Kurban kesmek | Hac
+- Doğru cevap: Hac
+- Açıklama: İslam’ın beş şartı kelime-i şehadet, namaz, oruç, zekât ve hacdır.
+
+**DEEN-U16-S01-X004** · Zekât Nedir? · true_false
+- Soru: Doğru mu, yanlış mı? Kur’an’da zekât pek çok âyette namazla birlikte anılır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: “Namazı kılın, zekâtı verin” buyruğu Kur’an’da defalarca geçer (ör. Bakara 2:43).
+
+**DEEN-U16-S01-X005** · Zekât Nedir? · multiple_choice
+- Soru: Zekât hangi dönemde farz kılınmıştır?
+- Seçenekler: İlk vahiyle aynı gün | Hz. Peygamber’in çocukluğunda | Hicretten sonra, Medine döneminde | Mekke’nin fethinden yıllar sonra
+- Doğru cevap: Hicretten sonra, Medine döneminde
+- Açıklama: Zekât, ayrıntılı hükümleriyle Hicret’in ikinci yılında, Medine’de farz kılınmıştır (Diyanet).
+
+**DEEN-U16-S01-X006** · Zekât Nedir? · multiple_choice
+- Soru: Şartlarını taşıyan Müslüman için zekâtın dinî hükmü nedir?
+- Seçenekler: Mübah | Farz | Sünnet | Mekruh
+- Doğru cevap: Farz
+- Açıklama: Zekât, şartlarını taşıyan Müslümana farz olan malî bir ibadettir.
+
+**DEEN-U16-S01-X007** · Zekât Nedir? · multiple_choice
+- Soru: Zekât nasıl bir ibadettir?
+- Seçenekler: Mal ile yapılan bir ibadet | Yalnızca yolculukla yapılan bir ibadet | Yalnızca beden ile yapılan bir ibadet | Yalnızca dil ile yapılan bir ibadet
+- Doğru cevap: Mal ile yapılan bir ibadet
+- Açıklama: Namaz ve oruç bedenî, zekât malî, hac ise hem bedenî hem malî bir ibadettir.
+
+**DEEN-U16-S01-X008** · Zekât Nedir? · true_false
+- Soru: Doğru mu, yanlış mı? Zekâtın geçerli olması için verirken zekât niyeti etmek gerekir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Zekât bir ibadettir; ibadetlerde niyet şarttır. Zekât verildiğini alan kişiye söylemek ise gerekmez.
+
+**DEEN-U16-S01-X009** · Zekât Nedir? · true_false
+- Soru: Doğru mu, yanlış mı? Zekât verirken alan kişiye “Bu zekâttır” demek zorunludur.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Niyet kalpte olur; alan kişinin incinmemesi için zekât olduğunu söylemek gerekmez (Diyanet).
+
+**DEEN-U16-S01-X010** · Zekât Nedir? · multiple_choice
+- Soru: Tevbe Suresi 103. âyete göre mallardan alınan sadaka (zekât) sahiplerine ne kazandırır?
+- Seçenekler: Onları yalnızlaştırır | Onları zayıflatır | Onları yorar | Onları temizler ve arındırır
+- Doğru cevap: Onları temizler ve arındırır
+- Açıklama: Tevbe 9:103: “Onların mallarından, kendilerini temizleyeceğin ve arındıracağın bir sadaka al.”
+
+**DEEN-U16-S01-X011** · Zekât Nedir? · missing_item
+- Soru: Eksik kavramı seç: Zekât, veren kişiyi ___ duygusundan arındırır.
+- Seçenekler: cimrilik | cömertlik | merhamet | şükür
+- Doğru cevap: cimrilik
+- Açıklama: Zekât, insanın mala aşırı düşkünlüğünü ve cimriliğini terbiye eder.
+
+**DEEN-U16-S01-X012** · Zekât Nedir? · missing_item
+- Soru: Eksik kavramı seç: Zekât, zengin ile fakir arasında ___ güçlendirir.
+- Seçenekler: rekabeti | kıskançlığı | düşmanlığı | dayanışmayı
+- Doğru cevap: dayanışmayı
+- Açıklama: Zekât, toplumda yardımlaşmayı artırır ve zengin ile fakir arasındaki bağı güçlendirir.
+
+**DEEN-U16-S01-X013** · Zekât Nedir? · multiple_choice
+- Soru: Aşağıdakilerden hangisi zekâtın farz olmasının şartlarından biridir?
+- Seçenekler: Hac yapmış olmak | Mutlaka evli olmak | Belirli bir meslekte çalışmak | Akıllı ve ergen bir Müslüman olmak
+- Doğru cevap: Akıllı ve ergen bir Müslüman olmak
+- Açıklama: Hanefî mezhebine göre zekât; akıllı, ergen, hür ve nisaba sahip Müslümana farzdır.
+
+**DEEN-U16-S01-X014** · Zekât Nedir? · true_false
+- Soru: Doğru mu, yanlış mı? Zekât ile devlete ödenen vergi aynı şeydir; vergi ödeyen zekât vermiş sayılır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Zekât niyet gerektiren bir ibadettir ve kimlere verileceği Kur’an’da bellidir; vergi ödemek zekâtın yerine geçmez (Diyanet).
+
+**DEEN-U16-S02-X001** · Nisap ve Oran · multiple_choice
+- Soru: Zekât konusunda “nisap” ne demektir?
+- Seçenekler: Zekâtın verildiği gün | Zekâtı toplayan görevli | Zekât gerekmesi için malın ulaşması gereken en az miktar | Zekâtın alındığı ülke
+- Doğru cevap: Zekât gerekmesi için malın ulaşması gereken en az miktar
+- Açıklama: Nisap, dinen zengin sayılmanın ve zekâtın gerekmesinin ölçüsü olan asgari miktardır.
+
+**DEEN-U16-S02-X002** · Nisap ve Oran · multiple_choice
+- Soru: Diyanet’e göre altında zekât nisabı ne kadardır?
+- Seçenekler: 5 gram altın | 1 kilogram altın | 80,18 gram altın | 20 gram altın
+- Doğru cevap: 80,18 gram altın
+- Açıklama: Altının nisabı 20 miskal olup bugünkü ölçüyle 80,18 gramdır (Diyanet).
+
+**DEEN-U16-S02-X003** · Nisap ve Oran · multiple_choice
+- Soru: Para, altın ve ticaret mallarında zekât oranı nedir?
+- Seçenekler: Onda bir (yüzde 10) | Kırkta bir (yüzde 2,5) | Beşte bir (yüzde 20) | Yarısı (yüzde 50)
+- Doğru cevap: Kırkta bir (yüzde 2,5)
+- Açıklama: Para, altın, gümüş ve ticaret mallarında zekât kırkta birdir.
+
+**DEEN-U16-S02-X004** · Nisap ve Oran · multiple_choice
+- Soru: Nisaba ulaşan paranın zekâtı ne zaman gerekir?
+- Seçenekler: Üzerinden bir kamerî yıl geçince | Her ayın başında | Ancak on yıl sonra | Mal elde edildiği gün
+- Doğru cevap: Üzerinden bir kamerî yıl geçince
+- Açıklama: Nisaba ulaşan mal üzerinden bir kamerî (hicrî) yıl geçmesi zekâtın şartıdır (havelân-ı havl).
+
+**DEEN-U16-S02-X005** · Nisap ve Oran · multiple_choice
+- Soru: Aşağıdakilerden hangisi temel ihtiyaç sayıldığı için zekâta tabi değildir?
+- Seçenekler: Oturulan ev | Bankada biriken para | Satmak için alınan mallar | Yatırım amaçlı altın
+- Doğru cevap: Oturulan ev
+- Açıklama: Oturulan ev, kullanılan araba, giyim ve ev eşyası gibi temel ihtiyaçlar zekâta tabi değildir.
+
+**DEEN-U16-S02-X006** · Nisap ve Oran · true_false
+- Soru: Doğru mu, yanlış mı? Hanefî mezhebine göre kişinin borcu, zekâtı hesaplanacak malından düşülür.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Borç düşüldükten sonra kalan mal nisaba ulaşıyorsa zekât verilir (Hanefî görüşü, Diyanet).
+
+**DEEN-U16-S02-X007** · Nisap ve Oran · multiple_choice
+- Soru: Yağmurla sulanan topraktan elde edilen ürünün zekâtı (öşür) ne kadardır?
+- Seçenekler: Beşte bir | Onda bir | Yirmide bir | Kırkta bir
+- Doğru cevap: Onda bir
+- Açıklama: Hadise göre yağmur veya nehirle sulanan ürünlerde onda bir, emek ve masrafla sulananlarda yirmide bir verilir (Buhârî).
+
+**DEEN-U16-S02-X008** · Nisap ve Oran · multiple_choice
+- Soru: Masraflı sulama ile yetiştirilen ürünün öşrü ne kadardır?
+- Seçenekler: Kırkta bir | Yirmide bir | Hiç verilmez | Onda bir
+- Doğru cevap: Yirmide bir
+- Açıklama: Emek ve masrafla sulanan ürünlerde oran yarıya iner; yirmide bir verilir.
+
+**DEEN-U16-S02-X009** · Nisap ve Oran · multiple_choice
+- Soru: Toprak ürünlerinden verilen zekâta ne ad verilir?
+- Seçenekler: Fitre | Kurban | Öşür | Fidye
+- Doğru cevap: Öşür
+- Açıklama: Toprak ürünlerinin zekâtına öşür denir; kelime “onda bir” anlamına gelir.
+
+**DEEN-U16-S02-X010** · Nisap ve Oran · multiple_choice
+- Soru: Koyun ve keçide zekât nisabı kaç hayvandır?
+- Seçenekler: 40 | 100 | 5 | 10
+- Doğru cevap: 40
+- Açıklama: Koyun ve keçide nisap 40’tır; 40–120 arasında bir koyun zekât olarak verilir.
+
+**DEEN-U16-S02-X011** · Nisap ve Oran · matching
+- Soru: Kavramları anlamlarıyla eşleştir: Nisap, Öşür, Havl ve Kırkta bir.
+- Eşleşmeler: Nisap → Zekât için gereken en az miktar; Öşür → Toprak ürünlerinin zekâtı; Havl → Malın üzerinden geçmesi gereken bir yıl; Kırkta bir → Paranın zekât oranı
+- Açıklama: Bu dört kavram zekât hesabının temelini oluşturur.
+
+**DEEN-U16-S02-X012** · Nisap ve Oran · fill_blank
+- Soru: Boşluğu tamamla: Bankadaki birikimin zekâtı ___ olarak verilir.
+- Seçenekler: onda bir | tamamı | yarısı | kırkta bir
+- Doğru cevap: kırkta bir
+- Açıklama: Para ve birikimlerde zekât oranı kırkta birdir (yüzde 2,5).
+
+**DEEN-U16-S02-X013** · Nisap ve Oran · true_false
+- Soru: Doğru mu, yanlış mı? Hanefî mezhebine göre nisaba ulaşan kadın ziynet altınları da zekâta tabidir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hanefîlere göre altın ve gümüş, takı olarak kullanılsa da nisaba ulaşınca zekâta tabidir; diğer mezheplerde farklı görüş vardır (Diyanet).
+
+**DEEN-U16-S02-X014** · Nisap ve Oran · missing_item
+- Soru: Eksik kavramı seç: Satmak amacıyla alınan ___ de yıl sonunda değeri üzerinden zekâta tabidir.
+- Seçenekler: giyecekler | ticaret malları | ev eşyaları | şahsi kitaplar
+- Doğru cevap: ticaret malları
+- Açıklama: Ticaret malları yıl dolduğunda piyasa değeri üzerinden kırkta bir oranında zekâta tabidir.
+
+**DEEN-U16-S03-X001** · Zekâtı Kimler Alır? · multiple_choice
+- Soru: Zekât verilecek sınıflar Kur’an’da hangi âyette sayılır?
+- Seçenekler: Fatiha Suresi 5. âyet | Nas Suresi 1. âyet | Tevbe Suresi 60. âyet | Kadir Suresi 1. âyet
+- Doğru cevap: Tevbe Suresi 60. âyet
+- Açıklama: Tevbe 9:60’ta zekâtın verileceği sekiz sınıf açıkça sayılır.
+
+**DEEN-U16-S03-X002** · Zekâtı Kimler Alır? · multiple_choice
+- Soru: Tevbe 60. âyette zekâtın verileceği kaç sınıf sayılır?
+- Seçenekler: Sekiz | On iki | Beş | Üç
+- Doğru cevap: Sekiz
+- Açıklama: Fakirler, miskinler, zekât görevlileri, kalpleri ısındırılacaklar, köleler, borçlular, Allah yolundakiler ve yolcular.
+
+**DEEN-U16-S03-X003** · Zekâtı Kimler Alır? · matching
+- Soru: Zekât sınıflarını açıklamalarıyla eşleştir: Fakir, Miskin, Gârim ve İbnüssebil.
+- Eşleşmeler: Fakir → Nisap miktarı malı olmayan kişi; Miskin → Hiçbir şeyi olmayan kişi; Gârim → Borcunu ödeyemeyen borçlu; İbnüssebil → Yolda parasız kalan yolcu
+- Açıklama: Hanefîlere göre fakirin az da olsa malı vardır, miskinin ise hiçbir şeyi yoktur.
+
+**DEEN-U16-S03-X004** · Zekâtı Kimler Alır? · multiple_choice
+- Soru: Aşağıdakilerden hangisine zekât verilemez?
+- Seçenekler: Muhtaç olan kardeşine | Borçlu komşusuna | Yolda kalmış bir yolcuya | Kişinin kendi annesine
+- Doğru cevap: Kişinin kendi annesine
+- Açıklama: Kişi anne-babasına, dedesine-ninesine, çocuk ve torunlarına zekât veremez; onlara bakmak zaten görevidir.
+
+**DEEN-U16-S03-X005** · Zekâtı Kimler Alır? · multiple_choice
+- Soru: Bir kişinin zekâtını kendi eşine vermesinin hükmü nedir?
+- Seçenekler: Yarısı verilebilir | Yalnızca bayramda verilir | Verilmesi şarttır | Verilemez
+- Doğru cevap: Verilemez
+- Açıklama: Eşler birbirine zekât veremez; aralarındaki menfaat birliği buna engeldir (Diyanet).
+
+**DEEN-U16-S03-X006** · Zekâtı Kimler Alır? · true_false
+- Soru: Doğru mu, yanlış mı? Muhtaç olan kardeşe, amcaya veya teyzeye zekât verilebilir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Usul (anne-baba, dede-nine) ve füru (çocuk, torun) dışındaki muhtaç akrabalara zekât verilebilir; hatta daha faziletlidir.
+
+**DEEN-U16-S03-X007** · Zekâtı Kimler Alır? · true_false
+- Soru: Doğru mu, yanlış mı? Nisap miktarı malı olan zengin birine zekât verilebilir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Zekât ihtiyaç sahiplerinin hakkıdır; nisaba sahip zengin kişi zekât alamaz.
+
+**DEEN-U16-S03-X008** · Zekâtı Kimler Alır? · fill_blank
+- Soru: Boşluğu tamamla: Hiçbir malı ve geliri olmayan muhtaca ___ denir.
+- Seçenekler: mükellef | miskin | âmil | zengin
+- Doğru cevap: miskin
+- Açıklama: Hanefî mezhebine göre miskin, fakirden daha muhtaç olan, hiçbir şeyi bulunmayan kişidir.
+
+**DEEN-U16-S03-X009** · Zekâtı Kimler Alır? · fill_blank
+- Soru: Boşluğu tamamla: Zekâtı toplamakla görevlendirilen kişilere ___ denir.
+- Seçenekler: kadı | müezzin | âmil | imam
+- Doğru cevap: âmil
+- Açıklama: Zekâtı toplayan ve dağıtan görevliler (âmiller) de Tevbe 60’ta sayılır.
+
+**DEEN-U16-S03-X010** · Zekâtı Kimler Alır? · progressive_recall
+- Soru: İpucu olmadan tamamla: Memleketinde malı olsa da yolda parasız kalan yolcuya ___ denir.
+- Doğru cevap: ibnüssebil
+- Açıklama: İbnüssebil, “yolun oğlu” demektir; yolda ihtiyaç içine düşen yolcu zekât alabilir.
+
+**DEEN-U16-S03-X011** · Zekâtı Kimler Alır? · progressive_recall
+- Soru: İpucu olmadan tamamla: Borcunu ödeyemeyecek durumda olan borçluya zekât sınıfı olarak ___ denir.
+- Doğru cevap: gârim
+- Açıklama: Gârimîn (borçlular) Tevbe 60’ta sayılan sınıflardandır.
+
+**DEEN-U16-S03-X012** · Zekâtı Kimler Alır? · multiple_choice
+- Soru: Diyanet’e göre farz olan zekât ile gönüllü sadaka arasında kime verilebileceği açısından hangi fark vardır?
+- Seçenekler: Sadaka hiç kimseye verilemez | Zekât yalnızca hayvanlara verilir | Zekât Müslüman ihtiyaç sahibine verilir; gönüllü sadaka Müslüman olmayan muhtaca da verilebilir | İkisi de yalnızca zenginlere verilir
+- Doğru cevap: Zekât Müslüman ihtiyaç sahibine verilir; gönüllü sadaka Müslüman olmayan muhtaca da verilebilir
+- Açıklama: Diyanet’e göre farz zekât Müslüman muhtaca verilir; nafile sadaka ise Müslüman olmayan ihtiyaç sahibine de verilebilir.
+
+**DEEN-U16-S03-X013** · Zekâtı Kimler Alır? · missing_item
+- Soru: Eksik kavramı seç: Kişi zekâtını kendi ___ veremez.
+- Seçenekler: muhtaç kardeşine | muhtaç komşusuna | borçlu arkadaşına | çocuğuna ve torununa
+- Doğru cevap: çocuğuna ve torununa
+- Açıklama: Kişinin nafakası ile yükümlü olduğu çocuk ve torunlarına zekât verilmez.
+
+**DEEN-U16-S03-X014** · Zekâtı Kimler Alır? · multiple_choice
+- Soru: Zekâtın geçerli olması için verilen mal hakkında hangisi gerekir?
+- Seçenekler: Hak sahibinin mülkiyetine geçmesi | Yalnızca gösterilip geri alınması | Ödünç verilmesi | Verenin elinde kalması
+- Doğru cevap: Hak sahibinin mülkiyetine geçmesi
+- Açıklama: Zekâtta temlik şarttır: verilen mal hak sahibinin mülkü olmalıdır.
+
+**DEEN-U16-S04-X001** · Zekât Hesabı · scenario
+- Soru: Ayşe’nin borcu yok ve bir yıldır kenarda nisabın üzerinde 40.000 TL birikimi var. Ne kadar zekât verir?
+- Seçenekler: 10.000 TL | 400 TL | 1.000 TL | 4.000 TL
+- Doğru cevap: 1.000 TL
+- Açıklama: Kırkta bir: 40.000 ÷ 40 = 1.000 TL.
+
+**DEEN-U16-S04-X002** · Zekât Hesabı · scenario
+- Soru: Ahmet’in bir yıldır elinde tuttuğu ticaret mallarının bugünkü değeri 80.000 TL’dir. Zekâtı ne kadardır?
+- Seçenekler: 20.000 TL | 2.000 TL | 800 TL | 8.000 TL
+- Doğru cevap: 2.000 TL
+- Açıklama: Ticaret malları yıl sonundaki değeri üzerinden kırkta bir: 80.000 ÷ 40 = 2.000 TL.
+
+**DEEN-U16-S04-X003** · Zekât Hesabı · scenario
+- Soru: Elif’in birikimi nisap miktarının altındadır. Zekât durumu nedir?
+- Seçenekler: Zekât vermesi gerekmez | Birikiminin hepsini vermesi gerekir | Borç alıp zekât vermesi gerekir | Onda birini vermesi gerekir
+- Doğru cevap: Zekât vermesi gerekmez
+- Açıklama: Nisaba ulaşmayan maldan zekât gerekmez; gönüllü sadaka verilebilir.
+
+**DEEN-U16-S04-X004** · Zekât Hesabı · scenario
+- Soru: Murat’ın 60.000 TL birikimi ve 20.000 TL borcu var; nisap 40.000 TL’nin altındadır. Hanefîlere göre zekât neyin üzerinden hesaplanır?
+- Seçenekler: Borç düştükten sonra kalan 40.000 TL üzerinden | Borca bakılmadan 60.000 TL üzerinden | Yalnızca 20.000 TL borç üzerinden | Hiç hesaplanmaz
+- Doğru cevap: Borç düştükten sonra kalan 40.000 TL üzerinden
+- Açıklama: Hanefîlere göre borç önce düşülür; kalan 40.000 TL nisaba ulaştığı için kırkta biri verilir.
+
+**DEEN-U16-S04-X005** · Zekât Hesabı · fill_blank
+- Soru: Boşluğu tamamla: Nisaba ulaşmış ve yılı dolmuş 20.000 TL’nin zekâtı ___ TL’dir.
+- Seçenekler: 500 | 2.000 | 5.000 | 50
+- Doğru cevap: 500
+- Açıklama: 20.000 ÷ 40 = 500 TL.
+
+**DEEN-U16-S04-X006** · Zekât Hesabı · fill_blank
+- Soru: Boşluğu tamamla: Kişinin kendi kullandığı araba ___ zekâta tabi değildir.
+- Seçenekler: rengi koyu olduğu için | temel ihtiyaç olduğu için | kiralık olduğu için | eski olduğu için
+- Doğru cevap: temel ihtiyaç olduğu için
+- Açıklama: Şahsi kullanımdaki ev, araba ve eşyalar temel ihtiyaçtır; zekâta tabi değildir.
+
+**DEEN-U16-S04-X007** · Zekât Hesabı · progressive_recall
+- Soru: İpucu olmadan tamamla: Zekâtta bir yıl dolması hesaplanırken ___ yıl esas alınır.
+- Doğru cevap: kamerî
+- Açıklama: Zekâtta hicrî-kamerî yıl esas alınır; kamerî yıl güneş yılından yaklaşık on bir gün kısadır.
+
+**DEEN-U16-S04-X008** · Zekât Hesabı · progressive_recall
+- Soru: İpucu olmadan tamamla: Kiraya verilen evin kendisi değil, ondan elde edilip biriken ___ zekâta tabidir.
+- Doğru cevap: kira geliri
+- Açıklama: Diyanet’e göre kiraya verilen binanın değeri zekâta tabi değildir; biriken kira gelirleri nisaba ulaşıp yıl dolunca zekâtı verilir.
+
+**DEEN-U16-S04-X009** · Zekât Hesabı · multiple_choice
+- Soru: Bir yıl elinde tuttuğu 200 gram altın olan kişi kaç gram altın zekât verir?
+- Seçenekler: 2 gram | 50 gram | 5 gram | 20 gram
+- Doğru cevap: 5 gram
+- Açıklama: 200 ÷ 40 = 5 gram altın ya da değeri.
+
+**DEEN-U16-S04-X010** · Zekât Hesabı · multiple_choice
+- Soru: Yılı dolan zekâtın verilmesiyle ilgili doğru tutum hangisidir?
+- Seçenekler: Yalnızca hac mevsiminde vermek | Unutulana kadar ertelemek | Geciktirmeden ihtiyaç sahiplerine ulaştırmak | Yıllarca bekletmek
+- Doğru cevap: Geciktirmeden ihtiyaç sahiplerine ulaştırmak
+- Açıklama: Zekâtın, gerekli hale gelince geciktirilmeden verilmesi gerekir; hak sahiplerinin hakkıdır.
+
+**DEEN-U16-S04-X011** · Zekât Hesabı · true_false
+- Soru: Doğru mu, yanlış mı? Nisaba ulaşmış kişi, yıl dolmadan zekâtını önceden verebilir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Nisaba malik olan kişinin zekâtını yıl dolmadan peşin vermesi caizdir (Hanefî, Diyanet).
+
+**DEEN-U16-S04-X012** · Zekât Hesabı · matching
+- Soru: Malları zekât oranlarıyla eşleştir: Banka birikimi, Yağmurla sulanan buğday, Masrafla sulanan sebze ve Kırk koyun.
+- Eşleşmeler: Banka birikimi → Kırkta bir; Yağmurla sulanan buğday → Onda bir; Masrafla sulanan sebze → Yirmide bir; Kırk koyun → Bir koyun
+- Açıklama: Malın türüne göre zekât oranı değişir.
+
+**DEEN-U16-S04-X013** · Zekât Hesabı · multiple_choice
+- Soru: Zekâtı bir kuruma veya güvenilir birine vekâlet vererek ulaştırmanın hükmü nedir?
+- Seçenekler: Hiçbir şekilde caiz değildir | Zekâtı ikiye katlar | Yalnızca devlet başkanına verilebilir | Caizdir; vekil zekâtı hak sahibine ulaştırır
+- Doğru cevap: Caizdir; vekil zekâtı hak sahibine ulaştırır
+- Açıklama: Zekât, vekil aracılığıyla da hak sahiplerine ulaştırılabilir.
+
+**DEEN-U16-S04-X014** · Zekât Hesabı · scenario
+- Soru: Muhtaç bir öğrenci okul masraflarını karşılayamıyor. Zekât verebilir misin?
+- Seçenekler: Yalnızca kitap alınabilir, para verilmez | Ancak mezun olunca verilebilir | Evet, nisaba sahip değilse zekât alabilir | Hayır, öğrenciye hiç verilmez
+- Doğru cevap: Evet, nisaba sahip değilse zekât alabilir
+- Açıklama: Muhtaç öğrenci, fakir sınıfına girdiği için zekât alabilir.
+
+**DEEN-U16-S04-X015** · Zekât Hesabı · missing_item
+- Soru: Eksik kavramı seç: Altının zekâtı altın olarak verilebileceği gibi ___ olarak da verilebilir.
+- Seçenekler: değeri kadar para | yalnızca hayvan | yarısı kadar ekmek | yalnızca gümüş
+- Doğru cevap: değeri kadar para
+- Açıklama: Hanefîlere göre zekâtın değeri (kıymeti) de verilebilir.
+
+**DEEN-U16-S04-X016** · Zekât Hesabı · error_spotting
+- Soru: “Kişinin oturduğu evin değeri her yıl zekâta tabidir.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Oturulan evin yarısı zekâta tabidir | Ev ancak satılınca iki kat zekât gerekir | Ev için öşür verilir | Oturulan ev temel ihtiyaçtır, zekâta tabi değildir
+- Doğru cevap: Oturulan ev temel ihtiyaçtır, zekâta tabi değildir
+- Açıklama: Temel ihtiyaçlar (havâic-i asliyye) zekâta tabi değildir.
+
+**DEEN-U16-S05-X001** · Sadaka ve İnfak · multiple_choice
+- Soru: Sadaka nedir?
+- Seçenekler: Yalnızca farz olan zekât | Allah rızası için gönüllü olarak yapılan yardım | Borç verip faiz almak | Bir çeşit ticaret
+- Doğru cevap: Allah rızası için gönüllü olarak yapılan yardım
+- Açıklama: Sadaka, Allah rızası için yapılan gönüllü iyilik ve yardımdır; zekât farz olan sadakadır.
+
+**DEEN-U16-S05-X002** · Sadaka ve İnfak · multiple_choice
+- Soru: Hadise göre kardeşine güler yüz göstermek nedir?
+- Seçenekler: Sadakadır | Zekâtın yerine geçer | Boş bir davranıştır | Gösteriştir
+- Doğru cevap: Sadakadır
+- Açıklama: Hz. Peygamber: “Kardeşine gülümsemen sadakadır.” (Tirmizî)
+
+**DEEN-U16-S05-X003** · Sadaka ve İnfak · multiple_choice
+- Soru: Bakara 261’de Allah yolunda harcananın sevabı neye benzetilir?
+- Seçenekler: Rüzgârda savrulan toza | Yedi başak veren ve her başakta yüz tane bulunan bir taneye | Taşın üzerindeki toprağa | Kuruyan bir ağaca
+- Doğru cevap: Yedi başak veren ve her başakta yüz tane bulunan bir taneye
+- Açıklama: Bakara 2:261: Allah yolunda harcananların durumu yedi başak bitiren bir tane gibidir; her başakta yüz tane vardır.
+
+**DEEN-U16-S05-X004** · Sadaka ve İnfak · multiple_choice
+- Soru: Bakara 264’e göre sadakanın sevabını ne boşa çıkarır?
+- Seçenekler: Gizlice vermek | Sevdiği şeyden vermek | Az da olsa vermek | Başa kakmak ve eziyet etmek
+- Doğru cevap: Başa kakmak ve eziyet etmek
+- Açıklama: Bakara 2:264: “Sadakalarınızı başa kakarak ve eziyet ederek boşa çıkarmayın.”
+
+**DEEN-U16-S05-X005** · Sadaka ve İnfak · multiple_choice
+- Soru: Âl-i İmrân 92’ye göre insan iyiliğe nasıl erişir?
+- Seçenekler: Yalnızca istemediği şeyleri verince | Herkesten borç alınca | Hiç harcamayınca | Sevdiği şeylerden Allah yolunda harcayınca
+- Doğru cevap: Sevdiği şeylerden Allah yolunda harcayınca
+- Açıklama: Âl-i İmrân 3:92: “Sevdiğiniz şeylerden harcamadıkça iyiliğe erişemezsiniz.”
+
+**DEEN-U16-S05-X006** · Sadaka ve İnfak · multiple_choice
+- Soru: Kişi öldükten sonra da sevabı devam eden sadakaya ne denir?
+- Seçenekler: Kefaret | Sadaka-i câriye | Fidye | Öşür
+- Doğru cevap: Sadaka-i câriye
+- Açıklama: Hadis: İnsan ölünce ameli kesilir; sadaka-i câriye, faydalı ilim ve kendisine dua eden hayırlı evlat hariç (Müslim).
+
+**DEEN-U16-S05-X007** · Sadaka ve İnfak · true_false
+- Soru: Doğru mu, yanlış mı? Hadise göre sadaka vermek malı eksiltmez.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hz. Peygamber: “Sadaka maldan bir şey eksiltmez.” (Müslim)
+
+**DEEN-U16-S05-X008** · Sadaka ve İnfak · true_false
+- Soru: Doğru mu, yanlış mı? Bakara 271’e göre sadakayı ihtiyaç sahiplerine gizlice vermek daha hayırlıdır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Bakara 2:271: Açıktan verirseniz güzel; gizleyip fakirlere verirseniz o sizin için daha hayırlıdır.
+
+**DEEN-U16-S05-X009** · Sadaka ve İnfak · scenario
+- Soru: Zeynep’in harçlığı az ama yine de birine yardım etmek istiyor. Ne düşünmeli?
+- Seçenekler: Ancak çok zengin olunca vermeli | Az da olsa samimiyetle verilen sadaka değerlidir | Başkasından alıp vermeli | Az vermek ayıptır, hiç vermemeli
+- Doğru cevap: Az da olsa samimiyetle verilen sadaka değerlidir
+- Açıklama: Hadis: “Yarım hurma ile de olsa ateşten korunun.” (Buhârî)
+
+**DEEN-U16-S05-X010** · Sadaka ve İnfak · scenario
+- Soru: Can, yaptığı bağışın fotoğrafını övünmek için paylaşmak istiyor. Hangi tutum sadakanın ruhuna uygundur?
+- Seçenekler: Övülmezse bir daha yardım etmemek | Yardım ettiği kişiyi teşhir etmek | Herkes görsün diye abartmak | Niyeti Allah rızası için tutmak ve gösterişten kaçınmak
+- Doğru cevap: Niyeti Allah rızası için tutmak ve gösterişten kaçınmak
+- Açıklama: Gösteriş (riya) için verilen sadaka sevabını kaybeder (Bakara 2:264); amaç Allah rızasıdır.
+
+**DEEN-U16-S05-X011** · Sadaka ve İnfak · scenario
+- Soru: Komşunun evinde yemek olmadığını öğrendin. Ne yaparsın?
+- Seçenekler: İmkânım ölçüsünde yemek paylaşırım | Yardım etmek için bayramı beklerim | Herkese anlatırım | Görmezden gelirim
+- Doğru cevap: İmkânım ölçüsünde yemek paylaşırım
+- Açıklama: Hadis: “Komşusu açken tok yatan bizden değildir.” (Hâkim, Taberânî)
+
+**DEEN-U16-S05-X012** · Sadaka ve İnfak · error_spotting
+- Soru: “Sadaka sadece para vererek yapılabilir.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Güler yüz, güzel söz ve yoldan bir engeli kaldırmak da sadakadır | Sadaka sadece altın ile yapılır | Sadaka yalnızca zekâttır | Sadaka sadece bayramda olur
+- Doğru cevap: Güler yüz, güzel söz ve yoldan bir engeli kaldırmak da sadakadır
+- Açıklama: Hadislerde güzel söz, güler yüz ve yoldan eziyet veren şeyi kaldırmak sadaka olarak sayılır (Buhârî, Müslim).
+
+**DEEN-U16-S05-X013** · Sadaka ve İnfak · error_spotting
+- Soru: “Hadise göre alan el veren elden üstündür.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: El kavramı yalnızca namazla ilgilidir | Veren (üstteki) el, alan (alttaki) elden üstündür | İki el de aynı derecededir | Alan el her zaman daha faziletlidir
+- Doğru cevap: Veren (üstteki) el, alan (alttaki) elden üstündür
+- Açıklama: Hz. Peygamber: “Üstteki el alttaki elden hayırlıdır; üstteki el veren, alttaki el alandır.” (Buhârî)
+
+**DEEN-U16-S05-X014** · Sadaka ve İnfak · multiple_choice
+- Soru: Kendisi ihtiyaç içindeyken başkasını kendine tercih etmeye ne denir?
+- Seçenekler: İsraf | Kibir | Riya | Îsâr
+- Doğru cevap: Îsâr
+- Açıklama: Haşr 59:9’da Ensar’ın kendileri ihtiyaç içinde olsa bile muhacirleri kendilerine tercih ettikleri övülür; buna îsâr denir.
+
+**DEEN-U16-S05-X015** · Sadaka ve İnfak · true_false
+- Soru: Doğru mu, yanlış mı? Tevbe 34’te altın ve gümüşü biriktirip Allah yolunda harcamayanlar uyarılır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Tevbe 9:34, altın ve gümüşü biriktirip Allah yolunda harcamayanları uyarır.
+
+**DEEN-U16-S05-X016** · Sadaka ve İnfak · multiple_choice
+- Soru: Bakara 267’ye göre infakta hangi maldan verilmelidir?
+- Seçenekler: Kimsenin almayacağı bozuk mallardan | Kazanılanların iyi ve temiz olanlarından | Yalnızca artık yemeklerden | Başkasının malından
+- Doğru cevap: Kazanılanların iyi ve temiz olanlarından
+- Açıklama: Bakara 2:267: Kazandıklarınızın iyilerinden harcayın; kendinizin bile göz yummadan alamayacağı kötü şeyleri vermeye kalkışmayın.
+
+**DEEN-U16-S06-X001** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: Paranın zekât oranı nedir?
+- Seçenekler: Kırkta bir | Yarısı | Üçte bir | Onda bir
+- Doğru cevap: Kırkta bir
+- Açıklama: Para, altın ve ticaret mallarında oran kırkta birdir.
+
+**DEEN-U16-S06-X002** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: Zekâtın verileceği sınıflar hangi surede sayılır?
+- Seçenekler: Tevbe | Felak | İhlâs | Fatiha
+- Doğru cevap: Tevbe
+- Açıklama: Tevbe 9:60.
+
+**DEEN-U16-S06-X003** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: Toprak ürünlerinin zekâtının adı nedir?
+- Seçenekler: Fitre | Fidye | Öşür | Akîka
+- Doğru cevap: Öşür
+- Açıklama: Toprak ürünlerinin zekâtına öşür denir.
+
+**DEEN-U16-S06-X004** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: Altının nisabı kaç gramdır?
+- Seçenekler: 80,18 | 8 | 18 | 800
+- Doğru cevap: 80,18
+- Açıklama: Diyanet’e göre altın nisabı 80,18 gramdır.
+
+**DEEN-U16-S06-X005** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Kişi zekâtını muhtaç olan babasına verebilir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Usule (anne, baba, dede, nine) zekât verilmez; onların ihtiyacını karşılamak zaten evladın görevidir.
+
+**DEEN-U16-S06-X006** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Güler yüz göstermek de bir sadakadır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Kardeşine gülümsemen sadakadır (Tirmizî).
+
+**DEEN-U16-S06-X007** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Nisaba ulaşan para elde edildiği gün zekâtı verilmek zorundadır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Zekât için malın üzerinden bir kamerî yıl geçmesi gerekir; isteyen önceden de verebilir.
+
+**DEEN-U16-S06-X008** · Akıllı Tekrar · multiple_choice
+- Soru: Aşağıdakilerden hangisi zekât alamaz?
+- Seçenekler: Borcunu ödeyemeyen borçlu | Hiçbir şeyi olmayan miskin | Yolda kalan yolcu | Nisaba sahip zengin
+- Doğru cevap: Nisaba sahip zengin
+- Açıklama: Zekât ihtiyaç sahiplerinin hakkıdır; zengin alamaz.
+
+**DEEN-U16-S06-X009** · Akıllı Tekrar · multiple_choice
+- Soru: Aşağıdakilerden hangisi zekâttan muaftır?
+- Seçenekler: Biriken para | Kullanılan ev eşyası | Ticaret malı | Yatırım altını
+- Doğru cevap: Kullanılan ev eşyası
+- Açıklama: Temel ihtiyaçlar zekâta tabi değildir.
+
+**DEEN-U16-S06-X010** · Akıllı Tekrar · multiple_choice
+- Soru: Arkasından bir çeşme ya da okul yaptırmak hangi sadaka türüne örnektir?
+- Seçenekler: Kefaret | Öşür | Sadaka-i câriye | Fitre
+- Doğru cevap: Sadaka-i câriye
+- Açıklama: İnsanların faydalanmaya devam ettiği eserler sadaka-i câriyedir.
+
+**DEEN-U16-S06-X011** · Akıllı Tekrar · error_spotting
+- Soru: “Vergi ödeyen kişi zekât vermiş sayılır.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Vergi zekâtın iki katıdır | Zekât yalnızca devlete verilir | Vergi ödeyen sadaka veremez | Vergi zekâtın yerine geçmez; zekât ayrıca niyetle verilir
+- Doğru cevap: Vergi zekâtın yerine geçmez; zekât ayrıca niyetle verilir
+- Açıklama: Zekât niyet gerektiren bir ibadettir; vergi onun yerini tutmaz.
+
+**DEEN-U16-S06-X012** · Akıllı Tekrar · error_spotting
+- Soru: “Koca zekâtını kendi hanımına verebilir.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Eşe zekât yalnızca bayramda verilir | Eşe verilen zekât iki kat sevaptır | Yalnızca hanım kocasına zekât verir | Eşler birbirine zekât veremez
+- Doğru cevap: Eşler birbirine zekât veremez
+- Açıklama: Eşler arasında menfaat birliği olduğu için zekât verilmez.
+
+**DEEN-U16-S07-X001** · Ünite Challenge · scenario
+- Soru: Selin’in borcu yok; bir yıldır nisabı aşan 120.000 TL birikimi var. Zekâtı ne kadardır?
+- Seçenekler: 3.000 TL | 12.000 TL | 30.000 TL | 1.200 TL
+- Doğru cevap: 3.000 TL
+- Açıklama: 120.000 ÷ 40 = 3.000 TL.
+
+**DEEN-U16-S07-X002** · Ünite Challenge · scenario
+- Soru: Ali’nin işsiz kalan ve borcu olan kardeşi var. Ali zekâtını ona verebilir mi?
+- Seçenekler: Hayır, akrabaya hiç zekât verilmez | Ancak kardeşi zengin olursa verebilir | Evet, muhtaç kardeşe zekât verilebilir | Yalnızca yarısını verebilir
+- Doğru cevap: Evet, muhtaç kardeşe zekât verilebilir
+- Açıklama: Usul ve füru dışında kalan muhtaç akrabaya zekât vermek caizdir ve sevabı daha fazladır.
+
+**DEEN-U16-S07-X003** · Ünite Challenge · scenario
+- Soru: Bir çiftçi buğdayını yağmur suyuyla, domatesini ise ücretli sulama ile yetiştirdi. Öşür oranları nedir?
+- Seçenekler: Buğdayda onda bir, domateste yirmide bir | İkisinde de kırkta bir | Buğdayda yirmide bir, domateste onda bir | İkisinde de hiç öşür yok
+- Doğru cevap: Buğdayda onda bir, domateste yirmide bir
+- Açıklama: Yağmurla sulananda onda bir, masrafla sulananda yirmide bir verilir.
+
+**DEEN-U16-S07-X004** · Ünite Challenge · error_spotting
+- Soru: “Zekâtın verileceği sınıflar Kur’an’da beş tanedir.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: On iki sınıf vardır | Sınıflar yalnızca hadiste geçer | Tevbe 60’ta sekiz sınıf sayılır | Kur’an’da sınıf sayılmaz
+- Doğru cevap: Tevbe 60’ta sekiz sınıf sayılır
+- Açıklama: Tevbe 9:60’ta sekiz sınıf sayılır.
+
+**DEEN-U16-S07-X005** · Ünite Challenge · error_spotting
+- Soru: “Zekât verirken niyet gerekmez; para el değiştirmesi yeterlidir.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Niyet zekâtı geçersiz kılar | Niyet yüksek sesle söylenmelidir | Niyet yalnızca hacda gerekir | Zekât ibadettir ve niyet şarttır
+- Doğru cevap: Zekât ibadettir ve niyet şarttır
+- Açıklama: İbadetlerin geçerli olması için niyet şarttır.
+
+**DEEN-U16-S07-X006** · Ünite Challenge · progressive_recall
+- Soru: İpucu olmadan tamamla: Zekâtın verileceği sekiz sınıf ___ Suresi 60. âyette sayılır.
+- Doğru cevap: Tevbe
+- Açıklama: Tevbe 9:60.
+
+**DEEN-U16-S07-X007** · Ünite Challenge · progressive_recall
+- Soru: İpucu olmadan tamamla: Ölümden sonra da sevabı devam eden sadakaya sadaka-i ___ denir.
+- Doğru cevap: câriye
+- Açıklama: “Câriye”, akan ve devam eden demektir.
+
+**DEEN-U16-S07-X008** · Ünite Challenge · progressive_recall
+- Soru: İpucu olmadan tamamla: Zekâtın gerekmesi için malın ulaşması gereken asgari miktara ___ denir.
+- Doğru cevap: nisap
+- Açıklama: Nisap, zenginliğin dinî ölçüsüdür.
+
+**DEEN-U16-S07-X009** · Ünite Challenge · multiple_choice
+- Soru: Aşağıdakilerden hangisi zekâtın hikmetlerinden biri değildir?
+- Seçenekler: Toplumsal dayanışmayı güçlendirmek | Malı tamamen elden çıkarmak | Kalbi cimrilikten arındırmak | Muhtaçların ihtiyacını gidermek
+- Doğru cevap: Malı tamamen elden çıkarmak
+- Açıklama: Zekât malın küçük bir payıdır; amaç arınma ve dayanışmadır.
+
+**DEEN-U16-S07-X010** · Ünite Challenge · multiple_choice
+- Soru: “Kırkta bir” ve “onda bir” oranları sırasıyla hangi zekât türlerine aittir?
+- Seçenekler: Fidye ve kefaret | Kurban ve akîka | Para zekâtı ve yağmurla sulanan ürün öşrü | Öşür ve fitre
+- Doğru cevap: Para zekâtı ve yağmurla sulanan ürün öşrü
+- Açıklama: Para ve ticaret mallarında kırkta bir, yağmurla sulanan ürünlerde onda bir verilir.
+
+**DEEN-U16-S07-X011** · Ünite Challenge · matching
+- Soru: Âyetleri mesajlarıyla eşleştir: Bakara 261, Bakara 264, Âl-i İmrân 92 ve Tevbe 60.
+- Eşleşmeler: Bakara 261 → Bir taneden yedi başak; Bakara 264 → Başa kakmak sevabı yok eder; Âl-i İmrân 92 → Sevdiğinden vermedikçe iyiliğe erişilmez; Tevbe 60 → Zekâtın sekiz sınıfı
+- Açıklama: Bu âyetler infak ve zekâtın temel ilkelerini anlatır.
+
+**DEEN-U16-S07-X012** · Ünite Challenge · matching
+- Soru: Kavramları açıklamalarıyla eşleştir: Zekât, Sadaka, Îsâr ve Temlik.
+- Eşleşmeler: Zekât → Farz olan malî ibadet; Sadaka → Gönüllü yardım; Îsâr → Başkasını kendine tercih etmek; Temlik → Zekâtın alanın mülkü olması
+- Açıklama: Zekât ve sadaka ile ilgili temel kavramlar.
+
+**DEEN-U16-S07-X013** · Ünite Challenge · scenario
+- Soru: Bir kişi yalnızca insanlar cömert desin diye büyük bir bağış yapıyor. Bu konuda en doğru değerlendirme hangisidir?
+- Seçenekler: Gösteriş sevabı artırır | Bağış büyükse niyet önemli değildir | Bu bağış zekâtın yerine geçer | Gösteriş niyeti sadakanın sevabını zedeler; niyet Allah rızası olmalıdır
+- Doğru cevap: Gösteriş niyeti sadakanın sevabını zedeler; niyet Allah rızası olmalıdır
+- Açıklama: Amellerde niyet esastır; riya sevabı yok eder (Bakara 2:264).
+
+**DEEN-U16-S07-X014** · Ünite Challenge · true_false
+- Soru: Doğru mu, yanlış mı? Nisaba sahip olan kişi, yılı dolmadan önce zekâtını verirse bu geçerlidir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Zekâtı yıl dolmadan önce vermek caizdir.

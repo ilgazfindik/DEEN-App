@@ -4,7 +4,7 @@ import vm from 'node:vm';
 import assert from 'node:assert/strict';
 const win={};vm.runInNewContext(readFileSync('assets/learn/extra-questions.js','utf8'),{window:win});
 const Q=win.DEEN_EXTRA_QUESTIONS;assert(Array.isArray(Q)&&Q.length>=150,'extra questions present');
-const ids=new Set(),texts=new Set(),UNITS=new Set(['U09','U10','U08','U06','U07','U04','U01','U02','U03','U05','U11','U12','U13','U14','U15']);
+const ids=new Set(),texts=new Set(),UNITS=new Set(Array.from({length:30},(_,i)=>'U'+String(i+1).padStart(2,'0')));
 const TYPES=new Set(['multiple_choice','true_false','fill_blank','missing_item','scenario','error_spotting','speed_review','matching','progressive_recall']);
 for(const q of Q){
  assert(!ids.has(q.id),'duplicate id '+q.id);ids.add(q.id);
@@ -58,4 +58,13 @@ for(const lang of ['en','de','fr','ar']){
   }
  }
 }
+// New units (U16+): path metadata in five languages, seven stages each, following U15 without gaps, and 100 questions per unit.
+const M=win.DEEN_UNITS_PLUS_META;assert(M&&Array.isArray(M.units),'units-plus metadata');
+M.units.forEach((m,i)=>{
+ assert.equal(m.unit,'U'+String(16+i),'unit order');assert(M.sections[String(m.section)],'section of '+m.unit);
+ for(const l of ['tr','en','de','fr','ar'])assert(m.name[l]&&m.desc[l]&&Object.keys(m.titles[l]).length===7,'meta '+l+' '+m.unit);
+ assert.equal(JSON.stringify(m.stages.map(s=>s.id)),JSON.stringify([1,2,3,4,5,6,7].map(n=>m.unit+'-S0'+n)),'stages '+m.unit);
+ assert.equal(JSON.stringify(m.langs),JSON.stringify(['tr','en','de','fr','ar']),'every language of '+m.unit);
+ assert.equal(per[m.unit],100,'100 questions in '+m.unit);
+});
 console.log('Extra Learn-path questions ok:',Q.length,JSON.stringify(per));
