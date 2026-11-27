@@ -9885,3 +9885,591 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Seçenekler: Doğru | Yanlış
 - Doğru cevap: Doğru
 - Açıklama: Yûsuf 12:111: Onların kıssalarında akıl sahipleri için ibret vardır.
+
+## U24 — sahabeler_ehlibeyt (100 soru)
+
+**DEEN-U24-S01-X001** · Sahabe Kimdir? · multiple_choice
+- Soru: “Sahabe” kime denir?
+- Seçenekler: Hz. Peygamber’i hiç görmemiş kişiye | Hz. Peygamber’i mümin olarak görüp mümin olarak vefat eden kişiye | Peygamber’den yüzyıllar sonra yaşayan âlime | Sadece Mekke’de doğan herkese
+- Doğru cevap: Hz. Peygamber’i mümin olarak görüp mümin olarak vefat eden kişiye
+- Açıklama: Sahabe, Hz. Peygamber’i iman ederek gören ve iman üzere ölen Müslümandır.
+
+**DEEN-U24-S01-X002** · Sahabe Kimdir? · multiple_choice
+- Soru: Sahabeyi görüp onlardan öğrenen nesle ne denir?
+- Seçenekler: Tâbiûn | Muhacir | Ensar | Hulefâ
+- Doğru cevap: Tâbiûn
+- Açıklama: Tâbiûn, sahabeyi görüp onlardan ilim alan sonraki nesildir.
+
+**DEEN-U24-S01-X003** · Sahabe Kimdir? · multiple_choice
+- Soru: İlk dört halifeye birlikte ne ad verilir?
+- Seçenekler: Ensar | Hulefâ-i Râşidîn | Ashâb-ı Suffe | Aşere-i Mübeşşere
+- Doğru cevap: Hulefâ-i Râşidîn
+- Açıklama: Doğru yolda olan halifeler: Ebû Bekir, Ömer, Osman ve Ali.
+
+**DEEN-U24-S01-X004** · Sahabe Kimdir? · multiple_choice
+- Soru: Hz. Peygamber’in cennetle müjdelediği on sahabeye ne denir?
+- Seçenekler: Tâbiûn | Hulefâ-i Râşidîn | Ashâb-ı Bedir | Aşere-i Mübeşşere
+- Doğru cevap: Aşere-i Mübeşşere
+- Açıklama: Aşere-i Mübeşşere içinde dört halife, Talha, Zübeyr, Abdurrahman b. Avf, Sa‘d b. Ebî Vakkâs, Saîd b. Zeyd ve Ebû Ubeyde b. Cerrâh vardır (Tirmizî).
+
+**DEEN-U24-S01-X005** · Sahabe Kimdir? · true_false
+- Soru: Doğru mu, yanlış mı? Sahabeler, İslam’ı Hz. Peygamber’den doğrudan öğrenip sonraki nesillere aktardılar.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Kur’an ve sünnet sahabeler aracılığıyla sonraki nesillere ulaştı.
+
+**DEEN-U24-S01-X006** · Sahabe Kimdir? · true_false
+- Soru: Doğru mu, yanlış mı? Sahabeler de insandı; peygamber değillerdi ve hata yapabilirlerdi.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Sahabe saygın bir nesildir; ancak yalnızca peygamberler masumdur.
+
+**DEEN-U24-S01-X007** · Sahabe Kimdir? · multiple_choice
+- Soru: En çok hadis rivayet eden sahabe kimdir?
+- Seçenekler: Ebû Hüreyre | Hâlid b. Velîd | Hamza | Bilâl-i Habeşî
+- Doğru cevap: Ebû Hüreyre
+- Açıklama: Ebû Hüreyre Hz. Peygamber’in yanından ayrılmaz, duyduklarını ezberlerdi.
+
+**DEEN-U24-S01-X008** · Sahabe Kimdir? · missing_item
+- Soru: Eksik kavramı seç: Ebû Hüreyre’nin lakabı “___ babası” anlamına gelir.
+- Seçenekler: aslan | deve | kedicik | kartal
+- Doğru cevap: kedicik
+- Açıklama: Bir kediyi yanında taşıdığı için bu lakapla anıldığı rivayet edilir.
+
+**DEEN-U24-S01-X009** · Sahabe Kimdir? · missing_item
+- Soru: Eksik kavramı seç: Hadise göre insanların en hayırlısı Hz. Peygamber’in ___ insanlardır.
+- Seçenekler: kendi neslindeki | en zengin | bin yıl sonraki | en kalabalık
+- Doğru cevap: kendi neslindeki
+- Açıklama: Hz. Peygamber: “İnsanların en hayırlısı benim neslimdir, sonra onları takip edenler.” (Buhârî)
+
+**DEEN-U24-S01-X010** · Sahabe Kimdir? · multiple_choice
+- Soru: Müslümanların sahabeye karşı tutumu nasıl olmalıdır?
+- Seçenekler: Onlara tapmak | Onları sevmek, saygı göstermek ve güzelliklerini örnek almak | Onları küçümsemek | Onları tamamen unutmak
+- Doğru cevap: Onları sevmek, saygı göstermek ve güzelliklerini örnek almak
+- Açıklama: Haşr 59:10: Bizden önce iman eden kardeşlerimizi bağışla diye dua edilir.
+
+**DEEN-U24-S01-X011** · Sahabe Kimdir? · matching
+- Soru: Kavramları açıklamalarıyla eşleştir: Sahabe, Tâbiûn, Hulefâ-i Râşidîn ve Aşere-i Mübeşşere.
+- Eşleşmeler: Sahabe → Peygamber’i mümin olarak gören; Tâbiûn → Sahabeyi görüp onlardan öğrenen; Hulefâ-i Râşidîn → İlk dört halife; Aşere-i Mübeşşere → Cennetle müjdelenen on kişi
+- Açıklama: Sahabe ile ilgili temel kavramlar.
+
+**DEEN-U24-S01-X012** · Sahabe Kimdir? · multiple_choice
+- Soru: İşkence altında “Sabredin ey Yâsir ailesi, varacağınız yer cennettir” müjdesine nail olan aile hangisidir?
+- Seçenekler: Ebû Süfyân’ın ailesi | Ümeyye’nin ailesi | Ammâr’ın ailesi (Yâsir ailesi) | Ebû Leheb’in ailesi
+- Doğru cevap: Ammâr’ın ailesi (Yâsir ailesi)
+- Açıklama: Yâsir, Sümeyye ve oğulları Ammâr ağır işkencelere sabrettiler (Hâkim).
+
+**DEEN-U24-S01-X013** · Sahabe Kimdir? · true_false
+- Soru: Doğru mu, yanlış mı? Hem muhacirler hem ensar sahabedendir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Peygamber’i görüp iman eden herkes sahabedir; muhacir ve ensar sahabenin iki büyük grubudur.
+
+**DEEN-U24-S01-X014** · Sahabe Kimdir? · multiple_choice
+- Soru: Bedir savaşına katılan sahabelere ne ad verilir?
+- Seçenekler: Ashâb-ı Kehf | Ashâb-ı Bedr (Bedir ehli) | Ashâb-ı Suffe | Tâbiûn
+- Doğru cevap: Ashâb-ı Bedr (Bedir ehli)
+- Açıklama: Bedir’e katılan sahabeler özel bir saygınlığa sahiptir.
+
+**DEEN-U24-S02-X001** · Dört Halife · multiple_choice
+- Soru: Hz. Ebû Bekir’e “Sıddîk” (çok doğrulayan) denmesinin sebebi nedir?
+- Seçenekler: Mi‘râc’ı ve Peygamber’in söylediklerini hiç tereddüt etmeden doğrulaması | Çok uzun boylu olması | Savaşta hiç yaralanmaması | Çok zengin olması
+- Doğru cevap: Mi‘râc’ı ve Peygamber’in söylediklerini hiç tereddüt etmeden doğrulaması
+- Açıklama: “O söylediyse doğrudur” diyerek Mi‘râc’ı hemen tasdik etti.
+
+**DEEN-U24-S02-X002** · Dört Halife · multiple_choice
+- Soru: İlk halife kimdir?
+- Seçenekler: Hz. Ömer | Hz. Ali | Hz. Ebû Bekir | Hz. Osman
+- Doğru cevap: Hz. Ebû Bekir
+- Açıklama: Hz. Peygamber’in vefatından sonra Hz. Ebû Bekir halife seçildi.
+
+**DEEN-U24-S02-X003** · Dört Halife · multiple_choice
+- Soru: Hz. Ömer’in lakabı olan “Fârûk” ne demektir?
+- Seçenekler: Yemek pişiren | Uzaklara giden | Hakkı batıldan ayıran | Çok konuşan
+- Doğru cevap: Hakkı batıldan ayıran
+- Açıklama: Hz. Ömer adaleti ve hakkı batıldan ayırmasıyla tanınır.
+
+**DEEN-U24-S02-X004** · Dört Halife · multiple_choice
+- Soru: Hz. Ömer’in halifeliğinde en çok öne çıkan özelliği hangisidir?
+- Seçenekler: Adaleti ve halkın durumunu bizzat kontrol etmesi | Vergileri artırması | Saraylarda yaşaması | Halktan uzak durması
+- Doğru cevap: Adaleti ve halkın durumunu bizzat kontrol etmesi
+- Açıklama: Geceleri dolaşıp yoksulların durumunu bizzat kontrol ettiği rivayet edilir.
+
+**DEEN-U24-S02-X005** · Dört Halife · multiple_choice
+- Soru: Hz. Osman’a neden “Zinnûreyn” (iki nur sahibi) denir?
+- Seçenekler: Hz. Peygamber’in iki kızıyla evlendiği için | İki dil bildiği için | İki şehir kurduğu için | İki kez hac yaptığı için
+- Doğru cevap: Hz. Peygamber’in iki kızıyla evlendiği için
+- Açıklama: Önce Rukıyye, onun vefatından sonra Ümmü Gülsüm ile evlendi.
+
+**DEEN-U24-S02-X006** · Dört Halife · multiple_choice
+- Soru: Hz. Osman’ın cömertliğine örnek olan olay hangisidir?
+- Seçenekler: Malını gizlemesi | Kimseye yardım etmemesi | Kervanları yağmalaması | Rûme kuyusunu satın alıp Müslümanlara bağışlaması
+- Doğru cevap: Rûme kuyusunu satın alıp Müslümanlara bağışlaması
+- Açıklama: Medine’de su sıkıntısı varken Rûme kuyusunu alıp herkese açtı (Tirmizî).
+
+**DEEN-U24-S02-X007** · Dört Halife · multiple_choice
+- Soru: Hz. Ali’nin cesaretiyle bilinen lakaplarından biri hangisidir?
+- Seçenekler: Seyfullah | Sıddîk | Esedullah (Allah’ın aslanı) | Fârûk
+- Doğru cevap: Esedullah (Allah’ın aslanı)
+- Açıklama: Hz. Ali cesareti ve ilmiyle tanınır; Hayber’de sancağı taşımıştır.
+
+**DEEN-U24-S02-X008** · Dört Halife · matching
+- Soru: Halifeleri lakaplarıyla eşleştir: Ebû Bekir, Ömer, Osman ve Ali.
+- Eşleşmeler: Ebû Bekir → Sıddîk; Ömer → Fârûk; Osman → Zinnûreyn; Ali → Esedullah
+- Açıklama: Her halifenin bir öne çıkan özelliği vardır.
+
+**DEEN-U24-S02-X009** · Dört Halife · true_false
+- Soru: Doğru mu, yanlış mı? Kudüs Hz. Ömer döneminde barışla teslim alındı ve halkına can ve mal güvencesi verildi.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hz. Ömer Kudüs’e gelip anahtarları teslim aldı ve halka eman verdi.
+
+**DEEN-U24-S02-X010** · Dört Halife · true_false
+- Soru: Doğru mu, yanlış mı? Hz. Ali, çocuklardan ilk iman edendir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hz. Ali, Hz. Peygamber’in evinde büyüdü ve küçük yaşta iman etti.
+
+**DEEN-U24-S02-X011** · Dört Halife · fill_blank
+- Soru: Boşluğu tamamla: Halifelerin sırası: Ebû Bekir, Ömer, ___, Ali.
+- Seçenekler: Abbas | Hamza | Muâviye | Osman
+- Doğru cevap: Osman
+- Açıklama: Dört halife bu sırayla görev yaptı.
+
+**DEEN-U24-S02-X012** · Dört Halife · fill_blank
+- Soru: Boşluğu tamamla: Hicrî takvim Hz. ___ döneminde kullanılmaya başlandı.
+- Seçenekler: Ebû Bekir | Ali | Ömer | Osman
+- Doğru cevap: Ömer
+- Açıklama: Hz. Ömer hicreti takvimin başlangıcı olarak belirledi.
+
+**DEEN-U24-S02-X013** · Dört Halife · progressive_recall
+- Soru: İpucu olmadan tamamla: Hz. Ebû Bekir’in lakabı ___ dir.
+- Doğru cevap: Sıddîk
+- Açıklama: Sıddîk, çok doğrulayan demektir.
+
+**DEEN-U24-S02-X014** · Dört Halife · multiple_choice
+- Soru: Tebük seferinde malının tamamını getiren ve “Ailene ne bıraktın?” sorusuna “Allah’ı ve Resulünü” diyen sahabe kimdir?
+- Seçenekler: Hz. Ali | Hz. Ömer | Hz. Ebû Bekir | Hz. Osman
+- Doğru cevap: Hz. Ebû Bekir
+- Açıklama: Hz. Ömer de malının yarısını getirmişti (Tirmizî).
+
+**DEEN-U24-S03-X001** · Peygamber Ailesi · multiple_choice
+- Soru: Hz. Peygamber’in hangi kızı Hz. Ali ile evlendi?
+- Seçenekler: Hz. Zeyneb | Hz. Rukıyye | Hz. Ümmü Gülsüm | Hz. Fâtıma
+- Doğru cevap: Hz. Fâtıma
+- Açıklama: Hz. Fâtıma ile Hz. Ali evlendi; Hasan ve Hüseyin onların oğullarıdır.
+
+**DEEN-U24-S03-X002** · Peygamber Ailesi · multiple_choice
+- Soru: Hz. Peygamber’in çok sevdiği torunları kimlerdir?
+- Seçenekler: Hz. Hamza ve Hz. Abbas | Hz. Zeyd ve Hz. Üsâme | Hz. Hasan ve Hz. Hüseyin | Hz. Talha ve Hz. Zübeyr
+- Doğru cevap: Hz. Hasan ve Hz. Hüseyin
+- Açıklama: Hz. Peygamber onları “cennet gençlerinin efendileri” olarak müjdelemiştir (Tirmizî).
+
+**DEEN-U24-S03-X003** · Peygamber Ailesi · multiple_choice
+- Soru: Ahzâb 6’ya göre Hz. Peygamber’in eşleri müminler için ne konumdadır?
+- Seçenekler: Müminlerin anneleri | Yabancılar | Sıradan komşular | Uzak akrabalar
+- Doğru cevap: Müminlerin anneleri
+- Açıklama: Ahzâb 33:6: Onun eşleri müminlerin anneleridir.
+
+**DEEN-U24-S03-X004** · Peygamber Ailesi · multiple_choice
+- Soru: Hz. Âişe hangi yönüyle özellikle tanınır?
+- Seçenekler: Ticaret kervanlarıyla | Şiirleriyle | İlmi ve çok sayıda hadis rivayet etmesiyle | Savaş komutanlığıyla
+- Doğru cevap: İlmi ve çok sayıda hadis rivayet etmesiyle
+- Açıklama: Sahabeler pek çok konuda Hz. Âişe’ye danışırdı.
+
+**DEEN-U24-S03-X005** · Peygamber Ailesi · multiple_choice
+- Soru: Hz. Âişe kimin kızıdır?
+- Seçenekler: Hz. Ebû Bekir’in | Hz. Ali’nin | Hz. Ömer’in | Hz. Osman’ın
+- Doğru cevap: Hz. Ebû Bekir’in
+- Açıklama: Hz. Âişe, Hz. Ebû Bekir’in kızıdır.
+
+**DEEN-U24-S03-X006** · Peygamber Ailesi · multiple_choice
+- Soru: Hz. Peygamber’in eşlerinden Hz. Hafsa kimin kızıdır?
+- Seçenekler: Hz. Osman’ın | Hz. Ebû Bekir’in | Hz. Abbas’ın | Hz. Ömer’in
+- Doğru cevap: Hz. Ömer’in
+- Açıklama: Hz. Ebû Bekir döneminde toplanan Kur’an sayfaları sonra Hz. Hafsa’nın yanında korundu.
+
+**DEEN-U24-S03-X007** · Peygamber Ailesi · matching
+- Soru: Kişileri Hz. Peygamber’le yakınlıklarıyla eşleştir: Fâtıma, Hasan, Hatice ve Hamza.
+- Eşleşmeler: Fâtıma → Kızı; Hasan → Torunu; Hatice → İlk eşi; Hamza → Amcası
+- Açıklama: Ehl-i beyt ve yakın akrabalar.
+
+**DEEN-U24-S03-X008** · Peygamber Ailesi · true_false
+- Soru: Doğru mu, yanlış mı? Hz. Peygamber “Fâtıma benden bir parçadır” buyurmuştur.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Buhârî’de geçen hadistir.
+
+**DEEN-U24-S03-X009** · Peygamber Ailesi · true_false
+- Soru: Doğru mu, yanlış mı? Hz. Peygamber’in ailesini (ehl-i beyt) sevmek Müslümanların ortak değerlerindendir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Bütün Müslümanlar ehl-i beyti sever ve onlara salavatla dua eder.
+
+**DEEN-U24-S03-X010** · Peygamber Ailesi · fill_blank
+- Soru: Boşluğu tamamla: Hz. Fâtıma “ez-___” lakabıyla anılır.
+- Seçenekler: Zehrâ | Fârûk | Sıddîk | Emîn
+- Doğru cevap: Zehrâ
+- Açıklama: Zehrâ, parlak ve nurlu yüzlü demektir.
+
+**DEEN-U24-S03-X011** · Peygamber Ailesi · fill_blank
+- Soru: Boşluğu tamamla: Hz. Peygamber’in ev halkına ve ailesine ___ denir.
+- Seçenekler: tâbiûn | ehl-i beyt | ensar | muhacir
+- Doğru cevap: ehl-i beyt
+- Açıklama: Ehl-i beyt, ev halkı demektir.
+
+**DEEN-U24-S03-X012** · Peygamber Ailesi · progressive_recall
+- Soru: İpucu olmadan tamamla: Hz. Peygamber’in iki torunu Hz. Hasan ve Hz. ___ dir.
+- Doğru cevap: Hüseyin
+- Açıklama: Hz. Fâtıma ve Hz. Ali’nin oğullarıdır.
+
+**DEEN-U24-S03-X013** · Peygamber Ailesi · scenario
+- Soru: Namazdaki Salli ve Bârik dualarında Hz. Peygamber’le birlikte kimlere dua edilir?
+- Seçenekler: Sadece komşulara | Hiç kimseye | Onun âline (ailesine) | Sadece meleklere
+- Doğru cevap: Onun âline (ailesine)
+- Açıklama: “Allâhümme salli alâ Muhammedin ve alâ âli Muhammed.”
+
+**DEEN-U24-S03-X014** · Peygamber Ailesi · multiple_choice
+- Soru: Hz. Peygamber kızı Fâtıma geldiğinde nasıl davranırdı?
+- Seçenekler: Onu görmezden gelirdi | Ona kızardı | Odadan çıkardı | Ayağa kalkar, onu sevgiyle karşılar ve yanına oturturdu
+- Doğru cevap: Ayağa kalkar, onu sevgiyle karşılar ve yanına oturturdu
+- Açıklama: Ebû Dâvûd ve Tirmizî’deki rivayete göre onu sevgi ve saygıyla karşılardı.
+
+**DEEN-U24-S04-X001** · Örnek Sahabeler · multiple_choice
+- Soru: Hz. Peygamber’in “Allah’ın kılıcı” (Seyfullah) dediği sahabe kimdir?
+- Seçenekler: Ebû Hüreyre | Bilâl | Selmân-ı Fârisî | Hâlid b. Velîd
+- Doğru cevap: Hâlid b. Velîd
+- Açıklama: Hâlid b. Velîd askerî dehasıyla tanınır.
+
+**DEEN-U24-S04-X002** · Örnek Sahabeler · multiple_choice
+- Soru: Hz. Peygamber’in Yemen’e öğretmen ve vali olarak gönderdiği, helal ve haramı iyi bilen sahabe kimdir?
+- Seçenekler: Ka‘b b. Mâlik | Muâz b. Cebel | Ebû Süfyân | Hâlid b. Velîd
+- Doğru cevap: Muâz b. Cebel
+- Açıklama: Hz. Peygamber Muâz’ı Yemen’e gönderirken ona nasıl hüküm vereceğini sormuştu.
+
+**DEEN-U24-S04-X003** · Örnek Sahabeler · multiple_choice
+- Soru: Hz. Peygamber’in “Bu ümmetin emini” dediği sahabe kimdir?
+- Seçenekler: Ebû Ubeyde b. Cerrâh | Ebû Cehil | Ebû Leheb | Ebû Tâlib
+- Doğru cevap: Ebû Ubeyde b. Cerrâh
+- Açıklama: Hz. Peygamber “Her ümmetin bir emini vardır; bu ümmetin emini Ebû Ubeyde’dir” buyurdu (Buhârî).
+
+**DEEN-U24-S04-X004** · Örnek Sahabeler · multiple_choice
+- Soru: Hz. Peygamber’in Kur’an’ı ondan dinlemeyi sevdiği ve güzel okuyuşuyla tanınan sahabe kimdir?
+- Seçenekler: Ebû Süfyân | Amr b. Âs | Hâlid b. Velîd | Abdullah b. Mes‘ûd
+- Doğru cevap: Abdullah b. Mes‘ûd
+- Açıklama: Hz. Peygamber “Bana Kur’an oku” demiş, Nisâ Suresi’ni dinlerken gözleri yaşarmıştı (Buhârî).
+
+**DEEN-U24-S04-X005** · Örnek Sahabeler · multiple_choice
+- Soru: Uhud’da sancağı taşırken şehit olan ve Mekke’de zengin bir genç iken her şeyini İslam için bırakan sahabe kimdir?
+- Seçenekler: Ümeyye b. Halef | Velîd b. Muğîre | Mus‘ab b. Umeyr | Ebû Süfyân
+- Doğru cevap: Mus‘ab b. Umeyr
+- Açıklama: Şehit olduğunda onu örtecek tam bir kefen bile bulunamamıştı (Buhârî).
+
+**DEEN-U24-S04-X006** · Örnek Sahabeler · multiple_choice
+- Soru: Hz. Peygamber’i Medine’de evinde misafir eden ve kabri İstanbul’da bulunan sahabe kimdir?
+- Seçenekler: Bilâl | Ebû Bekir | Ebû Eyyûb el-Ensârî | Selmân-ı Fârisî
+- Doğru cevap: Ebû Eyyûb el-Ensârî
+- Açıklama: İleri yaşına rağmen İstanbul kuşatmasına katıldı; kabri bugün Eyüp’tedir.
+
+**DEEN-U24-S04-X007** · Örnek Sahabeler · multiple_choice
+- Soru: Hz. Peygamber’in henüz çok genç yaşta ordu komutanı yaptığı sahabe kimdir?
+- Seçenekler: Üsâme b. Zeyd | Ebû Bekir | Abbas | Ömer
+- Doğru cevap: Üsâme b. Zeyd
+- Açıklama: Üsâme, yaşı küçük olmasına rağmen yeteneği sebebiyle orduya komutan atandı.
+
+**DEEN-U24-S04-X008** · Örnek Sahabeler · true_false
+- Soru: Doğru mu, yanlış mı? Hz. Bilâl, Hz. Ebû Bekir’in satın alıp azat ettiği bir köleydi.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hz. Ebû Bekir onu işkenceden kurtarıp azat etti.
+
+**DEEN-U24-S04-X009** · Örnek Sahabeler · true_false
+- Soru: Doğru mu, yanlış mı? Selmân-ı Fârisî gerçeği aramak için İran’dan Medine’ye kadar uzun bir yolculuk yapmıştı.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Selmân hakikati arayarak pek çok yer dolaştı ve sonunda Medine’de Müslüman oldu.
+
+**DEEN-U24-S04-X010** · Örnek Sahabeler · scenario
+- Soru: Mus‘ab b. Umeyr’in zengin hayatını bırakıp İslam’a hizmet etmesi bize ne öğretir?
+- Seçenekler: İnancı ve değerleri dünya rahatından üstün tutmayı | Hiçbir şey için çaba göstermemeyi | Paranın her şeyden önemli olduğunu | Rahatından hiç vazgeçmemeyi
+- Doğru cevap: İnancı ve değerleri dünya rahatından üstün tutmayı
+- Açıklama: Mus‘ab inancı için her şeyini feda etti.
+
+**DEEN-U24-S04-X011** · Örnek Sahabeler · scenario
+- Soru: Takım kaptanlığına en yetenekli ama en genç oyuncu seçildi, bazıları itiraz ediyor. Üsâme örneği ne söyler?
+- Seçenekler: En yaşlı her zaman lider olmalı | Gençler hiç görev almamalı | Kaptan kura ile seçilmeli | Görev yaşa değil liyakate verilir
+- Doğru cevap: Görev yaşa değil liyakate verilir
+- Açıklama: Hz. Peygamber Üsâme’yi liyakati sebebiyle komutan yaptı.
+
+**DEEN-U24-S04-X012** · Örnek Sahabeler · fill_blank
+- Soru: Boşluğu tamamla: Hâlid b. Velîd “Seyfullah” yani Allah’ın ___ diye anılır.
+- Seçenekler: kılıcı | kalemi | kalkanı | atı
+- Doğru cevap: kılıcı
+- Açıklama: Hz. Peygamber ona bu lakabı vermiştir (Buhârî).
+
+**DEEN-U24-S04-X013** · Örnek Sahabeler · fill_blank
+- Soru: Boşluğu tamamla: Muâz b. Cebel ___’e öğretmen ve vali olarak gönderildi.
+- Seçenekler: Bizans | İran | Yemen | Mısır
+- Doğru cevap: Yemen
+- Açıklama: Hz. Peygamber Muâz’ı Yemen’e gönderdi.
+
+**DEEN-U24-S04-X014** · Örnek Sahabeler · progressive_recall
+- Soru: İpucu olmadan tamamla: Kabri İstanbul Eyüp’te bulunan sahabe Ebû ___ el-Ensârî’dir.
+- Doğru cevap: Eyyûb
+- Açıklama: Ebû Eyyûb el-Ensârî İstanbul kuşatmasında vefat etti.
+
+**DEEN-U24-S04-X015** · Örnek Sahabeler · matching
+- Soru: Sahabeleri özellikleriyle eşleştir: Ebû Hüreyre, Hâlid b. Velîd, Ebû Ubeyde ve Abdullah b. Mes‘ûd.
+- Eşleşmeler: Ebû Hüreyre → En çok hadis rivayet eden; Hâlid b. Velîd → Allah’ın kılıcı; Ebû Ubeyde → Ümmetin emini; Abdullah b. Mes‘ûd → Güzel Kur’an okuyuşu
+- Açıklama: Her sahabenin öne çıkan bir özelliği vardı.
+
+**DEEN-U24-S04-X016** · Örnek Sahabeler · error_spotting
+- Soru: “Hâlid b. Velîd ilk Müslümanlardandı ve Bedir’de Müslümanlarla savaştı.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Hâlid Habeşistan kralıydı | Hâlid b. Velîd Hudeybiye’den sonra Müslüman oldu | Hâlid hiç Müslüman olmadı | Hâlid Hz. Peygamber’in amcasıydı
+- Doğru cevap: Hâlid b. Velîd Hudeybiye’den sonra Müslüman oldu
+- Açıklama: Hâlid Uhud’da müşriklerin safındaydı; sonra Müslüman oldu.
+
+**DEEN-U24-S05-X001** · Sahabe Hanımlar · multiple_choice
+- Soru: Uhud’da Hz. Peygamber’i korumak için savaşan sahabe hanım kimdir?
+- Seçenekler: Sevde | Nüseybe (Ümmü Umâre) | Hind | Ümmü Cemîl
+- Doğru cevap: Nüseybe (Ümmü Umâre)
+- Açıklama: Ümmü Umâre Uhud’da yaralanmasına rağmen Hz. Peygamber’i savundu.
+
+**DEEN-U24-S05-X002** · Sahabe Hanımlar · multiple_choice
+- Soru: Hicret sırasında Sevr mağarasına yiyecek taşıyan ve kemerini ikiye bölüp azığı bağlayan sahabe hanım kimdir?
+- Seçenekler: Zeyneb binti Cahş | Hafsa binti Ömer | Ümmü Seleme | Esmâ binti Ebû Bekir
+- Doğru cevap: Esmâ binti Ebû Bekir
+- Açıklama: Bu yüzden “iki kuşaklı” anlamında Zâtü’n-nitâkayn diye anılır (Buhârî).
+
+**DEEN-U24-S05-X003** · Sahabe Hanımlar · multiple_choice
+- Soru: Hudeybiye’de sahabeler kurbanlarını kesmekte tereddüt edince Hz. Peygamber’e “Sen önce kes” diye akıllıca tavsiyede bulunan eşi kimdir?
+- Seçenekler: Ümmü Seleme | Meymûne | Hatice | Sevde
+- Doğru cevap: Ümmü Seleme
+- Açıklama: Hz. Peygamber kurbanını kesip tıraş olunca sahabeler de hemen ona uydu (Buhârî).
+
+**DEEN-U24-S05-X004** · Sahabe Hanımlar · multiple_choice
+- Soru: Sümeyye hangi yönüyle hatırlanır?
+- Seçenekler: İlk halife olmasıyla | Kur’an’ı toplamasıyla | İlk müezzin olmasıyla | İslam’ın ilk şehidi olmasıyla
+- Doğru cevap: İslam’ın ilk şehidi olmasıyla
+- Açıklama: Sümeyye işkence altında imanından dönmedi ve şehit oldu.
+
+**DEEN-U24-S05-X005** · Sahabe Hanımlar · multiple_choice
+- Soru: Hz. Hatice, Hz. Peygamber’e en çok hangi yönden destek oldu?
+- Seçenekler: İlk iman eden olarak manevi destek verdi ve malını davete harcadı | Onu Mekke’den kovdu | Ona hiç destek olmadı | Ona karşı çıktı
+- Doğru cevap: İlk iman eden olarak manevi destek verdi ve malını davete harcadı
+- Açıklama: Hz. Peygamber “İnsanlar beni yalanladığında o beni tasdik etti” buyurdu (Ahmed b. Hanbel).
+
+**DEEN-U24-S05-X006** · Sahabe Hanımlar · multiple_choice
+- Soru: Sahabe hanımlar ilim konusunda nasıl bir yol izledi?
+- Seçenekler: İlimden tamamen uzak durdular | Sadece şiir öğrendiler | Hiç soru sormadılar | Hz. Peygamber’den öğrenmek için ayrı ders günü istediler
+- Doğru cevap: Hz. Peygamber’den öğrenmek için ayrı ders günü istediler
+- Açıklama: Hanımların isteği üzerine Hz. Peygamber onlara özel bir gün ayırdı (Buhârî).
+
+**DEEN-U24-S05-X007** · Sahabe Hanımlar · true_false
+- Soru: Doğru mu, yanlış mı? Hz. Peygamber’in vefatından sonra sahabeler birçok dinî meselede Hz. Âişe’ye danışırdı.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hz. Âişe ilmi ve keskin zekâsıyla bir başvuru kaynağıydı.
+
+**DEEN-U24-S05-X008** · Sahabe Hanımlar · true_false
+- Soru: Doğru mu, yanlış mı? Şifâ binti Abdullah okuma yazma bilen ve bunu başkalarına öğreten bir sahabe hanımdı.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hz. Peygamber, Şifâ’dan eşi Hafsa’ya yazı öğretmesini istemiştir (Ebû Dâvûd).
+
+**DEEN-U24-S05-X009** · Sahabe Hanımlar · scenario
+- Soru: Esmâ binti Ebû Bekir, Ebû Cehil tokat atmasına rağmen hicret edenlerin yerini söylemedi. Bu bize ne öğretir?
+- Seçenekler: Emanete sadakati ve doğru yolda cesur olmayı | Sırları herkese söylemeyi | Yardım etmemeyi | Korkunca her şeyi anlatmayı
+- Doğru cevap: Emanete sadakati ve doğru yolda cesur olmayı
+- Açıklama: Esmâ, Ebû Cehil’in tokadına rağmen sırrı korudu.
+
+**DEEN-U24-S05-X010** · Sahabe Hanımlar · scenario
+- Soru: Hz. Peygamber’in Ümmü Seleme’nin tavsiyesini dinlemesi neyi gösterir?
+- Seçenekler: Tavsiyenin gereksiz olduğunu | Güzel fikirlere kim söylerse söylesin değer verildiğini | Liderin hiç danışmaması gerektiğini | Kadınların fikir belirtemeyeceğini
+- Doğru cevap: Güzel fikirlere kim söylerse söylesin değer verildiğini
+- Açıklama: Hz. Peygamber eşinin akıllıca önerisini uyguladı ve sorun çözüldü.
+
+**DEEN-U24-S05-X011** · Sahabe Hanımlar · fill_blank
+- Soru: Boşluğu tamamla: Esmâ binti Ebû Bekir “Zâtü’n-___” lakabıyla anılır.
+- Seçenekler: nitâkayn | nûreyn | kıbleteyn | harameyn
+- Doğru cevap: nitâkayn
+- Açıklama: İki kuşak sahibi demektir.
+
+**DEEN-U24-S05-X012** · Sahabe Hanımlar · fill_blank
+- Soru: Boşluğu tamamla: Uhud’da Hz. Peygamber’i savunan Nüseybe, Ümmü ___ künyesiyle bilinir.
+- Seçenekler: Seleme | Eymen | Gülsüm | Umâre
+- Doğru cevap: Umâre
+- Açıklama: Nüseybe binti Kâ‘b, Ümmü Umâre diye anılır.
+
+**DEEN-U24-S05-X013** · Sahabe Hanımlar · progressive_recall
+- Soru: İpucu olmadan tamamla: Hz. Âişe’nin en belirgin özelliği ___ idi.
+- Doğru cevap: ilmi
+- Açıklama: Hz. Âişe çok sayıda hadis rivayet etmiş, sahabeye öğretmenlik yapmıştır.
+
+**DEEN-U24-S05-X014** · Sahabe Hanımlar · matching
+- Soru: Sahabe hanımları özellikleriyle eşleştir: Hatice, Âişe, Esmâ ve Nüseybe.
+- Eşleşmeler: Hatice → İlk iman eden; Âişe → İlmi ve hadis rivayeti; Esmâ → Hicrette yiyecek taşıyan; Nüseybe → Uhud’da Peygamber’i savunan
+- Açıklama: Sahabe hanımlar imanda, ilimde ve cesarette örnektir.
+
+**DEEN-U24-S05-X015** · Sahabe Hanımlar · error_spotting
+- Soru: “Sahabe döneminde kadınlar ilimle hiç ilgilenmezdi.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Kadınların okuması yasaktı | Kadınlar mescide hiç gelemezdi | Sadece erkekler hadis rivayet etti | Sahabe hanımlar ilme önem verdi; Hz. Âişe gibi büyük âlimler yetişti
+- Doğru cevap: Sahabe hanımlar ilme önem verdi; Hz. Âişe gibi büyük âlimler yetişti
+- Açıklama: Hanımlar Hz. Peygamber’den ders istedi ve hadis rivayet etti.
+
+**DEEN-U24-S05-X016** · Sahabe Hanımlar · true_false
+- Soru: Doğru mu, yanlış mı? Hz. Sevde, Hz. Hatice’nin vefatından sonra Hz. Peygamber’in evlendiği eşidir.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hz. Sevde ilk Müslümanlardandı ve Habeşistan’a da hicret etmişti.
+
+**DEEN-U24-S06-X001** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: İlk halife kimdir?
+- Seçenekler: Ali | Osman | Ömer | Ebû Bekir
+- Doğru cevap: Ebû Bekir
+- Açıklama: Hz. Ebû Bekir ilk halifedir.
+
+**DEEN-U24-S06-X002** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: “Fârûk” kimin lakabıdır?
+- Seçenekler: Hz. Ali | Hz. Ömer | Hz. Hamza | Hz. Osman
+- Doğru cevap: Hz. Ömer
+- Açıklama: Hakkı batıldan ayıran Hz. Ömer.
+
+**DEEN-U24-S06-X003** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: “Zinnûreyn” kimin lakabıdır?
+- Seçenekler: Hz. Abbas | Hz. Ali | Hz. Ebû Bekir | Hz. Osman
+- Doğru cevap: Hz. Osman
+- Açıklama: Peygamber’in iki kızıyla evlenen Hz. Osman.
+
+**DEEN-U24-S06-X004** · Akıllı Tekrar · speed_review
+- Soru: Hızlı tekrar: En çok hadis rivayet eden sahabe kimdir?
+- Seçenekler: Ebû Hüreyre | Bilâl | Selmân | Hâlid
+- Doğru cevap: Ebû Hüreyre
+- Açıklama: Ebû Hüreyre en çok hadis rivayet edendir.
+
+**DEEN-U24-S06-X005** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Hz. Hasan ve Hz. Hüseyin, Hz. Fâtıma’nın oğullarıdır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Hz. Fâtıma ve Hz. Ali’nin oğullarıdır.
+
+**DEEN-U24-S06-X006** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Hz. Âişe, Hz. Ömer’in kızıdır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Yanlış
+- Açıklama: Hz. Âişe, Hz. Ebû Bekir’in kızıdır; Hz. Hafsa, Hz. Ömer’in kızıdır.
+
+**DEEN-U24-S06-X007** · Akıllı Tekrar · true_false
+- Soru: Doğru mu, yanlış mı? Esmâ binti Ebû Bekir hicrette mağaraya yiyecek taşıdı.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: Bu yüzden Zâtü’n-nitâkayn diye anılır.
+
+**DEEN-U24-S06-X008** · Akıllı Tekrar · multiple_choice
+- Soru: “Allah’ın kılıcı” kimdir?
+- Seçenekler: Ebû Ubeyde | Mus‘ab | Hâlid b. Velîd | Muâz
+- Doğru cevap: Hâlid b. Velîd
+- Açıklama: Hâlid b. Velîd.
+
+**DEEN-U24-S06-X009** · Akıllı Tekrar · multiple_choice
+- Soru: “Bu ümmetin emini” kimdir?
+- Seçenekler: Ebû Hüreyre | Amr b. Âs | Hâlid b. Velîd | Ebû Ubeyde b. Cerrâh
+- Doğru cevap: Ebû Ubeyde b. Cerrâh
+- Açıklama: Ebû Ubeyde b. Cerrâh.
+
+**DEEN-U24-S06-X010** · Akıllı Tekrar · multiple_choice
+- Soru: Hz. Peygamber’in eşlerine ne denir?
+- Seçenekler: Muhacir | Tâbiûn | Ensar | Müminlerin anneleri
+- Doğru cevap: Müminlerin anneleri
+- Açıklama: Ahzâb 33:6.
+
+**DEEN-U24-S06-X011** · Akıllı Tekrar · error_spotting
+- Soru: “İlk halife Hz. Ali’dir.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: İlk halife Hz. Osman’dır | İlk halife Hz. Ebû Bekir’dir; Hz. Ali dördüncü halifedir | Halife hiç seçilmedi | İlk halife Hz. Hamza’dır
+- Doğru cevap: İlk halife Hz. Ebû Bekir’dir; Hz. Ali dördüncü halifedir
+- Açıklama: Sıra: Ebû Bekir, Ömer, Osman, Ali.
+
+**DEEN-U24-S06-X012** · Akıllı Tekrar · error_spotting
+- Soru: “Hz. Osman’a iki şehir kurduğu için Zinnûreyn denir.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: İki dil bildiği için | Hz. Osman Peygamber’in iki kızıyla evlendiği için Zinnûreyn diye anılır | İki kez halife seçildiği için | İki savaş kazandığı için
+- Doğru cevap: Hz. Osman Peygamber’in iki kızıyla evlendiği için Zinnûreyn diye anılır
+- Açıklama: Rukıyye ve Ümmü Gülsüm ile evlendi.
+
+**DEEN-U24-S07-X001** · Ünite Challenge · scenario
+- Soru: Okulda su sebili bozulmuş, herkes zorlanıyor. Hz. Osman’ın hangi davranışı burada örnek olabilir?
+- Seçenekler: Sadece kendine su alması | Hiçbir şeye karışmaması | Rûme kuyusunu alıp herkese bağışlaması | Suyu satması
+- Doğru cevap: Rûme kuyusunu alıp herkese bağışlaması
+- Açıklama: Hz. Osman halkın ihtiyacını görüp kuyuyu herkese açtı.
+
+**DEEN-U24-S07-X002** · Ünite Challenge · scenario
+- Soru: Sınıf başkanı yakın arkadaşına ayrıcalık tanıyor. Hz. Ömer’in tutumu ne öğretir?
+- Seçenekler: Güçlünün haklı olduğunu | Arkadaşlara ayrıcalık tanınmasını | Adaletin herkes için eşit uygulanmasını | Kuralların önemsiz olduğunu
+- Doğru cevap: Adaletin herkes için eşit uygulanmasını
+- Açıklama: Hz. Ömer adaletiyle tanınır; kimseye ayrıcalık tanımazdı.
+
+**DEEN-U24-S07-X003** · Ünite Challenge · scenario
+- Soru: Hz. Ebû Bekir’in Mi‘râc haberine “O söylediyse doğrudur” demesi neyi gösterir?
+- Seçenekler: Hz. Peygamber’e duyduğu derin güveni ve sadakati | Olaydan haberi olmadığını | Düşünmeden her şeye inandığını | Peygamber’e güvenmediğini
+- Doğru cevap: Hz. Peygamber’e duyduğu derin güveni ve sadakati
+- Açıklama: Sıddîk lakabı bu sadakatten gelir.
+
+**DEEN-U24-S07-X004** · Ünite Challenge · error_spotting
+- Soru: “Hz. Bilâl’i satın alıp azat eden Hz. Osman’dır.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Hz. Bilâl’i satın alıp azat eden Hz. Ebû Bekir’dir | Bilâl’i Ebû Cehil azat etti | Bilâl hiç köle olmadı | Bilâl’i Hâlid azat etti
+- Doğru cevap: Hz. Bilâl’i satın alıp azat eden Hz. Ebû Bekir’dir
+- Açıklama: Hz. Ebû Bekir onu işkenceden kurtardı.
+
+**DEEN-U24-S07-X005** · Ünite Challenge · error_spotting
+- Soru: “Hz. Fâtıma, Hz. Ebû Bekir’in kızıdır.” ifadesindeki hata hangi seçenekle düzeltilir?
+- Seçenekler: Hz. Fâtıma Hz. Ömer’in kızıdır | Hz. Fâtıma, Hz. Peygamber ile Hz. Hatice’nin kızıdır | Hz. Fâtıma Hz. Osman’ın kızıdır | Hz. Fâtıma Hz. Ali’nin kızıdır
+- Doğru cevap: Hz. Fâtıma, Hz. Peygamber ile Hz. Hatice’nin kızıdır
+- Açıklama: Hz. Âişe, Hz. Ebû Bekir’in kızıdır.
+
+**DEEN-U24-S07-X006** · Ünite Challenge · progressive_recall
+- Soru: İpucu olmadan tamamla: Sahabeyi görüp onlardan öğrenen nesle ___ denir.
+- Doğru cevap: tâbiûn
+- Açıklama: Tâbiûn, takip edenler demektir.
+
+**DEEN-U24-S07-X007** · Ünite Challenge · progressive_recall
+- Soru: İpucu olmadan tamamla: Hz. Fâtıma’nın lakabı ez-___’dır.
+- Doğru cevap: Zehrâ
+- Açıklama: Zehrâ, nurlu yüzlü demektir.
+
+**DEEN-U24-S07-X008** · Ünite Challenge · progressive_recall
+- Soru: İpucu olmadan tamamla: Hz. Ali’nin “Allah’ın aslanı” anlamındaki lakabı ___ dır.
+- Doğru cevap: Esedullah
+- Açıklama: Hz. Ali cesaretiyle bilinir.
+
+**DEEN-U24-S07-X009** · Ünite Challenge · multiple_choice
+- Soru: Aşağıdakilerden hangisi doğru halife sırasıdır?
+- Seçenekler: Ebû Bekir, Ömer, Osman, Ali | Osman, Ali, Ebû Bekir, Ömer | Ömer, Ebû Bekir, Ali, Osman | Ali, Osman, Ömer, Ebû Bekir
+- Doğru cevap: Ebû Bekir, Ömer, Osman, Ali
+- Açıklama: Hulefâ-i Râşidîn bu sırayla görev yaptı.
+
+**DEEN-U24-S07-X010** · Ünite Challenge · multiple_choice
+- Soru: Hz. Ebû Bekir döneminde toplanan Kur’an sayfaları sonra kimin yanında korundu?
+- Seçenekler: Hz. Esmâ’nın | Hz. Sevde’nin | Hz. Fâtıma’nın | Hz. Hafsa’nın
+- Doğru cevap: Hz. Hafsa’nın
+- Açıklama: Hz. Osman çoğaltma sırasında bu sayfalardan yararlandı (Buhârî).
+
+**DEEN-U24-S07-X011** · Ünite Challenge · matching
+- Soru: Kişileri lakaplarıyla eşleştir: Ebû Bekir, Hâlid b. Velîd, Fâtıma ve Esmâ.
+- Eşleşmeler: Ebû Bekir → Sıddîk; Hâlid b. Velîd → Seyfullah; Fâtıma → Zehrâ; Esmâ → Zâtü’n-nitâkayn
+- Açıklama: Lakaplar kişilerin öne çıkan özelliklerini yansıtır.
+
+**DEEN-U24-S07-X012** · Ünite Challenge · matching
+- Soru: Sahabeleri olaylarla eşleştir: Osman, Ömer, Ali ve Ümmü Seleme.
+- Eşleşmeler: Osman → Rûme kuyusu; Ömer → Kudüs’ün barışla alınması; Ali → Hicret gecesi Peygamber’in yatağı; Ümmü Seleme → Hudeybiye’deki tavsiye
+- Açıklama: Her sahabenin hayatında örnek olaylar vardır.
+
+**DEEN-U24-S07-X013** · Ünite Challenge · scenario
+- Soru: Biri sohbet ederken sahabeler hakkında alaycı ve kırıcı sözler söylüyor. En doğru tutum hangisidir?
+- Seçenekler: Hiçbir şey hissetmemek | Kavga etmek | Onunla birlikte alay etmek | Saygılı bir dille sahabenin İslam’a hizmetini hatırlatmak
+- Doğru cevap: Saygılı bir dille sahabenin İslam’a hizmetini hatırlatmak
+- Açıklama: Haşr 59:10’da önceki müminler için dua etmek ve onlara karşı kalpte kin taşımamak istenir.
+
+**DEEN-U24-S07-X014** · Ünite Challenge · true_false
+- Soru: Doğru mu, yanlış mı? Ebû Eyyûb el-Ensârî’nin kabri İstanbul’dadır.
+- Seçenekler: Doğru | Yanlış
+- Doğru cevap: Doğru
+- Açıklama: İstanbul kuşatmasında vefat edip surların dibine defnedildi.
