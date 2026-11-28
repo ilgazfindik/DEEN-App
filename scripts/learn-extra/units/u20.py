@@ -32,7 +32,7 @@ Q = [
  ('mi', 1, 'mi_ummul2', 'Fatiha’nın adı', 'm', 'Fatiha, Kur’an’ın özünü taşıdığı için “Kitabın ___” diye de anılır.', 'anası', ['sonu', 'kapağı', 'ortası'], 'Fatiha Ümmü’l-Kitâb, yani Kitabın anası olarak anılır.'),
  ('mc', 1, 'fatiha_bolum', 'Sırası', 'm', 'Fatiha mushafta kaçıncı suredir?', 'Birinci', ['Sonuncu', 'Yedinci', 'Yüz on dördüncü'], 'Fatiha “açılış” demektir; mushaf onunla açılır.'),
  ('mc', 1, 'fatiha_anlam', 'Fatiha kelimesi', 'e', '“Fâtiha” kelimesi ne anlama gelir?', 'Açılış, başlangıç', ['Kapanış', 'Bölüm', 'Kalem'], 'Fâtiha, açan ve başlatan demektir.'),
- ('tf', 1, 'fatiha_yardim', 'Yardım', 'm', 'Fatiha’ya göre Müslüman yardımı yalnızca Allah’tan ister.', True, 'Fatiha 1:5: “Yalnız senden yardım dileriz.”'),
+ ('tf', 1, 'fatiha_yardim', 'Yardım', 'm', 'Fatiha’ya göre Müslüman ibadeti yalnızca Allah’a yapar ve asıl yardımı yalnızca O’ndan ister.', True, 'Fatiha 1:5: “Yalnız sana ibadet eder, yalnız senden yardım dileriz.” Bu, meşru işlerde insanlardan yardım istemeye engel değildir; asıl yardımın Allah’tan geldiğini anlatır.'),
 
  # S2 — Koruyan Sureler (14)
  ('mc', 2, 'ihlas_konu', 'İhlâs', 'e', 'İhlâs Suresi’nin ana konusu nedir?', 'Allah’ın birliği (tevhid)', ['Hac ibadeti', 'Peygamber kıssaları', 'Miras hükümleri'], 'İhlâs Suresi Allah’ın bir olduğunu ve hiçbir şeyin O’na denk olmadığını anlatır.'),

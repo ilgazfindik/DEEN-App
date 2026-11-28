@@ -68,7 +68,7 @@ Q = [
 
  # S4 — Yolculuk ve Kaza (16)
  ('mc', 4, 'sefer_mesafe', 'Yolculuk mesafesi', 'm', 'Diyanet’e göre kişinin namazda yolcu (misafir) sayılması için yaklaşık kaç kilometrelik bir yolculuğa çıkması gerekir?', '90 km', ['5 km', '20 km', '1.000 km'], 'Hanefî ölçüsüne göre yaklaşık 90 km ve daha uzun yola çıkan kişi misafir sayılır (Diyanet).'),
- ('mc', 4, 'kasr', 'Namazı kısaltmak', 'm', 'Yolcu, dört rekâtlı farz namazları kaç rekât kılar?', 'İki', ['Dört', 'Üç', 'Bir'], 'Yolcu öğle, ikindi ve yatsının farzlarını ikişer rekât kılar (kasr).'),
+ ('mc', 4, 'kasr', 'Namazı kısaltmak', 'm', 'Hanefî mezhebine göre yolcu, dört rekâtlı farz namazları kaç rekât kılar?', 'İki', ['Dört', 'Üç', 'Bir'], 'Hanefîlere göre yolcu öğle, ikindi ve yatsının farzlarını ikişer rekât kılar (kasr). Diğer mezheplerde yolculukta namazı kısaltmak (kasr) bir ruhsattır; dört rekât kılmak da caizdir.'),
  ('mc', 4, 'sabah_aksam', 'Değişmeyenler', 'm', 'Yolculukta hangi namazların farzları kısaltılmaz?', 'Sabah ve akşam', ['Öğle ve ikindi', 'İkindi ve yatsı', 'Öğle ve yatsı'], 'Sabahın iki ve akşamın üç rekâtlık farzı yolculukta da aynı kılınır.'),
  ('mc', 4, 'on_bes_gun', 'Kalma süresi', 'h', 'Hanefîlere göre gittiği yerde kaç günden az kalmaya niyet eden yolcu sayılır?', 'On beş günden', ['Üç günden', 'Bir aydan', 'Bir yıldan'], 'Gidilen yerde on beş gün veya daha fazla kalmaya niyet eden mukim olur; daha az kalacak olan misafirdir.'),
  ('sc', 4, 'sc_sefer', 'Yolculukta öğle', 'm', 'Mehmet 400 km uzaktaki bir şehre iki günlüğüne gitti. Öğlenin farzını nasıl kılar?', 'İki rekât kılar', ['Dört rekât kılmak zorundadır', 'Hiç kılmaz', 'Altı rekât kılar'], 'Misafir, dört rekâtlı farzları iki rekât kılar.'),

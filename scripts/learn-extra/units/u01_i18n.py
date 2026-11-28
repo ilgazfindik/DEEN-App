@@ -1,7 +1,7 @@
 # Model-translated, pending expert review. Rows follow u01.py (same order).
 EN = [
  ('What meanings does the word “Islam” carry in the dictionary?', 'Submission, peace and safety', ['Fighting and parting', 'Trading', 'Travelling'], 'Islam comes from the root s-l-m; it means submitting, yielding and being at peace (TDV).', 'Meaning of “Islam”'),
- ('The word “Muslim” evokes a person who chooses safety and peace.', '“Muslim” comes from the same root; it describes one who submits to God and chooses to live in peace (Diyanet).', 'Meaning of “Muslim”'),
+ ('The word “Muslim” describes a person who submits to Allah and embraces Islam.', '“Muslim”, like “Islam”, comes from the root s-l-m; it means one who submits to Allah and embraces Islam. The root also carries the meaning of peace and safety (TDV Encyclopaedia of Islam).', 'Meaning of “Muslim”'),
  ('According to a hadith, Islam is built on five pillars.', 'The hadith reported by Bukhari and Muslim says Islam is built on the testimony of faith, prayer, zakat, hajj and fasting in Ramadan.', 'Five pillars hadith'),
  ('How many basic pillars of Islam does the hadith list?', 'Five', ['Three', 'Seven', 'Ten'], 'The hadith lists five: the testimony of faith, prayer, zakat, hajj and fasting in Ramadan.', 'Number of pillars'),
  ('Which of these is not among the five pillars of Islam listed in the hadith?', 'Offering a sacrifice', ['Hajj', 'Zakat', 'Fasting in Ramadan'], 'The five are the testimony of faith, prayer, zakat, hajj and fasting in Ramadan; the sacrifice is not among them.', 'Not a pillar'),
@@ -53,7 +53,7 @@ EN = [
 ]
 DE = [
  ('Welche Bedeutungen hat das Wort „Islam“ im Wörterbuch?', 'Hingabe, Frieden und Geborgenheit', ['Kämpfen und Trennen', 'Handeln', 'Reisen'], 'Islam stammt von der Wurzel s-l-m; es bedeutet sich hinzugeben, sich zu fügen und in Frieden zu sein (TDV).', 'Bedeutung von „Islam“'),
- ('Das Wort „Muslim“ erinnert an einen Menschen, der Sicherheit und Frieden wählt.', '„Muslim“ stammt von derselben Wurzel; es beschreibt jemanden, der sich Gott hingibt und in Frieden leben will (Diyanet).', 'Bedeutung von „Muslim“'),
+ ('Das Wort „Muslim“ bezeichnet einen Menschen, der sich Allah hingibt und den Islam annimmt.', '„Muslim“ stammt wie „Islam“ von der Wurzel s-l-m; es bedeutet jemand, der sich Allah hingibt und den Islam annimmt. Die Wurzel trägt auch die Bedeutung von Frieden und Heil (TDV-Enzyklopädie des Islam).', 'Bedeutung von „Muslim“'),
  ('Laut einem Hadith ist der Islam auf fünf Säulen gebaut.', 'Der Hadith bei Bukhari und Muslim sagt, der Islam beruhe auf Bekenntnis, Gebet, Zakat, Hadsch und Fasten im Ramadan.', 'Hadith der fünf Säulen'),
  ('Wie viele Grundsäulen des Islam nennt der Hadith?', 'Fünf', ['Drei', 'Sieben', 'Zehn'], 'Der Hadith nennt fünf: Bekenntnis, Gebet, Zakat, Hadsch und Fasten im Ramadan.', 'Zahl der Säulen'),
  ('Welches gehört nicht zu den im Hadith genannten fünf Säulen des Islam?', 'Ein Opfer darbringen', ['Hadsch', 'Zakat', 'Fasten im Ramadan'], 'Die fünf sind Bekenntnis, Gebet, Zakat, Hadsch und Fasten im Ramadan; das Opfer gehört nicht dazu.', 'Keine Säule'),
@@ -105,7 +105,7 @@ DE = [
 ]
 FR = [
  ('Quelles significations le mot « islam » a-t-il dans le dictionnaire ?', 'Soumission, paix et sécurité', ['Combattre et se séparer', 'Commercer', 'Voyager'], 'Islam vient de la racine s-l-m ; il signifie se soumettre, s’incliner et être en paix (TDV).', 'Sens du mot « islam »'),
- ('Le mot « musulman » évoque une personne qui choisit la sécurité et la paix.', '« Musulman » vient de la même racine ; il décrit celui qui se soumet à Dieu et choisit de vivre en paix (Diyanet).', 'Sens de « musulman »'),
+ ('Le mot « musulman » désigne une personne qui se soumet à Allah et embrasse l’islam.', '« Musulman », comme « islam », vient de la racine s-l-m ; il désigne celui qui se soumet à Allah et embrasse l’islam. La racine porte aussi le sens de paix et de salut (Encyclopédie de l’islam TDV).', 'Sens de « musulman »'),
  ('Selon un hadith, l’islam est bâti sur cinq piliers.', 'Le hadith rapporté par Boukhari et Muslim dit que l’islam repose sur l’attestation de foi, la prière, la zakat, le hajj et le jeûne du Ramadan.', 'Hadith des cinq piliers'),
  ('Combien de piliers de l’islam le hadith énumère-t-il ?', 'Cinq', ['Trois', 'Sept', 'Dix'], 'Le hadith en énumère cinq : l’attestation de foi, la prière, la zakat, le hajj et le jeûne du Ramadan.', 'Nombre de piliers'),
  ('Lequel ne fait pas partie des cinq piliers de l’islam cités dans le hadith ?', 'Offrir un sacrifice', ['Le hajj', 'La zakat', 'Le jeûne du Ramadan'], 'Les cinq sont l’attestation de foi, la prière, la zakat, le hajj et le jeûne du Ramadan ; le sacrifice n’en fait pas partie.', 'Pas un pilier'),
@@ -157,7 +157,7 @@ FR = [
 ]
 AR = [
  ('ما معاني كلمة «الإسلام» في اللغة؟', 'الاستسلام والسلام والسلامة', ['القتال والفراق', 'التجارة', 'السفر'], 'الإسلام من الجذر س-ل-م ويدل على الاستسلام والانقياد والسلام.', 'معنى الإسلام'),
- ('كلمة «مسلم» توحي بمن يختار السلامة والسلام.', '«مسلم» من الجذر نفسه، وتصف من يسلّم أمره لله ويختار العيش في سلام.', 'معنى «مسلم»'),
+ ('كلمة «مسلم» تصف من استسلم لله واعتنق الإسلام.', '«مسلم» مثل «الإسلام» من جذر س ل م، ومعناه من استسلم لله واعتنق الإسلام، وفي هذا الجذر معنى السلام والسلامة أيضًا.', 'معنى «مسلم»'),
  ('ورد في الحديث أن الإسلام بُني على خمس.', 'في الحديث عند البخاري ومسلم أن الإسلام بُني على الشهادتين والصلاة والزكاة والحج وصوم رمضان.', 'حديث أركان الإسلام الخمسة'),
  ('كم عدد أركان الإسلام في الحديث؟', 'خمسة', ['ثلاثة', 'سبعة', 'عشرة'], 'يذكر الحديث خمسة: الشهادتان والصلاة والزكاة والحج وصوم رمضان.', 'عدد الأركان'),
  ('أيٌّ مما يلي ليس من أركان الإسلام الخمسة في الحديث؟', 'الأضحية', ['الحج', 'الزكاة', 'صوم رمضان'], 'الأركان الخمسة هي الشهادتان والصلاة والزكاة والحج وصوم رمضان، وليست الأضحية منها.', 'ما ليس ركناً'),

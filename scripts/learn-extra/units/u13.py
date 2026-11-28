@@ -115,9 +115,7 @@ Q = [
  # --- 5. Beş Vakit
  ('pr', 5, 'pr_sabah', 'Sabah namazı', 'm',
   'Sabah namazının farzı ___ rekâttır.', 'iki', 'Sabah namazının farzı iki rekâttır.'),
- ('pr', 5, 'pr_yatsi', 'Yatsı namazı', 'h',
-  'Yatsı namazından sonra kılınan vitir namazı ___ rekâttır.', 'üç',
-  'Hanefî mezhebine ve Diyanet ilmihaline göre vitir namazı vaciptir ve üç rekâttır.'),
+ ('pr', 5, 'pr_yatsi', 'Yatsı namazı', 'h', 'Hanefî mezhebine göre yatsı namazından sonra kılınan vitir namazı ___ rekâttır.', 'üç', 'Hanefî mezhebine ve Diyanet ilmihaline göre vitir namazı vaciptir ve üç rekâttır; diğer mezheplerde sünnettir ve rekât sayısı farklı olabilir.'),
  ('mc', 5, 'cuma_rekat', 'Cuma namazı', 'm',
   'Cuma namazı hangi namazın yerine kılınır ve kaç rekât farzdır?', 'Öğle namazı yerine, iki rekât farz',
   ['İkindi namazı yerine, dört rekât farz', 'Yatsı namazı yerine, üç rekât farz', 'Sabah namazı yerine, iki rekât sünnet'],
@@ -159,11 +157,11 @@ Q = [
   ['Abdest almak', 'Kıble yönünü bulmak', 'Örtülmesi gereken yerleri örtmek'],
   'Rükû namazın içinde yapılır; diğerleri namazdan önceki hazırlıklardır.'),
  # --- Added with the duplicate clean-up: new facts and new matching sets
- ('mt', 3, 'namaz_tur', 'Namaz çeşitleri', 'm', 'Aşağıdaki namazları özellikleriyle eşleştir:', [('Vitir namazı', 'Yatsıdan sonra kılınan üç rekâtlık vacip namaz'), ('Cuma namazı', 'Cuma günü öğle vaktinde cemaatle kılınan iki rekâtlık farz'), ('Bayram namazı', 'Ramazan ve Kurban bayramlarında kılınan iki rekâtlık vacip namaz'), ('Cenaze namazı', 'Ölen Müslüman için kılınan, rükû ve secdesi olmayan namaz')], 'Beş vakit dışında vitir, cuma, bayram ve cenaze gibi namazlar da vardır; her birinin hükmü ve kılınışı farklıdır.'),
+ ('mt', 3, 'namaz_tur', 'Namaz çeşitleri', 'm', 'Hanefî mezhebine göre aşağıdaki namazları özellikleriyle eşleştir:', [('Vitir namazı', 'Yatsıdan sonra kılınan üç rekâtlık vacip namaz'), ('Cuma namazı', 'Cuma günü öğle vaktinde cemaatle kılınan iki rekâtlık farz'), ('Bayram namazı', 'Ramazan ve Kurban bayramlarında kılınan iki rekâtlık vacip namaz'), ('Cenaze namazı', 'Ölen Müslüman için kılınan, rükû ve secdesi olmayan namaz')], 'Vitir ve bayram namazlarının vacip olması Hanefî görüşüdür; diğer mezheplerde bu namazların hükmü farklıdır (çoğunlukla sünnet).'),
  ('mt', 3, 'ezan_anlam', 'Ezanın anlamı', 'm', 'Aşağıdaki ezan ifadelerini anlamlarıyla eşleştir:', [('Allâhü ekber', 'Allah en büyüktür'), ('Eşhedü en lâ ilâhe illallah', 'Allah’tan başka ilâh olmadığına şahitlik ederim'), ('Hayye ale’s-salâh', 'Namaza gelin'), ('Hayye ale’l-felâh', 'Kurtuluşa gelin')], 'Ezan, namaz vaktinin girdiğini duyurur ve Müslümanları namaza çağırır.'),
  ('mt', 6, 'namaz_kavram', 'Namaz kavramları', 'h', 'Aşağıdaki kavramları anlamlarıyla eşleştir:', [('Eda', 'Namazı vaktinde kılmak'), ('Kaza', 'Vaktinde kılınamayan namazı sonradan kılmak'), ('Cemaat', 'Namazı imamla birlikte kılmak'), ('Kerahet vakti', 'Nafile namaz kılmanın mekruh olduğu zaman dilimi')], 'Namazın vaktinde kılınmasına eda, sonradan kılınmasına kaza denir.'),
  ('tf', 5, 'kerahet', 'Kerahet vakitleri', 'm', 'Güneş doğarken, tam tepedeyken ve batarken nafile namaz kılmak mekruhtur.', True, 'Hz. Peygamber bu üç zamanda namaz kılmayı yasaklamıştır; bunlar kerahet vakitleri olarak bilinir.'),
- ('mc', 4, 'vitir_rekat', 'Vitir namazı', 'm', 'Vitir namazı kaç rekâttır?', 'Üç', ['İki', 'Dört', 'Beş'], 'Hanefî mezhebine göre vitir namazı üç rekâttır ve vaciptir.'),
+ ('mc', 4, 'vitir_rekat', 'Vitir namazı', 'm', 'Hanefî mezhebine göre yatsıdan sonra kılınan vitir namazının rekât sayısı kaçtır?', 'Üç', ['İki', 'Dört', 'Beş'], 'Hanefî mezhebine göre vitir namazı üç rekâttır ve vaciptir; diğer mezheplerde sünnettir ve bir rekât da kılınabilir.'),
  # --- Added with the duplicate clean-up (round 2): new facts
  ('tf', 1, 'ilk_muezzin', 'İlk müezzin', 'e', 'İslam’ın ilk müezzini Hz. Bilal’dir.', True, 'Hz. Bilal-i Habeşî, ezanı ilk okuyan müezzin olarak bilinir.'),
  ('tf', 2, 'ezana_icabet', 'Ezana icabet', 'm', 'Ezanı işiten kişinin, müezzinin söylediklerini tekrar etmesi güzel bir davranıştır.', True, 'Hz. Peygamber, “Ezanı işittiğiniz zaman müezzinin dediği gibi söyleyin” buyurmuştur (Buhârî).'),
@@ -205,7 +203,7 @@ Q = [
  ('mc', 3, 'p13_cenaze_ruku', 'Namaza hazırlık', 'm', 'Cenaze namazında rükû ve secde bulunur mu?', 'Hayır; ayakta tekbirlerle kılınır', ['Evet; dört secde vardır', 'Evet; iki rükû vardır', 'Yalnızca oturarak kılınır'], 'Cenaze namazı ayakta ve tekbirlerle kılınır; rükû ve secde yoktur.'),
  ('mc', 3, 'p13_niyet', 'Namaza hazırlık', 'e', 'Namaz kılacak kişinin niyeti neyi belirler?', 'Hangi namazı kıldığını', ['Kıble yönünü', 'Namazın ezanını', 'Abdest suyunun miktarını'], 'Niyet, kişinin hangi namazı kıldığını belirler.'),
  ('mc', 3, 'p13_niyet_yer', 'Namaza hazırlık', 'm', 'Namazda niyetin yeri neresidir?', 'Kalptedir; dil ile söylemek şart değildir', ['Namaz bittikten sonra yapılır', 'Sadece imam yapar', 'Mutlaka yüksek sesle söylenmelidir'], 'Niyet kalple yapılır; dille söylemek şart değildir.'),
- ('mc', 4, 'p13_sefer', 'Namaza hazırlık', 'm', 'Seferî olan kişinin dört rekâtlı farz namazları hangi kolaylıkla kısaltılır?', 'İki rekât olarak kılınabilir', ['Bir rekât kılınır', 'Tamamen terk edilir', 'Altı rekâta çıkarılır'], 'Yolcu, dört rekâtlı farzları iki rekât olarak kılar (kasr).'),
+ ('mc', 4, 'p13_sefer', 'Namaza hazırlık', 'm', 'Hanefî mezhebine göre yolcu (seferî), dört rekâtlı farz namazları nasıl kılar?', 'İki rekât olarak kılar', ['Bir rekât kılar', 'Tamamen terk eder', 'Altı rekâta çıkarır'], 'Hanefîlere göre yolculukta dört rekâtlı farzları iki rekât kılmak (kasr) gereklidir; diğer mezheplerde kasr bir ruhsattır ve dört rekât kılmak da caizdir.'),
  ('mc', 4, 'p13_sutre', 'Namaza hazırlık', 'm', 'Namaz kılarken kişinin önünden geçilmesini önlemek için konulan nesneye ne denir?', 'Sütre', ['Mihrap', 'Minber', 'Kürsü'], 'Namaz kılanın önünden geçilmesini önlemek için konulan nesneye sütre denir.'),
  ('mc', 5, 'p13_mihrap', 'Namaza hazırlık', 'e', 'Mihrap camide neyi gösterir?', 'Kıble yönünü', ['Ayakkabı bölümünü', 'İmamın hutbe okuduğu yeri', 'Abdest musluklarını'], 'Mihrap, camide kıble yönünü gösterir.'),
  ('mc', 5, 'p13_minber', 'Namaza hazırlık', 'm', 'Minberin temel işlevi nedir?', 'Cuma ve bayram gibi namazlarda hutbenin okunduğu yer olmak', ['Abdest almak', 'Kur’an’ı saklamak', 'Kıbleyi göstermek'], 'Minber, hutbenin okunduğu yerdir.'),

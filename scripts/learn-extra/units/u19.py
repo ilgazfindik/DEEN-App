@@ -47,7 +47,7 @@ Q = [
  ('fb', 2, 'fb_besmele', 'Besmele', 'm', 'Besmele, ___ Suresi dışındaki bütün surelerin başında yer alır.', 'Tevbe', ['Fatiha', 'Bakara', 'Nas'], 'Tevbe Suresi besmelesiz başlar; Neml Suresi’nde ise besmele surenin içinde de geçer.'),
  ('fb', 2, 'fb_kursi', 'Âyetü’l-kürsî', 'm', 'Âyetü’l-kürsî, ___ Suresi’nin 255. âyetidir.', 'Bakara', ['Yâsîn', 'Mülk', 'Rahmân'], 'Âyetü’l-kürsî Bakara 2:255’tir ve Allah’ın sıfatlarını anlatır.'),
  ('mi', 2, 'mi_ummul', 'Ümmü’l-Kitâb', 'm', 'Kitabın anası anlamında “Ümmü’l-Kitâb” diye anılan sure ___ Suresi’dir.', 'Fatiha', ['İhlâs', 'Kevser', 'Nas'], 'Fatiha, Kur’an’ın özünü taşıdığı için Ümmü’l-Kitâb olarak anılır.'),
- ('tf', 2, 'mushaf_sira', 'Sıralama', 'h', 'Mushaftaki surelerin sırası, iniş sırasıyla aynıdır.', False, 'Mushaftaki sıralama Hz. Peygamber’in bildirdiği düzene göredir; iniş sırası farklıdır.'),
+ ('tf', 2, 'mushaf_sira', 'Sıralama', 'h', 'Mushaftaki surelerin sırası, iniş sırasıyla aynıdır.', False, 'Mushaftaki sıralama iniş sırasından farklıdır. Âlimlerin çoğuna göre ayetlerin sırası Hz. Peygamber’in bildirdiği şekildedir; surelerin sırasının ise Hz. Peygamber’den mi yoksa sahabenin içtihadından mı geldiği tartışılmıştır.'),
  ('mi', 2, 'mi_ihlas_ucte', 'İhlâs', 'h', 'Hadise göre İhlâs Suresi Kur’an’ın ___ denktir.', 'üçte birine', ['tamamına', 'onda birine', 'yarısına'], 'Hz. Peygamber İhlâs Suresi’nin Kur’an’ın üçte birine denk olduğunu bildirmiştir (Buhârî).'),
 
  # S3 — Kur’an’ın Korunması (14)
