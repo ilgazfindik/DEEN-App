@@ -13,10 +13,10 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Açıklama: İslam, s-l-m kökünden gelir; sözlükte teslim olmak, boyun eğmek ve barış içinde olmak anlamlarını taşır (TDV).
 
 **DEEN-U01-S01-X002** · İslam'la Tanış · true_false
-- Soru: Doğru mu, yanlış mı? “Müslüman” kelimesi, selameti ve barışı seçen kişiyi çağrıştırır.
+- Soru: Doğru mu, yanlış mı? “Müslüman” kelimesi, Allah’a teslim olan ve İslam’ı benimseyen kişiyi anlatır.
 - Seçenekler: Doğru | Yanlış
 - Doğru cevap: Doğru
-- Açıklama: “Müslüman” aynı kökten gelir; Allah’a teslim olan ve esenlik içinde yaşamayı seçen kişiyi anlatır (Diyanet).
+- Açıklama: “Müslüman”, “İslam” kelimesi gibi s-l-m kökünden gelir; Allah’a teslim olan ve İslam’ı benimseyen kişi demektir. Bu kökte barış ve esenlik anlamı da bulunur (TDV İslâm Ansiklopedisi).
 
 **DEEN-U01-S02-X001** · Müslüman Kimdir? · true_false
 - Soru: Doğru mu, yanlış mı? Hadise göre İslam beş esas üzerine kurulmuştur.
@@ -624,9 +624,9 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 
 **DEEN-U03-S01-X003** · Şehadet Nedir? · multiple_choice
 - Soru: Müslüman olmak isteyen biri ne yapar?
-- Seçenekler: Yalnızca bir mal bağışlar | Yalnızca hac yapar | Yalnızca bir yıl oruç tutar | Kelime-i şehadeti anlamına inanarak söyler
-- Doğru cevap: Kelime-i şehadeti anlamına inanarak söyler
-- Açıklama: Müslüman olmak için kelime-i şehadet kalben inanılarak ve dille ikrar edilerek söylenir.
+- Seçenekler: Yalnızca bir mal bağışlar | Yalnızca hac yapar | Yalnızca bir yıl oruç tutar | Kelime-i şehadetin anlamını bilerek kalben tasdik eder ve dille söyler
+- Doğru cevap: Kelime-i şehadetin anlamını bilerek kalben tasdik eder ve dille söyler
+- Açıklama: Müslüman olmak için kelime-i şehadetin anlamı bilinir, kalben tasdik edilir ve dille ikrar edilir.
 
 **DEEN-U03-S01-X004** · Şehadet Nedir? · multiple_choice
 - Soru: “Bil ki Allah’tan başka ilah yoktur” hitabı hangi surede geçer?
@@ -892,9 +892,9 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 
 **DEEN-U03-S03-X004** · Dinle ve Tanı · multiple_choice
 - Soru: İslam’a girmenin temel adımı hangisidir?
-- Seçenekler: Bir şehre göç etmek | Belirli bir törene katılmak | Kelime-i şehadeti anlayarak söyleyip kalple tasdik etmek | Bir ücret ödemek
-- Doğru cevap: Kelime-i şehadeti anlayarak söyleyip kalple tasdik etmek
-- Açıklama: İslam’a giriş, kelime-i şehadeti kalben tasdik edip ikrar etmekle olur.
+- Seçenekler: Bir şehre göç etmek | Belirli bir törene katılmak | Kelime-i şehadetin anlamını bilerek kalben tasdik edip dille ikrar etmek | Bir ücret ödemek
+- Doğru cevap: Kelime-i şehadetin anlamını bilerek kalben tasdik edip dille ikrar etmek
+- Açıklama: İslam’a giriş; kelime-i şehadetin anlamını bilmek, kalben tasdik etmek ve dille ikrar etmekle olur.
 
 **DEEN-U03-S04-X009** · Şehadeti Oluştur · multiple_choice
 - Soru: Ezanda kelime-i şehadet cümleleri geçer mi?
@@ -1055,10 +1055,10 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Açıklama: Nisap, zekâtın farz olması için gereken asgari mal miktarıdır.
 
 **DEEN-U04-S02-X005** · Şehadet ve Namaz · multiple_choice
-- Soru: Nisaba ulaşan malın zekâtı, üzerinden ne kadar zaman geçince farz olur?
+- Soru: Para, altın, gümüş ve ticaret mallarında zekât, nisaba ulaştıktan sonra üzerinden ne kadar zaman geçince farz olur?
 - Seçenekler: Bir hafta | On yıl | Bir ay | Bir kamerî yıl
 - Doğru cevap: Bir kamerî yıl
-- Açıklama: Nisaba ulaşan malın üzerinden bir yıl geçmesi gerekir.
+- Açıklama: Para, altın, gümüş ve ticaret mallarında nisaba ulaşan malın üzerinden bir kamerî yıl geçmesi gerekir; toprak ürünlerinde ise zekât hasat zamanında verilir.
 
 **DEEN-U04-S02-X006** · Şehadet ve Namaz · multiple_choice
 - Soru: Zekât Tevbe Suresi’ne göre kaç sınıfa verilebilir?
@@ -1073,10 +1073,10 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Açıklama: Kişi zekâtını kendi anne-babasına ve çocuklarına veremez.
 
 **DEEN-U04-S03-X003** · Oruç, Zekât ve Hac · multiple_choice
-- Soru: Hanefî mezhebine göre fitre en geç ne zamana kadar verilmelidir?
-- Seçenekler: Yılın sonuna kadar | Hac mevsimine kadar | Kurban Bayramı’na kadar | Bayram namazından önce vermek müstehaptır
-- Doğru cevap: Bayram namazından önce vermek müstehaptır
-- Açıklama: Fitrenin Ramazan Bayramı namazından önce verilmesi müstehaptır.
+- Soru: Hanefî mezhebine göre fitreyi vermenin en faziletli (müstehap) vakti hangisidir?
+- Seçenekler: Yılın sonunda | Hac mevsiminde | Kurban Bayramı’nda | Ramazan Bayramı namazından önce
+- Doğru cevap: Ramazan Bayramı namazından önce
+- Açıklama: Hanefîlere göre fitrenin bayram namazından önce verilmesi müstehaptır; bayramdan sonraya bırakılması uygun değildir, ancak borç düşmez ve yine ödenmelidir.
 
 **DEEN-U04-S03-X004** · Oruç, Zekât ve Hac · multiple_choice
 - Soru: İftarı vaktinde yapmak hakkında hadis ne bildirir?
@@ -2729,10 +2729,10 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Açıklama: Kader, Allah’ın her şeyi ilmiyle bilip takdir etmesidir.
 
 **DEEN-U10-S02-X001** · Allah'ın İlmi, Ölçüsü ve Takdiri · multiple_choice
-- Soru: Kaza kavramı kelam geleneğinde genel olarak neyi ifade eder?
+- Soru: Mâtürîdî âlimlerin tanımına göre (Diyanet ilmihalinde de bu tanım kullanılır) kaza neyi ifade eder?
 - Seçenekler: Bir ibadetin vakit dışına çıkmasını | Allah’ın takdir ettiği şeylerin zamanı gelince gerçekleşmesini | Yalnızca geçmiş olayları yazmayı | İnsanın tahmin yürütmesini
 - Doğru cevap: Allah’ın takdir ettiği şeylerin zamanı gelince gerçekleşmesini
-- Açıklama: Kelamda kaza, takdir edilenlerin zamanı gelince Allah’ın hükmüyle gerçekleşmesidir.
+- Açıklama: Mâtürîdîlere göre kaza, takdir edilenlerin zamanı gelince Allah’ın hükmüyle gerçekleşmesidir. Eş‘arîler ise kader ve kaza terimlerini bu tanımın tersine kullanır.
 
 **DEEN-U10-S03-X001** · İnsan İradesi ve Sorumluluk · multiple_choice
 - Soru: İnsanın seçme ve karar verme gücü hangi kavramla ilişkilidir?
@@ -3482,10 +3482,10 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Açıklama: Mâide 5:6 abdestin farzlarını bildirir; aynı âyette gusül ve teyemmüm de geçer.
 
 **DEEN-U12-S02-X002** · Abdestin Temeli · true_false
-- Soru: Doğru mu, yanlış mı? Abdeste besmele çekerek başlamak sünnettir.
+- Soru: Doğru mu, yanlış mı? Hanefî mezhebine göre abdeste besmele çekerek başlamak sünnettir.
 - Seçenekler: Doğru | Yanlış
 - Doğru cevap: Doğru
-- Açıklama: Abdeste “Bismillâh” diyerek başlamak abdestin sünnetlerindendir.
+- Açıklama: Abdeste “Bismillâh” diyerek başlamak Hanefî, Şâfiî ve Mâlikîlere göre sünnettir; Hanbelîlere göre ise gerekli (vacip) kabul edilir.
 
 **DEEN-U12-S02-X003** · Abdestin Temeli · multiple_choice
 - Soru: Hz. Peygamber’in abdest ve namazlar için tavsiye ettiği, ağzı temizlemeye yarayan çubuğa ne ad verilir?
@@ -3518,9 +3518,9 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Açıklama: Müslim’deki hadis abdestin günahların dökülmesine vesile olduğunu bildirir.
 
 **DEEN-U12-S03-X001** · Abdest Adımlarını Tanı · matching
-- Soru: Aşağıdaki hükümleri sayı veya süreleriyle eşleştir: Hanefî’de abdestin farzları, Gusülün farzları, Mukim için mest üzerine mesh ve Yolcu için mest üzerine mesh.
-- Eşleşmeler: Hanefî’de abdestin farzları → Dört tanedir; Gusülün farzları → Üç tanedir; Mukim için mest üzerine mesh → Bir gün bir gece; Yolcu için mest üzerine mesh → Üç gün üç gece
-- Açıklama: Abdestin 4, gusülün 3 farzı vardır; mesh süresi mukimde 1 gün 1 gece, yolcuda 3 gün 3 gecedir.
+- Soru: Hanefî mezhebine göre aşağıdaki hükümleri sayı veya süreleriyle eşleştir: Abdestin farzları, Gusülün farzları, Mukim için mest üzerine mesh ve Yolcu için mest üzerine mesh.
+- Eşleşmeler: Abdestin farzları → Dört tanedir; Gusülün farzları → Üç tanedir; Mukim için mest üzerine mesh → Bir gün bir gece; Yolcu için mest üzerine mesh → Üç gün üç gece
+- Açıklama: Hanefî mezhebine göre abdestin 4, gusülün 3 farzı vardır; mesh süresi mukimde 1 gün 1 gece, yolcuda 3 gün 3 gecedir. Diğer mezheplerde gusülün farzları ve mesh süresi farklıdır.
 
 **DEEN-U12-S03-X002** · Abdest Adımlarını Tanı · matching
 - Soru: Aşağıdaki durumları sonuçlarıyla eşleştir: Yellenme (gaz çıkması), Terlemek, Cünüplük ve Su bulunamaması.
@@ -3546,10 +3546,10 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Açıklama: Cünüplük, hayız ve nifas gusül gerektirir; diğerleri sadece abdesti bozar.
 
 **DEEN-U12-S04-X001** · Teyemmüm ve Kolaylık · true_false
-- Soru: Doğru mu, yanlış mı? Teyemmümde eller temiz toprağa vurulup yüz ve kollar meshedilir.
+- Soru: Doğru mu, yanlış mı? Hanefî mezhebine göre teyemmümde eller temiz toprağa vurulup yüz ve kollar meshedilir.
 - Seçenekler: Doğru | Yanlış
 - Doğru cevap: Doğru
-- Açıklama: Teyemmüm, temiz toprak veya toprak cinsi bir şeye eller vurularak yüz ve kolların (dirseklere kadar) meshedilmesidir.
+- Açıklama: Hanefî mezhebine göre teyemmüm, temiz toprak veya toprak cinsi bir şeye eller vurularak yüz ve kolların (dirseklere kadar) meshedilmesidir.
 
 **DEEN-U12-S04-X002** · Teyemmüm ve Kolaylık · multiple_choice
 - Soru: Su bulunamadığı için teyemmüm yapan kişi suyu bulursa ne olur?
@@ -3558,16 +3558,16 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Açıklama: Teyemmümü gerektiren mazeret ortadan kalkınca teyemmüm bozulur.
 
 **DEEN-U12-S04-X003** · Teyemmüm ve Kolaylık · scenario
-- Soru: Yolcu biri mestleri üzerine mesh etmek istiyor. Yolcu için mesh süresi nedir?
+- Soru: Hanefî mezhebine göre yolcu biri mestleri üzerine mesh etmek istiyor. Yolcu için mesh süresi nedir?
 - Seçenekler: Süre sınırı yok | Yalnızca bir saat | 3 gün 3 gece | 1 gün 1 gece
 - Doğru cevap: 3 gün 3 gece
-- Açıklama: Hanefî ve Diyanet ilmihaline göre mukim için bir gün bir gece, yolcu için üç gün üç gecedir.
+- Açıklama: Hanefî mezhebine ve Diyanet ilmihaline göre mukim için bir gün bir gece, yolcu için üç gün üç gecedir; Mâlikîlerde belirli bir süre yoktur.
 
 **DEEN-U12-S04-X004** · Teyemmüm ve Kolaylık · scenario
-- Soru: Şehirde yaşayan (mukim) biri mestleri üzerine mesh edecek. Mesh süresi nedir?
+- Soru: Hanefî mezhebine göre şehirde yaşayan (mukim) biri için mest üzerine mesh süresi nedir?
 - Seçenekler: 1 gün 1 gece | Yalnızca bir namaz | 3 gün 3 gece | Bir hafta
 - Doğru cevap: 1 gün 1 gece
-- Açıklama: Mukim için mest üzerine mesh süresi bir gün bir gecedir.
+- Açıklama: Hanefî, Şâfiî ve Hanbelîlere göre mukim için mest üzerine mesh süresi bir gün bir gecedir; Mâlikîlerde belirli bir süre yoktur.
 
 **DEEN-U12-S04-X005** · Teyemmüm ve Kolaylık · scenario
 - Soru: Yolculukta su yok. Namaz vakti giriyor. Ne yaparsın?
@@ -3588,14 +3588,14 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Açıklama: Hanefî mezhebinde farzlar dörttür: yüzü yıkamak, kolları dirseklerle yıkamak, başın dörtte birini meshetmek, ayakları topuklarla yıkamak.
 
 **DEEN-U12-S05-X002** · Ortak Temel ve Farklar · progressive_recall
-- Soru: İpucu olmadan tamamla: Yolcu için mest üzerine mesh süresi ___ gün ve gecedir.
+- Soru: İpucu olmadan tamamla: Hanefî mezhebine göre yolcu için mest üzerine mesh süresi ___ gün ve gecedir.
 - Doğru cevap: üç
-- Açıklama: Yolcu için mesh süresi üç gün üç gecedir.
+- Açıklama: Hanefî mezhebine göre yolcu için mesh süresi üç gün üç gecedir; Mâlikîlerde belirli bir süre yoktur.
 
 **DEEN-U12-S05-X003** · Ortak Temel ve Farklar · progressive_recall
-- Soru: İpucu olmadan tamamla: Gusülde ağza su vermek, buruna su vermek ve ___ yıkamak farzdır.
+- Soru: İpucu olmadan tamamla: Hanefî mezhebine göre gusülde ağza su vermek, buruna su vermek ve ___ yıkamak farzdır.
 - Doğru cevap: bütün vücudu
-- Açıklama: Gusülün üçüncü farzı bütün bedenin yıkanmasıdır.
+- Açıklama: Hanefîlere göre gusülün üç farzı vardır; Şâfiî ve Mâlikîlere göre ağza ve buruna su vermek sünnettir.
 
 **DEEN-U12-S05-X004** · Ortak Temel ve Farklar · error_spotting
 - Soru: “Her türlü katkılı içecekle de abdest alınabilir.” ifadesindeki hata hangi seçenekle düzeltilir?
@@ -3733,10 +3733,10 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Açıklama: Hanefî, Şâfiî ve Mâlikîlere göre abdestte ağıza ve buruna su vermek sünnettir; Hanefîlerde gusülde ise farzdır.
 
 **DEEN-U12-S06-X006** · Akıllı Tekrar · true_false
-- Soru: Doğru mu, yanlış mı? Abdestte kullanılmış su temizdir, ancak abdest için temizleyici değildir.
+- Soru: Doğru mu, yanlış mı? Hanefî mezhebine göre abdestte kullanılmış su temizdir, ancak abdest için temizleyici değildir.
 - Seçenekler: Doğru | Yanlış
 - Doğru cevap: Doğru
-- Açıklama: Abdest veya gusülde kullanılan su (müstamel su) maddî bir pislik taşımıyorsa temizdir; fakat onunla yeniden abdest alınmaz.
+- Açıklama: Hanefî mezhebine göre abdest veya gusülde kullanılan su (müstamel su) maddî bir pislik taşımıyorsa temizdir; fakat onunla yeniden abdest alınmaz.
 
 **DEEN-U12-S01-X009** · Temizlik ve Taharet · multiple_choice
 - Soru: İslam’da temizlik hangi açıdan önemlidir?
@@ -4008,9 +4008,9 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Açıklama: Sabah namazının farzı iki rekâttır.
 
 **DEEN-U13-S05-X002** · Beş Vakit · progressive_recall
-- Soru: İpucu olmadan tamamla: Yatsı namazından sonra kılınan vitir namazı ___ rekâttır.
+- Soru: İpucu olmadan tamamla: Hanefî mezhebine göre yatsı namazından sonra kılınan vitir namazı ___ rekâttır.
 - Doğru cevap: üç
-- Açıklama: Hanefî mezhebine ve Diyanet ilmihaline göre vitir namazı vaciptir ve üç rekâttır.
+- Açıklama: Hanefî mezhebine ve Diyanet ilmihaline göre vitir namazı vaciptir ve üç rekâttır; diğer mezheplerde sünnettir ve rekât sayısı farklı olabilir.
 
 **DEEN-U13-S05-X003** · Beş Vakit · multiple_choice
 - Soru: Cuma namazı hangi namazın yerine kılınır ve kaç rekât farzdır?
@@ -4067,9 +4067,9 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Açıklama: Rükû namazın içinde yapılır; diğerleri namazdan önceki hazırlıklardır.
 
 **DEEN-U13-S03-X006** · Şartları Eşleştir · matching
-- Soru: Aşağıdaki namazları özellikleriyle eşleştir: Vitir namazı, Cuma namazı, Bayram namazı ve Cenaze namazı.
+- Soru: Hanefî mezhebine göre aşağıdaki namazları özellikleriyle eşleştir: Vitir namazı, Cuma namazı, Bayram namazı ve Cenaze namazı.
 - Eşleşmeler: Vitir namazı → Yatsıdan sonra kılınan üç rekâtlık vacip namaz; Cuma namazı → Cuma günü öğle vaktinde cemaatle kılınan iki rekâtlık farz; Bayram namazı → Ramazan ve Kurban bayramlarında kılınan iki rekâtlık vacip namaz; Cenaze namazı → Ölen Müslüman için kılınan, rükû ve secdesi olmayan namaz
-- Açıklama: Beş vakit dışında vitir, cuma, bayram ve cenaze gibi namazlar da vardır; her birinin hükmü ve kılınışı farklıdır.
+- Açıklama: Vitir ve bayram namazlarının vacip olması Hanefî görüşüdür; diğer mezheplerde bu namazların hükmü farklıdır (çoğunlukla sünnet).
 
 **DEEN-U13-S03-X007** · Şartları Eşleştir · matching
 - Soru: Aşağıdaki ezan ifadelerini anlamlarıyla eşleştir: Allâhü ekber, Eşhedü en lâ ilâhe illallah, Hayye ale’s-salâh ve Hayye ale’l-felâh.
@@ -4088,10 +4088,10 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Açıklama: Hz. Peygamber bu üç zamanda namaz kılmayı yasaklamıştır; bunlar kerahet vakitleri olarak bilinir.
 
 **DEEN-U13-S04-X007** · Hazırlık Senaryoları · multiple_choice
-- Soru: Vitir namazı kaç rekâttır?
+- Soru: Hanefî mezhebine göre yatsıdan sonra kılınan vitir namazının rekât sayısı kaçtır?
 - Seçenekler: İki | Dört | Beş | Üç
 - Doğru cevap: Üç
-- Açıklama: Hanefî mezhebine göre vitir namazı üç rekâttır ve vaciptir.
+- Açıklama: Hanefî mezhebine göre vitir namazı üç rekâttır ve vaciptir; diğer mezheplerde sünnettir ve bir rekât da kılınabilir.
 
 **DEEN-U13-S01-X008** · Namaza Hazırlık · true_false
 - Soru: Doğru mu, yanlış mı? İslam’ın ilk müezzini Hz. Bilal’dir.
@@ -4322,10 +4322,10 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Açıklama: Niyet kalple yapılır; dille söylemek şart değildir.
 
 **DEEN-U13-S04-X012** · Hazırlık Senaryoları · multiple_choice
-- Soru: Seferî olan kişinin dört rekâtlı farz namazları hangi kolaylıkla kısaltılır?
-- Seçenekler: Tamamen terk edilir | İki rekât olarak kılınabilir | Bir rekât kılınır | Altı rekâta çıkarılır
-- Doğru cevap: İki rekât olarak kılınabilir
-- Açıklama: Yolcu, dört rekâtlı farzları iki rekât olarak kılar (kasr).
+- Soru: Hanefî mezhebine göre yolcu (seferî), dört rekâtlı farz namazları nasıl kılar?
+- Seçenekler: Tamamen terk eder | İki rekât olarak kılar | Bir rekât kılar | Altı rekâta çıkarır
+- Doğru cevap: İki rekât olarak kılar
+- Açıklama: Hanefîlere göre yolculukta dört rekâtlı farzları iki rekât kılmak (kasr) gereklidir; diğer mezheplerde kasr bir ruhsattır ve dört rekât kılmak da caizdir.
 
 **DEEN-U13-S04-X013** · Hazırlık Senaryoları · multiple_choice
 - Soru: Namaz kılarken kişinin önünden geçilmesini önlemek için konulan nesneye ne denir?
@@ -4518,10 +4518,10 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Açıklama: Namazdan çıkış selamla olur.
 
 **DEEN-U14-S05-X001** · Mazerette Kolaylık · fill_blank
-- Soru: Boşluğu tamamla: Yolcu dört rekâtlı farz namazları ___ rekât olarak kılar.
+- Soru: Boşluğu tamamla: Hanefî mezhebine göre yolcu dört rekâtlı farz namazları ___ rekât olarak kılar.
 - Seçenekler: beş | üç | bir | iki
 - Doğru cevap: iki
-- Açıklama: Yolcu, dört rekâtlı farzları iki rekât kılar (kasr); sabah ve akşam namazları değişmez.
+- Açıklama: Hanefîlere göre yolcu dört rekâtlı farzları iki rekât kılar (kasr); sabah ve akşam namazları değişmez. Diğer mezheplerde yolculukta namazı kısaltmak (kasr) bir ruhsattır; dört rekât kılmak da caizdir.
 
 **DEEN-U14-S05-X002** · Mazerette Kolaylık · multiple_choice
 - Soru: Diyanet’e göre dinen yolcu sayılmak için yaklaşık kaç km uzağa gitmek gerekir?
@@ -4572,10 +4572,10 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Açıklama: Farz namazların son iki rekâtında yalnızca Fâtiha okunur.
 
 **DEEN-U14-S07-X002** · Ünite Challenge · scenario
-- Soru: Uzun bir otobüs yolculuğundasın ve öğle namazı vakti girdi. Yolcu olarak ne yaparsın?
+- Soru: Uzun bir otobüs yolculuğundasın ve öğle namazı vakti girdi. Hanefî mezhebine göre yolcu olarak ne yaparsın?
 - Seçenekler: Yalnızca sünnetini kılarım | Öğle farzını iki rekât (kasr) kılarım | Namazı kaza ederim | Öğleyi her durumda dört rekât kılarım
 - Doğru cevap: Öğle farzını iki rekât (kasr) kılarım
-- Açıklama: Yolcu dört rekâtlı farzı iki rekât kılar.
+- Açıklama: Hanefîlere göre yolcu dört rekâtlı farzı iki rekât kılar. Diğer mezheplerde yolculukta namazı kısaltmak (kasr) bir ruhsattır; dört rekât kılmak da caizdir.
 
 **DEEN-U14-S03-X006** · Rekâtı Kur · matching
 - Soru: Aşağıdaki namaz bölümlerini anlamlarıyla eşleştir: Tahiyyat, Salavat, Kunut duası ve Tadil-i erkân.
@@ -4629,10 +4629,10 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Açıklama: Fâtiha’dan sonra okunan sûre veya âyetlere zammı sûre denir.
 
 **DEEN-U14-S06-X005** · Akıllı Tekrar · true_false
-- Soru: Doğru mu, yanlış mı? Vitir namazında kunut duası üçüncü rekâtta, kıraatten sonra okunur.
+- Soru: Doğru mu, yanlış mı? Hanefî mezhebine göre vitir namazında kunut duası üçüncü rekâtta, kıraatten sonra okunur.
 - Seçenekler: Doğru | Yanlış
 - Doğru cevap: Doğru
-- Açıklama: Vitir namazının üçüncü rekâtında sûreden sonra tekbir alınır ve kunut duası okunur.
+- Açıklama: Hanefîlere göre vitir namazının üçüncü rekâtında sûreden sonra tekbir alınır ve kunut duası okunur; diğer mezheplerde kunutun yeri ve zamanı farklıdır.
 
 **DEEN-U14-S04-X009** · Namaz İçinde Akış · true_false
 - Soru: Doğru mu, yanlış mı? Namazda ayakta dururken bakışlar secde yerine yöneltilir.
@@ -4858,9 +4858,9 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Açıklama: Bunlar Ramazan ayının temel uygulamalarıdır.
 
 **DEEN-U15-S03-X002** · İmsak ve İftar · matching
-- Soru: Aşağıdaki kavramları anlamlarıyla eşleştir: Kaza, Fidye, Kefaret ve İtikâf.
+- Soru: Hanefî mezhebine göre aşağıdaki kavramları anlamlarıyla eşleştir: Kaza, Fidye, Kefaret ve İtikâf.
 - Eşleşmeler: Kaza → Tutulamayan orucu sonradan tutmak; Fidye → Oruç tutamayan için bir yoksulu doyurmak; Kefaret → Kasten bozulan oruç için 60 gün ardı ardına oruç; İtikâf → Mescitte ibadet niyetiyle kalmak
-- Açıklama: Kaza, fidye ve kefaret orucun telafisinin farklı yollarıdır; itikâf Ramazan’ın son günlerinde yapılan bir ibadettir.
+- Açıklama: Kaza, fidye ve kefaret orucun telafisinin farklı yollarıdır; itikâf Ramazan’ın son günlerinde yapılan bir ibadettir. Bilerek yiyip içmekle de kefaret gerekmesi Hanefî ve Mâlikî görüşüdür; Şâfiî ve Hanbelîlere göre kefaret yalnızca cinsel ilişkiyle bozulan oruçta gerekir.
 
 **DEEN-U15-S03-X003** · İmsak ve İftar · progressive_recall
 - Soru: İpucu olmadan tamamla: Ramazan, hicrî takvimin ___ ayıdır.
@@ -4940,10 +4940,10 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Açıklama: Zarar korkusu sebebiyle oruç tutmama ruhsatı vardır; tutulamayan günler sonradan kaza edilir.
 
 **DEEN-U15-S05-X005** · Mazeret ve Kaza · multiple_choice
-- Soru: Kasten oruç bozup kefaret orucuna gücü yetmeyen kişi ne yapar?
+- Soru: Hanefî mezhebine göre kasten oruç bozup kefaret orucuna gücü yetmeyen kişi ne yapar?
 - Seçenekler: Altmış fakiri doyurur | Hiçbir şey gerekmez | Yalnızca tövbe eder | Üç gün tutar
 - Doğru cevap: Altmış fakiri doyurur
-- Açıklama: Kefaret orucuna gücü yetmeyen, altmış yoksulu doyurur.
+- Açıklama: Kefaret orucuna gücü yetmeyen, altmış yoksulu doyurur. Bilerek yiyip içmekle de kefaret gerekmesi Hanefî ve Mâlikî görüşüdür; Şâfiî ve Hanbelîlere göre kefaret yalnızca cinsel ilişkiyle bozulan oruçta gerekir.
 
 **DEEN-U15-S06-X001** · Akıllı Tekrar · speed_review
 - Soru: Hızlı tekrar: Kadir gecesi kaç aydan hayırlıdır?
@@ -4964,10 +4964,10 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Açıklama: Fitre, zekât verilecek gruptaki ihtiyaç sahiplerine verilir.
 
 **DEEN-U15-S07-X001** · Ünite Challenge · multiple_choice
-- Soru: Ramazan’da kasten oruç bozan kişi için gerekli olan nedir?
+- Soru: Hanefî mezhebine göre Ramazan’da kasten oruç bozan kişi için gerekli olan nedir?
 - Seçenekler: Yalnızca bir gün oruç | Kaza ve kefaret (60 gün ardı ardına oruç) | Yalnızca fitre | Hiçbir şey
 - Doğru cevap: Kaza ve kefaret (60 gün ardı ardına oruç)
-- Açıklama: Kasten bozulan Ramazan orucu için bir gün kaza ve ardı ardına 60 gün kefaret orucu gerekir.
+- Açıklama: Hanefîlere göre kasten bozulan Ramazan orucu için bir gün kaza ve ardı ardına 60 gün kefaret orucu gerekir. Bilerek yiyip içmekle de kefaret gerekmesi Hanefî ve Mâlikî görüşüdür; Şâfiî ve Hanbelîlere göre kefaret yalnızca cinsel ilişkiyle bozulan oruçta gerekir.
 
 **DEEN-U15-S07-X002** · Ünite Challenge · scenario
 - Soru: Hasta bir arkadaşın Ramazan’da oruç tutamıyor ve doktoru tutmamasını söylüyor. Ne önerirsin?
@@ -4981,9 +4981,9 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Açıklama: Ramazan hilalle başlar ve hilalle biter; ayın sonunda Ramazan Bayramı kutlanır.
 
 **DEEN-U15-S03-X007** · İmsak ve İftar · matching
-- Soru: Aşağıdaki durumları hükümleriyle eşleştir: İyileşme umudu olan hasta, Oruca gücü yetmeyen yaşlı, Ramazan’da orucu bilerek bozan ve Orucu unutarak yiyip içen.
+- Soru: Hanefî mezhebine göre aşağıdaki durumları hükümleriyle eşleştir: İyileşme umudu olan hasta, Oruca gücü yetmeyen yaşlı, Ramazan’da orucu bilerek bozan ve Orucu unutarak yiyip içen.
 - Eşleşmeler: İyileşme umudu olan hasta → Orucu erteler, sonra kaza eder; Oruca gücü yetmeyen yaşlı → Her gün için fidye verir; Ramazan’da orucu bilerek bozan → Kaza ve kefaret gerekir; Orucu unutarak yiyip içen → Orucu bozulmaz
-- Açıklama: Özür sebebiyle tutulamayan oruç kaza edilir; gücü yetmeyenler fidye verir; unutarak yemek orucu bozmaz.
+- Açıklama: Özür sebebiyle tutulamayan oruç kaza edilir; gücü yetmeyenler fidye verir; unutarak yemek orucu bozmaz. Bilerek yiyip içmekle de kefaret gerekmesi Hanefî ve Mâlikî görüşüdür; Şâfiî ve Hanbelîlere göre kefaret yalnızca cinsel ilişkiyle bozulan oruçta gerekir.
 
 **DEEN-U15-S05-X006** · Mazeret ve Kaza · true_false
 - Soru: Doğru mu, yanlış mı? Ramazan Bayramı’nın ilk günü oruç tutmak dinen yasaktır.
@@ -5252,10 +5252,10 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Açıklama: Zekât, toplumda yardımlaşmayı artırır ve zengin ile fakir arasındaki bağı güçlendirir.
 
 **DEEN-U16-S01-X013** · Zekât Nedir? · multiple_choice
-- Soru: Aşağıdakilerden hangisi zekâtın farz olmasının şartlarından biridir?
+- Soru: Hanefî mezhebine göre aşağıdakilerden hangisi zekâtın farz olmasının şartlarından biridir?
 - Seçenekler: Hac yapmış olmak | Mutlaka evli olmak | Belirli bir meslekte çalışmak | Akıllı ve ergen bir Müslüman olmak
 - Doğru cevap: Akıllı ve ergen bir Müslüman olmak
-- Açıklama: Hanefî mezhebine göre zekât; akıllı, ergen, hür ve nisaba sahip Müslümana farzdır.
+- Açıklama: Hanefî mezhebine göre zekât; akıllı, ergen, hür ve nisaba sahip Müslümana farzdır. Diğer mezheplere göre çocuğun ve akıl hastasının malından da zekât verilir.
 
 **DEEN-U16-S01-X014** · Zekât Nedir? · true_false
 - Soru: Doğru mu, yanlış mı? Zekât ile devlete ödenen vergi aynı şeydir; vergi ödeyen zekât vermiş sayılır.
@@ -5359,9 +5359,9 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Açıklama: Fakirler, miskinler, zekât görevlileri, kalpleri ısındırılacaklar, köleler, borçlular, Allah yolundakiler ve yolcular.
 
 **DEEN-U16-S03-X003** · Zekâtı Kimler Alır? · matching
-- Soru: Zekât sınıflarını açıklamalarıyla eşleştir: Fakir, Miskin, Gârim ve İbnüssebil.
+- Soru: Hanefî mezhebine göre zekât sınıflarını açıklamalarıyla eşleştir: Fakir, Miskin, Gârim ve İbnüssebil.
 - Eşleşmeler: Fakir → Nisap miktarı malı olmayan kişi; Miskin → Hiçbir şeyi olmayan kişi; Gârim → Borcunu ödeyemeyen borçlu; İbnüssebil → Yolda parasız kalan yolcu
-- Açıklama: Hanefîlere göre fakirin az da olsa malı vardır, miskinin ise hiçbir şeyi yoktur.
+- Açıklama: Hanefîlere göre fakirin az da olsa malı vardır, miskinin ise hiçbir şeyi yoktur. Şâfiî ve Hanbelîlere göre ise fakir, miskinden daha muhtaçtır.
 
 **DEEN-U16-S03-X004** · Zekâtı Kimler Alır? · multiple_choice
 - Soru: Aşağıdakilerden hangisine zekât verilemez?
@@ -5370,10 +5370,10 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Açıklama: Kişi anne-babasına, dedesine-ninesine, çocuk ve torunlarına zekât veremez; onlara bakmak zaten görevidir.
 
 **DEEN-U16-S03-X005** · Zekâtı Kimler Alır? · multiple_choice
-- Soru: Bir kişinin zekâtını kendi eşine vermesinin hükmü nedir?
+- Soru: Bir erkeğin zekâtını kendi hanımına vermesinin hükmü nedir?
 - Seçenekler: Yarısı verilebilir | Yalnızca bayramda verilir | Verilmesi şarttır | Verilemez
 - Doğru cevap: Verilemez
-- Açıklama: Eşler birbirine zekât veremez; aralarındaki menfaat birliği buna engeldir (Diyanet).
+- Açıklama: Koca, nafakasını sağlamakla yükümlü olduğu hanımına zekât veremez. Kadının fakir kocasına zekât vermesi ise ihtilaflıdır: Ebû Hanîfe’ye göre caiz değil; İmam Ebû Yûsuf, İmam Muhammed ve Şâfiîlere göre caizdir.
 
 **DEEN-U16-S03-X006** · Zekâtı Kimler Alır? · true_false
 - Soru: Doğru mu, yanlış mı? Muhtaç olan kardeşe, amcaya veya teyzeye zekât verilebilir.
@@ -5388,10 +5388,10 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Açıklama: Zekât ihtiyaç sahiplerinin hakkıdır; nisaba sahip zengin kişi zekât alamaz.
 
 **DEEN-U16-S03-X008** · Zekâtı Kimler Alır? · fill_blank
-- Soru: Boşluğu tamamla: Hiçbir malı ve geliri olmayan muhtaca ___ denir.
+- Soru: Boşluğu tamamla: Hanefî mezhebine göre hiçbir malı ve geliri olmayan muhtaca ___ denir.
 - Seçenekler: mükellef | miskin | âmil | zengin
 - Doğru cevap: miskin
-- Açıklama: Hanefî mezhebine göre miskin, fakirden daha muhtaç olan, hiçbir şeyi bulunmayan kişidir.
+- Açıklama: Hanefî mezhebine göre miskin, fakirden daha muhtaç olan, hiçbir şeyi bulunmayan kişidir; Şâfiî ve Hanbelîlere göre ise fakir daha muhtaçtır.
 
 **DEEN-U16-S03-X009** · Zekâtı Kimler Alır? · fill_blank
 - Soru: Boşluğu tamamla: Zekâtı toplamakla görevlendirilen kişilere ___ denir.
@@ -5684,9 +5684,9 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 
 **DEEN-U16-S06-X012** · Akıllı Tekrar · error_spotting
 - Soru: “Koca zekâtını kendi hanımına verebilir.” ifadesindeki hata hangi seçenekle düzeltilir?
-- Seçenekler: Eşe zekât yalnızca bayramda verilir | Eşe verilen zekât iki kat sevaptır | Yalnızca hanım kocasına zekât verir | Eşler birbirine zekât veremez
-- Doğru cevap: Eşler birbirine zekât veremez
-- Açıklama: Eşler arasında menfaat birliği olduğu için zekât verilmez.
+- Seçenekler: Eşe zekât yalnızca bayramda verilir | Eşe verilen zekât iki kat sevaptır | Koca zekâtının yarısını hanımına verebilir | Koca, zekâtını kendi hanımına veremez
+- Doğru cevap: Koca, zekâtını kendi hanımına veremez
+- Açıklama: Koca, nafakasını sağlamakla yükümlü olduğu hanımına zekât veremez; kadının fakir kocasına zekât vermesi ise mezhepler arasında ihtilaflıdır.
 
 **DEEN-U16-S07-X001** · Ünite Challenge · scenario
 - Soru: Selin’in borcu yok; bir yıldır nisabı aşan 120.000 TL birikimi var. Zekâtı ne kadardır?
@@ -5911,7 +5911,7 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Soru: Doğru mu, yanlış mı? Kadınlar da erkekler gibi dikişsiz iki parça beze bürünmek zorundadır.
 - Seçenekler: Doğru | Yanlış
 - Doğru cevap: Yanlış
-- Açıklama: Kadınlar normal, örtünmeye uygun elbiseleriyle ihrama girer; yalnızca yüzlerini ve ellerini örtmezler.
+- Açıklama: Kadınlar erkekler gibi iki parça ihram örtüsü giymez; örtünmeye uygun normal kıyafetleriyle ihrama girer. İhramlı kadın yüzünü örtmez.
 
 **DEEN-U17-S02-X011** · İhram ve Mikat · multiple_choice
 - Soru: Bakara 197’ye göre hac sırasında hangilerinden kaçınılmalıdır?
@@ -6008,7 +6008,7 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Soru: Aşağıdakilerden hangisi haccın farzı değil vaciplerindendir?
 - Seçenekler: Müzdelife vakfesi | Arafat vakfesi | Ziyaret tavafı | İhram
 - Doğru cevap: Müzdelife vakfesi
-- Açıklama: Müzdelife vakfesi, sa’y, şeytan taşlama, tıraş ve veda tavafı haccın vaciplerindendir.
+- Açıklama: Hanefî mezhebine göre Müzdelife vakfesi, sa’y, şeytan taşlama, tıraş ve veda tavafı haccın vaciplerindendir; Şâfiîlere göre ise sa’y ve tıraş haccın rükünlerindendir.
 
 **DEEN-U17-S03-X014** · Haccın Adımları · missing_item
 - Soru: Eksik kavramı seç: Haccın rüknü olan tavafa ___ denir.
@@ -6140,10 +6140,10 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Açıklama: Hanefîlere göre nisap miktarı mala sahip, mukim Müslümanın kurban kesmesi vaciptir; diğer mezheplerde müekked sünnettir.
 
 **DEEN-U17-S05-X006** · Umre ve Kurban · multiple_choice
-- Soru: Kurban hangi günlerde kesilir?
+- Soru: Hanefî mezhebine göre kurban hangi günlerde kesilir?
 - Seçenekler: Yılın herhangi bir gününde | Hicrî yılbaşında | Kurban Bayramı’nın ilk üç gününde | Ramazan’ın son gününde
 - Doğru cevap: Kurban Bayramı’nın ilk üç gününde
-- Açıklama: Kurban, bayram namazından sonra başlayarak bayramın üçüncü günü akşamına kadar kesilir.
+- Açıklama: Hanefîlere göre kurban, bayram namazından sonra başlayarak bayramın üçüncü günü akşamına kadar kesilir; Şâfiîlere göre bayramın dördüncü günü de kesilebilir.
 
 **DEEN-U17-S05-X007** · Umre ve Kurban · multiple_choice
 - Soru: Büyükbaş bir hayvan (sığır veya deve) en fazla kaç kişi adına kurban edilebilir?
@@ -6273,9 +6273,9 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 
 **DEEN-U17-S06-X012** · Akıllı Tekrar · error_spotting
 - Soru: “Kurban, Ramazan Bayramı’nda kesilir.” ifadesindeki hata hangi seçenekle düzeltilir?
-- Seçenekler: Kurban yalnızca cuma kesilir | Kurban hicrî yılbaşında kesilir | Kurban arefe sabahı kesilir | Kurban, Kurban Bayramı’nın ilk üç gününde kesilir
-- Doğru cevap: Kurban, Kurban Bayramı’nın ilk üç gününde kesilir
-- Açıklama: Kurbanın vakti Kurban Bayramı’nın ilk üç günüdür.
+- Seçenekler: Kurban yalnızca cuma kesilir | Kurban hicrî yılbaşında kesilir | Kurban arefe sabahı kesilir | Kurban, Kurban Bayramı’nda kesilir (Hanefîlere göre ilk üç gün)
+- Doğru cevap: Kurban, Kurban Bayramı’nda kesilir (Hanefîlere göre ilk üç gün)
+- Açıklama: Hanefîlere göre kurbanın vakti Kurban Bayramı’nın ilk üç günüdür; Şâfiîlere göre dördüncü gün de kesilebilir.
 
 **DEEN-U17-S07-X001** · Ünite Challenge · scenario
 - Soru: Fatma Hanım Zilhicce’den önce Mekke’ye gidip umre yaptı, ihramdan çıktı, sonra hac için yeniden ihrama girdi. Hangi haccı yapmıştır?
@@ -6613,10 +6613,10 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Açıklama: Hanefî ölçüsüne göre yaklaşık 90 km ve daha uzun yola çıkan kişi misafir sayılır (Diyanet).
 
 **DEEN-U18-S04-X002** · Yolculuk ve Kaza · multiple_choice
-- Soru: Yolcu, dört rekâtlı farz namazları kaç rekât kılar?
+- Soru: Hanefî mezhebine göre yolcu, dört rekâtlı farz namazları kaç rekât kılar?
 - Seçenekler: Dört | İki | Bir | Üç
 - Doğru cevap: İki
-- Açıklama: Yolcu öğle, ikindi ve yatsının farzlarını ikişer rekât kılar (kasr).
+- Açıklama: Hanefîlere göre yolcu öğle, ikindi ve yatsının farzlarını ikişer rekât kılar (kasr). Diğer mezheplerde yolculukta namazı kısaltmak (kasr) bir ruhsattır; dört rekât kılmak da caizdir.
 
 **DEEN-U18-S04-X003** · Yolculuk ve Kaza · multiple_choice
 - Soru: Yolculukta hangi namazların farzları kısaltılmaz?
@@ -7106,7 +7106,7 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Soru: Doğru mu, yanlış mı? Mushaftaki surelerin sırası, iniş sırasıyla aynıdır.
 - Seçenekler: Doğru | Yanlış
 - Doğru cevap: Yanlış
-- Açıklama: Mushaftaki sıralama Hz. Peygamber’in bildirdiği düzene göredir; iniş sırası farklıdır.
+- Açıklama: Mushaftaki sıralama iniş sırasından farklıdır. Âlimlerin çoğuna göre ayetlerin sırası Hz. Peygamber’in bildirdiği şekildedir; surelerin sırasının ise Hz. Peygamber’den mi yoksa sahabenin içtihadından mı geldiği tartışılmıştır.
 
 **DEEN-U19-S02-X014** · Sure, Âyet, Cüz · missing_item
 - Soru: Eksik kavramı seç: Hadise göre İhlâs Suresi Kur’an’ın ___ denktir.
@@ -7615,10 +7615,10 @@ Kaynak: Diyanet İşleri Başkanlığı ilmihali ve Din İşleri Yüksek Kurulu 
 - Açıklama: Fâtiha, açan ve başlatan demektir.
 
 **DEEN-U20-S01-X014** · Fatiha · true_false
-- Soru: Doğru mu, yanlış mı? Fatiha’ya göre Müslüman yardımı yalnızca Allah’tan ister.
+- Soru: Doğru mu, yanlış mı? Fatiha’ya göre Müslüman ibadeti yalnızca Allah’a yapar ve asıl yardımı yalnızca O’ndan ister.
 - Seçenekler: Doğru | Yanlış
 - Doğru cevap: Doğru
-- Açıklama: Fatiha 1:5: “Yalnız senden yardım dileriz.”
+- Açıklama: Fatiha 1:5: “Yalnız sana ibadet eder, yalnız senden yardım dileriz.” Bu, meşru işlerde insanlardan yardım istemeye engel değildir; asıl yardımın Allah’tan geldiğini anlatır.
 
 **DEEN-U20-S02-X001** · Koruyan Sureler · multiple_choice
 - Soru: İhlâs Suresi’nin ana konusu nedir?
